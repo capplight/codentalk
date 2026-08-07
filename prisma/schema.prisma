@@ -1,0 +1,300 @@
+// Схема базы данных CodeNTalk v2.
+// Соответствует разделу 8 документа docs/TZ-platform-v2.md.
+//
+// Главное разделение: таблицы учеников (их правим постоянно) и таблицы-зеркала
+// учебных материалов (их заполняет скрипт из репозитория, руками не трогаем).
+
+generator client {
+  provider = "prisma-client"
+  output   = "../lib/db/generated"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+// ---------------------------------------------------------------------------
+// Ученики и доступ
+// ---------------------------------------------------------------------------
+
+enum Role {
+  learner
+  admin
+}
+
+model User {
+  id              String    @id @default(uuid()) @db.Uuid
+  email           String    @unique
+  passwordHash    String?   @map("password_hash")
+  displayName     String    @map("display_name")
+  role            Role      @default(learner)
+  emailVerifiedAt DateTime? @map("email_verified_at")
+
+  // ответы на вопросы при регистрации: цель, время в неделю, интересы
+  onboarding Json?
+
+  createdAt  DateTime  @default(now()) @map("created_at")
+  lastSeenAt DateTime? @map("last_seen_at")
+
+  subscriptions  Subscription[]
+  enrollments    Enrollment[]
+  lessonProgress LessonProgress[]
+  courseProgress CourseProgress[]
+  certificates   Certificate[]
+  accounts       Account[]
+  sessions       Session[]
+
+  @@map("users")
+}
+
+// Таблицы для Auth.js. Сейчас вход только по почте и паролю, но вход через
+// сторонние сервисы добавится позже — пусть его не придётся вводить миграцией.
+
+model Account {
+  id                String  @id @default(uuid()) @db.Uuid
+  userId            String  @map("user_id") @db.Uuid
+  user              User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  type              String
+  provider          String
+  providerAccountId String  @map("provider_account_id")
+  refresh_token     String?
+  access_token      String?
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String?
+  session_state     String?
+
+  @@unique([provider, providerAccountId])
+  @@map("accounts")
+}
+
+model Session {
+  id           String   @id @default(uuid()) @db.Uuid
+  sessionToken String   @unique @map("session_token")
+  userId       String   @map("user_id") @db.Uuid
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  expires      DateTime
+
+  @@map("sessions")
+}
+
+model VerificationToken {
+  identifier String
+  token      String
+  expires    DateTime
+
+  @@unique([identifier, token])
+  @@map("verification_tokens")
+}
+
+enum SubscriptionPlan {
+  free
+  premium
+}
+
+enum SubscriptionStatus {
+  active
+  trialing
+  past_due
+  canceled
+}
+
+/// Уровень доступа ВЫЧИСЛЯЕТСЯ отсюда и не дублируется полем у пользователя:
+/// два источника правды неизбежно разойдутся (см. раздел 8.1 техзадания).
+model Subscription {
+  id     String @id @default(uuid()) @db.Uuid
+  userId String @map("user_id") @db.Uuid
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  plan   SubscriptionPlan   @default(free)
+  status SubscriptionStatus @default(active)
+
+  // платёжная система спрятана за общим интерфейсом; в первой версии — заглушка
+  provider           String  @default("stub")
+  providerCustomerId String? @map("provider_customer_id")
+  providerSubId      String? @map("provider_sub_id")
+
+  currentPeriodStart DateTime? @map("current_period_start")
+  currentPeriodEnd   DateTime? @map("current_period_end")
+  cancelAtPeriodEnd  Boolean   @default(false) @map("cancel_at_period_end")
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@index([userId, status])
+  @@map("subscriptions")
+}
+
+// ---------------------------------------------------------------------------
+// Зеркало учебных материалов
+// Заполняется скриптом из папки content/. Руками не редактируется.
+// ---------------------------------------------------------------------------
+
+model Track {
+  id      String  @id @default(uuid()) @db.Uuid
+  slug    String  @unique
+  title   String
+  kind    String // language | programming | profession
+  sort    Int     @default(0)
+  courses Course[]
+
+  @@map("tracks")
+}
+
+enum CourseAccess {
+  free
+  premium
+}
+
+model Course {
+  id      String @id @default(uuid()) @db.Uuid
+  slug    String @unique
+  trackId String @map("track_id") @db.Uuid
+  track   Track  @relation(fields: [trackId], references: [id], onDelete: Cascade)
+
+  title  String
+  level  String?
+  access CourseAccess @default(premium)
+  sort   Int          @default(0)
+
+  isPublished Boolean @default(false) @map("is_published")
+
+  modules        Module[]
+  lessons        Lesson[]
+  enrollments    Enrollment[]
+  courseProgress CourseProgress[]
+  certificates   Certificate[]
+
+  @@map("courses")
+}
+
+model Module {
+  id       String @id @default(uuid()) @db.Uuid
+  courseId String @map("course_id") @db.Uuid
+  course   Course @relation(fields: [courseId], references: [id], onDelete: Cascade)
+
+  slug    String
+  title   String
+  sort    Int      @default(0)
+  lessons Lesson[]
+
+  @@unique([courseId, slug])
+  @@map("modules")
+}
+
+model Lesson {
+  id       String  @id @default(uuid()) @db.Uuid
+  moduleId String? @map("module_id") @db.Uuid
+  module   Module? @relation(fields: [moduleId], references: [id], onDelete: SetNull)
+  courseId String  @map("course_id") @db.Uuid
+  course   Course  @relation(fields: [courseId], references: [id], onDelete: Cascade)
+
+  slug  String
+  title String
+  kind  String @default("mixed") // theory | practice | mixed
+
+  estimatedMinutes Int? @map("estimated_minutes")
+
+  /// Задел под открытие материалов по расписанию. Пусто = доступен сразу.
+  availableAt DateTime? @map("available_at")
+
+  sort Int @default(0)
+
+  progress LessonProgress[]
+
+  @@unique([courseId, slug])
+  @@map("lessons")
+}
+
+// ---------------------------------------------------------------------------
+// Обучение
+// ---------------------------------------------------------------------------
+
+/// Занятое место из двух возможных. Бесплатные курсы места НЕ занимают —
+/// проверка живёт в lib/domain/enrollment.ts, а не в базе.
+model Enrollment {
+  id     String @id @default(uuid()) @db.Uuid
+  userId String @map("user_id") @db.Uuid
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  courseId String @map("course_id") @db.Uuid
+  course   Course @relation(fields: [courseId], references: [id], onDelete: Cascade)
+
+  /// Первое число месяца, за который занято место
+  periodMonth DateTime @map("period_month") @db.Date
+
+  activatedAt DateTime  @default(now()) @map("activated_at")
+  /// Заполнено => курс пройден и место освобождено досрочно
+  completedAt DateTime? @map("completed_at")
+
+  @@unique([userId, courseId, periodMonth])
+  @@index([userId, periodMonth])
+  @@map("enrollments")
+}
+
+enum ProgressStatus {
+  in_progress
+  completed
+}
+
+model LessonProgress {
+  id     String @id @default(uuid()) @db.Uuid
+  userId String @map("user_id") @db.Uuid
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  lessonId String @map("lesson_id") @db.Uuid
+  lesson   Lesson @relation(fields: [lessonId], references: [id], onDelete: Cascade)
+
+  status ProgressStatus @default(in_progress)
+
+  /// Где именно ученик остановился внутри урока — чтобы вернуть его на то же место
+  position Json?
+
+  completedAt DateTime? @map("completed_at")
+  updatedAt   DateTime  @updatedAt @map("updated_at")
+
+  @@unique([userId, lessonId])
+  @@map("lesson_progress")
+}
+
+/// Заранее посчитанные итоги — чтобы личный кабинет не пересчитывал всё каждый раз.
+model CourseProgress {
+  userId String @map("user_id") @db.Uuid
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  courseId String @map("course_id") @db.Uuid
+  course   Course @relation(fields: [courseId], references: [id], onDelete: Cascade)
+
+  lessonsCompleted Int     @default(0) @map("lessons_completed")
+  lessonsTotal     Int     @default(0) @map("lessons_total")
+  lastLessonId     String? @map("last_lesson_id") @db.Uuid
+
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@id([userId, courseId])
+  @@map("course_progress")
+}
+
+// ---------------------------------------------------------------------------
+// Сертификаты
+// ---------------------------------------------------------------------------
+
+model Certificate {
+  id     String @id @default(uuid()) @db.Uuid
+  userId String @map("user_id") @db.Uuid
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  courseId String @map("course_id") @db.Uuid
+  course   Course @relation(fields: [courseId], references: [id], onDelete: Cascade)
+
+  /// Публичный код для проверки подлинности без входа в аккаунт
+  serial String @unique
+
+  finalScore Int?      @map("final_score")
+  issuedAt   DateTime  @default(now()) @map("issued_at")
+  pdfKey     String?   @map("pdf_key")
+  revokedAt  DateTime? @map("revoked_at")
+
+  @@map("certificates")
+}

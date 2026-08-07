@@ -1,0 +1,26 @@
+# Локальная база данных для разработки.
+# Запуск:  docker compose up -d
+# Остановка: docker compose down   (данные сохраняются в томе)
+# Удалить вместе с данными: docker compose down -v
+
+services:
+  db:
+    image: postgres:17-alpine
+    container_name: codentalk-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: codentalk
+      POSTGRES_PASSWORD: codentalk
+      POSTGRES_DB: codentalk
+    ports:
+      - "5432:5432"
+    volumes:
+      - codentalk-pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U codentalk -d codentalk"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+volumes:
+  codentalk-pgdata:
