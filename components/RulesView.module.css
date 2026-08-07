@@ -1,0 +1,194 @@
+.toc {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 18px 0 8px;
+}
+
+.tocLink {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--accent-ink);
+  background: var(--accent-soft);
+  border: 1px solid var(--accent);
+  border-radius: 999px;
+  padding: 5px 12px;
+  text-decoration: none;
+}
+
+.tocLink:hover {
+  filter: brightness(1.05);
+}
+
+.group {
+  margin-top: 34px;
+}
+
+.groupHeading {
+  font-size: 13px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--amber);
+  margin: 0 0 14px;
+}
+
+.block {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: var(--shadow);
+  margin-bottom: 14px;
+  scroll-margin-top: 16px;
+}
+
+/* Встроенный режим (внутри юнита): без карточки — контент во всю ширину */
+.flatList {
+  display: flex;
+  flex-direction: column;
+}
+
+.block.blockFlat {
+  background: none;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  box-shadow: none;
+  margin-bottom: 0;
+}
+
+/* разделитель между несколькими правилами одного юнита */
+.block.blockFlat + .block.blockFlat {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
+}
+
+.blockTitle {
+  font-family: var(--font-story);
+  font-size: 21px;
+  font-weight: 700;
+  margin: 0 0 8px;
+}
+
+.summary {
+  background: var(--accent-soft);
+  border-left: 3px solid var(--accent);
+  border-radius: 0 10px 10px 0;
+  padding: 10px 14px;
+  font-size: 14.5px;
+  line-height: 1.5;
+  margin-bottom: 12px;
+}
+
+.body {
+  color: var(--ink);
+  font-size: 14.5px;
+  line-height: 1.6;
+  margin: 0 0 10px;
+}
+
+.tableWrap {
+  overflow-x: auto;
+  margin: 12px 0;
+}
+
+.table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 14px;
+}
+
+.table th {
+  text-align: left;
+  font-size: 11.5px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  border-bottom: 2px solid var(--line);
+  padding: 6px 12px 6px 0;
+}
+
+.table td {
+  border-bottom: 1px solid var(--line);
+  padding: 7px 12px 7px 0;
+  vertical-align: top;
+}
+
+.table td:first-child {
+  font-weight: 600;
+}
+
+.examplesTitle {
+  font-size: 11.5px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--ink-soft);
+  margin: 14px 0 8px;
+}
+
+.example {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 8px 12px;
+  margin-bottom: 6px;
+}
+
+/* EN и RU идут в колонку, чтобы английская фраза занимала всю ширину
+   и не ломалась по одному слову на узком экране */
+.exampleText {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.exampleEn {
+  display: block;
+  font-family: var(--font-story);
+  font-size: 15.5px;
+  line-height: 1.4;
+  overflow-wrap: break-word;
+}
+
+.exampleRu {
+  display: block;
+  color: var(--ink-soft);
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.mistake {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 8px;
+  background: var(--bad-soft);
+  border-radius: 10px;
+  padding: 8px 12px;
+  margin-bottom: 6px;
+  font-size: 14px;
+}
+
+.wrong {
+  color: var(--bad);
+  text-decoration: line-through;
+}
+
+.right {
+  color: var(--good);
+  font-weight: 700;
+}
+
+.mistakeNote {
+  color: var(--ink-soft);
+  font-size: 13px;
+  width: 100%;
+}

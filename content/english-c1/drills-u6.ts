@@ -1,0 +1,100 @@
+import type { Chapter } from "@/lib/types";
+
+const drills: Chapter = {
+  slug: "drills-u6",
+  title: "Тренажёр: голос, который слышат",
+  subtitle: "Отработка юнита «Голос, который слышат»: правило трёх, анафора, риторические вопросы.",
+  section: "exercise",
+  stages: [
+    { icon: "🔁", name: "Правило трёх" },
+    { icon: "❔", name: "Риторический вопрос" },
+    { icon: "✅", name: "Готово" },
+  ],
+  steps: [
+    {
+      kind: "choice",
+      stage: 0,
+      tag: "Правило трёх",
+      q: "Какая версия использует правило трёх сильнее всего?",
+      note: "Три элемента подряд звучат завершённо и убедительно.",
+      options: [
+        { t: "We listened, we learned, and we built something better.", ok: true },
+        { t: "We listened and learned, then built something better." },
+        { t: "We listened. That helped us build something better." },
+      ],
+      why: "We listened, we learned, and we built… — три параллельных глагола подряд, классическое правило трёх.",
+    },
+    {
+      kind: "fill",
+      stage: 0,
+      tag: "Анафора",
+      qBefore: "This is for the students. This is ",
+      qAfter: " the teachers. This is for everyone in between.",
+      hintRu: "Это для студентов. Это для учителей. Это для всех, кто между ними. (повтор конструкции This is)",
+      answer: "for",
+      why: "This is for… — троекратный повтор одной и той же рамки создаёт анафору.",
+    },
+    {
+      kind: "choice",
+      stage: 0,
+      tag: "Правило трёх",
+      q: "«Это бесплатно, это просто, и это работает». Какой вариант звучит наиболее ритмично?",
+      note: "Короткие параллельные фразы важнее длинных описаний в ораторской речи.",
+      options: [
+        { t: "It's free. It's simple. It works.", ok: true },
+        { t: "It's free and also quite simple, and additionally, it works well." },
+        { t: "It works, it's simple, and it's also free of charge for everyone." },
+      ],
+      why: "It's free. It's simple. It works. — три коротких удара, максимально ритмичная версия.",
+    },
+    {
+      kind: "choice",
+      stage: 1,
+      tag: "Риторический вопрос",
+      q: "Ты хочешь закончить выступление вопросом, который заставит зал задуматься, а не ответить вслух. Какой вариант верный?",
+      note: "Риторический вопрос не требует ответа — он оставляет мысль в воздухе.",
+      options: [
+        { t: "What are we waiting for?", ok: true },
+        { t: "Please tell me what we are waiting for." },
+        { t: "We are waiting for something, right?" },
+      ],
+      why: "What are we waiting for? — классический риторический вопрос для финала речи.",
+    },
+    {
+      kind: "fill",
+      stage: 1,
+      tag: "Риторический вопрос",
+      qBefore: "",
+      qAfter: " should a good idea need permission?",
+      hintRu: "Почему хорошая идея должна нуждаться в разрешении? (вопросительное слово)",
+      answer: "Why",
+      why: "Why should a good idea need permission? — риторический вопрос строится через Why + should.",
+    },
+    {
+      kind: "choice",
+      stage: 1,
+      tag: "Сила финала",
+      q: "Какая финальная строка речи звучит сильнее всего?",
+      note: "Короткий риторический вопрос часто сильнее длинного заявления в самом конце.",
+      options: [
+        { t: "If not now, then when?", ok: true },
+        { t: "I think we should probably start now, if that's okay." },
+        { t: "So, in conclusion, now seems like a good time to start." },
+      ],
+      why: "If not now, then when? — короткий, запоминающийся риторический вопрос для финала.",
+    },
+    {
+      kind: "assemble",
+      stage: 2,
+      tag: "Финал",
+      q: "Собери финальную фразу речи, соединяющую правило трёх и прямое обращение к залу: «Мы начали с малого, мы работали каждый день, и мы никогда не сдавались»:",
+      note: "We started small, we worked every day, and we never gave up.",
+      words: ["We", "started", "small,", "we", "worked", "every", "day,", "and", "we", "never", "gave", "up."],
+      answer: "We started small, we worked every day, and we never gave up.",
+      why: "We started small, we worked… and we never gave up — правило трёх в чистом виде. Тренажёр пройден — сезон C1 завершён!",
+    },
+  ],
+  words: [],
+};
+
+export default drills;

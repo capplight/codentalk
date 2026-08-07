@@ -1,0 +1,362 @@
+.hero {
+  text-align: center;
+  padding: 52px 0 20px;
+}
+
+.stamp {
+  display: inline-block;
+  border: 2px dashed var(--accent);
+  color: var(--accent-ink);
+  border-radius: 12px;
+  padding: 8px 18px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  transform: rotate(-2deg);
+  margin-bottom: 14px;
+}
+
+.title {
+  font-family: var(--font-story);
+  font-size: clamp(32px, 6.5vw, 54px);
+  line-height: 1.12;
+  margin: 8px 0 14px;
+  font-weight: 700;
+  /* заголовок в две строки, а не во всю ширину широкого контейнера */
+  max-width: 20ch;
+  margin-inline: auto;
+}
+
+.title em {
+  font-style: normal;
+  color: var(--accent);
+}
+
+.lead {
+  color: var(--ink-soft);
+  max-width: 52ch;
+  margin: 0 auto 8px;
+  font-size: 17px;
+}
+
+.heroActions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  margin: 6px 0 34px;
+}
+
+.heroActionsHint {
+  font-size: 13px;
+  color: var(--ink-soft);
+}
+
+.howItWorks {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px 32px;
+  text-align: left;
+  margin: 8px 0;
+}
+
+@media (max-width: 700px) {
+  .howItWorks {
+    grid-template-columns: 1fr;
+  }
+}
+
+.howStep {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.howStep b {
+  display: block;
+  font-size: 14.5px;
+  margin-bottom: 3px;
+}
+
+.howStep span {
+  font-size: 13px;
+  color: var(--ink-soft);
+  line-height: 1.45;
+}
+
+.howNum {
+  flex: none;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-weight: 700;
+  font-size: 13px;
+  background: var(--accent-soft);
+  color: var(--accent-ink);
+  border: 1.5px solid var(--accent);
+}
+
+.principles {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin: 40px 0 8px;
+}
+
+@media (max-width: 560px) {
+  .principles {
+    grid-template-columns: 1fr;
+  }
+}
+
+.principle {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 16px;
+  text-align: left;
+}
+
+.principle b {
+  display: block;
+  margin-bottom: 4px;
+  font-size: 15px;
+}
+
+.principle span {
+  font-size: 13.5px;
+  color: var(--ink-soft);
+}
+
+.path {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin: 26px 0 4px;
+}
+
+.pathStep {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  padding: 6px 14px;
+  border-radius: 999px;
+  border: 1.5px solid var(--line);
+  color: var(--ink-soft);
+  background: var(--surface);
+}
+
+.pathStepOpen {
+  border-color: var(--accent);
+  color: var(--accent-ink);
+  background: var(--accent-soft);
+}
+
+.pathArrow {
+  color: var(--ink-soft);
+  font-size: 13px;
+}
+
+.syllabus {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 10px;
+}
+
+.syllabusItem {
+  font-size: 12px;
+  color: var(--ink-soft);
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 3px 10px;
+}
+
+.sectionTitle {
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  font-weight: 700;
+  margin: 40px 0 14px;
+}
+
+/* Уровни направления: на широком экране две колонки, иначе карточка
+   растягивается на метр и описание читать невозможно. */
+.courses {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+}
+
+@media (max-width: 760px) {
+  .courses {
+    grid-template-columns: 1fr;
+  }
+}
+
+.course {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 18px;
+  box-shadow: var(--shadow);
+  text-decoration: none;
+  color: var(--ink);
+  transition: border-color 0.15s;
+}
+
+a.course:hover {
+  border-color: var(--accent);
+}
+
+.courseSoon {
+  opacity: 0.72;
+}
+
+.courseEmoji {
+  font-size: 30px;
+  line-height: 1;
+  margin-top: 2px;
+}
+
+.courseTitle {
+  font-weight: 700;
+  font-size: 17px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.courseLevel {
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--accent-ink);
+  background: var(--accent-soft);
+  border-radius: 999px;
+  padding: 3px 10px;
+}
+
+.soonBadge {
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--amber);
+  background: var(--amber-soft);
+  border-radius: 999px;
+  padding: 3px 10px;
+}
+
+.courseDesc {
+  color: var(--ink-soft);
+  font-size: 14.5px;
+  margin-top: 6px;
+}
+
+.courseMeta {
+  margin-top: 8px;
+  font-size: 13px;
+  color: var(--accent-ink);
+  font-weight: 600;
+}
+
+/* ---------- карточки направлений (главная) ---------- */
+.tracksLead {
+  color: var(--ink-soft);
+  font-size: 14.5px;
+  line-height: 1.55;
+  max-width: 62ch;
+  margin: -6px 0 16px;
+}
+
+.tracks {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+@media (max-width: 600px) {
+  .tracks {
+    grid-template-columns: 1fr;
+  }
+}
+
+.track {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  padding: 24px;
+  box-shadow: var(--shadow);
+  text-decoration: none;
+  color: var(--ink);
+  transition: border-color 0.15s, transform 0.15s;
+}
+
+a.track:hover {
+  border-color: var(--accent);
+  transform: translateY(-2px);
+}
+
+.trackSoon {
+  opacity: 0.82;
+}
+
+.trackEmoji {
+  font-size: 44px;
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+.trackBody {
+  display: flex;
+  flex-direction: column;
+}
+
+.trackTitle {
+  font-family: var(--font-story);
+  font-weight: 700;
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.trackTagline {
+  color: var(--accent-ink);
+  font-size: 13.5px;
+  font-weight: 600;
+  margin-top: 4px;
+}
+
+.trackDesc {
+  color: var(--ink-soft);
+  font-size: 14.5px;
+  line-height: 1.55;
+  margin: 10px 0 0;
+}
+
+.trackMeta {
+  margin-top: 14px;
+  font-size: 13.5px;
+  color: var(--accent-ink);
+  font-weight: 700;
+}

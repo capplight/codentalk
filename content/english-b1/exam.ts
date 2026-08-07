@@ -1,0 +1,171 @@
+import type { Chapter } from "@/lib/types";
+
+const exam: Chapter = {
+  slug: "exam",
+  title: "Экзамен уровня B1",
+  subtitle:
+    "Сезон «Своя жизнь в Лондоне» в одном испытании: Present Perfect, мнения, телефонные формулы, условные предложения, деловое письмо и голосовое сообщение.",
+  exam: true,
+  stages: [
+    { icon: "📝", name: "Фразы" },
+    { icon: "🔢", name: "Грамматика" },
+    { icon: "📄", name: "Чтение" },
+    { icon: "🎧", name: "Аудирование" },
+    { icon: "🎓", name: "Результат" },
+  ],
+  steps: [
+    {
+      kind: "fill",
+      stage: 0,
+      tag: "Впиши слово",
+      qBefore: "Have you ",
+      qAfter: " been to Scotland?",
+      hintRu: "Ты когда-нибудь бывал в Шотландии? (слово-«когда-нибудь»)",
+      rule: "perfect-signals",
+      answer: "ever",
+      why: "Вопрос об опыте: Have you ever…? Ever — «когда-нибудь», встаёт перед глаголом.",
+    },
+    {
+      kind: "choice",
+      stage: 0,
+      tag: "Вежливый спор",
+      q: "Коллега предлагает идею, с которой ты не согласен. Как ответить профессионально?",
+      options: [
+        { t: "I see your point, but I don't agree.", ok: true },
+        { t: "You are wrong!" },
+        { t: "No. Next question." },
+      ],
+      why: "Сначала признай (I see your point), потом не согласись (but I don't agree) — формула вежливого спора.",
+    },
+    {
+      kind: "assemble",
+      stage: 0,
+      tag: "Собери фразу",
+      q: "Позвони в компанию и попроси соединить с мистером Ридом:",
+      words: ["Could", "I", "speak", "to", "Mr", "Reed,", "please?"],
+      answer: "Could I speak to Mr Reed, please?",
+      why: "Could I speak to…, please? — стандартное начало делового звонка.",
+    },
+    {
+      kind: "fill",
+      stage: 1,
+      tag: "Впиши слово",
+      qBefore: "If it rains tomorrow, we ",
+      qAfter: " stay at home.",
+      hintRu: "Если завтра пойдёт дождь, мы останемся дома. (слово-будущее в части результата)",
+      rule: "first-conditional",
+      answer: "will",
+      why: "Условие: if + настоящее (rains), результат + will (will stay). После if will не ставится!",
+    },
+    {
+      kind: "assemble",
+      stage: 1,
+      tag: "Собери фразу",
+      q: "Друг сомневается, подавать ли заявку. Дай совет-фантазию:",
+      rule: "second-conditional",
+      words: ["If", "I", "were", "you,", "I", "would", "apply."],
+      answer: "If I were you, I would apply.",
+      why: "If I were you, I would… — «на твоём месте я бы…». Were даже с I — форма для фантазий и советов.",
+    },
+    {
+      kind: "fill",
+      stage: 1,
+      tag: "Впиши слово",
+      qBefore: "I have worked here ",
+      qAfter: " two years.",
+      hintRu: "Я работаю здесь уже два года. (предлог срока в Present Perfect)",
+      rule: "perfect-signals",
+      answer: "for",
+      why: "Present Perfect + for + срок: I have worked here for two years — «работаю здесь уже два года (и продолжаю)».",
+    },
+    {
+      kind: "reading",
+      stage: 2,
+      tag: "Чтение",
+      title: "Деловое письмо от клиента",
+      note: "Проверь навык из главы «Звонок и письмо»: структура письма, суть и что от тебя требуется.",
+      text: [
+        "Dear Alim,",
+        "I am writing about our new project.",
+        "We have already tested your app with our students, and the results are great. In my opinion, it is the best tool we have tried this year.",
+        "Could we meet on Thursday at three to discuss the next steps?",
+        "Best regards,",
+        "Kate Carter",
+      ],
+      questions: [
+        {
+          q: "О чём пишет Кейт?",
+          options: [
+            { t: "О новом совместном проекте", ok: true },
+            { t: "О проблеме с приложением" },
+            { t: "О закрытии компании" },
+          ],
+          why: "I am writing about our new project — «Пишу по поводу нашего нового проекта». Первая строка письма всегда о цели.",
+        },
+        {
+          q: "Что клиент уже сделал?",
+          options: [
+            { t: "Протестировал приложение со своими студентами", ok: true },
+            { t: "Подписал контракт" },
+            { t: "Встретился с командой" },
+          ],
+          why: "We have already tested your app with our students — «Мы уже протестировали ваше приложение с нашими студентами». Have already tested — Present Perfect!",
+        },
+        {
+          q: "Что предлагает Кейт?",
+          options: [
+            { t: "Встретиться в четверг в три", ok: true },
+            { t: "Созвониться в пятницу" },
+            { t: "Ответить до четверга" },
+          ],
+          why: "Could we meet on Thursday at three…? — «Можем встретиться в четверг в три?» On + день, at + время.",
+        },
+      ],
+    },
+    {
+      kind: "listening",
+      stage: 3,
+      tag: "Аудирование",
+      intro: "Голосовое сообщение — тебя не застали на месте",
+      note: "Классика делового аудирования: кто звонил, что случилось, что просят сделать.",
+      audio: [
+        "Hello, this is the reception.",
+        "I'm afraid Ms Carter is in a meeting now.",
+        "She has already read your email.",
+        "Please call her back after four. Thank you!",
+      ],
+      questions: [
+        {
+          q: "Почему мисс Картер не ответила?",
+          options: [
+            { t: "Она на встрече", ok: true },
+            { t: "Она уехала из офиса" },
+            { t: "Она не прочитала письмо" },
+          ],
+          why: "I'm afraid Ms Carter is in a meeting — «К сожалению, мисс Картер на встрече». I'm afraid — вежливое «увы».",
+        },
+        {
+          q: "Что просят сделать?",
+          options: [
+            { t: "Перезвонить ей после четырёх", ok: true },
+            { t: "Написать ей ещё одно письмо" },
+            { t: "Подождать на линии" },
+          ],
+          why: "Please call her back after four — «Пожалуйста, перезвоните ей после четырёх». Call back — перезвонить.",
+        },
+      ],
+    },
+    {
+      kind: "assemble",
+      stage: 4,
+      tag: "Финал экзамена",
+      q: "Заверши экзамен фразой сезона — про мечты и работу:",
+      words: ["Dreams", "come", "true", "if", "you", "work", "hard."],
+      answer: "Dreams come true if you work hard.",
+      why: "Dreams come true if you work hard — «Мечты сбываются, если усердно работать». Уровень B1 подтверждён!",
+    },
+  ],
+  words: [],
+};
+
+export default exam;

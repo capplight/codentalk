@@ -1,0 +1,145 @@
+import type { Chapter } from "@/lib/types";
+
+const exam: Chapter = {
+  slug: "exam",
+  title: "Экзамен уровня A1",
+  subtitle:
+    "Всё, что ты пережил в Лондоне, — в одном испытании: вопросы, вежливые просьбы, знаки, цены, чтение и аудирование.",
+  exam: true,
+  stages: [
+    { icon: "📝", name: "Фразы" },
+    { icon: "🔢", name: "Грамматика" },
+    { icon: "📄", name: "Чтение" },
+    { icon: "🎧", name: "Аудирование" },
+    { icon: "🎓", name: "Результат" },
+  ],
+  steps: [
+    {
+      kind: "choice",
+      stage: 0,
+      tag: "Вопрос",
+      q: "Офицер спрашивает: «What is the purpose of your visit?» Что ответить туристу?",
+      options: [
+        { t: "I'm here on holiday.", ok: true },
+        { t: "Yes, please." },
+        { t: "How much is it?" },
+      ],
+      why: "Вопрос о цели визита → I'm here on holiday — «Я здесь в отпуске».",
+    },
+    {
+      kind: "assemble",
+      stage: 0,
+      tag: "Собери фразу",
+      q: "Вежливо закажи кофе:",
+      words: ["Can", "I", "have", "a", "coffee,", "please?"],
+      answer: "Can I have a coffee, please?",
+      why: "Формула заказа: Can I have + … + please? Работает в любом кафе мира.",
+    },
+    {
+      kind: "choice",
+      stage: 0,
+      tag: "Знаки",
+      q: "В метро ты видишь «WAY OUT». Куда ведёт этот указатель?",
+      options: [{ t: "К выходу", ok: true }, { t: "Ко входу" }, { t: "К кассам" }],
+      why: "Way out — выход (британский вариант). EXIT — то же самое.",
+    },
+    {
+      kind: "fill",
+      stage: 1,
+      tag: "Впиши слово",
+      qBefore: "Excuse me, where ",
+      qAfter: " the bus station?",
+      hintRu: "Извините, где автовокзал? (та самая формула вопроса «где»)",
+      answer: "is",
+      why: "Where is + место — «Где …?». Формула, которая провела тебя через весь Лондон.",
+    },
+    {
+      kind: "fill",
+      stage: 1,
+      tag: "Впиши слово",
+      qBefore: "How much ",
+      qAfter: " these shoes?",
+      hintRu: "Сколько стоят эти туфли? (туфли — их много!)",
+      rule: "how-much-many",
+      answer: "are",
+      why: "Одна вещь → How much is, несколько → How much are. Shoes — их две, значит are.",
+    },
+    {
+      kind: "fill",
+      stage: 1,
+      tag: "Впиши слово",
+      qBefore: "There ",
+      qAfter: " a problem in my room.",
+      hintRu: "В моём номере проблема. (формула «имеется» для одной вещи)",
+      rule: "there-is-are",
+      answer: "is",
+      why: "There is a problem — «есть проблема» (одна). Несколько было бы there are.",
+    },
+    {
+      kind: "reading",
+      stage: 2,
+      tag: "Чтение",
+      title: "Записка от администратора отеля",
+      note: "Прочитай записку и найди в ней ответы — как настоящий постоялец лондонского отеля.",
+      text: [
+        "Dear guest!",
+        "Breakfast is from seven to ten in the café near the reception.",
+        "The museum bus leaves at nine from the hotel door.",
+        "Have a nice day!",
+      ],
+      questions: [
+        {
+          q: "Когда завтрак?",
+          options: [{ t: "С 7 до 10", ok: true }, { t: "С 9 до 10" }, { t: "С 7 до 9" }],
+          why: "Breakfast is from seven to ten — «завтрак с семи до десяти». From … to … — с … до …",
+        },
+        {
+          q: "Во сколько и откуда уходит автобус к музею?",
+          options: [
+            { t: "В 9 от дверей отеля", ok: true },
+            { t: "В 10 от музея" },
+            { t: "В 7 от кафе" },
+          ],
+          why: "The museum bus leaves at nine from the hotel door — «автобус к музею уходит в девять от дверей отеля».",
+        },
+      ],
+    },
+    {
+      kind: "listening",
+      stage: 3,
+      tag: "Аудирование",
+      intro: "Объявление в аэропорту — как в первой главе, но теперь без страховки",
+      note: "Классика аэропорта: рейс, время, выход на посадку. Лови все три детали.",
+      audio: [
+        "Attention, please.",
+        "The flight to Astana is at four.",
+        "Gate B2.",
+        "Have a nice flight!",
+      ],
+      questions: [
+        {
+          q: "Во сколько рейс на Астану?",
+          options: [{ t: "В 4", ok: true }, { t: "В 2" }, { t: "В 10" }],
+          why: "The flight to Astana is at four — «Рейс на Астану в четыре».",
+        },
+        {
+          q: "Какой выход на посадку?",
+          options: [{ t: "B2", ok: true }, { t: "B4" }, { t: "A2" }],
+          why: "Gate B2 — выход B2. Gate — выход на посадку.",
+        },
+      ],
+    },
+    {
+      kind: "assemble",
+      stage: 4,
+      tag: "Финал экзамена",
+      q: "Поблагодари Лондон за всё:",
+      words: ["Thank", "you", "for", "everything!"],
+      answer: "Thank you for everything!",
+      why: "Thank you for everything! — «Спасибо за всё!» Уровень A1 подтверждён.",
+    },
+  ],
+  words: [],
+};
+
+export default exam;

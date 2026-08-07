@@ -1,0 +1,749 @@
+/* ---------- сцены ---------- */
+.scene {
+  margin: 18px 0;
+  animation: rise 0.45s ease both;
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.story {
+  font-family: var(--font-story);
+  font-size: 19px;
+  line-height: 1.65;
+  padding: 4px 2px;
+}
+
+.storyRu {
+  display: block;
+  font-family: var(--font-ui);
+  font-size: 14px;
+  color: var(--ink-soft);
+  margin-top: 8px;
+}
+
+.dialog {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 16px 18px;
+  box-shadow: var(--shadow);
+}
+
+.dialogWho {
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+  font-weight: 700;
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.dialogEn {
+  font-family: var(--font-story);
+  font-size: 19px;
+}
+
+.dialogRu {
+  font-size: 14px;
+  color: var(--ink-soft);
+  margin-top: 6px;
+}
+
+/* ---------- озвучка и тап-перевод ---------- */
+.speak {
+  border: 1px solid var(--line);
+  background: var(--paper);
+  color: var(--accent);
+  border-radius: 999px;
+  width: 26px;
+  height: 26px;
+  cursor: pointer;
+  font-size: 13px;
+  line-height: 1;
+  display: inline-grid;
+  place-items: center;
+  flex: none;
+}
+
+.speak:hover {
+  background: var(--accent-soft);
+}
+
+.word {
+  border-bottom: 1.5px dotted var(--accent);
+  cursor: pointer;
+  position: relative;
+}
+
+.word.open::after {
+  content: attr(data-t);
+  position: absolute;
+  left: 50%;
+  bottom: calc(100% + 6px);
+  transform: translateX(-50%);
+  background: var(--ink);
+  color: var(--paper);
+  font-family: var(--font-ui);
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.35;
+  padding: 4px 10px;
+  border-radius: 8px;
+  /* перевод не должен уезжать за край экрана на телефоне */
+  width: max-content;
+  max-width: min(80vw, 260px);
+  white-space: normal;
+  text-align: center;
+  z-index: 5;
+}
+
+/* ---------- маршрут ---------- */
+.journey {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: var(--paper);
+  padding: 14px 20px 10px;
+  border-bottom: 1px solid var(--line);
+}
+
+.journeyTrack {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.stageDot {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 15px;
+  background: var(--surface);
+  border: 1.5px solid var(--line);
+  filter: grayscale(1);
+  opacity: 0.55;
+  flex: none;
+  transition: all 0.35s ease;
+}
+
+.stageDot.on {
+  filter: none;
+  opacity: 1;
+  border-color: var(--accent);
+  background: var(--accent-soft);
+}
+
+.stageDot.done {
+  filter: none;
+  opacity: 1;
+  border-color: var(--good);
+  background: var(--good-soft);
+}
+
+.leg {
+  height: 2px;
+  flex: 1;
+  background: var(--line);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.legFill {
+  display: block;
+  height: 100%;
+  background: var(--accent);
+  transition: width 0.5s ease;
+}
+
+.journeyLabel {
+  text-align: center;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin-top: 6px;
+  font-weight: 600;
+}
+
+/* ---------- задания ---------- */
+.task {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 18px;
+  box-shadow: var(--shadow);
+}
+
+/* Шапка задания: полноширинная янтарная полоса — сразу видно, где начинается работа */
+.taskTag {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--amber);
+  background: var(--amber-soft);
+  margin: -18px -18px 16px;
+  padding: 10px 18px;
+  border-bottom: 1px solid var(--line);
+  border-radius: 15px 15px 0 0;
+}
+
+.taskTag::before {
+  content: "✏️";
+  font-size: 13px;
+}
+
+.taskQ {
+  font-size: 16px;
+  margin-bottom: 14px;
+}
+
+.note {
+  background: var(--accent-soft);
+  border-left: 3px solid var(--accent);
+  border-radius: 0 10px 10px 0;
+  padding: 10px 14px;
+  font-size: 14.5px;
+  line-height: 1.5;
+  margin-bottom: 14px;
+}
+
+.note b {
+  color: var(--accent-ink);
+}
+
+/* ---------- reading / listening ---------- */
+/* Материал (текст, аудио) помечен бирюзовой рамкой слева — в пару к 💡-объяснениям */
+.readingBox {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--accent);
+  border-radius: 0 12px 12px 0;
+  padding: 16px 18px;
+  margin-bottom: 16px;
+}
+
+.readingTitle {
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--accent-ink);
+  margin-bottom: 10px;
+}
+
+.readingParagraph {
+  font-family: var(--font-story);
+  font-size: 17.5px;
+  line-height: 1.7;
+  margin: 0 0 12px;
+}
+
+.readingParagraph:last-child {
+  margin-bottom: 0;
+}
+
+.listeningHint {
+  color: var(--ink-soft);
+  font-size: 13.5px;
+  margin: 10px 0 0;
+}
+
+.compQuestions {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* Разделитель «Задания» между материалом и вопросами */
+.zoneDivider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--amber);
+  margin: 6px 0 2px;
+}
+
+.zoneDivider::before,
+.zoneDivider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--line);
+}
+
+/* Каждый вопрос — отдельная мини-карточка */
+.compQuestion {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 14px;
+}
+
+.compQLabel {
+  display: inline-block;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--amber);
+  background: var(--amber-soft);
+  border-radius: 999px;
+  padding: 3px 10px;
+  margin-bottom: 8px;
+}
+
+.playBtn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  background: var(--accent-soft);
+  color: var(--accent-ink);
+  border: 1.5px solid var(--accent);
+  border-radius: 12px;
+  padding: 12px 18px;
+  margin-bottom: 14px;
+}
+
+.playBtn:hover {
+  filter: brightness(1.04);
+}
+
+.opts {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.opt {
+  text-align: left;
+  font-size: 16px;
+  background: var(--paper);
+  color: var(--ink);
+  border: 1.5px solid var(--line);
+  border-radius: 12px;
+  padding: 12px 14px;
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s;
+}
+
+.opt:hover:not(:disabled) {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+}
+
+.opt:disabled {
+  cursor: default;
+  opacity: 0.55;
+}
+
+.opt.right {
+  border-color: var(--good);
+  background: var(--good-soft);
+  opacity: 1;
+}
+
+.opt.wrong {
+  border-color: var(--bad);
+  background: var(--bad-soft);
+  opacity: 1;
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.answerLine {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  min-height: 50px;
+  border-bottom: 2px solid var(--line);
+  padding: 6px 2px 10px;
+  margin-bottom: 14px;
+  align-items: center;
+}
+
+.answerHint {
+  color: var(--ink-soft);
+  font-size: 14px;
+}
+
+.chip {
+  font-size: 16px;
+  cursor: pointer;
+  background: var(--accent-soft);
+  color: var(--accent-ink);
+  border: 1.5px solid var(--accent);
+  border-radius: 10px;
+  padding: 8px 14px;
+}
+
+.chipPlaced {
+  background: var(--surface);
+  border-color: var(--line);
+  color: var(--ink);
+}
+
+.fillRow {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.fillEn {
+  font-family: var(--font-story);
+  font-size: 19px;
+}
+
+.fillInput {
+  font-family: var(--font-mono);
+  font-size: 17px;
+  width: 120px;
+  max-width: 100%;
+  text-align: center;
+  background: var(--paper);
+  color: var(--ink);
+  border: 1.5px solid var(--line);
+  border-radius: 10px;
+  padding: 9px 10px;
+}
+
+.fillInput.ok {
+  border-color: var(--good);
+  background: var(--good-soft);
+}
+
+.feedback {
+  margin-top: 12px;
+  font-size: 15px;
+  border-radius: 10px;
+  padding: 10px 14px;
+}
+
+.feedbackOk {
+  background: var(--good-soft);
+  color: var(--good);
+  font-weight: 600;
+}
+
+.feedbackHint {
+  background: var(--amber-soft);
+  color: var(--ink);
+}
+
+.feedbackWhy {
+  font-weight: 400;
+  color: var(--ink);
+  display: block;
+  margin-top: 4px;
+  font-size: 14px;
+}
+
+/* Ссылка на правило из справочника — появляется в обратной связи задания */
+.ruleLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 10px;
+  font-family: var(--font-ui);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--accent-ink);
+  text-decoration: none;
+  background: var(--surface);
+  border: 1px solid var(--accent);
+  border-radius: 999px;
+  padding: 4px 12px;
+}
+
+.ruleLink:hover {
+  background: var(--accent-soft);
+}
+
+.shake {
+  animation: shake 0.35s ease;
+}
+
+@keyframes shake {
+  20%,
+  60% {
+    transform: translateX(-5px);
+  }
+  40%,
+  80% {
+    transform: translateX(5px);
+  }
+}
+
+/* ---------- обложка и финал ---------- */
+.cover {
+  text-align: center;
+  padding: 44px 0 8px;
+}
+
+/* Цели главы: на обложке — «чему научишься», в финале — чек-лист «теперь умею» */
+.goalsCard {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--accent);
+  border-radius: 0 14px 14px 0;
+  padding: 16px 18px;
+  margin: 0 auto 24px;
+  max-width: 44ch;
+  text-align: left;
+}
+
+.goalsCardTitle {
+  font-size: 11.5px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--accent-ink);
+  margin-bottom: 10px;
+}
+
+.goalsCardList {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.goalsCardItem {
+  display: flex;
+  gap: 9px;
+  font-size: 14.5px;
+  line-height: 1.45;
+  color: var(--ink);
+}
+
+.goalsCardItem::before {
+  content: "✓";
+  color: var(--accent);
+  font-weight: 700;
+  flex: none;
+}
+
+.goalsDone .goalsCardItem::before {
+  content: "✅";
+  color: inherit;
+}
+
+.coverStamp {
+  display: inline-block;
+  margin: 8px 0 6px;
+  border: 2px dashed var(--accent);
+  color: var(--accent-ink);
+  border-radius: 12px;
+  padding: 8px 18px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  transform: rotate(-2deg);
+}
+
+.coverTitle {
+  font-family: var(--font-story);
+  font-size: clamp(30px, 6vw, 42px);
+  line-height: 1.15;
+  margin: 10px 0 12px;
+  font-weight: 700;
+}
+
+.coverLead {
+  color: var(--ink-soft);
+  max-width: 46ch;
+  margin: 0 auto 24px;
+}
+
+.finale {
+  text-align: center;
+  padding-top: 10px;
+}
+
+.medal {
+  width: 84px;
+  height: 84px;
+  margin: 8px auto 14px;
+  border-radius: 50%;
+  background: var(--amber-soft);
+  border: 2px solid var(--amber);
+  display: grid;
+  place-items: center;
+  font-size: 38px;
+}
+
+.finaleTitle {
+  font-family: var(--font-story);
+  font-size: 27px;
+  margin: 6px 0 8px;
+}
+
+.stats {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin: 20px 0;
+  flex-wrap: wrap;
+}
+
+.stat {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 12px 22px;
+  min-width: 120px;
+}
+
+.stat b {
+  display: block;
+  font-size: 26px;
+  font-variant-numeric: tabular-nums;
+  color: var(--accent-ink);
+}
+
+.stat span {
+  font-size: 12.5px;
+  color: var(--ink-soft);
+}
+
+.phrasebook {
+  text-align: left;
+  margin-top: 10px;
+}
+
+.phrasebook h3 {
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin: 22px 0 10px;
+  font-weight: 700;
+}
+
+.phraseRow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 10px 14px;
+  margin-bottom: 8px;
+}
+
+.phraseEn {
+  font-family: var(--font-story);
+  font-size: 16.5px;
+  flex: 1;
+}
+
+.phraseRu {
+  color: var(--ink-soft);
+  font-size: 13.5px;
+}
+
+.finaleActions {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 22px;
+}
+
+/* ---------- «Узнать ответ» после 3 ошибок ---------- */
+.revealBtn {
+  display: inline-block;
+  margin-top: 12px;
+  font-family: var(--font-ui);
+  font-size: 13.5px;
+  font-weight: 700;
+  cursor: pointer;
+  color: var(--amber);
+  background: var(--amber-soft);
+  border: 1px solid var(--amber);
+  border-radius: 999px;
+  padding: 7px 16px;
+}
+
+.revealBtn:hover {
+  filter: brightness(1.03);
+}
+
+.revealBox {
+  margin-top: 12px;
+  font-size: 15px;
+  border-radius: 10px;
+  padding: 10px 14px;
+  background: var(--amber-soft);
+  color: var(--ink);
+}
+
+.revealBox b {
+  color: var(--accent-ink);
+  font-family: var(--font-story);
+}
+
+.revealWhy {
+  display: block;
+  margin-top: 6px;
+  font-size: 14px;
+  color: var(--ink);
+}
+
+/* ---------- узкие экраны (телефон) ---------- */
+@media (max-width: 480px) {
+  .task {
+    padding: 14px;
+  }
+  /* полоса-шапка задания должна оставаться заподлицо с уменьшенными полями */
+  .taskTag {
+    margin: -14px -14px 14px;
+    padding: 10px 14px;
+    border-radius: 13px 13px 0 0;
+  }
+  .story {
+    font-size: 17.5px;
+  }
+  .dialogEn {
+    font-size: 17.5px;
+  }
+  .fillEn {
+    font-size: 17px;
+  }
+  .readingParagraph {
+    font-size: 16.5px;
+  }
+}
