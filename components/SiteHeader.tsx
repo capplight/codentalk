@@ -53,8 +53,8 @@ export default async function SiteHeader() {
           <>
             <nav className={styles.nav}>
               <Link href="/#napravleniya">Направления</Link>
-              <Link href="/#kak-eto-ustroeno">Как это устроено</Link>
-              <Link href="/track/english">Английский бесплатно</Link>
+              <Link href="/#kak-eto-ustroeno">Как это работает</Link>
+              <Link href="/#podpiska">Подписка</Link>
             </nav>
             <div className={styles.end}>
               <Link className="btn ghost" href="/login">

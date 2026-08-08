@@ -31,16 +31,19 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {children}
         <footer
           style={{
-            textAlign: "center",
+            borderTop: "1px solid var(--line)",
             color: "var(--ink-soft)",
             fontSize: 13,
-            padding: "40px 20px 32px",
+            padding: "28px 0",
+            marginTop: 40,
           }}
         >
-          CodeNTalk · знания должны быть доступны каждому ·{" "}
-          <a href="https://instagram.com/codentalk.kz" target="_blank" rel="noreferrer">
-            @codentalk.kz
-          </a>
+          <div className="wrap-wide">
+            CodeNTalk · Обучение в своём темпе · Алматы ·{" "}
+            <a href="https://instagram.com/codentalk.kz" target="_blank" rel="noreferrer">
+              @codentalk.kz
+            </a>
+          </div>
         </footer>
       </body>
     </html>

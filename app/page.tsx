@@ -61,7 +61,7 @@ export default function HomePage() {
             </div>
           </div>
 
-          <aside className={styles.panel}>
+          <aside className={styles.panel} id="podpiska">
             <span className={styles.eyebrow}>Что входит в подписку</span>
             <p className={styles.panelItem}>
               <b>Два курса одновременно.</b> Достаточно, чтобы не распыляться, и честно: вы платите
@@ -108,23 +108,19 @@ export default function HomePage() {
                   )}
 
                   <h3 className={styles.trackTitle}>{track.title}</h3>
-                  <p className={styles.trackDesc}>{track.description}</p>
 
-                  {track.comingSoon ? (
-                    track.syllabus && (
-                      <div className={styles.syllabus}>
-                        {track.syllabus.slice(0, 4).map((item) => (
-                          <span key={item} className={styles.syllabusItem}>
-                            {item}
-                          </span>
-                        ))}
-                      </div>
-                    )
-                  ) : (
-                    <span className={styles.trackMeta}>
-                      {track.levels.length} уровней · {tasks} заданий
-                    </span>
-                  )}
+                  {/* Одна строка, а не абзац: карточки в сетке должны быть
+                      одной высоты, иначе ряд разваливается. Подробности —
+                      на странице направления. */}
+                  <p className={styles.trackDesc}>{track.tagline}</p>
+
+                  <span className={styles.trackMeta}>
+                    {track.comingSoon
+                      ? track.syllabus
+                        ? `${track.syllabus.length} тем в программе`
+                        : "готовится"
+                      : `${track.levels.length} уровней · ${tasks} заданий`}
+                  </span>
                 </>
               );
 
@@ -144,7 +140,7 @@ export default function HomePage() {
 
       <div className={`wrap-wide ${styles.section}`} id="kak-eto-ustroeno">
         <div className={styles.sectionHead}>
-          <span className={styles.eyebrow}>Как это устроено</span>
+          <span className={styles.eyebrow}>Как это работает</span>
           <h2 className={styles.sectionTitle}>Три шага, дальше — по кругу</h2>
         </div>
 

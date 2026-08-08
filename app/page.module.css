@@ -212,21 +212,6 @@ a.track:hover {
   font-variant-numeric: tabular-nums;
 }
 
-.syllabus {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-}
-
-.syllabusItem {
-  font-size: 12px;
-  color: var(--ink-soft);
-  background: var(--paper-alt);
-  border: 1px solid var(--line);
-  border-radius: 999px;
-  padding: 3px 10px;
-}
-
 /* ---------- как это устроено ---------- */
 .steps {
   display: grid;
