@@ -68,8 +68,23 @@ export function checkRateLimit(
   return { allowed: true, remaining: limit - bucket.count, retryAfterSeconds: 0 };
 }
 
+/**
+ * Отключение ограничений для сквозных проверок.
+ *
+ * Двойная защита, чтобы это нельзя было включить на рабочем сайте по
+ * невнимательности: нужна и переменная окружения, и подтверждение, что это не
+ * рабочее окружение Vercel. Проверять по NODE_ENV нельзя — собранный сайт
+ * запускается с NODE_ENV=production и на своей машине тоже.
+ */
+function limitsDisabled(): boolean {
+  return (
+    process.env.RATE_LIMIT_DISABLED === "1" && process.env.VERCEL_ENV !== "production"
+  );
+}
+
 /** Бросает понятную ошибку, если предел исчерпан. */
 export function enforceRateLimit(key: string, options: RateLimitOptions): void {
+  if (limitsDisabled()) return;
   const result = checkRateLimit(key, options);
   if (!result.allowed) {
     throw new ApiError(

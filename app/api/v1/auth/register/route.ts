@@ -10,11 +10,17 @@ import { clientKey, enforceRateLimit } from "@/lib/api/rate-limit";
  *
  * Частота ограничена: без этого один человек мог бы создать тысячу аккаунтов
  * за минуту.
+ *
+ * Предел намеренно не слишком строгий. Владелец — преподаватель, и вполне
+ * возможен случай, когда целый класс регистрируется одновременно из одного
+ * учебного заведения, то есть с одного сетевого адреса. Строгий предел
+ * закрыл бы доступ всей группе, а перебор аккаунтов двадцать штук в час всё
+ * равно не даёт.
  */
 export const POST = handler(async (request: Request) => {
   enforceRateLimit(clientKey(request, "register"), {
-    limit: 5,
-    windowSeconds: 15 * 60,
+    limit: 20,
+    windowSeconds: 60 * 60,
   });
 
   const parsed = registerSchema.parse(await readJson(request));
