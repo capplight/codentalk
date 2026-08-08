@@ -15,11 +15,16 @@ loadEnv({ quiet: true });
  * после установки зависимостей. Если бы конфигурация требовала адрес всегда,
  * `npm install` на свежей копии репозитория заканчивался бы ошибкой.
  * При настоящем обращении к базе Prisma сама сообщит, что адрес пуст.
+ *
+ * Здесь используется ПРЯМОЕ подключение (DIRECT_URL), а не через пул:
+ * миграции меняют схему и берут блокировки, а пул в поочерёдном режиме
+ * такого не переносит. Сам сайт ходит в базу через пул — см. lib/db/index.ts.
+ * Для локальной базы это одна и та же строка, там пула нет.
  */
 export default defineConfig({
   schema: "prisma/schema.prisma",
   datasource: {
-    url: process.env.DATABASE_URL ?? "",
+    url: process.env.DIRECT_URL ?? process.env.DATABASE_URL ?? "",
   },
   migrations: {
     path: "prisma/migrations",

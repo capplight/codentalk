@@ -5,7 +5,9 @@
 
 services:
   db:
-    image: postgres:17-alpine
+    # Версия должна совпадать с той, что стоит на рабочем сервере (Neon),
+    # иначе рискуем поймать расхождение «локально работает, на сайте нет».
+    image: postgres:18-alpine
     container_name: codentalk-db
     restart: unless-stopped
     environment:
