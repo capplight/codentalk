@@ -11,7 +11,8 @@
     "db:migrate": "prisma migrate dev",
     "postinstall": "prisma generate",
     "db:seed": "tsx scripts/seed-content.mts",
-    "smoke": "tsx scripts/smoke-api.mts"
+    "smoke": "tsx scripts/smoke-api.mts",
+    "demo": "tsx scripts/demo-users.mts"
   },
   "dependencies": {
     "@auth/prisma-adapter": "^2.11.3",
