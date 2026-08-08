@@ -122,7 +122,7 @@
 }
 
 .sectionAlt {
-  background: var(--surface);
+  background: var(--paper-alt);
   border-block: 1px solid var(--line);
 }
 
@@ -221,7 +221,7 @@ a.track:hover {
 .syllabusItem {
   font-size: 12px;
   color: var(--ink-soft);
-  background: var(--paper);
+  background: var(--paper-alt);
   border: 1px solid var(--line);
   border-radius: 999px;
   padding: 3px 10px;

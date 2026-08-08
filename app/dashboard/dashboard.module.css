@@ -148,7 +148,7 @@ a.course:hover {
 .bar {
   height: 6px;
   border-radius: 999px;
-  background: var(--paper);
+  background: var(--paper-alt);
   overflow: hidden;
 }
 

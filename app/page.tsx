@@ -82,7 +82,7 @@ export default function HomePage() {
         </section>
       </div>
 
-      <div className={styles.sectionAlt}>
+      <div className={styles.sectionAlt} id="napravleniya">
         <div className={`wrap-wide ${styles.section}`}>
           <div className={styles.sectionHead}>
             <span className={styles.eyebrow}>Направления</span>
@@ -142,7 +142,7 @@ export default function HomePage() {
         </div>
       </div>
 
-      <div className={`wrap-wide ${styles.section}`}>
+      <div className={`wrap-wide ${styles.section}`} id="kak-eto-ustroeno">
         <div className={styles.sectionHead}>
           <span className={styles.eyebrow}>Как это устроено</span>
           <h2 className={styles.sectionTitle}>Три шага, дальше — по кругу</h2>

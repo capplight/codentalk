@@ -51,7 +51,11 @@ export default async function SiteHeader() {
           </>
         ) : (
           <>
-            <span className={styles.tagline}>бесплатно · в своём темпе</span>
+            <nav className={styles.nav}>
+              <Link href="/#napravleniya">Направления</Link>
+              <Link href="/#kak-eto-ustroeno">Как это устроено</Link>
+              <Link href="/track/english">Английский бесплатно</Link>
+            </nav>
             <div className={styles.end}>
               <Link className="btn ghost" href="/login">
                 Войти
