@@ -1,41 +1,24 @@
-import { NextResponse } from "next/server";
 import { Prisma } from "@/lib/db/generated/client";
 import { prisma } from "@/lib/db";
 import { hashPassword } from "@/lib/auth/password";
 import { registerSchema } from "@/lib/auth/schema";
+import { ApiError, handler, ok, readJson } from "@/lib/api/respond";
+import { clientKey, enforceRateLimit } from "@/lib/api/rate-limit";
 
 /**
- * Регистрация. Раздел 9 техзадания.
+ * Регистрация нового ученика.
  *
- * Ошибки отдаются в едином виде { error: { code, message } } — так же, как
- * условились для всего программного интерфейса.
+ * Частота ограничена: без этого один человек мог бы создать тысячу аккаунтов
+ * за минуту.
  */
-export async function POST(request: Request) {
-  let body: unknown;
-  try {
-    body = await request.json();
-  } catch {
-    return NextResponse.json(
-      { error: { code: "bad_request", message: "Не удалось разобрать запрос" } },
-      { status: 400 }
-    );
-  }
+export const POST = handler(async (request: Request) => {
+  enforceRateLimit(clientKey(request, "register"), {
+    limit: 5,
+    windowSeconds: 15 * 60,
+  });
 
-  const parsed = registerSchema.safeParse(body);
-  if (!parsed.success) {
-    return NextResponse.json(
-      {
-        error: {
-          code: "validation_failed",
-          message: "Проверь заполненные поля",
-          details: parsed.error.flatten().fieldErrors,
-        },
-      },
-      { status: 400 }
-    );
-  }
-
-  const { email, password, displayName } = parsed.data;
+  const parsed = registerSchema.parse(await readJson(request));
+  const { email, password, displayName } = parsed;
 
   try {
     const user = await prisma.user.create({
@@ -50,7 +33,7 @@ export async function POST(request: Request) {
       select: { id: true, email: true, displayName: true },
     });
 
-    return NextResponse.json({ user }, { status: 201 });
+    return ok({ user }, 201);
   } catch (error) {
     // Занятый адрес почты. Проверять отдельным запросом «есть ли такой
     // пользователь» нельзя: между проверкой и вставкой возможна гонка, и
@@ -60,16 +43,11 @@ export async function POST(request: Request) {
       error instanceof Prisma.PrismaClientKnownRequestError &&
       error.code === "P2002"
     ) {
-      return NextResponse.json(
-        {
-          error: {
-            code: "email_taken",
-            message: "На эту почту уже есть аккаунт. Попробуй войти.",
-          },
-        },
-        { status: 409 }
+      throw new ApiError(
+        "conflict",
+        "На эту почту уже есть аккаунт. Попробуй войти."
       );
     }
     throw error;
   }
-}
+});

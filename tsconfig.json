@@ -11,6 +11,9 @@
     "moduleResolution": "bundler",
     "resolveJsonModule": true,
     "isolatedModules": true,
+    // Тесты и скрипты запускаются через tsx и требуют расширения .ts в путях.
+    // Сборку это не затрагивает: код никуда не компилируется (noEmit).
+    "allowImportingTsExtensions": true,
     "jsx": "preserve",
     "incremental": true,
     "plugins": [{ "name": "next" }],
