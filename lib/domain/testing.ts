@@ -226,11 +226,7 @@ export function checkAnswerBalance(questions: Question[]): BalanceReport {
   }
 
   const maxOptions = Math.max(...choice.map((q) => q.options!.length));
-  const positions = new Array<number>(maxOptions).fill(0);
-
-  let longestRun = 1;
-  let currentRun = 1;
-  let previousIndex = -1;
+  const indexes: number[] = [];
 
   for (const q of choice) {
     const index = q.options!.findIndex(
@@ -238,6 +234,37 @@ export function checkAnswerBalance(questions: Question[]): BalanceReport {
     );
     if (index === -1) {
       problems.push(`Вопрос ${q.id}: правильного ответа нет среди вариантов`);
+      // -1 разрывает цепочку: неизвестная позиция не продолжает счёт подряд идущих
+      indexes.push(-1);
+      continue;
+    }
+    indexes.push(index);
+  }
+
+  const report = checkPositionBalance(indexes, maxOptions);
+  return { ...report, balanced: problems.length === 0 && report.balanced, problems: [...problems, ...report.problems] };
+}
+
+/**
+ * Ядро проверки: на каких местах стоят верные ответы.
+ *
+ * Отделено от разбора вопросов, потому что тем же правилом проверяется и
+ * содержание в репозитории (scripts/check-content.mts), где вопросы имеют
+ * другую форму. Правило должно быть записано один раз, иначе две проверки
+ * со временем разойдутся.
+ *
+ * Позиция -1 означает «место неизвестно» и цепочку подряд идущих разрывает.
+ */
+export function checkPositionBalance(indexes: number[], optionCount: number): BalanceReport {
+  const problems: string[] = [];
+  const positions = new Array<number>(Math.max(optionCount, 1)).fill(0);
+
+  let longestRun = indexes.length > 0 ? 1 : 0;
+  let currentRun = 1;
+  let previousIndex = -1;
+
+  for (const index of indexes) {
+    if (index === -1) {
       previousIndex = -1;
       currentRun = 1;
       continue;
@@ -253,12 +280,14 @@ export function checkAnswerBalance(questions: Question[]): BalanceReport {
     previousIndex = index;
   }
 
+  const known = indexes.filter((i) => i !== -1).length;
+
   // Ни одна позиция не должна получать больше половины всех верных ответов
-  const half = choice.length / 2;
+  const half = known / 2;
   positions.forEach((count, i) => {
     if (count > half) {
       problems.push(
-        `Верный ответ стоит на позиции ${i + 1} в ${count} вопросах из ${choice.length} — тест можно пройти, нажимая одну и ту же кнопку`
+        `Верный ответ стоит на позиции ${i + 1} в ${count} вопросах из ${known} — тест можно пройти, нажимая одну и ту же кнопку`
       );
     }
   });

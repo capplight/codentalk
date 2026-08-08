@@ -36,15 +36,17 @@ model User {
   createdAt  DateTime  @default(now()) @map("created_at")
   lastSeenAt DateTime? @map("last_seen_at")
 
-  subscriptions  Subscription[]
-  enrollments    Enrollment[]
-  lessonProgress LessonProgress[]
-  courseProgress CourseProgress[]
-  certificates   Certificate[]
+  subscriptions    Subscription[]
+  enrollments      Enrollment[]
+  lessonProgress   LessonProgress[]
+  courseProgress   CourseProgress[]
+  certificates     Certificate[]
   accounts         Account[]
   sessions         Session[]
   exerciseAttempts ExerciseAttempt[]
   testAttempts     TestAttempt[]
+  confusionMarks   ConfusionMark[]
+  lessonNotes      LessonNote[]
 
   @@map("users")
 }
@@ -134,11 +136,11 @@ model Subscription {
 // ---------------------------------------------------------------------------
 
 model Track {
-  id      String  @id @default(uuid()) @db.Uuid
-  slug    String  @unique
+  id      String   @id @default(uuid()) @db.Uuid
+  slug    String   @unique
   title   String
   kind    String // language | programming | profession
-  sort    Int     @default(0)
+  sort    Int      @default(0)
   courses Course[]
 
   @@map("tracks")
@@ -177,9 +179,17 @@ model Module {
   courseId String @map("course_id") @db.Uuid
   course   Course @relation(fields: [courseId], references: [id], onDelete: Cascade)
 
-  slug    String
-  title   String
-  sort    Int      @default(0)
+  slug  String
+  title String
+  sort  Int    @default(0)
+
+  /// Чему учит модуль. Формулировки «умеет…», по ним сверяются вопросы проверочной.
+  outcomes String[] @default([])
+
+  /// Откуда взят материал. ВНУТРЕННЕЕ поле: ученику не показывается,
+  /// нужно проверяющему и как доказательство, что содержание не сочинено.
+  sources Json?
+
   lessons Lesson[]
   tests   Test[]
 
@@ -198,6 +208,10 @@ model Lesson {
   title String
   kind  String @default("mixed") // theory | practice | mixed
 
+  /// Одна проверяемая формулировка «умеет…». Скрипт проверок следит, чтобы у неё
+  /// нашёлся вопрос в проверочной работе модуля.
+  outcome String?
+
   estimatedMinutes Int? @map("estimated_minutes")
 
   /// Задел под открытие материалов по расписанию. Пусто = доступен сразу.
@@ -205,11 +219,61 @@ model Lesson {
 
   sort Int @default(0)
 
-  progress  LessonProgress[]
-  exercises Exercise[]
+  progress       LessonProgress[]
+  exercises      Exercise[]
+  confusionMarks ConfusionMark[]
+  notes          LessonNote[]
 
   @@unique([courseId, slug])
   @@map("lessons")
+}
+
+/**
+ * Пометка «непонятно» на блоке урока.
+ * Ученику это список мест, куда он собирался вернуться. Владельцу — приборная
+ * панель качества уроков: если один и тот же абзац помечает половина учеников,
+ * плох абзац, а не ученики. Ради этого стоит второй указатель по уроку и блоку.
+ * Пометка привязана к ИМЕНИ блока, а не к его номеру: переставленные абзацы
+ * не должны молча уносить пометки на чужие места.
+ */
+model ConfusionMark {
+  id     String @id @default(uuid()) @db.Uuid
+  userId String @map("user_id") @db.Uuid
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  lessonId String @map("lesson_id") @db.Uuid
+  lesson   Lesson @relation(fields: [lessonId], references: [id], onDelete: Cascade)
+
+  blockId String @map("block_id")
+
+  /// Что именно неясно, словами. Необязательно: нажать должно быть можно молча.
+  comment String?
+
+  /// Заполнено — ученик вернулся и разобрался.
+  resolvedAt DateTime? @map("resolved_at")
+  createdAt  DateTime  @default(now()) @map("created_at")
+
+  @@unique([userId, lessonId, blockId])
+  @@index([lessonId, blockId])
+  @@map("confusion_marks")
+}
+
+/// Заметка ученика к уроку. Одна на урок, а не россыпь листков поверх текста:
+/// плавающие заметки мешают на телефоне и программам чтения с экрана.
+model LessonNote {
+  id     String @id @default(uuid()) @db.Uuid
+  userId String @map("user_id") @db.Uuid
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  lessonId String @map("lesson_id") @db.Uuid
+  lesson   Lesson @relation(fields: [lessonId], references: [id], onDelete: Cascade)
+
+  text      String
+  updatedAt DateTime @updatedAt @map("updated_at")
+  createdAt DateTime @default(now()) @map("created_at")
+
+  @@unique([userId, lessonId])
+  @@map("lesson_notes")
 }
 
 // ---------------------------------------------------------------------------

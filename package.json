@@ -11,6 +11,8 @@
     "db:migrate": "prisma migrate dev",
     "postinstall": "prisma generate",
     "db:seed": "tsx scripts/seed-content.mts",
+    "check:content": "tsx scripts/check-content.mts",
+    "db:seed:courses": "tsx scripts/seed-courses.mts",
     "smoke": "tsx scripts/smoke-api.mts",
     "demo": "tsx scripts/demo-users.mts",
     "sources": "bash scripts/download-sources.sh"
