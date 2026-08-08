@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { auth } from "@/auth";
 import { signOut } from "@/auth";
+import ThemeToggle from "./ThemeToggle";
 import styles from "./SiteHeader.module.css";
 
 /**
@@ -34,6 +35,7 @@ export default async function SiteHeader() {
               <Link href="/">Каталог</Link>
             </nav>
             <div className={styles.end}>
+              <ThemeToggle />
               <span className={styles.avatar} title={user.name ?? ""}>
                 {initials}
               </span>
@@ -57,6 +59,7 @@ export default async function SiteHeader() {
               <Link href="/#podpiska">Подписка</Link>
             </nav>
             <div className={styles.end}>
+              <ThemeToggle />
               <Link className="btn ghost" href="/login">
                 Войти
               </Link>

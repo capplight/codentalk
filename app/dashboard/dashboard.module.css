@@ -6,7 +6,7 @@
 }
 
 .eyebrow {
-  font-size: 12px;
+  font-size: var(--step--1);
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -14,7 +14,7 @@
 }
 
 .hello {
-  font-size: clamp(22px, 4vw, 30px);
+  font-size: var(--step-2);
   letter-spacing: -0.02em;
   margin: 0;
 }
@@ -41,13 +41,13 @@
 }
 
 .continueTitle {
-  font-size: clamp(18px, 3vw, 22px);
+  font-size: var(--step-1);
   letter-spacing: -0.015em;
   margin: 4px 0;
 }
 
 .meta {
-  font-size: 13px;
+  font-size: var(--step--1);
   color: var(--ink-soft);
   font-variant-numeric: tabular-nums;
 }
@@ -67,7 +67,7 @@
 }
 
 .emptyTitle {
-  font-size: clamp(19px, 3vw, 24px);
+  font-size: var(--step-2);
   letter-spacing: -0.02em;
   margin: 0;
 }
@@ -88,7 +88,7 @@
 }
 
 .sectionTitle {
-  font-size: 17px;
+  font-size: var(--step-1);
   margin: 0;
 }
 
@@ -117,7 +117,7 @@ a.course:hover {
 }
 
 .courseTitle {
-  font-size: 17px;
+  font-size: var(--step-1);
   font-weight: 700;
   margin: 0;
 }
@@ -125,7 +125,7 @@ a.course:hover {
 .badge {
   display: inline-block;
   align-self: flex-start;
-  font-size: 11px;
+  font-size: var(--step--1);
   font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -167,7 +167,7 @@ a.course:hover {
   padding: 12px 16px;
   border: 1px dashed var(--line);
   border-radius: 12px;
-  font-size: 13px;
+  font-size: var(--step--1);
   color: var(--ink-soft);
   margin-top: 14px;
 }

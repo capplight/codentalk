@@ -40,31 +40,54 @@
      текст действительно читают подолгу: объяснения внутри уроков. */
   --font-story: ui-sans-serif, system-ui, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   --font-reading: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
-  --font-ui: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-ui: ui-sans-serif, system-ui, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   --font-mono: ui-monospace, "Cascadia Mono", Consolas, monospace;
+
+  /*
+   * Шкала кеглей. Каждая ступень растёт вместе с шириной экрана, поэтому
+   * отдельные правила под телефон почти не нужны. Размеры набираются ТОЛЬКО
+   * из этой шкалы: произвольные значения в отдельных файлах расползаются,
+   * и через месяц на соседних страницах заголовки разного размера.
+   */
+  --step--1: clamp(0.78rem, 0.76rem + 0.1vw, 0.85rem);
+  --step-0: clamp(0.95rem, 0.92rem + 0.15vw, 1.05rem);
+  --step-1: clamp(1.15rem, 1.08rem + 0.35vw, 1.4rem);
+  --step-2: clamp(1.5rem, 1.35rem + 0.75vw, 2rem);
+  --step-3: clamp(2rem, 1.7rem + 1.5vw, 3.1rem);
+  --step-4: clamp(2.6rem, 2rem + 2.6vw, 4.4rem);
+
+  --radius-s: 8px;
+  --radius-m: 10px;
+  --radius-l: 16px;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    color-scheme: dark;
-    --paper: #0e141d;
-    --paper-alt: #131b25;
-    --surface: #141c27;
-    --ink: #e6edf5;
-    --ink-soft: #94a4b8;
-    --line: #24303f;
-    --accent: #6fa4ff;
-    --accent-ink: #9cc0ff;
-    --accent-soft: #16243c;
-    --amber: #e0b071;
-    --amber-soft: #2b2317;
-    --good: #4fbf95;
-    --good-soft: #10281f;
-    --bad: #e08880;
-    --bad-soft: #2e1b19;
-    --btn-text: #0e141d;
-    --shadow: 0 1px 2px rgba(0, 0, 0, 0.4), 0 6px 20px rgba(0, 0, 0, 0.35);
-  }
+/*
+ * Тёмная тема включается ТОЛЬКО по выбору человека — через переключатель в
+ * шапке, который проставляет data-theme="dark" и запоминает выбор.
+ *
+ * За настройкой операционной системы намеренно не следуем: по умолчанию сайт
+ * светлый. Тёмный лист у обучающей платформы — это решение, которое человек
+ * принимает сам, а не то, что случается с ним из-за настройки Windows.
+ */
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --paper: #0e141d;
+  --paper-alt: #131b25;
+  --surface: #141c27;
+  --ink: #e6edf5;
+  --ink-soft: #94a4b8;
+  --line: #24303f;
+  --accent: #6fa4ff;
+  --accent-ink: #9cc0ff;
+  --accent-soft: #16243c;
+  --amber: #e0b071;
+  --amber-soft: #2b2317;
+  --good: #4fbf95;
+  --good-soft: #10281f;
+  --bad: #e08880;
+  --bad-soft: #2e1b19;
+  --btn-text: #0e141d;
+  --shadow: 0 1px 2px rgba(0, 0, 0, 0.4), 0 6px 20px rgba(0, 0, 0, 0.35);
 }
 
 * {
@@ -81,6 +104,7 @@ body {
   background: var(--paper);
   color: var(--ink);
   font-family: var(--font-ui);
+  font-size: var(--step-0);
   line-height: 1.55;
   -webkit-font-smoothing: antialiased;
   /* длинные слова/фразы не должны выталкивать страницу вширь на телефоне */
@@ -109,40 +133,35 @@ h3 {
 }
 
 /* ---------- общие элементы ---------- */
+
+/* Колонка для сплошного текста: главы, правила, тексты для чтения.
+   Длинная строка утомляет глаз, поэтому здесь ширина ограничена жёстко. */
 .wrap {
-  max-width: 680px;
+  max-width: 720px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding-inline: clamp(16px, 4vw, 32px);
 }
 
-/*
- * Широкий контейнер для витрины и каталогов: там колонки и карточки, а не
- * сплошной текст, поэтому 680px душат вёрстку на большом экране. Для глав,
- * правил и текстов остаётся .wrap — им узкая колонка нужна для читаемости.
- */
+/* Витрина, каталоги и кабинет: там колонки и карточки, а не сплошной текст. */
 .wrap-wide {
-  max-width: 1080px;
+  max-width: 1120px;
   margin: 0 auto;
-  padding: 0 20px;
-}
-
-@media (max-width: 480px) {
-  .wrap,
-  .wrap-wide {
-    padding: 0 14px;
-  }
+  padding-inline: clamp(16px, 4vw, 32px);
 }
 
 .btn {
-  display: inline-block;
-  font-weight: 600;
-  font-size: 15px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-weight: 650;
+  font-size: var(--step-0);
   cursor: pointer;
   background: var(--accent);
   color: var(--btn-text);
-  border: none;
-  border-radius: 12px;
-  padding: 11px 22px;
+  border: 1px solid transparent;
+  border-radius: var(--radius-m);
+  padding: 11px 20px;
   text-decoration: none;
   text-align: center;
 }
@@ -152,18 +171,23 @@ h3 {
 }
 
 .btn.big {
-  font-size: 17px;
-  padding: 14px 34px;
+  font-size: var(--step-1);
+  padding: 14px 26px;
 }
 
 .btn.ghost {
   background: transparent;
-  color: var(--accent-ink);
-  border: 1.5px solid var(--accent);
+  color: var(--ink);
+  border-color: var(--line);
+}
+
+.btn.ghost:hover {
+  border-color: var(--accent);
+  filter: none;
 }
 
 .tag-label {
-  font-size: 11px;
+  font-size: var(--step--1);
   letter-spacing: 0.1em;
   text-transform: uppercase;
   font-weight: 700;

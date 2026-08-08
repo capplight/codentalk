@@ -25,7 +25,18 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="ru">
+    <html lang="ru" data-theme="light">
+      <head>
+        {/*
+          Тема применяется до первой отрисовки. Без этого страница успевала бы
+          мигнуть светлым у того, кто выбрал тёмную, — заметно и неприятно.
+        */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `try{var t=localStorage.getItem("theme");if(t==="dark"||t==="light"){document.documentElement.dataset.theme=t}}catch(e){}`,
+          }}
+        />
+      </head>
       <body>
         <SiteHeader />
         {children}
