@@ -54,5 +54,26 @@ get "cambridge-b2-first-schools.pdf"         "https://www.cambridgeenglish.org/I
 get "cambridge-c1-advanced-handbook.pdf"     "https://www.cambridgeenglish.org/images/167804-c1-advanced-handbook.pdf"
 get "cambridge-c2-proficiency-handbook.pdf"  "https://www.cambridgeenglish.org/Images/168194-c2-proficiency-teachers-handbook.pdf"
 
+echo "— Словники по ступеням и по частотности —"
+get_any() {
+  local name="$1" url="$2"
+  if [ -f "$name" ]; then printf "%-46s уже есть
+" "$name"; return; fi
+  printf "%-46s " "$name"
+  local code; code=$(curl -sL -A "$UA" --max-time 120 -o "$name" -w "%{http_code}" "$url")
+  local size; size=$(stat -c%s "$name" 2>/dev/null || echo 0)
+  if [ "$code" = "200" ] && [ "$size" -gt 5000 ]; then echo "готово, $((size / 1024)) кБ"; else echo "НЕ УДАЛОСЬ (код $code)"; rm -f "$name"; fi
+}
+get "oxford-3000.pdf"                    "https://www.oxfordlearnersdictionaries.com/external/pdf/wordlists/oxford-3000-5000/The_Oxford_3000.pdf"
+get "oxford-5000.pdf"                    "https://www.oxfordlearnersdictionaries.com/external/pdf/wordlists/oxford-3000-5000/The_Oxford_5000.pdf"
+get "cambridge-vocab-a2-key.pdf"         "https://www.cambridgeenglish.org/Images/506886-a2-key-2020-vocabulary-list.pdf"
+get "cambridge-vocab-b1-preliminary.pdf" "https://www.cambridgeenglish.org/Images/506887-b1-preliminary-vocabulary-list.pdf"
+get "cambridge-wordlist-research.pdf"    "https://www.cambridgeenglish.org/images/561337-key-preliminary-revisions-wordlists.pdf"
+get_any "ngsl-teaching.csv"     "https://www.newgeneralservicelist.com/s/NGSL_12_lemmatized_for_teaching.csv"
+get_any "ngsl-stats.csv"        "https://www.newgeneralservicelist.com/s/NGSL_12_stats.csv"
+get_any "ngsl-definitions.xlsx" "https://www.newgeneralservicelist.com/s/NGSL_12_with_English_definitions.xlsx"
+
 echo ""
 echo "Готово. Что не скачалось автоматически — см. materials/README.md"
+echo "Не берётся сценарием: соответствие грамматики и лексики ступеням"
+echo "с englishprofile.org — там браузерное приложение."
