@@ -1,0 +1,923 @@
+<title>CodeNTalk — три варианта главной страницы</title>
+
+<style>
+  /* =========================================================
+     ОБЩИЕ ТОКЕНЫ
+     Светлая палитра задаётся здесь, в bare :root, чтобы ни один
+     цвет не жил только внутри media или [data-theme].
+     ========================================================= */
+  :root {
+    color-scheme: light;
+
+    --shell-bg: #eceaee;
+    --shell-ink: #2a2530;
+    --shell-ink-soft: #6c6474;
+    --shell-line: #d6d1da;
+    --shell-surface: #ffffff;
+
+    --radius-s: 6px;
+    --radius-m: 10px;
+    --radius-l: 16px;
+
+    --step--1: clamp(0.78rem, 0.76rem + 0.1vw, 0.85rem);
+    --step-0: clamp(0.95rem, 0.92rem + 0.15vw, 1.05rem);
+    --step-1: clamp(1.15rem, 1.08rem + 0.35vw, 1.4rem);
+    --step-2: clamp(1.5rem, 1.35rem + 0.75vw, 2rem);
+    --step-3: clamp(2rem, 1.7rem + 1.5vw, 3.1rem);
+    --step-4: clamp(2.6rem, 2rem + 2.6vw, 4.4rem);
+
+    --sans: ui-sans-serif, system-ui, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    --serif: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+    --mono: ui-monospace, "Cascadia Mono", "SF Mono", Consolas, monospace;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      color-scheme: dark;
+      --shell-bg: #15131a;
+      --shell-ink: #e8e3ec;
+      --shell-ink-soft: #9c93a6;
+      --shell-line: #2e2836;
+      --shell-surface: #1d1a23;
+    }
+  }
+
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+    --shell-bg: #15131a;
+    --shell-ink: #e8e3ec;
+    --shell-ink-soft: #9c93a6;
+    --shell-line: #2e2836;
+    --shell-surface: #1d1a23;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--shell-bg);
+    color: var(--shell-ink);
+    font-family: var(--sans);
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    overflow-wrap: break-word;
+  }
+
+  h1, h2, h3 { text-wrap: balance; margin: 0; }
+  p { margin: 0; }
+  a { color: inherit; }
+
+  :focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { animation: none !important; transition: none !important; }
+  }
+
+  /* ---------- панель управления макетом ---------- */
+  .shell {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: var(--shell-surface);
+    border-bottom: 1px solid var(--shell-line);
+    padding: 10px clamp(12px, 3vw, 28px);
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .shell__label {
+    font-size: var(--step--1);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--shell-ink-soft);
+    font-weight: 700;
+  }
+
+  .tabs { display: flex; gap: 6px; flex-wrap: wrap; }
+
+  .tab {
+    font: inherit;
+    font-size: var(--step--1);
+    font-weight: 600;
+    padding: 7px 14px;
+    border-radius: 999px;
+    border: 1px solid var(--shell-line);
+    background: transparent;
+    color: var(--shell-ink-soft);
+    cursor: pointer;
+  }
+
+  .tab[aria-selected="true"] {
+    background: var(--shell-ink);
+    border-color: var(--shell-ink);
+    color: var(--shell-surface);
+  }
+
+  .shell__spacer { margin-left: auto; }
+
+  .toggle {
+    font: inherit;
+    font-size: var(--step--1);
+    font-weight: 600;
+    padding: 7px 14px;
+    border-radius: 999px;
+    border: 1px solid var(--shell-line);
+    background: transparent;
+    color: var(--shell-ink);
+    cursor: pointer;
+  }
+
+  .note {
+    padding: 12px clamp(12px, 3vw, 28px);
+    font-size: var(--step--1);
+    color: var(--shell-ink-soft);
+    background: var(--shell-bg);
+    border-bottom: 1px solid var(--shell-line);
+  }
+
+  .variant { display: none; }
+  .variant[data-active="true"] { display: block; }
+
+  /* =========================================================
+     ВАРИАНТ 1 — «ПРИВЫЧНЫЙ»
+     Белый лист, синий акцент, карточная сетка. Форма, которую
+     аудитория уже знает по Coursera и Udemy: узнавание работает
+     на доверие.
+     ========================================================= */
+  .v1 {
+    --bg: #ffffff;
+    --alt: #f4f6f9;
+    --ink: #16202e;
+    --soft: #5b6b7f;
+    --line: #dde3ea;
+    --card: #ffffff;
+    --brand: #1a56b8;
+    --brand-ink: #123f88;
+    --brand-soft: #e8f0fd;
+    --free: #0e7a5a;
+    --free-soft: #e3f4ee;
+    --shadow: 0 1px 2px rgba(22, 32, 46, .06), 0 6px 20px rgba(22, 32, 46, .07);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) .v1 {
+      --bg: #0e141d;
+      --alt: #141c27;
+      --ink: #e6edf5;
+      --soft: #94a4b8;
+      --line: #24303f;
+      --card: #141c27;
+      --brand: #6fa4ff;
+      --brand-ink: #9cc0ff;
+      --brand-soft: #16243c;
+      --free: #4fbf95;
+      --free-soft: #10281f;
+      --shadow: 0 1px 2px rgba(0, 0, 0, .4), 0 6px 20px rgba(0, 0, 0, .35);
+    }
+  }
+
+  :root[data-theme="dark"] .v1 {
+    --bg: #0e141d;
+    --alt: #141c27;
+    --ink: #e6edf5;
+    --soft: #94a4b8;
+    --line: #24303f;
+    --card: #141c27;
+    --brand: #6fa4ff;
+    --brand-ink: #9cc0ff;
+    --brand-soft: #16243c;
+    --free: #4fbf95;
+    --free-soft: #10281f;
+    --shadow: 0 1px 2px rgba(0, 0, 0, .4), 0 6px 20px rgba(0, 0, 0, .35);
+  }
+
+  /* =========================================================
+     ВАРИАНТ 2 — «СОХРАНЁННОЕ МЕСТО»
+     Тёплая бумага, слива и латунь. Слива не занимает красный,
+     янтарный и зелёный — они остаются под смыслы «верно»,
+     «внимание», «ошибка».
+     ========================================================= */
+  .v2 {
+    --bg: #f7f4f6;
+    --alt: #efe9ee;
+    --ink: #241d29;
+    --soft: #6d6274;
+    --line: #e2d9e3;
+    --card: #ffffff;
+    --brand: #6d3a72;
+    --brand-ink: #572c5c;
+    --brand-soft: #f1e7f2;
+    --work: #9a6a2c;
+    --work-soft: #f7eede;
+    --shadow: 0 1px 2px rgba(36, 29, 41, .05), 0 10px 28px rgba(36, 29, 41, .08);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) .v2 {
+      --bg: #17131a;
+      --alt: #1f1922;
+      --ink: #ede6ef;
+      --soft: #a294a8;
+      --line: #322837;
+      --card: #201a24;
+      --brand: #c99ad2;
+      --brand-ink: #dcb8e2;
+      --brand-soft: #33223a;
+      --work: #d5a465;
+      --work-soft: #362718;
+      --shadow: 0 1px 2px rgba(0, 0, 0, .4), 0 10px 28px rgba(0, 0, 0, .4);
+    }
+  }
+
+  :root[data-theme="dark"] .v2 {
+    --bg: #17131a;
+    --alt: #1f1922;
+    --ink: #ede6ef;
+    --soft: #a294a8;
+    --line: #322837;
+    --card: #201a24;
+    --brand: #c99ad2;
+    --brand-ink: #dcb8e2;
+    --brand-soft: #33223a;
+    --work: #d5a465;
+    --work-soft: #362718;
+    --shadow: 0 1px 2px rgba(0, 0, 0, .4), 0 10px 28px rgba(0, 0, 0, .4);
+  }
+
+  /* =========================================================
+     ВАРИАНТ 3 — «КАФЕДРА»
+     Почти без украшений: крупная типографика, тонкие линейки,
+     сдержанный зелёный. Вид серьёзного учебного заведения,
+     а не магазина курсов.
+     ========================================================= */
+  .v3 {
+    --bg: #fbfaf7;
+    --alt: #f2f0ea;
+    --ink: #1c1e1a;
+    --soft: #5f6459;
+    --line: #ddd9cf;
+    --card: #ffffff;
+    --brand: #2f5d43;
+    --brand-ink: #244935;
+    --brand-soft: #e6efe8;
+    --shadow: none;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) .v3 {
+      --bg: #121410;
+      --alt: #191c17;
+      --ink: #e9ebe4;
+      --soft: #9aa093;
+      --line: #2a2e26;
+      --card: #191c17;
+      --brand: #7ec49b;
+      --brand-ink: #9ed6b3;
+      --brand-soft: #1c2b22;
+      --shadow: none;
+    }
+  }
+
+  :root[data-theme="dark"] .v3 {
+    --bg: #121410;
+    --alt: #191c17;
+    --ink: #e9ebe4;
+    --soft: #9aa093;
+    --line: #2a2e26;
+    --card: #191c17;
+    --brand: #7ec49b;
+    --brand-ink: #9ed6b3;
+    --brand-soft: #1c2b22;
+    --shadow: none;
+  }
+
+  /* ---------- общая обвязка вариантов ---------- */
+  .page {
+    background: var(--bg);
+    color: var(--ink);
+    min-height: 100vh;
+  }
+
+  .wrap {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding-inline: clamp(16px, 4vw, 32px);
+  }
+
+  .topbar {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding-block: 16px;
+    border-bottom: 1px solid var(--line);
+    flex-wrap: wrap;
+  }
+
+  .logo {
+    font-weight: 800;
+    font-size: var(--step-1);
+    letter-spacing: -0.02em;
+  }
+
+  .topnav {
+    display: flex;
+    gap: 18px;
+    font-size: var(--step-0);
+    color: var(--soft);
+    flex-wrap: wrap;
+  }
+
+  .topnav a { text-decoration: none; }
+  .topnav a:hover { color: var(--ink); }
+
+  .topbar__end { margin-left: auto; display: flex; gap: 10px; align-items: center; }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font: inherit;
+    font-weight: 650;
+    font-size: var(--step-0);
+    padding: 11px 20px;
+    border-radius: var(--radius-m);
+    border: 1px solid transparent;
+    background: var(--brand);
+    color: var(--bg);
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .btn--ghost {
+    background: transparent;
+    color: var(--ink);
+    border-color: var(--line);
+  }
+
+  .btn--lg { padding: 14px 26px; font-size: var(--step-1); }
+
+  .eyebrow {
+    font-size: var(--step--1);
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--soft);
+  }
+
+  .lede { color: var(--soft); font-size: var(--step-1); max-width: 60ch; }
+
+  .grid-dirs {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(255px, 1fr));
+    gap: 16px;
+  }
+
+  .tagline { color: var(--soft); font-size: var(--step-0); }
+
+  .badge {
+    display: inline-block;
+    font-size: var(--step--1);
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 3px 9px;
+    border-radius: 999px;
+  }
+
+  .meta { font-size: var(--step--1); color: var(--soft); font-variant-numeric: tabular-nums; }
+
+  .section { padding-block: clamp(44px, 7vw, 80px); }
+  .section--alt { background: var(--alt); }
+
+  .stack { display: flex; flex-direction: column; }
+  .stack-8 { gap: 8px; } .stack-12 { gap: 12px; }
+  .stack-16 { gap: 16px; } .stack-24 { gap: 24px; } .stack-40 { gap: 40px; }
+
+  .footer {
+    border-top: 1px solid var(--line);
+    padding-block: 32px;
+    color: var(--soft);
+    font-size: var(--step--1);
+  }
+
+  /* ---------- вариант 1: своё ---------- */
+  .v1 .hero { padding-block: clamp(40px, 6vw, 72px); display: grid; gap: 40px; grid-template-columns: 1.15fr 1fr; align-items: center; }
+  @media (max-width: 860px) { .v1 .hero { grid-template-columns: 1fr; } }
+
+  .v1 h1 { font-size: var(--step-3); letter-spacing: -0.025em; line-height: 1.08; }
+
+  .v1 .searchbar {
+    display: flex; gap: 0; border: 2px solid var(--line);
+    border-radius: var(--radius-m); overflow: hidden; background: var(--card);
+    max-width: 520px;
+  }
+  .v1 .searchbar input {
+    font: inherit; font-size: var(--step-0); border: 0; padding: 13px 16px;
+    flex: 1; min-width: 0; background: transparent; color: var(--ink);
+  }
+  .v1 .searchbar input::placeholder { color: var(--soft); }
+  .v1 .searchbar button { border-radius: 0; }
+
+  .v1 .trust { display: flex; gap: 26px; flex-wrap: wrap; }
+  .v1 .trust b { display: block; font-size: var(--step-2); letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
+  .v1 .trust span { font-size: var(--step--1); color: var(--soft); }
+
+  .v1 .card {
+    background: var(--card); border: 1px solid var(--line);
+    border-radius: var(--radius-l); padding: 20px; box-shadow: var(--shadow);
+    display: flex; flex-direction: column; gap: 10px; text-decoration: none;
+  }
+  .v1 .card h3 { font-size: var(--step-1); letter-spacing: -0.015em; }
+  .v1 .card .badge { align-self: flex-start; background: var(--free-soft); color: var(--free); }
+  .v1 .card .badge--paid { background: var(--brand-soft); color: var(--brand-ink); }
+  .v1 .card .badge--soon { background: transparent; color: var(--soft); border: 1px solid var(--line); }
+
+  .v1 .panel {
+    background: var(--card); border: 1px solid var(--line);
+    border-radius: var(--radius-l); padding: 24px; box-shadow: var(--shadow);
+  }
+
+  .v1 .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 24px; }
+  .v1 .stepnum {
+    width: 32px; height: 32px; border-radius: 8px; display: grid; place-items: center;
+    background: var(--brand-soft); color: var(--brand-ink); font-weight: 800; font-size: var(--step--1);
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* ---------- вариант 2: своё ---------- */
+  .v2 .hero { padding-block: clamp(48px, 7vw, 88px); display: grid; gap: 44px; grid-template-columns: 1fr 0.85fr; align-items: start; }
+  @media (max-width: 900px) { .v2 .hero { grid-template-columns: 1fr; } }
+
+  .v2 h1 { font-family: var(--serif); font-size: var(--step-3); line-height: 1.12; font-weight: 600; }
+  .v2 .lede { font-family: var(--serif); }
+
+  /* Карточка «сохранённое место»: язычок сверху, как закладка */
+  .v2 .bookmark {
+    position: relative; background: var(--card); border: 1px solid var(--line);
+    border-radius: var(--radius-l); padding: 26px 24px 24px;
+    box-shadow: var(--shadow);
+  }
+  .v2 .bookmark::before {
+    content: ""; position: absolute; top: -1px; left: 28px;
+    width: 46px; height: 14px; background: var(--work);
+    border-radius: 0 0 4px 4px;
+  }
+  .v2 .bookmark h3 { font-size: var(--step-1); font-family: var(--serif); font-weight: 600; }
+
+  .v2 .card {
+    background: var(--card); border: 1px solid var(--line);
+    border-radius: var(--radius-l); padding: 20px; box-shadow: var(--shadow);
+    display: flex; flex-direction: column; gap: 10px; text-decoration: none;
+  }
+  .v2 .card h3 { font-size: var(--step-1); font-family: var(--serif); font-weight: 600; }
+  .v2 .card .badge { align-self: flex-start; background: var(--brand-soft); color: var(--brand-ink); }
+  .v2 .card .badge--free { background: var(--work-soft); color: var(--work); }
+
+  .v2 .principles { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 28px; }
+  .v2 .principles h3 { font-size: var(--step-1); font-family: var(--serif); font-weight: 600; }
+  .v2 .rule { width: 34px; height: 2px; background: var(--work); }
+
+  /* ---------- вариант 3: своё ---------- */
+  .v3 .hero { padding-block: clamp(56px, 9vw, 120px); }
+  .v3 h1 {
+    font-size: var(--step-4); line-height: 1.02; letter-spacing: -0.04em;
+    font-weight: 800; max-width: 16ch;
+  }
+  .v3 .lede { font-size: var(--step-1); margin-top: 24px; }
+
+  .v3 .ruleline { height: 1px; background: var(--line); }
+
+  .v3 .listing { display: grid; }
+  .v3 .row {
+    display: grid; grid-template-columns: 1fr auto; gap: 16px; align-items: baseline;
+    padding-block: 18px; border-bottom: 1px solid var(--line); text-decoration: none;
+  }
+  .v3 .row:first-child { border-top: 1px solid var(--line); }
+  .v3 .row h3 { font-size: var(--step-2); letter-spacing: -0.025em; font-weight: 700; }
+  .v3 .row .tagline { margin-top: 4px; }
+  .v3 .row__end { text-align: right; white-space: nowrap; }
+
+  .v3 .price {
+    display: flex; gap: clamp(24px, 5vw, 64px); flex-wrap: wrap;
+    padding-block: 8px;
+  }
+  .v3 .price div { flex: 1 1 240px; }
+  .v3 .price b { font-size: var(--step-2); letter-spacing: -0.02em; display: block; }
+
+  .v3 .kicker { font-family: var(--mono); font-size: var(--step--1); color: var(--soft); letter-spacing: 0.04em; }
+</style>
+
+<div class="shell">
+  <span class="shell__label">Макет главной</span>
+  <div class="tabs" role="tablist" aria-label="Варианты оформления">
+    <button class="tab" role="tab" aria-selected="true" data-target="v1">1 · Привычный</button>
+    <button class="tab" role="tab" aria-selected="false" data-target="v2">2 · Сохранённое место</button>
+    <button class="tab" role="tab" aria-selected="false" data-target="v3">3 · Кафедра</button>
+  </div>
+  <div class="shell__spacer"></div>
+  <button class="toggle" id="themeBtn" type="button">Тёмная тема</button>
+</div>
+
+<p class="note" id="note">
+  Белый лист, синий акцент, карточная сетка и поиск сверху — форма, которую взрослая аудитория
+  уже знает по Coursera и Udemy. Узнавание работает на доверие: человек понимает, где он и что делать,
+  ещё до того, как прочитал заголовок.
+</p>
+
+<!-- ================= ВАРИАНТ 1 ================= -->
+<section class="variant v1" data-active="true" id="v1">
+  <div class="page">
+    <div class="wrap">
+      <header class="topbar">
+        <span class="logo">CodeNTalk</span>
+        <nav class="topnav">
+          <a href="#">Направления</a>
+          <a href="#">Как это работает</a>
+          <a href="#">Подписка</a>
+          <a href="#">Сертификаты</a>
+        </nav>
+        <div class="topbar__end">
+          <a class="btn btn--ghost" href="#">Войти</a>
+          <a class="btn" href="#">Создать аккаунт</a>
+        </div>
+      </header>
+
+      <div class="hero">
+        <div class="stack stack-24">
+          <h1>Учитесь в своём темпе — и возвращайтесь, когда сможете</h1>
+          <p class="lede">
+            Английский и основы веб-разработки бесплатно. Остальные курсы — по одной подписке,
+            которую можно приостановить в любой месяц. Всё сохранится: вернётесь на тот же урок.
+          </p>
+          <div class="searchbar">
+            <input type="search" placeholder="Какой предмет вам нужен?" aria-label="Поиск по направлениям">
+            <button class="btn" type="button">Найти</button>
+          </div>
+          <div class="trust">
+            <div><b>9</b><span>языков в программе</span></div>
+            <div><b>6</b><span>уровней английского</span></div>
+            <div><b>0 ₸</b><span>английский навсегда</span></div>
+          </div>
+        </div>
+
+        <div class="panel stack stack-16">
+          <span class="eyebrow">Что входит в подписку</span>
+          <div class="stack stack-12">
+            <p><strong>Два курса одновременно.</strong> Достаточно, чтобы не распыляться, и честно: платите за то, что действительно проходите.</p>
+            <p><strong>Настоящие проверочные работы.</strong> Вопросы каждый раз новые — работу не пройти, нажимая одну и ту же кнопку.</p>
+            <p><strong>Сертификат с проверкой.</strong> Работодатель откроет ссылку и убедится, что он подлинный.</p>
+          </div>
+          <a class="btn" href="#">Посмотреть тарифы</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="section section--alt">
+      <div class="wrap stack stack-24">
+        <div class="stack stack-8">
+          <span class="eyebrow">Направления</span>
+          <h2 style="font-size: var(--step-2); letter-spacing: -0.02em;">С чего начнём</h2>
+        </div>
+        <div class="grid-dirs">
+          <a class="card" href="#">
+            <span class="badge">Бесплатно</span>
+            <h3>Английский</h3>
+            <p class="tagline">Шесть уровней: от первых слов до свободной речи и деловых переговоров.</p>
+            <span class="meta">6 уровней · 685 заданий</span>
+          </a>
+          <a class="card" href="#">
+            <span class="badge">Бесплатно</span>
+            <h3>Введение в веб-разработку</h3>
+            <p class="tagline">HTML и CSS с первого дня: пишете код слева, результат видите справа.</p>
+            <span class="meta">9 модулей · с практикой</span>
+          </a>
+          <a class="card" href="#">
+            <span class="badge badge--paid">По подписке</span>
+            <h3>Французский</h3>
+            <p class="tagline">Тот же метод: разбор правила, практика, разговорные ситуации.</p>
+            <span class="meta">4 уровня</span>
+          </a>
+          <a class="card" href="#">
+            <span class="badge badge--paid">По подписке</span>
+            <h3>Python</h3>
+            <p class="tagline">От первой программы до работы с данными. Код выполняется прямо в браузере.</p>
+            <span class="meta">7 модулей</span>
+          </a>
+          <a class="card" href="#">
+            <span class="badge badge--paid">По подписке</span>
+            <h3>Дата-аналитика</h3>
+            <p class="tagline">Профессия целиком: таблицы, запросы, отчёты, разбор реальных задач.</p>
+            <span class="meta">12 модулей</span>
+          </a>
+          <a class="card" href="#">
+            <span class="badge badge--soon">Скоро</span>
+            <h3>Тестирование ПО</h3>
+            <p class="tagline">Что делает тестировщик, как искать ошибки и оформлять находки.</p>
+            <span class="meta">в работе</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="wrap stack stack-40">
+        <div class="stack stack-8">
+          <span class="eyebrow">Как это устроено</span>
+          <h2 style="font-size: var(--step-2); letter-spacing: -0.02em;">Три шага, дальше — по кругу</h2>
+        </div>
+        <div class="steps">
+          <div class="stack stack-12">
+            <span class="stepnum">1</span>
+            <h3 style="font-size: var(--step-1);">Выбираете направление</h3>
+            <p class="tagline">Если не уверены в уровне — короткий тест подскажет, с какого модуля начать, чтобы не скучать и не тонуть.</p>
+          </div>
+          <div class="stack stack-12">
+            <span class="stepnum">2</span>
+            <h3 style="font-size: var(--step-1);">Проходите модуль</h3>
+            <p class="tagline">Сначала объяснение простым языком, потом упражнения, потом проверочная работа. Урок — 8–15 минут.</p>
+          </div>
+          <div class="stack stack-12">
+            <span class="stepnum">3</span>
+            <h3 style="font-size: var(--step-1);">Получаете сертификат</h3>
+            <p class="tagline">После итогового экзамена. С уникальным номером и страницей проверки — её можно отправить работодателю.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="wrap">
+      <footer class="footer">CodeNTalk · Обучение в своём темпе · Алматы</footer>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ВАРИАНТ 2 ================= -->
+<section class="variant v2" id="v2">
+  <div class="page">
+    <div class="wrap">
+      <header class="topbar">
+        <span class="logo">CodeNTalk</span>
+        <nav class="topnav">
+          <a href="#">Направления</a>
+          <a href="#">Подписка</a>
+          <a href="#">О платформе</a>
+        </nav>
+        <div class="topbar__end">
+          <a class="btn btn--ghost" href="#">Войти</a>
+          <a class="btn" href="#">Начать бесплатно</a>
+        </div>
+      </header>
+
+      <div class="hero">
+        <div class="stack stack-24">
+          <span class="eyebrow">Обучение без спешки</span>
+          <h1>Здесь ваше место сохраняется</h1>
+          <p class="lede">
+            Пропустили месяц? Полгода? Откроете платформу — и продолжите с того самого урока,
+            на котором остановились. Никаких счётчиков пропущенных дней и напоминаний о том,
+            что вы что-то не успели.
+          </p>
+          <div style="display:flex; gap:12px; flex-wrap:wrap;">
+            <a class="btn btn--lg" href="#">Начать с английского</a>
+            <a class="btn btn--ghost btn--lg" href="#">Посмотреть направления</a>
+          </div>
+        </div>
+
+        <div class="bookmark stack stack-16">
+          <span class="eyebrow">Так это выглядит потом</span>
+          <div class="stack stack-8">
+            <span class="meta">Английский A1 · Модуль 3</span>
+            <h3>Урок 2. Как рассказать о вчерашнем дне</h3>
+            <span class="meta">Остановились на середине · 9 минут до конца</span>
+          </div>
+          <a class="btn" href="#">Продолжить</a>
+          <p class="tagline" style="font-size: var(--step--1);">
+            Последний раз вы заходили 14 марта. Мы ничего не сбросили.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section section--alt">
+      <div class="wrap stack stack-40">
+        <div class="stack stack-8">
+          <span class="eyebrow">Во что мы верим</span>
+          <h2 style="font-family: var(--serif); font-size: var(--step-2); font-weight: 600;">Учиться должно быть спокойно</h2>
+        </div>
+        <div class="principles">
+          <div class="stack stack-12">
+            <span class="rule"></span>
+            <h3>Ошибка — это не провал</h3>
+            <p class="tagline">Ответили неверно — получите подсказку и попробуете снова. Ничего не сгорает, ничего не отнимается.</p>
+          </div>
+          <div class="stack stack-12">
+            <span class="rule"></span>
+            <h3>Никаких серий и напоминаний</h3>
+            <p class="tagline">Мы не считаем дни подряд и не пишем «вы пропустили три занятия». Взрослая жизнь идёт неровно, и это нормально.</p>
+          </div>
+          <div class="stack stack-12">
+            <span class="rule"></span>
+            <h3>Сначала понять, потом применить</h3>
+            <p class="tagline">Перед каждым заданием — правило человеческим языком. Не наоборот.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="wrap stack stack-24">
+        <div class="stack stack-8">
+          <span class="eyebrow">Направления</span>
+          <h2 style="font-family: var(--serif); font-size: var(--step-2); font-weight: 600;">Что можно изучать</h2>
+        </div>
+        <div class="grid-dirs">
+          <a class="card" href="#">
+            <span class="badge badge--free">Бесплатно</span>
+            <h3>Английский</h3>
+            <p class="tagline">Шесть уровней, от первых слов до свободной речи.</p>
+          </a>
+          <a class="card" href="#">
+            <span class="badge badge--free">Бесплатно</span>
+            <h3>Введение в веб-разработку</h3>
+            <p class="tagline">HTML и CSS: пишете код и сразу видите результат.</p>
+          </a>
+          <a class="card" href="#">
+            <span class="badge">По подписке</span>
+            <h3>Французский</h3>
+            <p class="tagline">Разбор правила, практика, живые ситуации.</p>
+          </a>
+          <a class="card" href="#">
+            <span class="badge">По подписке</span>
+            <h3>Python</h3>
+            <p class="tagline">От первой программы до работы с данными.</p>
+          </a>
+        </div>
+        <p class="tagline">
+          По подписке доступны два курса одновременно — чтобы вы шли вглубь, а не собирали коллекцию начатого.
+        </p>
+      </div>
+    </div>
+
+    <div class="wrap">
+      <footer class="footer">CodeNTalk · Обучение в своём темпе · Алматы</footer>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ВАРИАНТ 3 ================= -->
+<section class="variant v3" id="v3">
+  <div class="page">
+    <div class="wrap">
+      <header class="topbar">
+        <span class="logo">CodeNTalk</span>
+        <nav class="topnav">
+          <a href="#">Программа</a>
+          <a href="#">Подписка</a>
+          <a href="#">Сертификаты</a>
+        </nav>
+        <div class="topbar__end">
+          <a class="btn btn--ghost" href="#">Войти</a>
+          <a class="btn" href="#">Начать</a>
+        </div>
+      </header>
+
+      <div class="hero stack stack-24">
+        <span class="kicker">Языки · Программирование · Профессии</span>
+        <h1>Знание, за которое не нужно платить дважды</h1>
+        <p class="lede">
+          Одна подписка открывает все платные курсы. Английский и основы веб-разработки
+          бесплатны всегда. Приостановить и вернуться можно в любой месяц — достигнутое
+          сохраняется полностью.
+        </p>
+        <div style="display:flex; gap:12px; flex-wrap:wrap; margin-top: 8px;">
+          <a class="btn btn--lg" href="#">Открыть программу</a>
+          <a class="btn btn--ghost btn--lg" href="#">Определить свой уровень</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="wrap stack stack-24">
+        <span class="eyebrow">Программа</span>
+        <div class="listing">
+          <a class="row" href="#">
+            <div>
+              <h3>Английский</h3>
+              <p class="tagline">Шесть уровней по общеевропейской шкале: от первых слов до переговоров и профессиональной переписки.</p>
+            </div>
+            <div class="row__end stack stack-8">
+              <span class="badge" style="background: var(--brand-soft); color: var(--brand-ink);">Бесплатно</span>
+              <span class="meta">6 уровней</span>
+            </div>
+          </a>
+          <a class="row" href="#">
+            <div>
+              <h3>Введение в веб-разработку</h3>
+              <p class="tagline">HTML и CSS с практикой в браузере: код и результат на одном экране.</p>
+            </div>
+            <div class="row__end stack stack-8">
+              <span class="badge" style="background: var(--brand-soft); color: var(--brand-ink);">Бесплатно</span>
+              <span class="meta">9 модулей</span>
+            </div>
+          </a>
+          <a class="row" href="#">
+            <div>
+              <h3>Французский, испанский, арабский</h3>
+              <p class="tagline">Те же ступени и та же методика, что и в английском.</p>
+            </div>
+            <div class="row__end stack stack-8">
+              <span class="meta">По подписке</span>
+            </div>
+          </a>
+          <a class="row" href="#">
+            <div>
+              <h3>Python и работа с данными</h3>
+              <p class="tagline">От первой программы до анализа таблиц и построения отчётов.</p>
+            </div>
+            <div class="row__end stack stack-8">
+              <span class="meta">По подписке</span>
+            </div>
+          </a>
+          <a class="row" href="#">
+            <div>
+              <h3>Профессии</h3>
+              <p class="tagline">Тестирование ПО, управление проектами, дата-аналитика — программы для смены рода занятий.</p>
+            </div>
+            <div class="row__end stack stack-8">
+              <span class="meta">В работе</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="section section--alt">
+      <div class="wrap stack stack-24">
+        <span class="eyebrow">Условия</span>
+        <div class="price">
+          <div class="stack stack-8">
+            <b>Бесплатно</b>
+            <p class="tagline">Английский полностью и введение в веб-разработку. Без ограничения по времени и без карты.</p>
+          </div>
+          <div class="stack stack-8">
+            <b>Подписка</b>
+            <p class="tagline">Все остальные курсы, два одновременно. Отмена в одно действие, достигнутое сохраняется.</p>
+          </div>
+          <div class="stack stack-8">
+            <b>Сертификат</b>
+            <p class="tagline">После итогового экзамена. С номером и страницей проверки для работодателя.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="wrap">
+      <footer class="footer">CodeNTalk · Обучение в своём темпе · Алматы</footer>
+    </div>
+  </div>
+</section>
+
+<script>
+  const NOTES = {
+    v1: "Белый лист, синий акцент, карточная сетка и поиск сверху — форма, которую взрослая аудитория уже знает по Coursera и Udemy. Узнавание работает на доверие: человек понимает, где он и что делать, ещё до того, как прочитал заголовок.",
+    v2: "Тёплая бумага, слива и латунь. Обещание платформы вынесено в заголовок и показано сразу: карточка-закладка с язычком демонстрирует, как выглядит возвращение. Слива не занимает красный, янтарный и зелёный — они остаются под смыслы «верно», «внимание», «ошибка».",
+    v3: "Почти без украшений: крупная типографика, тонкие линейки, программа обычным списком. Вид учебного заведения, а не магазина курсов. Подходит, если главное — доверие взрослого человека, меняющего профессию."
+  };
+
+  const tabs = document.querySelectorAll(".tab");
+  const note = document.getElementById("note");
+
+  tabs.forEach((tab) => {
+    tab.addEventListener("click", () => {
+      const target = tab.dataset.target;
+      tabs.forEach((t) => t.setAttribute("aria-selected", String(t === tab)));
+      document.querySelectorAll(".variant").forEach((v) => {
+        v.dataset.active = String(v.id === target);
+      });
+      note.textContent = NOTES[target];
+      window.scrollTo({ top: 0, behavior: "instant" });
+    });
+  });
+
+  const themeBtn = document.getElementById("themeBtn");
+  function currentlyDark() {
+    const stamped = document.documentElement.getAttribute("data-theme");
+    if (stamped) return stamped === "dark";
+    return window.matchMedia("(prefers-color-scheme: dark)").matches;
+  }
+  function sync() {
+    themeBtn.textContent = currentlyDark() ? "Светлая тема" : "Тёмная тема";
+  }
+  themeBtn.addEventListener("click", () => {
+    document.documentElement.setAttribute("data-theme", currentlyDark() ? "light" : "dark");
+    sync();
+  });
+  sync();
+</script>
