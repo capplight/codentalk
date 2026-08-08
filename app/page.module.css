@@ -1,174 +1,221 @@
+/* ---------- первый экран ---------- */
 .hero {
-  text-align: center;
-  padding: 52px 0 20px;
+  padding: clamp(36px, 6vw, 68px) 0;
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 40px;
+  align-items: center;
 }
 
-.stamp {
-  display: inline-block;
-  border: 2px dashed var(--accent);
-  color: var(--accent-ink);
-  border-radius: 12px;
-  padding: 8px 18px;
-  font-size: 13px;
-  font-weight: 600;
-  letter-spacing: 0.06em;
-  transform: rotate(-2deg);
-  margin-bottom: 14px;
+@media (max-width: 860px) {
+  .hero {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
 }
 
 .title {
-  font-family: var(--font-story);
-  font-size: clamp(32px, 6.5vw, 54px);
-  line-height: 1.12;
-  margin: 8px 0 14px;
-  font-weight: 700;
-  /* заголовок в две строки, а не во всю ширину широкого контейнера */
-  max-width: 20ch;
-  margin-inline: auto;
-}
-
-.title em {
-  font-style: normal;
-  color: var(--accent);
+  font-size: clamp(30px, 5.4vw, 46px);
+  line-height: 1.1;
+  letter-spacing: -0.025em;
+  margin: 0;
+  font-weight: 800;
 }
 
 .lead {
   color: var(--ink-soft);
-  max-width: 52ch;
-  margin: 0 auto 8px;
-  font-size: 17px;
+  font-size: clamp(16px, 2vw, 18px);
+  max-width: 58ch;
+  margin: 0;
 }
 
-.heroActions {
+.heroCol {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 8px;
-  margin: 6px 0 34px;
+  gap: 22px;
 }
 
-.heroActionsHint {
-  font-size: 13px;
-  color: var(--ink-soft);
-}
-
-.howItWorks {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 16px 32px;
-  text-align: left;
-  margin: 8px 0;
-}
-
-@media (max-width: 700px) {
-  .howItWorks {
-    grid-template-columns: 1fr;
-  }
-}
-
-.howStep {
+/* Поиск в первом экране: привычная точка входа для тех,
+   кто уже знает, что ищет. */
+.search {
   display: flex;
-  gap: 12px;
-  align-items: flex-start;
+  border: 2px solid var(--line);
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--surface);
+  max-width: 520px;
 }
 
-.howStep b {
+.searchInput {
+  font: inherit;
+  font-size: 16px;
+  border: 0;
+  padding: 13px 16px;
+  flex: 1;
+  min-width: 0;
+  background: transparent;
+  color: var(--ink);
+}
+
+.searchInput::placeholder {
+  color: var(--ink-soft);
+}
+
+.searchBtn {
+  border-radius: 0;
+  border: 0;
+}
+
+/* Цифры, а не обещания: их можно проверить */
+.trust {
+  display: flex;
+  gap: 26px;
+  flex-wrap: wrap;
+}
+
+.trustNum {
   display: block;
-  font-size: 14.5px;
-  margin-bottom: 3px;
+  font-size: clamp(20px, 3vw, 26px);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
 }
 
-.howStep span {
+.trustLabel {
   font-size: 13px;
   color: var(--ink-soft);
-  line-height: 1.45;
 }
 
-.howNum {
-  flex: none;
-  width: 28px;
-  height: 28px;
-  border-radius: 50%;
-  display: grid;
-  place-items: center;
-  font-weight: 700;
-  font-size: 13px;
-  background: var(--accent-soft);
-  color: var(--accent-ink);
-  border: 1.5px solid var(--accent);
-}
-
-.principles {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
-  margin: 40px 0 8px;
-}
-
-@media (max-width: 560px) {
-  .principles {
-    grid-template-columns: 1fr;
-  }
-}
-
-.principle {
+/* ---------- панель «что входит» ---------- */
+.panel {
   background: var(--surface);
   border: 1px solid var(--line);
-  border-radius: 14px;
-  padding: 16px;
-  text-align: left;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
 
-.principle b {
-  display: block;
-  margin-bottom: 4px;
+.panelItem {
+  margin: 0;
+  color: var(--ink-soft);
   font-size: 15px;
 }
 
-.principle span {
-  font-size: 13.5px;
-  color: var(--ink-soft);
+.panelItem b {
+  color: var(--ink);
 }
 
-.path {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
-  flex-wrap: wrap;
-  margin: 26px 0 4px;
-}
-
-.pathStep {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 13px;
+.eyebrow {
+  font-size: 12px;
   font-weight: 700;
-  letter-spacing: 0.04em;
-  padding: 6px 14px;
-  border-radius: 999px;
-  border: 1.5px solid var(--line);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
   color: var(--ink-soft);
+}
+
+/* ---------- секции ---------- */
+.section {
+  padding: clamp(40px, 6vw, 72px) 0;
+}
+
+.sectionAlt {
   background: var(--surface);
+  border-block: 1px solid var(--line);
 }
 
-.pathStepOpen {
+.sectionTitle {
+  font-size: clamp(20px, 3vw, 28px);
+  letter-spacing: -0.02em;
+  margin: 6px 0 0;
+}
+
+.sectionHead {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-bottom: 22px;
+}
+
+/* ---------- направления ---------- */
+.tracks {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(265px, 1fr));
+  gap: 16px;
+}
+
+.track {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  text-decoration: none;
+  color: inherit;
+  transition: border-color 0.15s;
+}
+
+a.track:hover {
   border-color: var(--accent);
-  color: var(--accent-ink);
-  background: var(--accent-soft);
 }
 
-.pathArrow {
+.trackSoon {
+  opacity: 0.75;
+  box-shadow: none;
+}
+
+.trackTitle {
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  margin: 0;
+}
+
+.trackDesc {
   color: var(--ink-soft);
+  font-size: 14.5px;
+  margin: 0;
+  flex: 1;
+}
+
+.badge {
+  align-self: flex-start;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 3px 9px;
+  border-radius: 999px;
+  background: var(--accent-soft);
+  color: var(--accent-ink);
+}
+
+.badgeFree {
+  background: var(--good-soft);
+  color: var(--good);
+}
+
+.badgeSoon {
+  background: transparent;
+  color: var(--ink-soft);
+  border: 1px solid var(--line);
+}
+
+.trackMeta {
   font-size: 13px;
+  color: var(--ink-soft);
+  font-variant-numeric: tabular-nums;
 }
 
 .syllabus {
   display: flex;
   flex-wrap: wrap;
   gap: 6px;
-  margin-top: 10px;
 }
 
 .syllabusItem {
@@ -180,183 +227,40 @@
   padding: 3px 10px;
 }
 
-.sectionTitle {
-  font-size: 12px;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--ink-soft);
-  font-weight: 700;
-  margin: 40px 0 14px;
-}
-
-/* Уровни направления: на широком экране две колонки, иначе карточка
-   растягивается на метр и описание читать невозможно. */
-.courses {
+/* ---------- как это устроено ---------- */
+.steps {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 14px;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 26px;
 }
 
-@media (max-width: 760px) {
-  .courses {
-    grid-template-columns: 1fr;
-  }
-}
-
-.course {
+.step {
   display: flex;
-  gap: 16px;
-  align-items: flex-start;
-  background: var(--surface);
-  border: 1px solid var(--line);
-  border-radius: 16px;
-  padding: 18px;
-  box-shadow: var(--shadow);
-  text-decoration: none;
-  color: var(--ink);
-  transition: border-color 0.15s;
-}
-
-a.course:hover {
-  border-color: var(--accent);
-}
-
-.courseSoon {
-  opacity: 0.72;
-}
-
-.courseEmoji {
-  font-size: 30px;
-  line-height: 1;
-  margin-top: 2px;
-}
-
-.courseTitle {
-  font-weight: 700;
-  font-size: 17px;
-  display: flex;
-  align-items: center;
+  flex-direction: column;
   gap: 10px;
-  flex-wrap: wrap;
 }
 
-.courseLevel {
-  font-size: 11px;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  font-weight: 700;
-  color: var(--accent-ink);
+.stepNum {
+  width: 32px;
+  height: 32px;
+  border-radius: 9px;
+  display: grid;
+  place-items: center;
   background: var(--accent-soft);
-  border-radius: 999px;
-  padding: 3px 10px;
-}
-
-.soonBadge {
-  font-size: 11px;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  font-weight: 700;
-  color: var(--amber);
-  background: var(--amber-soft);
-  border-radius: 999px;
-  padding: 3px 10px;
-}
-
-.courseDesc {
-  color: var(--ink-soft);
-  font-size: 14.5px;
-  margin-top: 6px;
-}
-
-.courseMeta {
-  margin-top: 8px;
+  color: var(--accent-ink);
+  font-weight: 800;
   font-size: 13px;
-  color: var(--accent-ink);
-  font-weight: 600;
+  font-variant-numeric: tabular-nums;
 }
 
-/* ---------- карточки направлений (главная) ---------- */
-.tracksLead {
+.stepTitle {
+  font-size: 17px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.stepText {
   color: var(--ink-soft);
   font-size: 14.5px;
-  line-height: 1.55;
-  max-width: 62ch;
-  margin: -6px 0 16px;
-}
-
-.tracks {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 16px;
-}
-
-@media (max-width: 600px) {
-  .tracks {
-    grid-template-columns: 1fr;
-  }
-}
-
-.track {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  background: var(--surface);
-  border: 1px solid var(--line);
-  border-radius: 20px;
-  padding: 24px;
-  box-shadow: var(--shadow);
-  text-decoration: none;
-  color: var(--ink);
-  transition: border-color 0.15s, transform 0.15s;
-}
-
-a.track:hover {
-  border-color: var(--accent);
-  transform: translateY(-2px);
-}
-
-.trackSoon {
-  opacity: 0.82;
-}
-
-.trackEmoji {
-  font-size: 44px;
-  line-height: 1;
-  margin-bottom: 8px;
-}
-
-.trackBody {
-  display: flex;
-  flex-direction: column;
-}
-
-.trackTitle {
-  font-family: var(--font-story);
-  font-weight: 700;
-  font-size: 24px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  flex-wrap: wrap;
-}
-
-.trackTagline {
-  color: var(--accent-ink);
-  font-size: 13.5px;
-  font-weight: 600;
-  margin-top: 4px;
-}
-
-.trackDesc {
-  color: var(--ink-soft);
-  font-size: 14.5px;
-  line-height: 1.55;
-  margin: 10px 0 0;
-}
-
-.trackMeta {
-  margin-top: 14px;
-  font-size: 13.5px;
-  color: var(--accent-ink);
-  font-weight: 700;
+  margin: 0;
 }

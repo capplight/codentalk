@@ -30,15 +30,9 @@ function trackKind(track: Track): string {
   return "other";
 }
 
-/**
- * Платность курса. Пока бесплатны английский целиком и введение в
- * веб-разработку — так записано в разделе 1.2 техзадания. Остальное по подписке.
- */
-function courseAccess(track: Track, course: Course): "free" | "premium" {
-  if (track.slug === "english") return "free";
-  if (track.slug === "web" && course.slug.includes("intro")) return "free";
-  return "premium";
-}
+// Правило платности живёт в lib/domain/course-access.ts — им пользуется
+// и витрина. Дублировать нельзя: разойдётся.
+const { courseAccess } = await import("../lib/domain/course-access.ts");
 
 /**
  * Оценка времени урока. Считаем по числу заданий: примерно минута на задание
