@@ -1,0 +1,116 @@
+.card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  box-shadow: var(--shadow);
+  padding: clamp(24px, 5vw, 44px);
+  margin: 40px 0 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  text-align: center;
+}
+
+.seal {
+  width: 56px;
+  height: 56px;
+  margin: 0 auto;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: var(--good-soft);
+  color: var(--good);
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.sealBad {
+  background: var(--bad-soft);
+  color: var(--bad);
+}
+
+.headBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.eyebrow {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+.lead {
+  color: var(--ink-soft);
+  margin: 0;
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.meta {
+  font-size: 13px;
+  color: var(--ink-soft);
+}
+
+/* Имя — самое крупное на странице: работодатель ищет глазами именно его */
+.name {
+  font-size: clamp(24px, 5vw, 36px);
+  font-weight: 750;
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+.course {
+  font-size: clamp(18px, 3vw, 24px);
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  margin: 0;
+}
+
+.facts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 16px;
+  text-align: left;
+  border-top: 1px solid var(--line);
+  padding-top: 20px;
+  margin: 0;
+}
+
+.facts > div {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.facts dd {
+  margin: 0;
+}
+
+.factValue {
+  font-size: 15px;
+  font-weight: 650;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Номер набран моноширинным: его переписывают с экрана и диктуют вслух */
+.serial {
+  font-family: var(--font-mono);
+  letter-spacing: 0.08em;
+}
+
+.footnote {
+  text-align: center;
+  color: var(--ink-soft);
+  font-size: 13px;
+  max-width: 52ch;
+  margin: 10px auto 0;
+}

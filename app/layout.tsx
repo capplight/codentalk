@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import Link from "next/link";
+import SiteHeader from "@/components/SiteHeader";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -27,39 +27,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="ru">
       <body>
-        <header
-          style={{
-            borderBottom: "1px solid var(--line)",
-            padding: "14px 0",
-          }}
-        >
-          <div
-            className="wrap-wide"
-            style={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "space-between",
-              gap: 12,
-              flexWrap: "wrap",
-            }}
-          >
-            <Link
-              href="/"
-              style={{
-                textDecoration: "none",
-                fontWeight: 700,
-                letterSpacing: "0.02em",
-                color: "var(--ink)",
-                fontSize: 17,
-              }}
-            >
-              Code<span style={{ color: "var(--accent)" }}>N</span>Talk
-            </Link>
-            <span className="tag-label" style={{ color: "var(--ink-soft)" }}>
-              бесплатно · в своём темпе
-            </span>
-          </div>
-        </header>
+        <SiteHeader />
         {children}
         <footer
           style={{

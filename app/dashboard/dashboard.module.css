@@ -1,0 +1,191 @@
+.head {
+  padding: 32px 0 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.eyebrow {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+.hello {
+  font-size: clamp(22px, 4vw, 30px);
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+/* ---------- «Продолжить» — важнейший элемент кабинета ----------
+   Человек, вернувшийся через месяц, не должен вспоминать, где остановился.
+   Поэтому карточка одна, крупная и выделена фоном. */
+.continue {
+  background: var(--accent-soft);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: clamp(18px, 3vw, 26px);
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 18px;
+  align-items: center;
+  margin: 20px 0 8px;
+}
+
+@media (max-width: 700px) {
+  .continue {
+    grid-template-columns: 1fr;
+  }
+}
+
+.continueTitle {
+  font-size: clamp(18px, 3vw, 22px);
+  letter-spacing: -0.015em;
+  margin: 4px 0;
+}
+
+.meta {
+  font-size: 13px;
+  color: var(--ink-soft);
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---------- начало пути, когда курсов ещё нет ---------- */
+.empty {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: clamp(20px, 4vw, 32px);
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  align-items: flex-start;
+  margin: 20px 0;
+}
+
+.emptyTitle {
+  font-size: clamp(19px, 3vw, 24px);
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+.emptyText {
+  color: var(--ink-soft);
+  max-width: 56ch;
+  margin: 0;
+}
+
+/* ---------- мои курсы ---------- */
+.sectionHead {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin: 36px 0 14px;
+}
+
+.sectionTitle {
+  font-size: 17px;
+  margin: 0;
+}
+
+.courses {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 14px;
+}
+
+.course {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 18px;
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  text-decoration: none;
+  color: inherit;
+  transition: border-color 0.15s;
+}
+
+a.course:hover {
+  border-color: var(--accent);
+}
+
+.courseTitle {
+  font-size: 17px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.badge {
+  display: inline-block;
+  align-self: flex-start;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 3px 9px;
+  border-radius: 999px;
+  background: var(--accent-soft);
+  color: var(--accent-ink);
+}
+
+.badgeFree {
+  background: var(--good-soft);
+  color: var(--good);
+}
+
+.badgeDone {
+  background: var(--good-soft);
+  color: var(--good);
+}
+
+.bar {
+  height: 6px;
+  border-radius: 999px;
+  background: var(--paper);
+  overflow: hidden;
+}
+
+.barFill {
+  display: block;
+  height: 100%;
+  background: var(--accent);
+}
+
+/* ---------- занятые места ---------- */
+.slots {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 12px 16px;
+  border: 1px dashed var(--line);
+  border-radius: 12px;
+  font-size: 13px;
+  color: var(--ink-soft);
+  margin-top: 14px;
+}
+
+/* ---------- сертификаты ---------- */
+.cert {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 16px 18px;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  flex-wrap: wrap;
+  text-decoration: none;
+  color: inherit;
+}
+
+.certEnd {
+  margin-left: auto;
+}

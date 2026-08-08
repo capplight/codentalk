@@ -82,10 +82,13 @@
   margin-bottom: 12px;
 }
 
+/* Объяснение правила — это сплошной текст, который читают подолгу:
+   серифный шрифт и чуть крупнее, чем служебные надписи. */
 .body {
   color: var(--ink);
-  font-size: 14.5px;
-  line-height: 1.6;
+  font-family: var(--font-reading);
+  font-size: 15.5px;
+  line-height: 1.65;
   margin: 0 0 10px;
 }
 

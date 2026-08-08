@@ -1,0 +1,107 @@
+import Link from "next/link";
+import { notFound } from "next/navigation";
+import { prisma } from "@/lib/db";
+import { isValidSerialFormat } from "@/lib/domain/certificate";
+import styles from "./certificate.module.css";
+
+type Params = { params: Promise<{ serial: string }> };
+
+export async function generateMetadata({ params }: Params) {
+  const { serial } = await params;
+  return {
+    title: `Проверка сертификата ${serial.toUpperCase()}`,
+    description: "Подтверждение подлинности сертификата CodeNTalk.",
+  };
+}
+
+function formatDate(date: Date): string {
+  return new Intl.DateTimeFormat("ru-RU", {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  }).format(date);
+}
+
+/**
+ * Публичная проверка сертификата — открыта без входа в аккаунт.
+ *
+ * Именно эту ссылку ученик отправляет работодателю. Наружу отдаётся минимум:
+ * имя, курс, дата и номер. Ни почты, ни каких-либо иных сведений об ученике —
+ * страница проверки не должна становиться способом собирать данные о людях.
+ */
+export default async function CertificatePage({ params }: Params) {
+  const raw = (await params).serial;
+  const serial = raw.toUpperCase();
+
+  // Мусор отсеиваем до обращения к базе
+  if (!isValidSerialFormat(serial)) notFound();
+
+  const certificate = await prisma.certificate.findUnique({
+    where: { serial },
+    select: {
+      serial: true,
+      issuedAt: true,
+      finalScore: true,
+      revokedAt: true,
+      user: { select: { displayName: true } },
+      course: { select: { title: true, level: true } },
+    },
+  });
+
+  if (!certificate) notFound();
+
+  const revoked = certificate.revokedAt !== null;
+
+  return (
+    <main className="wrap" style={{ paddingBottom: 56 }}>
+      <div className={styles.card}>
+        <div className={`${styles.seal} ${revoked ? styles.sealBad : ""}`} aria-hidden="true">
+          {revoked ? "×" : "✓"}
+        </div>
+
+        <div className={styles.headBlock}>
+          <span className={styles.eyebrow}>
+            {revoked ? "Сертификат отозван" : "Сертификат подлинный"}
+          </span>
+          <p className={styles.lead}>
+            {revoked
+              ? "Этот сертификат был отозван и больше не подтверждает прохождение курса."
+              : "Выдан платформой CodeNTalk и подтверждён в базе."}
+          </p>
+        </div>
+
+        <div className={styles.body}>
+          <span className={styles.meta}>Настоящим удостоверяется, что</span>
+          <p className={styles.name}>{certificate.user.displayName}</p>
+          <span className={styles.meta}>завершил обучение по курсу</span>
+          <p className={styles.course}>{certificate.course.title}</p>
+        </div>
+
+        <dl className={styles.facts}>
+          <div>
+            <dt className={styles.meta}>Дата выдачи</dt>
+            <dd className={styles.factValue}>{formatDate(certificate.issuedAt)}</dd>
+          </div>
+          {certificate.finalScore !== null && (
+            <div>
+              <dt className={styles.meta}>Итоговый балл</dt>
+              <dd className={styles.factValue}>{certificate.finalScore} из 100</dd>
+            </div>
+          )}
+          <div>
+            <dt className={styles.meta}>Номер</dt>
+            <dd className={`${styles.factValue} ${styles.serial}`}>{certificate.serial}</dd>
+          </div>
+        </dl>
+      </div>
+
+      <p className={styles.footnote}>
+        Эта страница открыта без входа в аккаунт — её можно отправить работодателю.
+        Она показывает только имя, курс и дату.
+      </p>
+      <p className={styles.footnote}>
+        <Link href="/">Что такое CodeNTalk</Link>
+      </p>
+    </main>
+  );
+}

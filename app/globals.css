@@ -1,45 +1,66 @@
-/* ---------- дизайн-токены: «тревел-дневник» ---------- */
+/* ---------- дизайн-токены ----------
+ *
+ * Оформление второй версии: белый лист, синий акцент, спокойные нейтральные
+ * серые. Вид намеренно узнаваемый — аудитория взрослая, и знакомая форма
+ * работает на доверие сильнее, чем оригинальность.
+ *
+ * Имена токенов сохранены от первой версии, поэтому все прежние страницы
+ * подхватывают новую палитру без правки компонентов.
+ *
+ * Роли цветов разведены и не должны смешиваться:
+ *   --accent  — навигация, ссылки, главные кнопки
+ *   --amber   — «ваша очередь работать»: подпись и фон заданий
+ *   --good / --bad — только смыслы «верно» и «ошибка»
+ */
 :root {
-  --paper: #f4f8f7;
-  --surface: #ffffff;
-  --ink: #1e2a32;
-  --ink-soft: #52646d;
-  --line: #dce7e6;
-  --accent: #0f7c86;
-  --accent-ink: #0a5a62;
-  --accent-soft: #e3f1f2;
-  --amber: #e8a13d;
-  --amber-soft: #fbf0dc;
-  --good: #3e8e5e;
-  --good-soft: #e4f2e9;
-  --bad: #c4554d;
-  --bad-soft: #f9e9e7;
-  --btn-text: #ffffff;
-  --shadow: 0 1px 2px rgba(30, 42, 50, 0.06), 0 8px 24px rgba(30, 42, 50, 0.07);
+  color-scheme: light;
 
-  --font-story: Georgia, "Iowan Old Style", "Times New Roman", serif;
+  /* Лист чуть тонирован, карточки белые — иначе карточка на белом
+     держится на одной тонкой рамке и теряется. */
+  --paper: #f7f9fc;
+  --surface: #ffffff;
+  --ink: #16202e;
+  --ink-soft: #5b6b7f;
+  --line: #dde3ea;
+  --accent: #1a56b8;
+  --accent-ink: #123f88;
+  --accent-soft: #e8f0fd;
+  --amber: #8a5a11;
+  --amber-soft: #fdf6e9;
+  --good: #0e7a5a;
+  --good-soft: #e3f4ee;
+  --bad: #b23b32;
+  --bad-soft: #fbeae8;
+  --btn-text: #ffffff;
+  --shadow: 0 1px 2px rgba(22, 32, 46, 0.06), 0 6px 20px rgba(22, 32, 46, 0.07);
+
+  /* Заголовки и служебное — гротеск. Серифный остался только там, где
+     текст действительно читают подолгу: объяснения внутри уроков. */
+  --font-story: ui-sans-serif, system-ui, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-reading: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
   --font-ui: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   --font-mono: ui-monospace, "Cascadia Mono", Consolas, monospace;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --paper: #0f181d;
-    --surface: #16232b;
-    --ink: #dfeaec;
-    --ink-soft: #8fa4ac;
-    --line: #24343d;
-    --accent: #37b6c0;
-    --accent-ink: #7dd6dd;
-    --accent-soft: #123840;
-    --amber: #e8a13d;
-    --amber-soft: #33291a;
-    --good: #5cb483;
-    --good-soft: #163023;
-    --bad: #d97b74;
-    --bad-soft: #3a211f;
-    --btn-text: #08181b;
-    --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 24px rgba(0, 0, 0, 0.35);
+    color-scheme: dark;
+    --paper: #0e141d;
+    --surface: #141c27;
+    --ink: #e6edf5;
+    --ink-soft: #94a4b8;
+    --line: #24303f;
+    --accent: #6fa4ff;
+    --accent-ink: #9cc0ff;
+    --accent-soft: #16243c;
+    --amber: #e0b071;
+    --amber-soft: #2b2317;
+    --good: #4fbf95;
+    --good-soft: #10281f;
+    --bad: #e08880;
+    --bad-soft: #2e1b19;
+    --btn-text: #0e141d;
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.4), 0 6px 20px rgba(0, 0, 0, 0.35);
   }
 }
 

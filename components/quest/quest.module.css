@@ -15,8 +15,10 @@
   }
 }
 
+/* Сюжет главы читают сплошным текстом, поэтому здесь серифный шрифт —
+   в отличие от заголовков и служебных надписей, которые набраны гротеском. */
 .story {
-  font-family: var(--font-story);
+  font-family: var(--font-reading);
   font-size: 19px;
   line-height: 1.65;
   padding: 4px 2px;
@@ -252,7 +254,7 @@
 }
 
 .readingParagraph {
-  font-family: var(--font-story);
+  font-family: var(--font-reading);
   font-size: 17.5px;
   line-height: 1.7;
   margin: 0 0 12px;
