@@ -1,0 +1,702 @@
+<title>CodeNTalk — экраны обучения</title>
+
+<style>
+  /* =========================================================
+     ТОКЕНЫ — та же палитра, что у принятого варианта главной.
+     Светлая тема задаётся в bare :root, тёмная повторяется
+     дважды: для системной настройки и для явного переключателя.
+     ========================================================= */
+  :root {
+    color-scheme: light;
+
+    --bg: #ffffff;
+    --alt: #f4f6f9;
+    --ink: #16202e;
+    --soft: #5b6b7f;
+    --line: #dde3ea;
+    --card: #ffffff;
+
+    --brand: #1a56b8;
+    --brand-ink: #123f88;
+    --brand-soft: #e8f0fd;
+
+    /* «Ваша очередь работать» — тёплый, чтобы не спорить с синим */
+    --work: #8a5a11;
+    --work-bg: #fdf6e9;
+    --work-line: #ecd9b4;
+
+    --good: #0e7a5a;
+    --good-bg: #e3f4ee;
+    --bad: #b23b32;
+    --bad-bg: #fbeae8;
+
+    --shell-bg: #eceaee;
+    --shell-line: #d6d1da;
+
+    --shadow: 0 1px 2px rgba(22, 32, 46, .06), 0 6px 20px rgba(22, 32, 46, .07);
+
+    --step--1: clamp(.78rem, .76rem + .1vw, .85rem);
+    --step-0: clamp(.95rem, .92rem + .15vw, 1.05rem);
+    --step-1: clamp(1.1rem, 1.05rem + .3vw, 1.3rem);
+    --step-2: clamp(1.4rem, 1.28rem + .6vw, 1.85rem);
+    --step-3: clamp(1.8rem, 1.55rem + 1.2vw, 2.6rem);
+
+    --sans: ui-sans-serif, system-ui, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    --serif: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+    --mono: ui-monospace, "Cascadia Mono", "SF Mono", Consolas, monospace;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      color-scheme: dark;
+      --bg: #0e141d;
+      --alt: #141c27;
+      --ink: #e6edf5;
+      --soft: #94a4b8;
+      --line: #24303f;
+      --card: #141c27;
+      --brand: #6fa4ff;
+      --brand-ink: #9cc0ff;
+      --brand-soft: #16243c;
+      --work: #e0b071;
+      --work-bg: #2b2317;
+      --work-line: #4a3c24;
+      --good: #4fbf95;
+      --good-bg: #10281f;
+      --bad: #e08880;
+      --bad-bg: #2e1b19;
+      --shell-bg: #15131a;
+      --shell-line: #2e2836;
+      --shadow: 0 1px 2px rgba(0,0,0,.4), 0 6px 20px rgba(0,0,0,.35);
+    }
+  }
+
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+    --bg: #0e141d;
+    --alt: #141c27;
+    --ink: #e6edf5;
+    --soft: #94a4b8;
+    --line: #24303f;
+    --card: #141c27;
+    --brand: #6fa4ff;
+    --brand-ink: #9cc0ff;
+    --brand-soft: #16243c;
+    --work: #e0b071;
+    --work-bg: #2b2317;
+    --work-line: #4a3c24;
+    --good: #4fbf95;
+    --good-bg: #10281f;
+    --bad: #e08880;
+    --bad-bg: #2e1b19;
+    --shell-bg: #15131a;
+    --shell-line: #2e2836;
+    --shadow: 0 1px 2px rgba(0,0,0,.4), 0 6px 20px rgba(0,0,0,.35);
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--sans);
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    overflow-wrap: break-word;
+  }
+
+  h1, h2, h3, h4 { margin: 0; text-wrap: balance; }
+  p { margin: 0; }
+  a { color: inherit; }
+  ul { margin: 0; padding-left: 1.2em; }
+
+  :focus-visible { outline: 2px solid var(--brand); outline-offset: 3px; border-radius: 2px; }
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
+
+  /* ---------- панель макета ---------- */
+  .shell {
+    position: sticky; top: 0; z-index: 60;
+    background: var(--card); border-bottom: 1px solid var(--shell-line);
+    padding: 10px clamp(12px, 3vw, 24px);
+    display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
+  }
+  .shell__label {
+    font-size: var(--step--1); font-weight: 700; letter-spacing: .1em;
+    text-transform: uppercase; color: var(--soft);
+  }
+  .tabs { display: flex; gap: 6px; flex-wrap: wrap; }
+  .tab {
+    font: inherit; font-size: var(--step--1); font-weight: 600;
+    padding: 7px 13px; border-radius: 999px; border: 1px solid var(--line);
+    background: transparent; color: var(--soft); cursor: pointer;
+  }
+  .tab[aria-selected="true"] { background: var(--ink); border-color: var(--ink); color: var(--bg); }
+  .shell__spacer { margin-left: auto; }
+  .toggle {
+    font: inherit; font-size: var(--step--1); font-weight: 600;
+    padding: 7px 13px; border-radius: 999px; border: 1px solid var(--line);
+    background: transparent; color: var(--ink); cursor: pointer;
+  }
+  .note {
+    padding: 12px clamp(12px, 3vw, 24px); font-size: var(--step--1);
+    color: var(--soft); background: var(--alt); border-bottom: 1px solid var(--line);
+  }
+
+  .screen { display: none; }
+  .screen[data-active="true"] { display: block; }
+
+  /* ---------- общая обвязка ---------- */
+  .wrap { max-width: 1080px; margin: 0 auto; padding-inline: clamp(16px, 4vw, 32px); }
+  .wrap--narrow { max-width: 720px; }
+
+  .topbar {
+    display: flex; align-items: center; gap: 20px; flex-wrap: wrap;
+    padding-block: 14px; border-bottom: 1px solid var(--line);
+  }
+  .logo { font-weight: 800; font-size: var(--step-1); letter-spacing: -.02em; }
+  .topnav { display: flex; gap: 16px; font-size: var(--step-0); color: var(--soft); flex-wrap: wrap; }
+  .topnav a { text-decoration: none; }
+  .topbar__end { margin-left: auto; display: flex; gap: 10px; align-items: center; }
+
+  .avatar {
+    width: 32px; height: 32px; border-radius: 50%; display: grid; place-items: center;
+    background: var(--brand-soft); color: var(--brand-ink); font-weight: 800; font-size: var(--step--1);
+  }
+
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+    font: inherit; font-weight: 650; font-size: var(--step-0);
+    padding: 11px 20px; border-radius: 10px; border: 1px solid transparent;
+    background: var(--brand);
+    /* Цвет надписи берётся из фона страницы: в светлой теме он белый и ложится
+       на тёмно-синий, в тёмной — тёмный и ложится на светло-синий. Одно
+       правило вместо трёх конкурирующих. */
+    color: var(--bg);
+    text-decoration: none; cursor: pointer;
+  }
+
+  .btn--ghost { background: transparent; color: var(--ink); border-color: var(--line); }
+  .btn--lg { padding: 14px 26px; font-size: var(--step-1); }
+  .btn--sm { padding: 8px 14px; font-size: var(--step--1); }
+
+  .eyebrow {
+    font-size: var(--step--1); font-weight: 700; letter-spacing: .12em;
+    text-transform: uppercase; color: var(--soft);
+  }
+  .meta { font-size: var(--step--1); color: var(--soft); font-variant-numeric: tabular-nums; }
+  .tagline { color: var(--soft); font-size: var(--step-0); }
+
+  .stack { display: flex; flex-direction: column; }
+  .s8 { gap: 8px; } .s12 { gap: 12px; } .s16 { gap: 16px; }
+  .s24 { gap: 24px; } .s32 { gap: 32px; } .s40 { gap: 40px; }
+
+  .row { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+
+  .card {
+    background: var(--card); border: 1px solid var(--line);
+    border-radius: 14px; padding: 20px; box-shadow: var(--shadow);
+  }
+
+  .badge {
+    display: inline-block; font-size: var(--step--1); font-weight: 700;
+    letter-spacing: .06em; text-transform: uppercase; padding: 3px 9px; border-radius: 999px;
+    background: var(--brand-soft); color: var(--brand-ink);
+  }
+  .badge--free { background: var(--good-bg); color: var(--good); }
+  .badge--done { background: var(--good-bg); color: var(--good); }
+  .badge--muted { background: transparent; color: var(--soft); border: 1px solid var(--line); }
+
+  .bar { height: 6px; border-radius: 999px; background: var(--alt); overflow: hidden; }
+  .bar > i { display: block; height: 100%; background: var(--brand); }
+
+  .section { padding-block: clamp(28px, 4vw, 44px); }
+
+  /* ---------- экран 1: кабинет ---------- */
+  .continue {
+    background: var(--brand-soft); border: 1px solid var(--line);
+    border-radius: 16px; padding: clamp(20px, 3vw, 28px);
+    display: grid; grid-template-columns: 1fr auto; gap: 20px; align-items: center;
+  }
+  @media (max-width: 700px) { .continue { grid-template-columns: 1fr; } }
+  .continue h2 { font-size: var(--step-2); letter-spacing: -.02em; }
+
+  .courses { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; }
+
+  .slotline {
+    display: flex; gap: 10px; align-items: center; flex-wrap: wrap;
+    padding: 12px 16px; border: 1px dashed var(--line); border-radius: 12px;
+    font-size: var(--step--1); color: var(--soft);
+  }
+
+  /* ---------- экран 3: урок ----------
+     Материал течёт по странице без рамки. Работа лежит во врезке
+     с подписью и другим фоном: различие не только по цвету, значит
+     сохраняется при плохом зрении и на чёрно-белой печати.
+     ------------------------------------ */
+  .lesson-body { font-family: var(--serif); font-size: 1.06rem; line-height: 1.7; max-width: 64ch; }
+  .lesson-body p + p { margin-top: 1em; }
+  .lesson-body em { color: var(--brand-ink); font-style: normal; font-weight: 600; }
+
+  .example {
+    font-family: var(--mono); font-size: var(--step--1);
+    background: var(--alt); border: 1px solid var(--line); border-radius: 8px;
+    padding: 12px 14px; overflow-x: auto;
+  }
+
+  .task {
+    background: var(--work-bg); border: 1px solid var(--work-line);
+    border-radius: 14px; padding: 20px; display: flex; flex-direction: column; gap: 14px;
+  }
+  .task__label {
+    font-size: var(--step--1); font-weight: 800; letter-spacing: .14em;
+    text-transform: uppercase; color: var(--work);
+  }
+  .task__q { font-weight: 650; font-size: var(--step-1); }
+
+  .options { display: grid; gap: 8px; }
+  .option {
+    font: inherit; text-align: left; padding: 12px 16px; border-radius: 10px;
+    border: 1.5px solid var(--line); background: var(--card); color: var(--ink); cursor: pointer;
+  }
+  .option:hover { border-color: var(--work); }
+  .option[data-state="right"] { border-color: var(--good); background: var(--good-bg); }
+  .option[data-state="wrong"] { border-color: var(--bad); background: var(--bad-bg); }
+
+  .feedback { border-radius: 10px; padding: 12px 14px; font-size: var(--step-0); }
+  .feedback--good { background: var(--good-bg); color: var(--good); }
+  .feedback--hint { background: var(--card); border: 1px solid var(--work-line); color: var(--ink); }
+
+  /* ---------- экран 2: курс ---------- */
+  .module { border: 1px solid var(--line); border-radius: 14px; overflow: hidden; background: var(--card); }
+  .module__head {
+    display: flex; gap: 12px; align-items: center; flex-wrap: wrap;
+    padding: 16px 20px; background: var(--alt); border-bottom: 1px solid var(--line);
+  }
+  .module__num {
+    width: 28px; height: 28px; border-radius: 8px; display: grid; place-items: center;
+    background: var(--brand-soft); color: var(--brand-ink); font-weight: 800;
+    font-size: var(--step--1); font-variant-numeric: tabular-nums; flex: none;
+  }
+  .module__num[data-done="true"] { background: var(--good-bg); color: var(--good); }
+  .lessonrow {
+    display: flex; gap: 12px; align-items: center; flex-wrap: wrap;
+    padding: 13px 20px; border-bottom: 1px solid var(--line); text-decoration: none;
+  }
+  .lessonrow:last-child { border-bottom: 0; }
+  .dot { width: 9px; height: 9px; border-radius: 50%; border: 2px solid var(--line); flex: none; }
+  .dot[data-done="true"] { background: var(--good); border-color: var(--good); }
+  .dot[data-now="true"] { border-color: var(--brand); background: var(--brand); }
+  .lessonrow__end { margin-left: auto; }
+
+  /* ---------- экран 5: сертификат ---------- */
+  .cert {
+    border: 1px solid var(--line); border-radius: 16px; background: var(--card);
+    padding: clamp(24px, 4vw, 44px); box-shadow: var(--shadow); text-align: center;
+  }
+  .cert__seal {
+    width: 56px; height: 56px; margin: 0 auto; border-radius: 50%;
+    display: grid; place-items: center; background: var(--good-bg); color: var(--good);
+    font-weight: 800; font-size: var(--step-1);
+  }
+  .cert__name { font-size: var(--step-3); letter-spacing: -.02em; font-weight: 750; }
+  .cert__serial { font-family: var(--mono); font-size: var(--step-0); letter-spacing: .08em; }
+  .cert__facts {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 16px; text-align: left; border-top: 1px solid var(--line); padding-top: 20px;
+  }
+  .cert__facts b { display: block; font-size: var(--step-0); font-variant-numeric: tabular-nums; }
+
+  /* ---------- экран 4: результат ---------- */
+  .score { font-size: clamp(2.6rem, 6vw, 4rem); font-weight: 800; letter-spacing: -.03em; font-variant-numeric: tabular-nums; line-height: 1; }
+  .weak { display: flex; gap: 8px; flex-wrap: wrap; }
+  .weakchip {
+    font-size: var(--step--1); padding: 6px 12px; border-radius: 999px;
+    background: var(--work-bg); color: var(--work); border: 1px solid var(--work-line);
+  }
+</style>
+
+<div class="shell">
+  <span class="shell__label">Экраны обучения</span>
+  <div class="tabs" role="tablist" aria-label="Экраны">
+    <button class="tab" role="tab" aria-selected="true" data-target="s1">Кабинет</button>
+    <button class="tab" role="tab" aria-selected="false" data-target="s2">Курс</button>
+    <button class="tab" role="tab" aria-selected="false" data-target="s3">Урок</button>
+    <button class="tab" role="tab" aria-selected="false" data-target="s4">Проверочная</button>
+    <button class="tab" role="tab" aria-selected="false" data-target="s5">Сертификат</button>
+  </div>
+  <div class="shell__spacer"></div>
+  <button class="toggle" id="themeBtn" type="button">Тёмная тема</button>
+</div>
+
+<p class="note" id="note">
+  Главное здесь — одна кнопка «Продолжить» вверху. Человек, вернувшийся через месяц, не должен
+  вспоминать, где остановился. Ниже видно два занятых места из двух и когда освободится следующее.
+</p>
+
+<!-- ===================== КАБИНЕТ ===================== -->
+<section class="screen" data-active="true" id="s1">
+  <div class="wrap">
+    <header class="topbar">
+      <span class="logo">CodeNTalk</span>
+      <nav class="topnav">
+        <a href="#">Мои курсы</a>
+        <a href="#">Каталог</a>
+        <a href="#">Сертификаты</a>
+      </nav>
+      <div class="topbar__end">
+        <span class="meta">Подписка до 12 сентября</span>
+        <span class="avatar">АН</span>
+      </div>
+    </header>
+  </div>
+
+  <div class="wrap section stack s32">
+    <div class="stack s8">
+      <span class="eyebrow">С возвращением</span>
+      <h1 style="font-size: var(--step-2); letter-spacing: -.02em;">Здравствуйте, Алим</h1>
+    </div>
+
+    <div class="continue">
+      <div class="stack s8">
+        <span class="meta">Английский A1 · Модуль 3 «Прошедшее время»</span>
+        <h2>Урок 2. Как рассказать о вчерашнем дне</h2>
+        <span class="meta">Осталось около 9 минут · вы остановились на середине</span>
+      </div>
+      <a class="btn btn--lg" href="#">Продолжить</a>
+    </div>
+
+    <div class="stack s16">
+      <div class="row">
+        <h2 style="font-size: var(--step-1);">Мои курсы</h2>
+        <span class="meta">Занято 2 места из 2</span>
+      </div>
+
+      <div class="courses">
+        <div class="card stack s12">
+          <div class="row">
+            <span class="badge badge--free">Бесплатно</span>
+            <span class="meta">место не занимает</span>
+          </div>
+          <h3 style="font-size: var(--step-1);">Английский A1</h3>
+          <div class="bar"><i style="width: 58%"></i></div>
+          <span class="meta">Пройдено 7 уроков из 12</span>
+          <a class="btn btn--ghost btn--sm" href="#" style="align-self:flex-start;">Открыть</a>
+        </div>
+
+        <div class="card stack s12">
+          <div class="row">
+            <span class="badge">По подписке</span>
+            <span class="meta">место занято до 1 сентября</span>
+          </div>
+          <h3 style="font-size: var(--step-1);">Python: основы</h3>
+          <div class="bar"><i style="width: 22%"></i></div>
+          <span class="meta">Пройдено 2 урока из 9</span>
+          <a class="btn btn--ghost btn--sm" href="#" style="align-self:flex-start;">Открыть</a>
+        </div>
+
+        <div class="card stack s12">
+          <div class="row">
+            <span class="badge">По подписке</span>
+            <span class="meta">место занято до 1 сентября</span>
+          </div>
+          <h3 style="font-size: var(--step-1);">Дата-аналитика</h3>
+          <div class="bar"><i style="width: 8%"></i></div>
+          <span class="meta">Пройден 1 урок из 12</span>
+          <a class="btn btn--ghost btn--sm" href="#" style="align-self:flex-start;">Открыть</a>
+        </div>
+      </div>
+
+      <div class="slotline">
+        Оба места заняты. Следующее освободится 1 сентября — или раньше, если закончите один из курсов.
+        <a href="#" style="color: var(--brand-ink); font-weight: 600;">Как это работает</a>
+      </div>
+    </div>
+
+    <div class="stack s16">
+      <h2 style="font-size: var(--step-1);">Сертификаты</h2>
+      <div class="card row" style="justify-content: space-between;">
+        <div class="stack s8">
+          <h3 style="font-size: var(--step-0);">Английский Starter</h3>
+          <span class="meta">Выдан 3 марта 2026 · номер K7RM-42PX-9TQD</span>
+        </div>
+        <a class="btn btn--ghost btn--sm" href="#">Открыть</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== КУРС ===================== -->
+<section class="screen" id="s2">
+  <div class="wrap">
+    <header class="topbar">
+      <span class="logo">CodeNTalk</span>
+      <nav class="topnav"><a href="#">Мои курсы</a><a href="#">Каталог</a></nav>
+      <div class="topbar__end"><span class="avatar">АН</span></div>
+    </header>
+  </div>
+
+  <div class="wrap section stack s32">
+    <div class="stack s12">
+      <span class="meta"><a href="#" style="color: var(--brand-ink);">Английский</a> · A1</span>
+      <h1 style="font-size: var(--step-3); letter-spacing: -.025em;">Английский A1</h1>
+      <p class="tagline" style="max-width: 60ch;">
+        Первый самостоятельный уровень: рассказать о себе, спросить дорогу, объясниться в кафе
+        и понять простой текст.
+      </p>
+      <div class="row">
+        <div class="bar" style="flex: 1 1 220px; max-width: 320px;"><i style="width: 58%"></i></div>
+        <span class="meta">7 из 12 уроков</span>
+      </div>
+    </div>
+
+    <div class="stack s16">
+      <div class="module">
+        <div class="module__head">
+          <span class="module__num" data-done="true">1</span>
+          <h3 style="font-size: var(--step-1);">Знакомство и простые вопросы</h3>
+          <span class="badge badge--done" style="margin-left:auto;">Пройден</span>
+        </div>
+        <a class="lessonrow" href="#"><span class="dot" data-done="true"></span> Урок 1. Как вас зовут <span class="meta lessonrow__end">11 мин</span></a>
+        <a class="lessonrow" href="#"><span class="dot" data-done="true"></span> Урок 2. Откуда вы <span class="meta lessonrow__end">9 мин</span></a>
+        <a class="lessonrow" href="#"><span class="dot" data-done="true"></span> Проверочная работа <span class="meta lessonrow__end">85 из 100</span></a>
+      </div>
+
+      <div class="module">
+        <div class="module__head">
+          <span class="module__num" data-done="true">2</span>
+          <h3 style="font-size: var(--step-1);">Мой день</h3>
+          <span class="badge badge--done" style="margin-left:auto;">Пройден</span>
+        </div>
+        <a class="lessonrow" href="#"><span class="dot" data-done="true"></span> Урок 1. Что я делаю каждый день <span class="meta lessonrow__end">12 мин</span></a>
+        <a class="lessonrow" href="#"><span class="dot" data-done="true"></span> Урок 2. Который час <span class="meta lessonrow__end">10 мин</span></a>
+      </div>
+
+      <div class="module">
+        <div class="module__head">
+          <span class="module__num">3</span>
+          <h3 style="font-size: var(--step-1);">Прошедшее время</h3>
+          <span class="meta" style="margin-left:auto;">2 из 4</span>
+        </div>
+        <a class="lessonrow" href="#"><span class="dot" data-done="true"></span> Урок 1. Что было вчера <span class="meta lessonrow__end">10 мин</span></a>
+        <a class="lessonrow" href="#" style="background: var(--brand-soft);">
+          <span class="dot" data-now="true"></span>
+          <strong>Урок 2. Как рассказать о вчерашнем дне</strong>
+          <span class="meta lessonrow__end">осталось 9 мин</span>
+        </a>
+        <a class="lessonrow" href="#"><span class="dot"></span> Урок 3. Неправильные глаголы <span class="meta lessonrow__end">14 мин</span></a>
+        <a class="lessonrow" href="#"><span class="dot"></span> Проверочная работа <span class="meta lessonrow__end">10 вопросов</span></a>
+      </div>
+
+      <div class="card row" style="justify-content: space-between; background: var(--alt);">
+        <div class="stack s8">
+          <h3 style="font-size: var(--step-1);">Итоговый экзамен</h3>
+          <span class="meta">Откроется после всех модулей · сейчас пройдено 2 из 4</span>
+        </div>
+        <button class="btn" type="button" disabled style="opacity:.5; cursor:not-allowed;">Пока закрыт</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== УРОК ===================== -->
+<section class="screen" id="s3">
+  <div class="wrap">
+    <header class="topbar">
+      <span class="logo">CodeNTalk</span>
+      <nav class="topnav"><a href="#">Английский A1</a><a href="#">Модуль 3</a></nav>
+      <div class="topbar__end"><span class="meta">Урок 2 из 4</span></div>
+    </header>
+  </div>
+
+  <div class="wrap wrap--narrow section stack s32">
+    <div class="stack s8">
+      <span class="eyebrow">Модуль 3 · Прошедшее время</span>
+      <h1 style="font-size: var(--step-2); letter-spacing: -.02em;">Как рассказать о вчерашнем дне</h1>
+      <span class="meta">Около 9 минут</span>
+    </div>
+
+    <div class="lesson-body stack s16">
+      <p>
+        Чтобы рассказать о том, что уже случилось, английский добавляет к глаголу окончание
+        <em>-ed</em>. Это самая обычная форма прошедшего времени, и она одинакова для всех лиц:
+        и для «я», и для «он», и для «они».
+      </p>
+      <div class="example">I work every day. &rarr; I work<b>ed</b> yesterday.</div>
+      <p>
+        Обратите внимание: слово «вчера» уже сообщает, что действие в прошлом, но англичанин
+        всё равно поменяет глагол. Пропустить окончание нельзя — фраза прозвучит так же странно,
+        как «вчера я иду в кино».
+      </p>
+    </div>
+
+    <div class="task">
+      <span class="task__label">Задание 1 из 3</span>
+      <p class="task__q">Выберите правильную форму: «Вчера я смотрел фильм».</p>
+      <div class="options">
+        <button class="option" type="button">Yesterday I watch a film.</button>
+        <button class="option" type="button" data-state="right">Yesterday I watched a film.</button>
+        <button class="option" type="button">Yesterday I watching a film.</button>
+      </div>
+      <div class="feedback feedback--good">Верно. Окончание -ed ставится независимо от того, есть ли в предложении слово «вчера».</div>
+    </div>
+
+    <div class="task">
+      <span class="task__label">Задание 2 из 3</span>
+      <p class="task__q">Выберите правильную форму: «Она вчера позвонила маме».</p>
+      <div class="options">
+        <button class="option" type="button" data-state="wrong">She call her mother yesterday.</button>
+        <button class="option" type="button">She called her mother yesterday.</button>
+        <button class="option" type="button">She is calling her mother yesterday.</button>
+      </div>
+      <div class="feedback feedback--hint">
+        Не совсем. Подсказка: окончание нужно даже в третьем лице — <b>call</b> превращается в <b>called</b>.
+        Попробуйте ещё раз, попытки не ограничены.
+      </div>
+    </div>
+
+    <div class="row" style="justify-content: space-between; border-top: 1px solid var(--line); padding-top: 20px;">
+      <a class="btn btn--ghost" href="#">Предыдущий урок</a>
+      <a class="btn" href="#">Отметить пройденным и дальше</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== ПРОВЕРОЧНАЯ ===================== -->
+<section class="screen" id="s4">
+  <div class="wrap">
+    <header class="topbar">
+      <span class="logo">CodeNTalk</span>
+      <div class="topbar__end"><span class="meta">Осталось 6 минут 20 секунд</span></div>
+    </header>
+  </div>
+
+  <div class="wrap wrap--narrow section stack s32">
+    <div class="stack s12">
+      <div class="row" style="justify-content: space-between;">
+        <span class="eyebrow">Проверочная работа · модуль 3</span>
+        <span class="meta">Вопрос 3 из 10</span>
+      </div>
+      <div class="bar"><i style="width: 30%"></i></div>
+    </div>
+
+    <div class="task">
+      <span class="task__label">Вопрос</span>
+      <p class="task__q">She ___ to school by bus last week.</p>
+      <div class="options">
+        <button class="option" type="button">go</button>
+        <button class="option" type="button">goes</button>
+        <button class="option" type="button">went</button>
+        <button class="option" type="button">gone</button>
+      </div>
+      <p class="meta">Подсказок в проверочной работе нет — они есть в упражнениях внутри уроков.</p>
+    </div>
+
+    <div class="row" style="justify-content: space-between;">
+      <button class="btn btn--ghost" type="button">Пропустить вопрос</button>
+      <button class="btn" type="button">Ответить</button>
+    </div>
+
+    <div class="card stack s24" style="background: var(--alt);">
+      <span class="eyebrow">Так выглядит результат</span>
+      <div class="row" style="gap: 24px;">
+        <div class="stack s8">
+          <span class="score" style="color: var(--good);">80</span>
+          <span class="meta">из 100 · порог 70</span>
+        </div>
+        <div class="stack s8" style="flex: 1 1 260px;">
+          <h3 style="font-size: var(--step-1);">Работа сдана</h3>
+          <p class="tagline">Верных ответов 8 из 10. Разбор ниже — по темам, а не по номерам вопросов.</p>
+        </div>
+      </div>
+
+      <div class="stack s12">
+        <span class="eyebrow">Стоит повторить</span>
+        <div class="weak">
+          <span class="weakchip">Неправильные глаголы</span>
+          <span class="weakchip">Вопросы в прошедшем времени</span>
+        </div>
+        <div class="stack s8">
+          <a class="lessonrow" href="#" style="border: 1px solid var(--line); border-radius: 10px;">
+            <span class="dot" data-done="true"></span> Урок 3. Неправильные глаголы
+            <span class="meta lessonrow__end">14 мин</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== СЕРТИФИКАТ ===================== -->
+<section class="screen" id="s5">
+  <div class="wrap">
+    <header class="topbar">
+      <span class="logo">CodeNTalk</span>
+      <div class="topbar__end"><span class="meta">Публичная проверка · вход не требуется</span></div>
+    </header>
+  </div>
+
+  <div class="wrap wrap--narrow section stack s24">
+    <div class="cert stack s24">
+      <div class="cert__seal">✓</div>
+      <div class="stack s8">
+        <span class="eyebrow">Сертификат подлинный</span>
+        <p class="tagline">Выдан платформой CodeNTalk и подтверждён в базе.</p>
+      </div>
+      <div class="stack s8">
+        <span class="meta">Настоящим удостоверяется, что</span>
+        <p class="cert__name">Алим Нұрлан</p>
+        <span class="meta">завершил курс</span>
+        <p style="font-size: var(--step-2); font-weight: 700; letter-spacing: -.02em;">Английский Starter</p>
+      </div>
+
+      <div class="cert__facts">
+        <div><span class="meta">Дата выдачи</span><b>3 марта 2026</b></div>
+        <div><span class="meta">Итоговый балл</span><b>92 из 100</b></div>
+        <div><span class="meta">Номер</span><b class="cert__serial">K7RM-42PX-9TQD</b></div>
+      </div>
+    </div>
+
+    <p class="tagline" style="text-align:center;">
+      Эту страницу можно отправить работодателю: она открывается без входа в аккаунт
+      и показывает только имя, курс и дату.
+    </p>
+  </div>
+</section>
+
+<script>
+  const NOTES = {
+    s1: "Главное здесь — одна кнопка «Продолжить» вверху. Человек, вернувшийся через месяц, не должен вспоминать, где остановился. Ниже видно два занятых места из двух и когда освободится следующее.",
+    s2: "Модули с уроками и понятным состоянием: пройден, идёт сейчас, ещё впереди. Текущий урок подсвечен, экзамен закрыт до конца модулей — иначе сертификат ничего не стоит.",
+    s3: "Здесь решается задача, которую в первой версии решал двухцветный код. Материал течёт прямо по странице серифным шрифтом, работа лежит во врезке с подписью «Задание» и другим фоном. Различие не только по цвету — сохраняется при плохом зрении и на чёрно-белой печати. Внизу видно поведение при ошибке: подсказка и «попытки не ограничены», без штрафа.",
+    s4: "Проверочная выглядит строже урока: нет подсказок, идёт время, виден номер вопроса. Результат показывает не только балл, но и темы, которые стоит повторить, со ссылками на нужные уроки.",
+    s5: "Страница, которую увидит работодатель. Открывается без входа, показывает только имя, курс, дату и номер — ни почты, ни прочих сведений об ученике."
+  };
+
+  const tabs = document.querySelectorAll(".tab");
+  const note = document.getElementById("note");
+  tabs.forEach((tab) => {
+    tab.addEventListener("click", () => {
+      const target = tab.dataset.target;
+      tabs.forEach((t) => t.setAttribute("aria-selected", String(t === tab)));
+      document.querySelectorAll(".screen").forEach((s) => {
+        s.dataset.active = String(s.id === target);
+      });
+      note.textContent = NOTES[target];
+      window.scrollTo({ top: 0, behavior: "instant" });
+    });
+  });
+
+  const themeBtn = document.getElementById("themeBtn");
+  function isDark() {
+    const stamped = document.documentElement.getAttribute("data-theme");
+    if (stamped) return stamped === "dark";
+    return window.matchMedia("(prefers-color-scheme: dark)").matches;
+  }
+  function sync() { themeBtn.textContent = isDark() ? "Светлая тема" : "Тёмная тема"; }
+  themeBtn.addEventListener("click", () => {
+    document.documentElement.setAttribute("data-theme", isDark() ? "light" : "dark");
+    sync();
+  });
+  sync();
+</script>
