@@ -122,7 +122,7 @@ export default async function CoursePage({ params }: Params) {
                 </span>
                 <span className={s.quizAction}>
                   {moduleReady ? (
-                    <Link className="btn" href={`/learn/${course.slug}/${module.slug}/proverochnaya`}>
+                    <Link className="btn" href={`/learn/${course.slug}/proverochnaya/${module.slug}`}>
                       Начать
                     </Link>
                   ) : (

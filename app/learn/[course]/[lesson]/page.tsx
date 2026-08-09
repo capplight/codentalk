@@ -7,6 +7,7 @@ import { isTask } from "@/lib/content/types";
 import Material from "@/components/lesson/Material";
 import TaskCard from "@/components/lesson/TaskCard";
 import ConfusionButton from "@/components/lesson/ConfusionButton";
+import FinishLesson from "@/components/lesson/FinishLesson";
 import s from "@/components/lesson/lesson.module.css";
 
 type Params = { params: Promise<{ course: string; lesson: string }> };
@@ -38,7 +39,18 @@ export default async function LessonPage({ params }: Params) {
   // Урока может не быть в базе (новое содержание переносится отдельно) —
   // тогда пометок просто нет, а читать урок это не мешает.
   let marked: Set<string> = new Set();
+  let completed = false;
   if (userId) {
+    const progress = await prisma.lessonProgress.findFirst({
+      where: {
+        userId,
+        status: "completed",
+        lesson: { slug: lessonSlug, course: { slug: courseSlug } },
+      },
+      select: { id: true },
+    });
+    completed = progress !== null;
+
     const rows = await prisma.confusionMark.findMany({
       where: {
         userId,
@@ -104,13 +116,17 @@ export default async function LessonPage({ params }: Params) {
           </Link>
         )}
 
-        {next ? (
-          <Link className="btn" href={`/learn/${courseSlug}/${next.slug}`}>
-            Дальше: {next.title}
-          </Link>
+        {userId ? (
+          <FinishLesson
+            course={courseSlug}
+            lesson={lessonSlug}
+            nextHref={next ? `/learn/${courseSlug}/${next.slug}` : `/learn/${courseSlug}`}
+            label={next ? `дальше: ${next.title}` : "к уровню"}
+            done={completed}
+          />
         ) : (
-          <Link className="btn" href={`/learn/${courseSlug}`}>
-            Модуль пройден
+          <Link className="btn" href="/register">
+            Зарегистрируйтесь, чтобы сохранять успехи
           </Link>
         )}
       </div>

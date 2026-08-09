@@ -2,10 +2,10 @@ import { z } from "zod";
 import { prisma } from "@/lib/db";
 import { ApiError, handler, ok, readJson } from "@/lib/api/respond";
 import { requireUser } from "@/lib/api/session";
-import { scoreAttempt, type Question } from "@/lib/domain/testing";
+import { gradeQuiz, poolFrom } from "@/lib/content/quiz";
 
 const bodySchema = z.object({
-  /** Ответы: идентификатор вопроса → ответ (строка или последовательность) */
+  /** Ответы: имя вопроса → ответ. Форма ответа зависит от вида задания. */
   answers: z.record(z.string(), z.unknown()),
 });
 
@@ -16,6 +16,9 @@ type Params = { params: Promise<{ attempt: string }> };
  *
  * Балл считается на сервере по вопросам, закреплённым за попыткой: подменить
  * набор вопросов или подсмотреть ответы из браузера нельзя.
+ *
+ * Разбор возвращается только сейчас, после сдачи: до неё он оставался на
+ * сервере вместе с ответами.
  */
 export const POST = handler(async (request: Request, { params }: Params) => {
   const user = await requireUser();
@@ -36,7 +39,7 @@ export const POST = handler(async (request: Request, { params }: Params) => {
           passScore: true,
           timeLimitMinutes: true,
           courseId: true,
-          questions: { select: { id: true, kind: true, topic: true, payload: true } },
+          questions: { select: { id: true, topic: true, payload: true } },
         },
       },
     },
@@ -56,28 +59,17 @@ export const POST = handler(async (request: Request, { params }: Params) => {
   // Время вышло — принимаем, что успели, но отмечаем это
   let timeExpired = false;
   if (attempt.test.timeLimitMinutes) {
-    const deadline =
-      attempt.startedAt.getTime() + attempt.test.timeLimitMinutes * 60_000;
+    const deadline = attempt.startedAt.getTime() + attempt.test.timeLimitMinutes * 60_000;
     // Небольшой запас на дорогу ответа до сервера
     timeExpired = Date.now() > deadline + 30_000;
   }
 
-  const byId = new Map(attempt.test.questions.map((q) => [q.id, q]));
-  const questions: Question[] = attempt.questionIds
+  const byId = new Map(poolFrom(attempt.test.questions).map((q) => [q.id, q]));
+  const asked = attempt.questionIds
     .map((id) => byId.get(id))
-    .filter((q): q is NonNullable<typeof q> => !!q)
-    .map((q) => {
-      const payload = q.payload as { options?: string[]; answer: string | string[] };
-      return {
-        id: q.id,
-        kind: q.kind as Question["kind"],
-        topic: q.topic ?? "без темы",
-        options: payload.options,
-        answer: payload.answer,
-      };
-    });
+    .filter((question): question is NonNullable<typeof question> => !!question);
 
-  const result = scoreAttempt(questions, body.answers, attempt.test.passScore);
+  const result = gradeQuiz(asked, body.answers, attempt.test.passScore / 100);
 
   await prisma.testAttempt.update({
     where: { id: attempt.id },
@@ -89,14 +81,12 @@ export const POST = handler(async (request: Request, { params }: Params) => {
     },
   });
 
-  // Слабые темы связываем с уроками, чтобы ученик мог сразу вернуться к нужному
-  const weakTopicLessons = result.weakTopics.length
+  // Слабое место — это итог урока. По нему сразу находится урок, к которому
+  // стоит вернуться: сверяемся по самому итогу, а не по названию модуля.
+  const weakLessons = result.weakOutcomes.length
     ? await prisma.lesson.findMany({
-        where: {
-          courseId: attempt.test.courseId,
-          module: { title: { in: result.weakTopics } },
-        },
-        select: { slug: true, title: true, module: { select: { title: true } } },
+        where: { courseId: attempt.test.courseId, outcome: { in: result.weakOutcomes } },
+        select: { slug: true, title: true, outcome: true, course: { select: { slug: true } } },
         take: 10,
       })
     : [];
@@ -108,22 +98,24 @@ export const POST = handler(async (request: Request, { params }: Params) => {
     passed: result.passed,
     passScore: attempt.test.passScore,
     timeExpired,
-    weakTopics: result.weakTopics,
+    weakOutcomes: result.weakOutcomes,
     // Куда вернуться, чтобы подтянуть слабое место
-    suggestedLessons: weakTopicLessons.map((l) => ({
-      slug: l.slug,
-      title: l.title,
-      topic: l.module?.title ?? null,
+    suggestedLessons: weakLessons.map((lesson) => ({
+      slug: lesson.slug,
+      course: lesson.course.slug,
+      title: lesson.title,
+      outcome: lesson.outcome,
     })),
-    // Разбор по вопросам: что верно, что нет. Правильные ответы теперь можно
-    // показать — попытка сдана.
-    review: result.answers.map((a) => ({
-      questionId: a.questionId,
-      correct: a.correct,
-      topic: a.topic,
-      correctAnswer: byId.get(a.questionId)
-        ? ((byId.get(a.questionId)!.payload as { answer: unknown }).answer ?? null)
-        : null,
-    })),
+    // Разбор по вопросам. Показать его можно только теперь: попытка сдана.
+    review: result.answers.map((answer) => {
+      const question = byId.get(answer.questionId);
+      return {
+        questionId: answer.questionId,
+        correct: answer.correct,
+        outcome: answer.outcome,
+        prompt: question?.prompt ?? "",
+        why: question?.why ?? "",
+      };
+    }),
   });
 });

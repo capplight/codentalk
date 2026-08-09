@@ -85,14 +85,14 @@ export function shuffle<T>(items: T[], seed: string): T[] {
  * По возможности берём по вопросу из разных тем, а не десять подряд по одной:
  * иначе работа проверяет случайный кусок курса, а не курс.
  */
-export function selectQuestions(
-  pool: Question[],
+export function selectQuestions<T extends { topic: string }>(
+  pool: T[],
   count: number,
   seed: string
-): Question[] {
+): T[] {
   if (pool.length <= count) return shuffle(pool, seed);
 
-  const byTopic = new Map<string, Question[]>();
+  const byTopic = new Map<string, T[]>();
   for (const q of shuffle(pool, seed)) {
     const list = byTopic.get(q.topic) ?? [];
     list.push(q);
@@ -100,7 +100,7 @@ export function selectQuestions(
   }
 
   const topics = shuffle([...byTopic.keys()], `${seed}:topics`);
-  const picked: Question[] = [];
+  const picked: T[] = [];
 
   // Идём по кругу темам, пока не наберём нужное число
   let round = 0;

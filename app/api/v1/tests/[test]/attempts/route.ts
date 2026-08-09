@@ -2,17 +2,18 @@ import { randomUUID } from "node:crypto";
 import { prisma } from "@/lib/db";
 import { ApiError, handler, ok } from "@/lib/api/respond";
 import { requireUser } from "@/lib/api/session";
+import { selectQuestions } from "@/lib/domain/testing";
+import { forBrowser, poolFrom } from "@/lib/content/quiz";
 import { checkCourseAccess } from "@/lib/api/access";
-import { selectQuestions, shuffleOptions, type Question } from "@/lib/domain/testing";
 
 type Params = { params: Promise<{ test: string }> };
 
 /**
  * Начать попытку проверочной работы.
  *
- * ВАЖНО. В ответ уходят только вопросы и варианты — правильные ответы остаются
- * на сервере. Раздел 10 техзадания: без этого ценность сертификата нулевая,
- * потому что ответы можно посмотреть в браузере.
+ * ВАЖНО. В ответ уходят только вопросы и варианты — правильные ответы, разборы
+ * и подсказки остаются на сервере (раздел 10 техзадания). Без этого ценность
+ * сертификата нулевая: ответы читались бы в исходном коде страницы.
  *
  * Выборка вопросов закрепляется за попыткой: при обновлении страницы ученик
  * увидит те же вопросы, а не новые.
@@ -31,10 +32,9 @@ export const POST = handler(async (_request: Request, { params }: Params) => {
       timeLimitMinutes: true,
       maxAttemptsPerDay: true,
       passScore: true,
-      course: { select: { id: true, access: true, isPublished: true } },
-      questions: {
-        select: { id: true, kind: true, topic: true, payload: true },
-      },
+      moduleId: true,
+      course: { select: { id: true, slug: true, access: true, isPublished: true } },
+      questions: { select: { id: true, topic: true, payload: true } },
     },
   });
 
@@ -52,7 +52,30 @@ export const POST = handler(async (_request: Request, { params }: Params) => {
     );
   }
 
-  // Ограничение числа попыток в сутки — чтобы экзамен нельзя было пройти
+  // Работа открывается, когда пройдены все уроки модуля. Это не наказание:
+  // она проверяет знания, а не догадливость, и сдавать её, не прочитав уроков,
+  // значит зря потратить попытку.
+  if (test.moduleId) {
+    const lessons = await prisma.lesson.findMany({
+      where: { moduleId: test.moduleId },
+      select: { id: true },
+    });
+    const done = await prisma.lessonProgress.count({
+      where: {
+        userId: user.id,
+        status: "completed",
+        lessonId: { in: lessons.map((lesson) => lesson.id) },
+      },
+    });
+    if (lessons.length > 0 && done < lessons.length) {
+      throw new ApiError(
+        "forbidden",
+        `Работа откроется, когда пройдены все уроки модуля: пройдено ${done} из ${lessons.length}`
+      );
+    }
+  }
+
+  // Ограничение числа попыток в сутки — чтобы работу нельзя было пройти
   // перебором вариантов.
   if (test.maxAttemptsPerDay) {
     const since = new Date(Date.now() - 24 * 60 * 60 * 1000);
@@ -62,32 +85,19 @@ export const POST = handler(async (_request: Request, { params }: Params) => {
     if (recent >= test.maxAttemptsPerDay) {
       throw new ApiError(
         "too_many_requests",
-        `За сутки можно пройти эту работу не больше ${test.maxAttemptsPerDay} раз. Попробуй завтра — и загляни в разбор ошибок.`
+        `За сутки эту работу можно пройти не больше ${test.maxAttemptsPerDay} раз. Попробуйте завтра — и загляните в разбор ошибок.`
       );
     }
   }
 
-  const pool: Question[] = test.questions.map((q) => {
-    const payload = q.payload as { options?: string[]; answer: string | string[] };
-    return {
-      id: q.id,
-      kind: q.kind as Question["kind"],
-      topic: q.topic ?? "без темы",
-      options: payload.options,
-      answer: payload.answer,
-    };
-  });
-
   const seed = randomUUID();
-  const selected = selectQuestions(pool, test.questionsPerAttempt, seed).map((q) =>
-    shuffleOptions(q, seed)
-  );
+  const selected = selectQuestions(poolFrom(test.questions), test.questionsPerAttempt, seed);
 
   const attempt = await prisma.testAttempt.create({
     data: {
       userId: user.id,
       testId: test.id,
-      questionIds: selected.map((q) => q.id),
+      questionIds: selected.map((question) => question.id),
       answers: {},
     },
     select: { id: true, startedAt: true },
@@ -102,13 +112,8 @@ export const POST = handler(async (_request: Request, { params }: Params) => {
         passScore: test.passScore,
       },
       test: { title: test.title, kind: test.kind },
-      // Правильные ответы намеренно не передаются
-      questions: selected.map((q) => ({
-        id: q.id,
-        kind: q.kind,
-        topic: q.topic,
-        options: q.options,
-      })),
+      // Правильные ответы, разборы и подсказки намеренно не передаются
+      questions: selected.map(forBrowser),
     },
     201
   );

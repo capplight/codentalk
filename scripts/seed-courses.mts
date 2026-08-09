@@ -163,6 +163,50 @@ async function main(): Promise<void> {
 
         console.log(`  ✓ ${lesson.slug} (${tasks.length} заданий)`);
       }
+
+      // ---- проверочная работа модуля -------------------------------------
+      // Банк вопросов переписывается целиком. Сданные попытки хранят свои
+      // ответы и балл отдельно, поэтому правка вопросов их не портит.
+      const quiz = module.quiz;
+      const existing = await prisma.test.findFirst({
+        where: { courseId: savedCourse.id, moduleId: savedModule.id, kind: "module_quiz" },
+        select: { id: true },
+      });
+
+      const test = existing
+        ? await prisma.test.update({
+            where: { id: existing.id },
+            data: {
+              title: `Проверочная работа: ${module.title}`,
+              questionsPerAttempt: quiz.ask ?? quiz.questions.length,
+              passScore: Math.round((quiz.passRatio ?? 0.7) * 100),
+            },
+            select: { id: true },
+          })
+        : await prisma.test.create({
+            data: {
+              courseId: savedCourse.id,
+              moduleId: savedModule.id,
+              kind: "module_quiz",
+              title: `Проверочная работа: ${module.title}`,
+              questionsPerAttempt: quiz.ask ?? quiz.questions.length,
+              passScore: Math.round((quiz.passRatio ?? 0.7) * 100),
+            },
+            select: { id: true },
+          });
+
+      await prisma.testQuestion.deleteMany({ where: { testId: test.id } });
+      await prisma.testQuestion.createMany({
+        data: quiz.questions.map((question) => ({
+          testId: test.id,
+          kind: question.kind,
+          payload: question as never,
+          // Тема разбора слабых мест — это итог урока, который вопрос проверяет
+          topic: question.outcome,
+        })),
+      });
+
+      console.log(`  ✓ проверочная работа: ${quiz.questions.length} вопросов`);
     }
   }
 
