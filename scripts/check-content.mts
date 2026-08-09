@@ -17,6 +17,7 @@ import {
   type Course,
   type Lesson,
   type Module,
+  type Quiz,
   type TaskBlock,
 } from "../lib/content/types.ts";
 import { checkPositionBalance } from "../lib/domain/testing.ts";
@@ -275,8 +276,29 @@ function checkModule(mod: Module, where: string): void {
     checkLesson(lesson, `${where} → ${lesson.slug}`);
   }
 
-  const quizWhere = `${where} → проверочная`;
-  const questions = mod.quiz.questions;
+  checkQuiz(mod.quiz, `${where} → проверочная`, {
+    label: "проверочной работе",
+    // Итоги уроков модуля: каждый должен быть проверен, и чужих быть не должно
+    mustCover: mod.lessons.map((lesson) => ({ outcome: lesson.outcome, where: `${where} → ${lesson.slug}` })),
+    allowed: new Set(mod.lessons.map((lesson) => lesson.outcome)),
+  });
+}
+
+// ---------------------------------------------------------------------------
+// Проверочная работа и экзамен — правила общие
+// ---------------------------------------------------------------------------
+
+interface QuizRules {
+  /** Как называть работу в сообщениях: «проверочной работе», «экзамене» */
+  label: string;
+  /** Итоги, каждый из которых обязан быть проверен хотя бы одним вопросом */
+  mustCover: Array<{ outcome: string; where: string }>;
+  /** Итоги, которыми вопрос вообще может быть помечен */
+  allowed: Set<string>;
+}
+
+function checkQuiz(quiz: Quiz, quizWhere: string, rules: QuizRules): void {
+  const questions = quiz.questions;
 
   if (questions.length === 0) {
     fail(quizWhere, "нет ни одного вопроса");
@@ -292,23 +314,20 @@ function checkModule(mod: Module, where: string): void {
     checkTask(question, at);
 
     // Развёрнутый ответ и произнесение вслух машина не оценивает. В уроке это
-    // уместно — там показывается эталон. В проверочной работе такой вопрос
-    // либо повис бы без оценки, либо был бы засчитан наугад.
+    // уместно — там показывается эталон. Здесь такой вопрос либо повис бы без
+    // оценки, либо был бы засчитан наугад.
     if (question.kind === "essay" || question.kind === "speak") {
-      fail(
-        at,
-        `вид «${question.kind}» машина не оценивает — в проверочной работе ему не место`
-      );
+      fail(at, `вид «${question.kind}» машина не оценивает — в ${rules.label} ему не место`);
     }
   }
 
-  // Каждый итог урока проверяется хотя бы одним вопросом.
+  // Каждый итог проверяется хотя бы одним вопросом.
   const covered = new Set(questions.map((q) => q.outcome));
-  for (const lesson of mod.lessons) {
-    if (!covered.has(lesson.outcome)) {
+  for (const target of rules.mustCover) {
+    if (!covered.has(target.outcome)) {
       fail(
-        `${where} → ${lesson.slug}`,
-        "итог урока не проверяется ни одним вопросом проверочной работы — " +
+        target.where,
+        `итог не проверяется ни одним вопросом в ${rules.label} — ` +
           "значит время ученика потрачено впустую"
       );
     }
@@ -316,9 +335,8 @@ function checkModule(mod: Module, where: string): void {
 
   // И наоборот: вопрос, помеченный итогом, которого нет ни у одного урока,
   // почти всегда описка в длинной строке.
-  const lessonOutcomes = new Set(mod.lessons.map((l) => l.outcome));
   for (const question of questions) {
-    if (!lessonOutcomes.has(question.outcome)) {
+    if (!rules.allowed.has(question.outcome)) {
       fail(
         `${quizWhere} → ${question.id}`,
         `помечен итогом, которого нет ни у одного урока: «${question.outcome}»`
@@ -337,10 +355,10 @@ function checkModule(mod: Module, where: string): void {
     );
   }
 
-  if (mod.quiz.ask !== undefined && mod.quiz.ask > questions.length) {
-    fail(quizWhere, `просит показать ${mod.quiz.ask} вопросов, а в банке их ${questions.length}`);
+  if (quiz.ask !== undefined && quiz.ask > questions.length) {
+    fail(quizWhere, `просит показать ${quiz.ask} вопросов, а в банке их ${questions.length}`);
   }
-  if (mod.quiz.ask !== undefined && mod.quiz.ask === questions.length && questions.length > 4) {
+  if (quiz.ask !== undefined && quiz.ask === questions.length && questions.length > 4) {
     warn(quizWhere, "показываются все вопросы банка — при пересдаче ученик увидит те же самые");
   }
 
@@ -370,6 +388,35 @@ function checkCourse(course: Course): void {
     slugs.add(mod.slug);
     checkModule(mod, `${where} → ${mod.slug}`);
   }
+
+  // Итоговый экзамен: то же, что у проверочной работы, но охват — весь курс.
+  // Экзамен, спрашивающий про половину умений, выдавал бы ступень за половину
+  // курса, а на нём держится сертификат.
+  if (course.exam) {
+    const allLessons = course.modules.flatMap((mod) =>
+      mod.lessons.map((lesson) => ({ outcome: lesson.outcome, where: `${where} → ${lesson.slug}` }))
+    );
+
+    checkQuiz(course.exam, `${where} → экзамен`, {
+      label: "экзамене",
+      mustCover: allLessons,
+      allowed: new Set(allLessons.map((lesson) => lesson.outcome)),
+    });
+
+    // Экзамен решает судьбу ступени, поэтому его порог не может быть ниже,
+    // чем у отдельной проверочной работы.
+    const examRatio = course.exam.passRatio ?? 0.7;
+    for (const mod of course.modules) {
+      const quizRatio = mod.quiz.passRatio ?? 0.7;
+      if (examRatio < quizRatio) {
+        warn(
+          `${where} → экзамен`,
+          `порог экзамена ${Math.round(examRatio * 100)} ниже порога работы модуля «${mod.slug}» ` +
+            `(${Math.round(quizRatio * 100)}) — сдать курс проще, чем его часть`
+        );
+      }
+    }
+  }
 }
 
 for (const course of courses) checkCourse(course);
@@ -390,6 +437,7 @@ for (const course of courses) {
     }
     tasks += mod.quiz.questions.length;
   }
+  tasks += course.exam?.questions.length ?? 0;
 }
 
 console.log(

@@ -2,6 +2,8 @@ import Link from "next/link";
 import { tracks, englishLevels } from "@/content";
 import { countTasks } from "@/lib/types";
 import { trackHasFree } from "@/lib/domain/course-access";
+import { cardsForTrack } from "@/courses";
+import { withCount } from "@/lib/plural";
 import styles from "./page.module.css";
 
 /**
@@ -95,11 +97,15 @@ export default function HomePage() {
                 (sum, lvl) => sum + lvl.chapters.reduce((s, ch) => s + countTasks(ch), 0),
                 0
               );
-              const free = trackHasFree(track);
+              // Курсы нового формата. Если в направлении есть хотя бы один,
+              // оно уже не «скоро»: содержание написано и открыто.
+              const fresh = cardsForTrack(track.slug);
+              const soon = track.comingSoon && fresh.length === 0;
+              const free = trackHasFree(track) || fresh.some((card) => card.access === "free");
 
               const body = (
                 <>
-                  {track.comingSoon ? (
+                  {soon ? (
                     <span className={`${styles.badge} ${styles.badgeSoon}`}>Скоро</span>
                   ) : free ? (
                     <span className={`${styles.badge} ${styles.badgeFree}`}>Бесплатно</span>
@@ -112,24 +118,45 @@ export default function HomePage() {
                   {/* Одна строка, а не абзац: карточки в сетке должны быть
                       одной высоты, иначе ряд разваливается. Подробности —
                       на странице направления. */}
-                  <p className={styles.trackDesc}>{track.tagline}</p>
+                  <p className={styles.trackDesc}>
+                    {fresh.length > 0 && fresh[0].tagline ? fresh[0].tagline : track.tagline}
+                  </p>
 
                   <span className={styles.trackMeta}>
-                    {track.comingSoon
+                    {soon
                       ? track.syllabus
                         ? `${track.syllabus.length} тем в программе`
                         : "готовится"
-                      : `${track.levels.length} уровней · ${tasks} заданий`}
+                      : fresh.length > 0 && track.levels.length === 0
+                        ? `${withCount(fresh.length, "курс", "курса", "курсов")} · ` +
+                          withCount(
+                            fresh.reduce((sum, card) => sum + card.lessons, 0),
+                            "урок",
+                            "урока",
+                            "уроков"
+                          )
+                        : `${track.levels.length} уровней · ${tasks} заданий`}
                   </span>
                 </>
               );
 
-              return track.comingSoon ? (
-                <div key={track.slug} className={`${styles.track} ${styles.trackSoon}`}>
-                  {body}
-                </div>
-              ) : (
-                <Link key={track.slug} href={`/track/${track.slug}`} className={styles.track}>
+              if (soon) {
+                return (
+                  <div key={track.slug} className={`${styles.track} ${styles.trackSoon}`}>
+                    {body}
+                  </div>
+                );
+              }
+
+              // Если у направления есть страница первой версии — ведём туда,
+              // иначе прямо в единственный курс нового формата.
+              const href =
+                track.levels.length > 0
+                  ? `/track/${track.slug}`
+                  : `/learn/${fresh[0].slug}`;
+
+              return (
+                <Link key={track.slug} href={href} className={styles.track}>
                   {body}
                 </Link>
               );

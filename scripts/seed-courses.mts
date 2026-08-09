@@ -210,6 +210,48 @@ async function main(): Promise<void> {
 
       console.log(`  ✓ проверочная работа: ${quiz.questions.length} вопросов`);
     }
+
+    // ---- итоговый экзамен курса -------------------------------------------
+    if (course.exam) {
+      const exam = course.exam;
+      const existingExam = await prisma.test.findFirst({
+        where: { courseId: savedCourse.id, kind: "final_exam" },
+        select: { id: true },
+      });
+
+      const examTest = existingExam
+        ? await prisma.test.update({
+            where: { id: existingExam.id },
+            data: {
+              title: `Итоговый экзамен: ${course.title}`,
+              questionsPerAttempt: exam.ask ?? exam.questions.length,
+              passScore: Math.round((exam.passRatio ?? 0.8) * 100),
+            },
+            select: { id: true },
+          })
+        : await prisma.test.create({
+            data: {
+              courseId: savedCourse.id,
+              kind: "final_exam",
+              title: `Итоговый экзамен: ${course.title}`,
+              questionsPerAttempt: exam.ask ?? exam.questions.length,
+              passScore: Math.round((exam.passRatio ?? 0.8) * 100),
+            },
+            select: { id: true },
+          });
+
+      await prisma.testQuestion.deleteMany({ where: { testId: examTest.id } });
+      await prisma.testQuestion.createMany({
+        data: exam.questions.map((question) => ({
+          testId: examTest.id,
+          kind: question.kind,
+          payload: question as never,
+          topic: question.outcome,
+        })),
+      });
+
+      console.log(`  ✓ итоговый экзамен: ${exam.questions.length} вопросов`);
+    }
   }
 
   console.log(dryRun ? "\nПробный прогон: база не изменена." : "\nПеренос завершён.");

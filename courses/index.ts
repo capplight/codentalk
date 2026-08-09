@@ -15,6 +15,48 @@ export function findCourse(slug: string): Course | undefined {
   return courses.find((course) => course.slug === slug);
 }
 
+/**
+ * Сведения о курсе для витрины: только то, что нужно карточке.
+ *
+ * Отдельная функция, чтобы витрине не приходилось разбирать всё содержание —
+ * и чтобы было видно, что именно уходит на страницу.
+ */
+export interface CourseCard {
+  slug: string;
+  track: string;
+  title: string;
+  tagline: string | null;
+  level: string | null;
+  access: "free" | "premium";
+  modules: number;
+  lessons: number;
+  minutes: number;
+  hasExam: boolean;
+}
+
+export function courseCards(): CourseCard[] {
+  return courses.map((course) => {
+    const lessons = lessonsInOrder(course);
+    return {
+      slug: course.slug,
+      track: course.track,
+      title: course.title,
+      tagline: course.tagline ?? null,
+      level: course.level ?? null,
+      access: course.access,
+      modules: course.modules.length,
+      lessons: lessons.length,
+      minutes: lessons.reduce((sum, entry) => sum + entry.lesson.estimatedMinutes, 0),
+      hasExam: course.exam !== undefined,
+    };
+  });
+}
+
+/** Курсы нового формата в этом направлении — витрине нужно знать, что открыто. */
+export function cardsForTrack(trackSlug: string): CourseCard[] {
+  return courseCards().filter((card) => card.track === trackSlug);
+}
+
 /** Уроки курса подряд, в порядке модулей — так, как их проходят. */
 export function lessonsInOrder(course: Course): Array<{ module: Module; lesson: Lesson }> {
   return course.modules.flatMap((module) => module.lessons.map((lesson) => ({ module, lesson })));

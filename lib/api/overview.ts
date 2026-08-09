@@ -28,7 +28,11 @@ export interface OverviewCourse {
   nextLessonHref: string | null;
   /** Проверочные работы модулей: сданные из всех. У первой версии их нет. */
   quizzes: { total: number; passed: number } | null;
-  /** Все уроки пройдены и все работы сданы — можно получать сертификат */
+  /** Итоговый экзамен курса, если он есть */
+  exam: { passed: boolean } | null;
+  /** Работы сданы, экзамен доступен и ещё не сдан */
+  examOpen: boolean;
+  /** Всё пройдено и сдано — можно получать сертификат */
   certificateReady: boolean;
 }
 
@@ -111,8 +115,8 @@ export async function buildOverview(userId: string, now = new Date()): Promise<O
     // Проверочные работы модулей и сданные попытки по ним — доказательство
     // знаний, на котором держится сертификат в новом формате
     prisma.test.findMany({
-      where: { kind: "module_quiz" },
-      select: { id: true, courseId: true },
+      where: { kind: { in: ["module_quiz", "final_exam"] } },
+      select: { id: true, courseId: true, kind: true },
     }),
     prisma.testAttempt.findMany({
       where: { userId, passed: true },
@@ -122,11 +126,20 @@ export async function buildOverview(userId: string, now = new Date()): Promise<O
 
   const passedTestIds = new Set(passedAttempts.map((attempt) => attempt.testId));
   const quizzesByCourse = new Map<string, { total: number; passed: number }>();
-  for (const quiz of quizzes) {
-    const cell = quizzesByCourse.get(quiz.courseId) ?? { total: 0, passed: 0 };
-    cell.total += 1;
-    if (passedTestIds.has(quiz.id)) cell.passed += 1;
-    quizzesByCourse.set(quiz.courseId, cell);
+  const examByCourse = new Map<string, { exists: boolean; passed: boolean }>();
+
+  for (const test of quizzes) {
+    if (test.kind === "module_quiz") {
+      const cell = quizzesByCourse.get(test.courseId) ?? { total: 0, passed: 0 };
+      cell.total += 1;
+      if (passedTestIds.has(test.id)) cell.passed += 1;
+      quizzesByCourse.set(test.courseId, cell);
+    } else {
+      examByCourse.set(test.courseId, {
+        exists: true,
+        passed: passedTestIds.has(test.id),
+      });
+    }
   }
 
   const statusByCourse = new Map<string, Record<string, LessonStatus>>();
@@ -152,6 +165,8 @@ export async function buildOverview(userId: string, now = new Date()): Promise<O
       : undefined;
 
     const quizProgress = quizzesByCourse.get(e.course.id) ?? null;
+    const exam = examByCourse.get(e.course.id) ?? null;
+    const quizzesDone = quizProgress === null || quizProgress.passed >= quizProgress.total;
 
     return {
       slug: e.course.slug,
@@ -173,9 +188,10 @@ export async function buildOverview(userId: string, now = new Date()): Promise<O
       href: courseHref(e.course.format, e.course.slug),
       nextLessonHref: nextRaw ? courseHref(e.course.format, e.course.slug, nextRaw.slug) : null,
       quizzes: quizProgress,
+      exam: exam ? { passed: exam.passed } : null,
+      examOpen: summary.readyForExam && quizzesDone && exam !== null && !exam.passed,
       certificateReady:
-        summary.readyForExam &&
-        (quizProgress === null || quizProgress.passed >= quizProgress.total),
+        summary.readyForExam && quizzesDone && (exam === null || exam.passed),
     };
   });
 

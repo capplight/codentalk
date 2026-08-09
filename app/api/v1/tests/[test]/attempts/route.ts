@@ -52,7 +52,29 @@ export const POST = handler(async (_request: Request, { params }: Params) => {
     );
   }
 
-  // Работа открывается, когда пройдены все уроки модуля. Это не наказание:
+  // Экзамен открывается, когда сданы все проверочные работы модулей. Он
+  // спрашивает про весь курс, и сдавать его, не разобравшись с частями, —
+  // потратить попытку впустую.
+  if (test.kind === "final_exam") {
+    const quizzes = await prisma.test.findMany({
+      where: { courseId: test.course.id, kind: "module_quiz" },
+      select: { id: true },
+    });
+    const passed = await prisma.testAttempt.findMany({
+      where: { userId: user.id, passed: true, testId: { in: quizzes.map((q) => q.id) } },
+      select: { testId: true },
+    });
+    const passedCount = new Set(passed.map((attempt) => attempt.testId)).size;
+
+    if (quizzes.length > 0 && passedCount < quizzes.length) {
+      throw new ApiError(
+        "forbidden",
+        `Экзамен откроется, когда сданы все проверочные работы модулей: сдано ${passedCount} из ${quizzes.length}`
+      );
+    }
+  }
+
+  // Работа модуля открывается, когда пройдены все его уроки. Это не наказание:
   // она проверяет знания, а не догадливость, и сдавать её, не прочитав уроков,
   // значит зря потратить попытку.
   if (test.moduleId) {

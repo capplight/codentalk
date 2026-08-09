@@ -4,17 +4,8 @@ import { auth } from "@/auth";
 import { prisma } from "@/lib/db";
 import { findCourse, lessonsInOrder } from "@/courses";
 import CourseActions from "@/components/lesson/CourseActions";
+import { plural } from "@/lib/plural";
 import s from "../learn.module.css";
-
-/** Склонение при числе: 1 урок, 2 урока, 5 уроков. */
-function plural(count: number, one: string, few: string, many: string): string {
-  const mod100 = count % 100;
-  if (mod100 >= 11 && mod100 <= 14) return many;
-  const mod10 = count % 10;
-  if (mod10 === 1) return one;
-  if (mod10 >= 2 && mod10 <= 4) return few;
-  return many;
-}
 
 type Params = { params: Promise<{ course: string }> };
 
@@ -58,9 +49,10 @@ export default async function CoursePage({ params }: Params) {
   let enrolled = false;
   let quizzesTotal = 0;
   let quizzesPassed = 0;
+  let examPassed = false;
   let serial: string | null = null;
   if (userId) {
-    const [enrollment, tests, passed, certificate] = await Promise.all([
+    const [enrollment, tests, passed, certificate, exam] = await Promise.all([
       prisma.enrollment.findFirst({
         where: { userId, course: { slug: courseSlug } },
         select: { id: true },
@@ -77,12 +69,21 @@ export default async function CoursePage({ params }: Params) {
         where: { userId, course: { slug: courseSlug }, revokedAt: null },
         select: { serial: true },
       }),
+      prisma.testAttempt.findFirst({
+        where: {
+          userId,
+          passed: true,
+          test: { kind: "final_exam", course: { slug: courseSlug } },
+        },
+        select: { id: true },
+      }),
     ]);
     enrolled = enrollment !== null;
     quizzesTotal = tests.length;
     const passedIds = new Set(passed.map((attempt) => attempt.testId));
     quizzesPassed = tests.filter((test) => passedIds.has(test.id)).length;
     serial = certificate?.serial ?? null;
+    examPassed = exam !== null;
   }
 
   const all = lessonsInOrder(course);
@@ -170,13 +171,48 @@ export default async function CoursePage({ params }: Params) {
         })}
       </div>
 
+      {course.exam && (
+        <section className={s.module} style={{ marginTop: 24 }}>
+          <div className={s.moduleHead}>
+            <span className={s.moduleNum}>✓</span>
+            <h2 className={s.moduleTitle}>Итоговый экзамен</h2>
+            <span className={s.moduleMeta}>
+              {examPassed ? "сдан" : `${course.exam.questions.length} вопросов о всём курсе`}
+            </span>
+          </div>
+          <div className={s.quiz}>
+            <span className={s.quizMeta}>
+              {examPassed
+                ? "Экзамен сдан — можно получать сертификат."
+                : quizzesTotal > 0 && quizzesPassed >= quizzesTotal
+                  ? "Все проверочные работы сданы, экзамен открыт."
+                  : `Откроется, когда сданы все проверочные работы: сдано ${quizzesPassed} из ${quizzesTotal}`}
+            </span>
+            <span className={s.quizAction}>
+              {quizzesTotal > 0 && quizzesPassed >= quizzesTotal ? (
+                <Link className="btn" href={`/learn/${course.slug}/ekzamen`}>
+                  {examPassed ? "Пересдать" : "Сдавать экзамен"}
+                </Link>
+              ) : (
+                <button className={`btn ${s.locked}`} type="button" disabled>
+                  Пока закрыт
+                </button>
+              )}
+            </span>
+          </div>
+        </section>
+      )}
+
       {userId && (
         <div style={{ marginTop: 28 }}>
           {!enrolled ? (
             <CourseActions course={courseSlug} mode="enroll" />
           ) : serial ? (
             <CourseActions course={courseSlug} mode="certificate" serial={serial} />
-          ) : done.size >= all.length && quizzesTotal > 0 && quizzesPassed >= quizzesTotal ? (
+          ) : done.size >= all.length &&
+            quizzesTotal > 0 &&
+            quizzesPassed >= quizzesTotal &&
+            (!course.exam || examPassed) ? (
             <CourseActions course={courseSlug} mode="certificate" />
           ) : null}
         </div>

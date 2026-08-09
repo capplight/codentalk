@@ -74,14 +74,22 @@ export const POST = handler(async (_request: Request, { params }: Params) => {
   }));
 
   const summary = summarizeCourse(lessons, statuses);
-  const hasExam = course.lessons.some((l) => l.kind === "exam");
+
+  // Экзамен бывает двух видов: урок-экзамен первой версии и отдельная работа
+  // вида final_exam в новом формате. Сертификат должен требовать любого из них.
+  const finalExam = await prisma.test.findFirst({
+    where: { courseId: course.id, kind: "final_exam" },
+    select: { id: true },
+  });
+  const hasExam = course.lessons.some((l) => l.kind === "exam") || finalExam !== null;
+  const examPassed = summary.examPassed || bestExam !== null;
 
   const passedTestIds = new Set(passedAttempts.map((attempt) => attempt.testId));
 
   const eligibility = checkEligibility({
     allLessonsCompleted: summary.readyForExam,
     hasExam,
-    examPassed: summary.examPassed,
+    examPassed,
     alreadyIssued: !!existing,
     // У курсов первой версии проверочных работ модулей нет — там правило прежнее
     quizzes:
