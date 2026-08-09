@@ -22,6 +22,12 @@
 | surname | /sˈɜːneɪm/ | sɜːneɪm | S ER1 N EY2 M | сходится | |
 | last | /lˈɑːst/ | lɑːst | L AE1 S T | сходится | |
 | address | — | ædɹɛs · ədɹɛs | AE1 D R EH2 S | **разошлись** | |
+| tea | /tˈiː/ | tiː | T IY1 | сходится | |
+| black | /blˈæk/ | blæk | B L AE1 K | сходится | |
+| night | /nˈaɪt/ | naɪ̯t | N AY1 T | **разошлись** | |
+| house | — | haws · haʊs · haʊz … | HH AW1 S | **разошлись** | |
+| teacher | /tˈiːtʃɐ/ | tiːt͡ʃəː | T IY1 CH ER0 | **разошлись** | |
+| water | /wˈɔːtɐ/ | watɐ · wɔːtə | W AO1 T ER0 | **разошлись** | |
 | hello | /həlˈəʊ/ | hælaʊ · həlo · həlow … | HH AH0 L OW1 | сходится, но есть варианты | |
 | hi | /hˈaɪ/ | haɪ | HH AY1 | сходится | |
 | good | /ɡˈʊd/ | ɡʊd | G UH1 D | сходится | |
@@ -48,7 +54,7 @@
 | sorry | /sˈɒɹi/ | sɒɹi | S AA1 R IY0 | сходится | |
 | welcome | /wˈɛlkʌm/ | wɛlkəm | W EH1 L K AH0 M | **разошлись** | |
 
-Всего слов 40: сходится 26, разошлись 12, нет в источниках 2.
+Всего слов 46: сходится 28, разошлись 16, нет в источниках 2.
 
 ## Краткие формы
 
