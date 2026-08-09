@@ -9,7 +9,7 @@ import type { Module } from "@/lib/content/types";
  *
  * ЧТО ЗДЕСЬ НЕ ТАК, И ЭТО ИЗВЕСТНО:
  *
- * 1. Написано два урока, а программа отводит модулю восемь. Это первая часть.
+ * 1. Написано три урока, а программа отводит модулю восемь. Это первая часть.
  *
  * 2. Половина замысла ждёт звука. Источник разносит умения по колонкам: буквы на
  *    этой ступени СЛУШАЮТ и ПИШУТ. Слушание пока невозможно — записей нет, и
@@ -68,14 +68,33 @@ const module: Module = {
       section:
         "A1, NOUNS types «PROPER NOUNS»: «Can use proper nouns with a capital letter to refer " +
         "to specific people, places, days and things». " +
-        "СВЕРХ СТУПЕНИ: «How do you spell that?» — список структур Pre A1 Starters, с. 11 " +
-        "(impersonal you). Взято по решению 1 программы",
+        "СВЕРХ СТУПЕНИ: «How do you spell that?» — QUESTIONS wh- «WITH AUXILIARY 'DO'», A2. " +
+        "Взято целиком как заученный оборот по решению 1 программы; источник оборота " +
+        "указан отдельной записью ниже. " +
+        "УКАЗАТЕЛЬНОЕ `that` (A2) в словарь модуля НЕ вынесено намеренно: оборот учится " +
+        "целиком, а разбор `this`/`that` идёт в модуле 6",
       license: "внутреннее использование, публично не называем",
     },
     {
       ref: "Oxford 3000",
-      section: "слова модуля с пометкой A1: letter, name, spell, spelling, word, country",
+      section:
+        "слова модуля с пометкой A1: letter, name, spell, spelling, word, country, how, please",
       license: "внутреннее использование",
+    },
+    {
+      ref: "Cambridge English, Pre A1 Starters — Grammar and Structures List",
+      section:
+        "с. 11: «Impersonal you — How do you spell that?» — отсюда взят оборот целиком. " +
+        "Там же «Can for requests/permission — Can I have some birthday cake?» — отсюда " +
+        "вторая форма просьбы. Оба взяты по решению 1 программы курса. " +
+        "ВНИМАНИЕ: программа отдаёт `can` в просьбе модулю 22, а здесь он появляется " +
+        "первым — как заученный оборот, без разбора устройства. Разбор остаётся за модулем 22",
+      license: "свободно распространяется",
+    },
+    {
+      ref: "Council of Europe, CEFR Companion Volume 2020 — третий урок",
+      section: "с. 137, Sociolinguistic appropriateness, A1: «saying please, thank you, sorry»",
+      license: "внутреннее использование, публично не называем",
     },
     {
       ref: "wikipron-en-uk.tsv (данные Викисловаря)",
@@ -421,9 +440,9 @@ const module: Module = {
           text: [
             "Услышать незнакомое слово и не разобрать его — обычное дело даже для тех, кто " +
               "говорит бегло. Поэтому в английском есть готовая просьба продиктовать: " +
-              "How do you spell that? Дословно — «как ты это пишешь».",
-            "Ей же пользуются, когда нужно записать чужое имя без ошибок. Просьба вежливая " +
-              "и уместна с кем угодно: переспрашивать не стыдно, стыдно записать неверно.",
+              "How do you spell that? Дословно — «как ты это пишешь по буквам».",
+            "Ей же пользуются, когда нужно записать чужое имя без ошибок. Спросить о написании " +
+              "можно и у знакомого, и у незнакомого человека.",
           ],
         },
         {
@@ -431,11 +450,10 @@ const module: Module = {
           kind: "example",
           caption: "У стойки в гостинице",
           text:
-            "— What's your name?\n— Dana.\n— How do you spell that?\n— D-A-N-A.\n— Thank you.",
+            "— What's your name?\n— Dana.\n— How do you spell that?\n— D-A-N-A.",
           explain:
-            "Разговор занимает четыре реплики и почти не меняется. Вопрос — имя — просьба " +
-              "продиктовать — буквы одна за другой. Выучи его целиком: собирать по словам " +
-              "у стойки будет некогда.",
+            "Четыре реплики: вопрос об имени, имя, просьба продиктовать, буквы одна за " +
+              "другой. Выучи их целиком — собирать фразу по словам у стойки будет некогда.",
         },
         {
           id: "vezhlivyy-vid",
@@ -443,7 +461,8 @@ const module: Module = {
           tone: "info",
           text:
             "Ту же просьбу можно высказать иначе: Can you spell that, please? Оба вида " +
-            "годятся. Слово please ставится в конце и делает просьбу мягче.",
+            "годятся. Слово please может стоять и в конце просьбы, и в начале: " +
+            "Please spell that.",
         },
         {
           id: "slovar-sprosit",
@@ -451,7 +470,6 @@ const module: Module = {
           caption: "Слова урока",
           items: [
             { term: "how", translation: "как", example: "How do you spell that?", hint: "/haʊ/" },
-            { term: "that", translation: "это, то", example: "How do you spell that?", hint: "/ðæt/" },
             { term: "please", translation: "пожалуйста (в просьбе)", example: "Can you spell that, please?", hint: "/pliːz/" },
           ],
         },
@@ -489,7 +507,7 @@ const module: Module = {
           after: "?",
           answer: "please",
           hint: "Есть в словаре этого урока.",
-          why: "Please ставится в конце просьбы. Без него фраза звучит как требование.",
+          why: "Please — слово вежливости в просьбе. Здесь оно стоит в конце, но может стоять и в начале.",
         },
         {
           id: "z4-poryadok-dialoga",
@@ -511,14 +529,14 @@ const module: Module = {
             { text: " · " },
             { text: "How do you spell that?", selectable: true, correct: true },
             { text: " · " },
-            { text: "Thank you.", selectable: true },
+            { text: "I can spell my name.", selectable: true },
             { text: " · " },
             { text: "Can you spell that, please?", selectable: true, correct: true },
           ],
-          hint: "В обеих просьбах есть одно и то же слово.",
+          hint: "Слово spell есть не только в просьбах — смотри, о чём каждая реплика.",
           why:
-            "How do you spell that? и Can you spell that, please? — две просьбы об одном. " +
-            "Их роднит слово spell.",
+            "How do you spell that? и Can you spell that, please? просят продиктовать. " +
+            "«I can spell my name» — не просьба, а сообщение о себе, хотя spell в нём есть.",
         },
       ],
     },
@@ -526,7 +544,7 @@ const module: Module = {
 
   // =======================================================================
   // Проверочная работа модуля.
-  // Заданий, где ответ нужно написать самому, — 5 из 8. Оба итога проверяются.
+  // Заданий, где ответ нужно написать самому, — 7 из 11. Все три итога проверяются.
   // =======================================================================
   quiz: {
     ask: 6,
@@ -602,21 +620,23 @@ const module: Module = {
         outcome: "понимает просьбу продиктовать слово и отвечает на неё по буквам",
         prompt: "Какая фраза просит продиктовать слово по буквам?",
         options: [
-          { text: "What's your name?" },
+          { text: "I can spell that." },
           { text: "Can you spell that, please?", correct: true },
-          { text: "Thank you." },
+          { text: "That is my name." },
         ],
-        why: "Can you spell that, please? — просьба назвать слово по буквам, как и How do you spell that?",
+        why:
+          "Can you spell that, please? — просьба. «I can spell that» сообщает о себе, " +
+          "а «That is my name» называет имя: слово spell само по себе просьбы не делает.",
       },
       {
         id: "q-dopisat-please",
         kind: "gap",
         outcome: "понимает просьбу продиктовать слово и отвечает на неё по буквам",
-        prompt: "Допиши слово вежливости в конце просьбы.",
-        before: "Can you spell that, ",
-        after: "?",
-        answer: "please",
-        why: "Please ставится в конце просьбы и делает её мягче.",
+        prompt: "Допиши слово вежливости в начале просьбы.",
+        before: "",
+        after: " spell that.",
+        answer: "Please",
+        why: "Please — слово вежливости. В начале просьбы оно стоит так же уместно, как в конце.",
       },
       {
         id: "q-najti-oshibku",
