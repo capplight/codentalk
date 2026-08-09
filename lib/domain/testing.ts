@@ -282,6 +282,12 @@ export function checkPositionBalance(indexes: number[], optionCount: number): Ba
 
   const known = indexes.filter((i) => i !== -1).length;
 
+  // При одном вопросе распределять нечего: его верный ответ неизбежно занимает
+  // «все сто процентов» позиций, и правило срабатывало бы всегда.
+  if (known < 2) {
+    return { balanced: problems.length === 0, positions, longestRun, problems };
+  }
+
   // Ни одна позиция не должна получать больше половины всех верных ответов
   const half = known / 2;
   positions.forEach((count, i) => {

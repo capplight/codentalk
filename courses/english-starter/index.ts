@@ -1,4 +1,5 @@
 import type { Course } from "@/lib/content/types";
+import alfavit from "./alfavit";
 import privetstvie from "./privetstvie";
 
 /**
@@ -18,7 +19,7 @@ const course: Course = {
   level: "до A1",
   tagline: "Для тех, кто не учил язык или всё забыл",
   access: "free",
-  modules: [privetstvie],
+  modules: [alfavit, privetstvie],
 };
 
 export default course;
