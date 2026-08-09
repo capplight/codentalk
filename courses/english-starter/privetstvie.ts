@@ -11,10 +11,17 @@ import type { Module } from "@/lib/content/types";
  * ЧТО ЗДЕСЬ НЕ ТАК, И ЭТО ИЗВЕСТНО:
  *
  * 1. Звука нет. Блок `audio` требует записей, а решение об их источнике за
- *    владельцем (docs/zadachi-vladeltsa.md, п. 1.4). Пока звука нет, подсказки
- *    произношения даны русскими буквами — это костыль, и он неточен: русская
- *    запись оглушает согласные и не различает звуков, которых в русском нет.
- *    Как появятся записи, подсказки заменяются звуком.
+ *    владельцем (docs/zadachi-vladeltsa.md, п. 1.4). До появления записей
+ *    произношение дано международной транскрипцией, британская норма.
+ *
+ *    Русские подсказки вроде «хэЛОУ» здесь были и УБРАНЫ: методист показал, что
+ *    они учат ошибке — «гуд» оглушает согласный, «сэнк» подменяет /θ/ русским
+ *    «с», «эм» подменяет /æ/. Возвращать их нельзя.
+ *
+ *    Транскрипции сверены по трём источникам (см. docs/transkripciya-english-starter.md).
+ *    Где источники расходились, выбрана словарная британская норма; спорные
+ *    случаи — сильные и слабые формы are, to, am — оставлены в сильной форме,
+ *    как принято при первом знакомстве со словом.
  *
  * 2. Итоги написаны как устные («здоровается», «называет имя»), а проверяются
  *    письменно: устное задание машина не оценивает и в проверочную работу не
@@ -113,9 +120,11 @@ const module: Module = {
           kind: "note",
           tone: "info",
           text:
-            "Как читается. Hello — «хэЛОУ». В подсказках произношения заглавными буквами " +
-            "показан ударный слог: здесь ударение на второй, а не на первый. " +
-            "Буква h произносится лёгким выдохом, без русского «х» с нажимом.",
+            "Произношение записано значками международной транскрипции — той же, что в " +
+            "словарях: hello — /həˈləʊ/. Русскими буквами английские звуки передать нельзя, " +
+            "половины из них в русском просто нет. Значок ˈ ставится перед ударным слогом: " +
+            "в hello ударение на втором. Разбирать все значки сразу не нужно — они будут " +
+            "встречаться по одному вместе со словами.",
         },
         {
           id: "vremya-dnya",
@@ -134,9 +143,9 @@ const module: Module = {
           caption: "Приветствия по времени дня",
           head: ["Английский", "Когда", "Как читается"],
           rows: [
-            ["Good morning", "с утра до полудня", "гуд МОРнинг"],
-            ["Good afternoon", "с полудня до вечера", "гуд афтэНУН"],
-            ["Good evening", "вечером", "гуд ИВнинг"],
+            ["Good morning", "с утра до полудня", "/ˌɡʊd ˈmɔːnɪŋ/"],
+            ["Good afternoon", "с полудня до вечера", "/ˌɡʊd ˌɑːftəˈnuːn/"],
+            ["Good evening", "вечером", "/ˌɡʊd ˈiːvnɪŋ/"],
           ],
         },
         {
@@ -163,29 +172,29 @@ const module: Module = {
           kind: "vocab",
           caption: "Слова урока",
           items: [
-            { term: "hello", translation: "здравствуйте, привет", example: "Hello!", hint: "хэЛОУ" },
-            { term: "hi", translation: "привет", example: "Hi!", hint: "хай" },
+            { term: "hello", translation: "здравствуйте, привет", example: "Hello!", hint: "/həˈləʊ/" },
+            { term: "hi", translation: "привет", example: "Hi!", hint: "/haɪ/" },
             {
               term: "good morning",
               translation: "доброе утро",
               example: "Good morning!",
-              hint: "гуд МОРнинг",
+              hint: "/ˌɡʊd ˈmɔːnɪŋ/",
             },
             {
               term: "good afternoon",
               translation: "добрый день",
               example: "Good afternoon!",
-              hint: "гуд афтэНУН",
+              hint: "/ˌɡʊd ˌɑːftəˈnuːn/",
             },
             {
               term: "good evening",
               translation: "добрый вечер",
               example: "Good evening!",
-              hint: "гуд ИВнинг",
+              hint: "/ˌɡʊd ˈiːvnɪŋ/",
             },
-            { term: "goodbye", translation: "до свидания", example: "Goodbye!", hint: "гудБАЙ" },
-            { term: "bye", translation: "пока", example: "Bye!", hint: "бай" },
-            { term: "see you", translation: "увидимся", example: "See you!", hint: "си ю" },
+            { term: "goodbye", translation: "до свидания", example: "Goodbye!", hint: "/ɡʊdˈbaɪ/" },
+            { term: "bye", translation: "пока", example: "Bye!", hint: "/baɪ/" },
+            { term: "see you", translation: "увидимся", example: "See you!", hint: "/ˈsiː juː/" },
           ],
         },
 
@@ -355,19 +364,19 @@ const module: Module = {
           kind: "vocab",
           caption: "Слова урока",
           items: [
-            { term: "I", translation: "я — всегда с заглавной буквы", example: "I am Alim.", hint: "ай" },
-            { term: "am", translation: "есть (только после I)", example: "I am here.", hint: "эм" },
-            { term: "I'm", translation: "я (краткая форма I am)", example: "I'm Dana.", hint: "айм" },
-            { term: "name", translation: "имя", example: "What's your name?", hint: "нэйм" },
-            { term: "your", translation: "ваш, твой", example: "your name", hint: "ёр" },
-            { term: "what", translation: "что, какой", example: "What's your name?", hint: "уот" },
+            { term: "I", translation: "я — всегда с заглавной буквы", example: "I am Alim.", hint: "/aɪ/" },
+            { term: "am", translation: "есть (только после I)", example: "I am here.", hint: "/æm/" },
+            { term: "I'm", translation: "я (краткая форма I am)", example: "I'm Dana.", hint: "/aɪm/" },
+            { term: "name", translation: "имя", example: "What's your name?", hint: "/neɪm/" },
+            { term: "your", translation: "ваш, твой", example: "your name", hint: "/jɔː/" },
+            { term: "what", translation: "что, какой", example: "What's your name?", hint: "/wɒt/" },
             {
               term: "nice to meet you",
               translation: "приятно познакомиться",
               example: "Nice to meet you.",
-              hint: "найс ту мит ю",
+              hint: "/ˌnaɪs tə ˈmiːt juː/",
             },
-            { term: "too", translation: "тоже", example: "Nice to meet you too.", hint: "ту" },
+            { term: "too", translation: "тоже", example: "Nice to meet you too.", hint: "/tuː/" },
           ],
         },
 
@@ -460,7 +469,7 @@ const module: Module = {
           prompt: "Произнеси вслух, как ты представишься по-английски. Подставь своё имя.",
           phrase: "Hello! I'm ... . Nice to meet you.",
           translation: "Здравствуйте! Я ... . Приятно познакомиться.",
-          hint: "Не торопись: в I'm слышится один слог — «айм».",
+          hint: "Не торопись: I'm — это один слог, /aɪm/, а не два.",
           why:
             "Это готовый набор фраз для первой встречи: приветствие, имя, вежливая концовка. " +
             "Повтори их несколько раз, чтобы они произносились без запинки.",
@@ -512,9 +521,9 @@ const module: Module = {
           caption: "Ответы на How are you?",
           head: ["Английский", "По-русски", "Как читается"],
           rows: [
-            ["I'm fine, thank you.", "Хорошо, спасибо.", "айм файн, сэнк ю"],
-            ["I'm OK, thanks.", "Нормально, спасибо.", "айм оуКЭЙ, сэнкс"],
-            ["Fine, thanks.", "Хорошо, спасибо.", "файн, сэнкс"],
+            ["I'm fine, thank you.", "Хорошо, спасибо.", "/aɪm ˈfaɪn ˈθæŋk juː/"],
+            ["I'm OK, thanks.", "Нормально, спасибо.", "/aɪm ˌəʊˈkeɪ ˈθæŋks/"],
+            ["Fine, thanks.", "Хорошо, спасибо.", "/ˈfaɪn ˈθæŋks/"],
           ],
         },
         {
@@ -532,10 +541,10 @@ const module: Module = {
           kind: "note",
           tone: "info",
           text:
-            "В словах thank и thanks буквы th передают звук, которого в русском языке нет: " +
-            "кончик языка касается верхних зубов, голос не включается. В подсказке он записан " +
-            "как «с» — это лишь приближение, а не точное совпадение. Тот же звук встретится " +
-            "дальше в словах think, three, thirty.",
+            "В словах thank и thanks буквы th передают звук /θ/, которого в русском языке нет: " +
+            "кончик языка касается верхних зубов, голос не включается. Русское «с» на его " +
+            "месте — самая заметная ошибка в этих словах, поэтому в транскрипции стоит " +
+            "отдельный значок. Тот же звук встретится дальше в think, three, thirty.",
         },
         {
           id: "vezhlivye-slova",
@@ -563,19 +572,19 @@ const module: Module = {
           kind: "vocab",
           caption: "Слова урока",
           items: [
-            { term: "how", translation: "как", example: "How are you?", hint: "хау" },
-            { term: "are", translation: "форма глагола be для you", example: "How are you?", hint: "а" },
-            { term: "fine", translation: "хорошо", example: "I'm fine.", hint: "файн" },
-            { term: "OK", translation: "нормально", example: "I'm OK.", hint: "оуКЭЙ" },
-            { term: "please", translation: "пожалуйста (в просьбе)", example: "Coffee, please.", hint: "плиз" },
-            { term: "thank you", translation: "спасибо", example: "Thank you!", hint: "сэнк ю" },
-            { term: "thanks", translation: "спасибо (короче)", example: "Thanks!", hint: "сэнкс" },
-            { term: "sorry", translation: "извините", example: "Sorry!", hint: "СОри" },
+            { term: "how", translation: "как", example: "How are you?", hint: "/haʊ/" },
+            { term: "are", translation: "форма глагола be для you", example: "How are you?", hint: "/ɑː/" },
+            { term: "fine", translation: "хорошо", example: "I'm fine.", hint: "/faɪn/" },
+            { term: "OK", translation: "нормально", example: "I'm OK.", hint: "/ˌəʊˈkeɪ/" },
+            { term: "please", translation: "пожалуйста (в просьбе)", example: "Coffee, please.", hint: "/pliːz/" },
+            { term: "thank you", translation: "спасибо", example: "Thank you!", hint: "/ˈθæŋk juː/" },
+            { term: "thanks", translation: "спасибо (короче)", example: "Thanks!", hint: "/θæŋks/" },
+            { term: "sorry", translation: "извините", example: "Sorry!", hint: "/ˈsɒri/" },
             {
               term: "you're welcome",
               translation: "не за что",
               example: "— Thank you! — You're welcome.",
-              hint: "ёр УЭЛкам",
+              hint: "/jɔː ˈwelkəm/",
             },
           ],
         },
