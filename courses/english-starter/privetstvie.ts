@@ -63,6 +63,7 @@ const module: Module = {
   outcomes: [
     "здоровается, выбирая приветствие по времени дня, и прощается",
     "называет своё имя и понимает, когда имя спрашивают",
+    "отвечает на вопрос о делах и пользуется словами вежливости",
   ],
 
   lessons: [
@@ -434,6 +435,192 @@ const module: Module = {
         },
       ],
     },
+
+    // =====================================================================
+    {
+      slug: "kak-dela",
+      title: "Как дела и вежливые слова",
+      estimatedMinutes: 13,
+      outcome: "отвечает на вопрос о делах и пользуется словами вежливости",
+
+      blocks: [
+        {
+          id: "how-are-you",
+          kind: "explain",
+          text: [
+            "Сразу после приветствия англичанин почти всегда спрашивает How are you? — " +
+              "«как дела». Это не любопытство, а часть приветствия: вопрос задают и незнакомым " +
+              "людям, и продавцу в магазине.",
+            "Отвечать подробно не нужно и не принято. Обычный ответ короткий: I'm fine, thank " +
+              "you — «хорошо, спасибо». Часто добавляют встречный вопрос And you? — «а вы?».",
+          ],
+        },
+        {
+          id: "primer-obmen",
+          kind: "example",
+          caption: "Как это звучит целиком",
+          text: "— Good morning! How are you?\n— I'm fine, thank you. And you?\n— I'm fine too, thanks.",
+          explain:
+            "Обмен занимает две реплики и почти не меняется. Его стоит выучить целиком, как " +
+            "одну фразу: тогда в разговоре не придётся собирать его по словам.",
+        },
+        {
+          id: "ne-zhaluytes",
+          kind: "note",
+          tone: "info",
+          text:
+            "How are you? при первой встрече — вопрос вежливости, а не приглашение рассказать " +
+            "о своих делах. Даже если день не задался, отвечают I'm fine или I'm OK. Подробный " +
+            "рассказ уместен с близкими, но не в магазине и не с коллегой в коридоре.",
+        },
+        {
+          id: "tablica-otvetov",
+          kind: "table",
+          caption: "Ответы на How are you?",
+          head: ["Английский", "По-русски", "Как читается"],
+          rows: [
+            ["I'm fine, thank you.", "Хорошо, спасибо.", "айм файн, сэнк ю"],
+            ["I'm OK, thanks.", "Нормально, спасибо.", "айм оуКЭЙ, сэнкс"],
+            ["Not bad.", "Неплохо.", "нот бэд"],
+          ],
+        },
+        {
+          id: "vezhlivye-slova",
+          kind: "explain",
+          text: [
+            "Три слова вежливости встречаются в английском чаще, чем в русском, и пропускать " +
+              "их нельзя. Please — «пожалуйста» в просьбе. Thank you или короче thanks — " +
+              "«спасибо». Sorry — «извините».",
+            "На спасибо принято отвечать: You're welcome — «пожалуйста» в значении «не за что». " +
+              "Молча кивнуть в ответ на thank you считается невежливым.",
+          ],
+        },
+        {
+          id: "please-oshibka",
+          kind: "note",
+          tone: "mistake",
+          text:
+            "Частая ошибка: сказать please в ответ на thank you. По-русски «пожалуйста» годится " +
+            "и для просьбы, и для ответа на благодарность, а в английском это два разных слова. " +
+            "Просьба — please. Ответ на спасибо — you're welcome.",
+        },
+        {
+          id: "slovar-3",
+          kind: "vocab",
+          caption: "Слова урока",
+          items: [
+            { term: "how", translation: "как", example: "How are you?", hint: "хау" },
+            { term: "fine", translation: "хорошо", example: "I'm fine.", hint: "файн" },
+            { term: "OK", translation: "нормально", example: "I'm OK.", hint: "оуКЭЙ" },
+            { term: "please", translation: "пожалуйста (в просьбе)", example: "Coffee, please.", hint: "плиз" },
+            { term: "thank you", translation: "спасибо", example: "Thank you!", hint: "сэнк ю" },
+            { term: "thanks", translation: "спасибо (короче)", example: "Thanks!", hint: "сэнкс" },
+            { term: "sorry", translation: "извините", example: "Sorry!", hint: "СОри" },
+            {
+              term: "you're welcome",
+              translation: "не за что",
+              example: "— Thank you! — You're welcome.",
+              hint: "ёр УЭЛкам",
+            },
+          ],
+        },
+
+        // ---- задания ----
+        {
+          id: "z1-otvet-na-how",
+          kind: "choice",
+          prompt: "Продавец в магазине говорит: «Hello! How are you?» Что ответить?",
+          options: [
+            { text: "Рассказать, как прошёл день" },
+            { text: "Промолчать: вопрос не к вам" },
+            { text: "I'm fine, thank you.", correct: true },
+          ],
+          hint: "Это часть приветствия, а не расспрос.",
+          why:
+            "How are you? при встрече — вежливая формула. Ответ короткий: I'm fine, thank you. " +
+            "Подробный рассказ здесь не ждут.",
+        },
+        {
+          id: "z2-please-ili-welcome",
+          kind: "choice",
+          prompt: "Вам помогли, вы сказали Thank you. Что ответит собеседник?",
+          options: [
+            { text: "Please" },
+            { text: "You're welcome", correct: true },
+            { text: "Sorry" },
+          ],
+          hint: "По-русски здесь было бы «пожалуйста», но в английском для этого другое слово.",
+          why:
+            "You're welcome — ответ на благодарность. Please годится только для просьбы: " +
+            "русское «пожалуйста» покрывает оба случая, английское — нет.",
+        },
+        {
+          id: "z3-dopisat-thank",
+          kind: "gap",
+          prompt: "Допишите слово, чтобы получилось «спасибо».",
+          before: "Thank ",
+          after: "!",
+          answer: "you",
+          hint: "Дословно: «благодарю вас».",
+          why: "Thank you — «спасибо». Короткий вид — thanks, но там you уже не нужно.",
+        },
+        {
+          id: "z4-otmetit-vezhlivye",
+          kind: "hottext",
+          prompt: "Отметьте слова, которыми благодарят.",
+          parts: [
+            { text: "Please", selectable: true },
+            { text: " · " },
+            { text: "Thanks", selectable: true, correct: true },
+            { text: " · " },
+            { text: "Sorry", selectable: true },
+            { text: " · " },
+            { text: "Thank you", selectable: true, correct: true },
+          ],
+          hint: "Два слова из четырёх значат «спасибо».",
+          why:
+            "Thanks и thank you — благодарность. Please — просьба, sorry — извинение.",
+        },
+        {
+          id: "z5-poryadok-obmena",
+          kind: "order",
+          prompt: "Расставьте реплики по порядку разговора.",
+          items: [
+            "I'm fine, thank you. And you?",
+            "Good morning! How are you?",
+            "I'm fine too, thanks.",
+          ],
+          answer: [1, 0, 2],
+          hint: "Начинается с приветствия.",
+          why:
+            "Приветствие с вопросом, ответ со встречным вопросом, ответ второго. " +
+            "Этот обмен почти не меняется, поэтому его учат целиком.",
+        },
+        {
+          id: "z6-sopostavit-vezhlivost",
+          kind: "match",
+          prompt: "Сопоставьте случай и нужное слово.",
+          left: ["Просите кофе", "Вас поблагодарили", "Вы наступили кому-то на ногу", "Вам помогли"],
+          right: ["Sorry", "Thank you", "Please", "You're welcome"],
+          answer: [2, 3, 0, 1],
+          hint: "Дважды по-русски сказали бы «пожалуйста», но слова разные.",
+          why:
+            "Просьба — please, ответ на благодарность — you're welcome, извинение — sorry, " +
+            "благодарность — thank you.",
+        },
+        {
+          id: "z7-proiznesti-obmen",
+          kind: "speak",
+          prompt: "Произнесите вслух ответ на вопрос о делах вместе со встречным вопросом.",
+          phrase: "I'm fine, thank you. And you?",
+          translation: "Хорошо, спасибо. А вы?",
+          hint: "Между fine и thank you — короткая пауза, как на запятой.",
+          why:
+            "Этот ответ звучит в каждом втором разговоре. Выученный целиком, он освобождает " +
+            "внимание для того, что будет сказано дальше.",
+        },
+      ],
+    },
   ],
 
   // =======================================================================
@@ -532,6 +719,40 @@ const module: Module = {
         why:
           "I всегда пишется заглавной буквой, имя — тоже с заглавной. Краткая форма I'm " +
           "здесь так же верна.",
+      },
+      {
+        id: "q-otvet-na-how",
+        kind: "short",
+        outcome: "отвечает на вопрос о делах и пользуется словами вежливости",
+        prompt:
+          "Вас спросили «How are you?». Напишите короткий ответ из трёх слов: «хорошо, спасибо» " +
+          "с обращением на вы.",
+        answer: "I'm fine, thank you",
+        accept: ["I'm fine thank you", "I am fine, thank you", "I'm fine, thanks", "I'm OK, thanks"],
+        why:
+          "I'm fine, thank you — обычный ответ. Подробный рассказ о делах в этот момент не ждут.",
+      },
+      {
+        id: "q-vezhlivye",
+        kind: "match",
+        outcome: "отвечает на вопрос о делах и пользуется словами вежливости",
+        prompt: "Сопоставьте случай и нужное слово.",
+        left: ["Просите чай", "Вас поблагодарили", "Извиняетесь"],
+        right: ["You're welcome", "Sorry", "Please"],
+        answer: [2, 0, 1],
+        why:
+          "Просьба — please, ответ на благодарность — you're welcome, извинение — sorry. " +
+          "Русское «пожалуйста» покрывает два случая, английское — нет.",
+      },
+      {
+        id: "q-please-ne-otvet",
+        kind: "choice",
+        outcome: "отвечает на вопрос о делах и пользуется словами вежливости",
+        prompt: "Какое слово НЕ подходит как ответ на Thank you?",
+        options: [{ text: "Please", correct: true }, { text: "You're welcome" }, { text: "Sure" }],
+        why:
+          "Please — только просьба. Ответ на благодарность — you're welcome; sure тоже " +
+          "встречается в разговорной речи.",
       },
     ],
   },
