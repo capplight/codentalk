@@ -22,6 +22,13 @@ import type { Module } from "@/lib/content/types";
  *
  * 3. Модуль состоит из трёх уроков, а программа отводит ему восемь. Это первая
  *    часть модуля, а не весь он.
+ *
+ * 4. Утверждения о том, кому и когда задают How are you?, как принято отвечать
+ *    и что считается невежливым, из урока УБРАНЫ: таких сведений нет ни в одном
+ *    источнике в materials/. Руководства Cambridge описывают устройство
+ *    экзамена и словники, документы Совета Европы — умения; разговорных
+ *    обычаев не описывает никто. Если владелец как преподаватель подтвердит
+ *    их из своего опыта, их можно вернуть — но уже как его свидетельство.
  */
 const module: Module = {
   slug: "privetstvie",
@@ -38,18 +45,33 @@ const module: Module = {
     {
       ref: "English Grammar Profile",
       section:
-        "A1: PRONOUNS subject «(SUBJECT) STATEMENTS»; VERBS types «LINKING VERB 'BE'»; " +
-        "DETERMINERS possessives «WITH NOUNS» (your). " +
-        "СВЕРХ СТУПЕНИ: вопрос «What's your name?» — QUESTIONS wh- «MAIN VERB 'BE'», A2. " +
-        "Взят по решению 1 программы курса: без вопроса об имени знакомства не бывает",
+        "A1, строка 4952: PRONOUNS subject «(SUBJECT) STATEMENTS». " +
+        "A1, строка 5865: VERBS types «LINKING VERB 'BE'». " +
+        "A1, строка 954: CLAUSES interrogatives «AFFIRMATIVE INTERROGATIVE, WITH 'BE'» — " +
+        "пример источника дословно «How are you?». Этой строкой покрыты ОБА вопроса модуля: " +
+        "и «How are you?», и «What's your name?» — они одного строения, и разметить их " +
+        "по-разному было бы ошибкой. " +
+        "A1, строка 168: ADJECTIVES position «PREDICATIVE, WITH 'BE'» (I'm fine). " +
+        "A1: DETERMINERS possessives «WITH NOUNS» (your)",
       license: "внутреннее использование, публично не называем",
     },
     {
       ref: "Oxford 3000",
       section:
-        "все шестнадцать слов модуля с пометкой A1: hello, hi, good, morning, afternoon, " +
-        "evening, night, bye, goodbye, see, you, your, I, be, name, what, nice, meet, too",
+        "все двадцать четыре слова модуля с пометкой A1: hello, hi, good, morning, afternoon, " +
+        "evening, night, bye, goodbye, see, you, your, I, be, name, what, nice, meet, too, " +
+        "how, fine, OK, please, thank, thanks, sorry, welcome",
       license: "внутреннее использование",
+    },
+    {
+      ref: "Council of Europe, CEFR Companion Volume 2020 — третий урок",
+      section:
+        "с. 74, Conversation, A1: «Can ask how people are and react to news». " +
+        "с. 137, Sociolinguistic appropriateness, A1: «saying please, thank you, sorry». " +
+        "СВЕРХ СТУПЕНИ: ответ на благодарность (you're welcome) — в руководстве A2 Key, " +
+        "с. 51, функция «expressing and responding to thanks» отнесена к A2. " +
+        "Взято по решению 1 программы: без ответа на спасибо разговор обрывается",
+      license: "внутреннее использование, публично не называем",
     },
     {
       ref: "Cambridge English, A2 Key Handbook for Teachers",
@@ -63,7 +85,7 @@ const module: Module = {
   outcomes: [
     "здоровается, выбирая приветствие по времени дня, и прощается",
     "называет своё имя и понимает, когда имя спрашивают",
-    "отвечает на вопрос о делах и пользуется словами вежливости",
+    "отвечает на вопрос о делах и к месту говорит please, thank you и sorry",
   ],
 
   lessons: [
@@ -441,18 +463,19 @@ const module: Module = {
       slug: "kak-dela",
       title: "Как дела и вежливые слова",
       estimatedMinutes: 15,
-      outcome: "отвечает на вопрос о делах и пользуется словами вежливости",
+      outcome: "отвечает на вопрос о делах и к месту говорит please, thank you и sorry",
 
       blocks: [
         {
           id: "how-are-you",
           kind: "explain",
           text: [
-            "Сразу после приветствия почти всегда звучит вопрос How are you? — «как дела». " +
-              "Это не любопытство, а часть приветствия: его задают и незнакомым людям, " +
-              "и продавцу в магазине.",
-            "Отвечать подробно не нужно и не принято. Обычный ответ короткий: I'm fine, thank " +
-              "you — «хорошо, спасибо». Часто добавляют встречный вопрос And you? — «а вы?».",
+            "После приветствия часто звучит вопрос How are you? — «как дела». Умение спросить, " +
+              "как дела, и отозваться на ответ входит в описание первой ступени наравне с " +
+              "самим приветствием.",
+            "Обычный ответ короткий: I'm fine, thank you — «хорошо, спасибо». Часто добавляют " +
+              "встречный вопрос And you? — «а вы?». Развёрнуто рассказывать о своих делах в " +
+              "этот момент не обязательно.",
           ],
         },
         {
@@ -469,9 +492,9 @@ const module: Module = {
           kind: "note",
           tone: "info",
           text:
-            "How are you? при первой встрече — вопрос вежливости, а не приглашение рассказать " +
-            "о своих делах. Даже если день не задался, отвечают I'm fine или I'm OK. Подробный " +
-            "рассказ уместен с близкими, но не в магазине и не с коллегой в коридоре.",
+            "Короткий ответ здесь ничего не скрывает: I'm fine или I'm OK — это готовая " +
+            "формула, а не оценка дня. Собеседник, который хочет услышать больше, спросит " +
+            "отдельно.",
         },
         {
           id: "tablica-otvetov",
@@ -481,8 +504,18 @@ const module: Module = {
           rows: [
             ["I'm fine, thank you.", "Хорошо, спасибо.", "айм файн, сэнк ю"],
             ["I'm OK, thanks.", "Нормально, спасибо.", "айм оуКЭЙ, сэнкс"],
-            ["Not bad.", "Неплохо.", "нот бэд"],
+            ["Fine, thanks.", "Хорошо, спасибо.", "файн, сэнкс"],
           ],
+        },
+        {
+          id: "otkuda-are",
+          kind: "note",
+          tone: "info",
+          text:
+            "Во втором уроке сказано, что am употребляется только с I. В How are you? стоит " +
+            "другая форма того же глагола be — are, она употребляется с you. Разбирать все " +
+            "формы сейчас не нужно: выучите вопрос целиком, а устройство разберём в модуле, " +
+            "где дойдёт до вопросов.",
         },
         {
           id: "zvuk-th",
@@ -498,11 +531,12 @@ const module: Module = {
           id: "vezhlivye-slova",
           kind: "explain",
           text: [
-            "Три слова вежливости встречаются в английском чаще, чем в русском, и пропускать " +
-              "их нельзя. Please — «пожалуйста» в просьбе. Thank you или короче thanks — " +
-              "«спасибо». Sorry — «извините».",
-            "На благодарность принято отвечать: You're welcome — «пожалуйста» в значении " +
-              "«не за что». Ответ ждут, молчаливого кивка обычно недостаточно.",
+            "Три слова вежливости названы в описании первой ступени прямо: please — " +
+              "«пожалуйста» в просьбе, thank you (короче — thanks) — «спасибо», sorry — " +
+              "«извините». Их знают раньше всей остальной грамматики.",
+            "На благодарность отвечают You're welcome — «пожалуйста» в значении «не за что». " +
+              "Эта фраза относится уже к следующей ступени, но встречается так часто, что " +
+              "узнавать её стоит сразу.",
           ],
         },
         {
@@ -520,6 +554,7 @@ const module: Module = {
           caption: "Слова урока",
           items: [
             { term: "how", translation: "как", example: "How are you?", hint: "хау" },
+            { term: "are", translation: "форма глагола be для you", example: "How are you?", hint: "а" },
             { term: "fine", translation: "хорошо", example: "I'm fine.", hint: "файн" },
             { term: "OK", translation: "нормально", example: "I'm OK.", hint: "оуКЭЙ" },
             { term: "please", translation: "пожалуйста (в просьбе)", example: "Coffee, please.", hint: "плиз" },
@@ -735,17 +770,31 @@ const module: Module = {
       {
         id: "q-otvet-na-how",
         kind: "short",
-        outcome: "отвечает на вопрос о делах и пользуется словами вежливости",
+        outcome: "отвечает на вопрос о делах и к месту говорит please, thank you и sorry",
         prompt: "Вас спросили «How are you?». Напишите обычный ответ: «хорошо, спасибо».",
         answer: "I'm fine, thank you",
-        accept: ["I'm fine thank you", "I am fine, thank you", "I'm fine, thanks", "I'm OK, thanks"],
+        accept: [
+          "I'm fine thank you",
+          "I am fine, thank you",
+          "I am fine thank you",
+          "I'm fine, thanks",
+          "I'm fine thanks",
+          "I'm OK, thank you",
+          "I'm OK thank you",
+          "I'm OK, thanks",
+          "I'm OK thanks",
+          "Fine, thanks",
+          "Fine thanks",
+          "Fine, thank you",
+          "Fine thank you",
+        ],
         why:
           "I'm fine, thank you — обычный ответ. Подробный рассказ о делах в этот момент не ждут.",
       },
       {
         id: "q-vezhlivye",
         kind: "match",
-        outcome: "отвечает на вопрос о делах и пользуется словами вежливости",
+        outcome: "отвечает на вопрос о делах и к месту говорит please, thank you и sorry",
         prompt: "Сопоставьте случай и нужное слово.",
         left: ["Просите чай", "Вас поблагодарили", "Извиняетесь"],
         right: ["You're welcome", "Sorry", "Please"],
@@ -755,18 +804,16 @@ const module: Module = {
           "Русское «пожалуйста» подходит в двух случаях, а в английском для каждого своё слово.",
       },
       {
-        id: "q-please-ne-otvet",
-        kind: "choice",
-        outcome: "отвечает на вопрос о делах и пользуется словами вежливости",
-        prompt: "Два слова годятся как ответ на Thank you, одно — нет. Какое не годится?",
-        options: [
-          { text: "Please", correct: true },
-          { text: "You're welcome" },
-          { text: "OK" },
-        ],
+        id: "q-napisat-please",
+        outcome: "отвечает на вопрос о делах и к месту говорит please, thank you и sorry",
+        kind: "gap",
+        prompt: "Вы просите чай. Допишите слово вежливости.",
+        before: "Tea, ",
+        after: ".",
+        answer: "please",
         why:
-          "Please — только просьба, ответом на благодарность оно быть не может. " +
-          "You're welcome — обычный ответ, OK тоже годится в разговоре.",
+          "Please ставят в конце просьбы. Ответом на благодарность оно быть не может — " +
+          "для этого есть you're welcome.",
       },
     ],
   },
