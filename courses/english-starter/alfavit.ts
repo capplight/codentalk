@@ -28,11 +28,13 @@ import type { Module } from "@/lib/content/types";
  *      (CLAUDE.md, раздел о британской норме);
  *    — `Kazakh` — `/kəˈzɑːk/`, британская форма.
  *
+ *    — `W` — `/ˈdʌbljuː/`. Слова `double-u` нет ни в одном из трёх файлов
+ *      произношения; владелец подтвердил общепринятую словарную форму.
+ *
  *    ЕЩЁ ОТКРЫТО:
- *    — `/ˈdʌbljuː/` для W: слова `double-u` нет ни в одном из трёх файлов
- *      произношения. Написано по общей норме и ждёт слова владельца;
  *    — противопоставление zed/zee как британского и американского: оба слова
- *      помечены и в британском, и в американском файле Викисловаря.
+ *      помечены и в британском, и в американском файле Викисловаря. Само
+ *      различие общеизвестно, но нашими источниками не подтверждается.
  */
 const module: Module = {
   slug: "alfavit",
@@ -85,6 +87,7 @@ const module: Module = {
   outcomes: [
     "узнаёт букву по её названию и записывает слово, продиктованное по буквам",
     "пишет с заглавной буквы имена, страны и названия языков",
+    "понимает просьбу продиктовать слово и отвечает на неё по буквам",
   ],
 
   lessons: [
@@ -403,6 +406,122 @@ const module: Module = {
         },
       ],
     },
+
+    // =====================================================================
+    {
+      slug: "sprosit-kak-pishetsya",
+      title: "Спросить, как пишется",
+      estimatedMinutes: 12,
+      outcome: "понимает просьбу продиктовать слово и отвечает на неё по буквам",
+
+      blocks: [
+        {
+          id: "zachem-sprashivat",
+          kind: "explain",
+          text: [
+            "Услышать незнакомое слово и не разобрать его — обычное дело даже для тех, кто " +
+              "говорит бегло. Поэтому в английском есть готовая просьба продиктовать: " +
+              "How do you spell that? Дословно — «как ты это пишешь».",
+            "Ей же пользуются, когда нужно записать чужое имя без ошибок. Просьба вежливая " +
+              "и уместна с кем угодно: переспрашивать не стыдно, стыдно записать неверно.",
+          ],
+        },
+        {
+          id: "primer-dialoga",
+          kind: "example",
+          caption: "У стойки в гостинице",
+          text:
+            "— What's your name?\n— Dana.\n— How do you spell that?\n— D-A-N-A.\n— Thank you.",
+          explain:
+            "Разговор занимает четыре реплики и почти не меняется. Вопрос — имя — просьба " +
+              "продиктовать — буквы одна за другой. Выучи его целиком: собирать по словам " +
+              "у стойки будет некогда.",
+        },
+        {
+          id: "vezhlivyy-vid",
+          kind: "note",
+          tone: "info",
+          text:
+            "Ту же просьбу можно высказать иначе: Can you spell that, please? Оба вида " +
+            "годятся. Слово please ставится в конце и делает просьбу мягче.",
+        },
+        {
+          id: "slovar-sprosit",
+          kind: "vocab",
+          caption: "Слова урока",
+          items: [
+            { term: "how", translation: "как", example: "How do you spell that?", hint: "/haʊ/" },
+            { term: "that", translation: "это, то", example: "How do you spell that?", hint: "/ðæt/" },
+            { term: "please", translation: "пожалуйста (в просьбе)", example: "Can you spell that, please?", hint: "/pliːz/" },
+          ],
+        },
+
+        // ---- задания ----
+        {
+          id: "z1-otvetit-po-bukvam",
+          kind: "short",
+          prompt:
+            "Тебя спросили: «How do you spell that?» Речь об имени Dana. Запиши ответ по буквам, через дефис.",
+          answer: "D-A-N-A",
+          accept: ["d-a-n-a", "D A N A", "d a n a"],
+          hint: "Четыре буквы, между ними чёрточка — как в примере выше.",
+          why: "D-A-N-A. Буквы называют по одной, на письме их разделяет дефис.",
+        },
+        {
+          id: "z2-chto-otvetit",
+          kind: "choice",
+          prompt: "Собеседник говорит: «How do you spell that?» Что он просит?",
+          options: [
+            { text: "Повторить имя громче" },
+            { text: "Назвать слово по буквам", correct: true },
+            { text: "Перевести слово на русский" },
+          ],
+          hint: "Слово spell есть в словаре первого урока.",
+          why:
+            "How do you spell that? — просьба назвать слово по буквам. Spell как раз и " +
+            "значит «писать по буквам».",
+        },
+        {
+          id: "z3-dopisat-prosbu",
+          kind: "gap",
+          prompt: "Допиши слово, чтобы просьба стала мягче.",
+          before: "Can you spell that, ",
+          after: "?",
+          answer: "please",
+          hint: "Есть в словаре этого урока.",
+          why: "Please ставится в конце просьбы. Без него фраза звучит как требование.",
+        },
+        {
+          id: "z4-poryadok-dialoga",
+          kind: "order",
+          prompt: "Расставь реплики по порядку разговора.",
+          items: ["D-A-N-A.", "What's your name?", "How do you spell that?", "Dana."],
+          answer: [1, 3, 2, 0],
+          hint: "Сначала спрашивают имя, а диктуют его в самом конце.",
+          why:
+            "Сначала вопрос об имени, потом имя, потом просьба продиктовать, и только " +
+            "затем буквы. Продиктовать имя раньше, чем его назвали, невозможно.",
+        },
+        {
+          id: "z5-otmetit-prosbu",
+          kind: "hottext",
+          prompt: "Отметь реплики, которыми просят продиктовать слово.",
+          parts: [
+            { text: "What's your name?", selectable: true },
+            { text: " · " },
+            { text: "How do you spell that?", selectable: true, correct: true },
+            { text: " · " },
+            { text: "Thank you.", selectable: true },
+            { text: " · " },
+            { text: "Can you spell that, please?", selectable: true, correct: true },
+          ],
+          hint: "В обеих просьбах есть одно и то же слово.",
+          why:
+            "How do you spell that? и Can you spell that, please? — две просьбы об одном. " +
+            "Их роднит слово spell.",
+        },
+      ],
+    },
   ],
 
   // =======================================================================
@@ -466,6 +585,38 @@ const module: Module = {
         answer: "I speak English",
         exact: true,
         why: "I всегда с заглавной, English — потому что это название языка.",
+      },
+      {
+        id: "q-otvet-po-bukvam",
+        kind: "short",
+        outcome: "понимает просьбу продиктовать слово и отвечает на неё по буквам",
+        prompt:
+          "Тебя спросили: «How do you spell that?» Речь об имени Alim. Запиши ответ по буквам, через дефис.",
+        answer: "A-L-I-M",
+        accept: ["a-l-i-m", "A L I M", "a l i m"],
+        why: "A-L-I-M. Буквы называют по одной, на письме их разделяет дефис.",
+      },
+      {
+        id: "q-chto-prosyat",
+        kind: "choice",
+        outcome: "понимает просьбу продиктовать слово и отвечает на неё по буквам",
+        prompt: "Какая фраза просит продиктовать слово по буквам?",
+        options: [
+          { text: "What's your name?" },
+          { text: "Can you spell that, please?", correct: true },
+          { text: "Thank you." },
+        ],
+        why: "Can you spell that, please? — просьба назвать слово по буквам, как и How do you spell that?",
+      },
+      {
+        id: "q-dopisat-please",
+        kind: "gap",
+        outcome: "понимает просьбу продиктовать слово и отвечает на неё по буквам",
+        prompt: "Допиши слово вежливости в конце просьбы.",
+        before: "Can you spell that, ",
+        after: "?",
+        answer: "please",
+        why: "Please ставится в конце просьбы и делает её мягче.",
       },
       {
         id: "q-najti-oshibku",
