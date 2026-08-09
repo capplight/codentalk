@@ -162,10 +162,11 @@ model Course {
   access CourseAccess @default(premium)
   sort   Int          @default(0)
 
-  /// Какого формата содержание: legacy — первая версия (страницы /course/…),
-  /// lessons — формат из docs/format-uroka.md (страницы /learn/…).
-  /// Нужно, чтобы кабинет вёл ученика на существующую страницу, а не в никуда.
-  format String @default("legacy")
+  /// Формат содержания. Сейчас он один — `lessons`, из docs/format-uroka.md.
+  /// Значение `legacy` осталось от первой версии, её курсы удалены. Поле
+  /// оставлено на случай второго формата, но умолчание теперь безопасное:
+  /// прежнее `legacy` вело ученика на удалённый раздел.
+  format String @default("lessons")
 
   isPublished Boolean @default(false) @map("is_published")
 

@@ -141,8 +141,8 @@ export default function HomePage() {
             <span className={styles.stepNum}>1</span>
             <h3 className={styles.stepTitle}>Выбираешь направление</h3>
             <p className={styles.stepText}>
-              Не уверен в уровне — короткий тест подскажет, с какого модуля начать, чтобы не
-              скучать и не тонуть.
+              Открытые курсы — английский с нуля и основы веб-разработки. Начинать можно с
+              первого урока: он короткий, и сразу видно, подходит ли темп.
             </p>
           </div>
           <div className={styles.step}>

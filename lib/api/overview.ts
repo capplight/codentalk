@@ -37,14 +37,14 @@ export interface OverviewCourse {
 }
 
 /**
- * Ссылка на курс с учётом формата содержания.
+ * Ссылка на курс.
  *
- * Без этого кабинет вёл бы новый курс на страницы первой версии, и ученик
- * получал бы «страница не найдена» из своего же личного кабинета.
+ * Раздел `/course` первой версии удалён вместе с её содержанием, поэтому путь
+ * остался один. Ветку на `/course` держать нельзя: она была значением по
+ * умолчанию и увела бы ученика из его же кабинета в никуда.
  */
-function courseHref(format: string, slug: string, lessonSlug?: string): string {
-  const base = format === "lessons" ? "/learn" : "/course";
-  return lessonSlug ? `${base}/${slug}/${lessonSlug}` : `${base}/${slug}`;
+function courseHref(slug: string, lessonSlug?: string): string {
+  return lessonSlug ? `/learn/${slug}/${lessonSlug}` : `/learn/${slug}`;
 }
 
 export interface Overview {
@@ -185,8 +185,8 @@ export async function buildOverview(userId: string, now = new Date()): Promise<O
       nextLesson: nextRaw
         ? { slug: nextRaw.slug, title: nextRaw.title, minutes: nextRaw.estimatedMinutes }
         : null,
-      href: courseHref(e.course.format, e.course.slug),
-      nextLessonHref: nextRaw ? courseHref(e.course.format, e.course.slug, nextRaw.slug) : null,
+      href: courseHref(e.course.slug),
+      nextLessonHref: nextRaw ? courseHref(e.course.slug, nextRaw.slug) : null,
       quizzes: quizProgress,
       exam: exam ? { passed: exam.passed } : null,
       examOpen: summary.readyForExam && quizzesDone && exam !== null && !exam.passed,

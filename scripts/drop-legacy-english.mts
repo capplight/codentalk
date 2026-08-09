@@ -9,8 +9,14 @@
  * содержания. Защиту достигнутого в scripts/seed-courses.mts обходить нельзя:
  * она однажды спасёт настоящие успехи настоящих учеников.
  *
- * Что считается первой версией: курс с полем `format = "legacy"` либо курс,
- * которого нет в courses/index.ts. Новые курсы переносятся с `format = "lessons"`.
+ * Что считается первой версией: **курс, которого нет в courses/index.ts**.
+ * Поле `format` при этом не смотрим — оно ничего не решает, потому что курс без
+ * файлов в репозитории не откроется независимо от пометки.
+ *
+ * ОСТОРОЖНО. Скрипт удаляет уроки вместе с успехами учеников и останавливается
+ * только на сертификатах. Он написан под разовую задачу — вычистить первую
+ * версию. Перед повторным запуском убедись, что не переименовывал курс: для
+ * скрипта переименование неотличимо от удаления.
  *
  * Запуск:  npx tsx scripts/drop-legacy-english.mts --dry
  *          npx tsx scripts/drop-legacy-english.mts
@@ -73,6 +79,25 @@ for (const lesson of staleLessons) {
   console.log(`  · ${lesson.course}/${lesson.slug} — «${lesson.title}»`);
 }
 
+/*
+ * ОСТАНОВКА НА СЕРТИФИКАТАХ.
+ *
+ * Сертификат обещан ученику как проверяемый по номеру на все времена. Курс
+ * уходит вместе с сертификатами (в схеме onDelete: Cascade), и страница
+ * проверки перестанет открываться — обещание нельзя ломать молча.
+ */
+const withCertificates = deadCourses.filter((course) => course._count.certificates > 0);
+if (withCertificates.length > 0) {
+  const list = withCertificates
+    .map((c) => `  · ${c.slug} — сертификатов ${c._count.certificates}`)
+    .join("\n");
+  throw new Error(
+    `Удаление остановлено: по этим курсам выданы сертификаты.\n${list}\n\n` +
+      `Вместе с курсом исчезнут и они, а страница проверки по номеру перестанет ` +
+      `открываться. Сначала реши, что делать с выданными сертификатами.`
+  );
+}
+
 if (dryRun) {
   console.log("\nПробный прогон: база не изменена.");
   await prisma.$disconnect();
@@ -83,33 +108,30 @@ if (staleLessons.length > 0) {
   await prisma.lesson.deleteMany({ where: { id: { in: staleLessons.map((l) => l.id) } } });
 }
 
-if (deadCourses.length > 0) {
-  // Уроки, модули, упражнения, записи и сертификаты уходят следом — так задано
-  // в схеме через onDelete: Cascade
-  await prisma.course.deleteMany({ where: { id: { in: deadCourses.map((c) => c.id) } } });
-}
+const deadIds = deadCourses.map((course) => course.id);
 
-// Направления, оставшиеся без курсов
-const emptyTracks = await prisma.track.findMany({
-  where: { courses: { none: {} } },
+// Направления, которые опустеют ИМЕННО от этого удаления. Пустые направления
+// вообще трогать нельзя: заведённое заранее под будущий курс исчезло бы молча.
+const tracksAtRisk = await prisma.track.findMany({
+  where: { courses: { every: { id: { in: deadIds } } } },
   select: { id: true, slug: true },
 });
-if (emptyTracks.length > 0) {
-  await prisma.track.deleteMany({ where: { id: { in: emptyTracks.map((t) => t.id) } } });
+
+if (deadIds.length > 0) {
+  // Уроки, модули, упражнения и записи уходят следом — так задано в схеме
+  await prisma.course.deleteMany({ where: { id: { in: deadIds } } });
 }
 
-// Модули без уроков
-const emptyModules = await prisma.module.findMany({
-  where: { lessons: { none: {} } },
-  select: { id: true },
-});
-if (emptyModules.length > 0) {
-  await prisma.module.deleteMany({ where: { id: { in: emptyModules.map((m) => m.id) } } });
+if (tracksAtRisk.length > 0) {
+  await prisma.track.deleteMany({
+    where: { id: { in: tracksAtRisk.map((t) => t.id) }, courses: { none: {} } },
+  });
+  console.log(`Удалены опустевшие направления: ${tracksAtRisk.map((t) => t.slug).join(", ")}`);
 }
 
+console.log(`\nУдалено: курсов ${deadCourses.length}, уроков ${staleLessons.length}.`);
 console.log(
-  `\nУдалено: курсов ${deadCourses.length}, уроков ${staleLessons.length}, ` +
-    `пустых направлений ${emptyTracks.length}, пустых модулей ${emptyModules.length}.`
+  "Модули без уроков намеренно НЕ трогаются: у нового курса уроки могут ещё писаться."
 );
 
 await prisma.$disconnect();
