@@ -6,7 +6,9 @@
 
 export interface CertificateEligibility {
   eligible: boolean;
-  reason?: "course_not_completed" | "exam_not_passed" | "already_issued";
+  reason?: "course_not_completed" | "quizzes_not_passed" | "exam_not_passed" | "already_issued";
+  /** Сколько проверочных работ осталось сдать — чтобы сказать это ученику числом */
+  quizzesLeft?: number;
 }
 
 export interface EligibilityInput {
@@ -18,6 +20,12 @@ export interface EligibilityInput {
   examPassed: boolean;
   /** Уже выданный и не отозванный сертификат */
   alreadyIssued: boolean;
+  /**
+   * Проверочные работы модулей. В новом формате они и есть доказательство
+   * знаний: прочитанный урок говорит лишь о том, что страницу открыли.
+   * Для курсов первой версии не заполняется.
+   */
+  quizzes?: { total: number; passed: number };
 }
 
 export function checkEligibility(input: EligibilityInput): CertificateEligibility {
@@ -27,6 +35,18 @@ export function checkEligibility(input: EligibilityInput): CertificateEligibilit
   if (!input.allLessonsCompleted) {
     return { eligible: false, reason: "course_not_completed" };
   }
+
+  // Порядок важен: сначала работы модулей, потом экзамен. Отметка «урок пройден»
+  // ставится нажатием и знаний не подтверждает — сертификат не может держаться
+  // на ней одной.
+  if (input.quizzes && input.quizzes.passed < input.quizzes.total) {
+    return {
+      eligible: false,
+      reason: "quizzes_not_passed",
+      quizzesLeft: input.quizzes.total - input.quizzes.passed,
+    };
+  }
+
   if (input.hasExam && !input.examPassed) {
     return { eligible: false, reason: "exam_not_passed" };
   }

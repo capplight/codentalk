@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { auth } from "@/auth";
 import { prisma } from "@/lib/db";
 import { findCourse, lessonsInOrder } from "@/courses";
+import CourseActions from "@/components/lesson/CourseActions";
 import s from "../learn.module.css";
 
 /** Склонение при числе: 1 урок, 2 урока, 5 уроков. */
@@ -50,6 +51,38 @@ export default async function CoursePage({ params }: Params) {
       select: { lesson: { select: { slug: true } } },
     });
     done = new Set(rows.map((row) => row.lesson.slug));
+  }
+
+  // Записан ли ученик, сданы ли работы, есть ли уже сертификат — от этого
+  // зависит, что предложить внизу страницы
+  let enrolled = false;
+  let quizzesTotal = 0;
+  let quizzesPassed = 0;
+  let serial: string | null = null;
+  if (userId) {
+    const [enrollment, tests, passed, certificate] = await Promise.all([
+      prisma.enrollment.findFirst({
+        where: { userId, course: { slug: courseSlug } },
+        select: { id: true },
+      }),
+      prisma.test.findMany({
+        where: { kind: "module_quiz", course: { slug: courseSlug } },
+        select: { id: true },
+      }),
+      prisma.testAttempt.findMany({
+        where: { userId, passed: true, test: { course: { slug: courseSlug } } },
+        select: { testId: true },
+      }),
+      prisma.certificate.findFirst({
+        where: { userId, course: { slug: courseSlug }, revokedAt: null },
+        select: { serial: true },
+      }),
+    ]);
+    enrolled = enrollment !== null;
+    quizzesTotal = tests.length;
+    const passedIds = new Set(passed.map((attempt) => attempt.testId));
+    quizzesPassed = tests.filter((test) => passedIds.has(test.id)).length;
+    serial = certificate?.serial ?? null;
   }
 
   const all = lessonsInOrder(course);
@@ -136,6 +169,18 @@ export default async function CoursePage({ params }: Params) {
           );
         })}
       </div>
+
+      {userId && (
+        <div style={{ marginTop: 28 }}>
+          {!enrolled ? (
+            <CourseActions course={courseSlug} mode="enroll" />
+          ) : serial ? (
+            <CourseActions course={courseSlug} mode="certificate" serial={serial} />
+          ) : done.size >= all.length && quizzesTotal > 0 && quizzesPassed >= quizzesTotal ? (
+            <CourseActions course={courseSlug} mode="certificate" />
+          ) : null}
+        </div>
+      )}
     </main>
   );
 }

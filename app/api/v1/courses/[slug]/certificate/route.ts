@@ -35,7 +35,7 @@ export const POST = handler(async (_request: Request, { params }: Params) => {
     throw new ApiError("not_found", "Курс не найден");
   }
 
-  const [progressRows, existing, bestExam] = await Promise.all([
+  const [progressRows, existing, bestExam, quizzes, passedAttempts] = await Promise.all([
     prisma.lessonProgress.findMany({
       where: { userId: user.id, lesson: { courseId: course.id } },
       select: { status: true, lesson: { select: { slug: true } } },
@@ -53,6 +53,14 @@ export const POST = handler(async (_request: Request, { params }: Params) => {
       orderBy: { score: "desc" },
       select: { score: true },
     }),
+    prisma.test.findMany({
+      where: { courseId: course.id, kind: "module_quiz" },
+      select: { id: true },
+    }),
+    prisma.testAttempt.findMany({
+      where: { userId: user.id, passed: true, test: { courseId: course.id } },
+      select: { testId: true, score: true },
+    }),
   ]);
 
   const statuses: Record<string, LessonStatus> = Object.fromEntries(
@@ -68,11 +76,21 @@ export const POST = handler(async (_request: Request, { params }: Params) => {
   const summary = summarizeCourse(lessons, statuses);
   const hasExam = course.lessons.some((l) => l.kind === "exam");
 
+  const passedTestIds = new Set(passedAttempts.map((attempt) => attempt.testId));
+
   const eligibility = checkEligibility({
     allLessonsCompleted: summary.readyForExam,
     hasExam,
     examPassed: summary.examPassed,
     alreadyIssued: !!existing,
+    // У курсов первой версии проверочных работ модулей нет — там правило прежнее
+    quizzes:
+      quizzes.length > 0
+        ? {
+            total: quizzes.length,
+            passed: quizzes.filter((quiz) => passedTestIds.has(quiz.id)).length,
+          }
+        : undefined,
   });
 
   if (!eligibility.eligible) {
@@ -80,20 +98,37 @@ export const POST = handler(async (_request: Request, { params }: Params) => {
       // Не ошибка: просто отдаём уже выданный
       return ok({ certificate: existing, alreadyIssued: true });
     }
-    throw new ApiError(
-      "forbidden",
+
+    const message =
       eligibility.reason === "exam_not_passed"
         ? "Сертификат выдаётся после сдачи итогового экзамена"
-        : "Сначала нужно пройти все уроки курса"
-    );
+        : eligibility.reason === "quizzes_not_passed"
+          ? `Осталось сдать проверочных работ: ${eligibility.quizzesLeft}. ` +
+            "Отметка «урок пройден» ставится нажатием и знаний не подтверждает."
+          : "Сначала нужно пройти все уроки курса";
+
+    throw new ApiError("forbidden", message);
   }
+
+  // Итоговый балл: у курса с экзаменом — экзаменационный, иначе средний по
+  // лучшим сданным проверочным работам. Пустое место в сертификате хуже
+  // честного среднего: оно выглядит так, будто знания никто не проверял.
+  const bestByTest = new Map<string, number>();
+  for (const attempt of passedAttempts) {
+    const score = attempt.score ?? 0;
+    if (score > (bestByTest.get(attempt.testId) ?? -1)) bestByTest.set(attempt.testId, score);
+  }
+  const quizAverage =
+    bestByTest.size > 0
+      ? Math.round([...bestByTest.values()].reduce((sum, s) => sum + s, 0) / bestByTest.size)
+      : null;
 
   const certificate = await prisma.certificate.create({
     data: {
       userId: user.id,
       courseId: course.id,
       serial: formatSerial(randomBytes(16)),
-      finalScore: bestExam?.score ?? null,
+      finalScore: bestExam?.score ?? quizAverage,
     },
     select: { serial: true, issuedAt: true, finalScore: true },
   });

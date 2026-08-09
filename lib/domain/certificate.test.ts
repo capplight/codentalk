@@ -70,3 +70,48 @@ test("испорченный номер отсеивается до обраще
   assert.equal(isValidSerialFormat("ABCD-EFGH"), false, "не хватает третьей группы");
   assert.equal(isValidSerialFormat("ABC0-EFGH-JKMN"), false, "ноль запрещён");
 });
+
+test("сертификат не выдаётся, пока не сданы проверочные работы модулей", () => {
+  const result = checkEligibility({
+    allLessonsCompleted: true,
+    hasExam: false,
+    examPassed: false,
+    alreadyIssued: false,
+    quizzes: { total: 3, passed: 1 },
+  });
+  assert.equal(result.eligible, false);
+  assert.equal(result.reason, "quizzes_not_passed");
+  assert.equal(result.quizzesLeft, 2, "ученику надо назвать число, а не «сдайте работы»");
+});
+
+test("все работы сданы — сертификат положен", () => {
+  const result = checkEligibility({
+    allLessonsCompleted: true,
+    hasExam: false,
+    examPassed: false,
+    alreadyIssued: false,
+    quizzes: { total: 3, passed: 3 },
+  });
+  assert.equal(result.eligible, true);
+});
+
+test("отметки «урок пройден» одной мало: она ставится нажатием", () => {
+  const result = checkEligibility({
+    allLessonsCompleted: true,
+    hasExam: false,
+    examPassed: false,
+    alreadyIssued: false,
+    quizzes: { total: 1, passed: 0 },
+  });
+  assert.equal(result.eligible, false);
+});
+
+test("курсы первой версии без проверочных работ прежнее правило не ломает", () => {
+  const result = checkEligibility({
+    allLessonsCompleted: true,
+    hasExam: false,
+    examPassed: false,
+    alreadyIssued: false,
+  });
+  assert.equal(result.eligible, true);
+});

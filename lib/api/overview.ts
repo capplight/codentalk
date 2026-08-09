@@ -22,6 +22,25 @@ export interface OverviewCourse {
   completedAt: Date | null;
   holdsSlot: boolean;
   nextLesson: { slug: string; title: string; minutes: number | null } | null;
+  /** Куда вести на страницу курса — зависит от формата содержания */
+  href: string;
+  /** Куда вести, чтобы продолжить занятия */
+  nextLessonHref: string | null;
+  /** Проверочные работы модулей: сданные из всех. У первой версии их нет. */
+  quizzes: { total: number; passed: number } | null;
+  /** Все уроки пройдены и все работы сданы — можно получать сертификат */
+  certificateReady: boolean;
+}
+
+/**
+ * Ссылка на курс с учётом формата содержания.
+ *
+ * Без этого кабинет вёл бы новый курс на страницы первой версии, и ученик
+ * получал бы «страница не найдена» из своего же личного кабинета.
+ */
+function courseHref(format: string, slug: string, lessonSlug?: string): string {
+  const base = format === "lessons" ? "/learn" : "/course";
+  return lessonSlug ? `${base}/${slug}/${lessonSlug}` : `${base}/${slug}`;
 }
 
 export interface Overview {
@@ -38,7 +57,7 @@ export interface Overview {
 }
 
 export async function buildOverview(userId: string, now = new Date()): Promise<Overview> {
-  const [user, enrollments, progressRows, certificates] = await Promise.all([
+  const [user, enrollments, progressRows, certificates, quizzes, passedAttempts] = await Promise.all([
     prisma.user.findUnique({ where: { id: userId }, select: { displayName: true } }),
     prisma.enrollment.findMany({
       where: { userId },
@@ -54,6 +73,7 @@ export async function buildOverview(userId: string, now = new Date()): Promise<O
             title: true,
             level: true,
             access: true,
+            format: true,
             track: { select: { slug: true } },
             lessons: {
               orderBy: { sort: "asc" },
@@ -88,7 +108,26 @@ export async function buildOverview(userId: string, now = new Date()): Promise<O
         course: { select: { title: true } },
       },
     }),
+    // Проверочные работы модулей и сданные попытки по ним — доказательство
+    // знаний, на котором держится сертификат в новом формате
+    prisma.test.findMany({
+      where: { kind: "module_quiz" },
+      select: { id: true, courseId: true },
+    }),
+    prisma.testAttempt.findMany({
+      where: { userId, passed: true },
+      select: { testId: true },
+    }),
   ]);
+
+  const passedTestIds = new Set(passedAttempts.map((attempt) => attempt.testId));
+  const quizzesByCourse = new Map<string, { total: number; passed: number }>();
+  for (const quiz of quizzes) {
+    const cell = quizzesByCourse.get(quiz.courseId) ?? { total: 0, passed: 0 };
+    cell.total += 1;
+    if (passedTestIds.has(quiz.id)) cell.passed += 1;
+    quizzesByCourse.set(quiz.courseId, cell);
+  }
 
   const statusByCourse = new Map<string, Record<string, LessonStatus>>();
   for (const row of progressRows) {
@@ -112,6 +151,8 @@ export async function buildOverview(userId: string, now = new Date()): Promise<O
       ? e.course.lessons.find((l) => l.slug === summary.nextLesson!.slug)
       : undefined;
 
+    const quizProgress = quizzesByCourse.get(e.course.id) ?? null;
+
     return {
       slug: e.course.slug,
       title: e.course.title,
@@ -129,6 +170,12 @@ export async function buildOverview(userId: string, now = new Date()): Promise<O
       nextLesson: nextRaw
         ? { slug: nextRaw.slug, title: nextRaw.title, minutes: nextRaw.estimatedMinutes }
         : null,
+      href: courseHref(e.course.format, e.course.slug),
+      nextLessonHref: nextRaw ? courseHref(e.course.format, e.course.slug, nextRaw.slug) : null,
+      quizzes: quizProgress,
+      certificateReady:
+        summary.readyForExam &&
+        (quizProgress === null || quizProgress.passed >= quizProgress.total),
     };
   });
 

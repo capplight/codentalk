@@ -89,6 +89,7 @@ async function main(): Promise<void> {
         title: course.title,
         level: course.level,
         access: course.access,
+        format: "lessons",
         isPublished: true,
       },
       update: {
@@ -96,6 +97,7 @@ async function main(): Promise<void> {
         title: course.title,
         level: course.level,
         access: course.access,
+        format: "lessons",
         isPublished: true,
       },
       select: { id: true },

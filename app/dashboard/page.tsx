@@ -41,10 +41,7 @@ export default async function DashboardPage() {
                 : "Продолжим с того места, где вы остановились"}
             </span>
           </div>
-          <Link
-            className="btn big"
-            href={`/course/${continueWith.slug}/${continueWith.nextLesson.slug}`}
-          >
+          <Link className="btn big" href={continueWith.nextLessonHref ?? continueWith.href}>
             Продолжить
           </Link>
         </div>
@@ -80,7 +77,7 @@ export default async function DashboardPage() {
                   ? 0
                   : Math.round((course.lessonsCompleted / course.lessonsTotal) * 100);
               return (
-                <Link key={course.slug} href={`/course/${course.slug}`} className={styles.course}>
+                <Link key={course.slug} href={course.href} className={styles.course}>
                   {course.completedAt ? (
                     <span className={`${styles.badge} ${styles.badgeDone}`}>Пройден</span>
                   ) : course.access === "free" ? (
@@ -97,6 +94,8 @@ export default async function DashboardPage() {
 
                   <span className={styles.meta}>
                     Пройдено {course.lessonsCompleted} из {course.lessonsTotal} уроков
+                    {course.quizzes &&
+                      ` · проверочных сдано ${course.quizzes.passed} из ${course.quizzes.total}`}
                     {course.holdsSlot && " · занимает место"}
                   </span>
                 </Link>
