@@ -26,7 +26,7 @@ export default function HomePage() {
         <section className={styles.hero}>
           <div className={styles.heroCol}>
             <h1 className={styles.title}>
-              Учитесь в своём темпе — и возвращайтесь, когда сможете
+              Учись в своём темпе — и возвращайся, когда сможешь
             </h1>
             <p className={styles.lead}>
               Английский и основы веб-разработки бесплатны навсегда. Остальные курсы — по одной
@@ -39,7 +39,7 @@ export default function HomePage() {
                 className={styles.searchInput}
                 type="search"
                 name="q"
-                placeholder="Какой предмет вам нужен?"
+                placeholder="Какой предмет тебе нужен?"
                 aria-label="Поиск по направлениям"
               />
               <button className={`btn ${styles.searchBtn}`} type="submit">
@@ -66,8 +66,8 @@ export default function HomePage() {
           <aside className={styles.panel} id="podpiska">
             <span className={styles.eyebrow}>Что входит в подписку</span>
             <p className={styles.panelItem}>
-              <b>Два курса одновременно.</b> Достаточно, чтобы не распыляться, и честно: вы платите
-              за то, что действительно проходите.
+              <b>Два курса одновременно.</b> Достаточно, чтобы не распыляться, и честно: платишь
+              за то, что действительно проходишь.
             </p>
             <p className={styles.panelItem}>
               <b>Настоящие проверочные работы.</b> Вопросы каждый раз новые — работу не пройти,
@@ -174,15 +174,15 @@ export default function HomePage() {
         <div className={styles.steps}>
           <div className={styles.step}>
             <span className={styles.stepNum}>1</span>
-            <h3 className={styles.stepTitle}>Выбираете направление</h3>
+            <h3 className={styles.stepTitle}>Выбираешь направление</h3>
             <p className={styles.stepText}>
-              Не уверены в уровне — короткий тест подскажет, с какого модуля начать, чтобы не
+              Не уверен в уровне — короткий тест подскажет, с какого модуля начать, чтобы не
               скучать и не тонуть.
             </p>
           </div>
           <div className={styles.step}>
             <span className={styles.stepNum}>2</span>
-            <h3 className={styles.stepTitle}>Проходите модуль</h3>
+            <h3 className={styles.stepTitle}>Проходишь модуль</h3>
             <p className={styles.stepText}>
               Сначала объяснение простым языком, потом упражнения, потом проверочная работа. Урок
               занимает 8–15 минут.
@@ -190,7 +190,7 @@ export default function HomePage() {
           </div>
           <div className={styles.step}>
             <span className={styles.stepNum}>3</span>
-            <h3 className={styles.stepTitle}>Получаете сертификат</h3>
+            <h3 className={styles.stepTitle}>Получаешь сертификат</h3>
             <p className={styles.stepText}>
               После итогового экзамена. С уникальным номером и страницей проверки — её можно
               отправить работодателю.

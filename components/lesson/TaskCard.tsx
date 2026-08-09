@@ -220,7 +220,7 @@ export default function TaskCard({
                   setStatus("idle");
                 }}
               >
-                <option value={-1}>— выберите —</option>
+                <option value={-1}>— выбери —</option>
                 {task.right.map((right, j) => (
                   <option key={j} value={j}>
                     {right}
@@ -248,7 +248,7 @@ export default function TaskCard({
               setStatus("idle");
             }}
             disabled={locked}
-            aria-label="Ваш ответ"
+            aria-label="Твой ответ"
             autoComplete="off"
           />
         </form>
@@ -261,7 +261,7 @@ export default function TaskCard({
           value={text}
           onChange={(e) => setText(e.target.value)}
           disabled={locked}
-          aria-label="Ваш ответ"
+          aria-label="Твой ответ"
           placeholder={task.minWords ? `Примерно от ${task.minWords} слов` : undefined}
         />
       )}
@@ -276,7 +276,7 @@ export default function TaskCard({
             setStatus("idle");
           }}
           disabled={locked}
-          aria-label="Ваш код"
+          aria-label="Твой код"
           spellCheck={false}
         />
       )}
@@ -327,8 +327,8 @@ export default function TaskCard({
         <div className={`${s.feedback} ${s.bad}`}>
           <b>Пока не так.</b>{" "}
           {task.kind === "code" && text
-            ? `В коде ${missingParts(task, text).join(", ")}. Попробуйте ещё, попытки не ограничены.`
-            : "Попробуйте ещё раз — попытки не ограничены."}
+            ? `В коде ${missingParts(task, text).join(", ")}. Попробуй ещё, попытки не ограничены.`
+            : "Попробуй ещё раз — попытки не ограничены."}
         </div>
       )}
 
@@ -338,7 +338,7 @@ export default function TaskCard({
             <>
               <b>Так мог бы выглядеть ответ.</b>
               <p className={s.sample}>{task.sample}</p>
-              <p className={s.exampleExplain}>Сравните со своим:</p>
+              <p className={s.exampleExplain}>Сравни со своим:</p>
               <ul className={s.checklist}>
                 {task.checklist.map((item, i) => (
                   <li key={i}>{item}</li>

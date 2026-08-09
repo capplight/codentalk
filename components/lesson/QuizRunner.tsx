@@ -117,7 +117,7 @@ export default function QuizRunner({ testId, courseSlug }: { testId: string; cou
           </b>{" "}
           {result.passed
             ? "Работа сдана."
-            : `Для зачёта нужно ${result.passScore}. Повторите слабые места и попробуйте снова — попытки не отнимаются.`}
+            : `Для зачёта нужно ${result.passScore}. Повтори слабые места и попробуй снова — попытки не отнимаются.`}
         </div>
 
         {result.weakOutcomes.length > 0 && (
@@ -178,7 +178,7 @@ export default function QuizRunner({ testId, courseSlug }: { testId: string; cou
           <span className={s.noteBoxHint}>
             Вопросы выбираются из банка, поэтому вторая попытка даст другой набор. Подсказок здесь
             нет: работа проверяет знания, а не догадливость. Число попыток не ограничено, и ошибка
-            ничего не отнимает — после сдачи вы увидите разбор каждого вопроса.
+            ничего не отнимает — после сдачи ты увидишь разбор каждого вопроса.
           </span>
           <div className={s.actions}>
             <button className="btn" type="button" onClick={start} disabled={busy}>
@@ -253,7 +253,7 @@ export default function QuizRunner({ testId, courseSlug }: { testId: string; cou
               className={s.field}
               value={(answers[question.id] as string) ?? ""}
               onChange={(e) => setAnswer(question.id, e.target.value)}
-              aria-label="Ваш ответ"
+              aria-label="Твой ответ"
               autoComplete="off"
             />
           )}
@@ -263,7 +263,7 @@ export default function QuizRunner({ testId, courseSlug }: { testId: string; cou
               className={`${s.field} ${s.area} ${s.codeArea}`}
               value={(answers[question.id] as string) ?? question.starter ?? ""}
               onChange={(e) => setAnswer(question.id, e.target.value)}
-              aria-label="Ваш код"
+              aria-label="Твой код"
               spellCheck={false}
             />
           )}
@@ -352,7 +352,7 @@ export default function QuizRunner({ testId, courseSlug }: { testId: string; cou
                       setAnswer(question.id, current);
                     }}
                   >
-                    <option value={-1}>— выберите —</option>
+                    <option value={-1}>— выбери —</option>
                     {question.right!.map((right, j) => (
                       <option key={j} value={j}>
                         {right}

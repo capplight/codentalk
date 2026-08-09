@@ -70,7 +70,7 @@ export default async function QuizPage({ params }: Params) {
           {test.questionsPerAttempt} вопросов · для зачёта нужно {test.passScore} баллов
         </span>
         <p className={s.outcome}>
-          Работа проверяет, что вы <b>{module.outcomes.join("; ")}</b>
+          Работа проверяет, что ученик <b>{module.outcomes.join("; ")}</b>
         </p>
       </div>
 

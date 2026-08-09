@@ -27,7 +27,7 @@ export default async function DashboardPage() {
     <main className="wrap-wide" style={{ paddingBottom: 48 }}>
       <div className={styles.head}>
         <span className={styles.eyebrow}>С возвращением</span>
-        <h1 className={styles.hello}>Здравствуйте, {firstName}</h1>
+        <h1 className={styles.hello}>Здравствуй, {firstName}</h1>
       </div>
 
       {continueWith?.nextLesson ? (
@@ -38,7 +38,7 @@ export default async function DashboardPage() {
             <span className={styles.meta}>
               {continueWith.nextLesson.minutes
                 ? `Около ${continueWith.nextLesson.minutes} мин`
-                : "Продолжим с того места, где вы остановились"}
+                : "Продолжим с того же места"}
             </span>
           </div>
           <Link className="btn big" href={continueWith.nextLessonHref ?? continueWith.href}>
@@ -53,7 +53,7 @@ export default async function DashboardPage() {
           <p className={styles.emptyText}>
             {courses.length === 0
               ? "Английский и введение в веб-разработку открыты бесплатно и без ограничения по времени. Начните с любого — прогресс сохранится, даже если вернётесь через полгода."
-              : "Вы прошли всё, что взяли. Загляните в каталог: там есть, чем продолжить."}
+              : "Все взятые курсы пройдены. Загляни в каталог: там есть, чем продолжить."}
           </p>
           <Link className="btn" href="/">
             Открыть каталог

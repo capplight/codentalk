@@ -75,8 +75,10 @@ export default async function LessonPage({ params }: Params) {
         <span className={s.meta}>
           Урок {number} из {total} · около {lesson.estimatedMinutes} минут
         </span>
+        {/* Итоги написаны от третьего лица («здоровается»), поэтому рамке нужно
+            третье лицо: «после урока ты здоровается» — рассогласование. */}
         <p className={s.outcome}>
-          После урока вы <b>{lesson.outcome}</b>
+          После урока ученик <b>{lesson.outcome}</b>
         </p>
       </div>
 

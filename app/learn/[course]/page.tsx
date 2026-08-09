@@ -177,7 +177,14 @@ export default async function CoursePage({ params }: Params) {
             <span className={s.moduleNum}>✓</span>
             <h2 className={s.moduleTitle}>Итоговый экзамен</h2>
             <span className={s.moduleMeta}>
-              {examPassed ? "сдан" : `${course.exam.questions.length} вопросов о всём курсе`}
+              {examPassed
+                ? "сдан"
+                : `${course.exam.questions.length} ${plural(
+                    course.exam.questions.length,
+                    "вопрос",
+                    "вопроса",
+                    "вопросов"
+                  )} обо всём курсе`}
             </span>
           </div>
           <div className={s.quiz}>
