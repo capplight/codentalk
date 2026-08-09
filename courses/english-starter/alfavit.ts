@@ -83,7 +83,7 @@ const module: Module = {
       ref: "Oxford 3000",
       section:
         "слова модуля с пометкой A1: letter, name, spell, spelling, word, country, how, " +
-        "please, school, some",
+        "please, school, some, address",
       license: "внутреннее использование",
     },
     {
@@ -110,6 +110,24 @@ const module: Module = {
         "а без алфавитного порядка его не открыть — отсюда урок о порядке букв. " +
         "ОГОВОРКА: прямого требования «расставить по алфавиту» в источниках нет; " +
         "умение выведено из необходимости пользоваться словарём",
+      license: "внутреннее использование, публично не называем",
+    },
+    {
+      ref: "Council of Europe, CEFR Companion Volume 2020 — пятый урок",
+      section:
+        "с. 84, Pre-A1: «Can fill in very simple registration forms with basic personal " +
+        "details: name, address, nationality, marital status»; A1 там же: «Can fill in " +
+        "numbers and dates, own name, nationality, address, age, date of birth… e.g. on a " +
+        "hotel registration form». " +
+        "ЗАМЕНЫ, СДЕЛАННЫЕ ОСОЗНАННО: вместо nationality взята country (Kazakhstan, а не " +
+        "Kazakh) — country стоит на A1 в Oxford 3000, nationality только в словнике A2 Key. " +
+        "Фамилии в описании ступени нет вовсе: поле surname добавлено, потому что без него " +
+        "бланк не заполнить. " +
+        "СВЕРХ СТУПЕНИ: surname и first name — обе метки полей стоят на A2 (surname — " +
+        "тематический список A2 Flyers, first name — словник A2 Key). Взяты как узнаваемые " +
+        "надписи, а не как слова для употребления. " +
+        "НЕ ПОДТВЕРЖДЕНО: как именно подписаны поля британских бланков — в materials/ нет " +
+        "ни одного бланка, кроме листа ответов с единственным полем «My name is»",
       license: "внутреннее использование, публично не называем",
     },
     {
@@ -674,10 +692,10 @@ const module: Module = {
           kind: "explain",
           text: [
             "Бланк — первое, с чем сталкиваются в чужой стране: карточка в гостинице, " +
-              "анкета при въезде, форма на сайте. Описание первой ступени прямо называет это " +
-              "умение: заполнить простую форму с личными данными и продиктовать их по буквам.",
-            "Полей обычно три-четыре, и они почти всегда одни и те же. Разобравшись с ними " +
-              "один раз, дальше их узнаёшь везде.",
+              "анкета при въезде, форма на сайте. Описание первой ступени называет это умение " +
+              "прямо: заполнить простую форму с личными данными и написать их без ошибок.",
+            "Набор полей у разных бланков разный, но несколько встречаются почти везде. " +
+              "Разберёмся с ними — остальные будут понятны по образцу.",
           ],
         },
         {
@@ -689,7 +707,7 @@ const module: Module = {
             ["First name", "личное имя", "Dana"],
             ["Surname", "фамилия", "Nurlanova"],
             ["Country", "страна", "Kazakhstan"],
-            ["Signature", "подпись от руки", "—"],
+            ["Address", "адрес", "12 Abay Street"],
           ],
         },
         {
@@ -697,9 +715,9 @@ const module: Module = {
           kind: "note",
           tone: "mistake",
           text:
-            "Частая ошибка: вписать фамилию в поле First name. В английском бланке личное " +
-            "имя и фамилия стоят в отдельных полях и подписаны по-разному: first name — то, " +
-            "как тебя зовут, surname — фамилия рода.",
+            "Личное имя и фамилия в английском бланке стоят в отдельных полях и подписаны " +
+            "по-разному: first name — то, как тебя зовут, surname — фамилия. Русская анкета " +
+            "устроена иначе, поэтому поля стоит прочитать, а не заполнять по привычке.",
         },
         {
           id: "zaglavnye-v-blanke",
@@ -725,7 +743,8 @@ const module: Module = {
           items: [
             { term: "first name", translation: "личное имя", example: "First name: Dana", hint: "/ˈfɜːst neɪm/" },
             { term: "surname", translation: "фамилия", example: "Surname: Nurlanova", hint: "/ˈsɜːneɪm/" },
-            { term: "address", translation: "адрес", example: "my address", hint: "/əˈdres/" },
+            { term: "address", translation: "адрес", example: "Address: 12 Abay Street", hint: "/əˈdres/" },
+            { term: "country", translation: "страна", example: "Country: Kazakhstan", hint: "/ˈkʌntri/" },
           ],
         },
 
@@ -746,7 +765,7 @@ const module: Module = {
         {
           id: "z2-zapolnit-stranu",
           kind: "gap",
-          prompt: "Дана из Казахстана. Заполни поле «Country» так, как принято в бланке.",
+          prompt: "Дана из Казахстана. Заполни поле «Country».",
           before: "Country: ",
           after: "",
           answer: "Kazakhstan",
@@ -767,7 +786,7 @@ const module: Module = {
             { text: " · " },
             { text: "First name: Alim", selectable: true },
           ],
-          hint: "Смотри на первую букву каждого ответа.",
+          hint: "Правило то же, что в уроке про заглавную букву.",
           why:
             "Фамилия и страна тоже пишутся с заглавной: Nurlanova, Kazakhstan. Две другие " +
             "строки заполнены верно.",
@@ -782,15 +801,17 @@ const module: Module = {
           why: "A-L-I-M-O-V. Так диктуют фамилию, чтобы её записали без ошибок.",
         },
         {
-          id: "z5-poryadok-blanka",
-          kind: "order",
-          prompt: "Расставь строки в том порядке, в каком их обычно спрашивают в бланке.",
-          items: ["Country: Kazakhstan", "First name: Dana", "Surname: Nurlanova"],
-          answer: [1, 2, 0],
-          hint: "Сначала то, как зовут, потом род, потом откуда.",
+          id: "z5-zapolnit-adres",
+          kind: "gap",
+          prompt: "Заполни поле «Address»: улица Абая, дом 12.",
+          before: "Address: 12 ",
+          after: " Street",
+          answer: "Abay",
+          exact: true,
+          hint: "Название улицы — имя собственное.",
           why:
-            "First name, surname, country — так поля идут в примере из этого урока. " +
-            "Порядок полей задаёт бланк, но эти три почти всегда стоят именно так.",
+            "Abay — название улицы, поэтому с заглавной буквы. То же правило, что у имён " +
+            "и стран.",
         },
       ],
     },
@@ -914,7 +935,7 @@ const module: Module = {
         id: "q-pole-familii",
         kind: "gap",
         outcome: "заполняет простой бланк: имя, фамилия, страна",
-        prompt: "Заполни поле бланка: фамилия Alimova.",
+        prompt: "Заполни поле бланка: фамилия Алимова, латиницей.",
         before: "Surname: ",
         after: "",
         answer: "Alimova",
@@ -925,13 +946,13 @@ const module: Module = {
         id: "q-kuda-imya",
         kind: "choice",
         outcome: "заполняет простой бланк: имя, фамилия, страна",
-        prompt: "В какое поле бланка вписывают личное имя?",
+        prompt: "Что вписывают в поле «Address»?",
         options: [
-          { text: "First name", correct: true },
-          { text: "Surname" },
-          { text: "Country" },
+          { text: "Адрес", correct: true },
+          { text: "Фамилию" },
+          { text: "Страну" },
         ],
-        why: "First name — личное имя. Surname — фамилия, country — страна.",
+        why: "Address — адрес: улица и дом. Фамилия идёт в surname, страна — в country.",
       },
       {
         id: "q-najti-oshibku",
