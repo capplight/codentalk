@@ -633,3 +633,19 @@
   max-width: 42ch;
   line-height: 1.5;
 }
+
+/* Подвал урока: кнопка и пояснение к ней */
+.finish {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+}
+
+.finishHint {
+  font-size: var(--step--1);
+  color: var(--ink-soft);
+  max-width: 46ch;
+  text-align: right;
+  line-height: 1.5;
+}

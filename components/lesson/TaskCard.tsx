@@ -13,6 +13,7 @@
 import { useState } from "react";
 import { checkAnswer, missingParts, type Answer } from "@/lib/content/check";
 import type { TaskBlock } from "@/lib/content/types";
+import { useLessonFlow } from "./LessonFlow";
 import s from "./lesson.module.css";
 
 type Status = "idle" | "right" | "wrong" | "shown";
@@ -26,6 +27,7 @@ export default function TaskCard({
   index: number;
   total: number;
 }) {
+  const { markAnswered } = useLessonFlow();
   const [status, setStatus] = useState<Status>("idle");
   const [hintOpen, setHintOpen] = useState(false);
 
@@ -42,6 +44,10 @@ export default function TaskCard({
   const locked = status === "right" || status === "shown";
 
   function judge(answer: Answer): void {
+    // Задание считается отвеченным при любом исходе, включая ошибку: отметка
+    // «урок пройден» требует работы, а не правильности.
+    markAnswered(task.id);
+
     const verdict = checkAnswer(task, answer);
     if (verdict === null) {
       setStatus("shown");

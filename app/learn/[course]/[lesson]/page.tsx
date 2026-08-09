@@ -8,6 +8,7 @@ import Material from "@/components/lesson/Material";
 import TaskCard from "@/components/lesson/TaskCard";
 import ConfusionButton from "@/components/lesson/ConfusionButton";
 import FinishLesson from "@/components/lesson/FinishLesson";
+import LessonFlow from "@/components/lesson/LessonFlow";
 import s from "@/components/lesson/lesson.module.css";
 
 type Params = { params: Promise<{ course: string; lesson: string }> };
@@ -82,6 +83,9 @@ export default async function LessonPage({ params }: Params) {
         </p>
       </div>
 
+      {/* Задания и кнопка «пройден» лежат в разных островах, но должны видеть
+          друг друга: отметка ставится, когда к каждому заданию дан ответ. */}
+      <LessonFlow total={tasks.length}>
       <div className={s.body}>
         {lesson.blocks.map((block) => {
           if (isTask(block)) {
@@ -128,10 +132,11 @@ export default async function LessonPage({ params }: Params) {
           />
         ) : (
           <Link className="btn" href="/register">
-            Зарегистрируйтесь, чтобы сохранять успехи
+            Зарегистрируйся, чтобы сохранять успехи
           </Link>
         )}
-      </div>
+        </div>
+      </LessonFlow>
     </main>
   );
 }

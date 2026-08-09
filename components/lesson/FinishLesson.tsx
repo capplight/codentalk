@@ -12,6 +12,8 @@
 
 import { useState, useTransition } from "react";
 import { useRouter } from "next/navigation";
+import { plural } from "@/lib/plural";
+import { useLessonFlow } from "./LessonFlow";
 import s from "./lesson.module.css";
 
 export default function FinishLesson({
@@ -28,6 +30,7 @@ export default function FinishLesson({
   done: boolean;
 }) {
   const router = useRouter();
+  const { total, answered } = useLessonFlow();
   const [pending, startTransition] = useTransition();
   const [busy, setBusy] = useState(false);
   const [failed, setFailed] = useState(false);
@@ -62,22 +65,48 @@ export default function FinishLesson({
     });
   }
 
+  // Урок засчитывается, когда к каждому заданию дан ответ — любой, в том числе
+  // неверный. Пока не все, идти дальше можно, но без отметки: назвать урок
+  // пройденным, если задания не тронуты, значит соврать самому ученику.
+  const left = Math.max(0, total - answered);
+  const worked = done || left === 0;
+
+  function skip(): void {
+    startTransition(() => {
+      router.push(nextHref);
+    });
+  }
+
   return (
-    <span>
+    <span className={s.finish}>
       {failed && (
         <span className={s.saveFailed}>
           Не удалось сохранить отметку. Проверь связь и нажми ещё раз — урок останется здесь.
         </span>
       )}
-      <button className="btn" type="button" onClick={finish} disabled={busy || pending}>
-        {busy || pending
-          ? "Сохраняем…"
-          : failed
-            ? "Попробовать снова"
-            : done
-              ? label
-              : `Отметить пройденным · ${label}`}
-      </button>
+
+      {!worked && total > 0 && (
+        <span className={s.finishHint}>
+          Осталось ответить на {left} {plural(left, "задание", "задания", "заданий")}. Ошибиться
+          не страшно: любой ответ засчитывается, а разбор покажет, как правильно.
+        </span>
+      )}
+
+      {worked ? (
+        <button className="btn" type="button" onClick={finish} disabled={busy || pending}>
+          {busy || pending
+            ? "Сохраняем…"
+            : failed
+              ? "Попробовать снова"
+              : done
+                ? label
+                : `Отметить пройденным · ${label}`}
+        </button>
+      ) : (
+        <button className="btn btn--ghost" type="button" onClick={skip} disabled={pending}>
+          {label} — без отметки
+        </button>
+      )}
     </span>
   );
 }
