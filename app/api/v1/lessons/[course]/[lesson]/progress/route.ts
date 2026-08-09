@@ -3,6 +3,7 @@ import { prisma } from "@/lib/db";
 import { ApiError, handler, ok, readJson } from "@/lib/api/respond";
 import { requireUser } from "@/lib/api/session";
 import { checkCourseAccess } from "@/lib/api/access";
+import { startOfMonth } from "@/lib/domain/enrollment";
 
 const bodySchema = z.object({
   status: z.enum(["in_progress", "completed"]).default("in_progress"),
@@ -31,6 +32,9 @@ export const PUT = handler(async (request: Request, { params }: Params) => {
     },
   });
 
+  // объявлено здесь, чтобы попасть в ответ ниже
+  let enrolled = false;
+
   if (!lesson || !lesson.course.isPublished) {
     throw new ApiError("not_found", "Урок не найден");
   }
@@ -43,6 +47,36 @@ export const PUT = handler(async (request: Request, { params }: Params) => {
         ? "Этот курс доступен по подписке"
         : "Этот курс сейчас не входит в два активных"
     );
+  }
+
+  /*
+   * Бесплатный курс записывается сам, как только урок отмечен пройденным.
+   *
+   * Без этого получалось так: ученик проходит уроки, отметки честно ложатся в
+   * базу, а личный кабинет говорит «Пора выбрать курс» — потому что показывает
+   * только курсы, на которые есть запись. Со стороны это выглядит как потеря
+   * успехов, и владелец на этом и споткнулся.
+   *
+   * Место из двух возможных при этом не занимается: бесплатные курсы его не
+   * занимают (правило в lib/domain/enrollment.ts). Платный курс по-прежнему
+   * записывается только осознанно — там место расходуется, и человек должен
+   * знать, что он его занял.
+   */
+  if (body.status === "completed" && lesson.course.access === "free") {
+    const existing = await prisma.enrollment.findFirst({
+      where: { userId: user.id, courseId: lesson.course.id },
+      select: { id: true },
+    });
+    if (!existing) {
+      await prisma.enrollment.create({
+        data: {
+          userId: user.id,
+          courseId: lesson.course.id,
+          periodMonth: startOfMonth(new Date()),
+        },
+      });
+      enrolled = true;
+    }
   }
 
   const saved = await prisma.lessonProgress.upsert({
@@ -62,5 +96,5 @@ export const PUT = handler(async (request: Request, { params }: Params) => {
     select: { status: true, updatedAt: true },
   });
 
-  return ok({ status: saved.status, savedAt: saved.updatedAt });
+  return ok({ status: saved.status, savedAt: saved.updatedAt, enrolled });
 });

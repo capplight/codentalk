@@ -622,3 +622,14 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* Сообщение о неудачной записи успехов. Не рядом с кнопкой, а над ней:
+   ученик должен увидеть его до того, как нажмёт снова. */
+.saveFailed {
+  display: block;
+  margin-bottom: 8px;
+  font-size: var(--step--1);
+  color: var(--bad);
+  max-width: 42ch;
+  line-height: 1.5;
+}

@@ -30,29 +30,54 @@ export default function FinishLesson({
   const router = useRouter();
   const [pending, startTransition] = useTransition();
   const [busy, setBusy] = useState(false);
+  const [failed, setFailed] = useState(false);
 
   async function finish(): Promise<void> {
     setBusy(true);
+    setFailed(false);
     try {
-      await fetch(`/api/v1/lessons/${course}/${lesson}/progress`, {
+      const response = await fetch(`/api/v1/lessons/${course}/${lesson}/progress`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ status: "completed" }),
       });
+
+      // Раньше неудача проглатывалась молча, и ученик уходил дальше, думая,
+      // что отметка поставлена. Потеря успехов — последнее, о чём он должен
+      // узнавать сам: если запись не прошла, говорим и остаёмся на месте.
+      if (!response.ok) {
+        setFailed(true);
+        return;
+      }
     } catch {
-      // Молча: переход важнее записи, отметка поставится при следующем заходе
+      setFailed(true);
+      return;
     } finally {
       setBusy(false);
-      startTransition(() => {
-        router.push(nextHref);
-        router.refresh();
-      });
     }
+
+    startTransition(() => {
+      router.push(nextHref);
+      router.refresh();
+    });
   }
 
   return (
-    <button className="btn" type="button" onClick={finish} disabled={busy || pending}>
-      {busy || pending ? "Сохраняем…" : done ? label : `Отметить пройденным · ${label}`}
-    </button>
+    <span>
+      {failed && (
+        <span className={s.saveFailed}>
+          Не удалось сохранить отметку. Проверь связь и нажми ещё раз — урок останется здесь.
+        </span>
+      )}
+      <button className="btn" type="button" onClick={finish} disabled={busy || pending}>
+        {busy || pending
+          ? "Сохраняем…"
+          : failed
+            ? "Попробовать снова"
+            : done
+              ? label
+              : `Отметить пройденным · ${label}`}
+      </button>
+    </span>
   );
 }
