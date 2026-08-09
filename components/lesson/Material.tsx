@@ -67,7 +67,19 @@ export default function Material({ block }: { block: MaterialBlock }) {
       return (
         <div className={s.audio}>
           {block.caption && <span className={s.exampleCaption}>{block.caption}</span>}
-          <audio controls src={block.src} />
+
+          {block.planned ? (
+            /* Заготовка: место под запись размечено, звука ещё нет. Показываем
+               текст и говорим прямо — сломанный проигрыватель хуже честной
+               строки, а обещать звук и не дать его нельзя. */
+            <p className={s.plannedAudio}>
+              Запись готовится. Пока прочитай текст вслух сам — вот что должно
+              звучать:
+            </p>
+          ) : (
+            <audio controls src={block.src} />
+          )}
+
           {/* Расшифровка не спрятана: без неё запись бесполезна глухим и тем, кто без наушников */}
           <p className={s.transcript}>{block.transcript}</p>
         </div>

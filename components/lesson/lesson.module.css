@@ -649,3 +649,14 @@
   text-align: right;
   line-height: 1.5;
 }
+
+/* Заготовка записи: звука ещё нет, и об этом сказано прямо. */
+.plannedAudio {
+  margin: 0;
+  padding: 10px 14px;
+  border: 1px dashed var(--line);
+  border-radius: var(--radius-m);
+  font-size: var(--step--1);
+  color: var(--ink-soft);
+  line-height: 1.5;
+}

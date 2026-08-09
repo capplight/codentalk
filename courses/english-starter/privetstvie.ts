@@ -168,6 +168,17 @@ const module: Module = {
           ],
         },
         {
+          // Заготовка: место под запись размечено, звука ещё нет. Слушание идёт
+          // с первого урока не для полноты набора — описания ступени требуют
+          // речи «very slowly and clearly», а ухо привыкает только временем.
+          id: "zapis-privetstviya",
+          kind: "audio",
+          planned: true,
+          pace: "slow",
+          caption: "Послушай и повтори",
+          transcript: "Hello. Hi. Good morning. Good afternoon. Good evening. Good night. Goodbye.",
+        },
+        {
           id: "slovar-1",
           kind: "vocab",
           caption: "Слова урока",

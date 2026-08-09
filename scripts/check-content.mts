@@ -26,6 +26,16 @@ import { courses } from "../courses/index.ts";
 const errors: string[] = [];
 const warnings: string[] = [];
 
+/**
+ * Заготовки записей: место размечено, звука ещё нет.
+ *
+ * При обычной проверке они не ошибка — содержание пишется раньше озвучки.
+ * Но выкладывать урок, где ученику обещан звук, а его нет, нельзя, поэтому
+ * `--release` превращает их в ошибку.
+ */
+const planned: string[] = [];
+const releaseMode = process.argv.includes("--release");
+
 function fail(where: string, message: string): void {
   errors.push(`${where}: ${message}`);
 }
@@ -190,9 +200,20 @@ function checkMaterial(block: Block, where: string): void {
       break;
 
     case "audio":
-      if (blank(block.src)) fail(where, "нет ссылки на запись");
+      // Расшифровка нужна и заготовке: по ней потом и делается запись
       if (blank(block.transcript)) {
         fail(where, "нет расшифровки — запись бесполезна без наушников и недоступна глухим");
+      }
+      if (block.planned) {
+        if (!blank(block.src)) {
+          fail(where, "заготовка помечена planned, но ссылка на запись уже есть — сними пометку");
+        }
+        planned.push(where);
+      } else if (blank(block.src)) {
+        fail(
+          where,
+          "нет ссылки на запись. Если запись ещё не сделана, пометь блок planned: true"
+        );
       }
       break;
 
@@ -454,6 +475,20 @@ console.log(
   `Проверено: курсов ${courses.length}, уроков ${lessons}, заданий ${tasks}, ` +
     `учебного времени ${Math.round((minutes / 60) * 10) / 10} ч`
 );
+
+if (planned.length > 0) {
+  if (releaseMode) {
+    for (const where of planned) {
+      errors.push(`${where}: заготовка записи, а звука нет — выкладывать такой урок нельзя`);
+    }
+  } else {
+    console.log(
+      `\nЗаготовок записей: ${planned.length}. Места размечены, звук не сделан.\n` +
+        `Перед выкладкой проверь с --release: там это станет ошибкой.`
+    );
+    for (const where of planned) console.log(`  · ${where}`);
+  }
+}
 
 if (warnings.length > 0) {
   console.log(`\nЗамечания (${warnings.length}) — сборку не останавливают:`);
