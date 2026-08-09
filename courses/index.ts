@@ -8,8 +8,9 @@
  */
 import type { Course, Lesson, Module } from "@/lib/content/types";
 import webVvedenie from "./web-vvedenie";
+import englishStarter from "./english-starter";
 
-export const courses: Course[] = [webVvedenie];
+export const courses: Course[] = [englishStarter, webVvedenie];
 
 export function findCourse(slug: string): Course | undefined {
   return courses.find((course) => course.slug === slug);
