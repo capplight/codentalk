@@ -8,24 +8,48 @@
 import type { TaskBlock } from "./types";
 
 /**
- * Приведённая форма ответа: регистр, лишние пробелы и вид кавычек не должны
+ * Приведённая форма ответа: лишние пробелы, вид кавычек и знак в конце не должны
  * решать судьбу ответа. Буква «ё» приравнивается к «е» — ученик пишет как
  * привык, а не как настроена его раскладка.
+ *
+ * **Апостроф НЕ вырезается.** В английском он различает слова: `im` и `I'm` —
+ * не одно и то же, и задание про краткую форму обязано это видеть. Если автор
+ * хочет принять написание без апострофа, он добавляет его в `accept` осознанно.
+ *
+ * **Регистр снимается только при обычной сверке.** Для заданий про заглавную
+ * букву есть признак `exact` — см. ниже.
  */
 export function normalize(value: string): string {
+  return normalizeKeepingCase(value).toLowerCase().replace(/ё/g, "е");
+}
+
+/**
+ * То же приведение, но с сохранением регистра — для заданий, где заглавная
+ * буква и есть предмет проверки: `I`, дни недели, месяцы, национальности.
+ *
+ * Без этого задание «исправьте „i am alim“» засчитывало бы дословно
+ * переписанную из условия ошибку. Проверено опытом: засчитывало.
+ */
+export function normalizeKeepingCase(value: string): string {
   return value
     .trim()
-    .toLowerCase()
-    .replace(/ё/g, "е")
-    .replace(/[«»"'`]/g, "")
+    .replace(/[«»"“”`]/g, "")
+    .replace(/[’‘]/g, "'")
+    .replace(/[.!?]+$/, "")
     .replace(/\s+/g, " ");
 }
 
-function matchesText(given: string, answer: string, accept?: string[]): boolean {
-  const normalized = normalize(given);
+function matchesText(
+  given: string,
+  answer: string,
+  accept: string[] | undefined,
+  exact: boolean
+): boolean {
+  const prepare = exact ? normalizeKeepingCase : normalize;
+  const normalized = prepare(given);
   if (normalized.length === 0) return false;
-  if (normalized === normalize(answer)) return true;
-  return (accept ?? []).some((variant) => normalize(variant) === normalized);
+  if (normalized === prepare(answer)) return true;
+  return (accept ?? []).some((variant) => prepare(variant) === normalized);
 }
 
 function sameOrder(given: number[], answer: number[]): boolean {
@@ -54,7 +78,10 @@ export function checkAnswer(task: TaskBlock, given: Answer): boolean | null {
 
     case "gap":
     case "short":
-      return typeof given === "string" && matchesText(given, task.answer, task.accept);
+      return (
+        typeof given === "string" &&
+        matchesText(given, task.answer, task.accept, task.exact === true)
+      );
 
     case "hottext": {
       const picked = new Set(Array.isArray(given) ? given : []);

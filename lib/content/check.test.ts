@@ -112,3 +112,45 @@ test("развёрнутый ответ и произнесение машина
   };
   assert.equal(checkAnswer(essay, "что угодно"), null);
 });
+
+test("апостроф различает слова: im и I'm — не одно и то же", () => {
+  const task: TaskBlock = {
+    id: "t",
+    kind: "short",
+    prompt: "?",
+    why: "разбор",
+    answer: "I'm Alim",
+  };
+  assert.equal(checkAnswer(task, "I'm Alim"), true);
+  assert.equal(checkAnswer(task, "im alim"), false, "задание про апостроф обязано видеть апостроф");
+  assert.equal(checkAnswer(task, "I’m Alim"), true, "кривой апостроф из телефона принимается");
+});
+
+test("знак в конце не решает судьбу ответа", () => {
+  const task: TaskBlock = { id: "t", kind: "short", prompt: "?", why: "р", answer: "hello" };
+  assert.equal(checkAnswer(task, "Hello!"), true);
+  assert.equal(checkAnswer(task, "hello."), true);
+});
+
+test("признак exact ловит ошибку в заглавной букве", () => {
+  const task: TaskBlock = {
+    id: "t",
+    kind: "short",
+    prompt: "Исправьте: «i am alim»",
+    why: "разбор",
+    answer: "I am Alim",
+    exact: true,
+  };
+  assert.equal(checkAnswer(task, "I am Alim"), true);
+  assert.equal(
+    checkAnswer(task, "i am alim"),
+    false,
+    "дословно переписанная из условия ошибка не должна засчитываться"
+  );
+  assert.equal(checkAnswer(task, "I am alim"), false, "имя тоже с заглавной");
+});
+
+test("без exact регистр по-прежнему не важен", () => {
+  const task: TaskBlock = { id: "t", kind: "gap", prompt: "?", why: "р", before: "", after: "", answer: "morning" };
+  assert.equal(checkAnswer(task, "MORNING"), true);
+});
