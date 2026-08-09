@@ -124,6 +124,7 @@ const module: Module = {
     "пишет с заглавной буквы имена, страны и названия языков",
     "понимает просьбу продиктовать слово и отвечает на неё по буквам",
     "расставляет слова и имена по алфавиту",
+    "заполняет простой бланк: имя, фамилия, страна",
   ],
 
   lessons: [
@@ -659,6 +660,140 @@ const module: Module = {
         },
       ],
     },
+
+    // =====================================================================
+    {
+      slug: "blank-i-svoyo-imya",
+      title: "Бланк: имя, фамилия, страна",
+      estimatedMinutes: 12,
+      outcome: "заполняет простой бланк: имя, фамилия, страна",
+
+      blocks: [
+        {
+          id: "zachem-blank",
+          kind: "explain",
+          text: [
+            "Бланк — первое, с чем сталкиваются в чужой стране: карточка в гостинице, " +
+              "анкета при въезде, форма на сайте. Описание первой ступени прямо называет это " +
+              "умение: заполнить простую форму с личными данными и продиктовать их по буквам.",
+            "Полей обычно три-четыре, и они почти всегда одни и те же. Разобравшись с ними " +
+              "один раз, дальше их узнаёшь везде.",
+          ],
+        },
+        {
+          id: "tablica-poley",
+          kind: "table",
+          caption: "Что обычно спрашивают",
+          head: ["Поле", "Что писать", "Пример"],
+          rows: [
+            ["First name", "личное имя", "Dana"],
+            ["Surname", "фамилия", "Nurlanova"],
+            ["Country", "страна", "Kazakhstan"],
+            ["Signature", "подпись от руки", "—"],
+          ],
+        },
+        {
+          id: "poryadok-imeni",
+          kind: "note",
+          tone: "mistake",
+          text:
+            "Частая ошибка: вписать фамилию в поле First name. В английском бланке личное " +
+            "имя и фамилия стоят в отдельных полях и подписаны по-разному: first name — то, " +
+            "как тебя зовут, surname — фамилия рода.",
+        },
+        {
+          id: "zaglavnye-v-blanke",
+          kind: "note",
+          tone: "info",
+          text:
+            "Все три ответа пишутся с заглавной буквы: и имя, и фамилия, и страна. Это то же " +
+            "правило, что в уроке про заглавную букву, только теперь оно понадобилось в деле.",
+        },
+        {
+          id: "zapis-blanka",
+          kind: "audio",
+          planned: true,
+          pace: "slow",
+          caption: "Послушай, как эти данные диктуют у стойки",
+          transcript:
+            "First name: Dana. D-A-N-A. Surname: Nurlanova. N-U-R-L-A-N-O-V-A. Country: Kazakhstan.",
+        },
+        {
+          id: "slovar-blanka",
+          kind: "vocab",
+          caption: "Слова урока",
+          items: [
+            { term: "first name", translation: "личное имя", example: "First name: Dana", hint: "/ˈfɜːst neɪm/" },
+            { term: "surname", translation: "фамилия", example: "Surname: Nurlanova", hint: "/ˈsɜːneɪm/" },
+            { term: "address", translation: "адрес", example: "my address", hint: "/əˈdres/" },
+          ],
+        },
+
+        // ---- задания ----
+        {
+          id: "z1-kuda-familiyu",
+          kind: "choice",
+          prompt: "В какое поле бланка вписывают фамилию?",
+          options: [
+            { text: "Country" },
+            { text: "Surname", correct: true },
+            { text: "First name" },
+          ],
+          hint: "Одно из полей спрашивает, как тебя зовут, другое — из какого ты рода.",
+          why:
+            "Surname — фамилия. First name — личное имя, country — страна.",
+        },
+        {
+          id: "z2-zapolnit-stranu",
+          kind: "gap",
+          prompt: "Дана из Казахстана. Заполни поле «Country» так, как принято в бланке.",
+          before: "Country: ",
+          after: "",
+          answer: "Kazakhstan",
+          exact: true,
+          hint: "Название страны, и оно пишется не так, как обычное слово.",
+          why: "Kazakhstan — с заглавной буквы, как любое название страны.",
+        },
+        {
+          id: "z3-najti-oshibku-v-blanke",
+          kind: "hottext",
+          prompt: "Отметь строки бланка, заполненные с ошибкой.",
+          parts: [
+            { text: "First name: Dana", selectable: true },
+            { text: " · " },
+            { text: "Surname: nurlanova", selectable: true, correct: true },
+            { text: " · " },
+            { text: "Country: kazakhstan", selectable: true, correct: true },
+            { text: " · " },
+            { text: "First name: Alim", selectable: true },
+          ],
+          hint: "Смотри на первую букву каждого ответа.",
+          why:
+            "Фамилия и страна тоже пишутся с заглавной: Nurlanova, Kazakhstan. Две другие " +
+            "строки заполнены верно.",
+        },
+        {
+          id: "z4-prodiktovat-familiyu",
+          kind: "short",
+          prompt: "У стойки просят продиктовать фамилию Alimov. Запиши ответ по буквам, через дефис.",
+          answer: "A-L-I-M-O-V",
+          accept: ["a-l-i-m-o-v", "A L I M O V", "a l i m o v"],
+          hint: "Шесть букв, между ними чёрточка.",
+          why: "A-L-I-M-O-V. Так диктуют фамилию, чтобы её записали без ошибок.",
+        },
+        {
+          id: "z5-poryadok-blanka",
+          kind: "order",
+          prompt: "Расставь строки в том порядке, в каком их обычно спрашивают в бланке.",
+          items: ["Country: Kazakhstan", "First name: Dana", "Surname: Nurlanova"],
+          answer: [1, 2, 0],
+          hint: "Сначала то, как зовут, потом род, потом откуда.",
+          why:
+            "First name, surname, country — так поля идут в примере из этого урока. " +
+            "Порядок полей задаёт бланк, но эти три почти всегда стоят именно так.",
+        },
+      ],
+    },
   ],
 
   // =======================================================================
@@ -774,6 +909,29 @@ const module: Module = {
         answer: "W",
         accept: ["w"],
         why: "После V идёт W, и только потом X.",
+      },
+      {
+        id: "q-pole-familii",
+        kind: "gap",
+        outcome: "заполняет простой бланк: имя, фамилия, страна",
+        prompt: "Заполни поле бланка: фамилия Alimova.",
+        before: "Surname: ",
+        after: "",
+        answer: "Alimova",
+        exact: true,
+        why: "Фамилия в бланке пишется с заглавной буквы, как и имя со страной.",
+      },
+      {
+        id: "q-kuda-imya",
+        kind: "choice",
+        outcome: "заполняет простой бланк: имя, фамилия, страна",
+        prompt: "В какое поле бланка вписывают личное имя?",
+        options: [
+          { text: "First name", correct: true },
+          { text: "Surname" },
+          { text: "Country" },
+        ],
+        why: "First name — личное имя. Surname — фамилия, country — страна.",
       },
       {
         id: "q-najti-oshibku",
