@@ -54,26 +54,40 @@ const user = await prisma.user.create({
   },
 });
 
-const starter = await prisma.course.findUniqueOrThrow({
-  where: { slug: "english-starter" },
+/*
+ * Скрипт опирается на то, что есть в базе, а не на заранее известные имена
+ * курсов: содержание пишется, курсы появляются и переименовываются, и жёсткие
+ * имена ломали бы демонстрацию при каждой правке.
+ *
+ * Берём два курса: в первом отмечаем всё пройденным (под сертификат), во втором
+ * — примерно треть, чтобы в кабинете было «Продолжить» и полоса успехов.
+ */
+const available = await prisma.course.findMany({
+  where: { isPublished: true, lessons: { some: {} } },
+  orderBy: { slug: "asc" },
   include: { lessons: { orderBy: { sort: "asc" } } },
 });
-const a1 = await prisma.course.findUniqueOrThrow({
-  where: { slug: "english-a1" },
-  include: { lessons: { orderBy: { sort: "asc" } } },
-});
+
+if (available.length === 0) {
+  throw new Error(
+    "В базе нет ни одного курса с уроками. Сначала перенеси содержание: npm run db:seed:courses"
+  );
+}
+
+const [done, ...rest] = available;
+const started = rest[0];
 
 const month = startOfMonth(new Date());
 await prisma.enrollment.createMany({
   data: [
-    { userId: user.id, courseId: starter.id, periodMonth: month, completedAt: new Date() },
-    { userId: user.id, courseId: a1.id, periodMonth: month },
+    { userId: user.id, courseId: done.id, periodMonth: month, completedAt: new Date() },
+    ...(started ? [{ userId: user.id, courseId: started.id, periodMonth: month }] : []),
   ],
 });
 
-// Starter пройден целиком — под сертификат
+// Первый курс пройден целиком — под сертификат
 await prisma.lessonProgress.createMany({
-  data: starter.lessons.map((l) => ({
+  data: done.lessons.map((l) => ({
     userId: user.id,
     lessonId: l.id,
     status: "completed" as const,
@@ -81,21 +95,23 @@ await prisma.lessonProgress.createMany({
   })),
 });
 
-// A1 пройден примерно на треть — чтобы в кабинете было «Продолжить»
-const partial = a1.lessons.slice(0, Math.max(1, Math.floor(a1.lessons.length / 3)));
-await prisma.lessonProgress.createMany({
-  data: partial.map((l) => ({
-    userId: user.id,
-    lessonId: l.id,
-    status: "completed" as const,
-    completedAt: new Date(),
-  })),
-});
+// Второй пройден примерно на треть — чтобы в кабинете было «Продолжить»
+if (started) {
+  const partial = started.lessons.slice(0, Math.max(1, Math.floor(started.lessons.length / 3)));
+  await prisma.lessonProgress.createMany({
+    data: partial.map((l) => ({
+      userId: user.id,
+      lessonId: l.id,
+      status: "completed" as const,
+      completedAt: new Date(),
+    })),
+  });
+}
 
 const certificate = await prisma.certificate.create({
   data: {
     userId: user.id,
-    courseId: starter.id,
+    courseId: done.id,
     serial: formatSerial(randomBytes(16)),
     finalScore: 92,
   },
@@ -106,7 +122,9 @@ console.log(`
 
   Почта:  ${WITH_PROGRESS}
   Пароль: ${PASSWORD}
-  Что внутри: Starter пройден и есть сертификат, A1 пройден на треть —
+  Что внутри: «${done.title}» пройден и есть сертификат${
+    started ? `, «${started.title}» — на треть` : ""
+  } —
               в кабинете будет «Продолжить» и полоса прогресса.
 
   Почта:  ${FRESH}

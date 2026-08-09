@@ -10,7 +10,6 @@
     "db:up": "docker compose up -d",
     "db:migrate": "prisma migrate dev",
     "postinstall": "prisma generate",
-    "db:seed": "tsx scripts/seed-content.mts",
     "check:content": "tsx scripts/check-content.mts",
     "pdf": "tsx scripts/pdf-text.mts",
     "db:seed:courses": "tsx scripts/seed-courses.mts",

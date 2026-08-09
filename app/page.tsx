@@ -1,8 +1,5 @@
 import Link from "next/link";
-import { tracks, englishLevels } from "@/content";
-import { countTasks } from "@/lib/types";
-import { trackHasFree } from "@/lib/domain/course-access";
-import { cardsForTrack } from "@/courses";
+import { courseCards, type CourseCard } from "@/courses";
 import { withCount } from "@/lib/plural";
 import styles from "./page.module.css";
 
@@ -14,11 +11,16 @@ import styles from "./page.module.css";
  * доверие сильнее, чем оригинальность: человек понимает, где он и что делать,
  * ещё не прочитав заголовок.
  */
+/** Направления, о которых сказано на витрине, но курсов по ним ещё нет. */
+const PLANNED: Array<{ title: string; tagline: string }> = [
+  { title: "Казахский язык", tagline: "Разговорный казахский для повседневных дел" },
+  { title: "Python", tagline: "От первой программы до работы с данными" },
+];
+
 export default function HomePage() {
-  const englishTasks = englishLevels.reduce(
-    (sum, level) => sum + level.chapters.reduce((s, ch) => s + countTasks(ch), 0),
-    0
-  );
+  const cards: CourseCard[] = courseCards();
+  const lessons = cards.reduce((sum, card) => sum + card.lessons, 0);
+  const hours = Math.max(1, Math.round(cards.reduce((s, c) => s + c.minutes, 0) / 60));
 
   return (
     <main>
@@ -49,12 +51,12 @@ export default function HomePage() {
 
             <div className={styles.trust}>
               <div>
-                <span className={styles.trustNum}>{englishLevels.length}</span>
-                <span className={styles.trustLabel}>уровней английского</span>
+                <span className={styles.trustNum}>{lessons}</span>
+                <span className={styles.trustLabel}>уроков открыто</span>
               </div>
               <div>
-                <span className={styles.trustNum}>{englishTasks}</span>
-                <span className={styles.trustLabel}>заданий с проверкой</span>
+                <span className={styles.trustNum}>{hours} ч</span>
+                <span className={styles.trustLabel}>занятий с проверкой</span>
               </div>
               <div>
                 <span className={styles.trustNum}>0 ₸</span>
@@ -92,75 +94,38 @@ export default function HomePage() {
           </div>
 
           <div className={styles.tracks}>
-            {tracks.map((track) => {
-              const tasks = track.levels.reduce(
-                (sum, lvl) => sum + lvl.chapters.reduce((s, ch) => s + countTasks(ch), 0),
-                0
-              );
-              // Курсы нового формата. Если в направлении есть хотя бы один,
-              // оно уже не «скоро»: содержание написано и открыто.
-              const fresh = cardsForTrack(track.slug);
-              const soon = track.comingSoon && fresh.length === 0;
-              const free = trackHasFree(track) || fresh.some((card) => card.access === "free");
+            {cards.map((card) => (
+              <Link key={card.slug} href={`/learn/${card.slug}`} className={styles.track}>
+                <span
+                  className={`${styles.badge} ${card.access === "free" ? styles.badgeFree : ""}`}
+                >
+                  {card.access === "free" ? "Бесплатно" : "По подписке"}
+                </span>
 
-              const body = (
-                <>
-                  {soon ? (
-                    <span className={`${styles.badge} ${styles.badgeSoon}`}>Скоро</span>
-                  ) : free ? (
-                    <span className={`${styles.badge} ${styles.badgeFree}`}>Бесплатно</span>
-                  ) : (
-                    <span className={styles.badge}>По подписке</span>
-                  )}
+                <h3 className={styles.trackTitle}>{card.title}</h3>
 
-                  <h3 className={styles.trackTitle}>{track.title}</h3>
+                {/* Одна строка, а не абзац: карточки в сетке должны быть одной
+                    высоты, иначе ряд разваливается. */}
+                <p className={styles.trackDesc}>{card.tagline ?? ""}</p>
 
-                  {/* Одна строка, а не абзац: карточки в сетке должны быть
-                      одной высоты, иначе ряд разваливается. Подробности —
-                      на странице направления. */}
-                  <p className={styles.trackDesc}>
-                    {fresh.length > 0 && fresh[0].tagline ? fresh[0].tagline : track.tagline}
-                  </p>
+                <span className={styles.trackMeta}>
+                  {withCount(card.lessons, "урок", "урока", "уроков")}
+                  {card.hasExam ? " · с экзаменом" : ""}
+                </span>
+              </Link>
+            ))}
 
-                  <span className={styles.trackMeta}>
-                    {soon
-                      ? track.syllabus
-                        ? `${track.syllabus.length} тем в программе`
-                        : "готовится"
-                      : fresh.length > 0 && track.levels.length === 0
-                        ? `${withCount(fresh.length, "курс", "курса", "курсов")} · ` +
-                          withCount(
-                            fresh.reduce((sum, card) => sum + card.lessons, 0),
-                            "урок",
-                            "урока",
-                            "уроков"
-                          )
-                        : `${track.levels.length} уровней · ${tasks} заданий`}
-                  </span>
-                </>
-              );
-
-              if (soon) {
-                return (
-                  <div key={track.slug} className={`${styles.track} ${styles.trackSoon}`}>
-                    {body}
-                  </div>
-                );
-              }
-
-              // Если у направления есть страница первой версии — ведём туда,
-              // иначе прямо в единственный курс нового формата.
-              const href =
-                track.levels.length > 0
-                  ? `/track/${track.slug}`
-                  : `/learn/${fresh[0].slug}`;
-
-              return (
-                <Link key={track.slug} href={href} className={styles.track}>
-                  {body}
-                </Link>
-              );
-            })}
+            {/* Направления, о которых сказано, но содержания по ним ещё нет.
+                Карточка без ссылки: обещание, за которым пока ничего нет,
+                хуже честного «готовится». */}
+            {PLANNED.map((planned) => (
+              <div key={planned.title} className={`${styles.track} ${styles.trackSoon}`}>
+                <span className={`${styles.badge} ${styles.badgeSoon}`}>Скоро</span>
+                <h3 className={styles.trackTitle}>{planned.title}</h3>
+                <p className={styles.trackDesc}>{planned.tagline}</p>
+                <span className={styles.trackMeta}>готовится</span>
+              </div>
+            ))}
           </div>
         </div>
       </div>
