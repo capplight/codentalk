@@ -96,7 +96,7 @@ const module: Module = {
         "encouraged to write numbers as digits rather than words to avoid spelling " +
         "mistakes. Candidates will only hear numbers 1–20 so they need plenty of practice " +
         "in hearing and recognising each of those numbers». Отсюда два решения модуля: " +
-        "числа до двадцати разбираются подробно, а дальше только десятки; и в заданиях " +
+        "числа до двадцати разбираются подробно, десятки отдельным уроком; и в заданиях " +
         "ответ цифрой считается верным",
       license: "свободно распространяется, в уроки не копируется",
     },
@@ -123,6 +123,7 @@ const module: Module = {
     "говорит свой возраст и спрашивает о возрасте",
     "спрашивает, сколько предметов: How many?",
     "спрашивает цену: How much is it?",
+    "называет числа от двадцати до ста",
     "диктует номер по одной цифре",
     "говорит о количестве, не называя точного числа: some и a lot of",
     "ведёт короткий разговор о возрасте, количестве и цене",
@@ -333,7 +334,7 @@ const module: Module = {
           text:
             "Окончание -teen значит «плюс десять», окончание -ty — «десятков». Отсюда " +
             "разница между fourteen (14) и forty (40) — и заметь, что four при этом теряет " +
-            "букву u. Десятки будут дальше, а пока хватит первых двадцати.",
+            "букву u. Десятки разбираются в отдельном уроке этого же модуля.",
         },
         {
           id: "zapis-vtoroy-desyatok",
@@ -932,6 +933,168 @@ const module: Module = {
 
     // =====================================================================
     {
+      slug: "desyatki-i-sotnya",
+      title: "Десятки и сотня",
+      estimatedMinutes: 13,
+      outcome: "называет числа от двадцати до ста",
+
+      blocks: [
+        {
+          id: "zachem-desyatki",
+          kind: "explain",
+          text: [
+            "Двадцатью числа не заканчиваются. Возраст, цена, номер дома — всё это чаще " +
+              "больше двадцати. Словник ступени, на которую выводит курс, требует чисел до " +
+              "ста, и вот они.",
+            "Хорошая новость: новых слов всего восемь. Всё остальное собирается из них и из " +
+              "первого десятка.",
+          ],
+        },
+        {
+          id: "tablica-desyatkov",
+          kind: "table",
+          caption: "Восемь десятков",
+          head: ["Число", "Слово", "Из чего"],
+          rows: [
+            ["20", "twenty", "запомнить"],
+            ["30", "thirty", "three, но начало меняется"],
+            ["40", "forty", "four без буквы u"],
+            ["50", "fifty", "five, но начало меняется"],
+            ["60", "sixty", "six + ty"],
+            ["70", "seventy", "seven + ty"],
+            ["80", "eighty", "eight + y"],
+            ["90", "ninety", "nine + ty"],
+          ],
+        },
+        {
+          id: "sostavnye-chisla",
+          kind: "table",
+          caption: "Между десятками — через дефис",
+          head: ["Число", "Слово"],
+          rows: [
+            ["21", "twenty-one"],
+            ["35", "thirty-five"],
+            ["48", "forty-eight"],
+            ["99", "ninety-nine"],
+            ["100", "a hundred"],
+          ],
+        },
+        {
+          id: "defis-obyazatelen",
+          kind: "note",
+          tone: "mistake",
+          text:
+            "Между десятком и единицей ставят дефис: twenty-one, а не «twenty one». Это " +
+            "одно слово, записанное через чёрточку.",
+        },
+        {
+          id: "teen-i-ty-ne-putat",
+          kind: "note",
+          tone: "mistake",
+          text:
+            "Fourteen (14) и forty (40) на слух различаются ударением: в fourteen оно на " +
+            "втором слоге, в forty — на первом. На письме различие видно сразу: -teen " +
+            "против -ty.",
+        },
+        {
+          id: "tri-menyayut-nachalo",
+          kind: "note",
+          tone: "info",
+          text:
+            "Три десятка меняют начало: three → thirty, five → fifty, four → forty (буква u " +
+            "выпадает). Те же изменения были у thirteen и fifteen — правило одно.",
+        },
+        {
+          id: "zapis-desyatkov",
+          kind: "audio",
+          planned: true,
+          pace: "slow",
+          caption: "Послушай десятки",
+          transcript:
+            "Twenty. Thirty. Forty. Fifty. Sixty. Seventy. Eighty. Ninety. A hundred. Twenty-one. Thirty-five.",
+        },
+        {
+          id: "slovar-desyatkov",
+          kind: "vocab",
+          caption: "Слова урока",
+          items: [
+            { term: "thirty", translation: "тридцать", example: "thirty books", hint: "/ˈθɜːti/" },
+            { term: "forty", translation: "сорок", example: "forty people", hint: "/ˈfɔːti/" },
+            { term: "fifty", translation: "пятьдесят", example: "fifty tenge", hint: "/ˈfɪfti/" },
+            { term: "hundred", translation: "сто", example: "a hundred books", hint: "/ˈhʌndrəd/" },
+          ],
+        },
+
+        // ---- задания ----
+        {
+          id: "z1-sorok",
+          kind: "choice",
+          prompt: "Как правильно написать 40?",
+          options: [{ text: "fourty" }, { text: "forty", correct: true }, { text: "fourteen" }],
+          hint: "Буква u при этом выпадает.",
+          why: "Forty. «Fourty» — сборка без изменения, а fourteen значит 14.",
+        },
+        {
+          id: "z2-dopisat-defis",
+          kind: "gap",
+          prompt: "Допиши число словом: 35.",
+          before: "",
+          after: " books",
+          answer: "thirty-five",
+          hint: "Десяток и единица через чёрточку.",
+          why: "Thirty-five books. Между десятком и единицей стоит дефис.",
+        },
+        {
+          id: "z3-otmetit-desyatki",
+          kind: "hottext",
+          prompt: "Отметь слова, которые называют десятки.",
+          parts: [
+            { text: "sixty", selectable: true, correct: true },
+            { text: " · " },
+            { text: "sixteen", selectable: true },
+            { text: " · " },
+            { text: "ninety", selectable: true, correct: true },
+            { text: " · " },
+            { text: "nineteen", selectable: true },
+          ],
+          hint: "У десятков окончание -ty, у второго десятка -teen.",
+          why:
+            "Sixty (60) и ninety (90) — десятки. Sixteen (16) и nineteen (19) — из второго " +
+            "десятка.",
+        },
+        {
+          id: "z4-sopostavit-desyatki",
+          kind: "match",
+          prompt: "Сопоставь число и слово.",
+          left: ["30", "50", "80"],
+          right: ["fifty", "eighty", "thirty"],
+          answer: [2, 0, 1],
+          hint: "Два числа из трёх меняют начало слова.",
+          why: "30 — thirty, 50 — fifty, 80 — eighty.",
+        },
+        {
+          id: "z5-napisat-sostavnoe",
+          kind: "short",
+          prompt: "Напиши словом число 21.",
+          answer: "twenty-one",
+          accept: ["Twenty-one", "twenty one"],
+          hint: "Десяток, чёрточка, единица.",
+          why: "Twenty-one. Через дефис — так пишут все числа между десятками.",
+        },
+        {
+          id: "z6-vozrast-za-dvadcat",
+          kind: "short",
+          prompt: "Тебе тридцать два. Ответь на «How old are you?» целиком, число словом.",
+          answer: "I'm thirty-two.",
+          accept: ["I'm thirty-two", "I am thirty-two.", "I am thirty-two"],
+          hint: "Слово years не нужно, а число пишется через дефис.",
+          why: "I'm thirty-two. Возраст через be, число через дефис.",
+        },
+      ],
+    },
+
+    // =====================================================================
+    {
       slug: "some-i-a-lot-of",
       title: "Много и несколько: some и a lot of",
       estimatedMinutes: 12,
@@ -1187,10 +1350,10 @@ const module: Module = {
 
   // =======================================================================
   // Проверочная работа модуля.
-  // Вопросов 18, спрашиваем восемь — по одному на каждый итог.
+  // Вопросов 21, спрашиваем девять — по одному на каждый из девяти итогов.
   // =======================================================================
   quiz: {
-    ask: 8,
+    ask: 9,
     passRatio: 0.7,
     questions: [
       {
@@ -1282,6 +1445,39 @@ const module: Module = {
         prompt: "Какое слово спрашивает о цене?",
         options: [{ text: "many" }, { text: "old" }, { text: "much", correct: true }],
         why: "Much. Many спрашивает о количестве штук, old — о возрасте.",
+      },
+      {
+        id: "q-sorok",
+        kind: "choice",
+        outcome: "называет числа от двадцати до ста",
+        prompt: "Как правильно написать 40?",
+        options: [{ text: "fourteen" }, { text: "fourty" }, { text: "forty", correct: true }],
+        why: "Forty. Буква u выпадает, а fourteen значит 14.",
+      },
+      {
+        id: "q-sostavnoe-chislo",
+        kind: "short",
+        outcome: "называет числа от двадцати до ста",
+        prompt: "Напиши словом число 48.",
+        answer: "forty-eight",
+        accept: ["Forty-eight", "forty eight"],
+        why: "Forty-eight. Между десятком и единицей стоит дефис.",
+      },
+      {
+        id: "q-teen-ili-ty",
+        kind: "hottext",
+        outcome: "называет числа от двадцати до ста",
+        prompt: "Отметь слова, которые называют десятки.",
+        parts: [
+          { text: "seventeen", selectable: true },
+          { text: " · " },
+          { text: "seventy", selectable: true, correct: true },
+          { text: " · " },
+          { text: "thirty", selectable: true, correct: true },
+          { text: " · " },
+          { text: "thirteen", selectable: true },
+        ],
+        why: "Seventy (70) и thirty (30) — десятки, у них окончание -ty. У 17 и 13 окончание -teen.",
       },
       {
         id: "q-nomer-po-cifram",
