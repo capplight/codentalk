@@ -82,8 +82,10 @@ const module: Module = {
     {
       ref: "Cambridge English, A2 Key Handbook for Teachers",
       section:
-        "с. 51, перечень функций: «giving personal information», «asking for personal " +
-        "information» — состав разговора о себе. Виды заданий модуля взяты по образцу " +
+        "с. 51, «Inventory of functions, notions and communicative tasks», дословно: " +
+        "«asking for and giving personal details: (full) name, age, address, names of " +
+        "relatives and friends, etc.» и «understanding and completing forms giving personal " +
+        "details» — отсюда состав разговора о себе. Виды заданий модуля взяты по образцу " +
         "разделов Reading and Writing того же руководства (выбор из вариантов, вставка " +
         "пропущенного слова, сопоставление). " +
         "ЧЕГО ЗДЕСЬ НЕТ: названий стран как лексики ступени. В словниках их нет поимённо, " +
