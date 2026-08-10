@@ -41,16 +41,25 @@ export default async function LessonPage({ params }: Params) {
   // тогда пометок просто нет, а читать урок это не мешает.
   let marked: Set<string> = new Set();
   let completed = false;
+  // Задания, на которые ответ уже дан. Без них возвращение к уроку начинало
+  // работу заново: страница ничего не помнила, и отметка становилась
+  // недостижимой для того, кто читает урок в два захода.
+  let answeredIds: string[] = [];
   if (userId) {
     const progress = await prisma.lessonProgress.findFirst({
       where: {
         userId,
-        status: "completed",
         lesson: { slug: lessonSlug, course: { slug: courseSlug } },
       },
-      select: { id: true },
+      select: { status: true, position: true },
     });
-    completed = progress !== null;
+    completed = progress?.status === "completed";
+
+    const saved = progress?.position;
+    if (saved && typeof saved === "object" && "answered" in saved) {
+      const list = (saved as { answered?: unknown }).answered;
+      if (Array.isArray(list)) answeredIds = list.filter((id): id is string => typeof id === "string");
+    }
 
     const rows = await prisma.confusionMark.findMany({
       where: {
@@ -85,7 +94,14 @@ export default async function LessonPage({ params }: Params) {
 
       {/* Задания и кнопка «пройден» лежат в разных островах, но должны видеть
           друг друга: отметка ставится, когда к каждому заданию дан ответ. */}
-      <LessonFlow total={tasks.length}>
+      <LessonFlow
+        course={courseSlug}
+        lesson={lessonSlug}
+        total={tasks.length}
+        answeredIds={answeredIds}
+        completed={completed}
+        signedIn={Boolean(userId)}
+      >
       <div className={s.body}>
         {lesson.blocks.map((block) => {
           if (isTask(block)) {
@@ -124,11 +140,8 @@ export default async function LessonPage({ params }: Params) {
 
         {userId ? (
           <FinishLesson
-            course={courseSlug}
-            lesson={lessonSlug}
             nextHref={next ? `/learn/${courseSlug}/${next.slug}` : `/learn/${courseSlug}`}
             label={next ? `дальше: ${next.title}` : "к уровню"}
-            done={completed}
           />
         ) : (
           <Link className="btn" href="/register">

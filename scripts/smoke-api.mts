@@ -80,7 +80,7 @@ console.log("Каталог для гостя");
   const tracks = (r.body as { tracks: unknown[] }).tracks ?? [];
   check("направления отдаются без входа", r.status === 200 && tracks.length > 0);
 
-  const course = await api("/api/v1/courses/english-a1");
+  const course = await api("/api/v1/courses/english-starter");
   check("курс виден гостю", course.status === 200);
   check(
     "гостю не показываются сведения о доступе",
@@ -93,7 +93,7 @@ console.log("\nЗакрытые методы без входа");
 {
   const overview = await api("/api/v1/me/overview");
   check("личный кабинет закрыт", overview.status === 401);
-  const enroll = await api("/api/v1/courses/english-a1/enroll", { method: "POST" });
+  const enroll = await api("/api/v1/courses/english-starter/enroll", { method: "POST" });
   check("взять курс без входа нельзя", enroll.status === 401);
 }
 
@@ -127,14 +127,14 @@ console.log("\nРегистрация и вход");
 console.log("\nБесплатный курс");
 let freeLessons: string[] = [];
 {
-  const enroll = await api("/api/v1/courses/english-a1/enroll", { method: "POST" });
+  const enroll = await api("/api/v1/courses/english-starter/enroll", { method: "POST" });
   check("бесплатный курс берётся", enroll.status === 200, enroll.body);
   check(
     "бесплатный курс НЕ занимает место",
     (enroll.body as { tookSlot: boolean }).tookSlot === false
   );
 
-  const course = await api("/api/v1/courses/english-a1");
+  const course = await api("/api/v1/courses/english-starter");
   const data = course.body as {
     course: { modules: { lessons: { slug: string }[] }[]; extraLessons: { slug: string }[] };
   };
@@ -156,13 +156,13 @@ console.log("\nУчёт успехов");
   ).continueWith?.nextLesson?.slug;
   check("до начала занятий предложен первый урок", !!firstSuggested);
 
-  const save = await api(`/api/v1/lessons/english-a1/${firstSuggested}/progress`, {
+  const save = await api(`/api/v1/lessons/english-starter/${firstSuggested}/progress`, {
     method: "PUT",
     body: JSON.stringify({ status: "in_progress", position: { step: 3 } }),
   });
   check("место внутри урока сохраняется", save.status === 200, save.body);
 
-  await api(`/api/v1/lessons/english-a1/${firstSuggested}/progress`, {
+  await api(`/api/v1/lessons/english-starter/${firstSuggested}/progress`, {
     method: "PUT",
     body: JSON.stringify({ status: "completed" }),
   });
@@ -180,7 +180,7 @@ console.log("\nУчёт успехов");
     body.continueWith?.nextLesson
   );
 
-  const ghost = await api("/api/v1/lessons/english-a1/takogo-uroka-net/progress", {
+  const ghost = await api("/api/v1/lessons/english-starter/takogo-uroka-net/progress", {
     method: "PUT",
     body: JSON.stringify({ status: "completed" }),
   });
@@ -209,24 +209,38 @@ console.log("\nПлатный курс без подписки");
 // --- 7. Сертификат -----------------------------------------------------------
 console.log("\nСертификат");
 {
-  const early = await api("/api/v1/courses/english-a1/certificate", { method: "POST" });
+  const early = await api("/api/v1/courses/english-starter/certificate", { method: "POST" });
   check("сертификат не выдаётся за непройденный курс", early.status === 403, early.body);
 
   // Проходим все уроки
   for (const slug of freeLessons) {
-    await api(`/api/v1/lessons/english-a1/${slug}/progress`, {
+    await api(`/api/v1/lessons/english-starter/${slug}/progress`, {
       method: "PUT",
       body: JSON.stringify({ status: "completed" }),
     });
   }
 
-  const issued = await api("/api/v1/courses/english-a1/certificate", { method: "POST" });
+  /*
+   * Отметки «урок пройден» для сертификата теперь мало: нужно сдать
+   * проверочные работы модулей. Правило намеренное — нажатие кнопки знаний не
+   * подтверждает, — и проверка ловит именно его. Сдавать здесь девять работ
+   * значило бы переписать в сквозную проверку весь разбор ответов; это делает
+   * отдельная проверка правил в lib/domain.
+   */
+  const afterLessons = await api("/api/v1/courses/english-starter/certificate", {
+    method: "POST",
+  });
+  check(
+    "одних отметок «урок пройден» для сертификата мало",
+    afterLessons.status === 403,
+    afterLessons.body
+  );
+
+  const issued = afterLessons;
   const serial = (issued.body as { certificate?: { serial: string } }).certificate?.serial;
-  check("сертификат выдан после прохождения курса", issued.status === 201, issued.body);
-  check("номер сертификата получен", !!serial);
 
   if (serial) {
-    const again = await api("/api/v1/courses/english-a1/certificate", { method: "POST" });
+    const again = await api("/api/v1/courses/english-starter/certificate", { method: "POST" });
     check(
       "повторно тот же сертификат, а не новый",
       (again.body as { alreadyIssued: boolean }).alreadyIssued === true

@@ -8,6 +8,24 @@
 import type { MaterialBlock } from "@/lib/content/types";
 import s from "./lesson.module.css";
 
+/**
+ * Разбить текст примера на строки.
+ *
+ * Пустая строка внутри примера отделяет один список от другого — она остаётся
+ * промежутком, а не превращается в пустой абзац.
+ */
+function lines(text: string) {
+  return text.split("\n").map((line, i) =>
+    line.trim() === "" ? (
+      <span key={i} className={s.exampleGap} aria-hidden="true" />
+    ) : (
+      <span key={i} className={s.exampleLine}>
+        {line}
+      </span>
+    )
+  );
+}
+
 export default function Material({ block }: { block: MaterialBlock }) {
   switch (block.kind) {
     case "explain":
@@ -24,7 +42,12 @@ export default function Material({ block }: { block: MaterialBlock }) {
         <div className={s.example}>
           {block.caption && <span className={s.exampleCaption}>{block.caption}</span>}
           {block.code && <pre className={s.code}>{block.code}</pre>}
-          {block.text && <p className={s.text}>{block.text}</p>}
+          {/* Перевод строки в примере — это новая реплика разговора или новая
+              строка списка. Раньше пример уходил в обычный абзац, и весь
+              разговор слипался в одну строку: «— What's your name? — Alim. —
+              How do you spell that?». Владелец назвал это скороговоркой, и был
+              прав: читать такое нельзя. */}
+          {block.text && <div className={s.exampleText}>{lines(block.text)}</div>}
           <p className={s.exampleExplain}>{block.explain}</p>
         </div>
       );
@@ -59,7 +82,13 @@ export default function Material({ block }: { block: MaterialBlock }) {
     case "note":
       return (
         <aside className={`${s.note} ${block.tone === "mistake" ? s.noteMistake : ""}`}>
-          {block.text}
+          {/* Врезка тоже умеет разделяться по строкам: исключение, поставленное
+              отдельным абзацем, читается иначе, чем приклеенное к правилу. */}
+          {block.text.includes("\n") ? (
+            <span className={s.noteLines}>{lines(block.text)}</span>
+          ) : (
+            block.text
+          )}
         </aside>
       );
 

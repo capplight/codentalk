@@ -53,7 +53,7 @@ const module: Module = {
         "A1, DETERMINERS possessives «FORM: WITH NOUNS»: «Can use possessive determiners " +
         "'my', 'your', 'his', 'her' and 'our' before nouns» — перечень взят поимённо, " +
         "ничего не добавлено. " +
-        "A1, DETERMINERS articles «FORM: WITH NOUNS» — слово a там, где притяжательного нет. " +
+        "A1, DETERMINERS articles «FORM: WITH NOUNS» — артикль там, где притяжательного нет. " +
         "A1, VERBS types «FORM: LINKING VERB, 'BE'». " +
         "СВЕРХ СТУПЕНИ: A2, CLAUSES declarative «FORM: NEGATIVE DECLARATIVE WITH 'HAVE'» — " +
         "«'have' + 'not' or 'n't (got)'», пример источника «now I haven't got any money» " +
@@ -219,7 +219,7 @@ const module: Module = {
           before: "It's ",
           after: " book.",
           answer: "my",
-          hint: "Две буквы, и слово a при этом уходит.",
+          hint: "Две буквы, и артикль a при этом уходит.",
           why: "It's my book. Слово my встало на место, где раньше стояло a.",
         },
         {
@@ -256,7 +256,7 @@ const module: Module = {
           answer: "It's your pencil.",
           exact: true,
           accept: ["It's your pencil", "It is your pencil.", "It is your pencil"],
-          hint: "Слово a здесь не нужно.",
+          hint: "Артикль здесь не нужен.",
           why: "It's your pencil. Перед названием предмета стоит your, и a уже не нужно.",
         },
       ],
@@ -382,7 +382,7 @@ const module: Module = {
           exact: true,
           accept: ["It's our room", "It is our room.", "It is our room"],
           hint: "Слово о нас начинается с той же буквы, что и our.",
-          why: "It's our room. Слово a при этом не нужно.",
+          why: "It's our room. Артикль при этом не нужен.",
         },
         {
           id: "z6-sobrat-o-ego-veshchi",
@@ -518,7 +518,7 @@ const module: Module = {
           items: ["cat", "got", "She's", "a"],
           answer: [2, 1, 3, 0],
           hint: "Сначала кто, потом глагол из двух слов, потом предмет.",
-          why: "She's got a cat. Слово a перед названием предмета обязательно.",
+          why: "She's got a cat. Артикль a перед названием предмета обязателен.",
         },
         {
           id: "z6-zapisat-o-sebe",
@@ -527,7 +527,7 @@ const module: Module = {
           answer: "I've got a camera.",
           exact: true,
           accept: ["I've got a camera", "I have got a camera.", "I have got a camera"],
-          hint: "Не забудь слово a перед названием предмета.",
+          hint: "Не забудь артикль a перед названием предмета.",
           why: "I've got a camera — или полностью I have got a camera.",
         },
       ],
@@ -576,7 +576,7 @@ const module: Module = {
           kind: "note",
           tone: "info",
           text:
-            "Слово a остаётся и в отрицании: I haven't got a car. По-русски «у меня нет " +
+            "Артикль остаётся и в отрицании: I haven't got a car. По-русски «у меня нет " +
             "машины» обходится без него, по-английски — нет.",
         },
         {
@@ -632,7 +632,7 @@ const module: Module = {
           ],
           hint: "Одна ошибка — не та форма, другая — потерянное слово.",
           why:
-            "«He haven't got» — нужна форма hasn't. «I haven't got camera» — потеряно слово a.",
+            "«He haven't got» — нужна форма hasn't. «I haven't got camera» — потерян артикль.",
         },
         {
           id: "z5-popravit-o-veshchi",
@@ -740,7 +740,7 @@ const module: Module = {
           hint: "В кратком ответе слова got нет, и короткая форма в конце не ставится.",
           why:
             "Yes, I have. Слово got в ответе не повторяют, а «Yes, I've» невозможно: " +
-            "стянутое 've в конце предложения не ставят. С haven't такого запрета нет: " +
+            "короткую форму в конце предложения не ставят. С haven't такого запрета нет: " +
             "«No, I haven't» — верно.",
         },
         {
@@ -830,10 +830,10 @@ const module: Module = {
           kind: "note",
           tone: "info",
           text:
-            "В mother, father и brother буквы th передают звук /ð/, которого в русском нет: " +
-            "кончик языка касается верхних зубов — как в thank you из модуля про " +
-            "приветствие, — но голос при этом включается. Это же сочетание " +
-            "встречалось в this и that.",
+            "В mother, father и brother буквы th передают звук /ð/, которого в русском нет. " +
+            "Кончик языка касается верхних зубов — так же, как в thank you из модуля про " +
+            "приветствие. Разница одна: здесь включается голос. Тот же звук стоит в " +
+            "this и that.",
         },
         {
           id: "friend-bez-roda",
@@ -882,7 +882,7 @@ const module: Module = {
           after: ".",
           answer: "brother",
           hint: "Семь букв, первая — b.",
-          why: "I've got a brother. Слово a перед названием обязательно и здесь.",
+          why: "I've got a brother. Артикль a перед названием обязателен и здесь.",
         },
         {
           id: "z3-sopostavit-rodnyh",
@@ -920,7 +920,7 @@ const module: Module = {
           exact: true,
           accept: ["She's my friend", "She is my friend.", "She is my friend"],
           hint: "Слово friend годится и о ней, и о нём.",
-          why: "She's my friend. Слово a здесь не нужно: перед названием стоит my.",
+          why: "She's my friend. Артикль здесь не нужен: перед названием стоит my.",
         },
         {
           id: "z6-prodiktovat-family",
@@ -1172,7 +1172,7 @@ const module: Module = {
           ],
           hint: "В первом предложении a, во втором — my вместо него.",
           why:
-            "I've got a cat. It's my cat. В первом предложении слово a, во втором его место " +
+            "I've got a cat. It's my cat. В первом предложении артикль a, во втором его место " +
             "занимает my.",
         },
         {
@@ -1216,7 +1216,7 @@ const module: Module = {
         before: "It's ",
         after: " bag.",
         answer: "your",
-        why: "It's your bag. Слово a при этом уходит.",
+        why: "It's your bag. Артикль a при этом уходит.",
       },
       {
         id: "q-vybor-po-vladeltsu",
@@ -1256,7 +1256,7 @@ const module: Module = {
         answer: "I've got a bike.",
         exact: true,
         accept: ["I've got a bike", "I have got a bike.", "I have got a bike"],
-        why: "I've got a bike. Глагол из двух слов, и слово a перед названием обязательно.",
+        why: "I've got a bike. Глагол из двух слов, и артикль перед названием обязателен.",
       },
       {
         id: "q-net-u-neyo",
@@ -1278,7 +1278,7 @@ const module: Module = {
           { text: "He hasn't got camera.", correct: true },
           { text: "She hasn't got a cat." },
         ],
-        why: "«He hasn't got camera» — потеряно слово a. Оно нужно и в отрицании.",
+        why: "«He hasn't got camera» — потерян артикль. Он нужен и в отрицании.",
       },
       {
         id: "q-sdelat-vopros-have",

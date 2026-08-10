@@ -1,13 +1,15 @@
 "use client";
 
 /**
- * «Урок пройден» — отметка об успехе и переход дальше.
+ * Низ урока: отметка о прохождении и переход дальше.
  *
- * Отметку ставит ученик сам, а не счётчик прокрутки: человек может вернуться к
- * уроку через неделю, чтобы перечитать, и это не должно ничего сбрасывать.
+ * Отметку ставит не эта кнопка. Урок засчитывается тогда, когда к каждому
+ * заданию дан ответ, и запись уходит в базу в тот же миг (см. LessonFlow).
+ * Кнопка только сообщает об этом и ведёт к следующему уроку — потерять успехи
+ * из-за того, что человек закрыл страницу, не долистав до низа, нельзя.
  *
- * Если сеть подвела, переход всё равно происходит: держать человека на месте
- * из-за неудачной записи неправильно, отметку он поставит в следующий раз.
+ * Уроки без заданий отмечаются вручную: работы, по которой можно судить, в них
+ * нет, и решение остаётся за учеником.
  */
 
 import { useState, useTransition } from "react";
@@ -17,93 +19,63 @@ import { useLessonFlow } from "./LessonFlow";
 import s from "./lesson.module.css";
 
 export default function FinishLesson({
-  course,
-  lesson,
   nextHref,
   label,
-  done,
 }: {
-  course: string;
-  lesson: string;
   nextHref: string;
   label: string;
-  done: boolean;
 }) {
   const router = useRouter();
-  const { total, answered } = useLessonFlow();
+  const { total, answered, done, saveFailed, finish } = useLessonFlow();
   const [pending, startTransition] = useTransition();
   const [busy, setBusy] = useState(false);
-  const [failed, setFailed] = useState(false);
 
-  async function finish(): Promise<void> {
-    setBusy(true);
-    setFailed(false);
-    try {
-      const response = await fetch(`/api/v1/lessons/${course}/${lesson}/progress`, {
-        method: "PUT",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ status: "completed" }),
-      });
-
-      // Раньше неудача проглатывалась молча, и ученик уходил дальше, думая,
-      // что отметка поставлена. Потеря успехов — последнее, о чём он должен
-      // узнавать сам: если запись не прошла, говорим и остаёмся на месте.
-      if (!response.ok) {
-        setFailed(true);
-        return;
-      }
-    } catch {
-      setFailed(true);
-      return;
-    } finally {
-      setBusy(false);
-    }
-
+  function go(): void {
     startTransition(() => {
       router.push(nextHref);
       router.refresh();
     });
   }
 
-  // Урок засчитывается, когда к каждому заданию дан ответ — любой, в том числе
-  // неверный. Пока не все, идти дальше можно, но без отметки: назвать урок
-  // пройденным, если задания не тронуты, значит соврать самому ученику.
-  const left = Math.max(0, total - answered);
-  const worked = done || left === 0;
-
-  function skip(): void {
-    startTransition(() => {
-      router.push(nextHref);
-    });
+  async function markAndGo(): Promise<void> {
+    setBusy(true);
+    const okay = await finish();
+    setBusy(false);
+    if (okay) go();
   }
+
+  const left = Math.max(0, total - answered);
+  const hasTasks = total > 0;
 
   return (
     <span className={s.finish}>
-      {failed && (
+      {saveFailed && (
         <span className={s.saveFailed}>
-          Не удалось сохранить отметку. Проверь связь и нажми ещё раз — урок останется здесь.
+          Не удалось сохранить работу. Проверь связь: ответы запишутся, как только она появится.
         </span>
       )}
 
-      {!worked && total > 0 && (
+      {done && !saveFailed && <span className={s.finishDone}>✓ Урок засчитан</span>}
+
+      {hasTasks && !done && left > 0 && (
         <span className={s.finishHint}>
-          Осталось ответить на {left} {plural(left, "задание", "задания", "заданий")}. Ошибиться
-          не страшно: любой ответ засчитывается, а разбор покажет, как правильно.
+          Урок засчитывается, когда отвечено каждое задание. Осталось {left}{" "}
+          {plural(left, "задание", "задания", "заданий")}. Ошибиться не страшно: засчитывается
+          любой ответ, а разбор покажет, как правильно.
         </span>
       )}
 
-      {worked ? (
-        <button className="btn" type="button" onClick={finish} disabled={busy || pending}>
-          {busy || pending
-            ? "Сохраняем…"
-            : failed
-              ? "Попробовать снова"
-              : done
-                ? label
-                : `Отметить пройденным · ${label}`}
+      {done || !hasTasks ? (
+        <button
+          className="btn"
+          type="button"
+          onClick={done ? go : markAndGo}
+          disabled={busy || pending}
+        >
+          {busy ? "Сохраняем…" : done ? label : `Отметить пройденным · ${label}`}
         </button>
       ) : (
-        <button className="btn btn--ghost" type="button" onClick={skip} disabled={pending}>
+        <button className="btn btn--ghost" type="button" onClick={go} disabled={pending}>
           {label} — без отметки
         </button>
       )}

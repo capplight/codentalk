@@ -59,11 +59,86 @@ function blank(value: string | undefined | null): boolean {
 }
 
 // ---------------------------------------------------------------------------
+// Понятность текста
+//
+// Владелец прошёл полтора модуля и сказал главное: «описания очень сложные и
+// непонятные… ты отталкиваешься от структуры у себя в голове, не учитывая
+// представление ученика». Часть этой беды видна машине, и то, что видно машине,
+// машина и ловит — глазами такое пропускается.
+// ---------------------------------------------------------------------------
+
+/**
+ * Слова нашей кухни. Ученику они не говорят ничего.
+ *
+ * «Источник называет пять сочетаний», «описание первой ступени предполагает»,
+ * «британская норма, которой держится курс» — за этими словами стоит наша
+ * работа с материалами, а не устройство языка. Ученик про источники не знает и
+ * знать не должен: он пришёл учить английский. Обоснование остаётся в поле
+ * `sources` — оно для проверяющего.
+ */
+const KITCHEN_WORDS: Array<[RegExp, string]> = [
+  [/источник/i, "«источник» — ученик не знает, что за источник, и не должен"],
+  [/ступен[иья]|ступень/i, "разговор о ступенях — это наша разметка, а не язык"],
+  [/дескриптор|словник|руководство для/i, "название нашей внутренней бумаги"],
+  [/Cambridge|Oxford|Совет[а]? Европы|English Grammar Profile/i, "название источника в тексте урока"],
+  [/держится курс|наш курс|курс держится|в курсе принят/i, "разговор об устройстве курса вместо языка"],
+];
+
+/**
+ * Длинное предложение. Предел выбран по живому тексту уроков: почти всё
+ * написанное укладывается в двадцать слов, а то, что переваливает за двадцать
+ * два, — это две-три мысли, слипшиеся через тире и запятые. Ровно на таких
+ * местах владелец и ставил пометку «непонятно».
+ *
+ * Это замечание, а не ошибка: длина — признак беды, а не сама беда.
+ */
+const SENTENCE_LIMIT = 22;
+
+/** Абзац объяснения, который читается как стена. */
+const PARAGRAPH_LIMIT = 400;
+
+function sentences(text: string): string[] {
+  return text
+    .replace(/\s+/g, " ")
+    .split(/(?<=[.!?…])\s+(?=[А-ЯЁA-Z«—])/)
+    .map((s) => s.trim())
+    .filter(Boolean);
+}
+
+function words(sentence: string): number {
+  return sentence.split(/\s+/).filter((w) => /[а-яёa-z]/i.test(w)).length;
+}
+
+/** Проверить кусок текста, который читает ученик. */
+function checkProse(text: string | undefined, where: string, what: string): void {
+  if (!text) return;
+
+  for (const [pattern, why] of KITCHEN_WORDS) {
+    const hit = text.match(pattern);
+    if (hit) warn(where, `${what}: ${why} — «${hit[0]}»`);
+  }
+
+  for (const sentence of sentences(text)) {
+    const count = words(sentence);
+    if (count > SENTENCE_LIMIT) {
+      warn(
+        where,
+        `${what}: предложение из ${count} слов — раздели его. «${sentence.slice(0, 60)}…»`
+      );
+    }
+  }
+}
+
+// ---------------------------------------------------------------------------
 // Задание — общее для упражнения в уроке и вопроса проверочной работы
 // ---------------------------------------------------------------------------
 
 function checkTask(task: TaskBlock, where: string): void {
   if (blank(task.prompt)) fail(where, "нет формулировки задания");
+
+  checkProse(task.prompt, where, "условие");
+  checkProse(task.hint, where, "подсказка");
+  checkProse(task.why, where, "разбор");
   if (blank(task.why)) {
     fail(
       where,
@@ -180,11 +255,21 @@ function checkMaterial(block: Block, where: string): void {
     case "explain":
       if (block.text.length === 0) fail(where, "объяснение пустое");
       if (block.text.some(blank)) fail(where, "пустой абзац в объяснении");
+      block.text.forEach((paragraph, i) => {
+        checkProse(paragraph, where, `абзац ${i + 1}`);
+        if (paragraph.length > PARAGRAPH_LIMIT) {
+          warn(
+            where,
+            `абзац ${i + 1}: ${paragraph.length} знаков — с телефона это стена текста, раздели`
+          );
+        }
+      });
       break;
 
     case "example":
       if (blank(block.code) && blank(block.text)) fail(where, "в примере нет ни кода, ни текста");
       if (blank(block.explain)) fail(where, "пример без разбора — это картинка, а не пример");
+      checkProse(block.explain, where, "разбор примера");
       break;
 
     case "table": {
@@ -197,6 +282,7 @@ function checkMaterial(block: Block, where: string): void {
 
     case "note":
       if (blank(block.text)) fail(where, "врезка пустая");
+      checkProse(block.text, where, "врезка");
       break;
 
     case "audio":
@@ -450,7 +536,102 @@ function checkCourse(course: Course): void {
   }
 }
 
-for (const course of courses) checkCourse(course);
+// ---------------------------------------------------------------------------
+// Термин раньше объяснения
+//
+// Ровно та ошибка, которую нашёл владелец и не поймали ни скрипт, ни две
+// проверки: в первом уроке стояло задание «отметь гласные», а слова «гласный» в
+// материале урока не было ни разу. Задание требовало того, чего не давали.
+//
+// Правило: слово-термин не появляется в задании раньше, чем в материале.
+// ---------------------------------------------------------------------------
+
+const TERMS: Array<[string, RegExp]> = [
+  ["гласный", /гласн/i],
+  ["согласный", /согласн[ыоаи]/i],
+  ["местоимение", /местоимен/i],
+  ["подлежащее", /подлежащ/i],
+  ["артикль", /артикл/i],
+  ["предлог", /предлог/i],
+  ["апостроф", /апостроф/i],
+  ["слог", /слог[аеиу]?\b/i],
+  ["транскрипция", /транскрипц/i],
+  ["множественное число", /множественн/i],
+];
+
+/** Весь текст блока, который видит ученик. */
+function blockText(block: Block): string {
+  const parts: string[] = [];
+  const push = (value: unknown): void => {
+    if (typeof value === "string") parts.push(value);
+  };
+
+  const any = block as Record<string, unknown>;
+  push(any.text);
+  push(any.prompt);
+  push(any.hint);
+  push(any.why);
+  push(any.explain);
+  push(any.caption);
+  if (Array.isArray(any.text)) any.text.forEach(push);
+  if (Array.isArray(any.items)) any.items.forEach(push);
+  if (Array.isArray(any.left)) any.left.forEach(push);
+  if (Array.isArray(any.right)) any.right.forEach(push);
+  if (Array.isArray(any.options)) {
+    for (const option of any.options as Array<{ text?: string }>) push(option.text);
+  }
+  if (Array.isArray(any.parts)) {
+    for (const part of any.parts as Array<{ text?: string }>) push(part.text);
+  }
+  if (Array.isArray(any.head)) any.head.forEach(push);
+  if (Array.isArray(any.rows)) {
+    for (const row of any.rows as string[][]) row.forEach(push);
+  }
+
+  return parts.join(" ");
+}
+
+function checkTermsOrder(course: Course): void {
+  const lessons = course.modules.flatMap((mod) =>
+    mod.lessons.map((lesson) => ({ lesson, where: `${course.slug} → ${mod.slug} → ${lesson.slug}` }))
+  );
+
+  for (const [name, pattern] of TERMS) {
+    let explainedAt = -1;
+    let askedAt = -1;
+    let askedWhere = "";
+
+    // Место считается по блокам, а не по урокам: объяснение, стоящее НИЖЕ
+    // задания в том же уроке, ученику уже не поможет.
+    lessons.forEach(({ lesson, where }, index) => {
+      lesson.blocks.forEach((block, position) => {
+        if (!pattern.test(blockText(block))) return;
+        const at = index * 1000 + position;
+        if (isTask(block)) {
+          if (askedAt === -1) {
+            askedAt = at;
+            askedWhere = `${where} → ${block.id}`;
+          }
+        } else if (explainedAt === -1) {
+          explainedAt = at;
+        }
+      });
+    });
+
+    if (askedAt === -1) continue;
+    if (explainedAt === -1 || explainedAt > askedAt) {
+      fail(
+        askedWhere,
+        `слово «${name}» стоит в задании, а в материале уроков до него не объяснено ни разу`
+      );
+    }
+  }
+}
+
+for (const course of courses) {
+  checkCourse(course);
+  checkTermsOrder(course);
+}
 
 // ---------------------------------------------------------------------------
 // Итог

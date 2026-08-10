@@ -55,7 +55,7 @@ const module: Module = {
         "A1, VERBS types «FORM: LINKING VERB, 'BE'» — форма are с несколькими предметами. " +
         "A1, DETERMINERS articles «FORM/USE: NO ARTICLE»: «Can use no article before a " +
         "limited range of singular, plural and uncountable nouns when referring to things " +
-        "in general» — отсюда исчезновение слова a во множественном. " +
+        "in general» — отсюда исчезновение артикля во множественном. " +
         "СВЕРХ СТУПЕНИ, ЧЕТЫРЕ ПУНКТА: " +
         "A2, NOUNS plural «FORM: PLURAL '-ES'»: «Can form plurals by adding '-es' to " +
         "countable nouns ending in '-o', '-ch', '-s', '-sh', '-x' or '-z'». " +
@@ -120,7 +120,7 @@ const module: Module = {
   outcomes: [
     "говорит о нескольких вещах сразу: books, keys, cars",
     "называет несколько там, где одной буквы s мало: boxes, buses",
-    "говорит о нескольких без слова a: They're books",
+    "говорит о нескольких без артикля: They're books",
     "согласует форму be с числом: It is — They are",
     "называет людей во множественном: men, women, children, people",
     "показывает на несколько предметов: these и those",
@@ -142,7 +142,8 @@ const module: Module = {
           kind: "explain",
           text: [
             "До сих пор предмет был один: a book, a key, a car. Чтобы сказать, что их " +
-              "несколько, к слову добавляют s: books, keys, cars.",
+              "несколько, к слову добавляют s: books, keys, cars. Такую форму называют " +
+              "множественным числом, а прежнюю — единственным.",
             "По-русски окончание меняется по-разному: «книга — книги», «ключ — ключи», " +
               "«машина — машины». По-английски ко всем таким словам прибавляется одна и та " +
               "же буква, а меняется только конец слова.",
@@ -202,9 +203,9 @@ const module: Module = {
           id: "z1-chto-dobavlyayut",
           kind: "choice",
           prompt: "Что добавляют к слову, когда предметов несколько?",
-          options: [{ text: "букву s", correct: true }, { text: "слово a" }, { text: "ничего" }],
+          options: [{ text: "букву s", correct: true }, { text: "артикль a" }, { text: "ничего" }],
           hint: "Одна буква на конце.",
-          why: "Букву s: book — books. Слово a при этом уходит, но об этом отдельный урок.",
+          why: "Букву s: book — books. Артикль a при этом уходит, но об этом отдельный урок.",
         },
         {
           id: "z2-dopisat-mnozhestvennoe",
@@ -268,7 +269,7 @@ const module: Module = {
             "Слова box и bus уже оканчиваются на звук, который сам похож на s: «с», «кс», " +
               "«ш», «ч». Прибавить к нему ещё одну s невозможно — не выговорить. Поэтому " +
               "прибавляют es: boxes, buses.",
-            "Мерка тут по концу слова: если оно оканчивается на -s, -x, -ch или -sh, " +
+            "Смотрят на конец слова: если оно оканчивается на -s, -x, -ch или -sh, " +
               "ставят es. Слова на -o живут по своему правилу, и оно ждёт своего модуля.",
           ],
         },
@@ -378,16 +379,16 @@ const module: Module = {
     // =====================================================================
     {
       slug: "a-uhodit",
-      title: "Слово a уходит",
+      title: "Артикль a уходит",
       estimatedMinutes: 12,
-      outcome: "говорит о нескольких без слова a: They're books",
+      outcome: "говорит о нескольких без артикля: They're books",
 
       blocks: [
         {
           id: "zachem-a-uhodit",
           kind: "explain",
           text: [
-            "Слово a значит «один из таких». Когда предметов несколько, оно теряет смысл и " +
+            "Артикль a значит «один из таких». Когда предметов несколько, он теряет смысл и " +
               "уходит: a book → books, a car → cars.",
             "«A books» сказать нельзя ни при каких условиях: a обещает один предмет, а s " +
               "говорит, что их много. Получаются два знака, которые противоречат друг другу.",
@@ -396,7 +397,7 @@ const module: Module = {
         {
           id: "tablica-bez-a",
           kind: "table",
-          caption: "Что происходит со словом a",
+          caption: "Что происходит с артиклем",
           head: ["Один", "Несколько", "Что изменилось"],
           rows: [
             ["It's a book.", "They're books.", "a ушло, прибавилась s"],
@@ -417,7 +418,7 @@ const module: Module = {
           kind: "note",
           tone: "mistake",
           text:
-            "«A books» заметить легко: слово a стоит перед словом с окончанием s. Одно из " +
+            "«A books» заметить легко: артикль стоит перед словом с окончанием s. Одно из " +
             "двух лишнее, и лишнее всегда a.",
         },
         {
@@ -434,14 +435,14 @@ const module: Module = {
           id: "z1-chto-uhodit",
           kind: "choice",
           prompt: "Что уходит, когда предметов становится несколько?",
-          options: [{ text: "слово my" }, { text: "слово a", correct: true }, { text: "буква s" }],
-          hint: "Уходит то слово, которое значит «один из таких».",
-          why: "Слово a. Слово my остаётся: my books.",
+          options: [{ text: "слово my" }, { text: "артикль a", correct: true }, { text: "буква s" }],
+          hint: "Уходит то, что значит «один из таких».",
+          why: "Артикль a. Слово my остаётся: my books.",
         },
         {
           id: "z2-otmetit-lishnee-a",
           kind: "hottext",
-          prompt: "Отметь строки, где слово a лишнее.",
+          prompt: "Отметь строки, где артикль лишний.",
           parts: [
             { text: "a book", selectable: true },
             { text: " · " },
@@ -461,7 +462,7 @@ const module: Module = {
           answer: "They're cars.",
           exact: true,
           accept: ["They're cars", "They are cars.", "They are cars"],
-          hint: "Слово a уходит, буква s прибавляется, форма be меняется.",
+          hint: "Артикль уходит, буква s прибавляется, форма be меняется.",
           why: "They're cars. Меняются сразу три вещи: местоимение, форма be и само слово.",
         },
         {
@@ -480,7 +481,7 @@ const module: Module = {
           prompt: "Собери предложение: «Это книги».",
           items: ["books", "They're"],
           answer: [1, 0],
-          hint: "Слова a здесь нет вовсе.",
+          hint: "Артикля здесь нет вовсе.",
           why: "They're books. Ни a, ни другого слова перед books не нужно.",
         },
       ],
@@ -615,9 +616,9 @@ const module: Module = {
               "и её приходится запоминать. Таких слов немного, но встречаются они постоянно.",
             "Man — мужчина, men — мужчины. Woman — женщина, women — женщины. Child — " +
               "ребёнок, children — дети.",
-            "Меняется не только написание, но и звук, причём не там, где ждёшь: woman — " +
-              "/ˈwʊmən/, а women — /ˈwɪmɪn/, и разница слышна в первом слоге, хотя на письме " +
-              "поменялась вторая буква. Child — /tʃaɪld/, children — /ˈtʃɪldrən/.",
+            "Со звуком тут отдельная ловушка. На письме в woman — women поменялась вторая " +
+              "буква, а слышно перемену в первом слоге: /ˈwʊmən/ и /ˈwɪmɪn/. У child — " +
+              "children меняется и то и другое: /tʃaɪld/ и /ˈtʃɪldrən/.",
           ],
         },
         {
@@ -638,8 +639,7 @@ const module: Module = {
           tone: "info",
           text:
             "People значит «люди» и само по себе стоит во множественном: They are people. " +
-            "В словнике A2 Key оно так и помечено — people (n pl). Прибавлять к нему s не " +
-            "нужно.",
+            "Прибавлять к нему s не нужно — оно уже про нескольких.",
         },
         {
           id: "s-k-osobym-ne-stavyat",
@@ -960,7 +960,7 @@ const module: Module = {
             "No, they are not. They are pencils",
           ],
           hint: "Оба предложения о нескольких предметах.",
-          why: "No, they aren't. They're pencils. Слово a не нужно ни в одном из них.",
+          why: "No, they aren't. They're pencils. Артикль не нужен ни в одном из них.",
         },
       ],
     },
@@ -977,7 +977,7 @@ const module: Module = {
           id: "zachem-rasskaz-mnozh",
           kind: "explain",
           text: [
-            "Всё собрано: окончание, исчезновение слова a, форма are, особые слова, these и " +
+            "Всё собрано: окончание, исчезновение артикля, форма are, особые слова, these и " +
               "those, вопрос и отрицание. Теперь о своих вещах и близких можно рассказывать " +
               "и тогда, когда их несколько.",
             "Рассказ строится теми же оборотами, что в модуле про вещи, только во " +
@@ -1062,8 +1062,8 @@ const module: Module = {
           before: "My friends are ",
           after: ".",
           answer: "students",
-          hint: "Слово во множественном числе, слова a перед ним нет.",
-          why: "My friends are students. Оба слова во множественном, и a не нужно.",
+          hint: "Слово во множественном числе, артикля перед ним нет.",
+          why: "My friends are students. Оба слова во множественном, и артикль не нужен.",
         },
         {
           id: "z4-sopostavit-odin-mnogo",
@@ -1131,7 +1131,7 @@ const module: Module = {
           { text: "a friends", selectable: true },
         ],
         why:
-          "«My bags» и «a bag» построены верно. В «a bags» и «a friends» слово a стоит " +
+          "«My bags» и «a bag» построены верно. В «a bags» и «a friends» артикль стоит " +
           "перед словом с окончанием s — так не бывает.",
       },
       {
@@ -1155,8 +1155,8 @@ const module: Module = {
       {
         id: "q-a-lishnee",
         kind: "choice",
-        outcome: "говорит о нескольких без слова a: They're books",
-        prompt: "В какой строке слово a лишнее?",
+        outcome: "говорит о нескольких без артикля: They're books",
+        prompt: "В какой строке артикль лишний?",
         options: [
           { text: "a book" },
           { text: "my books" },
@@ -1167,12 +1167,12 @@ const module: Module = {
       {
         id: "q-perepisat-bez-a",
         kind: "short",
-        outcome: "говорит о нескольких без слова a: They're books",
+        outcome: "говорит о нескольких без артикля: They're books",
         prompt: "Перепиши во множественном числе: «It's a bag.» Начни с They're.",
         answer: "They're bags.",
         exact: true,
         accept: ["They're bags", "They are bags.", "They are bags"],
-        why: "They're bags. Слово a ушло, прибавилась s, форма be сменилась.",
+        why: "They're bags. Артикль ушёл, прибавилась s, форма be сменилась.",
       },
       {
         id: "q-forma-be-mnozh",

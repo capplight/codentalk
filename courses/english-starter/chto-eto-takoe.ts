@@ -48,7 +48,7 @@ const module: Module = {
       section:
         "СВОЕЙ СТУПЕНИ: A1, DETERMINERS demonstratives «FORM: 'THIS' WITH SINGULAR NOUNS»: " +
         "«Can use 'this' with singular nouns», пример источника — «I like this place». " +
-        "A1, DETERMINERS articles «FORM: WITH NOUNS» — слово a перед названием предмета. " +
+        "A1, DETERMINERS articles «FORM: WITH NOUNS» — артикль a перед названием предмета. " +
         "A1, VERBS types «FORM: LINKING VERB, 'BE'». " +
         "A1, NEGATION «FORM: MAIN VERB 'BE'» — отрицание из модуля 5. " +
         "СВЕРХ СТУПЕНИ, ПЯТЬ ПУНКТОВ: " +
@@ -155,8 +155,9 @@ const module: Module = {
           id: "zachem-what",
           kind: "explain",
           text: [
-            "Вопрос «что это такое» описание первой ступени называет поимённо: им спрашивают " +
-              "название незнакомого предмета, и ответ сразу пополняет запас слов.",
+            "Ты видишь предмет и не знаешь, как он называется. Спросить об этом — самый " +
+              "быстрый способ выучить новое слово: ответ ты услышишь тут же и запомнишь " +
+              "вместе с предметом.",
             "По-английски он короткий: What is this? Слово what значит «что», а this — " +
               "«это». Оба стоят в начале, глагол между ними.",
           ],
@@ -186,7 +187,7 @@ const module: Module = {
           kind: "note",
           tone: "mistake",
           text:
-            "«It's book» — потерялось слово a. Перед названием предмета оно стоит так же, " +
+            "«It's book» — потерялся артикль. Перед названием предмета он стоит так же, " +
             "как перед названием занятия в модуле о рассказе о себе: It's a book.",
         },
         {
@@ -242,7 +243,7 @@ const module: Module = {
           after: ".",
           answer: "book",
           hint: "Четыре буквы.",
-          why: "It's a book. Отвечают через it, и слово a перед названием обязательно.",
+          why: "It's a book. Отвечают через it, и артикль перед названием обязателен.",
         },
         {
           id: "z3-najti-propusk",
@@ -307,9 +308,9 @@ const module: Module = {
           text: [
             "This говорят о том, что рядом: в руке, на столе перед тобой. О том, что " +
               "подальше — на другом конце комнаты, за окном, — говорят that.",
-            "По-русски различие тоже есть: «этот» и «тот». Разница в том, что по-русски " +
-              "указательное слово можно и опустить, а в английском вопросе «What is …?» на " +
-              "его месте всегда стоит this или that.",
+            "По-русски различие тоже есть: «этот» и «тот». Но по-русски это слово можно и " +
+              "опустить — «что это?». По-английски нельзя: в вопросе What is …? на его " +
+              "месте всегда стоит this или that.",
           ],
         },
         {
@@ -340,7 +341,7 @@ const module: Module = {
           text:
             "«This a book» — лишнее слово. Между this или that и названием предмета a не " +
             "ставят: они сами показывают, о каком предмете речь. Правильно — this book, " +
-            "that car. Но когда this стоит само по себе, как подлежащее, слово a на своём " +
+            "that car. Но когда this стоит само по себе, как подлежащее, артикль a на своём " +
             "месте: This is a book.",
         },
         {
@@ -693,7 +694,7 @@ const module: Module = {
           exact: true,
           accept: ["It's a table", "It is a table.", "It is a table"],
           hint: "Отвечают через it.",
-          why: "It's a table. Слово a перед названием предмета обязательно.",
+          why: "It's a table. Артикль a перед названием предмета обязателен.",
         },
         {
           id: "z6-sobrat-o-dveri",
@@ -701,10 +702,10 @@ const module: Module = {
           prompt: "Собери предложение: «То окно — не дверь».",
           items: ["door", "window", "That", "a", "is not"],
           answer: [2, 1, 4, 3, 0],
-          hint: "Между that и window слово a не нужно, а перед последним словом — нужно.",
+          hint: "Между that и window артикль не нужен, а перед последним словом — нужен.",
           why:
-            "That window is not a door. После that слова a нет, а перед door оно " +
-            "обязательно.",
+            "That window is not a door. После that артикля нет, а перед door он " +
+            "обязателен.",
         },
       ],
     },
@@ -807,7 +808,7 @@ const module: Module = {
           after: ".",
           answer: "bus",
           hint: "Три буквы.",
-          why: "It's a bus. Отвечают через it, слово a перед названием обязательно.",
+          why: "It's a bus. Отвечают через it, артикль перед названием обязателен.",
         },
         {
           id: "z4-otmetit-v-doroge",
@@ -881,7 +882,7 @@ const module: Module = {
           kind: "note",
           tone: "info",
           text:
-            "В обоих предложениях подлежащее одно и то же — it. Повторять его обязательно: " +
+            "Оба предложения начинаются одинаково — с it. Повторять его обязательно: " +
             "сказать «It isn't a pen, a key» нельзя — без второго it предложение не " +
             "складывается.",
         },
@@ -890,7 +891,7 @@ const module: Module = {
           kind: "note",
           tone: "mistake",
           text:
-            "Слово a нужно и в отрицании, и в утверждении: It isn't a pen. It's a key. " +
+            "Артикль нужен и в отрицании, и в утверждении: It isn't a pen. It's a key. " +
             "Пропуск в любом из двух предложений — ошибка.",
         },
         {
@@ -914,8 +915,9 @@ const module: Module = {
           ],
           hint: "Второе предложение строится целиком, а не обрывком.",
           why:
-            "It's a map. Ответить одним «A map» тоже можно, и собеседник поймёт. Но здесь " +
-            "мы отрабатываем целое предложение: оно начинается с it, как и первое.",
+            "It's a map. Ответить одним «A map» тоже можно, и собеседник поймёт. Но целое " +
+            "предложение годится в любом разговоре, поэтому тренируем его: оно начинается " +
+            "с it, как и первое.",
         },
         {
           id: "z2-dopisat-otricanie-o-predmete",
@@ -925,7 +927,7 @@ const module: Module = {
           after: ".",
           answer: "bus",
           hint: "Три буквы.",
-          why: "It isn't a bus. Слово a стоит и в отрицании тоже.",
+          why: "It isn't a bus. Артикль стоит и в отрицании тоже.",
         },
         {
           id: "z3-otmetit-poteri-a",
@@ -940,7 +942,7 @@ const module: Module = {
             { text: " · " },
             { text: "It's book.", selectable: true, correct: true },
           ],
-          hint: "Слово a нужно и в отрицании, и в утверждении.",
+          hint: "Артикль нужен и в отрицании, и в утверждении.",
           why: "«It isn't pen» и «It's book» — без a. Правильно: It isn't a pen, It's a book.",
         },
         {
@@ -955,7 +957,7 @@ const module: Module = {
             "It is not a pen. It is a key",
           ],
           hint: "Оба предложения начинаются с it.",
-          why: "It isn't a pen. It's a key. Два шага, и в обоих слово a на месте.",
+          why: "It isn't a pen. It's a key. Два шага, и в обоих артикль a на месте.",
         },
         {
           id: "z5-sobrat-popravku",
@@ -1098,7 +1100,7 @@ const module: Module = {
           exact: true,
           accept: ["Is that a bus"],
           hint: "Вдалеке — значит that. Вопрос открывает форма be.",
-          why: "Is that a bus? Форма is впереди, слово a перед названием предмета.",
+          why: "Is that a bus? Форма is впереди, артикль a перед названием предмета.",
         },
       ],
     },
@@ -1131,7 +1133,7 @@ const module: Module = {
             "— Sorry! And what is that?\n— It's money.",
           explain:
             "Слово too значит «тоже» — оно знакомо по модулю про приветствие. Заметь " +
-            "последний ответ: перед money слово a не ставят.",
+            "последний ответ: перед money артикль не ставят.",
         },
         {
           id: "tablica-shagov-o-predmetah",
@@ -1151,7 +1153,7 @@ const module: Module = {
           kind: "note",
           tone: "mistake",
           text:
-            "В разговоре о предметах легко теряется слово a: «It's ticket», «Is this " +
+            "В разговоре о предметах легко теряется артикль a: «It's ticket», «Is this " +
             "key?». Проверяй себя так: между It's и названием предмета всегда стоит одно " +
             "короткое слово. Исключение в этом модуле одно: money.",
         },
@@ -1190,7 +1192,7 @@ const module: Module = {
           ],
           hint: "Перед этим словом a не ставят, а отвечают через it.",
           why:
-            "It's money. Слово a перед money не ставят, а отвечают на вопрос всегда " +
+            "It's money. Артикль a перед money не ставят, а отвечают на вопрос всегда " +
             "через it.",
         },
         {
@@ -1219,7 +1221,7 @@ const module: Module = {
           ],
           hint: "Одна ошибка — лишнее слово, другая — не то местоимение в ответе.",
           why:
-            "«It's a money» — перед money слово a не ставят. «Yes, this is» — в кратком " +
+            "«It's a money» — перед money артикль не ставят. «Yes, this is» — в кратком " +
             "ответе всегда it.",
         },
         {
@@ -1357,7 +1359,7 @@ const module: Module = {
           { text: "It's an money." },
           { text: "It's money.", correct: true },
         ],
-        why: "It's money. Перед money слово a не ставят.",
+        why: "It's money. Перед money артикль не ставят.",
       },
       {
         id: "q-popravit-predmet",
@@ -1371,7 +1373,7 @@ const module: Module = {
           "It is not a bus. It is a car.",
           "It is not a bus. It is a car",
         ],
-        why: "It isn't a bus. It's a car. Два шага, и слово a в обоих предложениях.",
+        why: "It isn't a bus. It's a car. Два шага, и артикль a в обоих предложениях.",
       },
       {
         id: "q-poterya-a-v-otricanii",
@@ -1383,7 +1385,7 @@ const module: Module = {
           { text: "It isn't pen.", correct: true },
           { text: "It's a key." },
         ],
-        why: "«It isn't pen» — без a. Слово a нужно и в отрицании тоже.",
+        why: "«It isn't pen» — без a. Артикль нужен и в отрицании тоже.",
       },
       {
         id: "q-vopros-o-predmete",

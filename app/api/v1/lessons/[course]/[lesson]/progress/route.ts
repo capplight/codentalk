@@ -62,7 +62,25 @@ export const PUT = handler(async (request: Request, { params }: Params) => {
    * записывается только осознанно — там место расходуется, и человек должен
    * знать, что он его занял.
    */
-  if (body.status === "completed" && lesson.course.access === "free") {
+  /*
+   * Пройденный урок пройденным и остаётся.
+   *
+   * Ответы уходят в базу по одному, и запись «отвечено восемь из девяти» может
+   * прийти позже записи «отвечено девять» — сеть порядка не гарантирует. Без
+   * этой проверки опоздавшая запись сняла бы уже поставленную отметку, и успех
+   * пропал бы на ровном месте.
+   */
+  const before = await prisma.lessonProgress.findUnique({
+    where: { userId_lessonId: { userId: user.id, lessonId: lesson.id } },
+    select: { status: true, completedAt: true },
+  });
+
+  const wasCompleted = before?.status === "completed";
+  const status = wasCompleted ? "completed" : body.status;
+  const completedAt =
+    status === "completed" ? (before?.completedAt ?? new Date()) : null;
+
+  if (status === "completed" && lesson.course.access === "free") {
     const existing = await prisma.enrollment.findFirst({
       where: { userId: user.id, courseId: lesson.course.id },
       select: { id: true },
@@ -84,14 +102,14 @@ export const PUT = handler(async (request: Request, { params }: Params) => {
     create: {
       userId: user.id,
       lessonId: lesson.id,
-      status: body.status,
+      status,
       position: body.position === undefined ? undefined : (body.position as never),
-      completedAt: body.status === "completed" ? new Date() : null,
+      completedAt,
     },
     update: {
-      status: body.status,
+      status,
       position: body.position === undefined ? undefined : (body.position as never),
-      completedAt: body.status === "completed" ? new Date() : null,
+      completedAt,
     },
     select: { status: true, updatedAt: true },
   });
