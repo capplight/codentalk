@@ -5,6 +5,7 @@ import rasskazOSebe from "./rasskaz-o-sebe";
 import voprosIOtvet from "./vopros-i-otvet";
 import neTak from "./ne-tak";
 import chtoEtoTakoe from "./chto-eto-takoe";
+import moiVeshchi from "./moi-veshchi";
 
 /**
  * Английский с нуля — ступень до A1.
@@ -23,7 +24,7 @@ const course: Course = {
   level: "до A1",
   tagline: "Для тех, кто не учил язык или всё забыл",
   access: "free",
-  modules: [alfavit, privetstvie, rasskazOSebe, voprosIOtvet, neTak, chtoEtoTakoe],
+  modules: [alfavit, privetstvie, rasskazOSebe, voprosIOtvet, neTak, chtoEtoTakoe, moiVeshchi],
 };
 
 export default course;
