@@ -51,6 +51,9 @@ export default async function CoursePage({ params }: Params) {
   let quizzesPassed = 0;
   let examPassed = false;
   let serial: string | null = null;
+  // Модуль → лучший балл сданной работы. Без этого страница показывает
+  // сданную работу так же, как несданную, и результат выглядит потерянным.
+  const quizScoreByModule = new Map<string, number>();
   if (userId) {
     const [enrollment, tests, passed, certificate, exam] = await Promise.all([
       prisma.enrollment.findFirst({
@@ -63,7 +66,11 @@ export default async function CoursePage({ params }: Params) {
       }),
       prisma.testAttempt.findMany({
         where: { userId, passed: true, test: { course: { slug: courseSlug } } },
-        select: { testId: true },
+        select: {
+          testId: true,
+          score: true,
+          test: { select: { module: { select: { slug: true } } } },
+        },
       }),
       prisma.certificate.findFirst({
         where: { userId, course: { slug: courseSlug }, revokedAt: null },
@@ -84,6 +91,14 @@ export default async function CoursePage({ params }: Params) {
     quizzesPassed = tests.filter((test) => passedIds.has(test.id)).length;
     serial = certificate?.serial ?? null;
     examPassed = exam !== null;
+    for (const attempt of passed) {
+      const moduleSlug = attempt.test.module?.slug;
+      if (!moduleSlug) continue;
+      const before = quizScoreByModule.get(moduleSlug);
+      if (before === undefined || (attempt.score ?? 0) > before) {
+        quizScoreByModule.set(moduleSlug, attempt.score ?? 0);
+      }
+    }
   }
 
   const all = lessonsInOrder(course);
@@ -110,6 +125,7 @@ export default async function CoursePage({ params }: Params) {
           const lessonsDone = module.lessons.filter((lesson) => done.has(lesson.slug)).length;
           const moduleReady = lessonsDone === module.lessons.length;
           const asked = module.quiz.ask ?? module.quiz.questions.length;
+          const quizScore = quizScoreByModule.get(module.slug);
 
           return (
             <section className={s.module} key={module.slug}>
@@ -151,13 +167,16 @@ export default async function CoursePage({ params }: Params) {
               <div className={s.quiz}>
                 <span className={s.quizTitle}>Проверочная работа</span>
                 <span className={s.quizMeta}>
-                  {asked} {plural(asked, "вопрос", "вопроса", "вопросов")} ·{" "}
-                  {moduleReady ? "можно сдавать" : "откроется, когда пройдены все уроки модуля"}
+                  {quizScore !== undefined
+                    ? `сдана, ${quizScore} из 100`
+                    : `${asked} ${plural(asked, "вопрос", "вопроса", "вопросов")} · ${
+                        moduleReady ? "можно сдавать" : "откроется, когда пройдены все уроки модуля"
+                      }`}
                 </span>
                 <span className={s.quizAction}>
                   {moduleReady ? (
                     <Link className="btn" href={`/learn/${course.slug}/proverochnaya/${module.slug}`}>
-                      Начать
+                      {quizScore !== undefined ? "Пройти ещё раз" : "Начать"}
                     </Link>
                   ) : (
                     <button className={`btn ${s.locked}`} type="button" disabled>

@@ -51,7 +51,16 @@ interface Result {
 
 type Answer = string | number[];
 
-export default function QuizRunner({ testId, courseSlug }: { testId: string; courseSlug: string }) {
+export default function QuizRunner({
+  testId,
+  courseSlug,
+  bestScore = null,
+}: {
+  testId: string;
+  courseSlug: string;
+  /** Лучший балл сданной работы, если она уже сдана. Иначе null. */
+  bestScore?: number | null;
+}) {
   const [questions, setQuestions] = useState<BrowserQuestion[] | null>(null);
   const [attemptId, setAttemptId] = useState<string | null>(null);
   const [answers, setAnswers] = useState<Record<string, Answer>>({});
@@ -173,6 +182,12 @@ export default function QuizRunner({ testId, courseSlug }: { testId: string; cou
     return (
       <div className={s.body}>
         {error && <div className={`${s.feedback} ${s.bad}`}>{error}</div>}
+        {bestScore !== null && (
+          <div className={`${s.feedback} ${s.good}`}>
+            Работа сдана, лучший результат — {bestScore} из 100. Он сохранён: проходить заново
+            необязательно, а если пройдёшь, прежний результат никуда не денется.
+          </div>
+        )}
         <div className={s.noteBox}>
           <span className={s.noteBoxHead}>Как устроена работа</span>
           <span className={s.noteBoxHint}>
@@ -182,7 +197,7 @@ export default function QuizRunner({ testId, courseSlug }: { testId: string; cou
           </span>
           <div className={s.actions}>
             <button className="btn" type="button" onClick={start} disabled={busy}>
-              {busy ? "Готовим вопросы…" : "Начать работу"}
+              {busy ? "Готовим вопросы…" : bestScore !== null ? "Пройти ещё раз" : "Начать работу"}
             </button>
           </div>
         </div>

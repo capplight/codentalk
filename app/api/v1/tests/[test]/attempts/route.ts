@@ -101,8 +101,15 @@ export const POST = handler(async (_request: Request, { params }: Params) => {
   // перебором вариантов.
   if (test.maxAttemptsPerDay) {
     const since = new Date(Date.now() - 24 * 60 * 60 * 1000);
+    // Считаем только сданные попытки. Открытая и брошенная страница попытки не
+    // тратит: ограничение защищает от подбора ответов, а не от передумавших.
     const recent = await prisma.testAttempt.count({
-      where: { userId: user.id, testId: test.id, startedAt: { gte: since } },
+      where: {
+        userId: user.id,
+        testId: test.id,
+        startedAt: { gte: since },
+        submittedAt: { not: null },
+      },
     });
     if (recent >= test.maxAttemptsPerDay) {
       throw new ApiError(

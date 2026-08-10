@@ -59,6 +59,14 @@ export default async function QuizPage({ params }: Params) {
   });
   const open = lessons.length > 0 && done >= lessons.length;
 
+  // Работа могла быть сдана раньше. Показать это обязательно: иначе страница
+  // выглядит так, будто ученик здесь впервые, а результат никуда не записан.
+  const best = await prisma.testAttempt.findFirst({
+    where: { userId: session.user.id, testId: test.id, passed: true },
+    orderBy: { score: "desc" },
+    select: { score: true },
+  });
+
   return (
     <main className="wrap" style={{ paddingBottom: 56 }}>
       <div className={s.head}>
@@ -75,7 +83,7 @@ export default async function QuizPage({ params }: Params) {
       </div>
 
       {open ? (
-        <QuizRunner testId={test.id} courseSlug={courseSlug} />
+        <QuizRunner testId={test.id} courseSlug={courseSlug} bestScore={best?.score ?? null} />
       ) : (
         <div className={s.body}>
           <div className={`${s.feedback} ${s.neutral}`}>
