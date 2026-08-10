@@ -1,6 +1,7 @@
 import type { Course } from "@/lib/content/types";
 import alfavit from "./alfavit";
 import privetstvie from "./privetstvie";
+import rasskazOSebe from "./rasskaz-o-sebe";
 
 /**
  * Английский с нуля — ступень до A1.
@@ -19,7 +20,7 @@ const course: Course = {
   level: "до A1",
   tagline: "Для тех, кто не учил язык или всё забыл",
   access: "free",
-  modules: [alfavit, privetstvie],
+  modules: [alfavit, privetstvie, rasskazOSebe],
 };
 
 export default course;

@@ -62,8 +62,26 @@
 | yes | /jˈɛs/ | jɛs | Y EH1 S | сходится | |
 | again | /ɐɡˈɛn/ | əɡeɪ̯n · əɡɛ̟n | AH0 G EH1 N | **разошлись** | |
 | understand | /ˌʌndəstˈænd/ | əndəstand · ʊndəstand · ʌndəstand … | AH2 N D ER0 S T AE1 N D | сходится, но есть варианты | |
+| from | /fɹˈɒm/ | fɹɒm · fɹɔm · fɹʌm … | F R AH1 M | сходится, но есть варианты | |
+| city | /sˈɪti/ | sɪti · sɪtiː · sɪtɪ | S IH1 T IY0 | сходится, но есть варианты | |
+| capital | /kˈæpɪtəl/ | kæpɪtəl | K AE1 P AH0 T AH0 L | сходится | |
+| town | /tˈaʊn/ | taʊ̯n | T AW1 N | **разошлись** | |
+| street | /stɹˈiːt/ | stɹiːt | S T R IY1 T | сходится | |
+| artist | /ˈɑːtɪst/ | ɑːtɪst | AA1 R T AH0 S T | сходится | |
+| actor | /ˈæktɐ/ | æktəː | AE1 K T ER0 | **разошлись** | |
+| apple | /ˈæpəl/ | æpəl | AE1 P AH0 L | сходится | |
+| egg | /ˈɛɡ/ | jɛɡ · ɛɡ | EH1 G | сходится, но есть варианты | |
+| student | /stjˈuːdənt/ | stjuːdn̩t | S T UW1 D AH0 N T | **разошлись** | |
+| doctor | /dˈɒktɐ/ | dɒktə · dɒktɚ | D AA1 K T ER0 | **разошлись** | |
+| driver | /dɹˈaɪvɐ/ | dɹaɪvə | D R AY1 V ER0 | **разошлись** | |
+| nurse | /nˈɜːs/ | nɜːs | N ER1 S | сходится | |
+| job | — | dʒɒb | JH AA1 B | **разошлись** | |
+| in | /ˈɪn/ | ən · ɪn | IH0 N | сходится, но есть варианты | |
+| home | /hˈəʊm/ | həʊm | HH OW1 M | сходится | |
+| work | /wˈɜːk/ | wøːk · wɚːk · wɜɪ̯k … | W ER1 K | сходится, но есть варианты | |
+| where | /wˈeə/ | weː · we̝ə · wiə … | W EH1 R | **разошлись** | |
 
-Всего слов 55: сходится 34, разошлись 19, нет в источниках 2.
+Всего слов 73: сходится 45, разошлись 26, нет в источниках 2.
 
 ## Краткие формы
 
