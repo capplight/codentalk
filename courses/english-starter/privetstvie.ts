@@ -28,15 +28,29 @@ import type { Module } from "@/lib/content/types";
  *    письменно: устное задание машина не оценивает и в проверочную работу не
  *    попадает. Разрыв признан открыто и закрывается тем же решением о звуке.
  *
- * 3. Модуль состоит из трёх уроков, а программа отводит ему восемь. Это первая
- *    часть модуля, а не весь он.
+ * 3. Уроков восемь — столько, сколько отводит программа. Модуль написан целиком.
+ *    Первые три — речевые обороты целиком, следующие три разбирают их устройство
+ *    (местоимения, be, короткие формы), седьмой добавляет переспрос, восьмой
+ *    собирает всё в один разговор. Порядок намеренный: сначала оборот, потом
+ *    разбор, а не наоборот.
  *
  * 4. Утверждения о том, кому и когда задают How are you?, как принято отвечать
- *    и что считается невежливым, из урока УБРАНЫ: таких сведений нет ни в одном
+ *    и что считается невежливым, из уроков УБРАНЫ: таких сведений нет ни в одном
  *    источнике в materials/. Руководства Cambridge описывают устройство
  *    экзамена и словники, документы Совета Европы — умения; разговорных
  *    обычаев не описывает никто. Если владелец как преподаватель подтвердит
  *    их из своего опыта, их можно вернуть — но уже как его свидетельство.
+ *
+ *    Проверка второй очереди нашла ещё четыре таких же места, пережившие первую:
+ *    «hi чаще звучит между знакомыми», «эти три звучат учтивее и потому часто
+ *    выбираются», «ответ короткий и всегда один и тот же», «разговор чаще всего
+ *    обрывается». Все сняты. Вывод для следующих модулей: эту породу ошибки
+ *    приходится вычищать не один раз, и одного прохода не хватает.
+ *
+ * 5. Артикль и множественное число программа отдаёт модулям 3 и 8, поэтому в
+ *    уроках 4–8 их нет: примеры построены на именах и на fine/OK. Первый вариант
+ *    уроков был полон «We're students» и «He is a teacher» — проверка это сняла.
+ *    Краткий ответ «Yes, I am» по той же причине убран: он материал модуля 4.
  */
 const module: Module = {
   slug: "privetstvie",
@@ -53,7 +67,12 @@ const module: Module = {
     {
       ref: "English Grammar Profile",
       section:
-        "A1, строка 4952: PRONOUNS subject «(SUBJECT) STATEMENTS». " +
+        "A1, PRONOUNS subject/object «FORM: (SUBJECT) STATEMENTS» — дословно: «Can use the " +
+        "pronouns 'I', 'you', 'he', 'she', 'it', 'we' and 'they' in the subject position " +
+        "before a verb in statements». Состав урока о местоимениях взят отсюда поимённо, " +
+        "ничего не добавлено и не убрано. " +
+        "A1, VERBS types «FORM: LINKING VERB, 'BE'»: «Can use linking verb 'be'» — отсюда " +
+        "урок о am/is/are. " +
         "A1, строка 5865: VERBS types «LINKING VERB 'BE'». " +
         "A1, строка 954: CLAUSES interrogatives «AFFIRMATIVE INTERROGATIVE, WITH 'BE'» — " +
         "пример источника дословно «How are you?». Этой строкой покрыты ОБА вопроса модуля: " +
@@ -66,9 +85,12 @@ const module: Module = {
     {
       ref: "Oxford 3000",
       section:
-        "все двадцать четыре слова модуля с пометкой A1: hello, hi, good, morning, afternoon, " +
+        "все слова модуля с пометкой A1: hello, hi, good, morning, afternoon, " +
         "evening, night, bye, goodbye, see, you, your, I, be, name, what, nice, meet, too, " +
-        "how, fine, OK, please, thank, thanks, sorry, welcome",
+        "how, fine, OK, please, thank, thanks, sorry, welcome, he, she, it, we, they, " +
+        "yes, again, understand. " +
+        "ОГОВОРКА: am, is и are отдельными словами в словнике не стоят — там одна запись " +
+        "«be v. A1», и формы покрыты ею",
       license: "внутреннее использование",
     },
     {
@@ -88,12 +110,62 @@ const module: Module = {
         "I'm …, and this is … . What's your name?». Набор фраз урока 2 взят отсюда",
       license: "свободно распространяется, в уроки не копируется",
     },
+    {
+      ref: "Council of Europe, CEFR Companion Volume 2020 — урок о переспросе",
+      section:
+        "СВЕРХ СТУПЕНИ, И ЭТО ГЛАВНОЕ ЗДЕСЬ. с. 89, шкала Asking for clarification: просьба " +
+        "повторить стоит на A2 («Can ask very simply for repetition when they do not " +
+        "understand»; «Can signal non-understanding and ask for a word/sign to be spelt " +
+        "out»). На A1 та же шкала даёт только «Can indicate with simple words, intonation " +
+        "and gestures that they do not understand». То же в руководстве A2 Key, с. 51: " +
+        "«asking for repetition and clarification» — в списке функций A2. " +
+        "Взято по решению 1 программы: разговор на первой ступени, по описанию той же " +
+        "книги (с. 72, Overall oral interaction, A1), «totally dependent on repetition at " +
+        "a slower rate, rephrasing and repair» — то есть ученику придётся переспрашивать " +
+        "раньше, чем он дорастёт до ступени, где это умение описано. " +
+        "Оговорка, которую нельзя опускать: цитата с. 72 описывает не умение просить, а " +
+        "зависимость от того, что повторяет СОБЕСЕДНИК. Основанием для урока она сама по " +
+        "себе не является — основание в решении 1. " +
+        "ЧЕГО В ИСТОЧНИКАХ НЕТ: какими именно словами переспрашивают и что из них вежливее. " +
+        "Поэтому Sorry?, Again, please и How do you spell that? взяты как обороты из уже " +
+        "пройденного словаря, а не как «принятые» формулы",
+      license: "внутреннее использование, публично не называем",
+    },
+    {
+      ref: "Council of Europe, CEFR Companion Volume 2020 — урок «Разговор целиком»",
+      section:
+        "с. 74, Conversation, Pre-A1: «Can greet people, state their name and take leave in " +
+        "a simple way» — все три шага в одном описании, отсюда сборочный урок в конце " +
+        "модуля. Дескриптор именно Pre-A1; A1 на той же странице говорит другое: «Can make " +
+        "an introduction and use basic greeting and leave-taking expressions». " +
+        "Порядок шагов (приветствие, имя, вежливый отклик, вопрос о делах, ответ, " +
+        "прощание) источником не задан: это сборка из уже разобранных частей, а не " +
+        "утверждение о том, как разговор устроен на самом деле. Так он и подан ученику",
+      license: "внутреннее использование, публично не называем",
+    },
+    {
+      ref: "Короткие формы be — урок 6",
+      section:
+        "ОТДЕЛЬНОГО ОПИСАНИЯ У ЭТОГО УМЕНИЯ НЕТ ни в English Grammar Profile, ни в " +
+        "описаниях Совета Европы: поиск по CONTRACT, APOSTROPHE, 'M, 'RE даёт на A1 и A2 " +
+        "одну строку, и та про отрицание (A1, NEGATION: «with contracted and uncontracted " +
+        "forms»). Косвенные основания: та же строка показывает, что стяжённые формы на A1 " +
+        "предполагаются, а речь экзаменатора в руководстве A2 Key (с. 42) начинается с " +
+        "«I'm …». Короткие формы уже стоят в уроках 1–3 этого модуля, поэтому урок не " +
+        "вводит новое, а разбирает встреченное",
+      license: "внутренний разбор",
+    },
   ],
 
   outcomes: [
     "здоровается, выбирая приветствие по времени дня, и прощается",
     "называет своё имя и понимает, когда имя спрашивают",
     "отвечает на вопрос о делах и к месту говорит please, thank you и sorry",
+    "ставит местоимение-подлежащее перед глаголом: I, you, he, she, it, we, they",
+    "выбирает am, is или are по подлежащему",
+    "узнаёт и пишет короткие формы глагола be",
+    "просит повторить сказанное и переспрашивает имя",
+    "ведёт короткий разговор при знакомстве от приветствия до прощания",
   ],
 
   lessons: [
@@ -112,8 +184,7 @@ const module: Module = {
             "В английском два повседневных приветствия: hello и hi. Они значат одно и то же " +
               "и оба подходят почти везде — в магазине, на работе, при встрече с незнакомым " +
               "человеком. Начни с любого: на этой ступени выбирать между ними не нужно.",
-            "Разница есть, но небольшая: hi чаще звучит между теми, кто уже знаком. Ошибиться " +
-              "здесь нельзя — ни одно из двух приветствий никого не обидит.",
+            "Ошибиться здесь нельзя: ни одно из двух приветствий никого не обидит.",
           ],
         },
         {
@@ -131,9 +202,8 @@ const module: Module = {
           text: [
             "Кроме hello есть приветствия по времени дня. Good morning — до полудня. " +
               "Good afternoon — с полудня до вечера. Good evening — вечером.",
-            "Эти три приветствия звучат учтивее и потому часто выбираются там, где важна " +
-              "вежливость: в гостинице, на переговорах, в начале разговора с незнакомым " +
-              "человеком. Именно ими начинает экзаменатор устную часть кембриджского экзамена.",
+            "Именно ими экзаменатор начинает устную часть кембриджского экзамена: " +
+              "«Good morning / afternoon / evening. I'm …, and this is …».",
           ],
         },
         {
@@ -609,11 +679,10 @@ const module: Module = {
             { text: "I'm fine, thank you.", correct: true },
             { text: "Yes, please." },
           ],
-          hint: "Это часть приветствия, а не расспрос: ответ короткий и всегда один и тот же.",
+          hint: "Ответ должен говорить о делах, а не о знакомстве и не о согласии.",
           why:
-            "How are you? при встрече — вежливая формула, и ответ на неё готовый: " +
-            "I'm fine, thank you. «Nice to meet you» говорят при знакомстве, а «Yes, please» — " +
-            "соглашаясь на предложение.",
+            "I'm fine, thank you — ответ о делах, а спрашивают именно о них. «Nice to meet " +
+            "you» говорят при знакомстве, а «Yes, please» — соглашаясь на предложение.",
         },
         {
           id: "z2-please-ili-welcome",
@@ -697,16 +766,875 @@ const module: Module = {
         },
       ],
     },
+
+    // =====================================================================
+    {
+      slug: "mestoimeniya",
+      title: "Я, ты, он: местоимения",
+      estimatedMinutes: 14,
+      outcome: "ставит местоимение-подлежащее перед глаголом: I, you, he, she, it, we, they",
+
+      blocks: [
+        {
+          id: "zachem-mestoimeniya",
+          kind: "explain",
+          text: [
+            "В прошлых уроках уже встречались I и you: I'm Alim, How are you? Пора собрать " +
+              "их вместе с остальными — семь слов, которыми называют того, о ком речь.",
+            "Того, о ком говорится в предложении, называют подлежащим. Английское " +
+              "предложение с глаголом без подлежащего не строится: по-русски можно сказать " +
+              "«я Алим» и «Алим — преподаватель», а можно и «хорошо» — по-английски же перед " +
+              "глаголом обязательно стоит имя или местоимение.",
+          ],
+        },
+        {
+          id: "tablica-mestoimeniy",
+          kind: "table",
+          caption: "Семь местоимений-подлежащих",
+          head: ["Местоимение", "Перевод", "О ком", "Пример"],
+          rows: [
+            ["I", "я", "о себе", "I'm Alim."],
+            ["you", "ты, вы", "о собеседнике", "You're Dana."],
+            ["he", "он", "о мужчине", "He's Nurlan."],
+            ["she", "она", "о женщине", "She's Aigul."],
+            ["it", "оно, это", "о предмете или о положении дел", "It's OK."],
+            ["we", "мы", "о себе и других", "We're Alim and Dana."],
+            ["they", "они", "о нескольких других", "They're Dana and Aigul."],
+          ],
+        },
+        {
+          id: "you-eto-i-ty-i-vy",
+          kind: "note",
+          tone: "info",
+          text:
+            "You — это и «ты», и «вы». Отдельного слова для вежливого обращения в английском " +
+            "нет: к другу и к незнакомому человеку обращаются одинаково.",
+        },
+        {
+          id: "i-vsegda-zaglavnaya",
+          kind: "note",
+          tone: "mistake",
+          text:
+            "Местоимение I пишется с заглавной буквы всегда, а не только в начале " +
+            "предложения: «and I'm Alim» — I посреди строки, и всё равно заглавная. Среди " +
+            "местоимений такое одно, о чём говорилось и во втором уроке.",
+        },
+        {
+          id: "he-i-she-tolko-o-lyudyah",
+          kind: "note",
+          tone: "info",
+          text:
+            "He говорят о мужчине, she — о женщине, it — о предмете и о том, как обстоят " +
+            "дела: It's OK. Русское «он» годится и для стола, и для человека, английское " +
+            "he — нет: стол — это it. При этом it говорят и о человеке, когда называют, кто " +
+            "пришёл или кто звонит: It's Dana.",
+        },
+        {
+          id: "zapis-mestoimeniy",
+          kind: "audio",
+          planned: true,
+          pace: "slow",
+          caption: "Послушай местоимения по одному",
+          transcript: "I. You. He. She. It. We. They.",
+        },
+        {
+          id: "slovar-mestoimeniy",
+          kind: "vocab",
+          caption: "Слова урока",
+          items: [
+            { term: "he", translation: "он", example: "He's Nurlan.", hint: "/hiː/" },
+            { term: "she", translation: "она", example: "She's Dana.", hint: "/ʃiː/" },
+            { term: "it", translation: "оно, это", example: "It's OK.", hint: "/ɪt/" },
+            { term: "we", translation: "мы", example: "We're Alim and Dana.", hint: "/wiː/" },
+            { term: "they", translation: "они", example: "They're Dana and Aigul.", hint: "/ðeɪ/" },
+          ],
+        },
+
+        // ---- задания ----
+        {
+          id: "z1-o-dane",
+          kind: "choice",
+          prompt: "Речь о Дане. Каким местоимением её назвать?",
+          options: [{ text: "she", correct: true }, { text: "he" }, { text: "it" }],
+          hint: "Дана — женское имя.",
+          why: "She — о женщине. He говорят о мужчине, it — о предмете или о положении дел.",
+        },
+        {
+          id: "z2-o-knige",
+          kind: "choice",
+          prompt: "Речь о столе. Каким местоимением его назвать?",
+          options: [{ text: "he" }, { text: "she" }, { text: "it", correct: true }],
+          hint: "Стол — предмет, а не человек.",
+          why:
+            "It — о предметах. По-русски стол «он», но английское he бывает только о " +
+            "человеке.",
+        },
+        {
+          id: "z3-vstavit-mestoimenie",
+          kind: "gap",
+          prompt: "Допиши местоимение: речь о себе и о Дане.",
+          before: "",
+          after: "'re Alim and Dana.",
+          answer: "We",
+          exact: true,
+          hint: "Нас двое, и я среди них.",
+          why:
+            "We're Alim and Dana. We — «мы»: я и другие. Заглавная буква — потому что слово " +
+            "открывает предложение.",
+        },
+        {
+          id: "z4-zaglavnaya-i",
+          kind: "hottext",
+          prompt: "Отметь строки, где местоимение написано с ошибкой.",
+          parts: [
+            { text: "Yes, i am.", selectable: true, correct: true },
+            { text: " · " },
+            { text: "She is Dana.", selectable: true },
+            { text: " · " },
+            { text: "Fine, and i'm Alim.", selectable: true, correct: true },
+            { text: " · " },
+            { text: "They are Dana and Aigul.", selectable: true },
+          ],
+          hint: "Одно местоимение пишется с заглавной в любом месте строки.",
+          why:
+            "I пишется с заглавной всегда: «Yes, I am», «and I'm Alim». She и they посреди " +
+            "предложения пишутся со строчной, и в этих строках всё верно.",
+        },
+        {
+          id: "z5-sopostavit-mestoimeniya",
+          kind: "match",
+          prompt: "Сопоставь местоимение и перевод.",
+          left: ["they", "we", "she"],
+          right: ["мы", "она", "они"],
+          answer: [2, 0, 1],
+          hint: "Два из трёх — о нескольких людях. Отличаются тем, входишь ли ты в их число.",
+          why: "They — они, we — мы, she — она.",
+        },
+        {
+          id: "z6-sobrat-predlozhenie",
+          kind: "order",
+          prompt: "Собери предложение: «Он Нурлан».",
+          items: ["Nurlan", "He", "is"],
+          answer: [1, 2, 0],
+          hint: "Сначала тот, о ком речь, потом глагол.",
+          why:
+            "He is Nurlan. Подлежащее стоит первым, за ним глагол, и только потом всё " +
+            "остальное. Английский порядок слов этого требует.",
+        },
+      ],
+    },
+
+    // =====================================================================
+    {
+      slug: "svyazka-be",
+      title: "Am, is, are: глагол, который связывает",
+      estimatedMinutes: 15,
+      outcome: "выбирает am, is или are по подлежащему",
+
+      blocks: [
+        {
+          id: "zachem-svyazka",
+          kind: "explain",
+          text: [
+            "«Я Алим» по-русски обходится без глагола. По-английски глагол нужен: I am Alim. " +
+              "Это глагол be — он связывает того, о ком речь, с тем, кто он и какой он.",
+            "В настоящем времени у be три формы: am, is, are. Выбор зависит только от " +
+              "подлежащего, и запомнить нужно всего три строки.",
+          ],
+        },
+        {
+          id: "tablica-be",
+          kind: "table",
+          caption: "Три формы и кому какая",
+          head: ["Подлежащее", "Форма", "Пример", "Перевод"],
+          rows: [
+            ["I", "am", "I am Alim.", "Я Алим."],
+            ["he, she, it", "is", "She is fine.", "У неё всё хорошо."],
+            ["you, we, they", "are", "They are Dana and Aigul.", "Они Дана и Айгуль."],
+          ],
+        },
+        {
+          id: "am-tolko-s-i",
+          kind: "note",
+          tone: "info",
+          text:
+            "Форма am бывает только с I — больше ни с чем. Поэтому её и запоминают первой: " +
+            "одна пара, одно слово, никаких исключений.",
+        },
+        {
+          id: "propusk-glagola",
+          kind: "note",
+          tone: "mistake",
+          text:
+            "«She fine» — предложение без глагола, и по-английски оно не читается. Русский " +
+            "обходится в настоящем времени без такого глагола, английский — нет. Если в " +
+            "предложении нет другого глагола, значит нужен be.",
+        },
+        {
+          id: "primer-razgovora-be",
+          kind: "example",
+          caption: "Три формы в одном разговоре",
+          text: "— How are you?\n— I am fine, thank you. Dana and Aigul are fine too.",
+          explain:
+            "Are — потому что you. Am — потому что I. Are во второй раз — потому что речь " +
+            "о двоих. Три предложения — три выбора, и делает их подлежащее, а не смысл.",
+        },
+        {
+          id: "zapis-be",
+          kind: "audio",
+          planned: true,
+          pace: "slow",
+          caption: "Послушай три формы в предложениях",
+          transcript: "I am Alim. She is fine. They are Dana and Aigul. How are you?",
+        },
+        {
+          id: "slovar-be",
+          kind: "vocab",
+          caption: "Слова урока",
+          items: [
+            { term: "am", translation: "форма be для I", example: "I am Alim.", hint: "/æm/" },
+            { term: "is", translation: "форма be для he, she, it", example: "She is fine.", hint: "/ɪz/" },
+            { term: "are", translation: "форма be для you, we, they", example: "They are fine.", hint: "/ɑː/" },
+            { term: "yes", translation: "да", example: "Yes, I am Alim.", hint: "/jes/" },
+          ],
+        },
+
+        // ---- задания ----
+        {
+          id: "z1-forma-dlya-she",
+          kind: "choice",
+          prompt: "Какая форма нужна после she?",
+          options: [{ text: "are" }, { text: "is", correct: true }, { text: "am" }],
+          hint: "Она из той же строки, что he и it.",
+          why: "She is. Форма is идёт с he, she и it. Am бывает только с I.",
+        },
+        {
+          id: "z2-vstavit-am",
+          kind: "gap",
+          prompt: "Допиши форму глагола be.",
+          before: "I ",
+          after: " Dana.",
+          answer: "am",
+          hint: "С этим подлежащим форма всего одна.",
+          why: "I am Dana. С I идёт только am — других вариантов нет.",
+        },
+        {
+          id: "z3-vstavit-are",
+          kind: "gap",
+          prompt: "Допиши форму глагола be.",
+          before: "They ",
+          after: " Dana and Aigul.",
+          answer: "are",
+          hint: "They из той же строки, что you и we.",
+          why: "They are Dana and Aigul. Форма are идёт с you, we и they.",
+        },
+        {
+          id: "z4-najti-bez-glagola",
+          kind: "hottext",
+          prompt: "Отметь предложения, в которых пропущен глагол.",
+          parts: [
+            { text: "He Nurlan.", selectable: true, correct: true },
+            { text: " · " },
+            { text: "We are fine.", selectable: true },
+            { text: " · " },
+            { text: "She fine.", selectable: true, correct: true },
+            { text: " · " },
+            { text: "I am Alim.", selectable: true },
+          ],
+          hint: "Ищи строки, где нет ни am, ни is, ни are.",
+          why:
+            "He Nurlan и She fine — без глагола. Должно быть He is Nurlan и She is fine: " +
+            "без формы be английское предложение не строится.",
+        },
+        {
+          id: "z5-sopostavit-formy",
+          kind: "match",
+          prompt: "Сопоставь подлежащее и форму глагола be.",
+          left: ["I", "it", "we"],
+          right: ["are", "am", "is"],
+          answer: [1, 2, 0],
+          hint: "Одна форма годится только для одного подлежащего.",
+          why: "I am, it is, we are. Три строки таблицы — три пары.",
+        },
+        {
+          id: "z6-ispravit-predlozhenie",
+          kind: "short",
+          prompt: "Исправь предложение и запиши его целиком: «She fine.»",
+          answer: "She is fine.",
+          exact: true,
+          accept: ["She is fine", "She's fine.", "She's fine"],
+          hint: "Не хватает одного слова между she и fine.",
+          why:
+            "She is fine — или коротко She's fine. Пропущена форма is, та, что идёт с he, " +
+            "she и it. Засчитываются оба написания.",
+        },
+      ],
+    },
+
+    // =====================================================================
+    {
+      slug: "korotkie-formy",
+      title: "Короткие формы: I'm, you're, he's",
+      estimatedMinutes: 13,
+      outcome: "узнаёт и пишет короткие формы глагола be",
+
+      blocks: [
+        {
+          id: "zachem-korotkie",
+          kind: "explain",
+          text: [
+            "В прошлых уроках рядом стояли I am и I'm — и то и другое верно. Второе " +
+              "называют короткой формой: два слова сливаются в одно, а на месте пропавшей " +
+              "буквы ставят апостроф.",
+            "Знать нужно обе: встречаются и та и другая, а значат они одно и то же. " +
+              "Короткая форма уже попадалась тебе в первых уроках модуля — теперь разберём, " +
+              "как она устроена.",
+          ],
+        },
+        {
+          id: "tablica-korotkih",
+          kind: "table",
+          caption: "Полная форма и короткая",
+          head: ["Полная", "Короткая", "Что выпало"],
+          rows: [
+            ["I am", "I'm", "a в am"],
+            ["you are", "you're", "a в are"],
+            ["he is", "he's", "i в is"],
+            ["she is", "she's", "i в is"],
+            ["it is", "it's", "i в is"],
+            ["we are", "we're", "a в are"],
+            ["they are", "they're", "a в are"],
+          ],
+        },
+        {
+          id: "apostrof-ne-zapyataya",
+          kind: "note",
+          tone: "mistake",
+          text:
+            "Апостроф — это чёрточка вверху строки, а не запятая: I'm, а не I,m. Он стоит " +
+            "ровно там, где выпала буква, и пробела вокруг себя не требует.",
+        },
+        {
+          id: "posle-korotkoy-idut-slova",
+          kind: "note",
+          tone: "info",
+          text:
+            "После короткой формы всегда идут другие слова: I'm Alim, She's fine. Закончить " +
+            "ею предложение нельзя — она держится за то, что стоит следом.",
+        },
+        {
+          id: "zapis-korotkih",
+          kind: "audio",
+          planned: true,
+          pace: "slow",
+          caption: "Послушай короткие формы",
+          transcript: "I'm Alim. You're Dana. He's Nurlan. She's Aigul. It's OK. We're fine.",
+        },
+
+        // ---- задания ----
+        {
+          id: "z1-korotkaya-dlya-she-is",
+          kind: "choice",
+          prompt: "Как записать she is коротко?",
+          options: [{ text: "she's", correct: true }, { text: "shes" }, { text: "she'is" }],
+          hint: "Апостроф стоит на месте выпавшей буквы.",
+          why: "She's. Выпала i, на её месте апостроф. Без апострофа выходит не слово, а набор букв.",
+        },
+        {
+          id: "z2-dopisat-korotkuyu",
+          kind: "gap",
+          prompt: "Запиши коротко: they are.",
+          before: "",
+          after: " Dana and Aigul.",
+          answer: "They're",
+          exact: true,
+          hint: "Выпадает та же буква, что в you are.",
+          why: "They're Dana and Aigul. Из are выпала a, на её месте апостроф.",
+        },
+        {
+          id: "z3-otmetit-oshibki",
+          kind: "hottext",
+          prompt: "Отметь строки с ошибкой в короткой форме.",
+          parts: [
+            { text: "I'm Dana.", selectable: true },
+            { text: " · " },
+            { text: "He,s Alim.", selectable: true, correct: true },
+            { text: " · " },
+            { text: "Were fine.", selectable: true, correct: true },
+            { text: " · " },
+            { text: "It's OK.", selectable: true },
+          ],
+          hint: "Одна ошибка — не тот знак, другая — знака нет вовсе.",
+          why:
+            "He,s — вместо апострофа запятая. Were — апостроф пропущен, должно быть We're. " +
+            "Две другие строки записаны верно.",
+        },
+        {
+          id: "z4-razvernut-polnostyu",
+          kind: "short",
+          prompt: "Запиши полностью, без короткой формы: «We're fine.»",
+          answer: "We are fine.",
+          exact: true,
+          accept: ["We are fine"],
+          hint: "Апостроф уходит, а на его место возвращается буква.",
+          why: "We are fine. Короткая форма разворачивается обратно в два слова.",
+        },
+        {
+          id: "z5-sopostavit-korotkie",
+          kind: "match",
+          prompt: "Сопоставь полную форму и короткую.",
+          left: ["it is", "you are", "he is"],
+          right: ["you're", "he's", "it's"],
+          answer: [2, 0, 1],
+          hint: "У двух из трёх выпадает одна и та же буква.",
+          why: "It is — it's, you are — you're, he is — he's.",
+        },
+        {
+          id: "z6-gde-korotkaya-ne-goditsya",
+          kind: "choice",
+          prompt: "В какой строке короткая форма не годится?",
+          options: [
+            { text: "I'm Alim." },
+            { text: "Yes, I'm.", correct: true },
+            { text: "She's fine." },
+          ],
+          hint: "Посмотри, есть ли после короткой формы другие слова.",
+          why:
+            "«Yes, I'm» — короткая форма стоит последней, а после неё должны идти слова. " +
+            "Здесь нужна полная: Yes, I am. В двух других строках продолжение есть.",
+        },
+      ],
+    },
+
+    // =====================================================================
+    {
+      slug: "peresprosit",
+      title: "Если не удалось расслышать: Sorry?",
+      estimatedMinutes: 12,
+      outcome: "просит повторить сказанное и переспрашивает имя",
+
+      blocks: [
+        {
+          id: "zachem-peresprashivat",
+          kind: "explain",
+          text: [
+            "Разговор на первой ступени держится на повторении: это записано в требованиях " +
+              "к ступени прямо. Попросить повторить умеет и тот, кто говорит свободно, — " +
+              "просто в начале это нужно чаще.",
+            "Молча кивнуть, не разобрав слов, — самый неудачный выход: собеседник " +
+              "продолжит, а нить потеряна. Три коротких фразы решают дело.",
+          ],
+        },
+        {
+          id: "tablica-peresprosa",
+          kind: "table",
+          caption: "Чем переспрашивают",
+          head: ["Фраза", "Перевод", "Когда"],
+          rows: [
+            ["Sorry?", "Простите?", "не слышно совсем"],
+            ["Again, please.", "Ещё раз, пожалуйста.", "нужно повторение"],
+            ["How do you spell that?", "Как это пишется?", "слово слышно, но неясно, как его написать"],
+          ],
+        },
+        {
+          id: "sorry-dva-znacheniya",
+          kind: "note",
+          tone: "info",
+          text:
+            "Слово sorry уже встречалось как извинение. Здесь оно работает иначе: сказанное " +
+            "с вопросительной интонацией, голосом вверх, оно значит «повтори, пожалуйста». " +
+            "Одно слово в двух ролях: на письме их различает знак вопроса, в речи — голос.",
+        },
+        {
+          id: "please-v-konce",
+          kind: "note",
+          tone: "mistake",
+          text:
+            "В «Again, please» слово please стоит в конце и отделено запятой. Само по себе " +
+            "please — ещё не просьба, оно её только смягчает: просьбу несёт слово again.",
+        },
+        {
+          id: "razgovor-s-peresprosom",
+          kind: "example",
+          caption: "Как это выглядит в разговоре",
+          text:
+            "— Hello! I'm Aigerim.\n— Sorry?\n— Aigerim. A-I-G-E-R-I-M.\n— Nice to meet you, Aigerim.",
+          explain:
+            "Переспрос не обрывает разговор, а спасает его. В ответ имя называют ещё раз и " +
+            "сразу диктуют по буквам — так же, как в первом модуле.",
+        },
+        {
+          id: "zapis-peresprosa",
+          kind: "audio",
+          planned: true,
+          pace: "slow",
+          caption: "Послушай переспрос в разговоре",
+          transcript: "Hello! I'm Aigerim. — Sorry? — Aigerim. A-I-G-E-R-I-M.",
+        },
+        {
+          id: "slovar-peresprosa",
+          kind: "vocab",
+          caption: "Слова урока",
+          items: [
+            { term: "again", translation: "ещё раз", example: "Again, please.", hint: "/əˈɡen/" },
+            { term: "understand", translation: "понимать", example: "I understand.", hint: "/ˌʌndəˈstænd/" },
+          ],
+        },
+
+        // ---- задания ----
+        {
+          id: "z1-chto-skazat",
+          kind: "choice",
+          prompt: "Собеседник называет имя, но расслышать не удаётся. Что сказать?",
+          options: [
+            { text: "Thank you." },
+            { text: "Sorry?", correct: true },
+            { text: "Nice to meet you." },
+          ],
+          hint: "Нужна не вежливость вообще, а просьба повторить.",
+          why:
+            "Sorry? с вопросительной интонацией — просьба повторить. Thank you и Nice to " +
+            "meet you разговор продолжают, но услышать имя ещё раз не помогают.",
+        },
+        {
+          id: "z2-dopisat-please",
+          kind: "gap",
+          prompt: "Допиши просьбу повторить: «Ещё раз, пожалуйста».",
+          before: "Again, ",
+          after: ".",
+          answer: "please",
+          hint: "Слово вежливости, которое стоит в конце.",
+          why: "Again, please. Please ставят в конец и отделяют запятой.",
+        },
+        {
+          id: "z3-poryadok-peresprosa",
+          kind: "order",
+          prompt: "Расставь реплики по порядку.",
+          items: ["Sorry?", "Hello! I'm Aigerim.", "Nice to meet you.", "Aigerim. A-I-G-E-R-I-M."],
+          answer: [1, 0, 3, 2],
+          hint: "Сначала представляются, и только потом переспрашивают.",
+          why:
+            "Приветствие с именем, переспрос, повтор имени по буквам, вежливая концовка. " +
+            "Переспрос стоит между вопросом и ответом, а не в начале.",
+        },
+        {
+          id: "z4-otmetit-peresprosy",
+          kind: "hottext",
+          prompt: "Отметь фразы, которыми просят повторить.",
+          parts: [
+            { text: "Sorry?", selectable: true, correct: true },
+            { text: " · " },
+            { text: "Good evening.", selectable: true },
+            { text: " · " },
+            { text: "Again, please.", selectable: true, correct: true },
+            { text: " · " },
+            { text: "See you.", selectable: true },
+          ],
+          hint: "Две из четырёх обращены к тому, что уже прозвучало.",
+          why:
+            "Sorry? и Again, please возвращают разговор назад. Good evening — приветствие, " +
+            "See you — прощание.",
+        },
+        {
+          id: "z5-sprosit-napisanie",
+          kind: "short",
+          prompt: "Имя услышано, но непонятно, как оно пишется. Запиши вопрос целиком.",
+          answer: "How do you spell that?",
+          exact: true,
+          accept: ["How do you spell that"],
+          hint: "Тот же вопрос, что в первом модуле.",
+          why:
+            "How do you spell that? В ответ имя продиктуют по буквам — и его можно будет " +
+            "записать без ошибок.",
+        },
+        {
+          id: "z6-peresprosit-vsluh",
+          kind: "speak",
+          prompt: "Произнеси вслух переспрос и просьбу повторить.",
+          phrase: "Sorry? Again, please.",
+          translation: "Простите? Ещё раз, пожалуйста.",
+          hint: "У Sorry голос идёт вверх, как в вопросе. У Again, please — ровно.",
+          why:
+            "Эти две фразы выручают в любом разговоре. Произнеси их несколько раз, чтобы " +
+            "они шли одна за другой сами — тогда они придут на язык вовремя.",
+        },
+      ],
+    },
+
+    // =====================================================================
+    {
+      slug: "razgovor-celikom",
+      title: "Разговор целиком: от hello до bye",
+      estimatedMinutes: 15,
+      outcome: "ведёт короткий разговор при знакомстве от приветствия до прощания",
+
+      blocks: [
+        {
+          id: "zachem-celikom",
+          kind: "explain",
+          text: [
+            "Все части знакомства разобраны по отдельности: приветствие, имя, вопрос о " +
+              "делах, вежливые слова, переспрос, прощание. Осталось собрать их в один " +
+              "разговор — именно этого требования к ступени и ждут: поздороваться, назвать " +
+              "себя и попрощаться.",
+            "Ниже — один из возможных порядков, собранный из этих частей. Он не " +
+              "единственный: живой разговор бывает короче и идёт иначе. Но выучив этот, " +
+              "можно не придумывать каждый раз заново, что сказать дальше.",
+          ],
+        },
+        {
+          id: "poryadok-razgovora",
+          kind: "table",
+          caption: "Один разговор по шагам",
+          head: ["Шаг", "Что говорят", "Пример"],
+          rows: [
+            ["1", "приветствие", "Good morning!"],
+            ["2", "спросить имя", "What's your name?"],
+            ["3", "назвать себя", "I'm Dana."],
+            ["4", "вежливо откликнуться", "Nice to meet you."],
+            ["5", "спросить о делах", "How are you?"],
+            ["6", "ответить и вернуть вопрос", "I'm fine, thank you. And you?"],
+            ["7", "попрощаться", "Goodbye!"],
+          ],
+        },
+        {
+          id: "polnyy-razgovor",
+          kind: "example",
+          caption: "Тот же порядок целиком",
+          text:
+            "— Good morning! What's your name?\n— I'm Dana. And you?\n— I'm Alim. Nice to meet you.\n" +
+            "— Nice to meet you too. How are you?\n— I'm fine, thank you. And you?\n— Fine, thanks. Goodbye!\n— Bye!",
+          explain:
+            "Каждая реплика опирается на предыдущую: вопрос — ответ, ответ — встречный " +
+            "вопрос. Слово too в «Nice to meet you too» значит «тоже»: оно возвращает " +
+            "сказанное собеседнику.",
+        },
+        {
+          id: "vstrechnyy-vopros",
+          kind: "note",
+          tone: "info",
+          text:
+            "And you? — короткий способ вернуть собеседнику любой вопрос. Он годится и " +
+            "после имени, и после «как дела»: повторять вопрос целиком не нужно.",
+        },
+        {
+          id: "gde-rvyotsya-razgovor",
+          kind: "note",
+          tone: "mistake",
+          text:
+            "У разговора есть место, где он легко останавливается: ответ прозвучал, а " +
+            "встречный вопрос — нет. «I'm fine» — и тишина. Ответить так не ошибка, но " +
+            "продолжать разговор придётся собеседнику. Добавь And you? — и очередь " +
+            "переходит к нему.",
+        },
+        {
+          id: "zapis-razgovora",
+          kind: "audio",
+          planned: true,
+          pace: "slow",
+          voice: "два голоса",
+          caption: "Послушай разговор целиком",
+          transcript:
+            "Good morning! What's your name? — I'm Dana. And you? — I'm Alim. Nice to meet you. " +
+            "— Nice to meet you too. How are you? — I'm fine, thank you. And you? — Fine, thanks. Goodbye!",
+        },
+
+        // ---- задания ----
+        {
+          id: "z1-sobrat-razgovor",
+          kind: "order",
+          prompt: "Расставь реплики разговора по порядку.",
+          items: [
+            "I'm fine, thank you. And you?",
+            "Good morning! What's your name?",
+            "How are you?",
+            "I'm Dana.",
+          ],
+          answer: [1, 3, 2, 0],
+          hint: "Сначала здороваются и спрашивают имя, о делах — позже.",
+          why:
+            "Приветствие с вопросом об имени, ответ, вопрос о делах, ответ со встречным " +
+            "вопросом. Этот порядок и разобран в таблице урока.",
+        },
+        {
+          id: "z2-chto-dalshe",
+          kind: "choice",
+          prompt: "Собеседник сказал: «Nice to meet you.» Что ответить?",
+          options: [
+            { text: "Nice to meet you too.", correct: true },
+            { text: "Good night." },
+            { text: "How do you spell that?" },
+          ],
+          hint: "Нужно вернуть сказанное, добавив «тоже».",
+          why:
+            "Nice to meet you too. Слово too возвращает вежливость собеседнику. Good night " +
+            "говорят, уходя спать, а вопрос о написании здесь не к месту.",
+        },
+        {
+          id: "z3-dopisat-vstrechnyy",
+          kind: "gap",
+          prompt: "Допиши встречный вопрос после своего ответа.",
+          before: "I'm fine, thank you. And ",
+          after: "?",
+          answer: "you",
+          hint: "Второе слово в этом вопросе — местоимение собеседника.",
+          why: "And you? Так вопрос возвращают, не повторяя его целиком.",
+        },
+        {
+          id: "z4-najti-obryv",
+          kind: "hottext",
+          prompt: "Отметь ответы, в которых есть встречный вопрос.",
+          parts: [
+            { text: "I'm fine, thank you. And you?", selectable: true, correct: true },
+            { text: " · " },
+            { text: "I'm Alim.", selectable: true },
+            { text: " · " },
+            { text: "I'm Dana. And you?", selectable: true, correct: true },
+            { text: " · " },
+            { text: "Fine, thanks.", selectable: true },
+          ],
+          hint: "Ищи два слова, которыми вопрос возвращают собеседнику.",
+          why:
+            "And you? есть в двух ответах — после них очередь переходит к собеседнику. " +
+            "«I'm Alim» и «Fine, thanks» отвечают верно, но разговор дальше не двигают.",
+        },
+        {
+          id: "z5-sopostavit-shagi",
+          kind: "match",
+          prompt: "Сопоставь шаг разговора и фразу.",
+          left: ["спросить имя", "спросить о делах", "попрощаться"],
+          right: ["How are you?", "Goodbye!", "What's your name?"],
+          answer: [2, 0, 1],
+          hint: "Две фразы — вопросы, и различает их вопросительное слово.",
+          why: "What's your name? — об имени, How are you? — о делах, Goodbye! — прощание.",
+        },
+        {
+          id: "z6-razgovor-vsluh",
+          kind: "speak",
+          prompt: "Произнеси вслух свою часть разговора: представься, спроси о делах и попрощайся.",
+          phrase: "Hello! I'm ... . Nice to meet you. How are you? ... Goodbye!",
+          translation: "Здравствуйте! Я ... . Приятно познакомиться. Как дела? ... До свидания!",
+          hint: "Между репликами оставляй паузу — в разговоре там отвечает собеседник.",
+          why:
+            "Это весь модуль в одном упражнении: если фразы идут одна за другой сами, " +
+            "значит, модуль собран в одну речь.",
+        },
+      ],
+    },
   ],
 
   // =======================================================================
   // Проверочная работа модуля.
-  // Заданий, где ответ нужно написать самому, — 5 из 11. Все три итога проверяются.
+  // Заданий, где ответ нужно написать самому, — 11 из 21. Все восемь итогов проверяются.
   // =======================================================================
   quiz: {
-    ask: 6,
+    ask: 8,
     passRatio: 0.7,
     questions: [
+      {
+        id: "q-mestoimenie-o-nurlane",
+        kind: "choice",
+        outcome: "ставит местоимение-подлежащее перед глаголом: I, you, he, she, it, we, they",
+        prompt: "Речь о Нурлане. Каким местоимением его назвать?",
+        options: [{ text: "he", correct: true }, { text: "she" }, { text: "it" }],
+        why: "He — о мужчине. She говорят о женщине, it — о предмете или животном.",
+      },
+      {
+        id: "q-mestoimenie-my",
+        kind: "gap",
+        outcome: "ставит местоимение-подлежащее перед глаголом: I, you, he, she, it, we, they",
+        prompt: "Допиши местоимение «мы».",
+        before: "",
+        after: " are Alim and Dana.",
+        answer: "We",
+        exact: true,
+        why: "We are Alim and Dana. Местоимение стоит перед глаголом и открывает предложение.",
+      },
+      {
+        id: "q-forma-be-they",
+        kind: "choice",
+        outcome: "выбирает am, is или are по подлежащему",
+        prompt: "Какая форма глагола be нужна после they?",
+        options: [{ text: "are", correct: true }, { text: "is" }, { text: "am" }],
+        why: "They are. Форма are идёт с you, we и they. Am бывает только с I.",
+      },
+      {
+        id: "q-vstavit-is",
+        kind: "gap",
+        outcome: "выбирает am, is или are по подлежащему",
+        prompt: "Допиши форму глагола be.",
+        before: "She ",
+        after: " fine.",
+        answer: "is",
+        why: "She is fine. С he, she и it идёт форма is.",
+      },
+      {
+        id: "q-korotkaya-he-is",
+        kind: "short",
+        outcome: "узнаёт и пишет короткие формы глагола be",
+        prompt: "Запиши коротко: we are.",
+        answer: "we're",
+        accept: ["We're"],
+        why: "We're. Из are выпала a, и на её месте стоит апостроф.",
+      },
+      {
+        id: "q-otvet-bez-korotkoy",
+        kind: "choice",
+        outcome: "узнаёт и пишет короткие формы глагола be",
+        prompt: "В какой строке короткая форма записана верно?",
+        options: [
+          { text: "Its OK." },
+          { text: "It's OK.", correct: true },
+          { text: "It,s OK." },
+        ],
+        why:
+          "It's OK. Апостроф — чёрточка вверху строки, и стоит она на месте выпавшей " +
+          "буквы i. Запятая на это место не годится, а без знака слова сливаются.",
+      },
+      {
+        id: "q-ne-rasslyshal",
+        kind: "choice",
+        outcome: "просит повторить сказанное и переспрашивает имя",
+        prompt: "Имя названо, но расслышать его не удаётся. Что сказать?",
+        options: [
+          { text: "Thank you." },
+          { text: "See you." },
+          { text: "Sorry?", correct: true },
+        ],
+        why: "Sorry? с вопросительной интонацией — просьба повторить.",
+      },
+      {
+        id: "q-dopisat-again",
+        kind: "gap",
+        outcome: "просит повторить сказанное и переспрашивает имя",
+        prompt: "Допиши просьбу повторить: «Ещё раз, пожалуйста».",
+        before: "",
+        after: ", please.",
+        answer: "Again",
+        exact: true,
+        why: "Again, please. Please стоит в конце и отделяется запятой.",
+      },
+      {
+        id: "q-razgovor-ot-i-do",
+        kind: "order",
+        outcome: "ведёт короткий разговор при знакомстве от приветствия до прощания",
+        prompt: "Расставь реплики разговора по порядку — от приветствия до прощания.",
+        items: ["How are you?", "Good morning! What's your name?", "Goodbye!", "I'm Dana."],
+        answer: [1, 3, 0, 2],
+        why:
+          "Приветствие с вопросом об имени, ответ, вопрос о делах, прощание. Тот же " +
+          "порядок разобран в уроке.",
+      },
+      {
+        id: "q-vernut-vopros",
+        kind: "gap",
+        outcome: "ведёт короткий разговор при знакомстве от приветствия до прощания",
+        prompt: "Допиши встречный вопрос после своего ответа.",
+        before: "I'm Alim. And ",
+        after: "?",
+        answer: "you",
+        why: "And you? Так вопрос возвращают собеседнику, не повторяя его целиком.",
+      },
       {
         id: "q-vecher",
         kind: "choice",
