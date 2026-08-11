@@ -737,7 +737,7 @@ const module: Module = {
           caption: "Слова урока",
           items: [
             { term: "much", translation: "много; в вопросе о цене — сколько", example: "How much is it?", hint: "/mʌtʃ/" },
-            { term: "price", translation: "цена", example: "the price of a ticket", hint: "/praɪs/" },
+            { term: "price", translation: "цена", example: "a good price", hint: "/praɪs/" },
           ],
         },
 
