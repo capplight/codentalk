@@ -479,6 +479,11 @@ const module: Module = {
           kind: "vocab",
           caption: "Слова урока",
           items: [
+            // Сами артикли в словаре не стояли: урок о них есть, а слова в
+            // тренажёр повторения не попадали. Нашлось сквозной проверкой
+            // курса — `npm run chain`.
+            { term: "a", translation: "один из таких, называют впервые", example: "I'm a student.", hint: "/ə/" },
+            { term: "an", translation: "то же перед гласным звуком", example: "She's an artist.", hint: "/ən/" },
             { term: "artist", translation: "художник", example: "She's an artist.", hint: "/ˈɑːtɪst/" },
             { term: "actor", translation: "актёр", example: "He's an actor.", hint: "/ˈæktə/" },
             { term: "apple", translation: "яблоко", example: "an apple", hint: "/ˈæpl/" },

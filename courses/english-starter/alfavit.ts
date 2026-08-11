@@ -357,8 +357,8 @@ const module: Module = {
           kind: "vocab",
           caption: "Слова урока",
           items: [
-            // Примеры намеренно без the: определённый артикль в курсе нигде не
-            // разбирается, а здесь ученик видит первые английские строчки.
+            // Примеры намеренно без the: определённый артикль вводится позже, в
+            // модуле 10, а здесь ученик видит первые английские строчки.
             { term: "letter", translation: "буква", example: "letter B", hint: "/ˈletə/" },
             { term: "word", translation: "слово", example: "a long word", hint: "/wɜːd/" },
             { term: "spell", translation: "писать по буквам", example: "How do you spell it?", hint: "/spel/" },

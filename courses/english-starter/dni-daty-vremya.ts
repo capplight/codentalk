@@ -24,6 +24,50 @@ import type { Module } from "@/lib/content/types";
  *    year, today, tomorrow, morning, afternoon, evening, night, date,
  *    birthday, when, meeting, lesson.
  *
+ * 4. ОПРЕДЕЛЁННЫЙ АРТИКЛЬ — урок «A и the», дописан позже остальных по
+ *    решению владельца (был блокер, docs/zadachi-vladeltsa.md, п. 1.18).
+ *    Ступень: Oxford 3000, с. 10 — `the definite article A1`; English Grammar
+ *    Profile, DETERMINERS articles, A1, «FORM: WITH NOUNS»: «Can use articles
+ *    'the', 'a' and 'an' before nouns», пример источника — «She lives in a
+ *    small flat in the town».
+ *
+ *    ПОЧЕМУ ИМЕННО ЗДЕСЬ, А НЕ В МОДУЛЕ 3 ИЛИ 11. Счёт по всему курсу, в тексте
+ *    для ученика (комментарии и `sources` исключены, проверочные работы учтены):
+ *    модули 1–9 — НОЛЬ, этот модуль — 175, из них 37 в самом уроке об артикле;
+ *    модуль 11 — 121; модуль 12 — 315. То есть первое употребление приходится
+ *    ровно сюда, и правило вводится там, где впервые нужно. В модуле 3 его
+ *    вводить было бы рано по другой причине: разницу показывают вторым
+ *    упоминанием («I've got a meeting. The meeting is on Monday»), а сказать
+ *    что-либо о предмете во второй раз ученик до этого модуля не может — ни
+ *    времени, ни прилагательных у него ещё нет.
+ *
+ *    ПРАВИЛО В УРОКЕ ШИРЕ, ЧЕМ «СО ВТОРОГО РАЗА», и это находка методиста.
+ *    Первая редакция урока учила только второму упоминанию — и объявляла
+ *    ошибкой то, что курс требует делать через два урока: «The meeting is at
+ *    seven» стоит в уроке «At, in, on» при первом упоминании, и таких мест в
+ *    модуле десяток. Источник тоже шире: cambridge-young-learners-pre-a1-a2.pdf,
+ *    с. 11, грамматический список Pre A1 Starters, строка Determiners — «Put the
+ *    hat on the boy's head», тоже первое упоминание. Поэтому урок даёт оба
+ *    случая: собеседник понимает, о чём речь, либо из разговора, либо из
+ *    обстановки.
+ *
+ *    ЧЕГО ИСТОЧНИКИ НЕ ЗАКРЫВАЮТ ВОВСЕ: употребления артикля в связном тексте
+ *    (первое упоминание, ситуация, единственность) нет ни в English Grammar
+ *    Profile, который описывает форму, ни в руководствах Cambridge, где есть
+ *    только примеры. Формулировка урока — решение уровня преподавателя, и
+ *    владелец о нём предупреждён.
+ *
+ *    ЧЕГО В УРОКЕ НЕТ НАМЕРЕННО: `the` + прилагательное + существительное
+ *    («opposite the new café») стоит на A2 отдельной строкой — DETERMINERS
+ *    articles, «FORM/USE: 'THE' + ADJECTIVES, SPECIFYING». Поэтому во всех
+ *    примерах урока между `the` и названием ничего не стоит.
+ *
+ *    ОБОРОТ `I've got a meeting` — решение уровня преподавателя. Руководство
+ *    Cambridge (с. 11) даёт `have got` со значением обладания: «Have you got a
+ *    pen?». Встреча обладанием не является, и сочетаемость словники не
+ *    описывают. Оборот при этом обиходный, а другого способа назвать встречу
+ *    на этой ступени нет: настоящее простое время идёт в модуле 14.
+ *
  * ЧЕГО ЗДЕСЬ НЕТ И ПОЧЕМУ:
  *
  * — номер телефона: программа отдаёт его этому модулю, но урок про диктовку
@@ -96,6 +140,11 @@ const module: Module = {
         "с. 11, грамматический список Pre A1 Starters: «Prepositions of place and time — " +
         "We go to school in the morning» — оборот in the morning подтверждён на самой " +
         "низкой ступени. " +
+        "ТАМ ЖЕ строка «Determiners»: «It's a banana. This is an apple. Put the hat on the " +
+        "boy's head. I want some milk» — определённый артикль стоит на Pre A1 Starters, " +
+        "то есть НИЖЕ A1, и в примере источника the стоит при первом упоминании, по " +
+        "обстановке. Это опора урока «A и the» и основание того, что правило в нём шире, " +
+        "чем «со второго раза». Нашёл методист. " +
         "с. 67, образец A2 Flyers: «10 o'clock at night» — отсюда оборот at night. " +
         "РАСХОЖДЕНИЕ ИСТОЧНИКОВ, ТРЕБУЕТ РЕШЕНИЯ ВЛАДЕЛЬЦА: тематический список «Time» на " +
         "с. 83 ставит hour, minute, month, past, quarter, time, tomorrow, date и ВСЕ " +
@@ -109,6 +158,13 @@ const module: Module = {
       section:
         "A1, PREPOSITIONS «FORM: SIMPLE»: «Can use a limited range of simple (single-word) " +
         "prepositions» — at, in, on. Там же A1 «FORM: PREPOSITION + NOUN PHRASE». " +
+        "A1, DETERMINERS articles «FORM: WITH NOUNS»: «Can use articles 'the', 'a' and " +
+        "'an' before nouns», пример источника — «She lives in a small flat in the town» — " +
+        "основание урока «A и the». Все три артикля стоят одной строкой и на A1. " +
+        "ЧЕГО В УРОКЕ НЕТ: A2, DETERMINERS articles «FORM/USE: 'THE' + ADJECTIVES, " +
+        "SPECIFYING» — the перед прилагательным с существительным, пример источника " +
+        "«My house is opposite the new café». Поэтому между the и названием в уроке " +
+        "ничего не стоит. " +
         "A1, DETERMINERS articles «FORM: PREPOSITION + NO ARTICLE», пример источника — " +
         "«If you are at home»: отсюда оборот at night без артикля. Строка с примером " +
         "«The weather is very cold at night» стоит на B1, поэтому в уроке даётся не " +
@@ -146,6 +202,7 @@ const module: Module = {
         "того же ряда); time, hour, minute, half, quarter, past, day, week, month, year, " +
         "today, tomorrow, morning, afternoon, evening, night, date, birthday, when, " +
         "meeting, lesson, free, busy, good, at, in, on. " +
+        "АРТИКЛЬ the — с. 10, «the definite article A1», между that и theatre. " +
         "СЛОВО o'clock — тоже A1: «o'clock adv. A1», с. 7, между ocean и October. " +
         "Первая моя проверка утверждала, что его в Oxford 3000 нет вовсе, и на этом " +
         "строилось целое рассуждение о превышении ступени. Причина промаха: в файле " +
@@ -161,7 +218,10 @@ const module: Module = {
         "произношение слов модуля, британская норма. Условности курса соблюдены: краткий " +
         "гласный через e, конечный безударный через ə, слоговой согласный без ə " +
         "(CLAUDE.md, раздел о британской норме). Wednesday — /ˈwenzdeɪ/, буква d не " +
-        "звучит; сверено по обоим файлам",
+        "звучит; сверено по обоим файлам. " +
+        "АРТИКЛЬ the: у него две формы, и оба файла это дают — ipa-en-uk.txt «the /ðə, " +
+        "ði/», wikipron-en-uk.tsv «the ð ə» и «the ð i». Поэтому урок говорит про обе: " +
+        "/ðə/ перед согласным звуком, /ði/ перед гласным",
       license: "CC BY-SA и свободная лицензия, базы не перепубликуются",
     },
   ],
@@ -171,6 +231,7 @@ const module: Module = {
     "называть месяцы и записывать дату цифрой и месяцем",
     "говорить, который час: It's seven o'clock",
     "называть половину и четверть часа",
+    "выбирать a или the: I've got a meeting — The meeting is on Monday",
     "называть часть суток: in the morning, at night",
     "ставить at, in или on перед словом о времени",
     "спрашивать о дне и о времени: When и What time",
@@ -729,13 +790,15 @@ const module: Module = {
         {
           id: "primer-polovin",
           kind: "example",
-          caption: "Разговор у входа",
+          caption: "Разговор на остановке",
           text:
-            "— What time is it?\n— It's half past six.\n— And the meeting?\n" +
+            "— What time is it?\n— It's half past six.\n— And your bus?\n" +
             "— At a quarter to seven.",
           explain:
             "Half past six — это 6:30. A quarter to seven — 6:45, четверть до семи. " +
-            "Время встречи названо после at — перед точным временем ставят именно at.",
+            "Время автобуса стоит после at: перед точным временем ставят именно at.\n\n" +
+            "And your bus? — «А твой автобус?». Так возвращают вопрос собеседнику, как " +
+            "And you? в модуле «Вопрос и краткий ответ».",
         },
         {
           id: "zapis-polovin",
@@ -841,6 +904,193 @@ const module: Module = {
 
     // =====================================================================
     {
+      // Урок дописан позже остальных, по просьбе владельца. До него курс не
+      // разбирал определённый артикль нигде, хотя дальше он идёт сплошь: 99
+      // раз в этом модуле, 91 в одиннадцатом, 228 в двенадцатом. Место выбрано
+      // по счёту: в модулях 1–9 слова the нет ни разу, а первое употребление
+      // приходится ровно на следующие уроки этого модуля. Заплатки «бери в
+      // готовых предложениях как есть» из модулей 10, 11 и 12 сняты.
+      slug: "a-i-the",
+      title: "A и the",
+      estimatedMinutes: 13,
+      outcome: "выбирать a или the: I've got a meeting — The meeting is on Monday",
+
+      blocks: [
+        {
+          id: "zachem-the",
+          kind: "explain",
+          text: [
+            "Ты пишешь знакомому: I've got a meeting. Ни о какой встрече он до этой минуты " +
+              "не знал. Ты называешь её впервые, поэтому стоит a.",
+            "Дальше речь идёт уже об этой самой встрече. Второй раз говорят the: " +
+              "The meeting is on Monday.",
+            "Правило за этим простое. A — собеседник ещё не знает, о чём ты говоришь. " +
+              "The — уже знает.",
+          ],
+        },
+        {
+          id: "tablica-a-the",
+          kind: "table",
+          caption: "Первый раз и дальше",
+          head: ["Называешь впервые", "Говоришь об этом же", "Перевод второго"],
+          rows: [
+            ["I've got a meeting.", "The meeting is on Monday.", "Встреча в понедельник."],
+            ["I've got a lesson.", "The lesson is on Friday.", "Занятие в пятницу."],
+          ],
+        },
+        {
+          // Методист: правило «the со второго раза» курс нарушает в следующих
+          // же уроках — «The meeting is at seven» стоит там при первом
+          // упоминании. И источник шире: Cambridge Pre A1 Starters даёт
+          // «Put the hat on the boy's head» тоже с первого раза. Поэтому
+          // второй случай разбирается здесь же, а не замалчивается.
+          id: "the-i-bez-pervogo-raza",
+          kind: "explain",
+          text: [
+            "Знать, о чём речь, собеседник может не только из разговора. Иногда и так " +
+              "ясно: занятие у вас одно, о встрече вы уже договорились, стол в комнате " +
+              "один.",
+            "Тогда the ставят сразу, без всякого a: The meeting is on Monday. Так " +
+              "построено большинство предложений этого модуля.",
+          ],
+        },
+        {
+          id: "otkuda-yasno",
+          kind: "table",
+          caption: "Откуда собеседник знает, о чём речь",
+          head: ["Предложение", "Почему the"],
+          rows: [
+            ["The meeting is on Monday.", "о встрече вы уже говорили"],
+            ["The lesson is on Friday.", "занятие у вас одно"],
+          ],
+        },
+        {
+          id: "the-ne-menyaetsya",
+          kind: "note",
+          tone: "info",
+          text:
+            "Пишут the всегда одинаково, какой бы звук ни шёл следом: the meeting, the " +
+            "artist. Выбирать, как между a и an, не приходится.\n\nА читают двумя " +
+            "способами: /ðə/ перед согласным звуком и /ði/ перед гласным — the artist, " +
+            "the hour.",
+        },
+        {
+          id: "the-s-pervogo-raza",
+          kind: "note",
+          tone: "mistake",
+          text:
+            "The ставят, когда собеседник может понять, о чём речь. Если понять неоткуда, " +
+            "нужен a: сказать незнакомому человеку «The meeting is on Monday» — значит " +
+            "услышать в ответ «о какой встрече?».\n\nПо-русски артиклей нет, и рука " +
+            "тянется ставить the везде. Проверяй себя одним вопросом: понимает ли " +
+            "собеседник, о чём я говорю? Если нет — a.",
+        },
+        {
+          id: "primer-a-the",
+          kind: "example",
+          caption: "Разговор о встрече",
+          text:
+            "— I've got a meeting.\n— Is the meeting on Monday?\n— No, it isn't. " +
+            "It's on Friday.",
+          explain:
+            "В первой строке встреча названа впервые — a meeting. Во второй собеседник " +
+            "спрашивает уже о ней же, поэтому the meeting. Вопрос построен перестановкой, " +
+            "как в модуле «Вопрос и краткий ответ».",
+        },
+        {
+          id: "zapis-a-the",
+          kind: "audio",
+          planned: true,
+          pace: "slow",
+          caption: "Послушай a и the рядом",
+          transcript:
+            "I've got a meeting. The meeting is on Monday. I've got a lesson. " +
+            "The lesson is on Friday.",
+        },
+        {
+          id: "slovar-a-the",
+          kind: "vocab",
+          caption: "Слова урока",
+          items: [
+            { term: "the", translation: "тот самый, о котором речь", example: "The meeting is on Monday.", hint: "/ðə/, перед гласным звуком /ði/" },
+            { term: "meeting", translation: "встреча", example: "a meeting on Monday", hint: "/ˈmiːtɪŋ/" },
+            { term: "lesson", translation: "занятие", example: "a lesson on Friday", hint: "/ˈlesn/" },
+          ],
+        },
+
+        // ---- задания ----
+        {
+          id: "z1-vtoroy-raz",
+          kind: "gap",
+          prompt: "Встреча уже названа. Допиши артикль во втором предложении.",
+          before: "I've got a meeting. ",
+          after: " meeting is on Monday.",
+          answer: "The",
+          hint: "Собеседник уже знает, о какой встрече речь.",
+          why:
+            "The meeting is on Monday. Первый раз встречу назвали через a, дальше о ней " +
+            "же говорят the.",
+        },
+        {
+          id: "z2-pervyy-raz",
+          kind: "choice",
+          prompt: "Ты начинаешь разговор и сообщаешь о занятии. Как сказать?",
+          options: [
+            { text: "I've got a lesson.", correct: true },
+            { text: "I've got the lesson." },
+            { text: "I've got lesson." },
+          ],
+          hint: "Собеседник о занятии ещё не слышал.",
+          why:
+            "I've got a lesson. Занятие называют впервые, поэтому a. The значил бы, что " +
+            "собеседник уже знает, о каком занятии речь.",
+        },
+        {
+          id: "z3-otmetit-oshibki-the",
+          kind: "hottext",
+          prompt: "Отметь записи, где артикль выбран неверно.",
+          parts: [
+            { text: "I've got a meeting. The meeting is on Friday.", selectable: true },
+            { text: " · " },
+            { text: "I've got the meeting. A meeting is on Friday.", selectable: true, correct: true },
+            { text: " · " },
+            { text: "I've got a lesson. The lesson is on Monday.", selectable: true },
+            { text: " · " },
+            { text: "I've got the lesson. A lesson is on Monday.", selectable: true, correct: true },
+          ],
+          hint: "Смотри, какое предложение идёт первым.",
+          why:
+            "Во второй и четвёртой записи артикли переставлены местами: сначала стоит the, " +
+            "хотя называют впервые.",
+        },
+        {
+          id: "z4-sobrat-vtoroe",
+          kind: "order",
+          prompt: "Первое предложение сказано: I've got a lesson. Собери второе: «Занятие в пятницу».",
+          items: ["is", "lesson", "The", "on Friday"],
+          answer: [2, 1, 0, 3],
+          hint: "О занятии уже сказано, значит впереди стоит the.",
+          why:
+            "The lesson is on Friday. Порядок обычный: сначала то, о чём речь, потом " +
+            "форма be, потом остальное.",
+        },
+        {
+          id: "z5-napisat-paru",
+          kind: "short",
+          prompt:
+            "Занятие уже названо, оно в среду. Запиши второе предложение целиком, начни с The.",
+          answer: "The lesson is on Wednesday.",
+          exact: true,
+          accept: ["The lesson is on Wednesday"],
+          hint: "Образец — вторая строка таблицы, день в ней другой.",
+          why:
+            "The lesson is on Wednesday. Второй раз о том же самом говорят с the.",
+        },
+      ],
+    },
+
+    // =====================================================================
+    {
       slug: "chasti-sutok",
       title: "Утро, день, вечер, ночь",
       estimatedMinutes: 13,
@@ -887,10 +1137,10 @@ const module: Module = {
           kind: "note",
           tone: "info",
           text:
-            "Слово the тебе ещё не встречалось, и разбирать его сейчас не нужно. В этих " +
-            "оборотах бери его вместе с остальными словами, как одно длинное: " +
-            "in-the-morning. Так же и в The meeting is at seven — the просто стоит перед " +
-            "словом, к которому относится.",
+            "Слово the знакомо по уроку «A и the»: оно говорит, что собеседник уже знает, " +
+            "о чём речь.\n\nВ оборотах о частях суток спрашивать себя об этом не нужно: " +
+            "утро в сутках одно, и the стоит там всегда. Бери оборот целиком, как одно " +
+            "длинное слово: in-the-morning.",
         },
         {
           id: "primer-sutok",
@@ -1082,8 +1332,6 @@ const module: Module = {
             { term: "at", translation: "в (о точном времени)", example: "at six o'clock", hint: "/æt/" },
             { term: "on", translation: "в (о дне и дате)", example: "on Friday", hint: "/ɒn/" },
             { term: "in", translation: "в (о месяце и годе)", example: "in June", hint: "/ɪn/" },
-            { term: "meeting", translation: "встреча", example: "a meeting on Monday", hint: "/ˈmiːtɪŋ/" },
-            { term: "lesson", translation: "занятие", example: "a lesson at five", hint: "/ˈlesn/" },
           ],
         },
 
@@ -1508,7 +1756,10 @@ const module: Module = {
   // на каждый приходится не меньше двух вопросов, поэтому спрашиваем восемь.
   // =======================================================================
   quiz: {
-    ask: 8,
+    // Девять итогов — девять вопросов, как в модуле «Числа, возраст, цена».
+    // При восьми один итог остался бы неспрошенным, и какой именно — вышло бы
+    // случайно.
+    ask: 9,
     passRatio: 0.7,
     questions: [
       {
@@ -1642,6 +1893,45 @@ const module: Module = {
           { text: "o'clock" },
         ],
         why: "Ten to seven. До семи осталось десять минут, значит to.",
+      },
+      {
+        id: "q-the-po-situacii",
+        kind: "choice",
+        outcome: "выбирать a или the: I've got a meeting — The meeting is on Monday",
+        prompt: "О встрече вы с собеседником уже договорились. Как о ней сказать?",
+        options: [
+          { text: "The meeting is on Monday.", correct: true },
+          { text: "A meeting is on Monday." },
+          { text: "Meeting is on Monday." },
+        ],
+        why:
+          "The meeting is on Monday. Собеседник знает, о какой встрече речь, — значит " +
+          "the, даже если вслух её ещё не называли.",
+      },
+      {
+        id: "q-pervyy-raz-quiz",
+        kind: "short",
+        outcome: "выбирать a или the: I've got a meeting — The meeting is on Monday",
+        prompt:
+          "Ты впервые говоришь знакомому, что у тебя есть занятие. Запиши предложение целиком.",
+        answer: "I've got a lesson.",
+        exact: true,
+        accept: ["I've got a lesson", "I have got a lesson.", "I have got a lesson"],
+        why:
+          "I've got a lesson. Занятие называют впервые, и понять, о каком речь, " +
+          "собеседнику неоткуда — поэтому a.",
+      },
+      {
+        id: "q-artikl-pri-pervom",
+        kind: "gap",
+        outcome: "выбирать a или the: I've got a meeting — The meeting is on Monday",
+        prompt: "Ты впервые говоришь о занятии. Допиши артикль.",
+        before: "I've got ",
+        after: " lesson.",
+        answer: "a",
+        why:
+          "I've got a lesson. О занятии говорят впервые, и собеседник о нём ещё не " +
+          "знает.",
       },
       {
         // Раньше это был дословный близнец задания урока: тот же вопрос и те
