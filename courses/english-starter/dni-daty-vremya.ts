@@ -46,7 +46,7 @@ import type { Module } from "@/lib/content/types";
  *    ошибкой то, что курс требует делать через два урока: «The meeting is at
  *    seven» стоит в уроке «At, in, on» при первом упоминании, и таких мест в
  *    модуле десяток. Источник тоже шире: cambridge-young-learners-pre-a1-a2.pdf,
- *    с. 11, грамматический список Pre A1 Starters, строка Determiners — «Put the
+ *    с. 29, грамматический список Pre A1 Starters, строка Determiners — «Put the
  *    hat on the boy's head», тоже первое упоминание. Поэтому урок даёт оба
  *    случая: собеседник понимает, о чём речь, либо из разговора, либо из
  *    обстановки.
@@ -63,7 +63,7 @@ import type { Module } from "@/lib/content/types";
  *    примерах урока между `the` и названием ничего не стоит.
  *
  *    ОБОРОТ `I've got a meeting` — решение уровня преподавателя. Руководство
- *    Cambridge (с. 11) даёт `have got` со значением обладания: «Have you got a
+ *    Cambridge (с. 29) даёт `have got` со значением обладания: «Have you got a
  *    pen?». Встреча обладанием не является, и сочетаемость словники не
  *    описывают. Оборот при этом обиходный, а другого способа назвать встречу
  *    на этой ступени нет: настоящее простое время идёт в модуле 14.
@@ -137,7 +137,7 @@ const module: Module = {
         "hundred, pair» — A1 Movers, «101–1,000, 21st–31st…» — A2 Flyers. То есть " +
         "порядковые до двадцатого стоят на A1 MOVERS, а не на A2, как было записано " +
         "сначала. Ошибку нашёл методист. " +
-        "с. 11, грамматический список Pre A1 Starters: «Prepositions of place and time — " +
+        "с. 29, грамматический список Pre A1 Starters: «Prepositions of place and time — " +
         "We go to school in the morning» — оборот in the morning подтверждён на самой " +
         "низкой ступени. " +
         "ТАМ ЖЕ строка «Determiners»: «It's a banana. This is an apple. Put the hat on the " +

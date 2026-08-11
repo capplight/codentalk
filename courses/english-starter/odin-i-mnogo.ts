@@ -86,7 +86,7 @@ const module: Module = {
     {
       ref: "Cambridge English, руководство для младших ступеней",
       section:
-        "с. 11 и 29, перечень структур ступени Pre A1 Starters, дословно: «Nouns Singular and " +
+        "с. 29, перечень структур ступени Pre A1 Starters, дословно: «Nouns Singular and " +
         "plural including irregular plural forms, countable and uncountable and names» — " +
         "то есть Cambridge ставит и множественное " +
         "число, и неправильные формы НИЖЕ ступени A1. Источники расходятся с English " +

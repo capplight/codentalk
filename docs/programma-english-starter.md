@@ -17,7 +17,7 @@
 |---|---|---|
 | Умения ступени | `cefr-companion-2020.pdf`, шкалы **A1** (промежуточная планка — Pre-A1) | `npm run pdf -- materials/cefr-companion-2020.pdf 79 79` |
 | Состав грамматики | `English Grammar Profile Online.csv`, ступень **A1** — 109 пунктов | столбец `Level` = A1 |
-| Грамматика для начинающих | `cambridge-young-learners-pre-a1-a2.pdf`, Grammar and Structures List, с. 11 | `npm run pdf -- materials/cambridge-young-learners-pre-a1-a2.pdf 11 11` |
+| Грамматика для начинающих | `cambridge-young-learners-pre-a1-a2.pdf`, Grammar and Structures List, с. 29 | `npm run pdf -- materials/cambridge-young-learners-pre-a1-a2.pdf 11 11` |
 | Отбор слов | `oxford-3000.pdf` — около 901 значения с пометкой A1 | поиск по файлу |
 | Форматы заданий | руководства Cambridge | `cambridge-a2-key-handbook.pdf` |
 
@@ -105,7 +105,7 @@ A2. У Cambridge в списке Pre-A1: «Have (got) for possession — Have yo
 **Темы оттуда не берём.** Источник тем — описания Совета Европы: они не задают
 возраст и говорят о делах, одинаково нужных школьнику и взрослому.
 
-**Грамматику оттуда берём.** Grammar and Structures List (с. 11) возраста не
+**Грамматику оттуда берём.** Grammar and Structures List (с. 29) возраста не
 имеет: повелительное наклонение, вопросительные слова, краткие ответы,
 `have got`, предлоги времени, `that/these/those`. В первой редакции программы это
 было отброшено вместе с темами — ошибка, найденная проверкой.

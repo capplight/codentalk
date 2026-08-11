@@ -76,7 +76,7 @@ const module: Module = {
         "2) CLAUSES imperatives «FORM: AFFIRMATIVE» и «USE: INSTRUCTIONS», A2, пример — " +
         "«Take a taxi to the Petrol station then call me». Программа берёт повелительное " +
         "наклонение для указаний прямо и помечает как сверх ступени. Защита та же, что в " +
-        "модуле 1: руководство Cambridge для младших ступеней, с. 11, перечисляет " +
+        "модуле 1: руководство Cambridge для младших ступеней, с. 29, перечисляет " +
         "imperative среди форм глагола для Pre A1 Starters; " +
         "3) вопросительное слово where — QUESTIONS wh-, A2, взято по решению 1 программы " +
         "и уже встречалось в модуле 3; " +

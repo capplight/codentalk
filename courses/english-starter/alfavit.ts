@@ -120,7 +120,7 @@ const module: Module = {
         "совет преподавателя. В проверочную работу он намеренно не вынесен: работа проверяет " +
         "запись и диктовку имени, а не знание порядка обращения с бумагами. " +
         "ОБОРОТ «How do you spell your name?» — наш вариант: источник называет «How do you " +
-        "spell that?» (с. 11). Притяжательное your на A1 (English Grammar Profile, " +
+        "spell that?» (с. 29). Притяжательное your на A1 (English Grammar Profile, " +
         "DETERMINERS possessives), но как готовый оборот источником не назван",
       license: "свободно распространяется, в уроки не копируется",
     },
@@ -145,7 +145,7 @@ const module: Module = {
         "СВЕРХ СТУПЕНИ, НАЙДЕНО МЕТОДИСТОМ И НЕ БЫЛО ОБЪЯВЛЕНО: повелительное наклонение " +
         "(`Please spell that.`) — CLAUSES imperatives «FORM: AFFIRMATIVE», A2. Ниже A2 его " +
         "в English Grammar Profile нет вовсе. Защита есть у Cambridge: руководство для " +
-        "младших ступеней, с. 11, перечисляет imperative среди форм глагола для Starters " +
+        "младших ступеней, с. 29, перечисляет imperative среди форм глагола для Starters " +
         "(пример источника — «Eat your lunch!»). Оборот учится целиком, устройство не " +
         "разбирается. Решать владельцу: оставить или снять. " +
         "ВЗЯТО ВПЕРЁД ИЗ МОДУЛЕЙ 2 И 3, ТОЖЕ НЕ БЫЛО ОБЪЯВЛЕНО: `I am from Kazakhstan` и " +
@@ -172,7 +172,7 @@ const module: Module = {
     {
       ref: "Cambridge English, Pre A1 Starters — Grammar and Structures List",
       section:
-        "с. 11: «Impersonal you — How do you spell that?» — отсюда взят оборот целиком. " +
+        "с. 29: «Impersonal you — How do you spell that?» — отсюда взят оборот целиком. " +
         "Там же «Can for requests/permission — Can I have some birthday cake?» — отсюда " +
         "вторая форма просьбы. Оба взяты по решению 1 программы курса. " +
         "ВНИМАНИЕ: программа отдаёт `can` в просьбе модулю 22, а здесь он появляется " +

@@ -88,11 +88,11 @@ const module: Module = {
     {
       ref: "Cambridge English, руководство для младших ступеней",
       section:
-        "с. 11, перечень форм глагола для ступени Pre A1 Starters: «Verbs (Positive, " +
+        "с. 29, перечень форм глагола для ступени Pre A1 Starters: «Verbs (Positive, " +
         "negative, question, imperative and short-answer forms, including contractions)». " +
         "Это единственный источник в materials/, где краткий ответ назван прямо: в English " +
         "Grammar Profile строки о кратких ответах нет ни на одной ступени (поиск по " +
-        "SHORT ANSWER — ноль совпадений). Там же, с. 11, пример источника «Is that yours?» — " +
+        "SHORT ANSWER — ноль совпадений). Там же, с. 29, пример источника «Is that yours?» — " +
         "вопрос с that на ступени Starters",
       license: "свободно распространяется, в уроки не копируется",
     },

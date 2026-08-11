@@ -11,6 +11,7 @@ import chislaVozrastCena from "./chisla-vozrast-cena";
 import dniDatyVremya from "./dni-daty-vremya";
 import gdeEto from "./gde-eto";
 import kakoyOn from "./kakoy-on";
+import zdesEst from "./zdes-est";
 
 /**
  * Английский с нуля — ступень до A1.
@@ -42,6 +43,7 @@ const course: Course = {
     dniDatyVremya,
     kakoyOn,
     gdeEto,
+    zdesEst,
   ],
 };
 

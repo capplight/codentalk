@@ -21,7 +21,7 @@ import type { Module } from "@/lib/content/types";
  *    WITH AUXILIARY 'BE/HAVE'», пример «Have you got a new dress for the
  *    party?» (это урок 5); VERBS types «FORM: AUXILIARY VERBS 'HAVE' AND 'DO'».
  *    Cambridge при этом ставит оборот ниже: руководство для младших ступеней,
- *    с. 11, перечень структур ступени Pre A1 Starters — «Have (got) for
+ *    с. 29, перечень структур ступени Pre A1 Starters — «Have (got) for
  *    possession: Have you got a pen? She hasn't got a dog.»
  *    Первая моя проверка утверждала, что в English Grammar Profile этих строк
  *    нет вовсе. Это было неверно: искал по слову GOT и не увидел строк, где
@@ -69,7 +69,7 @@ const module: Module = {
     {
       ref: "Cambridge English, руководство для младших ступеней",
       section:
-        "с. 11, перечень структур ступени Pre A1 Starters, дословно: «Have (got) for " +
+        "с. 29, перечень структур ступени Pre A1 Starters, дословно: «Have (got) for " +
         "possession — Have you got a pen? She hasn't got a dog.» Это единственный источник " +
         "в materials/, который ставит оборот НИЖЕ ступени A1: по English Grammar Profile это A2. " +
         "Там же: «Adjectives — Including possessive adjectives — His name is Yusef» и " +
