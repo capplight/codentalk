@@ -137,6 +137,9 @@ export default async function CoursePage({ params }: Params) {
                 </span>
               </div>
 
+              {/* Без заголовка список читался непонятно: владелец прошёл
+                  модуль и спросил, что это за строки над уроками. */}
+              <p className={s.outcomesLabel}>Чему научишься в модуле</p>
               <ul className={s.outcomes}>
                 {module.outcomes.map((outcome, i) => (
                   <li key={i}>{outcome}</li>

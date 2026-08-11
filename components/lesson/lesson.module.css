@@ -37,9 +37,29 @@
 
 /* Итог урока: обещание, которое проверит проверочная работа. */
 .outcome {
-  margin-top: 4px;
+  margin-top: 10px;
   font-size: var(--step-0);
   color: var(--ink-soft);
+}
+
+/* Подпись над итогом: без неё строка читалась как рассказ о ком-то третьем */
+.outcomeLabel {
+  display: block;
+  margin: 10px 0 2px;
+  font-size: var(--step--1);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+/* Итоги модуля на проверочной работе — списком, как на странице курса */
+.outcomes {
+  margin: 0;
+  padding-left: 20px;
+  font-size: var(--step-0);
+  color: var(--ink-soft);
+  line-height: 1.7;
 }
 
 .outcome b {

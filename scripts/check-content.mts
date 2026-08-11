@@ -386,6 +386,36 @@ function checkModule(mod: Module, where: string): void {
   if (mod.outcomes.length === 0) fail(where, "у модуля не указано, чему он учит");
   if (mod.lessons.length === 0) fail(where, "в модуле нет уроков");
 
+  // Список итогов стоит на странице прямо над списком уроков, и ученик читает
+  // их как одну лестницу. Значит и порядок должен быть один: третий итог —
+  // третий урок. Расхождение находил редактор глазами, теперь ловится здесь.
+  const byLesson: string[] = [];
+  for (const lesson of mod.lessons) {
+    if (!byLesson.includes(lesson.outcome)) byLesson.push(lesson.outcome);
+  }
+  for (const outcome of mod.outcomes) {
+    if (!byLesson.includes(outcome)) {
+      fail(where, `итог модуля не принадлежит ни одному уроку: «${outcome}»`);
+    }
+  }
+  if (byLesson.length === mod.outcomes.length) {
+    for (let i = 0; i < byLesson.length; i += 1) {
+      if (byLesson[i] !== mod.outcomes[i]) {
+        fail(
+          where,
+          `порядок итогов модуля не совпадает с порядком уроков: ${i + 1}-м стоит ` +
+            `«${mod.outcomes[i]}», а урок на этом месте учит «${byLesson[i]}»`
+        );
+        break;
+      }
+    }
+  } else {
+    fail(
+      where,
+      `итогов у модуля ${mod.outcomes.length}, а разных итогов у уроков ${byLesson.length}`
+    );
+  }
+
   const lessonSlugs = new Set<string>();
   for (const lesson of mod.lessons) {
     if (lessonSlugs.has(lesson.slug)) fail(where, `имя урока «${lesson.slug}» повторяется`);
@@ -557,6 +587,7 @@ const TERMS: Array<[string, RegExp]> = [
   ["слог", /слог[аеиу]?\b/i],
   ["транскрипция", /транскрипц/i],
   ["множественное число", /множественн/i],
+  ["прилагательное", /прилагательн/i],
 ];
 
 /** Весь текст блока, который видит ученик. */

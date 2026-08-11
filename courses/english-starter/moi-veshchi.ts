@@ -117,14 +117,14 @@ const module: Module = {
   ],
 
   outcomes: [
-    "говорит «мой» и «твой»: my bag, your key",
-    "говорит «его», «её», «наш»: his phone, her bag, our room",
-    "говорит, что у него есть: I've got a car",
-    "говорит, чего у него нет: I haven't got a car",
-    "спрашивает, есть ли что-то: Have you got a pen?",
-    "называет родных и друзей",
-    "спрашивает и отвечает, чья это вещь",
-    "рассказывает о своих вещах и о своей семье",
+    "говорить «мой» и «твой»: my bag, your key",
+    "говорить «его», «её», «наш»: his phone, her bag, our room",
+    "говорить, что у тебя есть: I've got a car",
+    "говорить, чего у тебя нет: I haven't got a car",
+    "спрашивать, есть ли что-то: Have you got a pen?",
+    "называть родных и друзей",
+    "спрашивать и отвечать, чья это вещь",
+    "рассказывать о своих вещах и о своей семье",
   ],
 
   lessons: [
@@ -133,7 +133,7 @@ const module: Module = {
       slug: "moy-i-tvoy",
       title: "Мой и твой",
       estimatedMinutes: 13,
-      outcome: "говорит «мой» и «твой»: my bag, your key",
+      outcome: "говорить «мой» и «твой»: my bag, your key",
 
       blocks: [
         {
@@ -267,7 +267,7 @@ const module: Module = {
       slug: "ego-eyo-nash",
       title: "Его, её, наш",
       estimatedMinutes: 13,
-      outcome: "говорит «его», «её», «наш»: his phone, her bag, our room",
+      outcome: "говорить «его», «её», «наш»: his phone, her bag, our room",
 
       blocks: [
         {
@@ -401,7 +401,7 @@ const module: Module = {
       slug: "u-menya-est",
       title: "У меня есть: I've got",
       estimatedMinutes: 14,
-      outcome: "говорит, что у него есть: I've got a car",
+      outcome: "говорить, что у тебя есть: I've got a car",
 
       blocks: [
         {
@@ -538,7 +538,7 @@ const module: Module = {
       slug: "u-menya-net",
       title: "У меня нет: haven't got",
       estimatedMinutes: 13,
-      outcome: "говорит, чего у него нет: I haven't got a car",
+      outcome: "говорить, чего у тебя нет: I haven't got a car",
 
       blocks: [
         {
@@ -658,7 +658,7 @@ const module: Module = {
       slug: "est-li-u-tebya",
       title: "Есть ли у тебя: Have you got?",
       estimatedMinutes: 13,
-      outcome: "спрашивает, есть ли что-то: Have you got a pen?",
+      outcome: "спрашивать, есть ли что-то: Have you got a pen?",
 
       blocks: [
         {
@@ -798,7 +798,7 @@ const module: Module = {
       slug: "rodnye-i-druzya",
       title: "Родные и друзья",
       estimatedMinutes: 13,
-      outcome: "называет родных и друзей",
+      outcome: "называть родных и друзей",
 
       blocks: [
         {
@@ -939,7 +939,7 @@ const module: Module = {
       slug: "chya-eto-veshch",
       title: "Чья это вещь",
       estimatedMinutes: 13,
-      outcome: "спрашивает и отвечает, чья это вещь",
+      outcome: "спрашивать и отвечать, чья это вещь",
 
       blocks: [
         {
@@ -1057,16 +1057,17 @@ const module: Module = {
       slug: "rasskaz-o-veshchah",
       title: "Рассказ о своих вещах и семье",
       estimatedMinutes: 15,
-      outcome: "рассказывает о своих вещах и о своей семье",
+      outcome: "рассказывать о своих вещах и о своей семье",
 
       blocks: [
         {
           id: "zachem-rasskaz-o-veshchah",
           kind: "explain",
           text: [
-            "Всё собрано: чьё это, что есть, чего нет, как спросить. Соединим их в рассказ — " +
-              "такой, каким отвечают на вопрос «расскажи о себе» после имени и занятия.",
-            "Рассказ строится тремя оборотами: I've got…, I haven't got…, It's my…",
+            "Тебя просят рассказать о себе. После имени и занятия обычно доходит до того, " +
+              "что у тебя есть: машина, телефон, брат, сестра.",
+            "В таком рассказе повторяются три оборота: I've got…, I haven't got…, " +
+              "It's my…",
           ],
         },
         {
@@ -1199,7 +1200,7 @@ const module: Module = {
       {
         id: "q-moy-lishnee",
         kind: "choice",
-        outcome: "говорит «мой» и «твой»: my bag, your key",
+        outcome: "говорить «мой» и «твой»: my bag, your key",
         prompt: "В какой строке два слова борются за одно место?",
         options: [
           { text: "It's your key." },
@@ -1211,7 +1212,7 @@ const module: Module = {
       {
         id: "q-dopisat-tvoy",
         kind: "gap",
-        outcome: "говорит «мой» и «твой»: my bag, your key",
+        outcome: "говорить «мой» и «твой»: my bag, your key",
         prompt: "Допиши слово: «Это твоя сумка».",
         before: "It's ",
         after: " bag.",
@@ -1221,7 +1222,7 @@ const module: Module = {
       {
         id: "q-vybor-po-vladeltsu",
         kind: "gap",
-        outcome: "говорит «его», «её», «наш»: his phone, her bag, our room",
+        outcome: "говорить «его», «её», «наш»: his phone, her bag, our room",
         prompt: "Книга принадлежит Алиму. Допиши слово.",
         before: "It's ",
         after: " book.",
@@ -1231,7 +1232,7 @@ const module: Module = {
       {
         id: "q-sopostavit-prityazhatelnye",
         kind: "match",
-        outcome: "говорит «его», «её», «наш»: his phone, her bag, our room",
+        outcome: "говорить «его», «её», «наш»: his phone, her bag, our room",
         prompt: "Сопоставь слово и того, кому принадлежит вещь.",
         left: ["his key", "her key", "our key"],
         right: ["ключ нескольких людей", "ключ мужчины", "ключ женщины"],
@@ -1241,7 +1242,7 @@ const module: Module = {
       {
         id: "q-est-u-nego",
         kind: "gap",
-        outcome: "говорит, что у него есть: I've got a car",
+        outcome: "говорить, что у тебя есть: I've got a car",
         prompt: "Допиши форму глагола: «У него есть собака».",
         before: "He ",
         after: " got a dog.",
@@ -1251,7 +1252,7 @@ const module: Module = {
       {
         id: "q-zapisat-est",
         kind: "short",
-        outcome: "говорит, что у него есть: I've got a car",
+        outcome: "говорить, что у тебя есть: I've got a car",
         prompt: "Запиши по-английски: «У меня есть велосипед». Начни с I've.",
         answer: "I've got a bike.",
         exact: true,
@@ -1261,7 +1262,7 @@ const module: Module = {
       {
         id: "q-net-u-neyo",
         kind: "gap",
-        outcome: "говорит, чего у него нет: I haven't got a car",
+        outcome: "говорить, чего у тебя нет: I haven't got a car",
         prompt: "Допиши отрицание: «У неё нет собаки».",
         before: "She ",
         after: " got a dog.",
@@ -1271,7 +1272,7 @@ const module: Module = {
       {
         id: "q-a-v-otricanii",
         kind: "choice",
-        outcome: "говорит, чего у него нет: I haven't got a car",
+        outcome: "говорить, чего у тебя нет: I haven't got a car",
         prompt: "В какой строке потерялось слово?",
         options: [
           { text: "I haven't got a car." },
@@ -1283,7 +1284,7 @@ const module: Module = {
       {
         id: "q-sdelat-vopros-have",
         kind: "short",
-        outcome: "спрашивает, есть ли что-то: Have you got a pen?",
+        outcome: "спрашивать, есть ли что-то: Have you got a pen?",
         prompt: "Спроси, есть ли у собеседника фотоаппарат. Запиши вопрос целиком.",
         answer: "Have you got a camera?",
         exact: true,
@@ -1293,7 +1294,7 @@ const module: Module = {
       {
         id: "q-kratkiy-otvet-have",
         kind: "choice",
-        outcome: "спрашивает, есть ли что-то: Have you got a pen?",
+        outcome: "спрашивать, есть ли что-то: Have you got a pen?",
         prompt: "«Has he got a bike?» У него велосипеда нет. Ответь коротко.",
         options: [
           { text: "No, he hasn't.", correct: true },
@@ -1305,7 +1306,7 @@ const module: Module = {
       {
         id: "q-brat-po-angliyski",
         kind: "gap",
-        outcome: "называет родных и друзей",
+        outcome: "называть родных и друзей",
         prompt: "Допиши: «У неё есть сестра».",
         before: "She's got a ",
         after: ".",
@@ -1315,7 +1316,7 @@ const module: Module = {
       {
         id: "q-drug-bez-roda",
         kind: "choice",
-        outcome: "называет родных и друзей",
+        outcome: "называть родных и друзей",
         prompt: "Как сказать «она моя подруга»?",
         options: [
           { text: "She's my friend.", correct: true },
@@ -1327,7 +1328,7 @@ const module: Module = {
       {
         id: "q-sprosit-chya-veshch",
         kind: "short",
-        outcome: "спрашивает и отвечает, чья это вещь",
+        outcome: "спрашивать и отвечать, чья это вещь",
         prompt: "Спроси, его ли это карандаш. Запиши вопрос целиком.",
         answer: "Is this his pencil?",
         exact: true,
@@ -1337,7 +1338,7 @@ const module: Module = {
       {
         id: "q-otvetit-o-svoey-veshchi",
         kind: "choice",
-        outcome: "спрашивает и отвечает, чья это вещь",
+        outcome: "спрашивать и отвечать, чья это вещь",
         prompt: "«Is this your bag?» Сумка твоя. Что ответить?",
         options: [
           { text: "Yes, this is." },
@@ -1349,7 +1350,7 @@ const module: Module = {
       {
         id: "q-sobrat-rasskaz-veshchi",
         kind: "order",
-        outcome: "рассказывает о своих вещах и о своей семье",
+        outcome: "рассказывать о своих вещах и о своей семье",
         prompt: "Расставь рассказ по порядку: имя, что есть, чего нет.",
         items: ["I've got a cat.", "I haven't got a dog.", "I'm Dana."],
         answer: [2, 0, 1],
@@ -1358,7 +1359,7 @@ const module: Module = {
       {
         id: "q-dva-predlozheniya-o-veshchi",
         kind: "short",
-        outcome: "рассказывает о своих вещах и о своей семье",
+        outcome: "рассказывать о своих вещах и о своей семье",
         prompt: "Запиши по-английски: «У меня есть фотоаппарат. Это мой фотоаппарат.» Два предложения.",
         answer: "I've got a camera. It's my camera.",
         exact: true,
@@ -1372,7 +1373,7 @@ const module: Module = {
       {
         id: "q-otmetit-poteri-got",
         kind: "hottext",
-        outcome: "говорит, что у него есть: I've got a car",
+        outcome: "говорить, что у тебя есть: I've got a car",
         prompt: "Отметь предложения, в которых потерялось слово.",
         parts: [
           { text: "We've got a room.", selectable: true },
@@ -1388,7 +1389,7 @@ const module: Module = {
       {
         id: "q-th-v-slovah",
         kind: "hottext",
-        outcome: "называет родных и друзей",
+        outcome: "называть родных и друзей",
         prompt: "Отметь слова, называющие мужчину.",
         parts: [
           { text: "father", selectable: true, correct: true },

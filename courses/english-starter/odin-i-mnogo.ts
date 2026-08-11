@@ -36,7 +36,7 @@ import type { Module } from "@/lib/content/types";
  * — прилагательных (модуль 11). Программа упоминает «прилагательное +
  *   существительное во множественном», но разбор прилагательных стоит в
  *   модуле 11, и там же — правило о том, что прилагательное во множественном
- *   не меняется (урок «Признак перед названием»). В ЭТОМ модуле прилагательных
+ *   не меняется (урок «Перед названием: a big house»). В ЭТОМ модуле прилагательных
  *   нет ни одного, и раньше шапка обещала здесь оговорку, которой тоже не было.
  *   Расхождение нашёл методист; поправить надо программу, а не модуль;
  * — `there are` (модуль 13);
@@ -121,14 +121,14 @@ const module: Module = {
   ],
 
   outcomes: [
-    "говорит о нескольких вещах сразу: books, keys, cars",
-    "называет несколько там, где одной буквы s мало: boxes, buses",
-    "говорит о нескольких без артикля: They're books",
-    "согласует форму be с числом: It is — They are",
-    "называет людей во множественном: men, women, children, people",
-    "показывает на несколько предметов: these и those",
-    "спрашивает и отрицает, когда предметов несколько",
-    "рассказывает о своих вещах и близких во множественном",
+    "говорить о нескольких вещах сразу: books, keys, cars",
+    "прибавлять es там, где одной буквы s мало: boxes, buses",
+    "говорить о нескольких предметах без артикля: They're books",
+    "выбирать форму be по числу: It is — They are",
+    "называть людей во множественном числе: men, women, children, people",
+    "показывать на несколько предметов: these и those",
+    "строить вопрос и отрицание, когда предметов несколько",
+    "рассказывать о своих вещах и близких во множественном числе",
   ],
 
   lessons: [
@@ -137,7 +137,7 @@ const module: Module = {
       slug: "okonchanie-s",
       title: "Одно и много: буква s",
       estimatedMinutes: 13,
-      outcome: "говорит о нескольких вещах сразу: books, keys, cars",
+      outcome: "говорить о нескольких вещах сразу: books, keys, cars",
 
       blocks: [
         {
@@ -262,7 +262,7 @@ const module: Module = {
       slug: "kogda-es",
       title: "Когда нужна не s, а es",
       estimatedMinutes: 13,
-      outcome: "называет несколько там, где одной буквы s мало: boxes, buses",
+      outcome: "прибавлять es там, где одной буквы s мало: boxes, buses",
 
       blocks: [
         {
@@ -384,7 +384,7 @@ const module: Module = {
       slug: "a-uhodit",
       title: "Артикль a уходит",
       estimatedMinutes: 12,
-      outcome: "говорит о нескольких без артикля: They're books",
+      outcome: "говорить о нескольких предметах без артикля: They're books",
 
       blocks: [
         {
@@ -495,7 +495,7 @@ const module: Module = {
       slug: "are-o-neskolkih",
       title: "Форма are, когда их несколько",
       estimatedMinutes: 12,
-      outcome: "согласует форму be с числом: It is — They are",
+      outcome: "выбирать форму be по числу: It is — They are",
 
       blocks: [
         {
@@ -608,7 +608,7 @@ const module: Module = {
       slug: "osobye-formy",
       title: "Особые формы: men, women, children",
       estimatedMinutes: 13,
-      outcome: "называет людей во множественном: men, women, children, people",
+      outcome: "называть людей во множественном числе: men, women, children, people",
 
       blocks: [
         {
@@ -733,7 +733,7 @@ const module: Module = {
       slug: "these-i-those",
       title: "These и those",
       estimatedMinutes: 12,
-      outcome: "показывает на несколько предметов: these и those",
+      outcome: "показывать на несколько предметов: these и those",
 
       blocks: [
         {
@@ -846,7 +846,7 @@ const module: Module = {
       slug: "vopros-i-otricanie-o-neskolkih",
       title: "Вопрос и отрицание о нескольких",
       estimatedMinutes: 13,
-      outcome: "спрашивает и отрицает, когда предметов несколько",
+      outcome: "строить вопрос и отрицание, когда предметов несколько",
 
       blocks: [
         {
@@ -973,18 +973,18 @@ const module: Module = {
       slug: "rasskaz-o-neskolkih",
       title: "Рассказ о нескольких предметах",
       estimatedMinutes: 14,
-      outcome: "рассказывает о своих вещах и близких во множественном",
+      outcome: "рассказывать о своих вещах и близких во множественном числе",
 
       blocks: [
         {
           id: "zachem-rasskaz-mnozh",
           kind: "explain",
           text: [
-            "Всё собрано: окончание, исчезновение артикля, форма are, особые слова, these и " +
-              "those, вопрос и отрицание. Теперь о своих вещах и близких можно рассказывать " +
-              "и тогда, когда их несколько.",
-            "Рассказ строится теми же оборотами, что в модуле про вещи, только во " +
-              "множественном: I've got friends, These are my books.",
+            "У тебя не одна книга, а десять, и не один друг, а трое. Теми же словами, что " +
+              "об одном предмете, тут не обойтись: меняется название предмета, меняется " +
+              "форма be, а артикль вовсе уходит.",
+            "Рассказ тот же, что в модуле «Мои вещи», только во множественном числе: " +
+              "I've got friends, These are my books.",
           ],
         },
         {
@@ -1114,7 +1114,7 @@ const module: Module = {
       {
         id: "q-okonchanie-mnozh",
         kind: "short",
-        outcome: "говорит о нескольких вещах сразу: books, keys, cars",
+        outcome: "говорить о нескольких вещах сразу: books, keys, cars",
         prompt: "Напиши по-английски «машины» — от car.",
         answer: "cars",
         why: "Cars. К слову car прибавилась s.",
@@ -1122,7 +1122,7 @@ const module: Module = {
       {
         id: "q-otmetit-mnozh",
         kind: "hottext",
-        outcome: "говорит о нескольких вещах сразу: books, keys, cars",
+        outcome: "говорить о нескольких вещах сразу: books, keys, cars",
         prompt: "Отметь строки, где о предметах сказано верно.",
         parts: [
           { text: "a bags", selectable: true },
@@ -1140,7 +1140,7 @@ const module: Module = {
       {
         id: "q-es-ili-s",
         kind: "gap",
-        outcome: "называет несколько там, где одной буквы s мало: boxes, buses",
+        outcome: "прибавлять es там, где одной буквы s мало: boxes, buses",
         prompt: "Допиши слово «автобусы» — от bus.",
         before: "They're ",
         after: ".",
@@ -1150,7 +1150,7 @@ const module: Module = {
       {
         id: "q-gde-nuzhna-es",
         kind: "choice",
-        outcome: "называет несколько там, где одной буквы s мало: boxes, buses",
+        outcome: "прибавлять es там, где одной буквы s мало: boxes, buses",
         prompt: "К какому слову нужна es?",
         options: [{ text: "book" }, { text: "watch", correct: true }, { text: "key" }],
         why: "Watch оканчивается на ch, поэтому watches. Book и key берут обычную s.",
@@ -1158,7 +1158,7 @@ const module: Module = {
       {
         id: "q-a-lishnee",
         kind: "choice",
-        outcome: "говорит о нескольких без артикля: They're books",
+        outcome: "говорить о нескольких предметах без артикля: They're books",
         prompt: "В какой строке артикль лишний?",
         options: [
           { text: "a book" },
@@ -1170,7 +1170,7 @@ const module: Module = {
       {
         id: "q-perepisat-bez-a",
         kind: "short",
-        outcome: "говорит о нескольких без артикля: They're books",
+        outcome: "говорить о нескольких предметах без артикля: They're books",
         prompt: "Перепиши во множественном числе: «It's a bag.» Начни с They're.",
         answer: "They're bags.",
         exact: true,
@@ -1180,7 +1180,7 @@ const module: Module = {
       {
         id: "q-forma-be-mnozh",
         kind: "gap",
-        outcome: "согласует форму be с числом: It is — They are",
+        outcome: "выбирать форму be по числу: It is — They are",
         prompt: "Допиши форму глагола: «Мои друзья — студенты».",
         before: "My friends ",
         after: " students.",
@@ -1190,7 +1190,7 @@ const module: Module = {
       {
         id: "q-nesoglasovanie",
         kind: "choice",
-        outcome: "согласует форму be с числом: It is — They are",
+        outcome: "выбирать форму be по числу: It is — They are",
         prompt: "В какой строке форма be не подходит?",
         options: [
           { text: "They are cars." },
@@ -1202,7 +1202,7 @@ const module: Module = {
       {
         id: "q-osobaya-forma",
         kind: "short",
-        outcome: "называет людей во множественном: men, women, children, people",
+        outcome: "называть людей во множественном числе: men, women, children, people",
         prompt: "Напиши по-английски «мужчины» — от man.",
         answer: "men",
         accept: ["Men"],
@@ -1211,7 +1211,7 @@ const module: Module = {
       {
         id: "q-otmetit-osobye",
         kind: "hottext",
-        outcome: "называет людей во множественном: men, women, children, people",
+        outcome: "называть людей во множественном числе: men, women, children, people",
         prompt: "Отметь слова, написанные с ошибкой.",
         parts: [
           { text: "men", selectable: true },
@@ -1227,7 +1227,7 @@ const module: Module = {
       {
         id: "q-these-ili-this",
         kind: "gap",
-        outcome: "показывает на несколько предметов: these и those",
+        outcome: "показывать на несколько предметов: these и those",
         prompt: "Машины стоят вдалеке, их несколько. Допиши указательное слово.",
         before: "",
         after: " are my cars.",
@@ -1238,7 +1238,7 @@ const module: Module = {
       {
         id: "q-nepolnoe-izmenenie",
         kind: "choice",
-        outcome: "показывает на несколько предметов: these и those",
+        outcome: "показывать на несколько предметов: these и those",
         prompt: "Книги лежат рядом, их несколько. Как сказать о них верно?",
         options: [
           { text: "this books" },
@@ -1252,7 +1252,7 @@ const module: Module = {
       {
         id: "q-vopros-mnozh",
         kind: "short",
-        outcome: "спрашивает и отрицает, когда предметов несколько",
+        outcome: "строить вопрос и отрицание, когда предметов несколько",
         prompt: "Сделай вопрос из «They are your bags.»",
         answer: "Are they your bags?",
         exact: true,
@@ -1262,7 +1262,7 @@ const module: Module = {
       {
         id: "q-kratkiy-otvet-mnozh",
         kind: "choice",
-        outcome: "спрашивает и отрицает, когда предметов несколько",
+        outcome: "строить вопрос и отрицание, когда предметов несколько",
         prompt: "«Are they books?» Это правда. Ответь коротко.",
         options: [
           { text: "Yes, these are." },
@@ -1274,7 +1274,7 @@ const module: Module = {
       {
         id: "q-rasskaz-mnozh",
         kind: "order",
-        outcome: "рассказывает о своих вещах и близких во множественном",
+        outcome: "рассказывать о своих вещах и близких во множественном числе",
         prompt: "Расставь рассказ по порядку.",
         items: ["My friends are students.", "I'm Dana.", "I've got friends."],
         answer: [1, 2, 0],
@@ -1285,7 +1285,7 @@ const module: Module = {
       {
         id: "q-perepisat-vo-mnozh",
         kind: "short",
-        outcome: "рассказывает о своих вещах и близких во множественном",
+        outcome: "рассказывать о своих вещах и близких во множественном числе",
         prompt: "Перепиши во множественном числе: «It's my pen.» Начни с These.",
         answer: "These are my pens.",
         exact: true,
@@ -1295,7 +1295,7 @@ const module: Module = {
       {
         id: "q-otricanie-mnozh-quiz",
         kind: "gap",
-        outcome: "спрашивает и отрицает, когда предметов несколько",
+        outcome: "строить вопрос и отрицание, когда предметов несколько",
         prompt: "Допиши отрицание: «Это не машины».",
         before: "They ",
         after: " cars.",
@@ -1306,7 +1306,7 @@ const module: Module = {
       {
         id: "q-lyudi-po-angliyski",
         kind: "choice",
-        outcome: "называет людей во множественном: men, women, children, people",
+        outcome: "называть людей во множественном числе: men, women, children, people",
         prompt: "Как по-английски «люди»?",
         options: [{ text: "peoples" }, { text: "man" }, { text: "people", correct: true }],
         why: "People. Прибавлять s к этому слову не нужно, оно и так о нескольких. Man — один мужчина.",

@@ -156,14 +156,14 @@ const module: Module = {
   ],
 
   outcomes: [
-    "говорит, где предмет: in, on, under",
-    "говорит, что предмет рядом, позади или между: near, behind, between",
-    "ставит here и there в конец предложения",
-    "говорит, где предмет относительно другого: next to, in front of, opposite",
-    "спрашивает, где предмет: Where is и Where are",
-    "называет места в городе: shop, station, hospital, park",
-    "понимает и повторяет указания дороги: go, turn left, turn right",
-    "объясняет дорогу двумя-тремя указаниями",
+    "говорить, где предмет: in, on, under",
+    "говорить, что предмет рядом, позади или между: near, behind, between",
+    "ставить here и there в конец предложения",
+    "говорить, где предмет относительно другого: next to, in front of, opposite",
+    "спрашивать, где предмет: Where is и Where are",
+    "называть места в городе: shop, station, hospital, park",
+    "понимать и повторять указания дороги: go, turn left, turn right",
+    "объяснять дорогу двумя-тремя указаниями",
   ],
 
   lessons: [
@@ -172,7 +172,7 @@ const module: Module = {
       slug: "gde-predmet",
       title: "Где предмет: in, on, under",
       estimatedMinutes: 13,
-      outcome: "говорит, где предмет: in, on, under",
+      outcome: "говорить, где предмет: in, on, under",
 
       blocks: [
         {
@@ -333,7 +333,7 @@ const module: Module = {
       slug: "ryadom-i-za",
       title: "Рядом, позади, между",
       estimatedMinutes: 13,
-      outcome: "говорит, что предмет рядом, позади или между: near, behind, between",
+      outcome: "говорить, что предмет рядом, позади или между: near, behind, between",
 
       blocks: [
         {
@@ -482,7 +482,7 @@ const module: Module = {
       slug: "zdes-i-tam",
       title: "Здесь и там",
       estimatedMinutes: 12,
-      outcome: "ставит here и there в конец предложения",
+      outcome: "ставить here и there в конец предложения",
 
       blocks: [
         {
@@ -625,7 +625,7 @@ const module: Module = {
       slug: "next-to-i-opposite",
       title: "Рядом с, перед и напротив",
       estimatedMinutes: 13,
-      outcome: "говорит, где предмет относительно другого: next to, in front of, opposite",
+      outcome: "говорить, где предмет относительно другого: next to, in front of, opposite",
 
       blocks: [
         {
@@ -771,7 +771,7 @@ const module: Module = {
       slug: "gde-eto-vopros",
       title: "Где это: вопрос",
       estimatedMinutes: 12,
-      outcome: "спрашивает, где предмет: Where is и Where are",
+      outcome: "спрашивать, где предмет: Where is и Where are",
 
       blocks: [
         {
@@ -915,7 +915,7 @@ const module: Module = {
       slug: "v-gorode",
       title: "Места в городе",
       estimatedMinutes: 13,
-      outcome: "называет места в городе: shop, station, hospital, park",
+      outcome: "называть места в городе: shop, station, hospital, park",
 
       blocks: [
         {
@@ -1071,7 +1071,7 @@ const module: Module = {
       slug: "kak-proyti",
       title: "Как пройти",
       estimatedMinutes: 13,
-      outcome: "понимает и повторяет указания дороги: go, turn left, turn right",
+      outcome: "понимать и повторять указания дороги: go, turn left, turn right",
 
       blocks: [
         {
@@ -1229,7 +1229,7 @@ const module: Module = {
       slug: "obyasnit-dorogu",
       title: "Объяснить дорогу",
       estimatedMinutes: 14,
-      outcome: "объясняет дорогу двумя-тремя указаниями",
+      outcome: "объяснять дорогу двумя-тремя указаниями",
 
       blocks: [
         {
@@ -1408,7 +1408,7 @@ const module: Module = {
       {
         id: "q-in-on-under",
         kind: "gap",
-        outcome: "говорит, где предмет: in, on, under",
+        outcome: "говорить, где предмет: in, on, under",
         prompt: "Книга на столе. Допиши предлог.",
         before: "The book is ",
         after: " the table.",
@@ -1418,7 +1418,7 @@ const module: Module = {
       {
         id: "q-sobrat-pod-stulom",
         kind: "order",
-        outcome: "говорит, где предмет: in, on, under",
+        outcome: "говорить, где предмет: in, on, under",
         prompt: "Собери предложение: «Ключ под стулом».",
         items: ["under", "The key", "the chair", "is"],
         answer: [1, 3, 0, 2],
@@ -1427,7 +1427,7 @@ const module: Module = {
       {
         id: "q-tri-predloga-quiz",
         kind: "match",
-        outcome: "говорит, где предмет: in, on, under",
+        outcome: "говорить, где предмет: in, on, under",
         prompt: "Сопоставь предлог и то, что он значит.",
         left: ["in", "under", "on"],
         right: ["на поверхности", "внутри", "под"],
@@ -1437,7 +1437,7 @@ const module: Module = {
       {
         id: "q-between-and",
         kind: "gap",
-        outcome: "говорит, что предмет рядом, позади или между: near, behind, between",
+        outcome: "говорить, что предмет рядом, позади или между: near, behind, between",
         prompt: "Гостиница между парком и вокзалом. Допиши недостающее слово.",
         before: "The hotel is between the park ",
         after: " the station.",
@@ -1447,7 +1447,7 @@ const module: Module = {
       {
         id: "q-za-shkoloy",
         kind: "short",
-        outcome: "говорит, что предмет рядом, позади или между: near, behind, between",
+        outcome: "говорить, что предмет рядом, позади или между: near, behind, between",
         prompt: "Парк позади школы. Запиши предложение целиком, начни с The park.",
         answer: "The park is behind the school.",
         exact: true,
@@ -1457,7 +1457,7 @@ const module: Module = {
       {
         id: "q-zdes-v-konce",
         kind: "order",
-        outcome: "ставит here и there в конец предложения",
+        outcome: "ставить here и there в конец предложения",
         prompt: "Собери предложение: «Магазин там».",
         items: ["there", "is", "The shop"],
         answer: [2, 1, 0],
@@ -1466,7 +1466,7 @@ const module: Module = {
       {
         id: "q-bez-predloga-quiz",
         kind: "choice",
-        outcome: "ставит here и there в конец предложения",
+        outcome: "ставить here и there в конец предложения",
         prompt: "Какая запись верна?",
         options: [
           { text: "My car is at here." },
@@ -1479,7 +1479,7 @@ const module: Module = {
         // Раньше совпадал с заданием урока поле в поле. Нашёл методист.
         id: "q-here-quiz",
         kind: "short",
-        outcome: "ставит here и there в конец предложения",
+        outcome: "ставить here и there в конец предложения",
         prompt: "Станция далеко от тебя. Запиши предложение целиком, начни с The station.",
         answer: "The station is there.",
         exact: true,
@@ -1489,7 +1489,7 @@ const module: Module = {
       {
         id: "q-in-front-of",
         kind: "gap",
-        outcome: "говорит, где предмет относительно другого: next to, in front of, opposite",
+        outcome: "говорить, где предмет относительно другого: next to, in front of, opposite",
         prompt: "Автобус перед гостиницей. Допиши все три слова.",
         before: "The bus is ",
         after: " the hotel.",
@@ -1499,7 +1499,7 @@ const module: Module = {
       {
         id: "q-opposite-quiz",
         kind: "short",
-        outcome: "говорит, где предмет относительно другого: next to, in front of, opposite",
+        outcome: "говорить, где предмет относительно другого: next to, in front of, opposite",
         prompt: "Больница напротив парка. Запиши предложение целиком, начни с The hospital.",
         answer: "The hospital is opposite the park.",
         exact: true,
@@ -1509,7 +1509,7 @@ const module: Module = {
       {
         id: "q-next-to-quiz",
         kind: "short",
-        outcome: "говорит, где предмет относительно другого: next to, in front of, opposite",
+        outcome: "говорить, где предмет относительно другого: next to, in front of, opposite",
         // Раньше — то же задание урока с переставленными отвлекающими.
         prompt: "Магазин стоит через дорогу от парка. Запиши предложение целиком, начни с The shop.",
         answer: "The shop is opposite the park.",
@@ -1520,7 +1520,7 @@ const module: Module = {
       {
         id: "q-where-are",
         kind: "short",
-        outcome: "спрашивает, где предмет: Where is и Where are",
+        outcome: "спрашивать, где предмет: Where is и Where are",
         // Раньше совпадал с заданием урока дословно, включая порядок вариантов.
         prompt: "Ты ищешь книги — их несколько. Запиши вопрос целиком.",
         answer: "Where are my books?",
@@ -1533,7 +1533,7 @@ const module: Module = {
       {
         id: "q-sprosit-gde-quiz",
         kind: "short",
-        outcome: "спрашивает, где предмет: Where is и Where are",
+        outcome: "спрашивать, где предмет: Where is и Where are",
         prompt: "Спроси, где комната. Запиши вопрос целиком.",
         answer: "Where is the room?",
         exact: true,
@@ -1543,7 +1543,7 @@ const module: Module = {
       {
         id: "q-otvet-they",
         kind: "hottext",
-        outcome: "спрашивает, где предмет: Where is и Where are",
+        outcome: "спрашивать, где предмет: Where is и Where are",
         prompt: "Отметь ответы, которые подходят на вопрос «Where are my books?»",
         parts: [
           { text: "It's on the table.", selectable: true },
@@ -1559,7 +1559,7 @@ const module: Module = {
       {
         id: "q-mesta-sopostavit",
         kind: "match",
-        outcome: "называет места в городе: shop, station, hospital, park",
+        outcome: "называть места в городе: shop, station, hospital, park",
         prompt: "Сопоставь место и то, что там делают.",
         left: ["hotel", "park", "shop"],
         right: ["гуляют", "покупают", "ночуют в чужом городе"],
@@ -1569,7 +1569,7 @@ const module: Module = {
       {
         id: "q-nazvat-mesto-quiz",
         kind: "gap",
-        outcome: "называет места в городе: shop, station, hospital, park",
+        outcome: "называть места в городе: shop, station, hospital, park",
         prompt: "Магазин рядом с больницей. Допиши название места.",
         before: "The shop is near the ",
         after: ".",
@@ -1579,7 +1579,7 @@ const module: Module = {
       {
         id: "q-zaglavnaya-v-meste",
         kind: "hottext",
-        outcome: "называет места в городе: shop, station, hospital, park",
+        outcome: "называть места в городе: shop, station, hospital, park",
         prompt: "Отметь записи, где слово написано с ошибкой.",
         parts: [
           { text: "The station is near my house.", selectable: true },
@@ -1597,7 +1597,7 @@ const module: Module = {
       {
         id: "q-ukazanie-bez-you",
         kind: "choice",
-        outcome: "понимает и повторяет указания дороги: go, turn left, turn right",
+        outcome: "понимать и повторять указания дороги: go, turn left, turn right",
         prompt: "Как сказать «поверни направо»?",
         options: [
           { text: "You are right." },
@@ -1612,7 +1612,7 @@ const module: Module = {
         // Раньше совпадал с заданием урока поле в поле. Нашёл методист.
         id: "q-go-straight-quiz",
         kind: "short",
-        outcome: "понимает и повторяет указания дороги: go, turn left, turn right",
+        outcome: "понимать и повторять указания дороги: go, turn left, turn right",
         prompt: "Скажи два указания подряд: поверни налево, потом иди прямо. Запиши оба предложения.",
         answer: "Turn left. Go straight.",
         accept: ["Turn left. Go straight", "turn left. go straight."],
@@ -1621,7 +1621,7 @@ const module: Module = {
       {
         id: "q-ukazaniya-sopostavit",
         kind: "match",
-        outcome: "понимает и повторяет указания дороги: go, turn left, turn right",
+        outcome: "понимать и повторять указания дороги: go, turn left, turn right",
         prompt: "Сопоставь указание и перевод.",
         left: ["Go straight.", "Turn right.", "Turn left."],
         right: ["Поверни налево.", "Иди прямо.", "Поверни направо."],
@@ -1633,7 +1633,7 @@ const module: Module = {
         // балл за внутреннюю пунктуацию, к итогу отношения не имеющую.
         id: "q-obyasnit-dorogu-quiz",
         kind: "order",
-        outcome: "объясняет дорогу двумя-тремя указаниями",
+        outcome: "объяснять дорогу двумя-тремя указаниями",
         prompt: "Собери объяснение дороги: прямо, направо, магазин напротив парка.",
         items: ["Turn right.", "opposite the park.", "Go straight.", "The shop is"],
         answer: [2, 0, 3, 1],
@@ -1644,7 +1644,7 @@ const module: Module = {
       {
         id: "q-poryadok-dorogi",
         kind: "order",
-        outcome: "объясняет дорогу двумя-тремя указаниями",
+        outcome: "объяснять дорогу двумя-тремя указаниями",
         prompt: "Расставь реплики разговора по порядку.",
         items: [
           "It's next to the shop.",

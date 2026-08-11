@@ -167,14 +167,14 @@ const module: Module = {
   ],
 
   outcomes: [
-    "называет дни недели и пишет их с заглавной буквы",
-    "называет месяцы и записывает дату цифрой и месяцем",
-    "говорит, который час, когда время целое",
-    "называет половину и четверть часа",
-    "называет часть суток: in the morning, at night",
-    "ставит at, in или on перед словом о времени",
-    "спрашивает о дне и о времени: When и What time",
-    "договаривается о встрече: называет день, время и часть суток",
+    "называть дни недели и писать их с заглавной буквы",
+    "называть месяцы и записывать дату цифрой и месяцем",
+    "говорить, который час: It's seven o'clock",
+    "называть половину и четверть часа",
+    "называть часть суток: in the morning, at night",
+    "ставить at, in или on перед словом о времени",
+    "спрашивать о дне и о времени: When и What time",
+    "договариваться о встрече: называть день, время и часть суток",
   ],
 
   lessons: [
@@ -183,7 +183,7 @@ const module: Module = {
       slug: "dni-nedeli",
       title: "Дни недели",
       estimatedMinutes: 13,
-      outcome: "называет дни недели и пишет их с заглавной буквы",
+      outcome: "называть дни недели и писать их с заглавной буквы",
 
       blocks: [
         {
@@ -345,7 +345,7 @@ const module: Module = {
       slug: "mesyacy-i-data",
       title: "Месяцы и дата",
       estimatedMinutes: 14,
-      outcome: "называет месяцы и записывает дату цифрой и месяцем",
+      outcome: "называть месяцы и записывать дату цифрой и месяцем",
 
       blocks: [
         {
@@ -517,7 +517,7 @@ const module: Module = {
       slug: "kotoryy-chas",
       title: "Который час: целые часы",
       estimatedMinutes: 12,
-      outcome: "говорит, который час, когда время целое",
+      outcome: "говорить, который час: It's seven o'clock",
 
       blocks: [
         {
@@ -670,7 +670,7 @@ const module: Module = {
       slug: "polovina-i-chetvert",
       title: "Половина и четверть",
       estimatedMinutes: 14,
-      outcome: "называет половину и четверть часа",
+      outcome: "называть половину и четверть часа",
 
       blocks: [
         {
@@ -844,7 +844,7 @@ const module: Module = {
       slug: "chasti-sutok",
       title: "Утро, день, вечер, ночь",
       estimatedMinutes: 13,
-      outcome: "называет часть суток: in the morning, at night",
+      outcome: "называть часть суток: in the morning, at night",
 
       blocks: [
         {
@@ -1001,7 +1001,7 @@ const module: Module = {
       slug: "at-in-on",
       title: "At, in, on: какой предлог когда",
       estimatedMinutes: 14,
-      outcome: "ставит at, in или on перед словом о времени",
+      outcome: "ставить at, in или on перед словом о времени",
 
       blocks: [
         {
@@ -1176,7 +1176,7 @@ const module: Module = {
       slug: "kogda-i-vo-skolko",
       title: "Когда и во сколько",
       estimatedMinutes: 13,
-      outcome: "спрашивает о дне и о времени: When и What time",
+      outcome: "спрашивать о дне и о времени: When и What time",
 
       blocks: [
         {
@@ -1330,7 +1330,7 @@ const module: Module = {
       slug: "dogovoritsya-o-vstreche",
       title: "Договориться о встрече",
       estimatedMinutes: 14,
-      outcome: "договаривается о встрече: называет день, время и часть суток",
+      outcome: "договариваться о встрече: называть день, время и часть суток",
 
       blocks: [
         {
@@ -1341,10 +1341,9 @@ const module: Module = {
           id: "zachem-dogovoritsya",
           kind: "explain",
           text: [
-            "Всё, что нужно, чтобы договориться о встрече, уже разобрано: день, время, часть " +
-              "суток и три предлога. Осталось сложить это в разговор.",
-            "Договорённость держится на трёх сведениях: какой день, во сколько и утром это " +
-              "или вечером. Если хоть одно не названо, встреча не состоится.",
+            "Ты пишешь знакомому: «Давай встретимся». Он отвечает: «Когда?»",
+            "Чтобы ответить, надо назвать три вещи: день, время и часть суток — утро " +
+              "это или вечер. Если не назвать хоть одну, собеседник переспросит.",
           ],
         },
         {
@@ -1515,7 +1514,7 @@ const module: Module = {
       {
         id: "q-den-posle-vtornika",
         kind: "short",
-        outcome: "называет дни недели и пишет их с заглавной буквы",
+        outcome: "называть дни недели и писать их с заглавной буквы",
         prompt: "Какой день идёт сразу после Tuesday? Запиши его.",
         answer: "Wednesday",
         exact: true,
@@ -1524,7 +1523,7 @@ const module: Module = {
       {
         id: "q-den-s-zaglavnoy",
         kind: "gap",
-        outcome: "называет дни недели и пишет их с заглавной буквы",
+        outcome: "называть дни недели и писать их с заглавной буквы",
         prompt: "Допиши день недели: суббота.",
         before: "I'm free on ",
         after: ".",
@@ -1535,7 +1534,7 @@ const module: Module = {
       {
         id: "q-poryadok-dney-quiz",
         kind: "order",
-        outcome: "называет дни недели и пишет их с заглавной буквы",
+        outcome: "называть дни недели и писать их с заглавной буквы",
         prompt: "Расставь дни в том порядке, в каком они идут в неделе.",
         items: ["Friday", "Sunday", "Monday", "Wednesday"],
         answer: [2, 3, 0, 1],
@@ -1544,7 +1543,7 @@ const module: Module = {
       {
         id: "q-zapisat-datu-quiz",
         kind: "gap",
-        outcome: "называет месяцы и записывает дату цифрой и месяцем",
+        outcome: "называть месяцы и записывать дату цифрой и месяцем",
         prompt: "Запиши дату в бланке: третье октября.",
         before: "Date: 3 ",
         after: "",
@@ -1555,7 +1554,7 @@ const module: Module = {
       {
         id: "q-mesyac-rozhdeniya-quiz",
         kind: "short",
-        outcome: "называет месяцы и записывает дату цифрой и месяцем",
+        outcome: "называть месяцы и записывать дату цифрой и месяцем",
         prompt: "Твой день рождения в декабре. Запиши предложение целиком, начни с My birthday.",
         answer: "My birthday is in December.",
         exact: true,
@@ -1568,7 +1567,7 @@ const module: Module = {
         // итогу вопрос отношения не имел. Нашёл методист.
         id: "q-mesyac-po-nomeru",
         kind: "short",
-        outcome: "называет месяцы и записывает дату цифрой и месяцем",
+        outcome: "называть месяцы и записывать дату цифрой и месяцем",
         prompt: "Собеседник диктует дату: восьмое сентября. Запиши её так, как пишут в бланке.",
         answer: "8 September",
         exact: true,
@@ -1577,7 +1576,7 @@ const module: Module = {
       {
         id: "q-celyy-chas",
         kind: "short",
-        outcome: "говорит, который час, когда время целое",
+        outcome: "говорить, который час: It's seven o'clock",
         prompt: "На часах 11:00. Запиши ответ на вопрос «What time is it?» целиком.",
         answer: "It's eleven o'clock.",
         exact: true,
@@ -1589,7 +1588,7 @@ const module: Module = {
         // вопросе не было вовсе. Нашёл методист.
         id: "q-kogda-oclock",
         kind: "choice",
-        outcome: "говорит, который час, когда время целое",
+        outcome: "говорить, который час: It's seven o'clock",
         prompt: "На часах 2:00. Какая запись верна?",
         options: [
           { text: "It's o'clock two." },
@@ -1603,7 +1602,7 @@ const module: Module = {
       {
         id: "q-polovina-quiz",
         kind: "short",
-        outcome: "называет половину и четверть часа",
+        outcome: "называть половину и четверть часа",
         prompt: "На часах 4:30. Запиши тремя словами: два слова и название часа.",
         answer: "half past four",
         accept: ["Half past four", "It's half past four.", "It's half past four"],
@@ -1614,7 +1613,7 @@ const module: Module = {
       {
         id: "q-chetvert-quiz",
         kind: "gap",
-        outcome: "называет половину и четверть часа",
+        outcome: "называть половину и четверть часа",
         prompt: "На часах 8:45. Допиши недостающее слово.",
         before: "It's a quarter ",
         after: " nine.",
@@ -1626,7 +1625,7 @@ const module: Module = {
         // английского слова. Нашёл методист.
         id: "q-vremya-ciframi",
         kind: "short",
-        outcome: "называет половину и четверть часа",
+        outcome: "называть половину и четверть часа",
         prompt: "На часах 3:20. Запиши, который час: три слова.",
         answer: "twenty past three",
         accept: ["Twenty past three", "It's twenty past three.", "It's twenty past three"],
@@ -1635,7 +1634,7 @@ const module: Module = {
       {
         id: "q-past-ili-to-quiz",
         kind: "choice",
-        outcome: "называет половину и четверть часа",
+        outcome: "называть половину и четверть часа",
         prompt: "На часах 6:50. Какое слово нужно?",
         options: [
           { text: "past" },
@@ -1649,7 +1648,7 @@ const module: Module = {
         // же три варианта, переставленные местами. Нашёл методист.
         id: "q-nochyu-quiz",
         kind: "short",
-        outcome: "называет часть суток: in the morning, at night",
+        outcome: "называть часть суток: in the morning, at night",
         prompt: "Поезд уходит в два часа ночи. Допиши время целиком после слова at: два слова и оборот о ночи.",
         answer: "at two at night",
         accept: ["At two at night", "at two at night."],
@@ -1661,7 +1660,7 @@ const module: Module = {
       {
         id: "q-utrom-quiz",
         kind: "gap",
-        outcome: "называет часть суток: in the morning, at night",
+        outcome: "называть часть суток: in the morning, at night",
         prompt: "Допиши оборот: в девять утра.",
         before: "at nine ",
         after: "",
@@ -1671,7 +1670,7 @@ const module: Module = {
       {
         id: "q-vecher-celikom",
         kind: "short",
-        outcome: "называет часть суток: in the morning, at night",
+        outcome: "называть часть суток: in the morning, at night",
         prompt: "Занятие в семь вечера. Запиши предложение целиком, начни с The lesson.",
         answer: "The lesson is at seven in the evening.",
         exact: true,
@@ -1681,7 +1680,7 @@ const module: Module = {
       {
         id: "q-predlog-pered-mesyacem",
         kind: "gap",
-        outcome: "ставит at, in или on перед словом о времени",
+        outcome: "ставить at, in или on перед словом о времени",
         prompt: "Допиши предлог: встреча в марте.",
         before: "The meeting is ",
         after: " March.",
@@ -1693,7 +1692,7 @@ const module: Module = {
         // слов. Теперь вопрос требует произвести всю цепочку. Нашёл методист.
         id: "q-sopostavit-predlogi-quiz",
         kind: "short",
-        outcome: "ставит at, in или on перед словом о времени",
+        outcome: "ставить at, in или on перед словом о времени",
         prompt:
           "Занятие в июне, в воскресенье, в девять часов. Запиши три куска подряд, каждый со своим предлогом.",
         answer: "in June on Sunday at nine",
@@ -1705,7 +1704,7 @@ const module: Module = {
       {
         id: "q-oshibka-v-predloge",
         kind: "hottext",
-        outcome: "ставит at, in или on перед словом о времени",
+        outcome: "ставить at, in или on перед словом о времени",
         prompt: "Отметь записи с неверным предлогом.",
         parts: [
           { text: "on Tuesday", selectable: true },
@@ -1723,7 +1722,7 @@ const module: Module = {
       {
         id: "q-kakoy-vopros-quiz",
         kind: "choice",
-        outcome: "спрашивает о дне и о времени: When и What time",
+        outcome: "спрашивать о дне и о времени: When и What time",
         prompt: "Ты хочешь узнать, во сколько занятие. Что спросить?",
         options: [
           { text: "What time is the lesson?", correct: true },
@@ -1738,7 +1737,7 @@ const module: Module = {
         // было три. Теперь все части со строчной, и их четыре. Нашёл методист.
         id: "q-sobrat-vopros-quiz",
         kind: "order",
-        outcome: "спрашивает о дне и о времени: When и What time",
+        outcome: "спрашивать о дне и о времени: When и What time",
         prompt: "Собери вопрос «во сколько занятие?». Заглавную букву поставишь сам.",
         items: ["lesson", "time", "is", "what", "the"],
         answer: [3, 1, 2, 4, 0],
@@ -1751,7 +1750,7 @@ const module: Module = {
         // могла быть первой. Нашёл методист.
         id: "q-ugovor-poryadok",
         kind: "order",
-        outcome: "договаривается о встрече: называет день, время и часть суток",
+        outcome: "договариваться о встрече: называть день, время и часть суток",
         prompt: "Расставь реплики разговора по порядку.",
         items: [
           "In the evening.",
@@ -1766,7 +1765,7 @@ const module: Module = {
       {
         id: "q-nazvat-vstrechu-quiz",
         kind: "short",
-        outcome: "договаривается о встрече: называет день, время и часть суток",
+        outcome: "договариваться о встрече: называть день, время и часть суток",
         prompt:
           "Назначь встречу на среду, в четверть шестого вечера. Запиши предложение целиком, начни с The meeting.",
         answer: "The meeting is on Wednesday at a quarter past five in the evening.",

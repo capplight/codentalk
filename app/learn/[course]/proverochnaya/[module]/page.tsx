@@ -4,6 +4,7 @@ import { auth } from "@/auth";
 import { prisma } from "@/lib/db";
 import { findCourse } from "@/courses";
 import QuizRunner from "@/components/lesson/QuizRunner";
+import { plural } from "@/lib/plural";
 import s from "@/components/lesson/lesson.module.css";
 
 type Params = { params: Promise<{ course: string; module: string }> };
@@ -75,11 +76,18 @@ export default async function QuizPage({ params }: Params) {
         </span>
         <h1 className={s.title}>Проверочная работа</h1>
         <span className={s.meta}>
-          {test.questionsPerAttempt} вопросов · для зачёта нужно {test.passScore} баллов
+          {test.questionsPerAttempt}{" "}
+          {plural(test.questionsPerAttempt, "вопрос", "вопроса", "вопросов")} · для зачёта
+          нужно {test.passScore} {plural(test.passScore, "балл", "балла", "баллов")}
         </span>
-        <p className={s.outcome}>
-          Работа проверяет, что ученик <b>{module.outcomes.join("; ")}</b>
-        </p>
+        {/* Итоги идут списком, как на странице курса: восемь строк, склеенных
+            точками с запятой, на телефоне дают пять строк сплошного жирного. */}
+        <p className={s.outcomeLabel}>Что нужно уметь</p>
+        <ul className={s.outcomes}>
+          {module.outcomes.map((outcome, i) => (
+            <li key={i}>{outcome}</li>
+          ))}
+        </ul>
       </div>
 
       {open ? (

@@ -158,14 +158,14 @@ const module: Module = {
   ],
 
   outcomes: [
-    "здоровается, выбирая приветствие по времени дня, и прощается",
-    "называет своё имя и понимает, когда имя спрашивают",
-    "отвечает на вопрос о делах и к месту говорит please, thank you и sorry",
-    "ставит местоимение-подлежащее перед глаголом: I, you, he, she, it, we, they",
-    "выбирает am, is или are по подлежащему",
-    "узнаёт и пишет короткие формы глагола be",
-    "просит повторить сказанное и переспрашивает имя",
-    "ведёт короткий разговор при знакомстве от приветствия до прощания",
+    "здороваться, выбирая приветствие по времени дня, и прощаться",
+    "называть своё имя и понимать, когда имя спрашивают",
+    "отвечать на вопрос о делах и к месту говорить please, thank you и sorry",
+    "ставить местоимение перед глаголом: I, you, he, she, it, we, they",
+    "выбирать am, is или are по слову перед глаголом",
+    "узнавать и писать короткие формы глагола be: I'm, you're, he's",
+    "просить повторить сказанное и переспрашивать имя",
+    "вести короткий разговор при знакомстве: от приветствия до прощания",
   ],
 
   lessons: [
@@ -174,7 +174,7 @@ const module: Module = {
       slug: "hello-i-hi",
       title: "Hello и hi",
       estimatedMinutes: 12,
-      outcome: "здоровается, выбирая приветствие по времени дня, и прощается",
+      outcome: "здороваться, выбирая приветствие по времени дня, и прощаться",
 
       blocks: [
         {
@@ -366,7 +366,7 @@ const module: Module = {
       slug: "kak-vas-zovut",
       title: "Как тебя зовут",
       estimatedMinutes: 14,
-      outcome: "называет своё имя и понимает, когда имя спрашивают",
+      outcome: "называть своё имя и понимать, когда имя спрашивают",
 
       blocks: [
         {
@@ -564,7 +564,7 @@ const module: Module = {
       slug: "kak-dela",
       title: "Как дела и вежливые слова",
       estimatedMinutes: 15,
-      outcome: "отвечает на вопрос о делах и к месту говорит please, thank you и sorry",
+      outcome: "отвечать на вопрос о делах и к месту говорить please, thank you и sorry",
 
       blocks: [
         {
@@ -772,7 +772,7 @@ const module: Module = {
       slug: "mestoimeniya",
       title: "Я, ты, он: местоимения",
       estimatedMinutes: 14,
-      outcome: "ставит местоимение-подлежащее перед глаголом: I, you, he, she, it, we, they",
+      outcome: "ставить местоимение перед глаголом: I, you, he, she, it, we, they",
 
       blocks: [
         {
@@ -933,7 +933,7 @@ const module: Module = {
       slug: "svyazka-be",
       title: "Am, is, are: глагол, который связывает",
       estimatedMinutes: 15,
-      outcome: "выбирает am, is или are по подлежащему",
+      outcome: "выбирать am, is или are по слову перед глаголом",
 
       blocks: [
         {
@@ -1081,7 +1081,7 @@ const module: Module = {
       slug: "korotkie-formy",
       title: "Короткие формы: I'm, you're, he's",
       estimatedMinutes: 13,
-      outcome: "узнаёт и пишет короткие формы глагола be",
+      outcome: "узнавать и писать короткие формы глагола be: I'm, you're, he's",
 
       blocks: [
         {
@@ -1216,14 +1216,14 @@ const module: Module = {
       slug: "peresprosit",
       title: "Если не удалось расслышать: Sorry?",
       estimatedMinutes: 12,
-      outcome: "просит повторить сказанное и переспрашивает имя",
+      outcome: "просить повторить сказанное и переспрашивать имя",
 
       blocks: [
         {
           id: "zachem-peresprashivat",
           kind: "explain",
           text: [
-            "Собеседник сказал имя, а ты его не разобрал. Это случается с каждым, кто " +
+            "Собеседник называет имя, а ты его не разбираешь. Это случается с каждым, кто " +
               "начинает говорить на чужом языке, и переспрашивать здесь — не слабость, а " +
               "обычная часть разговора.",
             "Молча кивнуть — худший выход: собеседник продолжит, а нить уже потеряна. " +
@@ -1372,19 +1372,20 @@ const module: Module = {
       slug: "razgovor-celikom",
       title: "Разговор целиком: от hello до bye",
       estimatedMinutes: 15,
-      outcome: "ведёт короткий разговор при знакомстве от приветствия до прощания",
+      outcome: "вести короткий разговор при знакомстве: от приветствия до прощания",
 
       blocks: [
         {
           id: "zachem-celikom",
           kind: "explain",
           text: [
-            "Все части знакомства разобраны по отдельности: приветствие, имя, вопрос о " +
-              "делах, вежливые слова, переспрос, прощание. Осталось собрать их в один " +
-              "разговор — тот самый, который и происходит при знакомстве.",
-            "Ниже — один из возможных порядков, собранный из этих частей. Он не " +
-              "единственный: живой разговор бывает короче и идёт иначе. Но выучив этот, " +
-              "можно не придумывать каждый раз заново, что сказать дальше.",
+            "Тебя знакомят с новым человеком. Дальше всё идёт подряд и быстро: " +
+              "поздороваться, назвать себя, спросить, как дела, попрощаться.",
+            "Каждая часть такого разговора уже встречалась по отдельности. Новое здесь " +
+              "одно: теперь они идут друг за другом, и времени подбирать слова нет.",
+            "Ниже — один из возможных порядков. Он не единственный: живой разговор " +
+              "бывает короче и идёт иначе. Но если выучишь этот порядок, не придётся " +
+              "каждый раз придумывать заново, что сказать дальше.",
           ],
         },
         {
@@ -1539,7 +1540,7 @@ const module: Module = {
       {
         id: "q-mestoimenie-o-nurlane",
         kind: "choice",
-        outcome: "ставит местоимение-подлежащее перед глаголом: I, you, he, she, it, we, they",
+        outcome: "ставить местоимение перед глаголом: I, you, he, she, it, we, they",
         prompt: "Речь о Нурлане. Каким местоимением его назвать?",
         options: [{ text: "he", correct: true }, { text: "she" }, { text: "it" }],
         why: "He — о мужчине. She говорят о женщине, it — о предмете и о том, как обстоят дела.",
@@ -1547,7 +1548,7 @@ const module: Module = {
       {
         id: "q-mestoimenie-my",
         kind: "gap",
-        outcome: "ставит местоимение-подлежащее перед глаголом: I, you, he, she, it, we, they",
+        outcome: "ставить местоимение перед глаголом: I, you, he, she, it, we, they",
         prompt: "Допиши местоимение «мы».",
         before: "",
         after: " are Alim and Dana.",
@@ -1558,7 +1559,7 @@ const module: Module = {
       {
         id: "q-forma-be-they",
         kind: "choice",
-        outcome: "выбирает am, is или are по подлежащему",
+        outcome: "выбирать am, is или are по слову перед глаголом",
         prompt: "Какая форма глагола be нужна после they?",
         options: [{ text: "are", correct: true }, { text: "is" }, { text: "am" }],
         why: "They are. Форма are идёт с you, we и they. Am бывает только с I.",
@@ -1566,7 +1567,7 @@ const module: Module = {
       {
         id: "q-vstavit-is",
         kind: "gap",
-        outcome: "выбирает am, is или are по подлежащему",
+        outcome: "выбирать am, is или are по слову перед глаголом",
         prompt: "Допиши форму глагола be.",
         before: "She ",
         after: " fine.",
@@ -1576,7 +1577,7 @@ const module: Module = {
       {
         id: "q-korotkaya-he-is",
         kind: "short",
-        outcome: "узнаёт и пишет короткие формы глагола be",
+        outcome: "узнавать и писать короткие формы глагола be: I'm, you're, he's",
         prompt: "Запиши коротко: we are.",
         answer: "we're",
         accept: ["We're"],
@@ -1585,7 +1586,7 @@ const module: Module = {
       {
         id: "q-otvet-bez-korotkoy",
         kind: "choice",
-        outcome: "узнаёт и пишет короткие формы глагола be",
+        outcome: "узнавать и писать короткие формы глагола be: I'm, you're, he's",
         prompt: "В какой строке короткая форма записана верно?",
         options: [
           { text: "Its OK." },
@@ -1599,7 +1600,7 @@ const module: Module = {
       {
         id: "q-ne-rasslyshal",
         kind: "choice",
-        outcome: "просит повторить сказанное и переспрашивает имя",
+        outcome: "просить повторить сказанное и переспрашивать имя",
         prompt: "Имя названо, но расслышать его не удаётся. Что сказать?",
         options: [
           { text: "Thank you." },
@@ -1611,7 +1612,7 @@ const module: Module = {
       {
         id: "q-dopisat-again",
         kind: "gap",
-        outcome: "просит повторить сказанное и переспрашивает имя",
+        outcome: "просить повторить сказанное и переспрашивать имя",
         prompt: "Допиши просьбу повторить: «Ещё раз, пожалуйста».",
         before: "",
         after: ", please.",
@@ -1622,7 +1623,7 @@ const module: Module = {
       {
         id: "q-razgovor-ot-i-do",
         kind: "order",
-        outcome: "ведёт короткий разговор при знакомстве от приветствия до прощания",
+        outcome: "вести короткий разговор при знакомстве: от приветствия до прощания",
         prompt: "Расставь реплики разговора по порядку — от приветствия до прощания.",
         items: ["How are you?", "Good morning! What's your name?", "Goodbye!", "I'm Dana."],
         answer: [1, 3, 0, 2],
@@ -1633,7 +1634,7 @@ const module: Module = {
       {
         id: "q-vernut-vopros",
         kind: "gap",
-        outcome: "ведёт короткий разговор при знакомстве от приветствия до прощания",
+        outcome: "вести короткий разговор при знакомстве: от приветствия до прощания",
         prompt: "Допиши встречный вопрос после своего ответа.",
         before: "I'm Alim. And ",
         after: "?",
@@ -1643,7 +1644,7 @@ const module: Module = {
       {
         id: "q-vecher",
         kind: "choice",
-        outcome: "здоровается, выбирая приветствие по времени дня, и прощается",
+        outcome: "здороваться, выбирая приветствие по времени дня, и прощаться",
         prompt: "Ты приходишь в гостиницу в восемь вечера. Что сказать?",
         options: [{ text: "Good morning" }, { text: "Good evening", correct: true }, { text: "Good night" }],
         why: "Good evening — вечернее приветствие. Good night говорят, уходя спать.",
@@ -1651,7 +1652,7 @@ const module: Module = {
       {
         id: "q-dopisat-afternoon",
         kind: "gap",
-        outcome: "здоровается, выбирая приветствие по времени дня, и прощается",
+        outcome: "здороваться, выбирая приветствие по времени дня, и прощаться",
         prompt: "Допиши приветствие, которое говорят с полудня до вечера.",
         before: "Good ",
         after: "!",
@@ -1661,7 +1662,7 @@ const module: Module = {
       {
         id: "q-proshchanie",
         kind: "short",
-        outcome: "здоровается, выбирая приветствие по времени дня, и прощается",
+        outcome: "здороваться, выбирая приветствие по времени дня, и прощаться",
         prompt: "Напиши по-английски короткое прощание из трёх букв.",
         answer: "bye",
         accept: ["bye", "Bye", "bye!"],
@@ -1670,7 +1671,7 @@ const module: Module = {
       {
         id: "q-otmetit-privetstviya",
         kind: "hottext",
-        outcome: "здоровается, выбирая приветствие по времени дня, и прощается",
+        outcome: "здороваться, выбирая приветствие по времени дня, и прощаться",
         prompt: "Отметь приветствия.",
         parts: [
           { text: "Goodbye", selectable: true },
@@ -1686,7 +1687,7 @@ const module: Module = {
       {
         id: "q-am",
         kind: "gap",
-        outcome: "называет своё имя и понимает, когда имя спрашивают",
+        outcome: "называть своё имя и понимать, когда имя спрашивают",
         prompt: "Допиши пропущенное слово.",
         before: "I ",
         after: " Dana.",
@@ -1697,7 +1698,7 @@ const module: Module = {
       {
         id: "q-vopros-imya",
         kind: "choice",
-        outcome: "называет своё имя и понимает, когда имя спрашивают",
+        outcome: "называть своё имя и понимать, когда имя спрашивают",
         prompt: "Незнакомый человек говорит: «What's your name?» О чём он спрашивает?",
         options: [
           { text: "Откуда ты" },
@@ -1709,7 +1710,7 @@ const module: Module = {
       {
         id: "q-poryadok-znakomstva",
         kind: "order",
-        outcome: "называет своё имя и понимает, когда имя спрашивают",
+        outcome: "называть своё имя и понимать, когда имя спрашивают",
         prompt: "Расставь реплики знакомства по порядку.",
         items: ["I'm Dana.", "What's your name?", "Nice to meet you."],
         answer: [1, 0, 2],
@@ -1718,7 +1719,7 @@ const module: Module = {
       {
         id: "q-zaglavnaya-i",
         kind: "short",
-        outcome: "называет своё имя и понимает, когда имя спрашивают",
+        outcome: "называть своё имя и понимать, когда имя спрашивают",
         prompt: "Исправь ошибки и запиши фразу верно: «i am alim».",
         answer: "I am Alim",
         accept: ["I'm Alim"],
@@ -1732,7 +1733,7 @@ const module: Module = {
       {
         id: "q-otvet-na-how",
         kind: "short",
-        outcome: "отвечает на вопрос о делах и к месту говорит please, thank you и sorry",
+        outcome: "отвечать на вопрос о делах и к месту говорить please, thank you и sorry",
         prompt: "Тебя спросили «How are you?». Напиши обычный ответ: «хорошо, спасибо».",
         answer: "I'm fine, thank you",
         accept: [
@@ -1756,7 +1757,7 @@ const module: Module = {
       {
         id: "q-vezhlivye",
         kind: "match",
-        outcome: "отвечает на вопрос о делах и к месту говорит please, thank you и sorry",
+        outcome: "отвечать на вопрос о делах и к месту говорить please, thank you и sorry",
         prompt: "Сопоставь случай и нужное слово.",
         left: ["Просишь чай", "Тебя поблагодарили", "Извиняешься"],
         right: ["You're welcome", "Sorry", "Please"],
@@ -1767,7 +1768,7 @@ const module: Module = {
       },
       {
         id: "q-napisat-please",
-        outcome: "отвечает на вопрос о делах и к месту говорит please, thank you и sorry",
+        outcome: "отвечать на вопрос о делах и к месту говорить please, thank you и sorry",
         kind: "gap",
         prompt: "Ты просишь чай. Допиши слово вежливости.",
         before: "Tea, ",

@@ -95,14 +95,14 @@ const module: Module = {
   ],
 
   outcomes: [
-    "строит вопрос с be, поменяв местами первые два слова",
-    "коротко отвечает «да»: Yes, I am и подобные",
-    "коротко отвечает «нет»: No, I'm not и подобные",
-    "подбирает форму be к местоимению в вопросе",
-    "спрашивает о другом человеке: Is he, Is she",
-    "выбирает между кратким и полным ответом",
-    "отличает вопрос от сообщения по порядку слов",
-    "ведёт разговор из вопросов и ответов",
+    "строить вопрос с be, поменяв местами первые два слова",
+    "коротко отвечать «да»: Yes, I am, Yes, he is",
+    "коротко отвечать «нет»: No, I'm not, No, she isn't",
+    "подбирать форму be к местоимению в вопросе",
+    "спрашивать о другом человеке: Is he, Is she",
+    "выбирать между кратким и полным ответом",
+    "отличать вопрос от сообщения по порядку слов",
+    "вести разговор из вопросов и ответов",
   ],
 
   lessons: [
@@ -111,7 +111,7 @@ const module: Module = {
       slug: "vopros-s-be",
       title: "Вопрос с be: меняем местами",
       estimatedMinutes: 14,
-      outcome: "строит вопрос с be, поменяв местами первые два слова",
+      outcome: "строить вопрос с be, поменяв местами первые два слова",
 
       blocks: [
         {
@@ -244,7 +244,7 @@ const module: Module = {
       slug: "kratkiy-otvet-da",
       title: "Yes, I am: короткий ответ «да»",
       estimatedMinutes: 13,
-      outcome: "коротко отвечает «да»: Yes, I am и подобные",
+      outcome: "коротко отвечать «да»: Yes, I am, Yes, he is",
 
       blocks: [
         {
@@ -284,7 +284,7 @@ const module: Module = {
           kind: "note",
           tone: "info",
           text:
-            "В кратком ответе сокращённую форму не ставят: «Yes, I'm» сказать нельзя: «Yes, I'm» сказать нельзя, только " +
+            "В кратком ответе сокращённую форму не ставят: «Yes, I'm» сказать нельзя, только " +
             "Yes, I am. Об этом уже шла речь в модуле про приветствие: после короткой " +
             "формы всегда идут другие слова, а здесь после неё ничего нет.",
         },
@@ -378,7 +378,7 @@ const module: Module = {
       slug: "kratkiy-otvet-net",
       title: "No, I'm not: короткий ответ «нет»",
       estimatedMinutes: 13,
-      outcome: "коротко отвечает «нет»: No, I'm not и подобные",
+      outcome: "коротко отвечать «нет»: No, I'm not, No, she isn't",
 
       blocks: [
         {
@@ -510,7 +510,7 @@ const module: Module = {
       slug: "mestoimeniya-v-voprose",
       title: "Вопросы обо всех",
       estimatedMinutes: 14,
-      outcome: "подбирает форму be к местоимению в вопросе",
+      outcome: "подбирать форму be к местоимению в вопросе",
 
       blocks: [
         {
@@ -643,7 +643,7 @@ const module: Module = {
       slug: "vopros-o-drugom",
       title: "Спросить о другом человеке",
       estimatedMinutes: 13,
-      outcome: "спрашивает о другом человеке: Is he, Is she",
+      outcome: "спрашивать о другом человеке: Is he, Is she",
 
       blocks: [
         {
@@ -765,7 +765,7 @@ const module: Module = {
       slug: "polnyy-ili-kratkiy",
       title: "Ответить коротко или полно",
       estimatedMinutes: 12,
-      outcome: "выбирает между кратким и полным ответом",
+      outcome: "выбирать между кратким и полным ответом",
 
       blocks: [
         {
@@ -889,7 +889,7 @@ const module: Module = {
       slug: "vopros-ili-soobshchenie",
       title: "Вопрос или сообщение",
       estimatedMinutes: 12,
-      outcome: "отличает вопрос от сообщения по порядку слов",
+      outcome: "отличать вопрос от сообщения по порядку слов",
 
       blocks: [
         {
@@ -1013,18 +1013,17 @@ const module: Module = {
       slug: "razgovor-s-voprosami",
       title: "Разговор из вопросов и ответов",
       estimatedMinutes: 15,
-      outcome: "ведёт разговор из вопросов и ответов",
+      outcome: "вести разговор из вопросов и ответов",
 
       blocks: [
         {
           id: "zachem-razgovor",
           kind: "explain",
           text: [
-            "Теперь можно не только рассказать о себе, но и расспросить. Разговор идёт " +
-              "парами: вопрос — ответ, вопрос — ответ. Каждый ответ можно продолжить " +
-              "встречным вопросом, и тогда разговор не кончается.",
-            "Все части уже разобраны: перестановка, краткий ответ, добавление после «нет». " +
-              "Осталось соединить.",
+            "Собеседник рассказал о себе и замолчал. Дальше говорить тебе — и проще всего " +
+              "спросить его о том же самом.",
+            "Разговор идёт парами: вопрос — ответ, вопрос — ответ. Каждый ответ можно " +
+              "продолжить встречным вопросом, и разговор идёт дальше.",
           ],
         },
         {
@@ -1167,7 +1166,7 @@ const module: Module = {
       {
         id: "q-sdelat-vopros",
         kind: "short",
-        outcome: "строит вопрос с be, поменяв местами первые два слова",
+        outcome: "строить вопрос с be, поменяв местами первые два слова",
         prompt: "Сделай вопрос из сообщения «She is a driver.»",
         answer: "Is she a driver?",
         exact: true,
@@ -1177,7 +1176,7 @@ const module: Module = {
       {
         id: "q-chto-delayut",
         kind: "choice",
-        outcome: "строит вопрос с be, поменяв местами первые два слова",
+        outcome: "строить вопрос с be, поменяв местами первые два слова",
         prompt: "Что делают с сообщением, чтобы вышел вопрос с be?",
         options: [
           { text: "Убирают глагол" },
@@ -1189,7 +1188,7 @@ const module: Module = {
       {
         id: "q-otvet-da",
         kind: "short",
-        outcome: "коротко отвечает «да»: Yes, I am и подобные",
+        outcome: "коротко отвечать «да»: Yes, I am, Yes, he is",
         prompt: "«Are you a student?» Ответь коротко и утвердительно.",
         answer: "Yes, I am.",
         exact: true,
@@ -1199,7 +1198,7 @@ const module: Module = {
       {
         id: "q-otvet-da-o-ney",
         kind: "gap",
-        outcome: "коротко отвечает «да»: Yes, I am и подобные",
+        outcome: "коротко отвечать «да»: Yes, I am, Yes, he is",
         prompt: "«Is she a nurse?» Допиши утвердительный ответ.",
         before: "Yes, she ",
         after: ".",
@@ -1209,7 +1208,7 @@ const module: Module = {
       {
         id: "q-otvet-net",
         kind: "short",
-        outcome: "коротко отвечает «нет»: No, I'm not и подобные",
+        outcome: "коротко отвечать «нет»: No, I'm not, No, she isn't",
         prompt: "«Are you a doctor?» Ответь коротко и отрицательно.",
         answer: "No, I'm not.",
         exact: true,
@@ -1219,7 +1218,7 @@ const module: Module = {
       {
         id: "q-otvet-net-o-nyom",
         kind: "gap",
-        outcome: "коротко отвечает «нет»: No, I'm not и подобные",
+        outcome: "коротко отвечать «нет»: No, I'm not, No, she isn't",
         prompt: "«Is he from Spain?» Допиши отрицательный ответ короткой формой.",
         before: "No, he ",
         after: ".",
@@ -1229,7 +1228,7 @@ const module: Module = {
       {
         id: "q-forma-v-voprose",
         kind: "gap",
-        outcome: "подбирает форму be к местоимению в вопросе",
+        outcome: "подбирать форму be к местоимению в вопросе",
         prompt: "Допиши форму be, чтобы получился вопрос про they.",
         before: "",
         after: " they in Rome?",
@@ -1240,7 +1239,7 @@ const module: Module = {
       {
         id: "q-najti-nesovpadenie",
         kind: "choice",
-        outcome: "подбирает форму be к местоимению в вопросе",
+        outcome: "подбирать форму be к местоимению в вопросе",
         prompt: "В каком вопросе форма be не подходит местоимению?",
         options: [
           { text: "Am I right?" },
@@ -1252,7 +1251,7 @@ const module: Module = {
       {
         id: "q-vopros-o-drugom",
         kind: "short",
-        outcome: "спрашивает о другом человеке: Is he, Is she",
+        outcome: "спрашивать о другом человеке: Is he, Is she",
         prompt: "Спроси, из Турции ли она. Запиши вопрос целиком.",
         answer: "Is she from Turkey?",
         exact: true,
@@ -1262,7 +1261,7 @@ const module: Module = {
       {
         id: "q-propusk-artiklya",
         kind: "choice",
-        outcome: "спрашивает о другом человеке: Is he, Is she",
+        outcome: "спрашивать о другом человеке: Is he, Is she",
         prompt: "В каком вопросе пропущено короткое слово перед занятием?",
         options: [
           { text: "Is she an artist?" },
@@ -1274,7 +1273,7 @@ const module: Module = {
       {
         id: "q-kratkiy-ili-polnyy",
         kind: "choice",
-        outcome: "выбирает между кратким и полным ответом",
+        outcome: "выбирать между кратким и полным ответом",
         prompt: "«Is he a driver?» Какой ответ короткий и верный?",
         options: [
           { text: "Yes, he is.", correct: true },
@@ -1286,7 +1285,7 @@ const module: Module = {
       {
         id: "q-dobavit-posle-net",
         kind: "gap",
-        outcome: "выбирает между кратким и полным ответом",
+        outcome: "выбирать между кратким и полным ответом",
         prompt: "«Is she a teacher?» Ответили «нет» и добавили, что она врач. Допиши недостающее.",
         before: "No, she isn't. She's ",
         after: " doctor.",
@@ -1296,7 +1295,7 @@ const module: Module = {
       {
         id: "q-vopros-ili-soobshchenie",
         kind: "choice",
-        outcome: "отличает вопрос от сообщения по порядку слов",
+        outcome: "отличать вопрос от сообщения по порядку слов",
         prompt: "«Is he from Almaty» — что это, даже без знака в конце?",
         options: [{ text: "Сообщение" }, { text: "Вопрос", correct: true }, { text: "По записи не понять" }],
         why: "Вопрос: предложение открывается формой be. Решает порядок слов, а не знак.",
@@ -1304,7 +1303,7 @@ const module: Module = {
       {
         id: "q-ispravit-vopros",
         kind: "short",
-        outcome: "отличает вопрос от сообщения по порядку слов",
+        outcome: "отличать вопрос от сообщения по порядку слов",
         prompt: "Исправь и запиши верно: «You are a nurse?»",
         answer: "Are you a nurse?",
         exact: true,
@@ -1314,7 +1313,7 @@ const module: Module = {
       {
         id: "q-sobrat-razgovor",
         kind: "order",
-        outcome: "ведёт разговор из вопросов и ответов",
+        outcome: "вести разговор из вопросов и ответов",
         prompt: "Расставь реплики по порядку.",
         items: ["No, I'm not. I'm a driver.", "Are you a teacher?", "And you?"],
         answer: [1, 0, 2],
@@ -1323,7 +1322,7 @@ const module: Module = {
       {
         id: "q-chto-otvetit-v-razgovore",
         kind: "choice",
-        outcome: "ведёт разговор из вопросов и ответов",
+        outcome: "вести разговор из вопросов и ответов",
         prompt: "«Are you from Astana?» Ты из Алматы. Что ответить?",
         options: [
           { text: "No, I'm not. I'm from Almaty.", correct: true },
@@ -1335,7 +1334,7 @@ const module: Module = {
       {
         id: "q-otvet-na-am-i",
         kind: "choice",
-        outcome: "подбирает форму be к местоимению в вопросе",
+        outcome: "подбирать форму be к местоимению в вопросе",
         prompt: "«Am I right?» Как ответить утвердительно?",
         options: [
           { text: "Yes, I am." },
@@ -1347,7 +1346,7 @@ const module: Module = {
       {
         id: "q-sdelat-soobshchenie",
         kind: "short",
-        outcome: "отличает вопрос от сообщения по порядку слов",
+        outcome: "отличать вопрос от сообщения по порядку слов",
         prompt: "Сделай из вопроса сообщение: «Is he in Rome?»",
         answer: "He is in Rome.",
         exact: true,

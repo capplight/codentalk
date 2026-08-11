@@ -118,15 +118,15 @@ const module: Module = {
   ],
 
   outcomes: [
-    "называет числа от одного до десяти",
-    "называет числа от одиннадцати до двадцати",
-    "говорит свой возраст и спрашивает о возрасте",
-    "спрашивает, сколько предметов: How many?",
-    "спрашивает цену: How much is it?",
-    "называет числа от двадцати до ста",
-    "диктует номер по одной цифре",
-    "говорит о количестве, не называя точного числа: some и a lot of",
-    "ведёт короткий разговор о возрасте, количестве и цене",
+    "называть числа от одного до десяти",
+    "называть числа от одиннадцати до двадцати",
+    "говорить свой возраст и спрашивать о возрасте",
+    "спрашивать, сколько предметов: How many?",
+    "спрашивать цену: How much is it?",
+    "диктовать номер по одной цифре",
+    "называть числа от двадцати до ста",
+    "говорить о количестве, не называя точного числа: some и a lot of",
+    "вести короткий разговор о возрасте, количестве и цене",
   ],
 
   lessons: [
@@ -135,7 +135,7 @@ const module: Module = {
       slug: "chisla-do-desyati",
       title: "Числа от одного до десяти",
       estimatedMinutes: 13,
-      outcome: "называет числа от одного до десяти",
+      outcome: "называть числа от одного до десяти",
 
       blocks: [
         {
@@ -287,7 +287,7 @@ const module: Module = {
       slug: "chisla-do-dvadcati",
       title: "От одиннадцати до двадцати",
       estimatedMinutes: 13,
-      outcome: "называет числа от одиннадцати до двадцати",
+      outcome: "называть числа от одиннадцати до двадцати",
 
       blocks: [
         {
@@ -410,7 +410,7 @@ const module: Module = {
       slug: "skolko-let",
       title: "Сколько тебе лет",
       estimatedMinutes: 13,
-      outcome: "говорит свой возраст и спрашивает о возрасте",
+      outcome: "говорить свой возраст и спрашивать о возрасте",
 
       blocks: [
         {
@@ -556,7 +556,7 @@ const module: Module = {
       slug: "skolko-predmetov",
       title: "Сколько их: How many?",
       estimatedMinutes: 12,
-      outcome: "спрашивает, сколько предметов: How many?",
+      outcome: "спрашивать, сколько предметов: How many?",
 
       blocks: [
         {
@@ -682,7 +682,7 @@ const module: Module = {
       slug: "skolko-stoit",
       title: "Сколько стоит: How much?",
       estimatedMinutes: 12,
-      outcome: "спрашивает цену: How much is it?",
+      outcome: "спрашивать цену: How much is it?",
 
       blocks: [
         {
@@ -807,7 +807,7 @@ const module: Module = {
       slug: "nomer-po-cifram",
       title: "Номер по одной цифре",
       estimatedMinutes: 12,
-      outcome: "диктует номер по одной цифре",
+      outcome: "диктовать номер по одной цифре",
 
       blocks: [
         {
@@ -933,7 +933,7 @@ const module: Module = {
       slug: "desyatki-i-sotnya",
       title: "Десятки и сотня",
       estimatedMinutes: 13,
-      outcome: "называет числа от двадцати до ста",
+      outcome: "называть числа от двадцати до ста",
 
       blocks: [
         {
@@ -1094,7 +1094,7 @@ const module: Module = {
       slug: "some-i-a-lot-of",
       title: "Много и несколько: some и a lot of",
       estimatedMinutes: 12,
-      outcome: "говорит о количестве, не называя точного числа: some и a lot of",
+      outcome: "говорить о количестве, не называя точного числа: some и a lot of",
 
       blocks: [
         {
@@ -1218,16 +1218,16 @@ const module: Module = {
       slug: "razgovor-s-chislami",
       title: "Разговор, в котором есть числа",
       estimatedMinutes: 14,
-      outcome: "ведёт короткий разговор о возрасте, количестве и цене",
+      outcome: "вести короткий разговор о возрасте, количестве и цене",
 
       blocks: [
         {
           id: "zachem-razgovor-chisla",
           kind: "explain",
           text: [
-            "Про числа пройдено всё: счёт, возраст, количество, цена, номер. Соберём это " +
-              "в разговор — такой, какой случается в магазине и при знакомстве.",
-            "Три вопроса держат весь разговор: How old…? How many…? How much…?",
+            "В магазине спрашивают цену, при знакомстве — возраст. За один день числа " +
+              "звучат десяток раз.",
+            "Три вопроса держат весь такой разговор: How old…? How many…? How much…?",
           ],
         },
         {
@@ -1355,7 +1355,7 @@ const module: Module = {
       {
         id: "q-chislo-slovom",
         kind: "short",
-        outcome: "называет числа от одного до десяти",
+        outcome: "называть числа от одного до десяти",
         prompt: "Напиши словом число 9.",
         answer: "nine",
         accept: ["Nine"],
@@ -1364,7 +1364,7 @@ const module: Module = {
       {
         id: "q-nechitaemye-bukvy",
         kind: "choice",
-        outcome: "называет числа от одного до десяти",
+        outcome: "называть числа от одного до десяти",
         prompt: "В каком числе есть буквы, которые не читаются?",
         options: [{ text: "ten" }, { text: "six" }, { text: "two", correct: true }],
         why: "Two — буква w не читается: /tuː/.",
@@ -1372,7 +1372,7 @@ const module: Module = {
       {
         id: "q-sobrat-13",
         kind: "choice",
-        outcome: "называет числа от одиннадцати до двадцати",
+        outcome: "называть числа от одиннадцати до двадцати",
         prompt: "Как правильно написать 15?",
         options: [{ text: "fifteen", correct: true }, { text: "fiveteen" }, { text: "fivteen" }],
         why: "Fifteen. Слово five при сборке меняется на fif-.",
@@ -1380,7 +1380,7 @@ const module: Module = {
       {
         id: "q-napisat-14",
         kind: "short",
-        outcome: "называет числа от одиннадцати до двадцати",
+        outcome: "называть числа от одиннадцати до двадцати",
         prompt: "Напиши словом число 14.",
         answer: "fourteen",
         accept: ["Fourteen"],
@@ -1389,7 +1389,7 @@ const module: Module = {
       {
         id: "q-sprosit-vozrast",
         kind: "short",
-        outcome: "говорит свой возраст и спрашивает о возрасте",
+        outcome: "говорить свой возраст и спрашивать о возрасте",
         prompt: "Спроси, сколько лет ей. Запиши вопрос целиком.",
         answer: "How old is she?",
         accept: ["How old is she"],
@@ -1398,7 +1398,7 @@ const module: Module = {
       {
         id: "q-oshibka-vozrasta",
         kind: "choice",
-        outcome: "говорит свой возраст и спрашивает о возрасте",
+        outcome: "говорить свой возраст и спрашивать о возрасте",
         prompt: "Как сказать «мне двадцать»?",
         options: [
           { text: "I have twenty years." },
@@ -1410,7 +1410,7 @@ const module: Module = {
       {
         id: "q-many-mnozhestvennoe",
         kind: "gap",
-        outcome: "спрашивает, сколько предметов: How many?",
+        outcome: "спрашивать, сколько предметов: How many?",
         prompt: "Допиши название во множественном: «сколько машин?»",
         before: "How many ",
         after: "?",
@@ -1420,7 +1420,7 @@ const module: Module = {
       {
         id: "q-otvet-na-many",
         kind: "choice",
-        outcome: "спрашивает, сколько предметов: How many?",
+        outcome: "спрашивать, сколько предметов: How many?",
         prompt: "«How many friends?» У тебя пять друзей. Что ответить?",
         options: [{ text: "I'm five." }, { text: "Five.", correct: true }, { text: "Five old." }],
         why: "Five. Одного числа достаточно; «I'm five» говорит о возрасте.",
@@ -1428,7 +1428,7 @@ const module: Module = {
       {
         id: "q-cena-vopros",
         kind: "short",
-        outcome: "спрашивает цену: How much is it?",
+        outcome: "спрашивать цену: How much is it?",
         prompt: "Спроси цену нескольких предметов. Запиши вопрос целиком.",
         answer: "How much are they?",
         accept: ["How much are they"],
@@ -1437,7 +1437,7 @@ const module: Module = {
       {
         id: "q-much-ili-many-quiz",
         kind: "choice",
-        outcome: "спрашивает цену: How much is it?",
+        outcome: "спрашивать цену: How much is it?",
         prompt: "Какое слово спрашивает о цене?",
         options: [{ text: "many" }, { text: "old" }, { text: "much", correct: true }],
         why: "Much. Many спрашивает о количестве штук, old — о возрасте.",
@@ -1445,7 +1445,7 @@ const module: Module = {
       {
         id: "q-sorok",
         kind: "choice",
-        outcome: "называет числа от двадцати до ста",
+        outcome: "называть числа от двадцати до ста",
         prompt: "Как правильно написать 40?",
         options: [{ text: "fourteen" }, { text: "fourty" }, { text: "forty", correct: true }],
         why: "Forty. Буква u выпадает, а fourteen значит 14.",
@@ -1453,7 +1453,7 @@ const module: Module = {
       {
         id: "q-sostavnoe-chislo",
         kind: "short",
-        outcome: "называет числа от двадцати до ста",
+        outcome: "называть числа от двадцати до ста",
         prompt: "Напиши словом число 48.",
         answer: "forty-eight",
         accept: ["Forty-eight", "forty eight"],
@@ -1462,7 +1462,7 @@ const module: Module = {
       {
         id: "q-teen-ili-ty",
         kind: "hottext",
-        outcome: "называет числа от двадцати до ста",
+        outcome: "называть числа от двадцати до ста",
         prompt: "Отметь слова, которые называют десятки.",
         parts: [
           { text: "seventeen", selectable: true },
@@ -1478,7 +1478,7 @@ const module: Module = {
       {
         id: "q-nomer-po-cifram",
         kind: "choice",
-        outcome: "диктует номер по одной цифре",
+        outcome: "диктовать номер по одной цифре",
         prompt: "Как назовут номер комнаты 12?",
         options: [
           { text: "one — two", correct: true },
@@ -1490,7 +1490,7 @@ const module: Module = {
       {
         id: "q-zapisat-nomer-quiz",
         kind: "short",
-        outcome: "диктует номер по одной цифре",
+        outcome: "диктовать номер по одной цифре",
         prompt: "Продиктовали: nine — zero — four. Запиши номер цифрами, без пробелов.",
         answer: "904",
         why: "904. Записывать цифрами не ошибка.",
@@ -1498,7 +1498,7 @@ const module: Module = {
       {
         id: "q-some-ili-a",
         kind: "choice",
-        outcome: "говорит о количестве, не называя точного числа: some и a lot of",
+        outcome: "говорить о количестве, не называя точного числа: some и a lot of",
         prompt: "Как сказать «несколько ключей»?",
         options: [{ text: "a keys" }, { text: "some key" }, { text: "some keys", correct: true }],
         why: "Some keys. После some название во множественном, а артикль a с ним не сочетается.",
@@ -1506,7 +1506,7 @@ const module: Module = {
       {
         id: "q-a-lot-of-celikom",
         kind: "gap",
-        outcome: "говорит о количестве, не называя точного числа: some и a lot of",
+        outcome: "говорить о количестве, не называя точного числа: some и a lot of",
         prompt: "Допиши недостающее слово: «много людей».",
         before: "a lot ",
         after: " people",
@@ -1516,7 +1516,7 @@ const module: Module = {
       {
         id: "q-tri-voprosa",
         kind: "match",
-        outcome: "ведёт короткий разговор о возрасте, количестве и цене",
+        outcome: "вести короткий разговор о возрасте, количестве и цене",
         prompt: "Сопоставь вопрос и то, о чём он.",
         left: ["How much is it?", "How old are you?", "How many books?"],
         right: ["о возрасте", "о количестве", "о цене"],
@@ -1526,7 +1526,7 @@ const module: Module = {
       {
         id: "q-sobrat-razgovor-chisla-quiz",
         kind: "order",
-        outcome: "ведёт короткий разговор о возрасте, количестве и цене",
+        outcome: "вести короткий разговор о возрасте, количестве и цене",
         prompt: "Расставь реплики по порядку.",
         items: ["I'm twenty.", "How old are you?", "And you?"],
         answer: [1, 0, 2],
@@ -1535,7 +1535,7 @@ const module: Module = {
       {
         id: "q-chislo-i-mnozhestvennoe",
         kind: "short",
-        outcome: "называет числа от одного до десяти",
+        outcome: "называть числа от одного до десяти",
         prompt: "Напиши по-английски «три ключа» — число словом.",
         answer: "three keys",
         accept: ["Three keys"],
@@ -1544,7 +1544,7 @@ const module: Module = {
       {
         id: "q-otvetit-o-svoyom-vozraste",
         kind: "gap",
-        outcome: "говорит свой возраст и спрашивает о возрасте",
+        outcome: "говорить свой возраст и спрашивать о возрасте",
         prompt: "Тебе восемнадцать. Допиши ответ: число словом.",
         before: "I'm ",
         after: ".",

@@ -132,14 +132,14 @@ const module: Module = {
   ],
 
   outcomes: [
-    "спрашивает «что это» и отвечает: What is this? — It's a book",
-    "различает this и that: близко и далеко",
-    "называет предметы, которые носит с собой",
-    "называет то, что стоит в комнате",
-    "называет то, что вокруг на улице",
-    "отрицает о предмете и называет верное: It isn't a pen, it's a key",
-    "спрашивает о предмете с be и коротко отвечает",
-    "ведёт разговор о предметах",
+    "спрашивать «что это» и отвечать: What is this? — It's a book",
+    "различать this и that: близко и далеко",
+    "называть предметы, которые носишь с собой",
+    "называть то, что стоит в комнате",
+    "называть то, что вокруг на улице",
+    "говорить, что предмет не тот, и называть верный: It isn't a pen, it's a key",
+    "спрашивать о предмете с be и коротко отвечать",
+    "вести разговор о предметах",
   ],
 
   lessons: [
@@ -148,7 +148,7 @@ const module: Module = {
       slug: "chto-eto",
       title: "Что это: What is this?",
       estimatedMinutes: 14,
-      outcome: "спрашивает «что это» и отвечает: What is this? — It's a book",
+      outcome: "спрашивать «что это» и отвечать: What is this? — It's a book",
 
       blocks: [
         {
@@ -299,7 +299,7 @@ const module: Module = {
       slug: "this-i-that",
       title: "This и that: близко и далеко",
       estimatedMinutes: 13,
-      outcome: "различает this и that: близко и далеко",
+      outcome: "различать this и that: близко и далеко",
 
       blocks: [
         {
@@ -438,7 +438,7 @@ const module: Module = {
       slug: "predmety-s-soboy",
       title: "Что носишь с собой",
       estimatedMinutes: 13,
-      outcome: "называет предметы, которые носит с собой",
+      outcome: "называть предметы, которые носишь с собой",
 
       blocks: [
         {
@@ -574,7 +574,7 @@ const module: Module = {
       slug: "v-komnate",
       title: "Что стоит в комнате",
       estimatedMinutes: 13,
-      outcome: "называет то, что стоит в комнате",
+      outcome: "называть то, что стоит в комнате",
 
       blocks: [
         {
@@ -715,7 +715,7 @@ const module: Module = {
       slug: "na-ulice",
       title: "Что вокруг на улице",
       estimatedMinutes: 13,
-      outcome: "называет то, что вокруг на улице",
+      outcome: "называть то, что вокруг на улице",
 
       blocks: [
         {
@@ -854,7 +854,7 @@ const module: Module = {
       slug: "eto-ne-to-a-vot-eto",
       title: "Это не то, а вот это",
       estimatedMinutes: 13,
-      outcome: "отрицает о предмете и называет верное: It isn't a pen, it's a key",
+      outcome: "говорить, что предмет не тот, и называть верный: It isn't a pen, it's a key",
 
       blocks: [
         {
@@ -976,7 +976,7 @@ const module: Module = {
       slug: "sprosit-o-predmete",
       title: "Спросить о предмете",
       estimatedMinutes: 13,
-      outcome: "спрашивает о предмете с be и коротко отвечает",
+      outcome: "спрашивать о предмете с be и коротко отвечать",
 
       blocks: [
         {
@@ -1110,17 +1110,16 @@ const module: Module = {
       slug: "razgovor-o-predmetah",
       title: "Разговор о предметах",
       estimatedMinutes: 15,
-      outcome: "ведёт разговор о предметах",
+      outcome: "вести разговор о предметах",
 
       blocks: [
         {
           id: "zachem-razgovor-o-predmetah",
           kind: "explain",
           text: [
-            "Всё собрано: спросить название, проверить догадку, поправить, назвать предмет " +
-              "верно. Осталось соединить это в разговор — такой, какой случается в " +
-              "магазине, у стойки регистрации, в чужом доме.",
-            "Разговор о предметах короткий и держится на двух вопросах: What is this? и " +
+            "Ты в магазине, показываешь на предмет и не знаешь слова. Спрашиваешь, слышишь " +
+              "ответ — и слово твоё.",
+            "Такой разговор короткий и держится на двух вопросах: What is this? и " +
               "Is this a…?",
           ],
         },
@@ -1264,7 +1263,7 @@ const module: Module = {
       {
         id: "q-sprosit-chto-eto",
         kind: "short",
-        outcome: "спрашивает «что это» и отвечает: What is this? — It's a book",
+        outcome: "спрашивать «что это» и отвечать: What is this? — It's a book",
         prompt: "Спроси о предмете, который лежит вдалеке. Запиши вопрос в полной записи.",
         answer: "What is that?",
         exact: true,
@@ -1274,7 +1273,7 @@ const module: Module = {
       {
         id: "q-otvetit-o-knige",
         kind: "gap",
-        outcome: "спрашивает «что это» и отвечает: What is this? — It's a book",
+        outcome: "спрашивать «что это» и отвечать: What is this? — It's a book",
         prompt: "«What's that?» Вдалеке телефон. Допиши ответ.",
         before: "It's a ",
         after: ".",
@@ -1284,7 +1283,7 @@ const module: Module = {
       {
         id: "q-this-ili-that",
         kind: "choice",
-        outcome: "различает this и that: близко и далеко",
+        outcome: "различать this и that: близко и далеко",
         prompt: "Предмет стоит на другом конце комнаты. Каким словом о нём спросить?",
         options: [{ text: "that", correct: true }, { text: "this" }, { text: "it" }],
         why: "That — о том, что подальше. This говорят о том, что рядом.",
@@ -1292,7 +1291,7 @@ const module: Module = {
       {
         id: "q-lishnee-a",
         kind: "choice",
-        outcome: "различает this и that: близко и далеко",
+        outcome: "различать this и that: близко и далеко",
         prompt: "В какой строке лишнее слово?",
         options: [
           { text: "that car" },
@@ -1304,7 +1303,7 @@ const module: Module = {
       {
         id: "q-sumka-po-angliyski",
         kind: "gap",
-        outcome: "называет предметы, которые носит с собой",
+        outcome: "называть предметы, которые носишь с собой",
         prompt: "Допиши название предмета: сумка.",
         before: "It's a ",
         after: ".",
@@ -1314,7 +1313,7 @@ const module: Module = {
       {
         id: "q-telefon-sopostavit",
         kind: "match",
-        outcome: "называет предметы, которые носит с собой",
+        outcome: "называть предметы, которые носишь с собой",
         prompt: "Сопоставь слово и перевод.",
         left: ["phone", "box", "key"],
         right: ["ключ", "телефон", "коробка"],
@@ -1324,7 +1323,7 @@ const module: Module = {
       {
         id: "q-stul-po-angliyski",
         kind: "choice",
-        outcome: "называет то, что стоит в комнате",
+        outcome: "называть то, что стоит в комнате",
         prompt: "Что значит слово picture?",
         options: [{ text: "комната" }, { text: "картина", correct: true }, { text: "дверь" }],
         why: "Picture — картина. Комната — room, дверь — door.",
@@ -1332,7 +1331,7 @@ const module: Module = {
       {
         id: "q-okno-dopisat",
         kind: "gap",
-        outcome: "называет то, что стоит в комнате",
+        outcome: "называть то, что стоит в комнате",
         prompt: "Допиши название предмета: окно.",
         before: "It's a ",
         after: ".",
@@ -1342,7 +1341,7 @@ const module: Module = {
       {
         id: "q-bilet-po-angliyski",
         kind: "gap",
-        outcome: "называет то, что вокруг на улице",
+        outcome: "называть то, что вокруг на улице",
         prompt: "Допиши название предмета: билет.",
         before: "It's a ",
         after: ".",
@@ -1352,7 +1351,7 @@ const module: Module = {
       {
         id: "q-dengi-bez-artiklya",
         kind: "choice",
-        outcome: "называет то, что вокруг на улице",
+        outcome: "называть то, что вокруг на улице",
         prompt: "В какой строке про деньги сказано верно?",
         options: [
           { text: "It's a money." },
@@ -1364,7 +1363,7 @@ const module: Module = {
       {
         id: "q-popravit-predmet",
         kind: "short",
-        outcome: "отрицает о предмете и называет верное: It isn't a pen, it's a key",
+        outcome: "говорить, что предмет не тот, и называть верный: It isn't a pen, it's a key",
         prompt: "Собеседник сказал: «It's a bus.» На самом деле это машина. Возрази и назови верное — два предложения.",
         answer: "It isn't a bus. It's a car.",
         exact: true,
@@ -1378,7 +1377,7 @@ const module: Module = {
       {
         id: "q-poterya-a-v-otricanii",
         kind: "choice",
-        outcome: "отрицает о предмете и называет верное: It isn't a pen, it's a key",
+        outcome: "говорить, что предмет не тот, и называть верный: It isn't a pen, it's a key",
         prompt: "В какой строке потерялось короткое слово?",
         options: [
           { text: "It isn't a map." },
@@ -1390,7 +1389,7 @@ const module: Module = {
       {
         id: "q-vopros-o-predmete",
         kind: "short",
-        outcome: "спрашивает о предмете с be и коротко отвечает",
+        outcome: "спрашивать о предмете с be и коротко отвечать",
         prompt: "Проверь догадку о предмете вдалеке: спроси, автобус ли это. Запиши вопрос целиком.",
         answer: "Is that a bus?",
         exact: true,
@@ -1400,7 +1399,7 @@ const module: Module = {
       {
         id: "q-kratkiy-otvet-o-predmete",
         kind: "gap",
-        outcome: "спрашивает о предмете с be и коротко отвечает",
+        outcome: "спрашивать о предмете с be и коротко отвечать",
         prompt: "«Is this a key?» Это правда. Допиши краткий ответ.",
         before: "Yes, it ",
         after: ".",
@@ -1410,7 +1409,7 @@ const module: Module = {
       {
         id: "q-sobrat-razgovor-predmety",
         kind: "order",
-        outcome: "ведёт разговор о предметах",
+        outcome: "вести разговор о предметах",
         prompt: "Расставь реплики по порядку.",
         items: ["It's a ticket.", "What's this?", "Is that a map?"],
         answer: [1, 0, 2],
@@ -1419,7 +1418,7 @@ const module: Module = {
       {
         id: "q-otvetit-i-nazvat",
         kind: "short",
-        outcome: "ведёт разговор о предметах",
+        outcome: "вести разговор о предметах",
         prompt: "«Is this a pen?» На самом деле это ключ. Ответь «нет» коротко и назови верное — два предложения.",
         answer: "No, it isn't. It's a key.",
         exact: true,
@@ -1433,7 +1432,7 @@ const module: Module = {
       {
         id: "q-dva-voprosa-razlichit",
         kind: "hottext",
-        outcome: "спрашивает о предмете с be и коротко отвечает",
+        outcome: "спрашивать о предмете с be и коротко отвечать",
         prompt: "Отметь вопросы, на которые отвечают «да» или «нет».",
         parts: [
           { text: "What is this?", selectable: true },
@@ -1451,7 +1450,7 @@ const module: Module = {
       {
         id: "q-nazvanie-predmeta-otvet",
         kind: "short",
-        outcome: "называет то, что вокруг на улице",
+        outcome: "называть то, что вокруг на улице",
         prompt: "Перед тобой билет. Ответь на «What's this?» целиком.",
         answer: "It's a ticket.",
         exact: true,

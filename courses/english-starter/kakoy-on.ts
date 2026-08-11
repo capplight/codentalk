@@ -182,43 +182,44 @@ const module: Module = {
   ],
 
   outcomes: [
-    "называет признак предмета после формы be: It's big",
-    "ставит признак перед названием предмета: a big house",
-    "называет цвет предмета и спрашивает о цвете",
-    "усиливает признак словом very",
-    "соединяет два признака словом and",
-    "описывает человека: tall, young, nice",
-    "называет любимое: my favourite colour is blue",
-    "описывает предмет и человека тремя предложениями",
+    "говорить, какой предмет: The house is big",
+    "ставить прилагательное перед названием предмета: a big house",
+    "называть цвет предмета и спрашивать о цвете",
+    "усиливать прилагательное словом very",
+    "соединять два прилагательных словом and",
+    "описывать человека: tall, young, nice",
+    "называть любимое: my favourite colour is blue",
+    "описывать предмет и человека тремя предложениями",
   ],
 
   lessons: [
     // =====================================================================
     {
       slug: "priznak-posle-be",
-      title: "Какой он: признак после be",
+      title: "Какой предмет: big, new, old",
       estimatedMinutes: 13,
-      outcome: "называет признак предмета после формы be: It's big",
+      outcome: "говорить, какой предмет: The house is big",
 
       blocks: [
         {
           id: "zachem-priznak",
           kind: "explain",
           text: [
-            "Ты показываешь на дом и говоришь: It's a house. Собеседник кивает — но какой " +
-              "он, из этого не видно. Большой, новый, дорогой? Для этого нужны слова о " +
-              "признаке: big, new, expensive.",
-            "Ставят их после формы be — ровно там же, где раньше стояло название занятия. " +
-              "В I'm a student там стоит student, в The house is big — big.",
-            "Такие слова отвечают на вопрос «какой?» — в школе их называют " +
-              "прилагательными. Дальше в курсе будем говорить короче: признак.",
+            "Ты показываешь на дом и говоришь: It's a house. Собеседник кивает: дом он " +
+              "увидел. А какой этот дом — большой, новый, дорогой — из твоих слов не " +
+              "понять.",
+            "Для этого есть отдельные слова: big — «большой», new — «новый», " +
+              "expensive — «дорогой». Такие слова отвечают на вопрос «какой?», и " +
+              "называют их прилагательными.",
+            "Ставят их после формы be — там же, где раньше стояло название занятия. " +
+              "В I'm a student на этом месте student, в The house is big — big.",
           ],
         },
         {
           id: "tablica-priznakov",
           kind: "table",
-          caption: "Признак после формы be",
-          head: ["Предложение", "Перевод", "Признак"],
+          caption: "Прилагательное после формы be",
+          head: ["Предложение", "Перевод", "Какое слово"],
           rows: [
             ["The house is big.", "Дом большой.", "big"],
             ["The book is new.", "Книга новая.", "new"],
@@ -231,14 +232,14 @@ const module: Module = {
           kind: "note",
           tone: "mistake",
           text:
-            "Русское слово о признаке меняется вместе с предметом: «дом большой», «книга " +
-            "большая», «окно большое». Английское вслед за предметом не меняется: big, " +
-            "big и ещё раз big. The house is big. The book is big. The window is big.",
+            "Русское прилагательное меняется вместе с предметом: «дом большой», «книга " +
+            "большая», «окно большое». Английское не меняется никогда: big, big и ещё " +
+            "раз big. The house is big. The book is big. The window is big.",
         },
         {
           id: "slova-priznakov",
           kind: "table",
-          caption: "Шесть пар признаков",
+          caption: "Шесть пар слов",
           head: ["Слово", "Перевод", "Пара к нему"],
           rows: [
             ["big", "большой", "small — маленький"],
@@ -256,7 +257,7 @@ const module: Module = {
           text:
             "— What's this?\n— It's a book. It's new.\n— And that?\n— It's a car. It's old.",
           explain:
-            "Сначала называют предмет, потом признак — двумя короткими предложениями. " +
+            "Сначала называют предмет, потом говорят, какой он. Двумя короткими предложениями. " +
             "Во фразе It's new слово it показывает на ту же книгу, которую только что " +
             "назвали.",
         },
@@ -265,7 +266,7 @@ const module: Module = {
           kind: "audio",
           planned: true,
           pace: "slow",
-          caption: "Послушай признаки парами",
+          caption: "Послушай слова парами",
           transcript:
             "Big. Small. New. Old. Long. Short. Hot. Cold. Good. Bad. Expensive. Cheap.",
         },
@@ -295,12 +296,12 @@ const module: Module = {
         {
           id: "z1-dopisat-priznak",
           kind: "gap",
-          prompt: "Допиши признак: чай горячий.",
+          prompt: "Допиши слово: чай горячий.",
           before: "The tea is ",
           after: ".",
           answer: "hot",
           hint: "Есть в словаре урока, в паре со словом cold.",
-          why: "The tea is hot. Признак стоит после формы be и ничего к себе не прибавляет.",
+          why: "The tea is hot. Прилагательное стоит после формы be и ничего к себе не прибавляет.",
         },
         {
           id: "z2-para-k-slovu",
@@ -309,13 +310,13 @@ const module: Module = {
           left: ["big", "new", "expensive"],
           right: ["cheap", "small", "old"],
           answer: [1, 2, 0],
-          hint: "Каждая пара — это два противоположных признака.",
+          hint: "В каждой паре слова противоположны по смыслу.",
           why: "Big — small, new — old, expensive — cheap.",
         },
         {
           id: "z3-priznak-ne-menyaetsya",
           kind: "hottext",
-          prompt: "Отметь записи, где к признаку прибавили лишнее окончание.",
+          prompt: "Отметь записи, где к прилагательному прибавили лишнее окончание.",
           parts: [
             { text: "The book is big.", selectable: true },
             { text: " · " },
@@ -325,10 +326,10 @@ const module: Module = {
             { text: " · " },
             { text: "The tea is cold.", selectable: true },
           ],
-          hint: "Английское слово о признаке не меняется ни при каком предмете.",
+          hint: "Английское прилагательное не меняется, о каком бы предмете ни шла речь.",
           why:
-            "Newy и smalls — придуманные формы. Верно new и small: признак остаётся таким, " +
-            "как он есть в словаре.",
+            "Newy и smalls — придуманные формы. Верно new и small: прилагательное остаётся " +
+            "таким, каким стоит в словаре.",
         },
         {
           id: "z4-sobrat-predlozhenie",
@@ -336,10 +337,10 @@ const module: Module = {
           prompt: "Собери предложение: «Машина старая».",
           items: ["old", "car", "is", "The"],
           answer: [3, 1, 2, 0],
-          hint: "Сначала тот, о ком речь, потом форма be, потом признак.",
+          hint: "Сначала то, о чём речь, потом форма be, потом прилагательное.",
           why:
-            "The car is old. Порядок тот же, что и во всех предложениях с be: сначала тот, " +
-            "о ком речь, потом форма be, потом признак.",
+            "The car is old. Порядок тот же, что и во всех предложениях с be: сначала то, " +
+            "о чём речь, потом форма be, потом прилагательное.",
         },
         {
           id: "z5-opisat-dva",
@@ -348,8 +349,8 @@ const module: Module = {
           answer: "The pen is cheap.",
           exact: true,
           accept: ["The pen is cheap"],
-          hint: "Образец есть в таблице урока, замени предмет и признак.",
-          why: "The pen is cheap. Форма is идёт с одним предметом, признак — после неё.",
+          hint: "Образец есть в таблице урока, замени предмет и прилагательное.",
+          why: "The pen is cheap. Форма is идёт с одним предметом, прилагательное — после неё.",
         },
       ],
     },
@@ -357,20 +358,20 @@ const module: Module = {
     // =====================================================================
     {
       slug: "pered-nazvaniem",
-      title: "Признак перед названием: a big house",
+      title: "Перед названием: a big house",
       estimatedMinutes: 14,
-      outcome: "ставит признак перед названием предмета: a big house",
+      outcome: "ставить прилагательное перед названием предмета: a big house",
 
       blocks: [
         {
           id: "zachem-pered",
           kind: "explain",
           text: [
-            "Признак можно поставить и в другое место — прямо перед названием предмета: " +
+            "Прилагательное можно поставить и в другое место — прямо перед названием предмета: " +
               "a big house, «большой дом». Смысл тот же, что у The house is big.",
             "Но это уже не целое предложение, а часть. Она встаёт туда, где раньше стояло " +
               "одно название: It's a house → It's a big house.",
-            "Порядок жёсткий: сначала артикль, потом признак, потом название. " +
+            "Порядок жёсткий: сначала артикль, потом прилагательное, потом название. " +
               "A big house — и никак иначе.",
           ],
         },
@@ -378,7 +379,7 @@ const module: Module = {
           id: "tablica-pered",
           kind: "table",
           caption: "Два способа сказать одно",
-          head: ["Признак после be", "Признак перед названием"],
+          head: ["После be", "Перед названием"],
           rows: [
             ["The house is big.", "a big house"],
             ["The book is new.", "a new book"],
@@ -406,10 +407,10 @@ const module: Module = {
           tone: "mistake",
           text:
             "Смотри третью строку таблицы: an old car, а не a old car.\n\n" +
-            "Правило то же, что в модуле про рассказ о себе: a ставят перед согласным " +
+            "Правило то же, что в модуле «Рассказ о себе»: a ставят перед согласным " +
             "звуком, an — перед гласным. Смотрят при этом на слово сразу за артиклем.\n\n" +
             "Раньше сразу за артиклем стояло название предмета: a car. Теперь между " +
-            "артиклем и названием встал признак, и выбирать надо по признаку. Old " +
+            "артиклем и названием встало прилагательное, и артикль выбирают по нему. Old " +
             "начинается с гласного звука — значит an old car.",
         },
         {
@@ -417,9 +418,9 @@ const module: Module = {
           kind: "note",
           tone: "info",
           text:
-            "Во множественном числе признак тоже не меняется: big houses, new books, old " +
-            "cars. Окончание -s достаётся только названию предмета. Артикль при этом " +
-            "уходит, как в модуле про один и много.",
+            "Во множественном числе прилагательное тоже не меняется: big houses, new books, " +
+            "old cars. Окончание -s достаётся только названию предмета. Артикль при этом " +
+            "уходит, как в модуле «Один и много».",
         },
         {
           id: "primer-pered",
@@ -428,7 +429,7 @@ const module: Module = {
           text:
             "— What's this?\n— It's a new book.\n— And that?\n— It's an old car.",
           explain:
-            "Признак встал внутрь ответа: It's a new book вместо It's a book. It's new. " +
+            "Прилагательное встало внутрь ответа: It's a new book вместо It's a book. It's new. " +
             "Одно предложение вместо двух.",
         },
         {
@@ -436,7 +437,7 @@ const module: Module = {
           kind: "audio",
           planned: true,
           pace: "slow",
-          caption: "Послушай признак перед названием",
+          caption: "Послушай слова перед названием",
           transcript:
             "A big house. A new book. An old car. A small room. Big houses. New books.",
         },
@@ -463,9 +464,9 @@ const module: Module = {
           answer: "It's a big house.",
           exact: true,
           accept: ["It's a big house", "It is a big house.", "It is a big house"],
-          hint: "Признак встаёт между артиклем и названием.",
+          hint: "Прилагательное встаёт между артиклем и названием.",
           why:
-            "It's a big house. Порядок такой: артикль, признак, название предмета.",
+            "It's a big house. Порядок такой: артикль, прилагательное, название предмета.",
         },
         {
           id: "z3-otmetit-poryadok",
@@ -480,7 +481,7 @@ const module: Module = {
             { text: " · " },
             { text: "an old book", selectable: true },
           ],
-          hint: "Порядок один: артикль, признак, название.",
+          hint: "Порядок один: артикль, прилагательное, название.",
           why:
             "«A car new» и «big a house» построены не в том порядке. Верно a new car и " +
             "a big house.",
@@ -494,8 +495,8 @@ const module: Module = {
           answer: "books",
           hint: "Окончание достаётся только названию предмета.",
           why:
-            "New books. К признаку -s не прибавляют: он остаётся new и при одной книге, и " +
-            "при десяти.",
+            "New books. К прилагательному -s не прибавляют: оно остаётся new и при одной " +
+            "книге, и при десяти.",
         },
         {
           id: "z5-sobrat-s-artiklem",
@@ -515,10 +516,10 @@ const module: Module = {
           answer: "The room is small.",
           exact: true,
           accept: ["The room is small"],
-          hint: "Признак переезжает из середины в конец, за форму be.",
+          hint: "Прилагательное переезжает из середины в конец, за форму be.",
           why:
-            "The room is small. Два способа говорят одно: признак либо перед названием, " +
-            "либо после формы be.",
+            "The room is small. Два способа говорят одно: прилагательное стоит либо перед " +
+            "названием, либо после формы be.",
         },
       ],
     },
@@ -528,16 +529,16 @@ const module: Module = {
       slug: "cveta",
       title: "Цвета",
       estimatedMinutes: 13,
-      outcome: "называет цвет предмета и спрашивает о цвете",
+      outcome: "называть цвет предмета и спрашивать о цвете",
 
       blocks: [
         {
           id: "zachem-cveta",
           kind: "explain",
           text: [
-            "Цвет называют чаще других признаков: в магазине, на почте, когда описываешь " +
-              "потерянную сумку. Работает он ровно так же, как big и new: " +
-              "The car is red или a red car.",
+            "В магазине, на почте, когда описываешь потерянную сумку, — почти всегда " +
+              "приходится назвать цвет.",
+            "Слово о цвете работает так же, как big и new: The car is red или a red car.",
             "Слово «цвет» по-английски colour. В британском написании в нём есть буква u, " +
               "в американском её нет: color. Мы пишем colour.",
           ],
@@ -568,7 +569,7 @@ const module: Module = {
             "— What colour is your car?\n— It's blue.\n— And your bag?\n— It's black.",
           explain:
             "What colour is…? — «какого цвета». В ответе слово colour не повторяют: хватает " +
-            "It's blue. Вопрос устроен как When и What time из модуля про дни, даты и время: сначала " +
+            "It's blue. Вопрос устроен как When и What time из модуля «Дни, даты, время»: сначала " +
             "вопросительные слова, потом форма be.",
         },
         {
@@ -624,8 +625,8 @@ const module: Module = {
           before: "The bag is ",
           after: ".",
           answer: "black",
-          hint: "Слово из модуля про алфавит: цвет ночи и крепкого чая.",
-          why: "The bag is black. Цвет стоит после формы be, как любой другой признак.",
+          hint: "Слово из модуля «Алфавит и своё имя»: цвет ночи и крепкого чая.",
+          why: "The bag is black. Цвет стоит после формы be, как любое другое прилагательное.",
         },
         {
           id: "z2-sprosit-o-cvete",
@@ -664,7 +665,7 @@ const module: Module = {
           accept: ["It's a white car", "It is a white car.", "It is a white car"],
           hint: "Цвет встаёт между артиклем и названием.",
           why:
-            "It's a white car. Цвет ведёт себя как любой признак: его можно поставить и " +
+            "It's a white car. Цвет ведёт себя как любое прилагательное: его можно поставить и " +
             "перед названием предмета.",
         },
         {
@@ -676,7 +677,7 @@ const module: Module = {
             { text: "It's an orange bag.", correct: true },
             { text: "The orange is big." },
           ],
-          hint: "Признак стоит перед названием предмета, а предмет — сам по себе.",
+          hint: "Цвет стоит перед названием предмета, а сам предмет — после артикля.",
           why:
             "It's an orange bag — здесь orange стоит перед названием и называет цвет. " +
             "В двух других записях orange сам предмет.",
@@ -699,7 +700,7 @@ const module: Module = {
       slug: "ochen-very",
       title: "Очень: very",
       estimatedMinutes: 12,
-      outcome: "усиливает признак словом very",
+      outcome: "усиливать прилагательное словом very",
 
       blocks: [
         {
@@ -707,9 +708,9 @@ const module: Module = {
           kind: "explain",
           text: [
             "Дом не просто большой, а очень большой. По-английски для этого есть слово " +
-              "very, и ставят его прямо перед признаком: The house is very big.",
+              "very, и ставят его прямо перед прилагательным: The house is very big.",
             "Само слово very ничего не называет — оно только усиливает то, что идёт " +
-              "следом. Без признака оно не работает: «The house is very» не говорят.",
+              "следом. Без прилагательного оно не работает: «The house is very» не говорят.",
           ],
         },
         {
@@ -738,7 +739,7 @@ const module: Module = {
           kind: "note",
           tone: "info",
           text:
-            "Very ставят только перед признаком, а не перед названием предмета. «A very " +
+            "Very ставят только перед прилагательным, а не перед названием предмета. «A very " +
             "car» сказать нельзя: машина не бывает «очень». Усиливают то, чего может быть " +
             "больше или меньше: big, hot, expensive.",
         },
@@ -752,7 +753,7 @@ const module: Module = {
           explain:
             "Very работает в обоих местах: и после формы be — it's very small, и перед " +
             "названием предмета — a very big house. Порядок во втором случае такой: " +
-            "артикль, very, признак, название.",
+            "артикль, very, прилагательное, название.",
         },
         {
           id: "zapis-very",
@@ -785,7 +786,7 @@ const module: Module = {
           before: "The tea is ",
           after: " hot.",
           answer: "very",
-          hint: "Оно стоит перед признаком и само ничего не называет.",
+          hint: "Оно стоит перед прилагательным и само ничего не называет.",
           why: "The tea is very hot. Very усиливает то слово, которое идёт сразу за ним.",
         },
         {
@@ -812,10 +813,10 @@ const module: Module = {
             { text: " · " },
             { text: "The room is clean very.", selectable: true, correct: true },
           ],
-          hint: "Very всегда стоит перед признаком, а не после него и не после артикля с признаком.",
+          hint: "Very всегда стоит вплотную перед прилагательным.",
           why:
-            "Very ставят вплотную перед признаком: a very big house, The room is very " +
-            "clean. В остальных двух very стоит после признака — так не говорят.",
+            "Very ставят вплотную перед прилагательным: a very big house, The room is very " +
+            "clean. В остальных двух very стоит после него — так не говорят.",
         },
         {
           id: "z4-sobrat-s-very",
@@ -823,9 +824,9 @@ const module: Module = {
           prompt: "Собери: «очень красивый город».",
           items: ["beautiful", "a", "city", "very"],
           answer: [1, 3, 0, 2],
-          hint: "Порядок такой: артикль, very, признак, название.",
+          hint: "Порядок такой: артикль, very, прилагательное, название.",
           why:
-            "A very beautiful city. Very встаёт между артиклем и признаком, а название " +
+            "A very beautiful city. Very встаёт между артиклем и прилагательным, а название " +
             "остаётся последним.",
         },
         {
@@ -837,7 +838,7 @@ const module: Module = {
           accept: ["The word is very difficult"],
           hint: "Образец есть в таблице урока.",
           why:
-            "The word is very difficult. Very стоит между формой be и признаком.",
+            "The word is very difficult. Very стоит между формой be и прилагательным.",
         },
       ],
     },
@@ -845,26 +846,26 @@ const module: Module = {
     // =====================================================================
     {
       slug: "dva-priznaka",
-      title: "Два признака: and",
+      title: "Два прилагательных сразу: big and new",
       estimatedMinutes: 12,
-      outcome: "соединяет два признака словом and",
+      outcome: "соединять два прилагательных словом and",
 
       blocks: [
         {
           id: "zachem-dva",
           kind: "explain",
           text: [
-            "Дом бывает сразу и большим, и новым. Два признака соединяют словом and — тем " +
-              "самым, которым в модуле про алфавит соединяли языки: Kazakh, Russian and " +
-              "English.",
-            "Форма be при этом одна на оба признака: The house is big and new. Повторять " +
+            "Дом бывает сразу и большим, и новым. Два прилагательных соединяют словом and — " +
+              "тем самым, которым в модуле «Алфавит и своё имя» соединяли языки: " +
+              "Kazakh, Russian and English.",
+            "Форма be при этом одна на оба слова: The house is big and new. Повторять " +
               "её не нужно.",
           ],
         },
         {
           id: "tablica-dvuh",
           kind: "table",
-          caption: "Один признак и два",
+          caption: "Одно слово и два",
           head: ["Один", "Два", "Перевод"],
           rows: [
             ["The house is big.", "The house is big and new.", "Дом большой и новый."],
@@ -885,7 +886,7 @@ const module: Module = {
           kind: "note",
           tone: "info",
           text:
-            "Слово very усиливает только тот признак, перед которым стоит. В строке The car " +
+            "Слово very усиливает только то слово, перед которым стоит. В строке The car " +
             "is very old and cheap машина очень старая, а дешёвая — просто дешёвая, без " +
             "«очень». Чтобы усилить оба, very повторяют: very old and very cheap.",
         },
@@ -900,16 +901,16 @@ const module: Module = {
             "— Is your room big?\n— No, it isn't. It's small and clean.\n— And the house?\n" +
             "— It's very big and beautiful.",
           explain:
-            "Два признака подряд дают более полную картину, чем один. Вопрос здесь " +
-            "знакомый, из модуля про вопрос и краткий ответ. Новое только and между " +
-            "двумя признаками.",
+            "Два прилагательных через and говорят о предмете больше, чем одно. Вопрос здесь " +
+            "знакомый, из модуля «Вопрос и краткий ответ». Новое только and между " +
+            "двумя словами.",
         },
         {
           id: "zapis-dvuh",
           kind: "audio",
           planned: true,
           pace: "slow",
-          caption: "Послушай пары признаков",
+          caption: "Послушай пары слов",
           transcript:
             "The house is big and new. The room is clean and small. It's very big and beautiful.",
         },
@@ -922,8 +923,8 @@ const module: Module = {
           before: "The room is small ",
           after: " clean.",
           answer: "and",
-          hint: "Это же слово соединяло названия языков в модуле про алфавит.",
-          why: "The room is small and clean. And соединяет два признака.",
+          hint: "Это же слово соединяло названия языков в модуле «Алфавит и своё имя».",
+          why: "The room is small and clean. And соединяет два прилагательных.",
         },
         {
           id: "z2-lishnyaya-forma-be",
@@ -949,15 +950,15 @@ const module: Module = {
           prompt: "Собери предложение: «Дом большой и красивый».",
           items: ["beautiful", "big", "The house is", "and"],
           answer: [2, 1, 3, 0],
-          hint: "And стоит между двумя признаками.",
+          hint: "And стоит между двумя прилагательными.",
           why:
-            "The house is big and beautiful. Признаки стоят по обе стороны от and, а " +
+            "The house is big and beautiful. Прилагательные стоят по обе стороны от and, а " +
             "форма be — одна.",
         },
         {
           id: "z4-very-k-odnomu",
           kind: "choice",
-          prompt: "В записи «It's very old and cheap» какой признак усилен словом very?",
+          prompt: "В записи «It's very old and cheap» какое слово усилено словом very?",
           options: [
             { text: "оба" },
             { text: "только cheap" },
@@ -975,9 +976,9 @@ const module: Module = {
           answer: "The car is old and cheap.",
           exact: true,
           accept: ["The car is old and cheap"],
-          hint: "Форма be одна, между признаками — and.",
+          hint: "Форма be одна, между прилагательными — and.",
           why:
-            "The car is old and cheap. Два признака, одна форма be и одно and между ними.",
+            "The car is old and cheap. Два прилагательных, одна форма be и одно and между ними.",
         },
       ],
     },
@@ -987,7 +988,7 @@ const module: Module = {
       slug: "kakoy-chelovek",
       title: "Какой человек",
       estimatedMinutes: 13,
-      outcome: "описывает человека: tall, young, nice",
+      outcome: "описывать человека: tall, young, nice",
 
       blocks: [
         {
@@ -995,8 +996,8 @@ const module: Module = {
           kind: "explain",
           text: [
             "О человеке говорят теми же словами и в том же порядке, что о предмете: " +
-              "She is tall. He's a nice man. Меняется только подлежащее — вместо it " +
-              "стоят he и she.",
+              "She is tall. He's a nice man. Меняется только первое слово: вместо it стоят " +
+              "he и she.",
             "Слов для человека немного, и половина уже знакома: good, bad, big, small. " +
               "Добавляются четыре новых.",
           ],
@@ -1040,8 +1041,8 @@ const module: Module = {
             "— That's Dana. She's my teacher.\n— Is she young?\n" +
             "— Yes, she is. She's young and very nice.",
           explain:
-            "Признак о человеке спрашивают так же, как о предмете: Is she young? И " +
-            "отвечают так же — краткое «да», а за ним два признака через and.",
+            "О человеке спрашивают так же, как о предмете: Is she young? И отвечают так же — " +
+            "краткое «да», а за ним два прилагательных через and.",
         },
         {
           id: "zapis-o-cheloveke",
@@ -1075,15 +1076,15 @@ const module: Module = {
             { text: "He is tall.", correct: true },
             { text: "He is talls." },
           ],
-          hint: "О человеке говорят he или she, а признак ничего к себе не прибавляет.",
+          hint: "О человеке говорят he или she, а прилагательное ничего к себе не прибавляет.",
           why:
-            "He is tall. Слово it говорят только о предметах, а признак не меняется ни при каком " +
-            "подлежащем.",
+            "He is tall. Слово it говорят только о предметах, а прилагательное не меняется, " +
+            "о ком бы ни шла речь.",
         },
         {
           id: "z2-dopisat-priznak-cheloveka",
           kind: "gap",
-          prompt: "Айгуль молодая. Допиши признак.",
+          prompt: "Айгуль молодая. Допиши слово.",
           before: "She is ",
           after: ".",
           answer: "young",
@@ -1096,9 +1097,9 @@ const module: Module = {
           prompt: "Собери предложение: «Она приятная женщина».",
           items: ["woman", "a", "She's", "nice"],
           answer: [2, 1, 3, 0],
-          hint: "Порядок тот же, что у предметов: артикль, признак, название.",
+          hint: "Порядок тот же, что у предметов: артикль, прилагательное, название.",
           why:
-            "She's a nice woman. Признак встал между артиклем и словом woman — ровно как " +
+            "She's a nice woman. Прилагательное встало между артиклем и словом woman — ровно как " +
             "в a nice car.",
         },
         {
@@ -1129,9 +1130,9 @@ const module: Module = {
           answer: "She is young and very nice.",
           exact: true,
           accept: ["She is young and very nice", "She's young and very nice.", "She's young and very nice"],
-          hint: "Два признака через and, и very стоит перед вторым.",
+          hint: "Два прилагательных через and, и very стоит перед вторым.",
           why:
-            "She is young and very nice. Very усиливает только nice — тот признак, перед " +
+            "She is young and very nice. Very усиливает только nice — то слово, перед " +
             "которым стоит.",
         },
       ],
@@ -1142,7 +1143,7 @@ const module: Module = {
       slug: "lyubimyy",
       title: "Мой любимый",
       estimatedMinutes: 12,
-      outcome: "называет любимое: my favourite colour is blue",
+      outcome: "называть любимое: my favourite colour is blue",
 
       blocks: [
         {
@@ -1151,8 +1152,8 @@ const module: Module = {
           text: [
             "Тебя спрашивают, какой цвет тебе больше всех нравится. По-русски это " +
               "«любимый», по-английски — favourite: My favourite colour is blue.",
-            "Слово favourite ведёт себя как признак и стоит на том же месте: между словом " +
-              "my, his, her и названием. My favourite day, his favourite car, " +
+            "Слово favourite ведёт себя как прилагательное и стоит на том же месте: между " +
+              "словами my, his, her и названием. My favourite day, his favourite car, " +
               "her favourite book.",
           ],
         },
@@ -1174,8 +1175,8 @@ const module: Module = {
           tone: "mistake",
           text:
             "Перед favourite стоит my, his или her — и артикль тогда не нужен. «A my " +
-            "favourite colour» сказать нельзя: это то же правило, что в модуле про мои " +
-            "вещи, где артикль уходил после my.",
+            "favourite colour» сказать нельзя: это то же правило, что в модуле «Мои вещи», " +
+            "где артикль уходит после my.",
         },
         {
           id: "favourite-britanskoe",
@@ -1183,7 +1184,7 @@ const module: Module = {
           tone: "info",
           text:
             "В слове favourite есть буква u — favourite. Без неё, favorite, пишут в " +
-            "Америке. Та же пара, что colour и color в уроке про цвета.",
+            "Америке. Та же пара, что colour и color в уроке «Цвета».",
         },
         {
           id: "primer-lyubimogo",
@@ -1243,7 +1244,7 @@ const module: Module = {
             { text: " · " },
             { text: "a his favourite car", selectable: true, correct: true },
           ],
-          hint: "После my и his артикль не ставят — это правило из модуля про мои вещи.",
+          hint: "После my и his артикль не ставят — это правило из модуля «Мои вещи».",
           why:
             "Артикль и слова my, his, her вместе не стоят. Верно my favourite day и " +
             "his favourite car.",
@@ -1255,7 +1256,7 @@ const module: Module = {
           before: "What's your favourite ",
           after: "?",
           answer: "month",
-          hint: "Слово из модуля про дни, даты и время.",
+          hint: "Слово из модуля «Дни, даты, время».",
           why:
             "What's your favourite month? Вопрос устроен как все вопросы с be, меняется " +
             "только последнее слово.",
@@ -1294,17 +1295,18 @@ const module: Module = {
       slug: "opisanie-celikom",
       title: "Описать целиком",
       estimatedMinutes: 14,
-      outcome: "описывает предмет и человека тремя предложениями",
+      outcome: "описывать предмет и человека тремя предложениями",
 
       blocks: [
         {
           id: "zachem-celikom",
           kind: "explain",
           text: [
-            "По отдельности всё разобрано: признак после be, признак перед названием, " +
-              "цвет, very, два признака через and. Осталось собрать из этого описание.",
-            "Три предложения — уже полная картина: что это, какое оно, какого цвета. " +
-              "Больше на первых порах и не нужно.",
+            "Знакомый показывает на фотографию и спрашивает, что там. Одним словом не " +
+              "ответишь: он хочет знать, что это, какое оно и какого цвета.",
+            "Хватит трёх коротких предложений: It's a car. It's very old. It's grey.",
+            "Каждое такое предложение уже встречалось по отдельности. Новое здесь одно: " +
+              "теперь они идут подряд и вместе дают описание.",
           ],
         },
         {
@@ -1330,7 +1332,7 @@ const module: Module = {
           tone: "info",
           text:
             "Три коротких предложения лучше одного длинного. Собеседник успевает понять " +
-            "каждое, а ты не путаешься в порядке слов. Складывать признаки в одну " +
+            "каждое, а ты не путаешься в порядке слов. Складывать несколько слов в одну " +
             "длинную цепочку научимся позже.",
         },
         {
@@ -1353,7 +1355,7 @@ const module: Module = {
             "It's an expensive bag.",
           explain:
             "В первой строке два коротких предложения: что это и какое оно. Во второй — два " +
-            "признака через and. В третьей признак стоит перед названием: an expensive bag.",
+            "прилагательных через and. В третьей прилагательное стоит перед названием: an expensive bag.",
         },
         {
           id: "zapis-opisaniya",
@@ -1380,8 +1382,8 @@ const module: Module = {
           answer: [2, 0, 1],
           hint: "Сначала говорят, что это, и только потом — какое оно.",
           why:
-            "It's a car. It's very old. It's grey. Назвать признак раньше самого предмета " +
-            "нельзя: непонятно, о чём речь.",
+            "It's a car. It's very old. It's grey. Сказать, какая она, раньше, чем назван сам " +
+            "предмет, нельзя: непонятно, о чём речь.",
         },
         {
           id: "z2-opisat-predmet",
@@ -1390,9 +1392,9 @@ const module: Module = {
           answer: "The bag is new and very expensive.",
           exact: true,
           accept: ["The bag is new and very expensive"],
-          hint: "Два признака через and, very перед вторым.",
+          hint: "Два прилагательных через and, very перед вторым.",
           why:
-            "The bag is new and very expensive. Форма be одна, and между признаками, " +
+            "The bag is new and very expensive. Форма be одна, and между прилагательными, " +
             "very усиливает только expensive.",
         },
         {
@@ -1407,7 +1409,7 @@ const module: Module = {
           answer: "It's very old.",
           exact: true,
           accept: ["It's very old", "It is very old.", "It is very old"],
-          hint: "Второй шаг называет признак, а не предмет и не цвет.",
+          hint: "Второй шаг говорит, какая машина, а не что это и не какого цвета.",
           why:
             "It's very old. Первый шаг сказал, что это машина, второй говорит, какая она.",
         },
@@ -1424,10 +1426,10 @@ const module: Module = {
             { text: " · " },
             { text: "It's a car.", selectable: true, correct: true },
           ],
-          hint: "Ищи записи без единого признака.",
+          hint: "Ищи записи, где о предмете ничего не сказано.",
           why:
             "«It's a bag» и «It's a car» называют предмет, но ничего о нём не говорят. " +
-            "В остальных двух признак есть.",
+            "В остальных двух сказано, какой он.",
         },
         {
           id: "z5-opisat-cheloveka-celikom",
@@ -1437,10 +1439,10 @@ const module: Module = {
           answer: "She is tall and very nice.",
           exact: true,
           accept: ["She is tall and very nice", "She's tall and very nice.", "She's tall and very nice"],
-          hint: "Первое предложение уже сказано: This is Dana. She's my teacher.",
+          hint: "Начало уже сказано: This is Dana. She's my teacher.",
           why:
-            "She is tall and very nice. Второй шаг описания — признаки, и их удобно дать " +
-            "сразу два через and.",
+            "She is tall and very nice. Второй шаг описания говорит, какая она, и удобно " +
+            "сказать сразу два слова через and.",
         },
         {
           id: "z6-proiznesti-opisanie",
@@ -1469,17 +1471,17 @@ const module: Module = {
       {
         id: "q-priznak-posle-be",
         kind: "short",
-        outcome: "называет признак предмета после формы be: It's big",
+        outcome: "говорить, какой предмет: The house is big",
         prompt: "Вода холодная. Запиши предложение целиком, начни с The water.",
         answer: "The water is cold.",
         exact: true,
         accept: ["The water is cold"],
-        why: "The water is cold. Признак стоит после формы be и не меняется.",
+        why: "The water is cold. Прилагательное стоит после формы be и не меняется.",
       },
       {
         id: "q-para-priznakov",
         kind: "match",
-        outcome: "называет признак предмета после формы be: It's big",
+        outcome: "говорить, какой предмет: The house is big",
         prompt: "Сопоставь слово и его пару.",
         left: ["long", "hot", "good"],
         right: ["bad", "short", "cold"],
@@ -1489,8 +1491,8 @@ const module: Module = {
       {
         id: "q-priznak-bez-okonchaniya",
         kind: "hottext",
-        outcome: "называет признак предмета после формы be: It's big",
-        prompt: "Отметь записи, где к признаку прибавили лишнее окончание.",
+        outcome: "говорить, какой предмет: The house is big",
+        prompt: "Отметь записи, где к прилагательному прибавили лишнее окончание.",
         parts: [
           { text: "The books are new.", selectable: true },
           { text: " · " },
@@ -1501,13 +1503,13 @@ const module: Module = {
           { text: "The cars are olds.", selectable: true, correct: true },
         ],
         why:
-          "Окончание -s достаётся названию предмета, а не признаку: The books are new, " +
+          "Окончание -s достаётся названию предмета, а не прилагательному: The books are new, " +
           "The cars are old.",
       },
       {
         id: "q-artikl-po-priznaku",
         kind: "short",
-        outcome: "ставит признак перед названием предмета: a big house",
+        outcome: "ставить прилагательное перед названием предмета: a big house",
         prompt: "Запиши целиком, вместе с артиклем: дорогая машина.",
         answer: "an expensive car",
         accept: ["An expensive car"],
@@ -1518,37 +1520,37 @@ const module: Module = {
       {
         id: "q-perestroit-quiz",
         kind: "short",
-        outcome: "ставит признак перед названием предмета: a big house",
+        outcome: "ставить прилагательное перед названием предмета: a big house",
         prompt: "Скажи то же самое иначе: «The room is small.» Начни с It's.",
         answer: "It's a small room.",
         exact: true,
         accept: ["It's a small room", "It is a small room.", "It is a small room"],
-        why: "It's a small room. Порядок такой: артикль, признак, название.",
+        why: "It's a small room. Порядок такой: артикль, прилагательное, название.",
       },
       {
         id: "q-mnozhestvennoe-s-priznakom",
         kind: "gap",
-        outcome: "ставит признак перед названием предмета: a big house",
+        outcome: "ставить прилагательное перед названием предмета: a big house",
         prompt: "Допиши название во множественном числе: «старые машины».",
         before: "old ",
         after: "",
         answer: "cars",
-        why: "Old cars. Признак остаётся неизменным, окончание берёт только название.",
+        why: "Old cars. Прилагательное остаётся неизменным, окончание берёт только название.",
       },
       {
         id: "q-cvet-quiz",
         kind: "gap",
-        outcome: "называет цвет предмета и спрашивает о цвете",
+        outcome: "называть цвет предмета и спрашивать о цвете",
         prompt: "Машина зелёная. Допиши цвет.",
         before: "The car is ",
         after: ".",
         answer: "green",
-        why: "The car is green. Цвет стоит после формы be, как любой признак.",
+        why: "The car is green. Цвет стоит после формы be, как любое прилагательное.",
       },
       {
         id: "q-sprosit-cvet-quiz",
         kind: "short",
-        outcome: "называет цвет предмета и спрашивает о цвете",
+        outcome: "называть цвет предмета и спрашивать о цвете",
         prompt: "Спроси, какого цвета сумка собеседника. Запиши вопрос целиком.",
         answer: "What colour is your bag?",
         exact: true,
@@ -1558,7 +1560,7 @@ const module: Module = {
       {
         id: "q-cveta-sopostavit",
         kind: "match",
-        outcome: "называет цвет предмета и спрашивает о цвете",
+        outcome: "называть цвет предмета и спрашивать о цвете",
         prompt: "Сопоставь цвет и его перевод.",
         left: ["grey", "white", "blue"],
         right: ["белый", "синий", "серый"],
@@ -1568,17 +1570,17 @@ const module: Module = {
       {
         id: "q-very-mesto",
         kind: "gap",
-        outcome: "усиливает признак словом very",
+        outcome: "усиливать прилагательное словом very",
         prompt: "Комната очень чистая. Допиши недостающее слово.",
         before: "The room is ",
         after: " clean.",
         answer: "very",
-        why: "The room is very clean. Very стоит вплотную перед признаком.",
+        why: "The room is very clean. Very стоит вплотную перед прилагательным.",
       },
       {
         id: "q-very-artikl",
         kind: "gap",
-        outcome: "усиливает признак словом very",
+        outcome: "усиливать прилагательное словом very",
         prompt: "Допиши артикль: очень старый дом.",
         before: "It's ",
         after: " very old house.",
@@ -1590,26 +1592,26 @@ const module: Module = {
       {
         id: "q-very-sobrat",
         kind: "order",
-        outcome: "усиливает признак словом very",
+        outcome: "усиливать прилагательное словом very",
         prompt: "Собери: «очень дорогая книга».",
         items: ["book", "very", "a", "expensive"],
         answer: [2, 1, 3, 0],
-        why: "A very expensive book. Порядок: артикль, very, признак, название.",
+        why: "A very expensive book. Порядок: артикль, very, прилагательное, название.",
       },
       {
         id: "q-and-dva",
         kind: "short",
-        outcome: "соединяет два признака словом and",
+        outcome: "соединять два прилагательных словом and",
         prompt: "Дом большой и новый. Запиши предложение целиком, начни с The house.",
         answer: "The house is big and new.",
         exact: true,
         accept: ["The house is big and new"],
-        why: "The house is big and new. Форма be одна на оба признака.",
+        why: "The house is big and new. Форма be одна на оба прилагательных.",
       },
       {
         id: "q-lishnyaya-be",
         kind: "hottext",
-        outcome: "соединяет два признака словом and",
+        outcome: "соединять два прилагательных словом and",
         // Две записи из четырёх были дословно теми же, что в задании урока 5.
         // Нашёл методист. Заменены целиком.
         prompt: "Отметь записи, где форма be стоит лишний раз.",
@@ -1629,44 +1631,44 @@ const module: Module = {
         // Нашёл методист. Теперь ученик производит запись сам.
         id: "q-very-k-odnomu-quiz",
         kind: "short",
-        outcome: "соединяет два признака словом and",
+        outcome: "соединять два прилагательных словом and",
         prompt:
-          "Комната очень маленькая и очень чистая. Усиль оба признака. Запиши предложение целиком, начни с The room.",
+          "Комната очень маленькая и очень чистая. Усиль оба слова. Запиши предложение целиком, начни с The room.",
         answer: "The room is very small and very clean.",
         exact: true,
         accept: ["The room is very small and very clean"],
         why:
           "The room is very small and very clean. Very усиливает только то слово, перед " +
-          "которым стоит, поэтому для обоих признаков его пишут дважды.",
+          "которым стоит, поэтому для обоих слов его пишут дважды.",
       },
       {
         // Раньше — близнец задания урока 6 с тем же набором вариантов, менялись
         // только имя и прилагательное. Нашёл методист.
         id: "q-he-ne-it",
         kind: "short",
-        outcome: "описывает человека: tall, young, nice",
+        outcome: "описывать человека: tall, young, nice",
         prompt: "Карим высокий. Запиши предложение целиком, начни с He.",
         answer: "He is tall.",
         exact: true,
         accept: ["He is tall", "He's tall.", "He's tall"],
         why:
-          "He is tall. О человеке говорят he или she, а признак ничего к себе не " +
+          "He is tall. О человеке говорят he или she, а прилагательное ничего к себе не " +
           "прибавляет.",
       },
       {
         id: "q-opisat-cheloveka-quiz",
         kind: "short",
-        outcome: "описывает человека: tall, young, nice",
+        outcome: "описывать человека: tall, young, nice",
         prompt: "Айгуль высокая и очень приятная. Запиши предложение целиком, начни с She.",
         answer: "She is tall and very nice.",
         exact: true,
         accept: ["She is tall and very nice", "She's tall and very nice.", "She's tall and very nice"],
-        why: "She is tall and very nice. Два признака через and, very перед вторым.",
+        why: "She is tall and very nice. Два прилагательных через and, very перед вторым.",
       },
       {
         id: "q-nice-woman",
         kind: "order",
-        outcome: "описывает человека: tall, young, nice",
+        outcome: "описывать человека: tall, young, nice",
         prompt: "Собери предложение: «Он интересный человек».",
         items: ["man", "He's", "interesting", "an"],
         answer: [1, 3, 2, 0],
@@ -1677,7 +1679,7 @@ const module: Module = {
       {
         id: "q-lyubimyy-cvet-quiz",
         kind: "short",
-        outcome: "называет любимое: my favourite colour is blue",
+        outcome: "называть любимое: my favourite colour is blue",
         prompt: "Твой любимый цвет — красный. Запиши предложение целиком, начни с My favourite.",
         answer: "My favourite colour is red.",
         exact: true,
@@ -1687,7 +1689,7 @@ const module: Module = {
       {
         id: "q-favourite-bez-artiklya",
         kind: "hottext",
-        outcome: "называет любимое: my favourite colour is blue",
+        outcome: "называть любимое: my favourite colour is blue",
         prompt: "Отметь записи с лишним артиклем.",
         parts: [
           { text: "her favourite month", selectable: true },
@@ -1703,13 +1705,13 @@ const module: Module = {
       {
         id: "q-opisanie-poryadok",
         kind: "order",
-        outcome: "описывает предмет и человека тремя предложениями",
+        outcome: "описывать предмет и человека тремя предложениями",
         prompt: "Расставь предложения так, чтобы вышло описание по шагам.",
         items: ["It's black.", "It's a bag.", "It's new and very big."],
         answer: [1, 2, 0],
         why:
           "It's a bag. It's new and very big. It's black. Сначала называют предмет, потом " +
-          "признаки.",
+          "говорят, какой он.",
       },
       {
         // Вопрос был сломан: «It's a » + «expensive white» + « car.» даёт
@@ -1719,7 +1721,7 @@ const module: Module = {
         // Нашёл методист. Заменено на третий шаг описания.
         id: "q-opisanie-v-odnom",
         kind: "short",
-        outcome: "описывает предмет и человека тремя предложениями",
+        outcome: "описывать предмет и человека тремя предложениями",
         prompt: "Сумка чёрная. Запиши третий шаг описания целиком, начни с It's.",
         answer: "It's black.",
         exact: true,

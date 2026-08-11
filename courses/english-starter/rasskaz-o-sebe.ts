@@ -105,14 +105,14 @@ const module: Module = {
   ],
 
   outcomes: [
-    "говорит, откуда он: I'm from и название страны или города",
-    "пишет названия стран и городов с заглавной буквы",
-    "ставит a или an по первому звуку следующего слова",
-    "называет своё занятие: I'm a и слово",
-    "говорит, где находится: in и название города",
-    "строит предложение в порядке «кто — глагол — остальное»",
-    "спрашивает, откуда собеседник, и отвечает на этот вопрос",
-    "рассказывает о себе четырьмя предложениями",
+    "говорить, откуда ты: I'm from и название страны или города",
+    "писать названия стран и городов с заглавной буквы",
+    "ставить a или an по первому звуку следующего слова",
+    "называть своё занятие: I'm a doctor, I'm a student",
+    "говорить, где ты сейчас: in и название города",
+    "строить предложение в порядке «кто — глагол — остальное»",
+    "спрашивать, откуда собеседник, и отвечать на этот вопрос",
+    "рассказывать о себе четырьмя предложениями",
   ],
 
   lessons: [
@@ -121,7 +121,7 @@ const module: Module = {
       slug: "otkuda-ty",
       title: "Откуда ты: from",
       estimatedMinutes: 13,
-      outcome: "говорит, откуда он: I'm from и название страны или города",
+      outcome: "говорить, откуда ты: I'm from и название страны или города",
 
       blocks: [
         {
@@ -250,7 +250,7 @@ const module: Module = {
       slug: "strany-i-goroda",
       title: "Страны и города",
       estimatedMinutes: 14,
-      outcome: "пишет названия стран и городов с заглавной буквы",
+      outcome: "писать названия стран и городов с заглавной буквы",
 
       blocks: [
         {
@@ -397,7 +397,7 @@ const module: Module = {
       slug: "artikl-a-an",
       title: "Артикль: a и an",
       estimatedMinutes: 15,
-      outcome: "ставит a или an по первому звуку следующего слова",
+      outcome: "ставить a или an по первому звуку следующего слова",
 
       blocks: [
         {
@@ -567,7 +567,7 @@ const module: Module = {
       slug: "chem-ty-zanyat",
       title: "Чем ты занят",
       estimatedMinutes: 14,
-      outcome: "называет своё занятие: I'm a и слово",
+      outcome: "называть своё занятие: I'm a doctor, I'm a student",
 
       blocks: [
         {
@@ -717,7 +717,7 @@ const module: Module = {
       slug: "gde-ya-nahozhus",
       title: "Где я: предлог in",
       estimatedMinutes: 13,
-      outcome: "говорит, где находится: in и название города",
+      outcome: "говорить, где ты сейчас: in и название города",
 
       blocks: [
         {
@@ -857,7 +857,7 @@ const module: Module = {
       slug: "poryadok-slov",
       title: "Порядок слов в предложении",
       estimatedMinutes: 13,
-      outcome: "строит предложение в порядке «кто — глагол — остальное»",
+      outcome: "строить предложение в порядке «кто — глагол — остальное»",
 
       blocks: [
         {
@@ -981,7 +981,7 @@ const module: Module = {
       slug: "sprosit-otkuda",
       title: "Спросить: Where are you from?",
       estimatedMinutes: 13,
-      outcome: "спрашивает, откуда собеседник, и отвечает на этот вопрос",
+      outcome: "спрашивать, откуда собеседник, и отвечать на этот вопрос",
 
       blocks: [
         {
@@ -1128,18 +1128,17 @@ const module: Module = {
       slug: "rasskaz-celikom",
       title: "Рассказ о себе целиком",
       estimatedMinutes: 15,
-      outcome: "рассказывает о себе четырьмя предложениями",
+      outcome: "рассказывать о себе четырьмя предложениями",
 
       blocks: [
         {
           id: "zachem-rasskaz",
           kind: "explain",
           text: [
-            "Части собраны: имя, откуда родом, где сейчас, чем занят. Четыре предложения — " +
-              "и о человеке уже известно главное. Этого и ждут от начального уровня: " +
-              "рассказать о себе простыми словами и заученными оборотами.",
-            "Все четыре предложения построены по одному образцу, разобранному в этом модуле: " +
-              "кто — форма be — остальное.",
+            "Тебя просят: «Расскажи о себе». Четырёх предложений для этого хватает: как " +
+              "тебя зовут, откуда ты родом, где живёшь сейчас, чем занимаешься.",
+            "I'm Alim. I'm from Almaty. I'm in Astana. I'm a student.",
+            "Все четыре построены по одному образцу: кто — форма be — остальное.",
           ],
         },
         {
@@ -1280,7 +1279,7 @@ const module: Module = {
       {
         id: "q-predlog-otkuda",
         kind: "gap",
-        outcome: "говорит, откуда он: I'm from и название страны или города",
+        outcome: "говорить, откуда ты: I'm from и название страны или города",
         prompt: "Допиши предлог: «Он из Италии» — речь о происхождении.",
         before: "He's ",
         after: " Italy.",
@@ -1290,7 +1289,7 @@ const module: Module = {
       {
         id: "q-zapisat-otkuda",
         kind: "short",
-        outcome: "говорит, откуда он: I'm from и название страны или города",
+        outcome: "говорить, откуда ты: I'm from и название страны или города",
         prompt: "Запиши по-английски: «Он из Турции». Начни с He's.",
         answer: "He's from Turkey.",
         exact: true,
@@ -1300,7 +1299,7 @@ const module: Module = {
       {
         id: "q-zaglavnaya-strana",
         kind: "short",
-        outcome: "пишет названия стран и городов с заглавной буквы",
+        outcome: "писать названия стран и городов с заглавной буквы",
         prompt: "Исправь ошибку и запиши целиком: «I'm from italy.»",
         answer: "I'm from Italy.",
         exact: true,
@@ -1310,7 +1309,7 @@ const module: Module = {
       {
         id: "q-napisanie-italii",
         kind: "choice",
-        outcome: "пишет названия стран и городов с заглавной буквы",
+        outcome: "писать названия стран и городов с заглавной буквы",
         prompt: "Как по-английски пишется название Франции?",
         options: [{ text: "france" }, { text: "France", correct: true }, { text: "Francia" }],
         why: "France — с заглавной буквы. Со строчной название страны не пишут, а Francia — не английское написание.",
@@ -1318,7 +1317,7 @@ const module: Module = {
       {
         id: "q-a-ili-an",
         kind: "gap",
-        outcome: "ставит a или an по первому звуку следующего слова",
+        outcome: "ставить a или an по первому звуку следующего слова",
         prompt: "Допиши недостающее слово перед actor.",
         before: "He's ",
         after: " actor.",
@@ -1328,7 +1327,7 @@ const module: Module = {
       {
         id: "q-dopisat-artikl",
         kind: "gap",
-        outcome: "ставит a или an по первому звуку следующего слова",
+        outcome: "ставить a или an по первому звуку следующего слова",
         prompt: "Допиши недостающее слово перед nurse.",
         before: "She's ",
         after: " nurse.",
@@ -1338,7 +1337,7 @@ const module: Module = {
       {
         id: "q-nazvat-zanyatie",
         kind: "gap",
-        outcome: "называет своё занятие: I'm a и слово",
+        outcome: "называть своё занятие: I'm a doctor, I'm a student",
         prompt: "Допиши занятие: «Он врач».",
         before: "He's a ",
         after: ".",
@@ -1348,7 +1347,7 @@ const module: Module = {
       {
         id: "q-kto-uchitsya-quiz",
         kind: "choice",
-        outcome: "называет своё занятие: I'm a и слово",
+        outcome: "называть своё занятие: I'm a doctor, I'm a student",
         prompt: "Как сказать «я студент»?",
         options: [
           { text: "I'm a student.", correct: true },
@@ -1360,7 +1359,7 @@ const module: Module = {
       {
         id: "q-predlog-gde",
         kind: "gap",
-        outcome: "говорит, где находится: in и название города",
+        outcome: "говорить, где ты сейчас: in и название города",
         prompt: "Допиши предлог: «Она в Астане».",
         before: "She's ",
         after: " Astana.",
@@ -1370,7 +1369,7 @@ const module: Module = {
       {
         id: "q-from-ili-in",
         kind: "choice",
-        outcome: "говорит, где находится: in и название города",
+        outcome: "говорить, где ты сейчас: in и название города",
         prompt: "Алим родом из Алматы, а сейчас в Риме. Как сказать про «сейчас»?",
         options: [
           { text: "He's in Rome.", correct: true },
@@ -1382,7 +1381,7 @@ const module: Module = {
       {
         id: "q-poryadok-sobrat",
         kind: "order",
-        outcome: "строит предложение в порядке «кто — глагол — остальное»",
+        outcome: "строить предложение в порядке «кто — глагол — остальное»",
         prompt: "Собери предложение: «Она преподаватель».",
         items: ["teacher", "She", "a", "is"],
         answer: [1, 3, 2, 0],
@@ -1391,7 +1390,7 @@ const module: Module = {
       {
         id: "q-poryadok-najti",
         kind: "choice",
-        outcome: "строит предложение в порядке «кто — глагол — остальное»",
+        outcome: "строить предложение в порядке «кто — глагол — остальное»",
         prompt: "В какой строке порядок слов нарушен?",
         options: [
           { text: "I am a driver." },
@@ -1403,7 +1402,7 @@ const module: Module = {
       {
         id: "q-sprosit-otkuda-quiz",
         kind: "short",
-        outcome: "спрашивает, откуда собеседник, и отвечает на этот вопрос",
+        outcome: "спрашивать, откуда собеседник, и отвечать на этот вопрос",
         prompt: "Запиши целиком вопрос «откуда ты».",
         answer: "Where are you from?",
         exact: true,
@@ -1413,7 +1412,7 @@ const module: Module = {
       {
         id: "q-otvetit-otkuda",
         kind: "short",
-        outcome: "спрашивает, откуда собеседник, и отвечает на этот вопрос",
+        outcome: "спрашивать, откуда собеседник, и отвечать на этот вопрос",
         prompt: "Ответь на вопрос «Where are you from?», если ты из Испании. Начни с I'm.",
         answer: "I'm from Spain.",
         exact: true,
@@ -1423,7 +1422,7 @@ const module: Module = {
       {
         id: "q-rasskaz-sobrat",
         kind: "order",
-        outcome: "рассказывает о себе четырьмя предложениями",
+        outcome: "рассказывать о себе четырьмя предложениями",
         prompt: "Расставь рассказ по порядку: имя, откуда родом, чем занят.",
         items: ["I'm from Almaty.", "I'm a doctor.", "I'm Alim."],
         answer: [2, 0, 1],
@@ -1432,7 +1431,7 @@ const module: Module = {
       {
         id: "q-rasskaz-oshibka",
         kind: "hottext",
-        outcome: "строит предложение в порядке «кто — глагол — остальное»",
+        outcome: "строить предложение в порядке «кто — глагол — остальное»",
         prompt: "Отметь предложения с ошибкой.",
         parts: [
           { text: "I'm a nurse.", selectable: true },
@@ -1449,7 +1448,7 @@ const module: Module = {
       {
         id: "q-vopros-otvet-match",
         kind: "match",
-        outcome: "спрашивает, откуда собеседник, и отвечает на этот вопрос",
+        outcome: "спрашивать, откуда собеседник, и отвечать на этот вопрос",
         prompt: "Сопоставь вопрос и ответ.",
         left: ["Where are you from?", "What's your name?"],
         right: ["I'm Alim.", "I'm from Turkey."],
@@ -1459,7 +1458,7 @@ const module: Module = {
       {
         id: "q-artikl-pered-imenem",
         kind: "choice",
-        outcome: "называет своё занятие: I'm a и слово",
+        outcome: "называть своё занятие: I'm a doctor, I'm a student",
         prompt: "В какой строке артикль лишний?",
         options: [
           { text: "She's a doctor." },

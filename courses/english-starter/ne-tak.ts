@@ -76,14 +76,14 @@ const module: Module = {
   ],
 
   outcomes: [
-    "строит отрицание, поставив not после формы be",
-    "пишет короткие формы отрицания: isn't, aren't, I'm not",
-    "различает no и not и ставит каждое на своё место",
-    "поправляет собеседника: говорит, что не так, и как на самом деле",
-    "отрицает о предмете и о месте: it isn't, he isn't in",
-    "говорит, прав собеседник или нет: You're right, You're wrong",
-    "отвечает на вопрос отрицанием и уточняет",
-    "ведёт разговор, в котором возражает и поправляет",
+    "строить отрицание, поставив not после формы be",
+    "писать короткие формы отрицания: isn't, aren't, I'm not",
+    "различать no и not и ставить каждое на своё место",
+    "поправлять собеседника: говорить, что не так и как на самом деле",
+    "говорить, что это не тот предмет и не то место: it isn't, he isn't in",
+    "говорить, прав собеседник или нет: You're right, You're wrong",
+    "отвечать на вопрос отрицанием и уточнять",
+    "вести разговор, в котором возражаешь и поправляешь собеседника",
   ],
 
   lessons: [
@@ -92,7 +92,7 @@ const module: Module = {
       slug: "not-posle-be",
       title: "Not после формы be",
       estimatedMinutes: 14,
-      outcome: "строит отрицание, поставив not после формы be",
+      outcome: "строить отрицание, поставив not после формы be",
 
       blocks: [
         {
@@ -251,7 +251,7 @@ const module: Module = {
       slug: "korotkie-formy-otricaniya",
       title: "Isn't, aren't, I'm not",
       estimatedMinutes: 14,
-      outcome: "пишет короткие формы отрицания: isn't, aren't, I'm not",
+      outcome: "писать короткие формы отрицания: isn't, aren't, I'm not",
 
       blocks: [
         {
@@ -388,7 +388,7 @@ const module: Module = {
       slug: "no-i-not",
       title: "No и not: два разных слова",
       estimatedMinutes: 12,
-      outcome: "различает no и not и ставит каждое на своё место",
+      outcome: "различать no и not и ставить каждое на своё место",
 
       blocks: [
         {
@@ -515,7 +515,7 @@ const module: Module = {
       slug: "popravit-sobesednika",
       title: "Не так, а вот так",
       estimatedMinutes: 14,
-      outcome: "поправляет собеседника: говорит, что не так, и как на самом деле",
+      outcome: "поправлять собеседника: говорить, что не так и как на самом деле",
 
       blocks: [
         {
@@ -676,7 +676,7 @@ const module: Module = {
       slug: "eto-ne-to",
       title: "Это не то: отрицание о предметах и местах",
       estimatedMinutes: 13,
-      outcome: "отрицает о предмете и о месте: it isn't, he isn't in",
+      outcome: "говорить, что это не тот предмет и не то место: it isn't, he isn't in",
 
       blocks: [
         {
@@ -815,7 +815,7 @@ const module: Module = {
       slug: "prav-ne-prav",
       title: "Ты прав, ты не прав",
       estimatedMinutes: 12,
-      outcome: "говорит, прав собеседник или нет: You're right, You're wrong",
+      outcome: "говорить, прав собеседник или нет: You're right, You're wrong",
 
       blocks: [
         {
@@ -942,7 +942,7 @@ const module: Module = {
       slug: "otricanie-v-razgovore",
       title: "Отрицание в вопросе и ответе",
       estimatedMinutes: 14,
-      outcome: "отвечает на вопрос отрицанием и уточняет",
+      outcome: "отвечать на вопрос отрицанием и уточнять",
 
       blocks: [
         {
@@ -1076,18 +1076,17 @@ const module: Module = {
       slug: "razgovor-s-vozrazheniem",
       title: "Разговор с возражением",
       estimatedMinutes: 15,
-      outcome: "ведёт разговор, в котором возражает и поправляет",
+      outcome: "вести разговор, в котором возражаешь и поправляешь собеседника",
 
       blocks: [
         {
           id: "zachem-razgovor-vozrazheniya",
           kind: "explain",
           text: [
-            "Все части модуля пройдены: not после формы be, короткие формы, различие no и " +
-              "not, поправка в два шага, отклик «прав — не прав». Осталось соединить их в " +
-              "разговор.",
-            "Разговор с возражением ничем не хуже разговора, где все соглашаются: поправка " +
-              "сообщает сведения так же, как согласие.",
+            "Собеседник говорит: You're from Astana. А ты из Алматы. Согласиться нельзя, " +
+              "промолчать неудобно — остаётся возразить и сказать, как есть.",
+            "Разговор с возражением ничем не хуже разговора, где все соглашаются: " +
+              "поправка сообщает о тебе столько же, сколько согласие.",
           ],
         },
         {
@@ -1245,7 +1244,7 @@ const module: Module = {
       {
         id: "q-gde-not",
         kind: "choice",
-        outcome: "строит отрицание, поставив not после формы be",
+        outcome: "строить отрицание, поставив not после формы be",
         prompt: "В какой строке not стоит верно?",
         options: [
           { text: "She not is a nurse." },
@@ -1257,7 +1256,7 @@ const module: Module = {
       {
         id: "q-sdelat-otricanie",
         kind: "short",
-        outcome: "строит отрицание, поставив not после формы be",
+        outcome: "строить отрицание, поставив not после формы be",
         prompt: "Сделай отрицание из «He is in Rome.» Запиши целиком, без короткой формы.",
         answer: "He is not in Rome.",
         exact: true,
@@ -1267,7 +1266,7 @@ const module: Module = {
       {
         id: "q-dopisat-not",
         kind: "gap",
-        outcome: "строит отрицание, поставив not после формы be",
+        outcome: "строить отрицание, поставив not после формы be",
         prompt: "Допиши слово: «Она не медсестра».",
         before: "She is ",
         after: " a nurse.",
@@ -1277,7 +1276,7 @@ const module: Module = {
       {
         id: "q-korotkaya-isnt",
         kind: "short",
-        outcome: "пишет короткие формы отрицания: isn't, aren't, I'm not",
+        outcome: "писать короткие формы отрицания: isn't, aren't, I'm not",
         prompt: "Запиши коротко: he is not.",
         answer: "he isn't",
         exact: true,
@@ -1287,7 +1286,7 @@ const module: Module = {
       {
         id: "q-amnt",
         kind: "choice",
-        outcome: "пишет короткие формы отрицания: isn't, aren't, I'm not",
+        outcome: "писать короткие формы отрицания: isn't, aren't, I'm not",
         prompt: "Как коротко сказать «я не врач»?",
         options: [
           { text: "I'm not a doctor.", correct: true },
@@ -1299,7 +1298,7 @@ const module: Module = {
       {
         id: "q-razvernut-arent",
         kind: "short",
-        outcome: "пишет короткие формы отрицания: isn't, aren't, I'm not",
+        outcome: "писать короткие формы отрицания: isn't, aren't, I'm not",
         prompt: "Запиши полностью, без короткой формы: «They aren't in Astana.»",
         answer: "They are not in Astana.",
         exact: true,
@@ -1309,7 +1308,7 @@ const module: Module = {
       {
         id: "q-najti-oshibku-v-poryadke",
         kind: "hottext",
-        outcome: "строит отрицание, поставив not после формы be",
+        outcome: "строить отрицание, поставив not после формы be",
         prompt: "Отметь строки, где not стоит не на своём месте.",
         parts: [
           { text: "She not is a teacher.", selectable: true, correct: true },
@@ -1325,7 +1324,7 @@ const module: Module = {
       {
         id: "q-sobrat-otricanie",
         kind: "order",
-        outcome: "строит отрицание, поставив not после формы be",
+        outcome: "строить отрицание, поставив not после формы be",
         prompt: "Собери предложение: «Она не преподаватель».",
         items: ["teacher", "is", "She", "not", "a"],
         answer: [2, 1, 3, 4, 0],
@@ -1334,7 +1333,7 @@ const module: Module = {
       {
         id: "q-sopostavit-korotkie-otricaniya",
         kind: "match",
-        outcome: "пишет короткие формы отрицания: isn't, aren't, I'm not",
+        outcome: "писать короткие формы отрицания: isn't, aren't, I'm not",
         prompt: "Сопоставь полную запись и короткую.",
         left: ["you are not", "she is not", "I am not"],
         right: ["I'm not", "you aren't", "she isn't"],
@@ -1344,7 +1343,7 @@ const module: Module = {
       {
         id: "q-apostrof-na-meste",
         kind: "gap",
-        outcome: "пишет короткие формы отрицания: isn't, aren't, I'm not",
+        outcome: "писать короткие формы отрицания: isn't, aren't, I'm not",
         prompt: "Запиши коротко: we are not.",
         before: "We ",
         after: " from Spain.",
@@ -1354,7 +1353,7 @@ const module: Module = {
       {
         id: "q-gde-no-gde-not",
         kind: "gap",
-        outcome: "различает no и not и ставит каждое на своё место",
+        outcome: "различать no и not и ставить каждое на своё место",
         prompt: "Допиши слово-ответ в начале.",
         before: "",
         after: ", I'm not a nurse.",
@@ -1365,7 +1364,7 @@ const module: Module = {
       {
         id: "q-no-vmesto-not",
         kind: "choice",
-        outcome: "различает no и not и ставит каждое на своё место",
+        outcome: "различать no и not и ставить каждое на своё место",
         prompt: "В какой строке слова перепутаны местами?",
         options: [
           { text: "No, I'm not." },
@@ -1377,7 +1376,7 @@ const module: Module = {
       {
         id: "q-popravit-dvumya-shagami",
         kind: "short",
-        outcome: "поправляет собеседника: говорит, что не так, и как на самом деле",
+        outcome: "поправлять собеседника: говорить, что не так и как на самом деле",
         prompt: "Собеседник сказал: «You are a driver.» Ты преподаватель. Возрази и скажи, как есть, — два предложения.",
         answer: "I'm not a driver. I'm a teacher.",
         exact: true,
@@ -1391,7 +1390,7 @@ const module: Module = {
       {
         id: "q-nezakonchennaya-popravka",
         kind: "choice",
-        outcome: "поправляет собеседника: говорит, что не так, и как на самом деле",
+        outcome: "поправлять собеседника: говорить, что не так и как на самом деле",
         prompt: "Какая поправка закончена?",
         options: [
           { text: "She isn't a doctor. She's a nurse.", correct: true },
@@ -1405,7 +1404,7 @@ const module: Module = {
       {
         id: "q-otricanie-o-predmete",
         kind: "short",
-        outcome: "отрицает о предмете и о месте: it isn't, he isn't in",
+        outcome: "говорить, что это не тот предмет и не то место: it isn't, he isn't in",
         prompt: "Сделай отрицание из «It is a city.» Запиши короткой формой.",
         answer: "It isn't a city.",
         exact: true,
@@ -1415,7 +1414,7 @@ const module: Module = {
       {
         id: "q-predlog-ne-vypadaet",
         kind: "gap",
-        outcome: "отрицает о предмете и о месте: it isn't, he isn't in",
+        outcome: "говорить, что это не тот предмет и не то место: it isn't, he isn't in",
         prompt: "Допиши предлог: «Он не в Риме».",
         before: "He isn't ",
         after: " Rome.",
@@ -1425,7 +1424,7 @@ const module: Module = {
       {
         id: "q-prav-ili-net",
         kind: "choice",
-        outcome: "говорит, прав собеседник или нет: You're right, You're wrong",
+        outcome: "говорить, прав собеседник или нет: You're right, You're wrong",
         prompt: "Собеседник ошибся. Какие два отклика годятся?",
         multiple: true,
         options: [
@@ -1438,8 +1437,8 @@ const module: Module = {
       {
         id: "q-vozrazit-cherez-otricanie",
         kind: "gap",
-        outcome: "говорит, прав собеседник или нет: You're right, You're wrong",
-        prompt: "Допиши слово: собеседник ошибся, скажи это одним признаком.",
+        outcome: "говорить, прав собеседник или нет: You're right, You're wrong",
+        prompt: "Допиши слово: собеседник ошибается, скажи это одним словом.",
         before: "You are ",
         after: ".",
         answer: "wrong",
@@ -1448,7 +1447,7 @@ const module: Module = {
       {
         id: "q-otvet-s-utochneniem",
         kind: "short",
-        outcome: "отвечает на вопрос отрицанием и уточняет",
+        outcome: "отвечать на вопрос отрицанием и уточнять",
         prompt: "«Are you a student?» Ты преподаватель. Ответь коротко и уточни — два предложения.",
         answer: "No, I'm not. I'm a teacher.",
         exact: true,
@@ -1462,7 +1461,7 @@ const module: Module = {
       {
         id: "q-slipshiesya-predlozheniya",
         kind: "choice",
-        outcome: "отвечает на вопрос отрицанием и уточняет",
+        outcome: "отвечать на вопрос отрицанием и уточнять",
         prompt: "В какой строке два предложения слиплись в одно?",
         options: [
           { text: "No, she isn't. She's from Spain." },
@@ -1476,7 +1475,7 @@ const module: Module = {
       {
         id: "q-sobrat-razgovor-vozrazheniya",
         kind: "order",
-        outcome: "ведёт разговор, в котором возражает и поправляет",
+        outcome: "вести разговор, в котором возражаешь и поправляешь собеседника",
         prompt: "Расставь реплики по порядку.",
         items: ["Sorry, I'm not Dana. I'm Aigul.", "Are you Dana?", "Nice to meet you, Aigul."],
         answer: [1, 0, 2],
@@ -1485,7 +1484,7 @@ const module: Module = {
       {
         id: "q-popravit-i-vernut-vopros",
         kind: "short",
-        outcome: "ведёт разговор, в котором возражает и поправляет",
+        outcome: "вести разговор, в котором возражаешь и поправляешь собеседника",
         prompt: "«Are you a nurse?» Ты врач. Возрази, скажи как есть и верни вопрос — три предложения.",
         answer: "I'm not a nurse. I'm a doctor. And you?",
         exact: true,

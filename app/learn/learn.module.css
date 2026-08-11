@@ -74,9 +74,19 @@
 }
 
 /* Чему учит модуль — обещание, которое проверит проверочная работа */
+.outcomesLabel {
+  margin: 0;
+  padding: 16px 24px 0 24px;
+  font-size: var(--step--1);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
 .outcomes {
   margin: 0;
-  padding: 16px 24px 4px 44px;
+  padding: 6px 24px 4px 44px;
   font-size: var(--step-0);
   color: var(--ink-soft);
   line-height: 1.7;
