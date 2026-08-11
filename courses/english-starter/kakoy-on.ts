@@ -36,26 +36,21 @@ import type { Module } from "@/lib/content/types";
  * Звука нет — решение об источнике записей за владельцем
  * (docs/zadachi-vladeltsa.md, п. 1.4).
  *
- * ВНИМАНИЕ: МОДУЛЬ НЕ ПРИНЯТ ЦЕЛИКОМ.
+ * МОДУЛЬ ПРИНЯТ: скрипт, редактор, методист. Полный перечень найденного —
+ * docs/zadachi-vladeltsa.md, п. 1.20. Три вещи стоит помнить прямо здесь:
  *
- * Скрипт проверок пройден, редактор разобрал модуль и его правки внесены.
- * МЕТОДИСТ ПРОВЕРИТЬ НЕ УСПЕЛ — упёрся в недельный предел на проверяющих.
- * Значит НИ ОДНА запись в поле `sources` ниже никем, кроме меня, не сверена.
+ * 1. Два прилагательных подряд (`a very old grey car`) СНЯТЫ. Методист нашёл
+ *    источник, которого я не нашёл: два прилагательных перед названием — A2,
+ *    порядок их типов — B1, и в перечне A2 Key он стоит отдельной строкой.
+ *    Строка A1 про «a very good man» закрывает ОДНО прилагательное, не два.
  *
- * Почему это важно именно здесь: в модуле 10 методист нашёл ТРИ моих ложных
- * утверждения об источниках, включая слово, которое я объявил превышением
- * ступени, — оно стояло в словнике на своей ступени, а я не нашёл его из-за
- * типографского апострофа. Такие ошибки скрипт не ловит, и редактор тоже.
+ * 2. Обороты `What's ... like?` и `Who's that?` СНЯТЫ: все A2, а слово `who`
+ *    в курсе не вводилось ни разу. Заменены на вопрос с `be` из модуля 4.
  *
- * ЧТО ПРОВЕРИТЬ ПЕРВЫМ ДЕЛОМ, когда предел снимется:
- * — порядок двух прилагательных подряд в `a very old grey car` (урок 8): в
- *   materials/ я подтверждения не нашёл и подозреваю, что его там нет;
- * — обороты `What's your room like?` и `What's she like?` (уроки 5 и 6) — они
- *   стоят готовыми и нигде не объявлены;
- * — ступень слов interesting, beautiful, favourite.
- *
- * Поэтому модуль НЕ выложен на боевой сайт: он есть в дереве и проходит
- * проверки, но в списке модулей курса появится только после разбора методистом.
+ * 3. Определённый артикль здесь острее, чем где-либо: 114 предложений вида
+ *    `The house is big`. По ступени вопросов нет, но курс его не разбирает.
+ *    Врезка `pochemu-the-i-a` говорит об этом ученику прямо; решение о том,
+ *    вводить ли `the` отдельным уроком, за владельцем (п. 1.18).
  */
 const module: Module = {
   slug: "kakoy-on",
@@ -84,6 +79,22 @@ const module: Module = {
         "модуле 10. " +
         "ПУСТОЕ it здесь не нужно: в «It's red» слово it показывает на предмет, как в " +
         "модуле 6, — это указательное it ступени A1, а не пустое it о времени. " +
+        "A1, NOUNS noun phrases «FORM: ADJECTIVE + PLURAL NOUN»: «Can form simple noun " +
+        "phrases by pre-modifying plural nouns with an adjective and no determiner», " +
+        "пример источника — «I have new neighbours». Отсюда врезка о том, что признак во " +
+        "множественном не меняется. Строку нашёл методист: блок и два задания на ней " +
+        "держались, а в источниках её не было. " +
+        "ЧЕГО НЕТ И ПОЧЕМУ СНЯТО: два прилагательных подряд перед названием — A2, NOUNS " +
+        "noun phrases «FORM: NOUN PHRASES WITH ADJECTIVES», пример источника «I bought a " +
+        "beautiful pink skirt». Порядок типов прилагательных — B1, ADJECTIVES combining " +
+        "«FORM: BEFORE THE NOUN, following the usual order of adjective types». Строка " +
+        "A1 про «a very good man» закрывает артикль, very и ОДНО прилагательное, а двух " +
+        "подряд не закрывает. Врезка и два задания об этом сняты. " +
+        "ОПРЕДЕЛЁННЫЙ АРТИКЛЬ: в модуле 114 предложений вида The house is big. По ступени " +
+        "вопросов нет — DETERMINERS articles «FORM: WITH NOUNS», A1, покрывает the " +
+        "наравне с a и an. Но курс его нигде не разбирает, и в таблице урока 2 the и a " +
+        "стоят бок о бок без единого слова о разнице. Это блокер владельца " +
+        "(docs/zadachi-vladeltsa.md, п. 1.18), и здесь он острее, чем в модуле 10. " +
         "ЧЕГО НЕТ НАМЕРЕННО: сравнительная и превосходная степень — A2 (ADJECTIVES " +
         "comparatives и superlatives), в модуле не встречается ни разу",
       license: "внутреннее использование, публично не называем",
@@ -91,22 +102,36 @@ const module: Module = {
     {
       ref: "Council of Europe, CEFR Companion Volume 2020",
       section:
-        "с. 62, Overall oral production, Pre-A1: «Can produce short phrases about " +
-        "themselves, giving basic personal information». " +
-        "с. 63, Sustained monologue: describing experience, A1, дословно: «Can describe " +
-        "themselves, what they do and where they live» — описание себя названо прямо. " +
-        "с. 79, Information exchange, A1: «Can ask and answer questions about themselves " +
-        "and other people, where they live, people they know, things they have». " +
-        "ОГОВОРКА: «what they do» требует настоящего простого времени, а оно в модуле 14. " +
-        "Поэтому модуль описывает признаки, а не занятия",
+        "с. 79, Information exchange, A1, дословно: «Can name the colour of clothes or " +
+        "other familiar objects and can ask the colour of such objects» — это точное " +
+        "описание урока 3 и его итога, слово в слово. ГЛАВНАЯ ОПОРА МОДУЛЯ. Нашёл " +
+        "методист: раньше её здесь не было вовсе. " +
+        "с. 63, Sustained monologue, A1: «Can describe simple aspects of their everyday " +
+        "life in a series of simple sentences, using simple words/signs and basic " +
+        "phrases» — отсюда описание тремя предложениями в уроке 8. " +
+        "ЧЕСТНАЯ ОГОВОРКА, НАЙДЕННАЯ МЕТОДИСТОМ: описание ЧУЖИХ предметов и людей " +
+        "(машины, сумки, Даны) стоит на A2 — та же с. 63: «Can describe people, places " +
+        "and possessions in simple terms». Строки A1, которые я цитировал раньше («Can " +
+        "describe themselves…»), описывают рассказ О СЕБЕ и модуль не держат. Модуль " +
+        "стоит между Pre-A1 и A1 по тому же основанию, что и модуль 3",
       license: "внутреннее использование, публично не называем",
     },
     {
       ref: "Cambridge English, A2 Key Handbook for Teachers",
       section:
-        "с. 51, «Inventory of functions, notions and communicative tasks»: «describing " +
-        "people» и «describing things» — отсюда состав уроков 6 и 8. " +
-        "с. 52, перечень: «Colour: red, blue, etc.» — цвета названы отдельной строкой. " +
+        "с. 51, «Inventory of functions, notions and communicative tasks», дословно: " +
+        "«describing people (personal appearance, qualities)» — отсюда урок 6; и " +
+        "«identifying and describing simple objects (shape, size, weight, colour, purpose " +
+        "or use, etc.)» — отсюда уроки 1, 2 и 8. " +
+        "с. 52, «Inventory of grammatical areas», раздел Adjectives, дословно три строки: " +
+        "«Colour, size, shape, quality, nationality», «Predicative and attributive», " +
+        "«Order of adjectives». Первые две — прямая опора уроков 1–3. Третья — причина, " +
+        "по которой два прилагательных подряд из модуля СНЯТЫ: их порядок стоит в " +
+        "инвентаре A2, а не ниже. " +
+        "ИСПРАВЛЕНО ПОСЛЕ ПРОВЕРКИ МЕТОДИСТОМ: раньше здесь стояли две ссылки, которых в " +
+        "источнике нет вовсе, — «describing things» (ноль совпадений по всем 55 " +
+        "страницам) и «с. 52, Colour: red, blue, etc.». Обе выдуманы мною; настоящие " +
+        "строки, приведённые выше, к делу ближе. " +
         "Виды заданий взяты по образцу разделов Reading and Writing того же руководства",
       license: "свободно распространяется, в уроки не копируется",
     },
@@ -115,7 +140,17 @@ const module: Module = {
       section:
         "с. 75, образец A2 Flyers: «In my picture the clock is square but in your picture " +
         "the clock is round» — образец описания предмета через признак после be. " +
-        "с. 81 и 83, тематические списки: цвета стоят на Pre A1 Starters. " +
+        "с. 79, тематический список «Colours», столбец PRE A1 STARTERS, дословно: «black, " +
+        "blue, brown, colour (US color), gray (UK grey), green, grey (US gray), orange, " +
+        "pink, purple, red, white, yellow». Отсюда СРАЗУ ДВА: состав цветов урока 3 и " +
+        "британское написание — источник сам помечает colour и grey как британские, а " +
+        "color и gray как американские. Раньше врезки о написании держались только на " +
+        "решении владельца. " +
+        "с. 13, Pre A1 Starters Listening Part 4: «Range of colours is: black, blue, " +
+        "brown, green, grey, orange, pink, purple, red, yellow». " +
+        "ИСПРАВЛЕНО: раньше здесь стояли страницы 81 и 83 — на них разделы The home, " +
+        "Numbers, Places, Time, а цветов нет. Номер был перенесён из модуля 10, где с. 83 " +
+        "действительно раздел Time. Нашёл методист. " +
         "ОГОВОРКА ТА ЖЕ, ЧТО В МОДУЛЕ 10 (docs/zadachi-vladeltsa.md, п. 1.19): " +
         "тематические списки Cambridge и Oxford 3000 расходятся в ступени части слов. " +
         "Модуль держится Oxford 3000",
@@ -171,8 +206,8 @@ const module: Module = {
           kind: "explain",
           text: [
             "Ты показываешь на дом и говоришь: It's a house. Собеседник кивает — но какой " +
-              "он, из этого не видно. Большой, новый, красивый? Для этого нужны слова о " +
-              "признаке: big, new, beautiful.",
+              "он, из этого не видно. Большой, новый, дорогой? Для этого нужны слова о " +
+              "признаке: big, new, expensive.",
             "Ставят их после формы be — ровно там же, где раньше стояло название занятия. " +
               "В I'm a student там стоит student, в The house is big — big.",
             "Такие слова отвечают на вопрос «какой?» — в школе их называют " +
@@ -197,8 +232,8 @@ const module: Module = {
           tone: "mistake",
           text:
             "Русское слово о признаке меняется вместе с предметом: «дом большой», «книга " +
-            "большая», «окно большое». Английское не меняется никогда: big, big и ещё раз " +
-            "big. The house is big. The book is big. The window is big.",
+            "большая», «окно большое». Английское вслед за предметом не меняется: big, " +
+            "big и ещё раз big. The house is big. The book is big. The window is big.",
         },
         {
           id: "slova-priznakov",
@@ -352,6 +387,20 @@ const module: Module = {
           ],
         },
         {
+          // Методист: в таблице выше the и a стоят бок о бок, а разницы курс не
+          // объясняет нигде — ученик неизбежно спросит. Пока определённый
+          // артикль не разобран (блокер владельца, п. 1.18), честнее сказать
+          // прямо, чем промолчать.
+          id: "pochemu-the-i-a",
+          kind: "note",
+          tone: "info",
+          text:
+            "В левом столбце таблицы стоит the, в правом — a. Слово the показывает, что " +
+            "предмет уже известен обоим: тот самый дом, о котором речь. Артикль a называет " +
+            "предмет впервые. Разбирать the отдельно мы пока не будем — бери его в " +
+            "готовых предложениях как есть.",
+        },
+        {
           id: "artikl-smotrit-na-priznak",
           kind: "note",
           tone: "mistake",
@@ -395,13 +444,13 @@ const module: Module = {
         // ---- задания ----
         {
           id: "z1-a-ili-an",
-          kind: "choice",
-          prompt: "Какой артикль нужен перед old book?",
-          options: [
-            { text: "a" },
-            { text: "an", correct: true },
-            { text: "артикль не нужен" },
-          ],
+          // Раньше это был выбор из трёх, где третьим стоял русский вариант
+          // «артикль не нужен» — он не верен ни разу во всём модуле и виден
+          // глазом среди двух английских. Нашёл методист. Теперь ученик пишет.
+          kind: "short",
+          prompt: "Запиши целиком, вместе с артиклем: старая книга.",
+          answer: "an old book",
+          accept: ["An old book"],
           hint: "Смотри на первый звук слова, которое идёт сразу после артикля.",
           why:
             "An old book. Артикль смотрит на слово old, а оно начинается с гласного " +
@@ -560,7 +609,7 @@ const module: Module = {
             { term: "black", translation: "чёрный", example: "a black bag", hint: "/blæk/" },
             { term: "yellow", translation: "жёлтый", example: "a yellow pen", hint: "/ˈjeləʊ/" },
             { term: "white", translation: "белый", example: "a white house", hint: "/waɪt/" },
-            { term: "brown", translation: "коричневый", example: "brown shoes", hint: "/braʊn/" },
+            { term: "brown", translation: "коричневый", example: "a brown bag", hint: "/braʊn/" },
             { term: "orange", translation: "оранжевый", example: "an orange bag", hint: "/ˈɒrɪndʒ/" },
             { term: "pink", translation: "розовый", example: "a pink phone", hint: "/pɪŋk/" },
             { term: "grey", translation: "серый", example: "a grey car", hint: "/ɡreɪ/" },
@@ -741,14 +790,11 @@ const module: Module = {
         },
         {
           id: "z2-artikl-s-very",
-          kind: "choice",
-          prompt: "Какой артикль нужен перед very old car?",
-          options: [
-            { text: "an" },
-            { text: "артикль не нужен" },
-            { text: "a", correct: true },
-          ],
-          hint: "Артикль смотрит на ближайшее слово, а ближайшее теперь very.",
+          kind: "short",
+          prompt: "Запиши целиком, вместе с артиклем: очень старая машина.",
+          answer: "a very old car",
+          accept: ["A very old car"],
+          hint: "Артикль смотрит на слово сразу за собой, а там теперь стоит very.",
           why:
             "A very old car. Без very было бы an old car, но very начинается с " +
             "согласного звука и меняет артикль.",
@@ -847,12 +893,16 @@ const module: Module = {
           id: "primer-dvuh",
           kind: "example",
           caption: "Описание в две строки",
+          // Здесь стоял оборот What's your room like? Методист показал, что он
+          // A2 сразу по трём строкам источника и нигде не был объявлен. Заменён
+          // на вопрос из модуля 4, который ученик уже строит сам.
           text:
-            "— What's your room like?\n— It's small and clean.\n— And the house?\n" +
+            "— Is your room big?\n— No, it isn't. It's small and clean.\n— And the house?\n" +
             "— It's very big and beautiful.",
           explain:
-            "Два признака подряд дают куда более полную картину, чем один. Оборот " +
-            "What's… like? запомни целиком: он спрашивает «какой он».",
+            "Два признака подряд дают более полную картину, чем один. Вопрос здесь " +
+            "знакомый, из модуля про вопрос и краткий ответ. Новое только and между " +
+            "двумя признаками.",
         },
         {
           id: "zapis-dvuh",
@@ -984,12 +1034,14 @@ const module: Module = {
           id: "primer-o-cheloveke",
           kind: "example",
           caption: "Двое в разговоре",
+          // Здесь стояли Who's that? и What's she like? Слово who в курсе не
+          // вводилось ни разу, а оба оборота стоят на A2. Нашёл методист.
           text:
-            "— Who's that?\n— That's Dana. She's my teacher.\n— What's she like?\n" +
-            "— She's young and very nice.",
+            "— That's Dana. She's my teacher.\n— Is she young?\n" +
+            "— Yes, she is. She's young and very nice.",
           explain:
-            "What's she like? — «какая она». Тот же оборот, что и о предметах, только со " +
-            "словом she. Отвечают двумя признаками через and.",
+            "Признак о человеке спрашивают так же, как о предмете: Is she young? И " +
+            "отвечают так же — краткое «да», а за ним два признака через and.",
         },
         {
           id: "zapis-o-cheloveke",
@@ -1053,6 +1105,9 @@ const module: Module = {
           id: "z4-otmetit-o-lyudyah",
           kind: "hottext",
           prompt: "Отметь записи, где о человеке сказано неверно.",
+          // Вторая ошибка раньше была про артикль без названия — правила об
+          // этом в уроке нет, а подсказка прямо называла обе ошибки. Нашёл
+          // методист. Теперь обе ошибки об одном: о человеке говорят he и she.
           parts: [
             { text: "She is tall.", selectable: true },
             { text: " · " },
@@ -1060,12 +1115,12 @@ const module: Module = {
             { text: " · " },
             { text: "He's an interesting man.", selectable: true },
             { text: " · " },
-            { text: "He is a nice.", selectable: true, correct: true },
+            { text: "It's a nice woman.", selectable: true, correct: true },
           ],
-          hint: "Одна ошибка в подлежащем, другая — в том, что после артикля нет названия.",
+          hint: "Смотри на первое слово каждой записи.",
           why:
-            "«It is young» — о человеке нужно he или she. «He is a nice» — после признака " +
-            "должно стоять название: a nice man.",
+            "«It is young» и «It's a nice woman» — о человеке нужно he или she. Слово it " +
+            "остаётся предметам.",
         },
         {
           id: "z5-opisat-cheloveka",
@@ -1094,8 +1149,8 @@ const module: Module = {
           id: "zachem-lyubimyy",
           kind: "explain",
           text: [
-            "Тебя спрашивают, какой цвет тебе больше всех нравится. По-английски это " +
-              "по-русски «любимый», а по-английски favourite: My favourite colour is blue.",
+            "Тебя спрашивают, какой цвет тебе больше всех нравится. По-русски это " +
+              "«любимый», по-английски — favourite: My favourite colour is blue.",
             "Слово favourite ведёт себя как признак и стоит на том же месте: между словом " +
               "my, his, her и названием. My favourite day, his favourite car, " +
               "her favourite book.",
@@ -1156,7 +1211,10 @@ const module: Module = {
           kind: "vocab",
           caption: "Слова урока",
           items: [
-            { term: "favourite", translation: "любимый", example: "my favourite colour", hint: "/ˈfeɪvərɪt/" },
+            // Транскрипция по источникам: и ipa-en-uk.txt, и wikipron дают
+            // /ˈfeɪvrɪt/, без ə. Раньше стояло /ˈfeɪvərɪt/ — лишний слог,
+            // которого нет ни в одном источнике. Нашёл методист.
+            { term: "favourite", translation: "любимый", example: "my favourite colour", hint: "/ˈfeɪvrɪt/" },
           ],
         },
 
@@ -1258,17 +1316,22 @@ const module: Module = {
             ["1", "что это", "It's a car."],
             ["2", "какое оно", "It's very old."],
             ["3", "какого цвета", "It's grey."],
-            ["всё вместе", "одним предложением", "It's a very old grey car."],
           ],
         },
         {
-          id: "poryadok-dvuh-priznakov",
+          // Раньше здесь стояла строка «всё вместе: It's a very old grey car» и
+          // врезка о порядке двух признаков подряд. Методист нашёл источник:
+          // два прилагательных перед названием — A2 (NOUNS noun phrases, «FORM:
+          // NOUN PHRASES WITH ADJECTIVES»), а порядок типов прилагательных —
+          // B1, и в перечне A2 Key он стоит отдельной строкой «Order of
+          // adjectives». Снято целиком: ни один итог модуля этого не обещал.
+          id: "tri-predlozheniya-luchshe",
           kind: "note",
           tone: "info",
           text:
-            "В последней строке таблицы два признака стоят подряд, без and: a very old " +
-            "grey car. Так тоже можно, и цвет при этом идёт ближе к названию предмета. " +
-            "Если сомневаешься — раздели на два предложения, это всегда верно.",
+            "Три коротких предложения лучше одного длинного. Собеседник успевает понять " +
+            "каждое, а ты не путаешься в порядке слов. Складывать признаки в одну " +
+            "длинную цепочку научимся позже.",
         },
         {
           id: "opisanie-cheloveka",
@@ -1333,18 +1396,20 @@ const module: Module = {
             "very усиливает только expensive.",
         },
         {
-          // Раньше это был gap на три слова подряд, со сверкой по точному
-          // совпадению: лишний пробел или другой порядок давали «неверно» без
-          // объяснения. Плюс условие называло very признаком, а урок 4 прямо
-          // сказал, что оно ничего не называет. Нашёл редактор.
+          // Здесь стояло задание на два признака подряд — сначала gap на три
+          // слова, потом расстановка карточек. Оба сняты: методист показал, что
+          // два прилагательных перед названием стоят на A2, а порядок их типов
+          // — на B1. Задание заменено на то, что модуль действительно обещает:
+          // три отдельных предложения.
           id: "z3-vsyo-v-odnom",
-          kind: "order",
-          prompt: "Собери предложение: «Это очень старая серая машина».",
-          items: ["car", "old", "It's", "grey", "a", "very"],
-          answer: [2, 4, 5, 1, 3, 0],
-          hint: "Порядок такой: артикль, very, old, цвет, название. Цвет стоит вплотную к слову car.",
+          kind: "short",
+          prompt: "Машина очень старая. Запиши второй шаг описания целиком, начни с It's.",
+          answer: "It's very old.",
+          exact: true,
+          accept: ["It's very old", "It is very old.", "It is very old"],
+          hint: "Второй шаг называет признак, а не предмет и не цвет.",
           why:
-            "It's a very old grey car. Цвет идёт последним, вплотную к названию предмета.",
+            "It's very old. Первый шаг сказал, что это машина, второй говорит, какая она.",
         },
         {
           id: "z4-otmetit-polnoe",
@@ -1441,17 +1506,14 @@ const module: Module = {
       },
       {
         id: "q-artikl-po-priznaku",
-        kind: "choice",
+        kind: "short",
         outcome: "ставит признак перед названием предмета: a big house",
-        prompt: "Какой артикль нужен перед expensive car?",
-        options: [
-          { text: "an", correct: true },
-          { text: "a" },
-          { text: "артикль не нужен" },
-        ],
+        prompt: "Запиши целиком, вместе с артиклем: дорогая машина.",
+        answer: "an expensive car",
+        accept: ["An expensive car"],
         why:
-          "An expensive car. Артикль смотрит на ближайшее слово, а expensive начинается " +
-          "с гласного звука.",
+          "An expensive car. Артикль смотрит на слово сразу за собой, а expensive " +
+          "начинается с гласного звука.",
       },
       {
         id: "q-perestroit-quiz",
@@ -1515,16 +1577,14 @@ const module: Module = {
       },
       {
         id: "q-very-artikl",
-        kind: "choice",
+        kind: "gap",
         outcome: "усиливает признак словом very",
-        prompt: "Какой артикль нужен перед very old house?",
-        options: [
-          { text: "артикль не нужен" },
-          { text: "a", correct: true },
-          { text: "an" },
-        ],
+        prompt: "Допиши артикль: очень старый дом.",
+        before: "It's ",
+        after: " very old house.",
+        answer: "a",
         why:
-          "A very old house. Ближайшее к артиклю слово — very, а оно начинается с " +
+          "A very old house. Слово сразу за артиклем — very, а оно начинается с " +
           "согласного звука.",
       },
       {
@@ -1550,41 +1610,48 @@ const module: Module = {
         id: "q-lishnyaya-be",
         kind: "hottext",
         outcome: "соединяет два признака словом and",
+        // Две записи из четырёх были дословно теми же, что в задании урока 5.
+        // Нашёл методист. Заменены целиком.
         prompt: "Отметь записи, где форма be стоит лишний раз.",
         parts: [
-          { text: "The room is clean and small.", selectable: true },
+          { text: "The house is big and beautiful.", selectable: true },
           { text: " · " },
-          { text: "The room is clean and is small.", selectable: true, correct: true },
+          { text: "The tea is hot and is good.", selectable: true, correct: true },
           { text: " · " },
-          { text: "The car is old and cheap.", selectable: true },
+          { text: "She is young and nice.", selectable: true },
           { text: " · " },
-          { text: "The car is old and is cheap.", selectable: true, correct: true },
+          { text: "He is tall and is young.", selectable: true, correct: true },
         ],
         why: "Форма be нужна одна на всё предложение, повторять её после and не нужно.",
       },
       {
+        // Раньше — близнец задания урока 5 с тем же набором вариантов.
+        // Нашёл методист. Теперь ученик производит запись сам.
         id: "q-very-k-odnomu-quiz",
-        kind: "choice",
+        kind: "short",
         outcome: "соединяет два признака словом and",
-        prompt: "В записи «It's very big and cheap» какой признак усилен?",
-        options: [
-          { text: "только cheap" },
-          { text: "оба" },
-          { text: "только big", correct: true },
-        ],
-        why: "Только big: very стоит перед ним. Для обоих было бы very big and very cheap.",
+        prompt:
+          "Комната очень маленькая и очень чистая. Усиль оба признака. Запиши предложение целиком, начни с The room.",
+        answer: "The room is very small and very clean.",
+        exact: true,
+        accept: ["The room is very small and very clean"],
+        why:
+          "The room is very small and very clean. Very усиливает только то слово, перед " +
+          "которым стоит, поэтому для обоих признаков его пишут дважды.",
       },
       {
+        // Раньше — близнец задания урока 6 с тем же набором вариантов, менялись
+        // только имя и прилагательное. Нашёл методист.
         id: "q-he-ne-it",
-        kind: "choice",
+        kind: "short",
         outcome: "описывает человека: tall, young, nice",
-        prompt: "Речь о Кариме. Как сказать «он молодой»?",
-        options: [
-          { text: "He is young.", correct: true },
-          { text: "It is young." },
-          { text: "He is youngs." },
-        ],
-        why: "He is young. О человеке говорят he или she, а признак не меняется.",
+        prompt: "Карим высокий. Запиши предложение целиком, начни с He.",
+        answer: "He is tall.",
+        exact: true,
+        accept: ["He is tall", "He's tall.", "He's tall"],
+        why:
+          "He is tall. О человеке говорят he или she, а признак ничего к себе не " +
+          "прибавляет.",
       },
       {
         id: "q-opisat-cheloveka-quiz",
@@ -1645,14 +1712,19 @@ const module: Module = {
           "признаки.",
       },
       {
+        // Вопрос был сломан: «It's a » + «expensive white» + « car.» даёт
+        // «It's a expensive white car» — артикль a перед гласным звуком, ровно
+        // та ошибка, против которой построен весь урок 2. И слова «очень» из
+        // условия в ответе не было вовсе, а разбор объяснял другое предложение.
+        // Нашёл методист. Заменено на третий шаг описания.
         id: "q-opisanie-v-odnom",
-        kind: "gap",
+        kind: "short",
         outcome: "описывает предмет и человека тремя предложениями",
-        prompt: "Собери одно предложение: очень дорогая белая машина.",
-        before: "It's a ",
-        after: " car.",
-        answer: "expensive white",
-        why: "It's a very expensive white car. Цвет идёт последним, вплотную к названию.",
+        prompt: "Сумка чёрная. Запиши третий шаг описания целиком, начни с It's.",
+        answer: "It's black.",
+        exact: true,
+        accept: ["It's black", "It is black.", "It is black"],
+        why: "It's black. Третий шаг описания называет цвет.",
       },
     ],
   },
