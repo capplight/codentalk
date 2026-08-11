@@ -34,9 +34,9 @@ import type { Module } from "@/lib/content/types";
  * — ОТРИЦАНИЕ `There isn't` / `There aren't`. English Grammar Profile ставит его
  *   на B1: «FORM: NEGATIVE — Can use 'There' + 'be' + 'n't' with countable and
  *   uncountable nouns», пример источника «There isn't any noise». Пример
- *   источника при этом сложнее нашего вдвое: там неисчисляемое существительное и
- *   слово `any`, которое само стоит на A2. Наши предложения — только с
- *   исчисляемым и без `any`: There isn't a garden.
+ *   источника при этом сложнее нашего: там неисчисляемое существительное. Наши
+ *   предложения — только с исчисляемым: There isn't a garden, There aren't any
+ *   shops. Про `any` — отдельный пункт ниже.
  * — ВОПРОС `Is there…?` / `Are there…?`. Строки о нём нет ни на одной ступени: в
  *   English Grammar Profile подраздел `there is/are` вопросительной формы не
  *   описывает вовсе.
@@ -46,6 +46,22 @@ import type { Module } from "@/lib/content/types";
  *   short-answer forms, including contractions». Без вопроса модуль теряет то,
  *   ради чего он нужен: спросить, есть ли поблизости магазин. Без отрицания на
  *   вопрос нельзя ответить «нет».
+ * — СЛОВО `any` в вопросе и в отрицании во множественном числе. Ступень: A2 —
+ *   DETERMINERS quantity, «FORM: WITH PLURAL AND UNCOUNTABLE NOUNS» («some»,
+ *   «any», «no», «more», «a lot of»), и NEGATION, A2, «FORM: DETERMINERS 'ANY',
+ *   'MUCH', 'MANY' — Can use determiners 'any', 'much' and 'many' with nouns in
+ *   negative contexts».
+ *
+ *   Почему всё-таки взят: без него естественного отрицания во множественном в
+ *   английском нет вовсе — «There aren't shops» не говорят. Пример источника к
+ *   строке B1 об отрицании это и показывает: «There isn't any noise». В вопросе
+ *   `some` не ошибка, но значит «я почти уверен, что есть», а урок ставит
+ *   ученика в положение приезжего, который как раз не знает.
+ *
+ *   ИСТОРИЯ ПРАВКИ, чтобы никто не переоткрывал: первая редакция брала `any`
+ *   молча, а шапка утверждала, что его нет, — незаявленное превышение, нашёл
+ *   методист. Затем `any` был снят целиком. Владелец как преподаватель решил
+ *   вернуть его объявленным: оттенок важнее экономии на ступени.
  * — СОЮЗ `but`. По ступени вопросов нет: English Grammar Profile, CONJUNCTIONS
  *   coordinating, A1 — «Can use single word conjunctions ('and, but, or') to
  *   combine sentences». Но программа отдаёт союзы модулю 24, а здесь он взят
@@ -68,11 +84,6 @@ import type { Module } from "@/lib/content/types";
  *   «FORM: 'THERE IS' + UNCOUNTABLE». Неисчисляемые программа отдаёт модулю 23;
  * — `there is/are` + `a lot of` — тоже A2, отдельная строка. Слово `a lot of`
  *   ученик знает из модуля 9, но с этим оборотом оно здесь не соединяется;
- * — `any` — A2 (DETERMINERS quantity, «FORM: WITH PLURAL AND UNCOUNTABLE
- *   NOUNS»; NEGATION, A2, «FORM: DETERMINERS 'ANY', 'MUCH', 'MANY'»). Первая
- *   редакция брала его и в отрицании, и в вопросе, а шапка это отрицала —
- *   незаявленное превышение, нашёл методист. Теперь его нет нигде: вместо
- *   There aren't any shops стоит There aren't three shops;
  * — настоящего простого времени, кроме готового `I live in` выше: «в доме стоит
  *   стол» строится через there is, а не через stand;
  * — слова `sofa`: в Oxford 3000 его нет вовсе, есть только в словнике A2 Key.
@@ -108,9 +119,12 @@ const module: Module = {
         "UNCOUNTABLE», A2 «FORM: 'THERE IS/ARE' + A LOT OF», B1 «FORM: 'THERE' + MODAL " +
         "VERBS». " +
         "ВЗЯТО СВЕРХ СТУПЕНИ: B1 «FORM: NEGATIVE» — «Can use 'There' + 'be' + 'n't' with " +
-        "countable and uncountable nouns», пример источника «There isn't any noise». Наше " +
-        "отрицание проще: исчисляемое существительное и без слова any. Вопросительной " +
-        "формы оборота подраздел не описывает ни на одной ступени",
+        "countable and uncountable nouns», пример источника «There isn't any noise». " +
+        "Вопросительной формы оборота подраздел не описывает ни на одной ступени. " +
+        "ТАКЖЕ ВЗЯТО СВЕРХ СТУПЕНИ: A2, DETERMINERS quantity «FORM: WITH PLURAL AND " +
+        "UNCOUNTABLE NOUNS» и A2, NEGATION «FORM: DETERMINERS 'ANY', 'MUCH', 'MANY'» — " +
+        "слово any в вопросе и в отрицании во множественном. Решение владельца как " +
+        "преподавателя: без any естественного отрицания во множественном нет вовсе",
       license: "внутреннее использование, публично не называем",
     },
     {
@@ -153,6 +167,10 @@ const module: Module = {
         "restaurant, but (conj.). Слова прежних модулей: room, house, school, shop, " +
         "station, street, park, window, door, table, chair, picture, book, some, near, " +
         "there. " +
+        "СЛОВО any: в Oxford 3000 строка целиком — «any det., pron. A1, adv. A2». Мы берём " +
+        "определитель, то есть A1. Выше ступени не " +
+        "само слово, а его употребление в вопросе и отрицании: это A2 по English Grammar " +
+        "Profile, см. запись выше. " +
         "НЕ ВЗЯТЫ ПО СТУПЕНИ: fridge, lamp, cupboard — все A2; sofa — в Oxford 3000 его " +
         "нет вовсе, только в словнике A2 Key, с. 28",
       license: "внутреннее использование",
@@ -686,7 +704,7 @@ const module: Module = {
           id: "tablica-some",
           kind: "table",
           caption: "С числом и без числа",
-          head: ["Число названо", "Число не названо", "Перевод второго"],
+          head: ["Число названо", "Число не названо", "Перевод второго столбца"],
           rows: [
             ["There are three books.", "There are some books.", "Есть несколько книг."],
             ["There are two shops.", "There are some shops.", "Есть несколько магазинов."],
@@ -837,8 +855,19 @@ const module: Module = {
             ["There is a shop near here.", "Is there a shop near here?"],
             ["There is a bathroom in the flat.", "Is there a bathroom in the flat?"],
             ["There are two rooms.", "Are there two rooms?"],
-            ["There are some books.", "Are there some books?"],
+            ["There are some books.", "Are there any books?"],
           ],
+        },
+        {
+          id: "some-i-any-v-voprose",
+          kind: "note",
+          tone: "info",
+          text:
+            "Смотри последнюю строку таблицы: в сообщении стоит some, а в вопросе — any.\n\n" +
+            "Some значит «несколько есть». В вопросе о том, есть ли что-то, такое слово " +
+            "прозвучало бы так, будто ты уже знаешь ответ. А ты как раз не знаешь — " +
+            "поэтому any.\n\n" +
+            "Запомни пару целиком: There are some books. — Are there any books?",
         },
         {
           id: "kratkiy-otvet-there",
@@ -899,6 +928,7 @@ const module: Module = {
           items: [
             { term: "Is there…?", translation: "есть ли…?", example: "Is there a shop near here?", hint: "/ɪz ðeə/" },
             { term: "Are there…?", translation: "есть ли… (о нескольких)?", example: "Are there two rooms?", hint: "/ɑː ðeə/" },
+            { term: "any", translation: "сколько-нибудь, хоть какие-то", example: "Are there any books?", hint: "/ˈeni/" },
           ],
         },
 
@@ -956,7 +986,18 @@ const module: Module = {
             "они отвечают о предмете, а не о том, есть ли он.",
         },
         {
-          id: "z5-sobrat-vopros",
+          id: "z5-dopisat-any",
+          kind: "gap",
+          prompt: "Спроси, есть ли поблизости магазины. Допиши недостающее слово.",
+          before: "Are there ",
+          after: " shops near here?",
+          answer: "any",
+          hint: "В сообщении на этом месте стоит some, а в вопросе — другое слово.",
+          why:
+            "Are there any shops near here? Ты не знаешь, есть ли магазины, — значит any.",
+        },
+        {
+          id: "z6-sobrat-vopros",
           kind: "order",
           prompt: "Собери вопрос: «Есть ли в квартире ванная?»",
           items: ["in the flat", "a bathroom", "Is there"],
@@ -990,15 +1031,34 @@ const module: Module = {
           id: "tablica-otricaniya-there",
           kind: "table",
           caption: "Есть и нет",
-          head: ["Есть", "Нет", "Перевод второго"],
+          head: ["Есть", "Нет", "Перевод отрицания"],
           rows: [
             ["There is a garden.", "There isn't a garden.", "Сада нет."],
             ["There is a TV.", "There isn't a TV.", "Телевизора нет."],
-            ["There are two rooms.", "There aren't two rooms.", "Двух комнат нет."],
-            ["There are three shops.", "There aren't three shops.", "Трёх магазинов нет."],
+            ["There are some shops.", "There aren't any shops.", "Магазинов нет."],
           ],
         },
-                {
+        {
+          id: "some-i-any-v-otricanii",
+          kind: "note",
+          tone: "info",
+          text:
+            "Последняя строка таблицы устроена так же, как вопрос из урока «Есть ли здесь»: " +
+            "в утвердительном предложении some, в отрицании any.\n\nСказать «There aren't " +
+            "shops» нельзя — без any тут не обойтись.\n\nЗапомни пару целиком: There are " +
+            "some shops. — There aren't any shops.",
+        },
+        {
+          id: "otricanie-s-chislom",
+          kind: "note",
+          tone: "info",
+          text:
+            "Спальня в квартире одна, а собеседник говорит, что их две. Ты его " +
+            "поправляешь: There aren't two bedrooms — «спален не две».\n\nЭто поправка к " +
+            "числу. Она не значит, что спален нет вовсе.\n\nЕсли спален нет совсем, " +
+            "говорят иначе: There aren't any bedrooms.",
+        },
+        {
           id: "odno-otricanie-there",
           kind: "note",
           tone: "mistake",
@@ -1025,7 +1085,7 @@ const module: Module = {
           pace: "slow",
           caption: "Послушай отрицания",
           transcript:
-            "There isn't a garden. There isn't a TV. There aren't two rooms. " +
+            "There isn't a garden. There isn't a TV. There aren't any shops. " +
             "No, there isn't.",
         },
         {
@@ -1034,7 +1094,8 @@ const module: Module = {
           caption: "Слова урока",
           items: [
             { term: "there isn't", translation: "нет (об одном)", example: "There isn't a garden.", hint: "/ðeər ˈɪznt/" },
-            { term: "there aren't", translation: "нет (о нескольких)", example: "There aren't two rooms.", hint: "/ðeər ɑːnt/" },
+            { term: "there aren't", translation: "нет (о нескольких)", example: "There aren't any books.", hint: "/ðeər ɑːnt/" },
+            { term: "any", translation: "никаких (в отрицании)", example: "There aren't any shops.", hint: "/ˈeni/" },
           ],
         },
 
@@ -1050,17 +1111,16 @@ const module: Module = {
           why: "There isn't a TV in the room. Форма is и not сливаются в isn't.",
         },
         {
-          id: "z2-isnt-ili-arent",
-          kind: "choice",
-          prompt: "В квартире одна спальня, а не две. Как сказать?",
-          options: [
-            { text: "There aren't two bedrooms.", correct: true },
-            { text: "There isn't two bedrooms." },
-            { text: "There aren't two bedroom." },
-          ],
-          hint: "Спальни две, значит форма be та же, что и в сообщении о двух спальнях.",
+          id: "z2-dopisat-any",
+          kind: "gap",
+          prompt: "Магазинов поблизости нет. Допиши недостающее слово.",
+          before: "There aren't ",
+          after: " shops near here.",
+          answer: "any",
+          hint: "В сообщении на этом месте стоял бы some.",
           why:
-            "There aren't two bedrooms. Несколько предметов — форма aren't и окончание -s.",
+            "There aren't any shops near here. Магазинов нет вовсе, и без any такое " +
+            "предложение не строится.",
         },
         {
           id: "z3-otmetit-dvoynoe",
@@ -1071,7 +1131,7 @@ const module: Module = {
             { text: " · " },
             { text: "There isn't no garden.", selectable: true, correct: true },
             { text: " · " },
-            { text: "There aren't three shops.", selectable: true },
+            { text: "There aren't any shops.", selectable: true },
             { text: " · " },
             { text: "There aren't no shops.", selectable: true, correct: true },
           ],
@@ -1552,9 +1612,11 @@ const module: Module = {
         outcome: "спрашивать, есть ли что-то, и коротко отвечать: Is there a shop? — Yes, there is",
         prompt: "Спроси, есть ли рядом магазины. Допиши первое слово.",
         before: "",
-        after: " there some shops near here?",
+        after: " there any shops near here?",
         answer: "Are",
-        why: "Are there some shops near here? Магазинов несколько — значит are.",
+        why:
+          "Are there any shops near here? Слово shops стоит во множественном числе — " +
+          "значит are. А в вопросе вместо some стоит any.",
       },
       {
         id: "q-vopros-otvet",
@@ -1563,8 +1625,8 @@ const module: Module = {
         prompt: "Тебя спросили: «Are there two bedrooms?» Спальни две. Как ответить?",
         options: [
           { text: "Yes, they are." },
-          { text: "Yes, there are.", correct: true },
           { text: "Yes, there is." },
+          { text: "Yes, there are.", correct: true },
         ],
         why: "Yes, there are. В ответе повторяют there и форму are.",
       },
@@ -1582,13 +1644,15 @@ const module: Module = {
         id: "q-otricanie-vybor",
         kind: "choice",
         outcome: "говорить, чего нет: There isn't a garden",
-        prompt: "В квартире нет трёх комнат. Как сказать?",
+        prompt: "Магазинов поблизости нет. Как сказать?",
         options: [
-          { text: "There isn't three rooms." },
-          { text: "There aren't three room." },
-          { text: "There aren't three rooms.", correct: true },
+          { text: "There isn't any shops." },
+          { text: "There aren't any shops.", correct: true },
+          { text: "There aren't some shops." },
         ],
-        why: "There aren't three rooms. Комнат несколько — форма aren't и окончание -s.",
+        why:
+          "There aren't any shops. Слово shops стоит во множественном числе — значит " +
+          "aren't, а в отрицании вместо some стоит any.",
       },
       {
         id: "q-otricanie-napisat",
