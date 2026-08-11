@@ -12,6 +12,7 @@ import dniDatyVremya from "./dni-daty-vremya";
 import gdeEto from "./gde-eto";
 import kakoyOn from "./kakoy-on";
 import zdesEst from "./zdes-est";
+import chtoYaDelayu from "./chto-ya-delayu";
 
 /**
  * Английский с нуля — ступень до A1.
@@ -44,6 +45,7 @@ const course: Course = {
     kakoyOn,
     gdeEto,
     zdesEst,
+    chtoYaDelayu,
   ],
 };
 
