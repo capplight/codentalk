@@ -9,6 +9,7 @@ import moiVeshchi from "./moi-veshchi";
 import odinIMnogo from "./odin-i-mnogo";
 import chislaVozrastCena from "./chisla-vozrast-cena";
 import dniDatyVremya from "./dni-daty-vremya";
+import gdeEto from "./gde-eto";
 import kakoyOn from "./kakoy-on";
 
 /**
@@ -40,13 +41,7 @@ const course: Course = {
     chislaVozrastCena,
     dniDatyVremya,
     kakoyOn,
-    // Модуль 12 «Где это» написан и лежит в `gde-eto.ts`, но в курс пока не
-    // включён: проверяющие его не смотрели (docs/zadachi-vladeltsa.md, п. 1.21).
-    // Автор не принимает свою работу — это правило проекта, а не формальность:
-    // в модуле 11 методист нашёл сломанный ответ проверочной работы, три
-    // незаявленных оборота выше ступени и две выдуманные ссылки на источник.
-    // Раскомментировать после разбора.
-    // gdeEto,
+    gdeEto,
   ],
 };
 

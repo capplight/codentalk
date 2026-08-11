@@ -31,6 +31,23 @@ import type { Module } from "@/lib/content/types";
  *
  * Звука нет — решение об источнике записей за владельцем
  * (docs/zadachi-vladeltsa.md, п. 1.4).
+ *
+ * МОДУЛЬ ПРИНЯТ: скрипт, редактор, методист. Полный перечень найденного —
+ * docs/zadachi-vladeltsa.md, п. 1.21. Что важно помнить прямо здесь:
+ *
+ * 1. Превышений ступени НЕ ТРИ, А ЧЕТЫРЕ. Четвёртое — само умение объяснить
+ *    дорогу: описания Совета Европы, с. 63, ставят его на A2 и называют
+ *    теми же словами, что урок 8. Понимание указаний при этом A1 (с. 51, 58),
+ *    и эти строки держат урок 7 прямее всего остального.
+ *
+ * 2. Правило «перед here и there предлог не ставят» БЫЛО НЕВЕРНО вообще:
+ *    у Cambridge в образцах стоят over there и up there, а урок 8 этого же
+ *    модуля требует not from here. Правило ограничено ответом о месте.
+ *
+ * 3. Определённый артикль здесь стоит 294 раза — больше, чем в любом другом
+ *    модуле курса. Врезка `pochemu-the-v-meste` говорит об этом ученику прямо,
+ *    но это заплатка. Решение об отдельном уроке за владельцем (п. 1.18), и
+ *    модуль 13 (`there is`) сделает его неотложным.
  */
 const module: Module = {
   slug: "gde-eto",
@@ -61,7 +78,12 @@ const module: Module = {
         "модуле 1: руководство Cambridge для младших ступеней, с. 11, перечисляет " +
         "imperative среди форм глагола для Pre A1 Starters; " +
         "3) вопросительное слово where — QUESTIONS wh-, A2, взято по решению 1 программы " +
-        "и уже встречалось в модуле 3",
+        "и уже встречалось в модуле 3; " +
+        "4) САМО УМЕНИЕ ОБЪЯСНИТЬ ДОРОГУ. Нашёл методист, я его не объявлял. Описания " +
+        "Совета Европы, с. 63, шкала Giving information, A2: «Can give simple directions " +
+        "on how to get from X to Y, using basic expressions such as “turn right” and “go " +
+        "straight”». То есть источник называет наш урок 8 своими словами — и ставит его " +
+        "на A2. Понимание указаний при этом A1 (запись о Совете Европы ниже)",
       license: "внутреннее использование, публично не называем",
     },
     {
@@ -71,8 +93,10 @@ const module: Module = {
         "(home), etc.» — предлоги места названы отдельной строкой от предлогов времени. " +
         "Именно поэтому at места вводится здесь, а не в модуле 10: там ученик выучил " +
         "«at — перед часами», и at the school в том модуле сбивало бы. " +
-        "с. 51, «Inventory of functions»: «asking for and giving directions» — отсюда " +
-        "состав уроков 7 и 8",
+        "с. 51, «Inventory of functions», дословно: «asking the way and giving directions» — " +
+        "отсюда состав уроков 7 и 8. Раньше я цитировал эту строку неточно. " +
+        "Там же с. 53: «Prepositional phrases: at the end of, in front of, etc.» — прямая " +
+        "опора урока 4, которую я пропустил",
       license: "свободно распространяется, в уроки не копируется",
     },
     {
@@ -83,8 +107,14 @@ const module: Module = {
         "названы прямо, и ступень ниже A1. " +
         "с. 79, Information exchange, A1: «Can ask and answer questions about themselves " +
         "and other people, where they live». " +
-        "ОГОВОРКА: отдельного описания «умеет объяснить дорогу» на A1 в книге нет. " +
-        "Основание для уроков 7 и 8 — перечень функций A2 Key и решение программы",
+        "ГЛАВНАЯ ОПОРА УРОКА 7, НАЙДЕНА МЕТОДИСТОМ: с. 51, A1, дословно — «Can understand " +
+        "instructions addressed carefully and slowly to them and follow short, simple " +
+        "directions. Can understand when someone tells them slowly and clearly where " +
+        "something is, provided the object is in the immediate environment». И с. 58, A1: " +
+        "«Can follow short, simple directions (e.g. to go from X to Y)». Раньше этих " +
+        "строк в записи не было вовсе, а они держат модуль прямее всего остального. " +
+        "ЧЕСТНАЯ ОГОВОРКА: обе строки описывают ПОНИМАНИЕ. Производство указаний стоит " +
+        "на A2 (с. 63) и объявлено выше как четвёртое превышение ступени",
       license: "внутреннее использование, публично не называем",
     },
     {
@@ -98,8 +128,20 @@ const module: Module = {
         "потому, что без него не объяснить дорогу: «иди прямо» — первое, что говорят. " +
         "Объявлено и в шапке модуля. " +
         "ОТДЕЛЬНО ПРОВЕРЕНО: opposite стоит на A1 сразу как предлог («opposite adj., adv., " +
-        "prep., n. A1»), а next to и in front of — сочетания, и словник их не разбирает; " +
-        "их ступень взята из English Grammar Profile, A2",
+        "prep., n. A1»). " +
+        "ИСПРАВЛЕНО ПОСЛЕ ПРОВЕРКИ МЕТОДИСТОМ: я записал, что next to и in front of " +
+        "словник не разбирает. Это неправда — в Oxford 3000 есть отдельная строка «next " +
+        "to prep. A1», а в словнике A2 Key стоят обе пометы: «next to (prep)», с. 15, и " +
+        "«in front of (prep phr)», с. 12. По ступени они допустимы; как СОСТАВНЫЕ " +
+        "предлоги English Grammar Profile ставит их на A2, и модуль держится осторожной " +
+        "оценки. " +
+        "СЛОВО excuse me: в Oxford 3000 только «excuse n., v. B2», в словнике A2 Key — " +
+        "«excuse (v) • Excuse me!», с. 9. То есть оно выше ступени, и раньше я его не " +
+        "объявлял. Взято как готовое обращение к незнакомому человеку. " +
+        "РАСХОЖДЕНИЕ ИСТОЧНИКОВ, ТО ЖЕ, ЧТО В п. 1.19: тематический список Cambridge " +
+        "(с. 82, «Places & directions») ставит left и right как направления на A2 Flyers, " +
+        "а straight — на A1 Movers, то есть ровно наоборот моей записи по Oxford 3000. " +
+        "Модуль держится Oxford 3000",
       license: "внутреннее использование",
     },
     {
@@ -117,10 +159,10 @@ const module: Module = {
     "говорит, где предмет: in, on, under",
     "говорит, что предмет рядом, позади или между: near, behind, between",
     "ставит here и there в конец предложения",
-    "говорит, что предмет рядом с другим: next to, in front of, opposite",
+    "говорит, где предмет относительно другого: next to, in front of, opposite",
     "спрашивает, где предмет: Where is и Where are",
     "называет места в городе: shop, station, hospital, park",
-    "понимает указание дороги: go, turn left, turn right",
+    "понимает и повторяет указания дороги: go, turn left, turn right",
     "объясняет дорогу двумя-тремя указаниями",
   ],
 
@@ -137,9 +179,9 @@ const module: Module = {
           id: "zachem-gde",
           kind: "explain",
           text: [
-            "Ключи в сумке, книга на столе, кот под стулом. Три места — три разных слова, " +
+            "Ключ в сумке, книга на столе, сумка под стулом. Три места — три разных слова, " +
               "и все три короткие: in, on, under.",
-            "Ставят их так же, как предлоги времени из модуля про дни и даты: предлог, " +
+            "Ставят их так же, как предлоги времени из модуля «Дни, даты, время»: предлог, " +
               "потом название предмета. The key is in the bag.",
           ],
         },
@@ -159,18 +201,31 @@ const module: Module = {
           kind: "note",
           tone: "mistake",
           text:
-            "Слово on уже встречалось в модуле про дни и даты — там оно стояло перед днём " +
-            "недели: on Monday. Здесь то же слово называет место: on the table. Одно слово " +
-            "в двух работах, и различает их то, что идёт следом: день или предмет.",
+            "Слово on уже встречалось в модуле «Дни, даты, время»: on Monday — «в понедельник». " +
+            "Это то же самое слово, но здесь оно говорит не о дне, а о месте: on the table. " +
+            "Что имеется в виду, показывает следующее слово: on Monday — день, on the table — предмет.",
+        },
+        {
+          // Методист: в модуле 12 определённый артикль стоит 294 раза — больше,
+          // чем в любом другом. В модуле 11 о нём была врезка, здесь молчание
+          // было бы шагом назад. Решение о том, вводить ли the отдельным
+          // уроком, за владельцем (docs/zadachi-vladeltsa.md, п. 1.18).
+          id: "pochemu-the-v-meste",
+          kind: "note",
+          tone: "info",
+          text:
+            "Перед названием места почти всегда стоит the: the bag, the table, the shop. " +
+            "Оно показывает, что предмет известен обоим — тот самый стол, о котором речь. " +
+            "Разбирать the отдельно мы пока не будем: бери его в готовых предложениях " +
+            "как есть.",
         },
         {
           id: "in-i-at",
           kind: "note",
           tone: "info",
           text:
-            "Есть и четвёртый предлог места — at. Он говорит не «внутри», а «у, при»: " +
-            "at the door — у двери, at home — дома. Разбирать его отдельно не нужно, " +
-            "запомни два оборота как есть.",
+            "Есть и четвёртый предлог места — at. Он говорит не «внутри», а «у, при». " +
+            "Пока хватит двух готовых пар: at the door — у двери, at home — дома.",
         },
         {
           id: "primer-gde",
@@ -181,7 +236,7 @@ const module: Module = {
             "— It's on the table.",
           explain:
             "Where is…? — «где». Отвечают через it и предлог: It's in your bag. Сам вопрос " +
-            "разберём в пятом уроке модуля, пока запомни его целиком.",
+            "разберём в уроке «Где это: вопрос», пока запомни его целиком.",
         },
         {
           id: "zapis-treh-predlogov",
@@ -231,20 +286,24 @@ const module: Module = {
         {
           id: "z3-otmetit-oshibki-mesta",
           kind: "hottext",
-          prompt: "Отметь записи, в которых предлог выбран неверно.",
+          // Раньше «The key is on the bag» помечалось неверным предлогом, хотя
+          // предложение правильное: ключ может лежать и на сумке. Задание
+          // проверяло житейское допущение, а не язык. Нашёл редактор.
+          prompt:
+            "Ключ лежит внутри сумки, а стул стоит под столом. Отметь записи, которые этому не соответствуют.",
           parts: [
-            { text: "The book is on the table.", selectable: true },
+            { text: "The key is in the bag.", selectable: true },
             { text: " · " },
             { text: "The key is on the bag.", selectable: true, correct: true },
             { text: " · " },
-            { text: "The bag is under the chair.", selectable: true },
+            { text: "The chair is under the table.", selectable: true },
             { text: " · " },
             { text: "The chair is in the table.", selectable: true, correct: true },
           ],
-          hint: "Ключ обычно внутри сумки, а стул стоит не внутри стола.",
+          hint: "Внутри — это in, на поверхности — on, под чем-то — under.",
           why:
-            "Ключ лежит в сумке — in the bag. Стул стоит под столом или рядом с ним, но не " +
-            "внутри: in the table сказать нельзя.",
+            "Ключ внутри сумки — in the bag, а не on. Стул под столом — under the table; " +
+            "in the table значило бы «внутри стола».",
         },
         {
           id: "z4-sobrat-gde",
@@ -252,7 +311,7 @@ const module: Module = {
           prompt: "Собери предложение: «Сумка под стулом».",
           items: ["the chair", "under", "The bag", "is"],
           answer: [2, 3, 1, 0],
-          hint: "Сначала предмет, потом форма be, потом предлог с местом.",
+          hint: "Сначала предмет, потом is, потом предлог с местом.",
           why:
             "The bag is under the chair. Порядок тот же, что и во всех предложениях с be.",
         },
@@ -283,8 +342,8 @@ const module: Module = {
           text: [
             "Магазин рядом со станцией, машина за домом, аптека между ними. Три новых " +
               "предлога: near, behind, between.",
-            "Работают они так же, как in, on и under: предлог, потом название. Меняется " +
-              "только место, о котором речь.",
+            "Работают они так же, как in, on и under: предлог, потом название. Порядок " +
+              "слов не меняется — меняется только то, где именно стоит предмет.",
           ],
         },
         {
@@ -304,16 +363,16 @@ const module: Module = {
           tone: "mistake",
           text:
             "После between всегда стоят два места, и соединяет их and: between the park " +
-            "and the school. Одного места мало — «between the park» не говорят, потому что " +
-            "между чем и чем, непонятно.",
+            "and the school. Одного места мало: из «between the park» непонятно, между " +
+            "чем и чем.",
         },
         {
           id: "near-bez-to",
           kind: "note",
           tone: "info",
           text:
-            "По-русски говорят «рядом со станцией» — с предлогом. По-английски после near " +
-            "ничего не добавляют: near the station. Слово near само по себе значит «рядом с».",
+            "По-русски говорят «рядом со станцией» — с предлогом. По-английски хватает " +
+            "одного слова: near the station. Само near уже значит «рядом с».",
         },
         {
           id: "primer-ryadom",
@@ -323,8 +382,8 @@ const module: Module = {
             "The station is near my house.\nThe park is behind the school.\n" +
             "The shop is between the park and the station.",
           explain:
-            "Три предложения об одном месте. Каждое строится одинаково: предмет, форма be, " +
-            "предлог, второе место. В последнем предложении мест два, и между ними and.",
+            "Все три предложения устроены одинаково: предмет, форма be, предлог, второе " +
+            "место. В последнем мест два, и между ними and.",
         },
         {
           id: "zapis-ryadom",
@@ -347,6 +406,8 @@ const module: Module = {
             { term: "shop", translation: "магазин", example: "a big shop", hint: "/ʃɒp/" },
             { term: "station", translation: "станция, вокзал", example: "near the station", hint: "/ˈsteɪʃn/" },
             { term: "park", translation: "парк", example: "behind the park", hint: "/pɑːk/" },
+            // school стояло в заданиях этого урока за четыре урока до перевода
+            { term: "school", translation: "школа", example: "behind the school", hint: "/skuːl/" },
           ],
         },
 
@@ -358,10 +419,10 @@ const module: Module = {
           before: "The shop is between the park ",
           after: " the school.",
           answer: "and",
-          hint: "После between всегда два места, и между ними стоит соединяющее слово.",
+          hint: "После between называют два места, а между ними ставят одно слово.",
           why:
-            "Between the park and the school. Одного места после between не хватает: " +
-            "между чем и чем, было бы непонятно.",
+            "Between the park and the school. После between называют два места, иначе " +
+            "непонятно, между чем и чем.",
         },
         {
           id: "z2-za-domom",
@@ -410,7 +471,7 @@ const module: Module = {
           prompt: "Собери предложение: «Парк позади школы».",
           items: ["the school", "The park", "behind", "is"],
           answer: [1, 3, 2, 0],
-          hint: "Сначала предмет, потом форма be, потом предлог с местом.",
+          hint: "Сначала предмет, потом is, потом предлог с местом.",
           why: "The park is behind the school. Порядок тот же, что и всегда с be.",
         },
       ],
@@ -431,7 +492,7 @@ const module: Module = {
             "Не всегда нужно называть место словами. Достаточно показать: «Мой дом здесь», " +
               "«Магазин там». По-английски это here и there.",
             "Отличаются они расстоянием: here — рядом с тобой, there — подальше. Та же " +
-              "пара, что this и that в модуле про предметы.",
+              "пара, что this и that в модуле «Что это такое».",
           ],
         },
         {
@@ -450,16 +511,17 @@ const module: Module = {
           tone: "mistake",
           text:
             "Here и there ставят в конец предложения: My house is here. По-русски можно " +
-            "сказать и «здесь мой дом», по-английски так не начинают. Место — последнее, " +
-            "что называют.",
+            "сказать и «здесь мой дом» — мы так делать не будем. Место называют " +
+            "последним.",
         },
         {
           id: "bez-predloga",
           kind: "note",
           tone: "info",
           text:
-            "Перед here и there предлог не ставят. Не «in here» и не «at there», а просто " +
-            "here и there. Эти два слова уже содержат в себе указание на место.",
+            "Когда отвечаешь, где что находится, предлог перед here и there не нужен. " +
+            "Говорят The shop is there, а не «The shop is at there». В самих этих " +
+            "словах уже сказано, где — рядом или подальше.",
         },
         {
           id: "primer-zdes",
@@ -468,8 +530,8 @@ const module: Module = {
           text:
             "— Where is the shop?\n— It's there.\n— And your car?\n— It's here.",
           explain:
-            "Ответить одним словом здесь достаточно, если можно показать рукой. Отвечают " +
-            "всё равно целым предложением: It's there, а не просто There.",
+            "Отвечают целым предложением: It's there, а не просто There. Показать рукой " +
+            "при этом можно, но слово о месте всё равно ставят в конец.",
         },
         {
           id: "zapis-zdes",
@@ -513,11 +575,11 @@ const module: Module = {
             { text: " · " },
             { text: "My car is here.", selectable: true },
             { text: " · " },
-            { text: "My car is in here.", selectable: true, correct: true },
+            { text: "My car is at here.", selectable: true, correct: true },
           ],
           hint: "Here и there сами по себе называют место.",
           why:
-            "Перед here и there предлог не нужен. Верно: The shop is there, My car is here.",
+            "Предлог здесь не нужен. Верно: The shop is there, My car is here.",
         },
         {
           id: "z3-zdes-ili-tam",
@@ -540,7 +602,7 @@ const module: Module = {
           before: "My bag is ",
           after: ".",
           answer: "here",
-          hint: "Рядом с тобой — то же расстояние, что у this в модуле про предметы.",
+          hint: "Рядом с тобой — то же расстояние, что у this в модуле «Что это такое».",
           why: "My bag is here. Here — о том, что рядом.",
         },
         {
@@ -563,7 +625,7 @@ const module: Module = {
       slug: "next-to-i-opposite",
       title: "Рядом с, перед и напротив",
       estimatedMinutes: 13,
-      outcome: "говорит, что предмет рядом с другим: next to, in front of, opposite",
+      outcome: "говорит, где предмет относительно другого: next to, in front of, opposite",
 
       blocks: [
         {
@@ -571,15 +633,15 @@ const module: Module = {
           kind: "explain",
           text: [
             "Слова near мало, когда нужно точнее: стул стоит вплотную к столу, машина — " +
-              "перед домом, магазин — напротив станции. Для этого есть три оборота.",
-            "Два из них состоят не из одного слова, а из нескольких: next to и in front " +
-              "of. Запоминают их целиком, как одно длинное слово.",
+              "перед домом, магазин — напротив станции. Для этого есть ещё три предлога.",
+            "Два из них состоят не из одного слова: next to и in front of. Ставят их так " +
+              "же, как in или under, а запоминают целиком.",
           ],
         },
         {
           id: "tablica-next-to",
           kind: "table",
-          caption: "Три оборота",
+          caption: "Ещё три предлога",
           head: ["Оборот", "Где именно", "Пример"],
           rows: [
             ["next to", "вплотную, сбоку", "The chair is next to the table."],
@@ -593,16 +655,15 @@ const module: Module = {
           tone: "info",
           text:
             "Near и next to значат почти одно, но не совсем. Near — «недалеко», может быть " +
-            "и в двух улицах. Next to — «вплотную», между ними ничего нет.",
+            "и через две улицы. Next to — «вплотную», между ними ничего нет.",
         },
         {
           id: "opposite-bez-of",
           kind: "note",
           tone: "mistake",
           text:
-            "У opposite хвоста нет: opposite the station, а не «opposite of the station». " +
-            "А вот у in front of хвост есть, и без него оборот не работает: in front of " +
-            "the house.",
+            "После opposite слово of не ставят: opposite the station.\n\nА вот in front of " +
+            "без of не работает: in front of the house — все три слова вместе.",
         },
         {
           id: "primer-next-to",
@@ -612,15 +673,15 @@ const module: Module = {
             "The chair is next to the table.\nThe car is in front of the house.\n" +
             "The shop is opposite the station.",
           explain:
-            "Три оборота — три разных расстояния. Next to значит вплотную, in front of — " +
-            "перед лицевой стороной, opposite — с другой стороны, лицом к лицу.",
+            "Три предлога — три разных положения. Next to — вплотную, in front of — перед " +
+            "входом, opposite — с другой стороны улицы.",
         },
         {
           id: "zapis-next-to",
           kind: "audio",
           planned: true,
           pace: "slow",
-          caption: "Послушай три оборота",
+          caption: "Послушай три предлога",
           transcript:
             "The chair is next to the table. The car is in front of the house. " +
             "The shop is opposite the station.",
@@ -651,15 +712,15 @@ const module: Module = {
             { text: " · " },
             { text: "in front the house", selectable: true, correct: true },
           ],
-          hint: "У одного оборота хвоста of нет, а у другого он обязателен.",
+          hint: "Одному из двух нужно of, а другому — нет.",
           why:
-            "Верно opposite the station — без of, и in front of the house — с of. " +
+            "После opposite of не пишут, а in front of без of не работает. " +
             "Остальные две записи собраны наоборот.",
         },
         {
           id: "z2-next-to-ili-near",
           kind: "choice",
-          prompt: "Стул стоит вплотную к столу. Какой оборот точнее?",
+          prompt: "Стул стоит вплотную к столу. Какой предлог точнее?",
           options: [
             { text: "near the table" },
             { text: "opposite the table" },
@@ -673,19 +734,19 @@ const module: Module = {
         {
           id: "z3-pered-domom",
           kind: "gap",
-          prompt: "Машина перед домом. Допиши оборот целиком.",
+          prompt: "Машина перед домом. Допиши все три слова.",
           before: "The car is ",
           after: " the house.",
           answer: "in front of",
           hint: "Три слова, и последнее из них — of.",
           why:
-            "In front of the house. Без of оборот не работает: in front the house сказать " +
+            "In front of the house. Без of так не говорят: in front the house сказать " +
             "нельзя.",
         },
         {
           id: "z4-sopostavit-oboroty",
           kind: "match",
-          prompt: "Сопоставь оборот и его перевод.",
+          prompt: "Сопоставь предлог и его перевод.",
           left: ["opposite", "next to", "in front of"],
           right: ["перед", "напротив", "рядом, вплотную"],
           answer: [1, 2, 0],
@@ -699,7 +760,7 @@ const module: Module = {
           answer: "The shop is opposite the hospital.",
           exact: true,
           accept: ["The shop is opposite the hospital"],
-          hint: "После opposite слово of не нужно.",
+          hint: "После opposite слово of не ставят.",
           why: "The shop is opposite the hospital. Opposite идёт без хвоста.",
         },
       ],
@@ -717,8 +778,8 @@ const module: Module = {
           id: "zachem-vopros-gde",
           kind: "explain",
           text: [
-            "Слово where уже встречалось в модуле про рассказ о себе: Where are you from? " +
-              "Там оно спрашивало о стране, здесь спрашивает о месте: Where is my key?",
+            "Слово where уже встречалось в модуле «Рассказ о себе»: Where are you from? " +
+              "Там оно спрашивало, откуда человек. Здесь — где находится предмет: Where is my key?",
             "Устроен вопрос как все вопросы с be: сначала where, потом форма be, потом то, " +
               "о чём спрашивают.",
           ],
@@ -740,9 +801,10 @@ const module: Module = {
           kind: "note",
           tone: "mistake",
           text:
-            "Форму be выбирают так же, как всегда: is при одном предмете, are при " +
-            "нескольких. Where is my key? — ключ один. Where are my keys? — ключей " +
-            "несколько, и окончание -s стоит у обоих слов.",
+            "Форму be выбирают так же, как всегда. Про один предмет — is: Where is my " +
+            "key? Про несколько — are: Where are my keys? Ключей несколько, поэтому и " +
+            "форма are, и окончание -s у слова keys.\n\nУ слова you форма всегда are, как " +
+            "и раньше: Where are you?",
         },
         {
           id: "otvet-s-predlogom-gde",
@@ -750,7 +812,7 @@ const module: Module = {
           tone: "info",
           text:
             "В ответе предлог не пропадает: не «your bag», а «in your bag». Это то же " +
-            "правило, что в модуле про дни и время, где на вопрос When отвечали On Friday.",
+            "правило, что в модуле «Дни, даты, время», где на вопрос When отвечали On Friday.",
         },
         {
           id: "primer-voprosa-gde",
@@ -842,7 +904,7 @@ const module: Module = {
           answer: "Where is the kitchen?",
           exact: true,
           accept: ["Where is the kitchen"],
-          hint: "Кухня одна, значит форма be тоже одна.",
+          hint: "Кухня одна — значит нужна форма is.",
           why: "Where is the kitchen? Один предмет — форма is.",
         },
       ],
@@ -862,8 +924,8 @@ const module: Module = {
           text: [
             "Названия мест написаны на вывесках и указателях, и узнавать их приходится " +
               "раньше, чем говорить: Station, Hospital, Bus stop.",
-            "Восемь слов закрывают почти всё, что нужно приезжему. Половина из них уже " +
-              "встречалась в прошлых уроках.",
+            "Восьми слов хватает, чтобы найти дорогу в незнакомом городе. Шесть из них " +
+              "уже встречались в прошлых уроках, новых только два: hotel и bus stop.",
           ],
         },
         {
@@ -887,9 +949,8 @@ const module: Module = {
           kind: "note",
           tone: "info",
           text:
-            "Слово park значит и «парк», и надпись на указателе «стоянка» — Parking. " +
-            "Различает их вид самой надписи: на указателе стоянки стоит Parking, с " +
-            "окончанием.",
+            "На указателе может стоять похожее слово — Parking. Это не парк: так помечают " +
+            "место, где ставят машины. Парк — park, а Parking длиннее на четыре буквы.",
         },
         {
           id: "nazvaniya-s-zaglavnoy",
@@ -897,8 +958,9 @@ const module: Module = {
           tone: "mistake",
           text:
             "На вывеске слово пишут с заглавной: Hospital, Station. Внутри предложения — с " +
-            "маленькой: The hospital is opposite the park. Заглавная там нужна только " +
-            "названиям, как в модуле про алфавит.",
+            "маленькой: The hospital is opposite the park.\n\nЗаглавная нужна именам: " +
+            "Dana, Almaty, Kazakhstan — как в модуле «Алфавит и своё имя». Слово hospital " +
+            "не имя, а обычное слово.",
         },
         {
           id: "primer-goroda",
@@ -908,8 +970,9 @@ const module: Module = {
             "The hotel is opposite the station.\nThe bus stop is in front of the hotel.\n" +
             "The park is behind the school.",
           explain:
-            "Три предложения, три оборота из прошлых уроков. Названия мест ведут себя как " +
-            "любые другие предметы: перед ними стоит the, а после — предлог со вторым местом.",
+            "Три предложения, три предлога из прошлых уроков. Слова о местах ведут себя " +
+            "как любые другие предметы: перед ними стоит the. Дальше всё как раньше — " +
+            "форма be, предлог, второе место.",
         },
         {
           id: "zapis-goroda",
@@ -928,7 +991,7 @@ const module: Module = {
             { term: "hotel", translation: "гостиница", example: "opposite the hotel", hint: "/həʊˈtel/" },
             { term: "bus", translation: "автобус", example: "a bus stop", hint: "/bʌs/" },
             { term: "stop", translation: "остановка", example: "the bus stop", hint: "/stɒp/" },
-            { term: "map", translation: "карта", example: "a map of the city", hint: "/mæp/" },
+            { term: "map", translation: "карта", example: "a big map", hint: "/mæp/" },
           ],
         },
 
@@ -946,12 +1009,16 @@ const module: Module = {
         {
           id: "z2-sopostavit-mesta",
           kind: "match",
-          prompt: "Сопоставь место и его перевод.",
-          left: ["hospital", "hotel", "bus stop"],
-          right: ["гостиница", "остановка автобуса", "больница"],
+          // Раньше сопоставлялись hospital, hotel и station — все три узнаются
+          // русскоговорящим без урока. Нашёл методист.
+          prompt: "Сопоставь место и то, что там делают.",
+          left: ["bus stop", "shop", "hospital"],
+          right: ["покупают", "лечат", "ждут автобус"],
           answer: [2, 0, 1],
           hint: "Сверься с таблицей урока.",
-          why: "Hospital — больница, hotel — гостиница, bus stop — остановка автобуса.",
+          why:
+            "На bus stop ждут автобус, в shop покупают, в hospital лечат. Слово bus stop " +
+            "состоит из двух: автобус и остановка.",
         },
         {
           id: "z3-zaglavnaya-v-nazvanii",
@@ -1004,7 +1071,7 @@ const module: Module = {
       slug: "kak-proyti",
       title: "Как пройти",
       estimatedMinutes: 13,
-      outcome: "понимает указание дороги: go, turn left, turn right",
+      outcome: "понимает и повторяет указания дороги: go, turn left, turn right",
 
       blocks: [
         {
@@ -1012,7 +1079,7 @@ const module: Module = {
           kind: "explain",
           text: [
             "Тебе объясняют дорогу: Go straight. Turn left. The shop is opposite the park. " +
-              "Три коротких указания — и ты на месте.",
+              "Два коротких указания, потом место — и ты на месте.",
             "Слова тут особые. Go и turn стоят без подлежащего: не «ты идёшь», а просто " +
               "«иди». Так по-английски дают указания, и слово о том, кто идёт, не нужно.",
           ],
@@ -1030,22 +1097,28 @@ const module: Module = {
           ],
         },
         {
+          // Раньше здесь стояло «это единственный случай в курсе». Неверно:
+          // Excuse me!, Thank you! и Sorry тоже идут без подлежащего, и два из
+          // них ученик знает с модуля 2, а третий стоит страницей ниже.
+          // Нашёл редактор.
           id: "bez-podlezhashchego",
           kind: "note",
           tone: "mistake",
           text:
-            "В указании подлежащего нет: Turn left, а не «You turn left». Это единственный " +
-            "случай в курсе, когда английское предложение обходится без того, о ком речь. " +
-            "Во всех остальных оно обязательно.",
+            "Указания устроены иначе, чем обычные предложения: Turn left, а не «You turn " +
+            "left». Слова о том, кто идёт, в них нет — по-русски так же: не «ты " +
+            "повернёшь», а «поверни».\n\nЭто слово называется подлежащим, оно было в " +
+            "модуле «Приветствие»: She is fine, Dana is fine. В обычном предложении " +
+            "подлежащее обязательно, а в указании его нет.",
         },
         {
           id: "left-i-right",
           kind: "note",
           tone: "info",
           text:
-            "Слово right уже встречалось в модуле про отрицание — там оно значило " +
+            "Слово right уже встречалось в модуле «Не так» — там оно значило " +
             "«правильный»: You are right. Здесь то же слово значит «направо». Различает их " +
-            "то, что стоит рядом: turn right — направо, be right — прав.",
+            "то, что стоит рядом: turn right — «направо», You are right — «ты прав».",
         },
         {
           id: "primer-dorogi",
@@ -1085,14 +1158,18 @@ const module: Module = {
           id: "z1-bez-podlezhashchego",
           kind: "choice",
           prompt: "Как сказать «поверни налево»?",
+          // Отвлекающие раньше стояли в настоящем простом времени, которого
+          // модуль сам не даёт, а «Turn to left» требовало правила, которого в
+          // материале нет. Нашёл методист.
           options: [
-            { text: "You turn left." },
+            { text: "You are left." },
             { text: "Turn left.", correct: true },
-            { text: "Turn to left." },
+            { text: "Left." },
           ],
-          hint: "В указании слово о том, кто идёт, не нужно. И предлога перед left тоже нет.",
+          hint: "Указание начинается с самого действия.",
           why:
-            "Turn left. Указание обходится без подлежащего, а после turn предлог не ставят.",
+            "Turn left. «You are left» — это вообще не про поворот, а «Left» само по " +
+            "себе не говорит, что с ним делать.",
         },
         {
           id: "z2-dopisat-ukazanie",
@@ -1109,18 +1186,18 @@ const module: Module = {
           kind: "hottext",
           prompt: "Отметь записи, в которых указание дано верно.",
           parts: [
-            { text: "You go straight.", selectable: true },
+            { text: "Straight.", selectable: true },
             { text: " · " },
             { text: "Turn right.", selectable: true, correct: true },
             { text: " · " },
             { text: "Go straight.", selectable: true, correct: true },
             { text: " · " },
-            { text: "You turn left.", selectable: true },
+            { text: "Left.", selectable: true },
           ],
-          hint: "В указании нет слова о том, кто идёт.",
+          hint: "В указании есть само действие: go или turn.",
           why:
-            "Turn right и Go straight — указания. Записи со словом you сообщают о " +
-            "собеседнике, а не велят ему.",
+            "Turn right и Go straight — указания: в каждом есть действие. «Straight» и " +
+            "«Left» называют только направление.",
         },
         {
           id: "z4-left-ili-right",
@@ -1162,7 +1239,7 @@ const module: Module = {
             "Спросить дорогу ты уже умеешь: Where is the hospital? Осталось научиться " +
               "отвечать — и это сложнее, потому что говорить придётся больше.",
             "Ответ строится из двух частей: сначала указания — куда идти, потом место — " +
-              "где искать. Больше двух указаний подряд собеседник не удержит в голове.",
+              "где искать. Двух-трёх указаний достаточно: больше собеседник всё равно не запомнит.",
           ],
         },
         {
@@ -1193,8 +1270,9 @@ const module: Module = {
           tone: "info",
           text:
             "Дорогу спрашивают и у тех, кто её не знает. Ответ на этот случай короткий: " +
-            "Sorry, I'm not from here. Слово here здесь то же самое, что в третьем уроке " +
-            "модуля.",
+            "Sorry, I'm not from here — «извините, я не отсюда». Слово from здесь то же, " +
+            "что в I'm from Almaty. Речь не о том, где человек стоит сейчас, а о том, " +
+            "откуда он.",
         },
         {
           id: "gde-rvyotsya-doroga",
@@ -1240,13 +1318,13 @@ const module: Module = {
           answer: [1, 2, 3, 0],
           hint: "Сначала спрашивают, в самом конце называют место.",
           why:
-            "Вопрос, два указания, просьба продолжить, место. Назвать место раньше " +
-            "указаний можно, но тогда человек не дойдёт.",
+            "Сначала вопрос, потом два указания, потом просьба продолжить, и в конце — " +
+            "место. Тот же порядок, что в таблице шагов.",
         },
         {
           id: "z2-dopisat-poslednee",
           kind: "gap",
-          prompt: "Ты объяснил, куда идти. Допиши последний шаг: магазин напротив парка.",
+          prompt: "Куда идти, уже сказано. Допиши последний шаг: магазин напротив парка.",
           before: "Go straight. Turn left. It's ",
           after: " the park.",
           answer: "opposite",
@@ -1276,26 +1354,33 @@ const module: Module = {
         {
           id: "z4-esli-ne-znaesh",
           kind: "short",
-          prompt: "У тебя спросили дорогу, но ты сам приезжий. Ответь: «Извините, я не здешний».",
+          prompt: "У тебя спросили дорогу, а ты в этом городе недавно. Ответь: «Извините, я не отсюда».",
           answer: "Sorry, I'm not from here.",
           exact: true,
           accept: ["Sorry, I'm not from here", "Sorry, I am not from here."],
-          hint: "Оборот собран из модуля про отрицание и слова here из третьего урока.",
+          hint: "Отрицание с be было в модуле «Не так», слово here — в уроке «Здесь и там».",
           why:
             "Sorry, I'm not from here. Отрицание с be и слово here — оба уже знакомы.",
         },
         {
+          // Раньше это было задание на три предложения со сверкой по точному
+          // совпадению. При такой сверке ученик обязан угадать две внутренние
+          // точки и две заглавные буквы, а урок им не учил: он учил порядку
+          // «указания, потом место». Нашёл редактор.
           id: "z5-obyasnit-celikom",
-          kind: "short",
-          prompt:
-            "Объясни дорогу: иди прямо, поверни налево, гостиница напротив станции. Запиши три предложения.",
-          answer: "Go straight. Turn left. The hotel is opposite the station.",
-          exact: true,
-          accept: ["Go straight. Turn left. The hotel is opposite the station"],
-          hint: "Два указания и одно предложение с формой be.",
+          kind: "order",
+          prompt: "Собери объяснение дороги: прямо, налево, гостиница напротив станции.",
+          items: [
+            "opposite the station.",
+            "Go straight.",
+            "The hotel is",
+            "Turn left.",
+          ],
+          answer: [1, 3, 2, 0],
+          hint: "Сначала два указания, потом место.",
           why:
-            "Go straight. Turn left. The hotel is opposite the station. Указания идут без " +
-            "подлежащего, а последнее предложение — обычное, с формой be.",
+            "Go straight. Turn left. The hotel is opposite the station. Указания идут " +
+            "без подлежащего, а последнее предложение обычное, с формой be.",
         },
         {
           id: "z6-proiznesti-dorogu",
@@ -1313,7 +1398,7 @@ const module: Module = {
 
   // =======================================================================
   // Проверочная работа модуля.
-  // Вопросов 22, из них 12 требуют написать ответ самому (short и gap), ещё
+  // Вопросов 22, из них 10 требуют написать ответ самому (short и gap), ещё
   // четыре — расставить части. Итогов восемь, на каждый не меньше двух вопросов.
   // =======================================================================
   quiz: {
@@ -1384,36 +1469,37 @@ const module: Module = {
         outcome: "ставит here и there в конец предложения",
         prompt: "Какая запись верна?",
         options: [
-          { text: "My car is in here." },
+          { text: "My car is at here." },
           { text: "My car is here.", correct: true },
           { text: "My car is at here." },
         ],
         why: "My car is here. Перед here и there предлог не ставят.",
       },
       {
+        // Раньше совпадал с заданием урока поле в поле. Нашёл методист.
         id: "q-here-quiz",
-        kind: "gap",
+        kind: "short",
         outcome: "ставит here и there в конец предложения",
-        prompt: "Твоя сумка рядом с тобой. Допиши слово о месте.",
-        before: "My bag is ",
-        after: ".",
-        answer: "here",
-        why: "My bag is here. Here — о том, что рядом.",
+        prompt: "Станция далеко от тебя. Запиши предложение целиком, начни с The station.",
+        answer: "The station is there.",
+        exact: true,
+        accept: ["The station is there"],
+        why: "The station is there. Слово о месте идёт последним, предлог перед ним не нужен.",
       },
       {
         id: "q-in-front-of",
         kind: "gap",
-        outcome: "говорит, что предмет рядом с другим: next to, in front of, opposite",
-        prompt: "Автобус перед гостиницей. Допиши оборот целиком.",
+        outcome: "говорит, где предмет относительно другого: next to, in front of, opposite",
+        prompt: "Автобус перед гостиницей. Допиши все три слова.",
         before: "The bus is ",
         after: " the hotel.",
         answer: "in front of",
-        why: "In front of the hotel. Без of оборот не работает.",
+        why: "In front of the hotel. Без of эти слова не работают.",
       },
       {
         id: "q-opposite-quiz",
         kind: "short",
-        outcome: "говорит, что предмет рядом с другим: next to, in front of, opposite",
+        outcome: "говорит, где предмет относительно другого: next to, in front of, opposite",
         prompt: "Больница напротив парка. Запиши предложение целиком, начни с The hospital.",
         answer: "The hospital is opposite the park.",
         exact: true,
@@ -1422,27 +1508,27 @@ const module: Module = {
       },
       {
         id: "q-next-to-quiz",
-        kind: "choice",
-        outcome: "говорит, что предмет рядом с другим: next to, in front of, opposite",
-        prompt: "Стул стоит вплотную к столу. Какой оборот точнее?",
-        options: [
-          { text: "opposite the table" },
-          { text: "near the table" },
-          { text: "next to the table", correct: true },
-        ],
-        why: "Next to the table — вплотную. Near значит просто «недалеко».",
+        kind: "short",
+        outcome: "говорит, где предмет относительно другого: next to, in front of, opposite",
+        // Раньше — то же задание урока с переставленными отвлекающими.
+        prompt: "Магазин стоит через дорогу от парка. Запиши предложение целиком, начни с The shop.",
+        answer: "The shop is opposite the park.",
+        exact: true,
+        accept: ["The shop is opposite the park"],
+        why: "The shop is opposite the park. Через дорогу — это opposite, и of после него нет.",
       },
       {
         id: "q-where-are",
-        kind: "choice",
+        kind: "short",
         outcome: "спрашивает, где предмет: Where is и Where are",
-        prompt: "Ты ищешь свои ключи — их несколько. Какой вопрос верный?",
-        options: [
-          { text: "Where are my keys?", correct: true },
-          { text: "Where is my keys?" },
-          { text: "Where are my key?" },
-        ],
-        why: "Where are my keys? Форма are и окончание -s должны сойтись.",
+        // Раньше совпадал с заданием урока дословно, включая порядок вариантов.
+        prompt: "Ты ищешь книги — их несколько. Запиши вопрос целиком.",
+        answer: "Where are my books?",
+        exact: true,
+        accept: ["Where are my books"],
+        why:
+          "Where are my books? Книг несколько, поэтому и форма are, и окончание -s у " +
+          "слова books.",
       },
       {
         id: "q-sprosit-gde-quiz",
@@ -1474,11 +1560,11 @@ const module: Module = {
         id: "q-mesta-sopostavit",
         kind: "match",
         outcome: "называет места в городе: shop, station, hospital, park",
-        prompt: "Сопоставь место и его перевод.",
-        left: ["station", "hotel", "hospital"],
-        right: ["гостиница", "больница", "вокзал"],
+        prompt: "Сопоставь место и то, что там делают.",
+        left: ["hotel", "park", "shop"],
+        right: ["гуляют", "покупают", "ночуют в чужом городе"],
         answer: [2, 0, 1],
-        why: "Station — вокзал, hotel — гостиница, hospital — больница.",
+        why: "В hotel ночуют, в park гуляют, в shop покупают.",
       },
       {
         id: "q-nazvat-mesto-quiz",
@@ -1511,29 +1597,31 @@ const module: Module = {
       {
         id: "q-ukazanie-bez-you",
         kind: "choice",
-        outcome: "понимает указание дороги: go, turn left, turn right",
+        outcome: "понимает и повторяет указания дороги: go, turn left, turn right",
         prompt: "Как сказать «поверни направо»?",
         options: [
-          { text: "You turn right." },
-          { text: "Turn to right." },
+          { text: "You are right." },
+          { text: "Right." },
           { text: "Turn right.", correct: true },
         ],
-        why: "Turn right. Указание обходится без подлежащего и без предлога.",
+        why:
+          "Turn right. «You are right» значит «ты прав», а «Right» само по себе не " +
+          "говорит, что делать.",
       },
       {
+        // Раньше совпадал с заданием урока поле в поле. Нашёл методист.
         id: "q-go-straight-quiz",
-        kind: "gap",
-        outcome: "понимает указание дороги: go, turn left, turn right",
-        prompt: "Дорога не поворачивает. Допиши слово.",
-        before: "Go ",
-        after: ".",
-        answer: "straight",
-        why: "Go straight. Так говорят, когда сворачивать не нужно.",
+        kind: "short",
+        outcome: "понимает и повторяет указания дороги: go, turn left, turn right",
+        prompt: "Скажи два указания подряд: поверни налево, потом иди прямо. Запиши оба предложения.",
+        answer: "Turn left. Go straight.",
+        accept: ["Turn left. Go straight", "turn left. go straight."],
+        why: "Turn left. Go straight. Каждое указание — отдельное предложение.",
       },
       {
         id: "q-ukazaniya-sopostavit",
         kind: "match",
-        outcome: "понимает указание дороги: go, turn left, turn right",
+        outcome: "понимает и повторяет указания дороги: go, turn left, turn right",
         prompt: "Сопоставь указание и перевод.",
         left: ["Go straight.", "Turn right.", "Turn left."],
         right: ["Поверни налево.", "Иди прямо.", "Поверни направо."],
@@ -1541,14 +1629,14 @@ const module: Module = {
         why: "Go straight — прямо, Turn right — направо, Turn left — налево.",
       },
       {
+        // Та же беда, что была в уроке 8: сверка по точному совпадению снимала
+        // балл за внутреннюю пунктуацию, к итогу отношения не имеющую.
         id: "q-obyasnit-dorogu-quiz",
-        kind: "short",
+        kind: "order",
         outcome: "объясняет дорогу двумя-тремя указаниями",
-        prompt:
-          "Объясни дорогу: иди прямо, поверни направо, магазин напротив парка. Запиши три предложения.",
-        answer: "Go straight. Turn right. The shop is opposite the park.",
-        exact: true,
-        accept: ["Go straight. Turn right. The shop is opposite the park"],
+        prompt: "Собери объяснение дороги: прямо, направо, магазин напротив парка.",
+        items: ["Turn right.", "opposite the park.", "Go straight.", "The shop is"],
+        answer: [2, 0, 3, 1],
         why:
           "Go straight. Turn right. The shop is opposite the park. Два указания и место в " +
           "конце.",

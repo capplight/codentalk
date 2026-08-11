@@ -1115,7 +1115,7 @@ const module: Module = {
           left: ["Monday", "June", "half past six"],
           right: ["in", "at", "on"],
           answer: [2, 0, 1],
-          hint: "Чем короче отрезок времени, тем короче предлог.",
+          hint: "Предлог выбирает слово, которое идёт сразу после него.",
           why:
             "On Monday — день. In June — месяц. At half past six — точное время.",
         },
