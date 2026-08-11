@@ -1439,7 +1439,7 @@ const module: Module = {
         id: "q-vozrazit-cherez-otricanie",
         kind: "gap",
         outcome: "говорит, прав собеседник или нет: You're right, You're wrong",
-        prompt: "Допиши слово: собеседник ошибся, скажи это одним прилагательным.",
+        prompt: "Допиши слово: собеседник ошибся, скажи это одним признаком.",
         before: "You are ",
         after: ".",
         answer: "wrong",
