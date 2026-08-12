@@ -86,8 +86,11 @@ const module: Module = {
         "держались, а в источниках её не было. " +
         "ЧЕГО НЕТ И ПОЧЕМУ СНЯТО: два прилагательных подряд перед названием — A2, NOUNS " +
         "noun phrases «FORM: NOUN PHRASES WITH ADJECTIVES», пример источника «I bought a " +
-        "beautiful pink skirt». Порядок типов прилагательных — B1, ADJECTIVES combining " +
-        "«FORM: BEFORE THE NOUN, following the usual order of adjective types». Строка " +
+        "beautiful pink skirt». Порядок типов прилагательных — B1, ADJECTIVES combining, " +
+        "графа «FORM: BEFORE THE NOUN»: «Can use a comma to combine two adjectives used " +
+        "before the noun, following the usual order of adjective types». Оговорка: строка " +
+        "описывает запятую между прилагательными, а не порядок сам по себе — но порядок " +
+        "типов во всём источнике называет только она, и стоит она на B1. Строка " +
         "A1 про «a very good man» закрывает артикль, very и ОДНО прилагательное, а двух " +
         "подряд не закрывает. Врезка и два задания об этом сняты. " +
         "ОПРЕДЕЛЁННЫЙ АРТИКЛЬ: в модуле 114 предложений вида The house is big. По ступени " +

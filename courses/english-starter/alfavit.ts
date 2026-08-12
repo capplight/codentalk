@@ -188,7 +188,7 @@ const module: Module = {
       ref: "Council of Europe, CEFR Companion Volume 2020 — четвёртый урок",
       section:
         "с. 82, Pre-A1: «Can convey basic information (e.g. name, address, family) in short " +
-        "phrases on a form, with the use of a dictionary»; с. 215 и 218, A1: «Can, with the " +
+        "phrases on a form or in a note, with the use of a dictionary»; с. 215 и 218, A1: «Can, with the " +
         "help of a dictionary, convey…». Словарь на этой ступени предполагается прямо, " +
         "а без алфавитного порядка его не открыть — отсюда урок о порядке букв. " +
         "ОГОВОРКА: прямого требования «расставить по алфавиту» в источниках нет; " +
@@ -955,15 +955,16 @@ const module: Module = {
         {
           id: "z4-po-vtoroy-bukve",
           kind: "order",
-          // Слова взяты не из примера урока: прежние school, some, spell
-          // стояли там же и в том же порядке.
+          // Слова взяты не из примера урока целиком: прежние school, some, spell
+          // стояли там же и в том же порядке. И не из будущих уроков: night
+          // вводится только в восьмом, а задание стоит во втором.
           prompt: "Расставь слова по алфавиту.",
-          items: ["night", "letter", "name"],
+          items: ["spelling", "letter", "some"],
           answer: [1, 2, 0],
           hint: "У двух слов первая буква одна — тогда сравнивают вторую.",
           why:
-            "Letter, name, night. L идёт раньше N. У name и night первая буква общая, " +
-            "поэтому смотрят на вторую: a раньше i.",
+            "Letter, some, spelling. L идёт раньше S. У some и spelling первая буква общая, " +
+            "поэтому смотрят на вторую: o раньше p.",
         },
       ],
     },

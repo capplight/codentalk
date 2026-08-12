@@ -106,8 +106,9 @@ const module: Module = {
     {
       ref: "Cambridge English, A2 Key Handbook for Teachers",
       section:
-        "с. 42 и 44 — речь экзаменатора в устной части: «Good morning / afternoon / evening. " +
-        "I'm …, and this is … . What's your name?». Набор фраз урока 2 взят отсюда",
+        "с. 42 и 44 — речь экзаменатора в устной части. Три строки бланка идут одна под " +
+        "другой: «Good morning / afternoon / evening.», «and this is …….… .» и вопрос об " +
+        "имени. Набор фраз урока 2 взят отсюда",
       license: "свободно распространяется, в уроки не копируется",
     },
     {
@@ -116,7 +117,7 @@ const module: Module = {
         "СВЕРХ СТУПЕНИ, И ЭТО ГЛАВНОЕ ЗДЕСЬ. с. 89, шкала Asking for clarification: просьба " +
         "повторить стоит на A2 («Can ask very simply for repetition when they do not " +
         "understand»; «Can signal non-understanding and ask for a word/sign to be spelt " +
-        "out»). На A1 та же шкала даёт только «Can indicate with simple words, intonation " +
+        "out»). На A1 та же шкала даёт только «Can indicate with simple words/signs, intonation " +
         "and gestures that they do not understand». То же в руководстве A2 Key, с. 51: " +
         "«asking for repetition and clarification» — в списке функций A2. " +
         "Взято по решению 1 программы: разговор на первой ступени, по описанию той же " +
