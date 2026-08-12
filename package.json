@@ -13,6 +13,8 @@
     "check:content": "tsx scripts/check-content.mts",
     "chain": "tsx scripts/chain.mts",
     "kontrol": "tsx scripts/kontrol.mts",
+    "yazyk": "tsx scripts/yazyk.mts",
+    "tekst": "tsx scripts/tekst.mts",
     "pdf": "tsx scripts/pdf-text.mts",
     "db:seed:courses": "tsx scripts/seed-courses.mts",
     "smoke": "tsx scripts/smoke-api.mts",

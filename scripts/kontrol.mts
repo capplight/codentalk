@@ -32,36 +32,8 @@
 import { readFileSync, existsSync, mkdirSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { courses } from "../courses/index.ts";
-import { resheno } from "../courses/resheno.ts";
 import { isTask, type Block, type Course, type Module } from "../lib/content/types.ts";
-
-// ---------------------------------------------------------------------------
-// Отчёт
-// ---------------------------------------------------------------------------
-
-type Uroven = "ОШИБКА" | "ВОПРОС" | "СВЕДЕНИЯ";
-
-interface Zamechanie {
-  uroven: Uroven;
-  gde: string;
-  chto: string;
-  /** Что делать с этим замечанию читателю. Пишется у ВОПРОСа всегда. */
-  sovet?: string;
-}
-
-const zamechaniya: Zamechanie[] = [];
-let zamolchano = 0;
-
-function skazat(uroven: Uroven, gde: string, chto: string, sovet?: string): void {
-  // Разобранное молчит. Сравниваем по вхождению, поэтому запись «like» гасит и
-  // «слово `like` выше ступени», и «like: в словнике не нашёл».
-  const tishina = resheno.find((r) => chto.includes(r.chto));
-  if (tishina && uroven !== "СВЕДЕНИЯ") {
-    zamolchano += 1;
-    return;
-  }
-  zamechaniya.push({ uroven, gde, chto, sovet });
-}
+import { otchyot, proveritResheno, skazat } from "./otchyot.mts";
 
 // ---------------------------------------------------------------------------
 // Приведение текста к сравнимому виду
@@ -662,13 +634,7 @@ async function proveritStupen(mod: Module, course: Course, gde: string): Promise
 // Ход проверки
 // ---------------------------------------------------------------------------
 
-for (const zapis of resheno) {
-  if (zapis.pochemu.trim().length < 30) {
-    skazat("ОШИБКА", "courses/resheno.ts",
-      `у записи «${zapis.chto}» причина короче тридцати знаков`,
-      "запись без внятной причины превращает список решённого в свалку — напиши, почему это не ошибка");
-  }
-}
+proveritResheno();
 
 const [, , kursSlug, modulSlug] = process.argv;
 
@@ -687,29 +653,7 @@ for (const course of courses) {
   }
 }
 
-// ---------------------------------------------------------------------------
-// Отчёт
-// ---------------------------------------------------------------------------
-
-const poUrovnyam: Record<Uroven, Zamechanie[]> = { "ОШИБКА": [], "ВОПРОС": [], "СВЕДЕНИЯ": [] };
-for (const z of zamechaniya) poUrovnyam[z.uroven].push(z);
-
-for (const uroven of ["ОШИБКА", "ВОПРОС", "СВЕДЕНИЯ"] as Uroven[]) {
-  const spisok = poUrovnyam[uroven];
-  if (!spisok.length) continue;
-  console.log(`\n--- ${uroven}: ${spisok.length}`);
-  for (const z of spisok) {
-    console.log(`\n ${z.gde}\n   ${z.chto}`);
-    if (z.sovet) console.log(`   → ${z.sovet}`);
-  }
-}
-
-console.log("");
-if (zamolchano) console.log(`Разобрано раньше и потому пропущено: ${zamolchano} (courses/resheno.ts).`);
-console.log(
-  `Ошибок: ${poUrovnyam["ОШИБКА"].length}, вопросов: ${poUrovnyam["ВОПРОС"].length}.\n` +
+otchyot(
   "Вопрос — не приговор: скрипт не умеет отличить верную цитату из нужной графы\n" +
   "от верной цитаты из соседней. Это по-прежнему работа методиста."
 );
-
-process.exit(poUrovnyam["ОШИБКА"].length ? 1 : 0);
