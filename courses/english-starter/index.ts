@@ -13,6 +13,7 @@ import gdeEto from "./gde-eto";
 import kakoyOn from "./kakoy-on";
 import zdesEst from "./zdes-est";
 import chtoYaDelayu from "./chto-ya-delayu";
+import yaNeDelayu from "./ya-ne-delayu";
 
 /**
  * Английский с нуля — ступень до A1.
@@ -46,6 +47,7 @@ const course: Course = {
     gdeEto,
     zdesEst,
     chtoYaDelayu,
+    yaNeDelayu,
   ],
 };
 

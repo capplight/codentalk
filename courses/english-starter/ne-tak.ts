@@ -566,8 +566,8 @@ const module: Module = {
           text:
             "— Hello! Are you Dana?\n— Sorry, I'm not Dana. I'm Aigul.\n— Sorry! Nice to meet you, Aigul.",
           explain:
-            "Слово right в конце предложения превращает утверждение в проверку: «ты Дана, " +
-            "верно?». Ответ строится теми же двумя шагами: не так — и как есть.",
+            "Собеседник обознался. Ответ строится теми же двумя шагами: сначала что не " +
+            "так — I'm not Dana, потом как есть — I'm Aigul.",
         },
         {
           id: "zapis-popravki",
