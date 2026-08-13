@@ -77,10 +77,16 @@ const module: Module = {
     {
       ref: "Cambridge English, руководство для младших ступеней",
       section:
-        "с. 76, описание ступени A2 Flyers: «the present continuous tense of some action " +
-        "verbs (for example: come, go, buy, put on, carry)». Там же в списке грамматики " +
-        "строка «Present continuous (not with future reference)» с примером «What are you " +
-        "doing?». " +
+        "с. 29, Grammar and Structures List ступени Pre A1 Starters, строка «Present " +
+        "continuous (not with future reference)» с примерами «What are you doing?» и " +
+        "«The cat's sleeping». Заголовок графы там — «Verbs (Positive, negative, " +
+        "question, imperative and short-answer forms, including contractions)», то есть " +
+        "отрицание, вопрос и краткий ответ у Cambridge стоят на той же ступени. " +
+        "с. 76, Speaking Part 3, совет к устной части: «the present continuous tense of " +
+        "some action verbs (for example: come, go, buy, put on, carry, open, laugh)». " +
+        "ПЕРВАЯ РЕДАКЦИЯ приписывала вторую цитату странице 76 и ступени A2 Flyers. " +
+        "Обе пометы неверны: списка A2 Flyers это не касается вовсе (он на с. 77 и " +
+        "настоящего длительного не содержит). Нашёл методист. " +
         "Помета «not with future reference» — прямое основание не брать в модуль " +
         "настоящее длительное о будущем",
       license: "свободно распространяется, в уроки не копируется",
@@ -95,9 +101,13 @@ const module: Module = {
     {
       ref: "Council of Europe, CEFR Companion Volume 2020",
       section:
+        "с. 62, Overall oral production, A1: «Can produce simple, mainly isolated " +
+        "phrases about people and places» — это урок 8, рассказ из отдельных " +
+        "предложений. " +
         "с. 79, Information exchange, A1: «Can ask and answer questions about themselves " +
-        "and other people, where they live, people they know, things they have». Рассказ " +
-        "о том, что происходит вокруг, — часть этого умения",
+        "and other people…» — это урок 7, где спрашивают и отвечают. " +
+        "ПЕРВАЯ РЕДАКЦИЯ подпирала уроком 8 графу об обмене вопросами, хотя урок 8 — " +
+        "монолог. Нашёл методист",
       license: "внутреннее использование, публично не называем",
     },
   ],
@@ -128,8 +138,8 @@ const module: Module = {
           text: [
             "Ты умеешь сказать I work in a shop — я работаю в магазине. Это про твою " +
               "работу вообще: и вчера, и сегодня, и завтра.",
-            "А сейчас, в эту минуту, ты сидишь дома. Сказать «я работаю» о том, что " +
-              "происходит прямо сейчас, прежними словами не выйдет.",
+            "А сейчас, в эту минуту, ты не в магазине: ты дома и работаешь за " +
+              "компьютером. Сказать «я работаю» об этой минуте прежними словами не выйдет.",
             "Для этого есть отдельная запись: I am working. Она говорит не о твоей " +
               "работе вообще, а о том, что идёт в эту минуту.",
           ],
@@ -139,10 +149,10 @@ const module: Module = {
           kind: "note",
           tone: "info",
           text:
-            "В модуле «Что я делаю» сказано: форма be и глагол вместе не идут, «I am " +
-            "work» — ошибка.\n\nЭто правило осталось верным. Голый глагол после am " +
-            "по-прежнему нельзя. Всё меняет окончание -ing: working — уже не голый " +
-            "глагол, и am перед ним стоит по праву.",
+            "В модуле «Что я делаю» сказано: форма be и действие вместе не идут, «I am " +
+            "work» — ошибка.\n\nПравило верно и здесь. Глагол без окончания — work, " +
+            "read, wait — с формой be по-прежнему не ставят.\n\nWorking — уже не голый " +
+            "глагол: у него есть окончание -ing. Перед ним am стоит по праву.",
         },
         {
           id: "tablica-seychas",
@@ -428,7 +438,7 @@ const module: Module = {
           rows: [
             ["обычный", "окончание приписывается", "work — working"],
             ["кончается на e", "e уходит", "make — making"],
-            ["короткий, на согласный", "согласный удваивается", "sit — sitting"],
+            ["один гласный между согласными", "согласный удваивается", "sit — sitting"],
           ],
         },
         {
@@ -436,7 +446,7 @@ const module: Module = {
           kind: "explain",
           text: [
             "Если глагол кончается на e, эта буква уходит: make — making, dance — dancing.",
-            "Писать makeing нельзя: двух гласных подряд тут не бывает.",
+            "Писать makeing нельзя: уходит именно конечная e, которую и так не читают.",
           ],
         },
         {
@@ -444,9 +454,10 @@ const module: Module = {
           kind: "note",
           tone: "info",
           text:
-            "У коротких глаголов вида «согласный — гласный — согласный» последняя буква " +
-            "удваивается: sit — sitting, run — running.\n\nТак пишут, чтобы гласный " +
-            "остался коротким. С одной t слово читалось бы иначе.",
+            "Удвоение нужно там, где в глаголе один гласный и он стоит между " +
+            "согласными: sit — sitting, run — running.\n\nБез удвоения слово читалось " +
+            "бы иначе: sit и site — разные слова.\n\nВ слове open гласных два, и " +
+            "удвоения нет: opening.",
         },
         {
           id: "primer-ing",
@@ -470,6 +481,7 @@ const module: Module = {
           kind: "vocab",
           caption: "Слова урока",
           items: [
+            { term: "make", translation: "делать, готовить", example: "She is making tea.", hint: "/meɪk/" },
             { term: "dance", translation: "танцевать", example: "She is dancing.", hint: "/dɑːns/" },
             { term: "open", translation: "открывать", example: "He is opening the door.", hint: "/ˈəʊpən/" },
           ],
@@ -496,7 +508,7 @@ const module: Module = {
             { text: "sitting", correct: true },
             { text: "siteing" },
           ],
-          hint: "Глагол короткий и кончается на согласный.",
+          hint: "В глаголе один гласный, и он между согласными.",
           why: "Sitting. У коротких глаголов такого вида последняя буква удваивается.",
         },
         {
@@ -650,16 +662,16 @@ const module: Module = {
           parts: [
             { text: "I always work on Monday.", selectable: true },
             { text: " · " },
-            { text: "I am always working on Monday.", selectable: true, correct: true },
+            { text: "I am working on Monday every week.", selectable: true, correct: true },
             { text: " · " },
             { text: "It is raining now.", selectable: true },
             { text: " · " },
             { text: "It rains now.", selectable: true, correct: true },
           ],
-          hint: "Слово always говорит о повторении, слово now — о минуте.",
+          hint: "Слова every week и every day говорят о повторении, слово now — о минуте.",
           why:
-            "Со словом always нужна запись о делах вообще, со словом now — о " +
-            "происходящем. Верно: I always work on Monday, It is raining now.",
+            "О повторяющемся говорят записью о делах вообще: I work on Monday every " +
+            "week. Со словом now — о происходящем: It is raining now.",
         },
         {
           id: "z4-dopisat-po-slovu",
@@ -854,7 +866,7 @@ const module: Module = {
           text: [
             "Короткая запись здесь та же, что и прежде: I'm not working, he isn't " +
               "waiting.",
-            "Обе записи верны, и говорят чаще короткой.",
+            "Обе записи верны.",
           ],
         },
         {
@@ -1142,6 +1154,15 @@ const module: Module = {
             "I am sitting at home. My sister is singing. My friends are waiting. It is raining.",
         },
 
+        {
+          id: "slovar-vokrug",
+          kind: "vocab",
+          caption: "Слова урока",
+          items: [
+            { term: "outside", translation: "снаружи, на улице", example: "They are waiting outside.", hint: "/ˌaʊtˈsaɪd/" },
+          ],
+        },
+
         // ---- задания ----
         {
           id: "z1-sobrat-rasskaz-seychas",
@@ -1315,9 +1336,9 @@ const module: Module = {
         id: "q-razlichenie-vybor",
         kind: "choice",
         outcome: "различать «сейчас» и «всегда»: I'm working — I work",
-        prompt: "По воскресеньям ты отдыхаешь. Как сказать про воскресенья?",
+        prompt: "По воскресеньям ты не работаешь. Как сказать про воскресенья?",
         options: [
-          { text: "I am not working on Sunday.", correct: false },
+          { text: "I am not work on Sunday." },
           { text: "I don't work on Sunday.", correct: true },
           { text: "I am not work on Sunday." },
         ],
@@ -1338,10 +1359,10 @@ const module: Module = {
           { text: " · " },
           { text: "I usually read in the evening.", selectable: true },
           { text: " · " },
-          { text: "I am usually reading in the evening.", selectable: true, correct: true },
+          { text: "I am reading in the evening every day.", selectable: true, correct: true },
         ],
-        hint: "Слово now — о минуте, слово usually — о заведённом.",
-        why: "Верно: It is raining now, I usually read in the evening.",
+        hint: "Слово now — о минуте, слово every day — о повторении.",
+        why: "Верно: It is raining now, I read in the evening every day.",
       },
       {
         id: "q-razlichenie-dopisat",
@@ -1361,7 +1382,7 @@ const module: Module = {
         id: "q-neskolko-seychas-dopisat",
         kind: "gap",
         outcome: "говорить о нескольких: We are waiting",
-        prompt: "Вы ждёте вдвоём. Допиши недостающее слово.",
+        prompt: "Ты ждёшь вместе с другом прямо сейчас. Допиши недостающее слово.",
         before: "We ",
         after: " waiting.",
         answer: "are",
