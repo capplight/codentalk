@@ -1486,9 +1486,13 @@ const module: Module = {
         options: [
           { text: "My car is at here." },
           { text: "My car is here.", correct: true },
-          { text: "My car is at here." },
+          // Здесь стоял второй такой же вариант «My car is at here» — ученик
+          // видел две одинаковые кнопки. Нашла проверка на повторы.
+          { text: "My car here." },
         ],
-        why: "My car is here. Перед here и there предлог не ставят.",
+        why:
+          "My car is here. Перед here предлог не ставят, а форму be, наоборот, " +
+          "пропускать нельзя.",
       },
       {
         // Раньше совпадал с заданием урока поле в поле. Нашёл методист.

@@ -138,8 +138,39 @@ function checkProse(text: string | undefined, where: string, what: string): void
 // Задание — общее для упражнения в уроке и вопроса проверочной работы
 // ---------------------------------------------------------------------------
 
+/**
+ * Два одинаковых варианта в одном задании.
+ *
+ * Не суждение, а поломка: ученик видит на экране две одинаковые кнопки и решает,
+ * что сайт сломан, а выбор из трёх превращается в выбор из двух. Появляется это
+ * при замене одной строки на ту, что в списке уже есть, — и однажды так и
+ * доехало до боевого сайта, потому что не ловил ни один скрипт.
+ */
+function checkDubli(task: any, where: string): void {
+  const spiski: Array<[string, string[]]> = [
+    ["вариант", (task.options ?? []).map((o: any) => o.text)],
+    ["часть", (task.parts ?? []).filter((p: any) => p.selectable).map((p: any) => p.text)],
+    ["часть для сборки", task.items ?? []],
+    ["пункт слева", task.left ?? []],
+    ["пункт справа", task.right ?? []],
+  ];
+  for (const [chto, spisok] of spiski) {
+    const vidno = new Set<string>();
+    for (const text of spisok as string[]) {
+      if (typeof text !== "string") continue;
+      // Сравниваем с учётом заглавных: в модуле 12 стоит задание, где вся
+      // разница между двумя частями — это буква S в слове Shop. Приведение к
+      // нижнему регистру объявило бы верное задание сломанным.
+      const klyuch = text.trim();
+      if (vidno.has(klyuch)) fail(where, `в задании повторяется ${chto}: «${klyuch}»`);
+      vidno.add(klyuch);
+    }
+  }
+}
+
 function checkTask(task: TaskBlock, where: string): void {
   if (blank(task.prompt)) fail(where, "нет формулировки задания");
+  checkDubli(task, where);
 
   checkProse(task.prompt, where, "условие");
   checkProse(task.hint, where, "подсказка");
