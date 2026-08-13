@@ -15,6 +15,7 @@ import zdesEst from "./zdes-est";
 import chtoYaDelayu from "./chto-ya-delayu";
 import yaNeDelayu from "./ya-ne-delayu";
 import sprositODelah from "./sprosit-o-delah";
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import kakChasto from "./kak-chasto";
 
 /**
@@ -51,7 +52,10 @@ const course: Course = {
     chtoYaDelayu,
     yaNeDelayu,
     sprositODelah,
-    kakChasto,
+    // Модуль 17 «Как часто» написан и прошёл машинные проверки, но проверяющие
+    // его ещё не видели. Содержание, прошедшее половину приёмки, не
+    // выкладывается — строка открывается после разбора.
+    // kakChasto,
   ],
 };
 
