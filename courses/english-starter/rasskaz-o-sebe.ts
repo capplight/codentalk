@@ -649,7 +649,7 @@ const module: Module = {
             { term: "doctor", translation: "врач", example: "He's a doctor.", hint: "/ˈdɒktə/" },
             { term: "driver", translation: "водитель", example: "He's a driver.", hint: "/ˈdraɪvə/" },
             { term: "nurse", translation: "медсестра, медбрат", example: "She's a nurse.", hint: "/nɜːs/" },
-            { term: "job", translation: "работа, занятие", example: "a job in a school", hint: "/dʒɒb/" },
+            { term: "job", translation: "работа, занятие", example: "a job at a school", hint: "/dʒɒb/" },
           ],
         },
 

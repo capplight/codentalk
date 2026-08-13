@@ -393,7 +393,7 @@ const module: Module = {
           caption: "Три вопроса подряд",
           text:
             "— Do you live in Almaty?\n— Yes, I do.\n— Do you work in an office?\n" +
-            "— No, I don't. I work in a school.",
+            "— No, I don't. I work at a school.",
           explain:
             "После короткого «нет» добавляют, как на самом деле. Тот же порядок был " +
             "в модуле «Я не делаю».",
@@ -537,7 +537,7 @@ const module: Module = {
           kind: "example",
           caption: "Разговор о брате",
           text:
-            "— Does your brother work here?\n— No, he doesn't. He works in a company.\n" +
+            "— Does your brother work here?\n— No, he doesn't. He works at a company.\n" +
             "— Does he like his job?\n— Yes, he does.",
           explain:
             "Короткий ответ устроен как в прошлом уроке, только вместо do стоит does: " +
@@ -559,7 +559,7 @@ const module: Module = {
           caption: "Слова урока",
           items: [
             { term: "does", translation: "то же do в вопросе об одном другом человеке", example: "Does he work?", hint: "/dʌz/" },
-            { term: "company", translation: "фирма", example: "He works in a company.", hint: "/ˈkʌmpəni/" },
+            { term: "company", translation: "фирма", example: "He works at a company.", hint: "/ˈkʌmpəni/" },
             { term: "university", translation: "университет", example: "She studies at a university.", hint: "/ˌjuːnɪˈvɜːsəti/" },
           ],
         },
@@ -611,12 +611,12 @@ const module: Module = {
         {
           id: "z4-perestroit-v-vopros",
           kind: "short",
-          prompt: "Перестрой в вопрос: He works in a company.",
-          answer: "Does he work in a company?",
-          accept: ["does he work in a company?", "Does he work in a company"],
+          prompt: "Перестрой в вопрос: He works at a company.",
+          answer: "Does he work at a company?",
+          accept: ["does he work at a company?", "Does he work at a company"],
           hint: "Does выходит вперёд, а окончание уходит с глагола.",
           why:
-            "Does he work in a company? Окончание переехало в Does, глагол остался без него.",
+            "Does he work at a company? Окончание переехало в Does, глагол остался без него.",
         },
         {
           id: "z5-sprosit-o-sestre",
@@ -686,8 +686,8 @@ const module: Module = {
           kind: "example",
           caption: "Знакомство",
           text:
-            "— Are you a teacher?\n— Yes, I am.\n— Do you work in a school?\n" +
-            "— No, I don't. I work in a college.",
+            "— Are you a teacher?\n— Yes, I am.\n— Do you work at a school?\n" +
+            "— No, I don't. I work at a college.",
           explain:
             "Первый вопрос о том, кто человек, второй — о том, что он делает. И ответы " +
             "разные: на первый Yes, I am, на второй No, I don't.",
@@ -706,7 +706,7 @@ const module: Module = {
           kind: "vocab",
           caption: "Слова урока",
           items: [
-            { term: "college", translation: "колледж", example: "I work in a college.", hint: "/ˈkɒlɪdʒ/" },
+            { term: "college", translation: "колледж", example: "I work at a college.", hint: "/ˈkɒlɪdʒ/" },
             { term: "sport", translation: "спорт", example: "I like sport.", hint: "/spɔːt/" },
           ],
         },
@@ -945,6 +945,7 @@ const module: Module = {
             ["what", "что", "What do you study?"],
             ["where", "где", "Where do you work?"],
             ["when", "когда", "When do you start?"],
+            ["who", "кто", "Who is your teacher?"],
           ],
         },
         {
@@ -978,7 +979,7 @@ const module: Module = {
           kind: "example",
           caption: "Расспросить о работе",
           text:
-            "— Where do you work?\n— I work in a school.\n— When do you start?\n" +
+            "— Where do you work?\n— I work at a school.\n— When do you start?\n" +
             "— I start at nine.\n— Who is your teacher?\n— Dana is my teacher.",
           explain:
             "Первые два вопроса устроены одинаково: слово, Do, you, глагол. Третий — с " +
@@ -999,7 +1000,7 @@ const module: Module = {
           caption: "Слова урока",
           items: [
             { term: "who", translation: "кто", example: "Who is your teacher?", hint: "/huː/" },
-            { term: "bus", translation: "автобус", example: "I go by bus.", hint: "/bʌs/" },
+            { term: "bus", translation: "автобус", example: "Where is the bus?", hint: "/bʌs/" },
             { term: "lunch", translation: "обед", example: "I eat lunch at one.", hint: "/lʌntʃ/" },
             { term: "breakfast", translation: "завтрак", example: "I eat breakfast at eight.", hint: "/ˈbrekfəst/" },
           ],
@@ -1243,7 +1244,7 @@ const module: Module = {
             ["задать вопрос, на который отвечают да или нет", "Do you work here?"],
             ["ответить коротко", "Yes, I do."],
             ["спросить подробнее", "Where do you work?"],
-            ["ответить целиком", "I work in a school."],
+            ["ответить целиком", "I work at a school."],
           ],
         },
         {
@@ -1252,7 +1253,7 @@ const module: Module = {
           caption: "Разговор целиком",
           text:
             "— Do you work in this city?\n— Yes, I do.\n— Where do you work?\n" +
-            "— I work in a school. And you?\n— I don't work. I study at a university.",
+            "— I work at a school. And you?\n— I don't work. I study at a university.",
           explain:
             "Сначала вопрос на да или нет, потом подробность. В конце собеседник " +
             "рассказывает о себе — и вопросительное слово там уже не нужно.",
@@ -1283,7 +1284,7 @@ const module: Module = {
           pace: "slow",
           caption: "Послушай разговор целиком",
           transcript:
-            "Do you work in this city? Yes, I do. Where do you work? I work in a school. " +
+            "Do you work in this city? Yes, I do. Where do you work? I work at a school. " +
             "And you? I don't work. I study at a university.",
         },
         {
@@ -1302,7 +1303,7 @@ const module: Module = {
           kind: "order",
           prompt: "Собери разговор по порядку.",
           items: [
-            "I work in a school.",
+            "I work at a school.",
             "Do you work in this city?",
             "Where do you work?",
             "Yes, I do.",
@@ -1420,13 +1421,13 @@ const module: Module = {
         id: "q-korotkiy-vybor",
         kind: "choice",
         outcome: "коротко отвечать на такой вопрос: Yes, I do. No, I don't.",
-        prompt: "Тебя спросили: Do you work here? Ты не работаешь. Как ответить коротко?",
+        prompt: "Тебя спросили: Do you study English? Ты учишь. Как ответить коротко?",
         options: [
-          { text: "No, I don't.", correct: true },
-          { text: "No, I don't work here." },
-          { text: "No, I am not." },
+          { text: "Yes, I study." },
+          { text: "Yes, I am." },
+          { text: "Yes, I do.", correct: true },
         ],
-        hint: "Ответ кончается на don't.",
+        hint: "Повторяют не глагол, а то слово, с которого начался вопрос.",
         why: "No, I don't. Ответ на вопрос с Do повторяет do.",
       },
       {
@@ -1467,14 +1468,21 @@ const module: Module = {
         why: "Does Dana study English? Окончание уже внутри Does.",
       },
       {
-        id: "q-does-perestroit",
-        kind: "short",
+        id: "q-does-otmetit",
+        kind: "hottext",
         outcome: "спрашивать о другом человеке: Does he work here?",
-        prompt: "Перестрой в вопрос: She lives in Astana.",
-        answer: "Does she live in Astana?",
-        accept: ["does she live in Astana?", "Does she live in Astana"],
-        hint: "Окончание уходит с глагола.",
-        why: "Does she live in Astana? Окончание переехало в Does.",
+        prompt: "Отметь вопросы, где окончание осталось у глагола.",
+        parts: [
+          { text: "Does she live in Astana?", selectable: true },
+          { text: " · " },
+          { text: "Does she lives in Astana?", selectable: true, correct: true },
+          { text: " · " },
+          { text: "Does he study here?", selectable: true },
+          { text: " · " },
+          { text: "Does he studies here?", selectable: true, correct: true },
+        ],
+        hint: "Окончание уходит в Does и у глагола не остаётся.",
+        why: "Окончание осталось у глагола в «Does she lives in Astana?» и «Does he studies here?».",
       },
 
       // ---- итог 4 ----
@@ -1538,14 +1546,21 @@ const module: Module = {
         why: "What does your sister watch? После вопросительного слова идёт does.",
       },
       {
-        id: "q-what-napisat",
-        kind: "short",
+        id: "q-what-otmetit",
+        kind: "hottext",
         outcome: "спрашивать, что человек делает: What do you study?",
-        prompt: "Спроси у собеседника, что он читает. Читать — read.",
-        answer: "What do you read?",
-        accept: ["what do you read?", "What do you read"],
-        hint: "Четыре слова.",
-        why: "What do you read? После what идёт do, потом you, потом глагол.",
+        prompt: "Отметь вопросы, где после what пропущено do.",
+        parts: [
+          { text: "What do you read?", selectable: true },
+          { text: " · " },
+          { text: "What you read?", selectable: true, correct: true },
+          { text: " · " },
+          { text: "What do you eat?", selectable: true },
+          { text: " · " },
+          { text: "What you eat?", selectable: true, correct: true },
+        ],
+        hint: "После вопросительного слова идёт do.",
+        why: "Do пропущено в «What you read?» и «What you eat?».",
       },
 
       // ---- итог 6 ----
@@ -1562,14 +1577,16 @@ const module: Module = {
         why: "Where do you study? Вопросительное слово стоит первым.",
       },
       {
-        id: "q-kogda-vybor",
-        kind: "short",
+        id: "q-kto-dopisat",
+        kind: "gap",
         outcome: "спрашивать, где, когда и кто: Where do you work? Who is your teacher?",
-        prompt: "Спроси у собеседника, кто его преподаватель. Преподаватель — teacher.",
-        answer: "Who is your teacher?",
-        accept: ["who is your teacher?", "Who is your teacher", "Who's your teacher?"],
+        prompt: "Ты хочешь узнать, кто её брат. Допиши недостающее слово.",
+        before: "",
+        after: " is her brother?",
+        answer: "Who",
+        accept: ["who"],
         hint: "Дальше идёт человек, а не действие.",
-        why: "Who is your teacher? После who стоит форма be.",
+        why: "Who is her brother? После who стоит форма be, а не Do.",
       },
       {
         id: "q-gde-napisat",
@@ -1584,16 +1601,14 @@ const module: Module = {
 
       // ---- итог 7 ----
       {
-        id: "q-neskolko-dopisat",
-        kind: "gap",
+        id: "q-neskolko-sobrat",
+        kind: "order",
         outcome: "спрашивать о нескольких людях: Do they live here?",
-        prompt: "Ты спрашиваешь о своих друзьях. Допиши недостающее слово.",
-        before: "",
-        after: " they study here?",
-        answer: "Do",
-        accept: ["do"],
-        hint: "Людей несколько.",
-        why: "Do they study here? О нескольких спрашивают через Do.",
+        prompt: "Собери вопрос: «Твои родители живут здесь?»",
+        items: ["live here?", "Do", "your parents"],
+        answer: [1, 2, 0],
+        hint: "Родителей несколько.",
+        why: "Do your parents live here? О нескольких людях спрашивают через Do.",
       },
       {
         id: "q-neskolko-otmetit",
@@ -1628,10 +1643,10 @@ const module: Module = {
         outcome: "вести короткий разговор о делах: спросить и ответить",
         prompt: "Собери разговор по порядку.",
         items: [
-          "Where do you study?",
-          "Do you study here?",
-          "I study at a university.",
-          "Yes, I do.",
+          "I work at a school.",
+          "Do you work at the weekend?",
+          "No, I don't.",
+          "Where do you work?",
         ],
         answer: [1, 3, 0, 2],
         hint: "Сначала вопрос на да или нет.",
@@ -1653,15 +1668,15 @@ const module: Module = {
       },
       {
         id: "q-razgovor-o-tretem",
-        kind: "short",
+        kind: "choice",
         outcome: "вести короткий разговор о делах: спросить и ответить",
-        prompt: "Спроси, работает ли брат собеседника в офисе. Брат — your brother.",
-        answer: "Does your brother work in an office?",
-        accept: [
-          "does your brother work in an office?",
-          "Does your brother work in an office",
+        prompt: "Собеседник сказал: My sister works at a school. Чем продолжить разговор?",
+        options: [
+          { text: "Does she work at a school?" },
+          { text: "Where does she live?", correct: true },
+          { text: "Do she work at a school?" },
         ],
-        hint: "Человек один другой.",
+        hint: "Переспрашивать уже сказанное незачем — спроси о новом.",
         why:
           "Does your brother work in an office? Об одном другом человеке спрашивают через " +
           "Does.",
