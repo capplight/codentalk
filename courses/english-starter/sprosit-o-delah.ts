@@ -1405,7 +1405,7 @@ const module: Module = {
 
       // ---- итог 2 ----
       {
-        id: "q-korotkiy-dopisat",
+        id: "q-korotkiy-o-brate",
         kind: "choice",
         outcome: "спрашивать о другом человеке: Does he work here?",
         prompt: "Тебя спросили: Does your brother work here? Брат работает. Как ответить коротко?",
@@ -1428,10 +1428,10 @@ const module: Module = {
           { text: "Yes, I do.", correct: true },
         ],
         hint: "Повторяют не глагол, а то слово, с которого начался вопрос.",
-        why: "No, I don't. Ответ на вопрос с Do повторяет do.",
+        why: "Yes, I do. Ответ на вопрос с Do повторяет do, а не глагол.",
       },
       {
-        id: "q-korotkiy-napisat",
+        id: "q-korotkiy-sobrat",
         kind: "order",
         outcome: "коротко отвечать на такой вопрос: Yes, I do. No, I don't.",
         prompt: "Собери короткий ответ «нет» на вопрос Do you eat fish?",
@@ -1500,7 +1500,7 @@ const module: Module = {
         why: "Are you a doctor? Название — значит форма be.",
       },
       {
-        id: "q-razlichenie-otmetit",
+        id: "q-razlichenie-sprosit",
         kind: "short",
         outcome: "различать вопрос с формой be и вопрос с do: Are you a doctor? — Do you work?",
         prompt: "Спроси у собеседника, занят ли он. Занят — busy.",
@@ -1534,7 +1534,7 @@ const module: Module = {
         why: "What do you eat? Вопросительное слово ставят перед Do.",
       },
       {
-        id: "q-what-vybor",
+        id: "q-what-dopisat-does",
         kind: "gap",
         outcome: "спрашивать, что человек делает: What do you study?",
         prompt: "Ты хочешь узнать, что твоя сестра смотрит. Допиши недостающее слово.",
@@ -1589,7 +1589,7 @@ const module: Module = {
         why: "Who is her brother? После who стоит форма be, а не Do.",
       },
       {
-        id: "q-gde-napisat",
+        id: "q-gde-sobrat",
         kind: "order",
         outcome: "спрашивать, где, когда и кто: Where do you work? Who is your teacher?",
         prompt: "Собери вопрос: «Когда твои друзья заканчивают?»",
@@ -1611,7 +1611,7 @@ const module: Module = {
         why: "Do your parents live here? О нескольких людях спрашивают через Do.",
       },
       {
-        id: "q-neskolko-otmetit",
+        id: "q-neskolko-dopisat",
         kind: "gap",
         outcome: "спрашивать о нескольких людях: Do they live here?",
         prompt: "Ты спрашиваешь о своих родителях. Родители — my parents. Допиши недостающее слово.",
@@ -1623,7 +1623,7 @@ const module: Module = {
         why: "Do my parents live in this city? О нескольких людях спрашивают через Do.",
       },
       {
-        id: "q-neskolko-perestroit",
+        id: "q-neskolko-vybor",
         kind: "choice",
         outcome: "спрашивать о нескольких людях: Do they live here?",
         prompt: "Ты спрашиваешь, учат ли твои друзья английский. Друзья — my friends.",
@@ -1648,11 +1648,11 @@ const module: Module = {
           "No, I don't.",
           "Where do you work?",
         ],
-        answer: [1, 3, 0, 2],
-        hint: "Сначала вопрос на да или нет.",
+        answer: [1, 2, 3, 0],
+        hint: "Сначала тот вопрос, на который отвечают да или нет.",
         why:
-          "Do you study here? — Yes, I do. — Where do you study? — I study at a " +
-          "university.",
+          "Do you work at the weekend? — No, I don't. — Where do you work? — I work at " +
+          "a school. Сначала вопрос и ответ на него, потом уточнение и ответ на него.",
       },
       {
         id: "q-razgovor-vernut",
@@ -1678,8 +1678,8 @@ const module: Module = {
         ],
         hint: "Переспрашивать уже сказанное незачем — спроси о новом.",
         why:
-          "Does your brother work in an office? Об одном другом человеке спрашивают через " +
-          "Does.",
+          "Where does she live? Про работу сестры уже сказано — переспрашивать незачем, " +
+          "лучше спросить о новом.",
       },
     ],
   },

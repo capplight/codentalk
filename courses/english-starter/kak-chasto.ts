@@ -185,10 +185,10 @@ const module: Module = {
           id: "primer-vsegda",
           kind: "example",
           caption: "Три предложения подряд",
-          text: "I always get up at seven.\nI sometimes read in the evening.\nI always go to work by bus.",
+          text: "I always get up at seven.\nI sometimes read in the evening.\nI always work in the morning.",
           explain:
             "В каждом предложении наречие стоит на одном и том же месте: после I и до " +
-            "глагола. Дальше идёт всё остальное — at seven, in the evening, by bus.",
+            "глагола. Дальше идёт всё остальное — at seven, in the evening, in the morning.",
         },
         {
           id: "zapis-vsegda",
@@ -255,11 +255,11 @@ const module: Module = {
         {
           id: "z4-sobrat-vsegda",
           kind: "order",
-          prompt: "Собери предложение: «Я всегда еду на работу на автобусе.»",
-          items: ["to work", "always", "I", "by bus", "go"],
-          answer: [2, 1, 4, 0, 3],
+          prompt: "Собери предложение: «Я всегда работаю по утрам.»",
+          items: ["in the morning", "always", "I", "work"],
+          answer: [2, 1, 3, 0],
           hint: "Второе слово — наречие, третье — глагол.",
-          why: "I always go to work by bus. После I идёт always, потом глагол go.",
+          why: "I always work in the morning. После I идёт always, потом глагол work.",
         },
         {
           id: "z5-napisat-o-sebe",
@@ -327,7 +327,7 @@ const module: Module = {
           kind: "example",
           caption: "День одного человека",
           text:
-            "I usually get up at seven.\nI often go to work by bus.\nI sometimes go to the gym in the evening.",
+            "I usually get up at seven.\nI often read in the morning.\nI sometimes go to the gym in the evening.",
           explain:
             "Три предложения — три разные частоты. Место наречия во всех трёх одно, " +
             "меняется только слово.",
@@ -1278,14 +1278,14 @@ const module: Module = {
         id: "q-vsegda-vybor",
         kind: "choice",
         outcome: "говорить, как часто что-то бывает: I always work on Monday",
-        prompt: "Ты каждый раз ездишь на работу на автобусе. Как сказать?",
+        prompt: "Ты каждое утро работаешь. Как сказать?",
         options: [
-          { text: "Always I go to work by bus." },
-          { text: "I always go to work by bus.", correct: true },
-          { text: "I go always to work by bus." },
+          { text: "Always I work in the morning." },
+          { text: "I always work in the morning.", correct: true },
+          { text: "I work always in the morning." },
         ],
         hint: "Наречие идёт вторым.",
-        why: "I always go to work by bus. Место наречия — после I и до глагола.",
+        why: "I always work in the morning. Место наречия — после I и до глагола.",
       },
       {
         id: "q-vsegda-sobrat",

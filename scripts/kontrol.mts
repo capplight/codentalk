@@ -34,6 +34,7 @@ import { join } from "node:path";
 import { courses } from "../courses/index.ts";
 import { isTask, type Block, type Course, type Module } from "../lib/content/types.ts";
 import { otchyot, proveritResheno, skazat } from "./otchyot.mts";
+import { zadaniyaModulya } from "./vidimoe.mts";
 
 // ---------------------------------------------------------------------------
 // Приведение текста к сравнимому виду
@@ -434,6 +435,57 @@ function proveritSlova(course: Course, tolko: string | undefined): void {
 }
 
 // ---------------------------------------------------------------------------
+// Проверка 2а. Разбор говорит о том же, что и верный ответ
+//
+// Порода настоящая и стоила трёх ошибок подряд в одном модуле. Переписывая
+// задание, легко сменить условие и варианты и забыть поле `why`. Ученик
+// отвечает верно, читает разбор про другое — и решает, что ошибся. Один раз
+// разбор объяснял ответ, которого среди вариантов не было вовсе.
+//
+// Проверка нарочно грубая: ищем в разборе хоть одно значимое слово верного
+// ответа. Совпало — молчим. Не совпало — ВОПРОС, а не ошибка: разбор бывает
+// написан и вокруг ответа, не повторяя его дословно.
+// ---------------------------------------------------------------------------
+
+/** Что считается верным ответом — по видам заданий, где он есть в виде текста. */
+function vernyiOtvet(b: any): string | null {
+  switch (b.kind) {
+    case "choice":
+      return (b.options ?? []).filter((o: any) => o.correct).map((o: any) => o.text).join(" ");
+    case "order":
+      return Array.isArray(b.answer) && Array.isArray(b.items)
+        ? b.answer.map((n: number) => b.items[n]).join(" ")
+        : null;
+    case "gap":
+    case "short":
+      return typeof b.answer === "string" ? b.answer : null;
+    default:
+      return null;
+  }
+}
+
+function proveritRazbor(b: any, gde: string): void {
+  const otvet = vernyiOtvet(b);
+  if (!otvet || !b.why) return;
+
+  const slova = znachimye(otvet);
+  if (!slova.size) return;
+  const vRazbore = znachimye(b.why);
+
+  // Разбор, написанный по-русски вокруг ответа и не повторяющий его, — это
+  // нормально и даже часто. Беда, которую ловим, выглядит иначе: разбор
+  // цитирует английскую фразу, и это ЧУЖАЯ фраза. Поэтому молчим, пока в
+  // разборе нет английского вовсе. Без этой оговорки проверка дала двадцать
+  // одно замечание на курс, и почти все были ложными.
+  if (!vRazbore.size) return;
+  if ([...slova].some((w) => vRazbore.has(w))) return;
+
+  skazat("ВОПРОС", gde, `разбор задания \`${b.id}\` не упоминает верного ответа`,
+    `верно: «${otvet.trim().slice(0, 60)}», а разбор говорит о другом — ` +
+    "проверь, не остался ли он от прежней редакции задания");
+}
+
+// ---------------------------------------------------------------------------
 // Проверка 3. Таблица «задание → блок»
 //
 // Оценки здесь нет и быть не может: блок бывает врезкой, итогом, подписью — и
@@ -647,6 +699,7 @@ for (const course of courses) {
   for (const mod of course.modules) {
     if (modulSlug && mod.slug !== modulSlug) continue;
     const gde = `${course.slug} → ${mod.slug}`;
+    for (const b of zadaniyaModulya(mod)) proveritRazbor(b as any, gde);
     await proveritCitaty(mod, gde);
     await proveritStupen(mod, course, gde);
     tablicaZadaniy(mod, gde);
