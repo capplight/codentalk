@@ -16,6 +16,7 @@ import chtoYaDelayu from "./chto-ya-delayu";
 import yaNeDelayu from "./ya-ne-delayu";
 import sprositODelah from "./sprosit-o-delah";
 import kakChasto from "./kak-chasto";
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import pryamoSeychas from "./pryamo-seychas";
 
 /**
@@ -56,7 +57,7 @@ const course: Course = {
     // Модуль 18 «Прямо сейчас» написан и прошёл машинные проверки, но
     // проверяющие его ещё не видели. Содержание, прошедшее половину приёмки,
     // не выкладывается — строка открывается после разбора.
-    pryamoSeychas,
+    // pryamoSeychas,
   ],
 };
 
