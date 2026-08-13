@@ -277,7 +277,7 @@ const module: Module = {
           options: [
             { text: "I not drink coffee." },
             { text: "I don't drink coffee.", correct: true },
-            { text: "I don't am drink coffee." },
+            { text: "I don't drinks coffee." },
           ],
           hint: "Одного not мало: перед глаголом ставят don't.",
           why:
@@ -1339,7 +1339,7 @@ const module: Module = {
         options: [
           { text: "I not walk to work." },
           { text: "I don't walk to work.", correct: true },
-          { text: "I don't am walk to work." },
+          { text: "I don't walks to work." },
         ],
         why: "I don't walk to work. Одного not мало, нужно целое слово don't.",
       },

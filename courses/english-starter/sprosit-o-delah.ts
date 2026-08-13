@@ -723,7 +723,7 @@ const module: Module = {
           options: [
             { text: "Do you work here?", correct: true },
             { text: "Are you work here?" },
-            { text: "Do you are work here?" },
+            { text: "Are you work here?" },
           ],
           hint: "После you идёт действие.",
           why: "Do you work here? После того, о ком речь, идёт действие — значит Do.",

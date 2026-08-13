@@ -317,7 +317,7 @@ const module: Module = {
           kind: "choice",
           prompt: "Ты работаешь в магазине. Как сказать?",
           options: [
-            { text: "I am work in a shop." },
+            { text: "I works in a shop." },
             { text: "I work in a shop.", correct: true },
             { text: "I am a work in a shop." },
           ],
@@ -1098,7 +1098,7 @@ const module: Module = {
           options: [
             { text: "The bus go to the station." },
             { text: "The bus goes to the station.", correct: true },
-            { text: "The bus is go to the station." },
+            { text: "The bus going to the station." },
           ],
           hint: "Автобус один, а глагол go требует es.",
           why: "The bus goes to the station.",
@@ -1243,7 +1243,7 @@ const module: Module = {
           options: [
             { text: "My friends works in a hospital." },
             { text: "My friends work in a hospital.", correct: true },
-            { text: "My friends is work in a hospital." },
+            { text: "My friends is working in a hospital." },
           ],
           hint: "Смотри не на слово friends, а на то, о скольких людях речь.",
           why:
@@ -1461,7 +1461,7 @@ const module: Module = {
         outcome: "говорить, что делаешь: I work, I live in Astana",
         prompt: "Ты живёшь в Алматы. Как сказать?",
         options: [
-          { text: "I am live in Almaty." },
+          { text: "I lives in Almaty." },
           { text: "I live in Almaty.", correct: true },
           { text: "I am a live in Almaty." },
         ],
@@ -1654,7 +1654,7 @@ const module: Module = {
         prompt: "Друзья живут в Астане. Какую запись выбрать?",
         options: [
           { text: "My friends lives in Astana." },
-          { text: "My friends is live in Astana." },
+          { text: "My friends lives in Astana." },
           { text: "My friends live in Astana.", correct: true },
         ],
         why: "My friends live in Astana. Друзей несколько — окончания нет.",
