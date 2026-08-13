@@ -17,6 +17,7 @@ import yaNeDelayu from "./ya-ne-delayu";
 import sprositODelah from "./sprosit-o-delah";
 import kakChasto from "./kak-chasto";
 import pryamoSeychas from "./pryamo-seychas";
+import yaUmeyu from "./ya-umeyu";
 
 /**
  * Английский с нуля — ступень до A1.
@@ -57,6 +58,10 @@ const course: Course = {
     // проверочная работа написана заново. Строка открыта, чтобы модуль видели
     // проверки и проверяющие. На сайт он выкладывается по слову владельца.
     pryamoSeychas,
+    // Модуль 19 «Я умею» написан и прошёл машинные проверки, проверяющие его
+    // ещё не видели. Строка открыта, чтобы его видели проверки. На сайт он
+    // идёт по слову владельца и не раньше разбора.
+    yaUmeyu,
   ],
 };
 

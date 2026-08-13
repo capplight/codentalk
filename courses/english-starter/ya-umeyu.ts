@@ -101,7 +101,7 @@ const module: Module = {
         "Все семь записей стоят на A1 — модуль не берёт ничего сверх ступени.",
     },
     {
-      ref: "Cambridge, руководство для молодых учеников",
+      ref: "Cambridge English, руководство для младших ступеней",
       section:
         "Pre A1 Starters, список грамматики, с. 29: «Can for ability» с примером " +
         "«The baby can wave» и «Can for requests/permission» с примером «Can I have " +
