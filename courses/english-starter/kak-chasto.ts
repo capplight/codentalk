@@ -35,7 +35,13 @@ import type { Module } from "@/lib/content/types";
  *   «She never eats meat». То есть наречие частоты в нужном месте и со словом
  *   never стоит на A1.
  *
- * Два источника из трёх за A1, и модуль держится их. Это тот же случай, что
+ * СЧЁТ РАЗНЫЙ ДЛЯ РАЗНЫХ СЛОВ, и это поправка методиста. У `never` два
+ * источника из трёх за A1: Oxford 3000 и Cambridge против английского
+ * профиля. А `usually` и `often` у Cambridge НЕ НАЗВАНЫ ВОВСЕ — ни в
+ * грамматическом списке, ни в тематическом словнике (с. 83, графа Time).
+ * Значит у них счёт один на один, а третий источник молчит. Взяты они
+ * потому, что без них нет средней частоты: между «всегда» и «иногда»
+ * зияет дыра. Это тот же случай, что
  * п. 1.19 в задачах владельца: словники и профиль меряют разное — профиль
  * описывает, СКОЛЬКИМИ наречиями ученик владеет, а словник — само слово.
  *
@@ -59,9 +65,11 @@ import type { Module } from "@/lib/content/types";
  *
  * ЧЕГО В МОДУЛЕ НЕТ:
  *
- * — ВОПРОС `How often…?` Программа его не называет, и ступень его в источниках
- *   выше: подкатегория QUESTIONS wh- ставит вопросы с how и уточняющим словом
- *   на B1. Модуль учит отвечать о частоте, а не спрашивать о ней словом how.
+ * — ВОПРОС `How often…?` Просто потому, что программа его не называет:
+ *   модуль учит говорить о частоте, а не спрашивать о ней. ПЕРВАЯ РЕДАКЦИЯ
+ *   ПИСАЛА ЗДЕСЬ, что вопросы с how стоят на B1. Это неправда: строки про
+ *   how often в источнике нет вовсе, а B1 относится к графе об определителях
+ *   при существительном. Цитата была из чужой графы — нашёл методист.
  *
  * — НАРЕЧИЯ В НАЧАЛЕ И В КОНЦЕ предложения — «Sometimes I work on Sunday».
  *   Такое место есть и оно законно, но описано отдельными строками (ADVERBS
@@ -166,7 +174,7 @@ const module: Module = {
           id: "gde-stoit-narechie",
           kind: "explain",
           text: [
-            "Место у наречия своё, и оно не в начале и не в конце.",
+            "У наречия частоты своё место, и это не конец предложения.",
             "Наречие стоит между тем, о ком речь, и глаголом: I always work. Сначала I, " +
               "потом always, потом work.",
             "По-русски порядок свободнее: «я всегда работаю» и «я работаю всегда» — оба " +
@@ -245,12 +253,12 @@ const module: Module = {
             { text: " · " },
             { text: "I sometimes work on Sunday.", selectable: true },
             { text: " · " },
-            { text: "Sometimes I work on Sunday.", selectable: true, correct: true },
+            { text: "I work always on Sunday.", selectable: true, correct: true },
           ],
-          hint: "Наречие не начинает предложение.",
+          hint: "Наречие частоты стоит перед глаголом, а не после него.",
           why:
-            "Не на месте в «Always I get up at seven» и «Sometimes I work on Sunday». " +
-            "Наречие идёт после того, о ком речь.",
+            "Не на месте в «Always I get up at seven» и «I work always on Sunday». " +
+            "Наречие частоты идёт после того, о ком речь, и до глагола.",
         },
         {
           id: "z4-sobrat-vsegda",
@@ -536,7 +544,7 @@ const module: Module = {
         {
           id: "z4-perestroit-v-never",
           kind: "short",
-          prompt: "Скажи то же самое через never: I don't go to the gym.",
+          prompt: "Скажи сильнее, через never: I don't go to the gym.",
           answer: "I never go to the gym.",
           accept: ["i never go to the gym.", "I never go to the gym"],
           hint: "Don't уходит, never встаёт на его место.",
@@ -593,12 +601,14 @@ const module: Module = {
           ],
         },
         {
-          id: "oshibka-s-be",
+          id: "late-dva-znacheniya",
           kind: "note",
-          tone: "mistake",
+          tone: "info",
           text:
-            "«I always am busy» и «She never is late» — так не говорят.\n\nПри форме be " +
-            "порядок один: сначала она, потом наречие.",
+            "«I always am busy» и «She never is late» — так не говорят. При форме be " +
+            "порядок один: сначала она, потом наречие.\n\nИ обрати внимание на late. " +
+            "После глагола это «поздно»: I go to bed late. После формы be — «опоздавший»: " +
+            "She is never late значит «она никогда не опаздывает».",
         },
         {
           id: "primer-s-be",
@@ -767,7 +777,7 @@ const module: Module = {
           caption: "Слова урока",
           items: [
             { term: "film", translation: "фильм", example: "I watch a film in the evening.", hint: "/fɪlm/" },
-            { term: "music", translation: "музыка", example: "I listen to music.", hint: "/ˈmjuːzɪk/" },
+            { term: "music", translation: "музыка", example: "I like music.", hint: "/ˈmjuːzɪk/" },
           ],
         },
 
@@ -1302,13 +1312,13 @@ const module: Module = {
         id: "q-obychno-dopisat",
         kind: "gap",
         outcome: "называть среднюю частоту: I usually get up at seven",
-        prompt: "Ты ходишь в парк два-три раза в неделю. Допиши недостающее слово.",
+        prompt: "Ты ходишь в парк почти каждый день. Допиши недостающее слово.",
         before: "I ",
         after: " go to the park.",
-        answer: "often",
-        accept: ["Often"],
-        hint: "Много раз, но заведённым порядком это не назовёшь.",
-        why: "I often go to the park. Often — часто, но не обязательно каждый день.",
+        answer: "usually",
+        accept: ["Usually"],
+        hint: "Так заведено, но исключения бывают.",
+        why: "I usually go to the park. Usually — обычный порядок вещей.",
       },
       {
         id: "q-obychno-vybor",
@@ -1327,11 +1337,11 @@ const module: Module = {
         id: "q-obychno-napisat",
         kind: "short",
         outcome: "называть среднюю частоту: I usually get up at seven",
-        prompt: "Напиши, что ты часто слушаешь музыку. Слушать музыку — listen to music.",
-        answer: "I often listen to music.",
-        accept: ["i often listen to music.", "I often listen to music"],
-        hint: "Наречие вторым.",
-        why: "I often listen to music. Наречие стоит перед глаголом.",
+        prompt: "Напиши, что ты часто читаешь по утрам.",
+        answer: "I often read in the morning.",
+        accept: ["i often read in the morning.", "I often read in the morning"],
+        hint: "Наречие вторым, обстоятельство в конце.",
+        why: "I often read in the morning. Наречие стоит перед глаголом.",
       },
 
       // ---- итог 3 ----
@@ -1493,16 +1503,12 @@ const module: Module = {
         id: "q-drugoy-napisat",
         kind: "short",
         outcome: "говорить о частоте у другого человека: He always works late",
-        prompt: "Напиши, что твой брат всегда работает вместе с тобой. Вместе — together.",
-        answer: "My brother always works together with me.",
-        accept: [
-          "my brother always works together with me.",
-          "My brother always works with me.",
-          "my brother always works with me.",
-        ],
+        prompt: "Напиши, что твоя сестра обычно встаёт рано. Сестра — my sister.",
+        answer: "My sister usually gets up early.",
+        accept: ["my sister usually gets up early.", "My sister usually gets up early"],
         hint: "Наречие частоты вторым, глагол с окончанием третьим.",
         why:
-          "My brother always works with me. Наречие стоит перед глаголом, окончание при " +
+          "My sister usually gets up early. Наречие стоит перед глаголом, окончание при " +
           "глаголе.",
       },
 
@@ -1523,16 +1529,16 @@ const module: Module = {
         id: "q-vopros-vybor",
         kind: "choice",
         outcome: "спрашивать о частоте: Do you always work on Monday?",
-        prompt: "Ты хочешь узнать, всегда ли сестра занята в выходные. Как спросить?",
+        prompt: "Ты хочешь узнать, часто ли сестра работает в выходные. Как спросить?",
         options: [
-          { text: "Is your sister always busy at the weekend?", correct: true },
-          { text: "Does your sister always busy at the weekend?" },
-          { text: "Is always your sister busy at the weekend?" },
+          { text: "Does your sister often work at the weekend?", correct: true },
+          { text: "Does your sister works often at the weekend?" },
+          { text: "Does often your sister work at the weekend?" },
         ],
-        hint: "Дальше идёт не действие, а прилагательное.",
+        hint: "Наречие идёт после того, о ком речь, а глагол остаётся без окончания.",
         why:
-          "Is your sister always busy at the weekend? После прилагательного нужна форма " +
-          "be, и наречие идёт после неё.",
+          "Does your sister often work at the weekend? Порядок: Does, человек, наречие, " +
+          "глагол.",
       },
       {
         id: "q-vopros-sobrat",
