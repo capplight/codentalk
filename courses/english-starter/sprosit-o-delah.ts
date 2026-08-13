@@ -723,7 +723,11 @@ const module: Module = {
           options: [
             { text: "Do you work here?", correct: true },
             { text: "Are you work here?" },
-            { text: "Are you work here?" },
+            // Стояло «Do you are work here?» — нагромождение из трёх ошибок
+            // сразу, такого не пишет никто. Замена предложена методистом: эта
+            // ошибка уже работает отвлекающей в том же модуле («Does you a
+            // teacher?»), то есть признана настоящей самим уроком.
+            { text: "Does you work here?" },
           ],
           hint: "После you идёт действие.",
           why: "Do you work here? После того, о ком речь, идёт действие — значит Do.",
