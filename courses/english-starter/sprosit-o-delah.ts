@@ -445,11 +445,15 @@ const module: Module = {
         {
           id: "z3-sopostavit-otvety",
           kind: "match",
-          prompt: "Сопоставь вопрос и подходящий ответ.",
+          prompt:
+            "Собеседник здесь работает, он преподаватель, а Дану не знает. Сопоставь " +
+            "вопрос и его ответ.",
           left: ["Do you work here?", "Are you a teacher?", "Do you know Dana?"],
           right: ["Yes, I am.", "Yes, I do.", "No, I don't."],
           answer: [1, 0, 2],
-          hint: "После вопроса с Do отвечают do, после вопроса с формой be — самой формой be.",
+          hint:
+            "Что ответить — да или нет — сказано в условии. Каким словом — тем, с " +
+            "которого начался вопрос.",
           why:
             "Do you work here? — Yes, I do. Are you a teacher? — Yes, I am. Do you know " +
             "Dana? — No, I don't. Ответ повторяет то слово, с которого начался вопрос.",
@@ -461,7 +465,7 @@ const module: Module = {
           parts: [
             { text: "Yes, I do.", selectable: true },
             { text: " · " },
-            { text: "Yes, I am work.", selectable: true, correct: true },
+            { text: "Yes, I work.", selectable: true, correct: true },
             { text: " · " },
             { text: "No, I don't.", selectable: true },
             { text: " · " },
@@ -469,14 +473,13 @@ const module: Module = {
           ],
           hint: "Короткий ответ кончается на do или don't.",
           why:
-            "Лишнее в «Yes, I am work» и «No, I don't live». В первом сразу два начала, " +
-            "во втором повторён глагол. Короткий ответ кончается на do или don't: " +
-            "Yes, I do. No, I don't.",
+            "Глагол повторён в «Yes, I work» и «No, I don't live». Короткий ответ " +
+            "кончается на do или don't: Yes, I do. No, I don't.",
         },
         {
           id: "z5-otvetit-korotko",
           kind: "short",
-          prompt: "Тебя спросили: Do you work in an office? Ты работаешь. Ответь коротко.",
+          prompt: "Тебя спросили: Do you work in an office? Ты работаешь. Ответь коротко — да.",
           answer: "Yes, I do.",
           accept: ["yes, I do.", "Yes, I do"],
           hint: "Три слова.",

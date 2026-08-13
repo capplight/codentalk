@@ -274,7 +274,12 @@ const module: Module = {
           kind: "short",
           prompt: "Напиши, что ты иногда работаешь по воскресеньям.",
           answer: "I sometimes work on Sunday.",
-          accept: ["i sometimes work on sunday.", "I sometimes work on Sunday"],
+          accept: [
+            "i sometimes work on sunday.",
+            "I sometimes work on Sunday",
+            "Sometimes I work on Sunday.",
+            "sometimes i work on sunday.",
+          ],
           hint: "Пять слов, наречие вторым.",
           why: "I sometimes work on Sunday. Наречие стоит между I и work.",
         },
@@ -415,7 +420,12 @@ const module: Module = {
           kind: "short",
           prompt: "Напиши, что ты обычно встаёшь рано. Рано — early.",
           answer: "I usually get up early.",
-          accept: ["i usually get up early.", "I usually get up early"],
+          accept: [
+            "i usually get up early.",
+            "I usually get up early",
+            "Usually I get up early.",
+            "usually i get up early.",
+          ],
           hint: "Наречие частоты стоит вторым, early — в конце.",
           why:
             "I usually get up early. Usually говорит о частоте и стоит перед глаголом, " +
