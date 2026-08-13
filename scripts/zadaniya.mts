@@ -61,15 +61,29 @@ function pokazat(b: any, gde: string): void {
   console.log(`  !  ${b.why}`);
 }
 
+function pokazatModul(mod: any): void {
+  console.log(`\n=========== ${mod.title} (${mod.slug})`);
+  for (const les of mod.lessons) {
+    for (const b of les.blocks as Block[]) if (isTask(b)) pokazat(b, les.slug);
+  }
+  console.log(`\n=========== проверочная работа`);
+  for (const q of mod.quiz.questions) pokazat(q, "работа");
+}
+
+let nashli = false;
 for (const course of courses) {
   if (kursSlug && course.slug !== kursSlug) continue;
   for (const mod of course.modules) {
     if (modulSlug && mod.slug !== modulSlug) continue;
-    console.log(`\n=========== ${mod.title} (${mod.slug})`);
-    for (const les of mod.lessons) {
-      for (const b of les.blocks as Block[]) if (isTask(b)) pokazat(b, les.slug);
-    }
-    console.log(`\n=========== проверочная работа`);
-    for (const q of mod.quiz.questions) pokazat(q, "работа");
+    nashli = true;
+    pokazatModul(mod);
   }
+}
+
+// Придержанный модуль в курс не включён, а читать его нужно как раз тогда,
+// когда он придержан: именно в нём идут правки. Берём прямо из файла.
+if (!nashli && kursSlug && modulSlug) {
+  const mod = (await import(`../courses/${kursSlug}/${modulSlug}.ts`)).default;
+  console.log(`(модуль в курс не включён, читаю файл courses/${kursSlug}/${modulSlug}.ts)`);
+  pokazatModul(mod);
 }

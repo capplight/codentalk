@@ -250,11 +250,13 @@ const module: Module = {
         {
           id: "z4-sobrat-seychas",
           kind: "order",
-          prompt: "Собери предложение: «Я жду прямо сейчас.»",
-          items: ["waiting", "I", "now", "am"],
+          // Слово now из этой сборки убрано нарочно: оно свободно встаёт и в начало
+          // предложения, а задание на сборку принимает ровно один порядок слов.
+          prompt: "Собери предложение: «Я жду здесь.»",
+          items: ["waiting", "I", "here", "am"],
           answer: [1, 3, 0, 2],
           hint: "Вторым идёт форма be, третьим — глагол с окончанием.",
-          why: "I am waiting now. Сначала I, потом am, потом waiting.",
+          why: "I am waiting here. Сначала I, потом am, потом waiting.",
         },
         {
           id: "z5-napisat-o-sebe-seychas",
@@ -266,6 +268,7 @@ const module: Module = {
             "I am sitting here now",
             "I'm sitting here now.",
             "I am sitting here.",
+            "I'm sitting here.",
           ],
           hint: "У глагола sit перед окончанием удваивается последняя буква.",
           why:
@@ -318,8 +321,9 @@ const module: Module = {
           kind: "note",
           tone: "mistake",
           text:
-            "«He is workings» — так не говорят.\n\nОкончание -s сюда не приходит вовсе: " +
-            "о том, кто действует, уже сказала форма is.",
+            "«He is works» — так не говорят.\n\nОкончание -s сюда не приходит вовсе: " +
+            "о том, кто действует, уже сказала форма is. При форме be у глагола " +
+            "стоит окончание -ing.",
         },
         {
           id: "primer-o-drugom-seychas",
@@ -377,27 +381,27 @@ const module: Module = {
         {
           id: "z3-otmetit-lishnee-s",
           kind: "hottext",
-          prompt: "Отметь записи, где у глагола лишнее окончание -s.",
+          prompt: "Отметь записи, где у глагола стоит -s вместо окончания -ing.",
           parts: [
             { text: "He is working.", selectable: true },
             { text: " · " },
-            { text: "He is workings.", selectable: true, correct: true },
+            { text: "He is works.", selectable: true, correct: true },
             { text: " · " },
             { text: "She is standing.", selectable: true },
             { text: " · " },
-            { text: "She is standings.", selectable: true, correct: true },
+            { text: "She is stands.", selectable: true, correct: true },
           ],
-          hint: "При форме be окончание -s глаголу не нужно.",
+          hint: "При форме be у глагола всегда окончание -ing.",
           why:
-            "Лишнее -s в «He is workings» и «She is standings». Верно: He is working, " +
-            "She is standing.",
+            "В «He is works» и «She is stands» у глагола стоит -s, а нужно окончание " +
+            "-ing. Верно: He is working, She is standing.",
         },
         {
           id: "z4-perestroit-na-nego",
           kind: "short",
           prompt: "Скажи то же самое о сестре: I am waiting. Сестра — my sister.",
           answer: "My sister is waiting.",
-          accept: ["my sister is waiting.", "My sister is waiting"],
+          accept: ["my sister is waiting.", "My sister is waiting", "My sister's waiting."],
           hint: "Меняется только форма be.",
           why: "My sister is waiting. Am заменилось на is, окончание -ing осталось.",
         },
@@ -502,14 +506,17 @@ const module: Module = {
         {
           id: "z2-vybrat-sitting",
           kind: "choice",
-          prompt: "Глагол sit с окончанием -ing. Какая запись верна?",
+          prompt: "Какая запись верна?",
           options: [
-            { text: "siting" },
+            { text: "openning" },
+            { text: "danceing" },
             { text: "sitting", correct: true },
-            { text: "siteing" },
           ],
-          hint: "В глаголе один гласный, и он между согласными.",
-          why: "Sitting. У коротких глаголов такого вида последняя буква удваивается.",
+          hint: "Удвоение нужно там, где один гласный стоит между согласными.",
+          why:
+            "Sitting. У sit один гласный между согласными, и t удваивается. В openning " +
+            "удвоение лишнее: в open два гласных, верно opening. В danceing не ушла " +
+            "буква e, верно dancing.",
         },
         {
           id: "z3-otmetit-oshibki-ing",
@@ -542,7 +549,13 @@ const module: Module = {
           kind: "short",
           prompt: "Напиши, что она танцует прямо сейчас. Танцевать — dance.",
           answer: "She is dancing.",
-          accept: ["she is dancing.", "She is dancing", "She is dancing now."],
+          accept: [
+            "she is dancing.",
+            "She is dancing",
+            "She is dancing now.",
+            "She's dancing.",
+            "She's dancing now.",
+          ],
           hint: "У dance перед окончанием уходит буква e.",
           why: "She is dancing. Буква e ушла: dancing, а не danceing.",
         },
@@ -630,16 +643,19 @@ const module: Module = {
         {
           id: "z1-vybrat-zapis-po-slovu",
           kind: "choice",
-          prompt: "По понедельникам ты работаешь. Как сказать?",
+          // Слова every week стоят во всех трёх вариантах нарочно. Без них
+          // «I am working on Monday» — верное предложение о ближайшем понедельнике,
+          // и объявлять его ошибкой нельзя.
+          prompt: "Ты работаешь по понедельникам каждую неделю. Как сказать?",
           options: [
-            { text: "I am working on Monday." },
-            { text: "I work on Monday.", correct: true },
-            { text: "I am work on Monday." },
+            { text: "I am working on Monday every week." },
+            { text: "I work on Monday every week.", correct: true },
+            { text: "I am work on Monday every week." },
           ],
-          hint: "Речь о том, что повторяется, а не о том, что идёт сейчас.",
+          hint: "Слова every week говорят, что дело повторяется.",
           why:
-            "I work on Monday. О повторяющемся говорят записью о делах вообще, без формы " +
-            "be и без окончания -ing.",
+            "I work on Monday every week. О повторяющемся говорят записью о делах " +
+            "вообще, без формы be и без окончания -ing.",
         },
         {
           id: "z2-vybrat-seychas",
@@ -662,16 +678,16 @@ const module: Module = {
           parts: [
             { text: "I always work on Monday.", selectable: true },
             { text: " · " },
-            { text: "I am working on Monday every week.", selectable: true, correct: true },
+            { text: "I am reading in the evening every day.", selectable: true, correct: true },
             { text: " · " },
             { text: "It is raining now.", selectable: true },
             { text: " · " },
             { text: "It rains now.", selectable: true, correct: true },
           ],
-          hint: "Слова every week и every day говорят о повторении, слово now — о минуте.",
+          hint: "Слова every day говорят о повторении, слово now — о минуте.",
           why:
-            "О повторяющемся говорят записью о делах вообще: I work on Monday every " +
-            "week. Со словом now — о происходящем: It is raining now.",
+            "О повторяющемся говорят записью о делах вообще: I read in the evening " +
+            "every day. Со словом now — о происходящем: It is raining now.",
         },
         {
           id: "z4-dopisat-po-slovu",
@@ -695,6 +711,7 @@ const module: Module = {
             "i work in a shop. now i am sitting at home.",
             "I work in a shop. Now I'm sitting at home.",
             "I work in a shop. I am sitting at home now.",
+            "I work in a shop. I'm sitting at home now.",
           ],
           hint: "В первом предложении глагол без окончания, во втором — форма be и -ing.",
           why:
@@ -814,7 +831,7 @@ const module: Module = {
           kind: "short",
           prompt: "Скажи то же самое о нескольких: He is waiting. Они — they.",
           answer: "They are waiting.",
-          accept: ["they are waiting.", "They are waiting"],
+          accept: ["they are waiting.", "They are waiting", "They're waiting."],
           hint: "Меняется только форма be.",
           why: "They are waiting. Is заменилось на are, окончание осталось.",
         },
@@ -1182,6 +1199,8 @@ const module: Module = {
           accept: [
             "i am reading a book. my sister is singing.",
             "I'm reading a book. My sister is singing.",
+            "I am reading a book. My sister's singing.",
+            "I'm reading a book. My sister's singing.",
           ],
           hint: "О себе — am, об одном другом человеке — is.",
           why:
@@ -1204,7 +1223,13 @@ const module: Module = {
           kind: "short",
           prompt: "Напиши, что сейчас идёт дождь.",
           answer: "It is raining.",
-          accept: ["it is raining.", "It is raining", "It's raining.", "It is raining now."],
+          accept: [
+            "it is raining.",
+            "It is raining",
+            "It's raining.",
+            "It is raining now.",
+            "It's raining now.",
+          ],
           hint: "О погоде говорят через it.",
           why: "It is raining. О погоде говорят через it, как и о времени.",
         },
@@ -1227,154 +1252,183 @@ const module: Module = {
     ask: 12,
     passRatio: 0.7,
     questions: [
+      // Работа не повторяет задания уроков: у каждого вопроса своё положение,
+      // свой глагол и свой пропущенный кусок. Ученик, который выучил задания
+      // наизусть, работу так не сдаст — она проверяет умение, а не память.
+      //
+      // В списках accept стоят только по-настоящему другие записи — краткие
+      // формы и другой порядок слов. Заглавные буквы и точка в конце ответа
+      // сверкой и так не учитываются, повторять их незачем.
+
       // ---- итог 1 ----
       {
         id: "q-seychas-dopisat",
         kind: "gap",
         outcome: "говорить, что делаешь прямо сейчас: I am working",
-        prompt: "Ты ждёшь прямо сейчас. Допиши недостающее слово.",
-        before: "I ",
-        after: " waiting now.",
-        answer: "am",
-        accept: ["Am"],
-        hint: "Форма be, которая идёт со словом I.",
-        why: "I am waiting now. Без формы be запись неполна.",
+        prompt: "Прямо сейчас ты работаешь. Допиши глагол с окончанием. Работать — work.",
+        before: "I am ",
+        after: " now.",
+        answer: "working",
+        hint: "Форма be уже стоит, дело за глаголом.",
+        why: "I am working now. При форме be у глагола всегда окончание -ing.",
       },
       {
         id: "q-seychas-vybor",
         kind: "choice",
         outcome: "говорить, что делаешь прямо сейчас: I am working",
-        prompt: "Ты сидишь здесь прямо сейчас. Как сказать?",
+        prompt: "Ты сейчас поёшь. В каком предложении нет ошибки?",
         options: [
-          { text: "I sitting here." },
-          { text: "I am sit here." },
-          { text: "I am sitting here.", correct: true },
+          { text: "I is singing." },
+          { text: "I singing." },
+          { text: "I am singing.", correct: true },
         ],
-        hint: "Нужны обе части: форма be и окончание.",
-        why: "I am sitting here. В первом нет формы be, во втором — окончания.",
+        hint: "Со словом I идёт своя форма be, и без неё запись неполна.",
+        why:
+          "I am singing. Со словом I идёт am, а не is. Без формы be запись неполна: " +
+          "«I singing» так не говорят.",
       },
       {
         id: "q-seychas-sobrat",
         kind: "order",
         outcome: "говорить, что делаешь прямо сейчас: I am working",
-        prompt: "Собери предложение: «Я работаю прямо сейчас.»",
-        items: ["now", "working", "I", "am"],
-        answer: [2, 3, 1, 0],
-        hint: "Вторым идёт форма be.",
-        why: "I am working now.",
+        prompt: "Собери предложение: «Я читаю книгу.»",
+        items: ["a", "reading", "book", "I", "am"],
+        answer: [3, 4, 1, 0, 2],
+        hint: "Вторым идёт форма be, третьим — глагол с окончанием.",
+        why: "I am reading a book. Сначала I, потом am, потом глагол с окончанием.",
       },
 
       // ---- итог 2 ----
       {
-        id: "q-drugoy-seychas-dopisat",
-        kind: "gap",
+        id: "q-drugoy-seychas-vybor",
+        kind: "choice",
         outcome: "говорить, что делает другой человек: He is working",
-        prompt: "Твоя сестра поёт прямо сейчас. Допиши недостающее слово.",
-        before: "My sister ",
-        after: " singing.",
-        answer: "is",
-        accept: ["Is"],
-        hint: "Об одном другом человеке.",
-        why: "My sister is singing. С he, she и с именем идёт is.",
+        prompt: "Твой друг сейчас танцует. В каком предложении нет ошибки?",
+        options: [
+          { text: "My friend is dancing.", correct: true },
+          { text: "My friend is dances." },
+          { text: "My friend dancing." },
+        ],
+        hint: "Нужны обе части: форма be и окончание -ing.",
+        why:
+          "My friend is dancing. При форме be глагол берёт окончание -ing, а -s сюда " +
+          "не приходит. Без формы be запись неполна.",
       },
       {
         id: "q-drugoy-seychas-otmetit",
         kind: "hottext",
         outcome: "говорить, что делает другой человек: He is working",
-        prompt: "Отметь записи, где у глагола лишнее окончание -s.",
+        prompt: "Отметь записи, где у глагола нет окончания -ing.",
         parts: [
           { text: "He is waiting.", selectable: true },
           { text: " · " },
-          { text: "He is waitings.", selectable: true, correct: true },
+          { text: "He is waits.", selectable: true, correct: true },
           { text: " · " },
-          { text: "She is dancing.", selectable: true },
+          { text: "She is sing.", selectable: true, correct: true },
           { text: " · " },
-          { text: "She is dancings.", selectable: true, correct: true },
+          { text: "She is singing.", selectable: true },
         ],
-        hint: "При форме be окончание -s глаголу не нужно.",
-        why: "Лишнее -s в «He is waitings» и «She is dancings».",
+        hint: "При форме be у глагола всегда окончание -ing.",
+        why:
+          "В «He is waits» и «She is sing» окончания нет. Верно: He is waiting, " +
+          "She is singing.",
+      },
+      {
+        id: "q-drugoy-seychas-napisat",
+        kind: "short",
+        outcome: "говорить, что делает другой человек: He is working",
+        prompt: "Напиши, что твой брат сейчас поёт. Брат — my brother, петь — sing.",
+        answer: "My brother is singing.",
+        // Условие говорит «сейчас», поэтому ответ со словом now тоже верен.
+        accept: [
+          "My brother's singing.",
+          "My brother is singing now.",
+          "My brother's singing now.",
+        ],
+        hint: "Об одном другом человеке — форма is.",
+        why: "My brother is singing. С he, she и с именем идёт is.",
       },
 
       // ---- итог 3 ----
       {
-        id: "q-ing-vybor",
-        kind: "choice",
+        id: "q-ing-dopisat",
+        kind: "gap",
         outcome: "писать окончание -ing без ошибок: make — making, sit — sitting",
-        prompt: "Глагол dance с окончанием -ing. Какая запись верна?",
-        options: [
-          { text: "danceing" },
-          { text: "dancsing" },
-          { text: "dancing", correct: true },
-        ],
-        hint: "Буква e перед окончанием уходит.",
-        why: "Dancing. У глаголов на e эта буква уходит.",
+        prompt: "Глагол sit с окончанием -ing. Допиши форму.",
+        before: "He is ",
+        after: " at home.",
+        answer: "sitting",
+        hint: "В глаголе один гласный, и он между согласными.",
+        why: "He is sitting at home. У sit удваивается t: sitting, а не siting.",
       },
       {
         id: "q-ing-sopostavit",
         kind: "match",
         outcome: "писать окончание -ing без ошибок: make — making, sit — sitting",
         prompt: "Сопоставь глагол и его форму с окончанием.",
-        left: ["sit", "make", "read"],
-        right: ["making", "reading", "sitting"],
-        answer: [2, 0, 1],
-        hint: "У одного удваивается согласный, у другого уходит e.",
-        why: "Sit — sitting, make — making, read — reading.",
+        left: ["dance", "open", "read"],
+        right: ["reading", "dancing", "opening"],
+        answer: [1, 2, 0],
+        hint: "У одного уходит буква e, у двух других окончание приписывается как есть.",
+        why: "Dance — dancing, open — opening, read — reading.",
       },
       {
         id: "q-ing-napisat",
         kind: "short",
         outcome: "писать окончание -ing без ошибок: make — making, sit — sitting",
-        prompt: "Напиши, что она готовит чай прямо сейчас. Готовить — make, чай — tea.",
-        answer: "She is making tea.",
-        accept: ["she is making tea.", "She is making tea"],
-        hint: "У make перед окончанием уходит буква e.",
-        why: "She is making tea. Буква e ушла: making.",
+        prompt: "Напиши, что он открывает дверь. Открывать — open, дверь — the door.",
+        answer: "He is opening the door.",
+        accept: ["He's opening the door."],
+        hint: "В глаголе open два гласных, удвоения нет.",
+        why:
+          "He is opening the door. Согласный удваивается только там, где один гласный " +
+          "стоит между согласными, а в open гласных два.",
       },
 
       // ---- итог 4 ----
+      // Оба вопроса о различении спрашивают о значении, а не «какая запись
+      // верна». Так ни одно верное английское предложение не объявляется
+      // ошибкой: все три варианта верны, но условию отвечает один.
       {
-        id: "q-razlichenie-vybor",
+        id: "q-razlichenie-seychas",
         kind: "choice",
         outcome: "различать «сейчас» и «всегда»: I'm working — I work",
-        prompt: "По воскресеньям ты не работаешь. Как сказать про воскресенья?",
+        prompt: "В каком предложении речь о том, что идёт прямо в эту минуту?",
         options: [
-          { text: "I am not work on Sunday." },
-          { text: "I don't work on Sunday.", correct: true },
-          { text: "I am not work on Sunday." },
+          { text: "I read books in the evening." },
+          { text: "I am reading a book.", correct: true },
+          { text: "I work in a shop." },
         ],
-        hint: "Речь о том, что повторяется каждое воскресенье.",
+        hint: "О том, что идёт сейчас, говорят формой be и окончанием -ing.",
         why:
-          "I don't work on Sunday. О повторяющемся говорят записью о делах вообще, а не " +
-          "о том, что идёт сейчас.",
+          "I am reading a book. Форма be и окончание -ing показывают, что дело идёт в " +
+          "эту минуту. Два других предложения — о том, что вообще так.",
       },
       {
-        id: "q-razlichenie-otmetit",
-        kind: "hottext",
+        id: "q-razlichenie-vsegda",
+        kind: "choice",
         outcome: "различать «сейчас» и «всегда»: I'm working — I work",
-        prompt: "Отметь записи, где выбран не тот способ.",
-        parts: [
-          { text: "It is raining now.", selectable: true },
-          { text: " · " },
-          { text: "It rains now.", selectable: true, correct: true },
-          { text: " · " },
-          { text: "I usually read in the evening.", selectable: true },
-          { text: " · " },
-          { text: "I am reading in the evening every day.", selectable: true, correct: true },
+        prompt: "В каком предложении речь о том, что повторяется каждый день?",
+        options: [
+          { text: "It is raining now." },
+          { text: "It rains every day.", correct: true },
+          { text: "I am sitting at home." },
         ],
-        hint: "Слово now — о минуте, слово every day — о повторении.",
-        why: "Верно: It is raining now, I read in the evening every day.",
+        hint: "О том, что повторяется, говорят глаголом без окончания -ing.",
+        why:
+          "It rains every day. Глагол без формы be и без окончания -ing говорит о том, " +
+          "что бывает вообще. Два других предложения — о том, что идёт сейчас.",
       },
       {
         id: "q-razlichenie-dopisat",
         kind: "gap",
         outcome: "различать «сейчас» и «всегда»: I'm working — I work",
-        prompt: "Ты всегда работаешь по понедельникам. Допиши глагол в нужном виде.",
-        before: "I always ",
-        after: " on Monday.",
-        answer: "work",
-        accept: ["Work"],
-        hint: "Слово always говорит о том, что повторяется.",
-        why: "I always work on Monday. О повторяющемся — глагол без окончания -ing.",
+        prompt: "Прямо сейчас идёт дождь. Допиши глагол в нужном виде. Идти о дожде — rain.",
+        before: "It is ",
+        after: " now.",
+        answer: "raining",
+        hint: "Слово now говорит, что дело идёт в эту минуту.",
+        why: "It is raining now. Со словом now идёт запись о происходящем.",
       },
 
       // ---- итог 5 ----
@@ -1382,26 +1436,39 @@ const module: Module = {
         id: "q-neskolko-seychas-dopisat",
         kind: "gap",
         outcome: "говорить о нескольких: We are waiting",
-        prompt: "Ты ждёшь вместе с другом прямо сейчас. Допиши недостающее слово.",
-        before: "We ",
-        after: " waiting.",
-        answer: "are",
-        accept: ["Are"],
-        hint: "Со словом we.",
-        why: "We are waiting. С we, you и they идёт are.",
+        prompt: "Вы с другом сейчас стоите на улице. Допиши глагол с окончанием. Стоять — stand.",
+        before: "We are ",
+        after: " outside.",
+        answer: "standing",
+        hint: "Форма be уже стоит, дело за глаголом.",
+        why:
+          "We are standing outside. Форма be меняется по тому, о ком речь, а окончание " +
+          "-ing остаётся прежним.",
       },
       {
         id: "q-neskolko-seychas-vybor",
         kind: "choice",
         outcome: "говорить о нескольких: We are waiting",
-        prompt: "Твои друзья работают прямо сейчас. Как сказать?",
+        prompt: "В каком предложении форма be выбрана верно?",
         options: [
-          { text: "My friends are working.", correct: true },
-          { text: "My friends is working." },
-          { text: "My friends are works." },
+          { text: "My friends is waiting outside." },
+          { text: "My friend are waiting outside." },
+          { text: "My friends are waiting outside.", correct: true },
         ],
-        hint: "Друзей несколько, а окончание у глагола одно.",
-        why: "My friends are working. О нескольких — are, окончание -s сюда не приходит.",
+        hint: "Смотри на окончание -s у слова friend: друг один или друзей несколько.",
+        why:
+          "My friends are waiting outside. О нескольких идёт are, об одном — is: " +
+          "My friend is waiting outside.",
+      },
+      {
+        id: "q-neskolko-seychas-napisat",
+        kind: "short",
+        outcome: "говорить о нескольких: We are waiting",
+        prompt: "Напиши, что твои друзья сейчас танцуют. Друзья — my friends.",
+        answer: "My friends are dancing.",
+        accept: ["My friends are dancing now."],
+        hint: "О нескольких — форма are.",
+        why: "My friends are dancing. С we, you, they и с несколькими людьми идёт are.",
       },
 
       // ---- итог 6 ----
@@ -1409,82 +1476,75 @@ const module: Module = {
         id: "q-otricanie-seychas-dopisat",
         kind: "gap",
         outcome: "отрицать происходящее: I'm not working",
-        prompt: "Он сейчас не ждёт. Допиши недостающее слово.",
-        before: "He is ",
-        after: " waiting.",
-        answer: "not",
-        accept: ["Not"],
-        hint: "Оно встаёт сразу после формы be.",
-        why: "He is not waiting. При форме be отрицает not.",
+        prompt: "Она сейчас не читает. Допиши недостающее слово.",
+        before: "She ",
+        after: " not reading.",
+        answer: "is",
+        hint: "Сначала форма be, потом not.",
+        why: "She is not reading. Слово not встаёт сразу после формы be.",
       },
       {
-        id: "q-otricanie-seychas-otmetit",
-        kind: "hottext",
+        id: "q-otricanie-seychas-koroche",
+        kind: "short",
         outcome: "отрицать происходящее: I'm not working",
-        prompt: "Отметь записи, где отрицание построено не тем словом.",
-        parts: [
-          { text: "I am not reading.", selectable: true },
-          { text: " · " },
-          { text: "I don't reading.", selectable: true, correct: true },
-          { text: " · " },
-          { text: "She isn't singing.", selectable: true },
-          { text: " · " },
-          { text: "She doesn't singing.", selectable: true, correct: true },
-        ],
-        hint: "При форме be отрицает not.",
-        why: "Don't и doesn't идут с глаголом без окончания.",
+        prompt: "Запиши короче: They are not waiting.",
+        answer: "They aren't waiting.",
+        accept: ["They're not waiting."],
+        hint: "Сливаться могут обе пары слов.",
+        why:
+          "They aren't waiting. Годится и They're not waiting: слиться могут либо are " +
+          "и not, либо they и are.",
       },
       {
         id: "q-otricanie-seychas-napisat",
         kind: "short",
         outcome: "отрицать происходящее: I'm not working",
-        prompt: "Напиши, что ты сейчас не работаешь.",
-        answer: "I am not working now.",
+        prompt: "Напиши, что твои друзья сейчас не работают. Друзья — my friends.",
+        answer: "My friends are not working.",
         accept: [
-          "i am not working now.",
-          "I'm not working now.",
-          "I am not working.",
-          "I'm not working.",
+          "My friends aren't working.",
+          "My friends are not working now.",
+          "My friends aren't working now.",
         ],
-        hint: "После формы be идёт not.",
-        why: "I am not working now. Или короче: I'm not working now.",
+        hint: "Not встаёт сразу после формы be.",
+        why: "My friends are not working. Или короче: My friends aren't working.",
       },
 
       // ---- итог 7 ----
       {
-        id: "q-vopros-seychas-sobrat",
-        kind: "order",
+        id: "q-vopros-seychas-dopisat",
+        kind: "gap",
         outcome: "спрашивать, что происходит: What are you doing?",
-        prompt: "Собери вопрос: «Что она делает?»",
-        items: ["is", "doing?", "What", "she"],
-        answer: [2, 0, 3, 1],
-        hint: "Вопросительное слово впереди, за ним форма be.",
-        why: "What is she doing? Порядок: What, is, she, doing.",
+        prompt: "Ты хочешь узнать, поёт ли сейчас твоя сестра. Допиши недостающее слово.",
+        before: "",
+        after: " your sister singing?",
+        answer: "Is",
+        hint: "Вопрос открывает форма be.",
+        why: "Is your sister singing? Форма be выходит вперёд, а за ней идёт тот, о ком речь.",
       },
       {
         id: "q-vopros-seychas-vybor",
         kind: "choice",
         outcome: "спрашивать, что происходит: What are you doing?",
-        prompt: "Ты хочешь узнать, ждут ли твои друзья. Как спросить?",
+        prompt: "Ты хочешь узнать, что делает твой брат. Как спросить?",
         options: [
-          { text: "Do your friends waiting?" },
-          { text: "Are your friends waiting?", correct: true },
-          { text: "Are waiting your friends?" },
+          { text: "What is your brother doing?", correct: true },
+          { text: "What your brother is doing?" },
+          { text: "What is doing your brother?" },
         ],
-        hint: "Форма be впереди, потом те, о ком речь.",
+        hint: "Вопросительное слово впереди всего, за ним форма be.",
         why:
-          "Are your friends waiting? Do идёт с глаголом без окончания, а в третьем " +
-          "варианте порядок перевёрнут.",
+          "What is your brother doing? Порядок такой: вопросительное слово, форма be, " +
+          "тот, о ком речь, и глагол с окончанием.",
       },
       {
         id: "q-vopros-seychas-otvetit",
         kind: "short",
         outcome: "спрашивать, что происходит: What are you doing?",
-        prompt: "Тебя спросили: Are you reading? Ты читаешь. Ответь коротко — да.",
+        prompt: "Тебя спросили: Are you sitting at home? Ты дома. Ответь коротко — да.",
         answer: "Yes, I am.",
-        accept: ["yes, I am.", "Yes, I am"],
         hint: "Глагол в коротком ответе не повторяют.",
-        why: "Yes, I am. Короткая форма I'm в конце ответа не ставится.",
+        why: "Yes, I am. Короткую форму I'm в конце ответа не ставят.",
       },
 
       // ---- итог 8 ----
@@ -1492,36 +1552,36 @@ const module: Module = {
         id: "q-rasskaz-seychas-sobrat",
         kind: "order",
         outcome: "рассказывать, что происходит вокруг",
-        prompt: "Собери рассказ: сначала о себе, потом о друзьях, потом о погоде.",
-        items: ["My friends are waiting.", "It is raining.", "I am sitting at home."],
+        prompt: "Собери рассказ: сначала о погоде, потом о себе, потом о брате.",
+        items: ["I am sitting at home.", "My brother is singing.", "It is raining."],
         answer: [2, 0, 1],
         hint: "Порядок задан в условии.",
-        why: "I am sitting at home. My friends are waiting. It is raining.",
+        why: "It is raining. I am sitting at home. My brother is singing.",
       },
       {
         id: "q-rasskaz-seychas-napisat",
         kind: "short",
         outcome: "рассказывать, что происходит вокруг",
-        prompt: "Напиши два предложения: ты сидишь дома, а сейчас идёт дождь. Дома — at home.",
-        answer: "I am sitting at home. It is raining.",
-        accept: [
-          "i am sitting at home. it is raining.",
-          "I'm sitting at home. It's raining.",
-        ],
-        hint: "О себе — am, о погоде — is через it.",
-        why: "I am sitting at home. It is raining.",
+        prompt:
+          "Напиши два предложения: ты читаешь книгу, а твои друзья ждут на улице. " +
+          "На улице — outside.",
+        answer: "I am reading a book. My friends are waiting outside.",
+        accept: ["I'm reading a book. My friends are waiting outside."],
+        hint: "О себе — am, о нескольких — are.",
+        why:
+          "I am reading a book. My friends are waiting outside. Форма be разная, " +
+          "окончание -ing одно и то же.",
       },
       {
         id: "q-rasskaz-seychas-dopisat",
         kind: "gap",
         outcome: "рассказывать, что происходит вокруг",
-        prompt: "Твоя сестра читает прямо сейчас. Допиши глагол с окончанием.",
-        before: "My sister is ",
-        after: " a book.",
-        answer: "reading",
-        accept: ["Reading"],
-        hint: "Окончание приписывается без изменений.",
-        why: "My sister is reading a book. У read окончание приписывается как есть.",
+        prompt: "Сейчас идёт дождь. Допиши недостающее слово.",
+        before: "It ",
+        after: " raining.",
+        answer: "is",
+        hint: "О погоде говорят через it.",
+        why: "It is raining. С it идёт is — так же, как с he и she.",
       },
     ],
   },
