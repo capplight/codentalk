@@ -16,6 +16,7 @@ import chtoYaDelayu from "./chto-ya-delayu";
 import yaNeDelayu from "./ya-ne-delayu";
 import sprositODelah from "./sprosit-o-delah";
 import kakChasto from "./kak-chasto";
+import pryamoSeychas from "./pryamo-seychas";
 
 /**
  * Английский с нуля — ступень до A1.
@@ -51,10 +52,11 @@ const course: Course = {
     chtoYaDelayu,
     yaNeDelayu,
     sprositODelah,
-    // Модуль 17 «Как часто» написан и прошёл машинные проверки, но проверяющие
-    // его ещё не видели. Содержание, прошедшее половину приёмки, не
-    // выкладывается — строка открывается после разбора.
     kakChasto,
+    // Модуль 18 «Прямо сейчас» написан и прошёл машинные проверки, но
+    // проверяющие его ещё не видели. Содержание, прошедшее половину приёмки,
+    // не выкладывается — строка открывается после разбора.
+    pryamoSeychas,
   ],
 };
 
