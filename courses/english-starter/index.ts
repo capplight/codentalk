@@ -19,6 +19,7 @@ import kakChasto from "./kak-chasto";
 import pryamoSeychas from "./pryamo-seychas";
 import yaUmeyu from "./ya-umeyu";
 import proNegoIProNih from "./pro-nego-i-pro-nih";
+import mneNravitsya from "./mne-nravitsya";
 
 /**
  * Английский с нуля — ступень до A1.
@@ -64,6 +65,7 @@ const course: Course = {
     // идёт по слову владельца и не раньше разбора.
     yaUmeyu,
     proNegoIProNih,
+    mneNravitsya,
   ],
 };
 
