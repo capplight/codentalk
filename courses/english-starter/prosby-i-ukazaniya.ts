@@ -1,0 +1,1540 @@
+import type { Module } from "@/lib/content/types";
+
+/**
+ * Модуль 22 курса «Английский с нуля»: просьбы и указания.
+ *
+ * Программа: docs/programma-english-starter.md, модуль 22 — «вежливо просить,
+ * приглашать, давать указания»; грамматика: повелительное наклонение (сверх
+ * A1), `can` в просьбе, `would like` в приглашении.
+ *
+ * ГЛАВНАЯ ОСОБЕННОСТЬ МОДУЛЯ. Он первый, где предложение начинается прямо с
+ * глагола: `Open the door`. Все двадцать один модуль до него учили, что перед
+ * глаголом обязательно стоит тот, о ком речь, — и это правило здесь впервые
+ * отменяется. Ученик, привыкший к `I open`, `He opens`, увидит `Open` и решит,
+ * что потерялось слово.
+ *
+ * Поэтому урок 1 говорит об отмене прямо и объясняет, почему подлежащего нет:
+ * указание даётся тому, с кем говорят, и называть его незачем.
+ *
+ * ВТОРАЯ ОСОБЕННОСТЬ — три способа сказать почти одно и то же: `Open the door`,
+ * `Can you open the door?`, `Would you like to open the door?`. Модуль
+ * разводит их по назначению, а не по «вежливости»: первое — указание, второе —
+ * просьба, третье — приглашение. Так их называет и источник.
+ *
+ * ЧТО ПРОВЕРЕНО ДО НАПИСАНИЯ.
+ *
+ * 1. ПОВЕЛИТЕЛЬНОЕ НАКЛОНЕНИЕ — English Grammar Profile, CLAUSES imperatives:
+ *    — A2, «FORM: AFFIRMATIVE» — «Can form an affirmative imperative with the
+ *      base form of a main verb», пример источника: «Goodbye. Write soon»;
+ *    — A2, «USE: INSTRUCTIONS» — «Can use the imperative to give instructions»,
+ *      пример источника: «Take a taxi to the Petrol station then call me»;
+ *    — A2, «FORM/USE: NEGATIVE» — «Can form a negative imperative with the
+ *      auxiliary verb 'do' + 'n't' + base form of a main verb, to give advice,
+ *      instructions or orders», пример источника: «Don't tell Lucy, please».
+ *
+ *    ЭТО СВЕРХ СТУПЕНИ, И ТАК ЖЕ СЧИТАЕТ ПРОГРАММА. Второе основание — то же,
+ *    что в модулях 15 и 16: Cambridge ставит повелительное наклонение НИЖЕ A1.
+ *    Руководство для младших ступеней, список грамматики Pre A1 Starters,
+ *    с. 29, графа «Verbs (Positive, negative, question, imperative and
+ *    short-answer forms, including contractions)» с примером «Eat your lunch!».
+ *    Два источника расходятся, и модуль держится того, который ниже: без
+ *    указаний не обойтись ни на одном занятии.
+ *
+ * 2. ПРОСЬБА С `can` — English Grammar Profile, MODALITY can, A1, «USE:
+ *    REQUESTS»: «Can use 'can' to make a request», пример источника: «Can you
+ *    come on Sunday at seven o'clock?». Ступень своя, ничего сверх.
+ *
+ * 3. ПРИГЛАШЕНИЕ — English Grammar Profile, MODALITY would, A1, «USE:
+ *    INVITATIONS WITH 'LIKE'»: «Can use 'would like to invite' to make
+ *    invitations», пример источника: «I would like to invite you to dinner in
+ *    my house on Saturday at 7 30 pm».
+ *
+ * 4. ВОПРОС `Would you like…?` — A2, CLAUSES interrogatives, «FORM:
+ *    AFFIRMATIVE INTERROGATIVE, WITH MODAL AUXILIARY VERBS»: «Can form
+ *    interrogative clauses ('yes/no' forms) with modal auxiliary verbs», пример
+ *    источника: «Would you like to come with me?». Взят сверх ступени и
+ *    объявлен: без него приглашения не выходит вовсе, а модуль 21 уже показал
+ *    этот вопрос на узнавание.
+ *
+ * 5. Слова модуля — Oxford 3000: party n. A1, thanks exclam. A1. Уже введены
+ *    раньше: open, close, come, go, sit, stand, wait, help, please, sorry,
+ *    tomorrow.
+ *
+ * ЖДЁТ ВЛАДЕЛЬЦА. Слово `please` курс до сих пор объяснял как то, что «делает
+ * просьбу мягче». Утверждения о вежливости источники не подтверждают вовсе —
+ * ни один из них не помечает обороты по вежливости. Здесь оно оставлено, но
+ * решение это уровня преподавателя, и владельцу стоит его подтвердить или
+ * снять. Записано в docs/zadachi-vladeltsa.md.
+ *
+ * ЧЕГО В МОДУЛЕ НЕТ И ПОЧЕМУ:
+ *
+ * — ОБОРОТА `let's`. English Grammar Profile ставит его на A2 отдельной
+ *   строкой («FORM/USE: 'LET'S', SUGGESTION»), у Cambridge на Pre A1 его нет,
+ *   и программа его не называет.
+ * — ОБОРОТА `could you`. Его нет ни в одном списке этой ступени.
+ * — УКАЗАНИЙ ИЗ НЕСКОЛЬКИХ ДЕЙСТВИЙ («Take a taxi then call me»). Источник даёт
+ *   такой пример, но соединение двух указаний словом then — предмет модуля 24.
+ */
+const module: Module = {
+  slug: "prosby-i-ukazaniya",
+  title: "Просьбы и указания",
+
+  sources: [
+    {
+      ref: "English Grammar Profile",
+      section:
+        "A2, CLAUSES imperatives, «FORM: AFFIRMATIVE»: «Can form an affirmative " +
+        "imperative with the base form of a main verb», пример источника — " +
+        "«Goodbye. Write soon». " +
+        "A2, CLAUSES imperatives, «USE: INSTRUCTIONS»: «Can use the imperative to " +
+        "give instructions». " +
+        "A2, CLAUSES imperatives, «FORM/USE: NEGATIVE»: «Can form a negative " +
+        "imperative with the auxiliary verb 'do' + 'n't' + base form of a main " +
+        "verb, to give advice, instructions or orders», пример источника — «Don't " +
+        "tell Lucy, please». " +
+        "Всё это взято сверх ступени, как и говорит программа, и объявлено в шапке " +
+        "модуля. " +
+        "A1, MODALITY can, «USE: REQUESTS»: «Can use 'can' to make a request», " +
+        "пример источника — «Can you come on Sunday at seven o'clock?». " +
+        "A1, MODALITY would, «USE: INVITATIONS WITH 'LIKE'»: «Can use 'would like " +
+        "to invite' to make invitations». " +
+        "A2, CLAUSES interrogatives, «FORM: AFFIRMATIVE INTERROGATIVE, WITH MODAL " +
+        "AUXILIARY VERBS»: «Can form interrogative clauses ('yes/no' forms) with " +
+        "modal auxiliary verbs», пример источника — «Would you like to come with " +
+        "me?» — это вопрос урока 6, взят сверх ступени и объявлен",
+      license: "внутреннее использование, публично не называем",
+    },
+    {
+      ref: "Cambridge English, руководство для младших ступеней",
+      section:
+        "с. 29, Grammar and Structures List ступени Pre A1 Starters, графа «Verbs " +
+        "(Positive, negative, question, imperative and short-answer forms, " +
+        "including contractions)» с примером «Eat your lunch!». Cambridge ставит " +
+        "повелительное наклонение ниже A1 — это второе основание взять его здесь",
+      license: "свободно распространяется, в уроки не копируется",
+    },
+    {
+      ref: "Oxford 3000",
+      section: "новые слова модуля с пометкой A1: party n. A1, thanks exclam., n. A1",
+      license: "внутреннее использование",
+    },
+  ],
+
+  outcomes: [
+    "давать указание: Open the door",
+    "запрещать: Don't open the door",
+    "ставить please в указании и просьбе",
+    "просить: Can you help?",
+    "спрашивать разрешения: Can I sit here?",
+    "приглашать: Would you like to come?",
+    "отвечать на приглашение: Yes, please",
+    "вести разговор с просьбой целиком",
+  ],
+
+  lessons: [
+    // =====================================================================
+    {
+      slug: "ukazanie",
+      title: "Указание: Open the door",
+      estimatedMinutes: 13,
+      outcome: "давать указание: Open the door",
+
+      blocks: [
+        {
+          id: "zachem-ukazanie",
+          kind: "explain",
+          text: [
+            "У тебя заняты руки, и ты просишь спутника открыть дверь.",
+            "По-английски это одно слово и название вещи: Open the door.",
+            "Ни I, ни you перед глаголом не ставят — и это новое.",
+          ],
+        },
+        {
+          id: "tablica-ukazaniy",
+          kind: "table",
+          caption: "Указание и обычное предложение",
+          head: ["Английский", "Перевод"],
+          rows: [
+            ["You open the door.", "Ты открываешь дверь."],
+            ["Open the door.", "Открой дверь."],
+            ["Come here.", "Иди сюда."],
+            ["Wait, please.", "Подожди, пожалуйста."],
+          ],
+        },
+        {
+          id: "pochemu-net-podlezhashchego",
+          kind: "explain",
+          text: [
+            "Двадцать один модуль подряд перед глаголом стоял тот, о ком речь.",
+            "Здесь его нет, и на то есть причина: указание даётся тому, с кем " +
+              "говорят.",
+            "Называть его незачем — он и так знает, что обращаются к нему.",
+          ],
+        },
+        {
+          id: "glagol-kak-v-slovare",
+          kind: "note",
+          tone: "info",
+          text:
+            "Глагол в указании стоит в том виде, в каком записан в словаре.\n\n" +
+            "Ни -s, ни -ing, ни to: Open, Come, Wait.",
+        },
+        {
+          id: "primer-ukazaniy",
+          kind: "example",
+          caption: "Четыре указания",
+          text: "Open the door.\nClose the window.\nCome here.\nSit here.",
+          explain:
+            "Все четыре начинаются прямо с глагола. После него идёт то, к чему " +
+            "указание относится: дверь, окно, место.",
+        },
+        {
+          id: "zapis-ukazaniy",
+          kind: "audio",
+          planned: true,
+          pace: "slow",
+          caption: "Послушай четыре указания",
+          transcript: "Open the door. Close the window. Come here. Sit here.",
+        },
+        {
+          id: "slovar-ukazaniy",
+          kind: "vocab",
+          caption: "Слова урока",
+          items: [
+            { term: "party", translation: "вечеринка", example: "Come to my party.", hint: "/ˈpɑːti/" },
+            { term: "thanks", translation: "спасибо", example: "Thanks!", hint: "/θæŋks/" },
+          ],
+        },
+
+        // ---- задания ----
+        {
+          id: "z1-vybrat-ukazanie",
+          kind: "choice",
+          prompt: "Ты просишь спутника открыть дверь. Как сказать?",
+          options: [
+            { text: "You open the door." },
+            { text: "Open the door.", correct: true },
+            { text: "To open the door." },
+          ],
+          hint: "Указание начинается прямо с глагола.",
+          why:
+            "Open the door. Первое предложение сообщает, что человек открывает дверь, " +
+            "а слово to в указании не нужно.",
+        },
+        {
+          id: "z2-dopisat-ukazanie",
+          kind: "gap",
+          prompt: "Ты просишь спутника закрыть окно. Допиши глагол. Закрыть — close.",
+          before: "",
+          after: " the window.",
+          answer: "Close",
+          hint: "Указание начинается с глагола, и глагол стоит как в словаре.",
+          why: "Close the window. Перед глаголом ничего не ставят.",
+        },
+        {
+          id: "z3-otmetit-lishnee-v-ukazanii",
+          kind: "hottext",
+          prompt: "Отметь указания, где перед глаголом стоит лишнее слово.",
+          parts: [
+            { text: "Come here.", selectable: true },
+            { text: " · " },
+            { text: "You come here.", selectable: true, correct: true },
+            { text: " · " },
+            { text: "To sit here.", selectable: true, correct: true },
+            { text: " · " },
+            { text: "Sit here.", selectable: true },
+          ],
+          hint: "Указание начинается прямо с глагола.",
+          why: "Верно: Come here и Sit here. Ни you, ни to перед глаголом не ставят.",
+        },
+        {
+          id: "z4-sobrat-ukazanie",
+          kind: "order",
+          prompt: "Собери указание: «Открой окно.»",
+          items: ["window", "Open", "the"],
+          answer: [1, 2, 0],
+          hint: "Первым идёт глагол.",
+          why: "Open the window. Сначала глагол, потом название вещи.",
+        },
+        {
+          id: "z5-napisat-ukazanie",
+          kind: "short",
+          prompt: "Скажи спутнику, чтобы он подождал. Ждать — wait.",
+          answer: "Wait.",
+          accept: ["Wait, please."],
+          hint: "Хватает одного глагола.",
+          why: "Wait. Годится и Wait, please — с этим словом указание звучит мягче.",
+        },
+      ],
+    },
+
+    // =====================================================================
+    {
+      slug: "ne-delay",
+      title: "Не делай: Don't open the door",
+      estimatedMinutes: 12,
+      outcome: "запрещать: Don't open the door",
+
+      blocks: [
+        {
+          id: "zachem-zapret",
+          kind: "explain",
+          text: [
+            "Иногда нужно обратное: не открывай, не закрывай, не жди.",
+            "Перед глаголом встаёт don't: Don't open the door.",
+            "Само указание при этом не меняется — прибавляется одно слово.",
+          ],
+        },
+        {
+          id: "tablica-zapreta",
+          kind: "table",
+          caption: "Указание и запрет",
+          head: ["Английский", "Перевод"],
+          rows: [
+            ["Open the door.", "Открой дверь."],
+            ["Don't open the door.", "Не открывай дверь."],
+            ["Don't wait.", "Не жди."],
+          ],
+        },
+        {
+          id: "dont-uzhe-znakomo",
+          kind: "explain",
+          text: [
+            "Слово don't ты знаешь с модуля «Я не делаю»: I don't work.",
+            "Здесь оно делает ту же работу — отрицает, — но стоит в самом начале.",
+            "Глагол после него по-прежнему без окончания.",
+          ],
+        },
+        {
+          id: "ne-dont-s-you",
+          kind: "note",
+          tone: "mistake",
+          text:
+            "«You don't open the door» — это не запрет.\n\nТак говорят о человеке: " +
+            "он дверь не открывает. Запрет идёт без you: Don't open the door.",
+        },
+        {
+          id: "primer-zapreta",
+          kind: "example",
+          caption: "Три запрета",
+          text: "Don't open the window.\nDon't wait here.\nDon't come tomorrow.",
+          explain:
+            "Во всех трёх don't стоит первым, а глагол — сразу за ним и без " +
+            "окончания.",
+        },
+        {
+          id: "zapis-zapreta",
+          kind: "audio",
+          planned: true,
+          pace: "slow",
+          caption: "Послушай три запрета",
+          transcript: "Don't open the window. Don't wait here. Don't come tomorrow.",
+        },
+        {
+          id: "please-i-v-zaprete",
+          kind: "note",
+          tone: "info",
+          text:
+            "Слово please годится и в запрете: Don't wait, please.\n\nСтавят его так " +
+            "же — в конце, через запятую.",
+        },
+
+        // ---- задания ----
+        {
+          id: "z1-dopisat-dont",
+          kind: "gap",
+          prompt: "Ты просишь спутника не открывать окно. Допиши недостающее слово.",
+          before: "",
+          after: " open the window.",
+          answer: "Don't",
+          accept: ["Do not"],
+          hint: "Оно встаёт перед глаголом, в самом начале.",
+          why: "Don't open the window. Годится и полная запись Do not.",
+        },
+        {
+          id: "z2-vybrat-zapret",
+          kind: "choice",
+          prompt: "Ты просишь спутника не ждать. Как сказать?",
+          options: [
+            { text: "You don't wait." },
+            { text: "Don't wait.", correct: true },
+            { text: "Don't waiting." },
+          ],
+          hint: "Запрет идёт без слова you, а глагол — без окончания.",
+          why:
+            "Don't wait. Первое предложение сообщает, что человек не ждёт, а окончание " +
+            "-ing после don't не ставят.",
+        },
+        {
+          id: "z3-otmetit-ne-zapret",
+          kind: "hottext",
+          prompt: "Отметь записи, которые запретом не являются.",
+          parts: [
+            { text: "Don't come here.", selectable: true },
+            { text: " · " },
+            { text: "You don't come here.", selectable: true, correct: true },
+            { text: " · " },
+            { text: "He doesn't come here.", selectable: true, correct: true },
+            { text: " · " },
+            { text: "Don't wait here.", selectable: true },
+          ],
+          hint: "Запрет идёт без того, о ком речь.",
+          why:
+            "«You don't come here» и «He doesn't come here» — рассказ о людях, а не " +
+            "запрет. Запреты здесь два: Don't come here и Don't wait here.",
+        },
+        {
+          id: "z4-sobrat-zapret",
+          kind: "order",
+          prompt: "Собери запрет: «Не закрывай дверь.»",
+          items: ["the door", "Don't", "close"],
+          answer: [1, 2, 0],
+          hint: "Первым идёт don't.",
+          why: "Don't close the door. Сначала don't, потом глагол, потом название вещи.",
+        },
+        {
+          id: "z5-napisat-zapret",
+          kind: "short",
+          prompt: "Скажи спутнику, чтобы он не приходил завтра. Приходить — come, завтра — tomorrow.",
+          answer: "Don't come tomorrow.",
+          accept: ["Do not come tomorrow.", "Don't come tomorrow, please."],
+          hint: "Запрет начинается с don't.",
+          why: "Don't come tomorrow. Годится и полная запись Do not.",
+        },
+      ],
+    },
+
+    // =====================================================================
+    {
+      slug: "slovo-please",
+      title: "Слово please: где оно стоит",
+      estimatedMinutes: 11,
+      outcome: "ставить please в указании и просьбе",
+
+      blocks: [
+        {
+          id: "zachem-please",
+          kind: "explain",
+          text: [
+            "«Open the door» звучит как приказ, и незнакомому человеку так не скажешь.",
+            "Одно слово меняет дело: Open the door, please.",
+            "Слово please ты знаешь с модуля «Приветствие» — здесь оно работает в " +
+              "полную силу.",
+          ],
+        },
+        {
+          id: "tablica-mesto-please",
+          kind: "table",
+          caption: "Два места для please",
+          head: ["Английский", "Перевод", "Где стоит"],
+          rows: [
+            ["Open the door, please.", "Открой дверь, пожалуйста.", "в конце"],
+            ["Please open the door.", "Пожалуйста, открой дверь.", "в начале"],
+            ["Don't wait, please.", "Не жди, пожалуйста.", "в конце"],
+          ],
+        },
+        {
+          id: "zapyataya-pri-please",
+          kind: "explain",
+          text: [
+            "В конце please отделяют запятой: Wait, please.",
+            "В начале запятой нет: Please wait.",
+            "Оба места верны, и выбирать можно любое.",
+          ],
+        },
+        {
+          id: "ne-please-v-seredine",
+          kind: "note",
+          tone: "mistake",
+          text:
+            "«Open please the door» — так не говорят.\n\nВ середину указания please " +
+            "не ставят. Только в начало или в конец.",
+        },
+        {
+          id: "primer-please",
+          kind: "example",
+          caption: "Одно указание тремя способами",
+          text: "Open the door.\nOpen the door, please.\nPlease open the door.",
+          explain:
+            "Первое — голое указание. Второе и третье значат одно и то же: разница " +
+            "только в том, где стоит please.",
+        },
+        {
+          id: "zapis-please",
+          kind: "audio",
+          planned: true,
+          pace: "slow",
+          caption: "Послушай три записи",
+          transcript: "Open the door. Open the door, please. Please open the door.",
+        },
+        {
+          id: "please-i-v-prosbe",
+          kind: "note",
+          tone: "info",
+          text:
+            "То же слово годится и в вопросе-просьбе: Can you help, please?\n\nМесто " +
+            "у него там одно — конец.",
+        },
+
+        // ---- задания ----
+        {
+          id: "z1-dopisat-please",
+          kind: "gap",
+          prompt: "Ты просишь спутника подождать и добавляешь «пожалуйста». Допиши недостающее слово.",
+          before: "Wait, ",
+          after: ".",
+          answer: "please",
+          hint: "Слово стоит после запятой.",
+          why: "Wait, please. В конце указания please отделяют запятой.",
+        },
+        {
+          id: "z2-vybrat-mesto-please",
+          kind: "choice",
+          prompt: "Ты просишь спутника открыть окно и добавляешь «пожалуйста». Как сказать?",
+          options: [
+            { text: "Open please the window." },
+            { text: "Open the window, please.", correct: true },
+            { text: "Open the please window." },
+          ],
+          hint: "Please стоит в начале или в конце, но не в середине.",
+          why: "Open the window, please. В середину указания please не ставят.",
+        },
+        {
+          id: "z3-otmetit-mesto-please",
+          kind: "hottext",
+          prompt: "Отметь записи, где please стоит не на своём месте.",
+          parts: [
+            { text: "Please come here.", selectable: true },
+            { text: " · " },
+            { text: "Come please here.", selectable: true, correct: true },
+            { text: " · " },
+            { text: "Don't please wait.", selectable: true, correct: true },
+            { text: " · " },
+            { text: "Don't wait, please.", selectable: true },
+          ],
+          hint: "Место у please только два: начало и конец.",
+          why: "Верно: Please come here и Don't wait, please.",
+        },
+        {
+          id: "z4-sobrat-s-please",
+          kind: "order",
+          prompt: "Собери указание: «Пожалуйста, закрой дверь.» Слово please поставь в начало.",
+          items: ["the door", "Please", "close"],
+          answer: [1, 2, 0],
+          hint: "Порядок задан в условии: please впереди.",
+          why: "Please close the door. В начале please запятой не отделяют.",
+        },
+        {
+          id: "z5-napisat-s-please",
+          kind: "short",
+          prompt: "Скажи спутнику, чтобы он сел здесь, и добавь «пожалуйста» в конце. Сесть — sit.",
+          answer: "Sit here, please.",
+          hint: "В конце please отделяют запятой.",
+          why: "Sit here, please. Годится и Please sit here, но условие просило конец.",
+        },
+      ],
+    },
+
+    // =====================================================================
+    {
+      slug: "prosba-s-can",
+      title: "Просьба: Can you help?",
+      estimatedMinutes: 13,
+      outcome: "просить: Can you help?",
+
+      blocks: [
+        {
+          id: "zachem-prosba-s-can",
+          kind: "explain",
+          text: [
+            "Указание годится не всегда: незнакомому человеку так не скажешь.",
+            "Тогда берут вопрос с can: Can you help?",
+            "Это уже не указание, а просьба — собеседник может и отказать.",
+          ],
+        },
+        {
+          id: "tablica-ukazanie-i-prosba",
+          kind: "table",
+          caption: "Указание и просьба",
+          head: ["Английский", "Перевод", "Что это"],
+          rows: [
+            ["Open the door.", "Открой дверь.", "указание"],
+            ["Can you open the door?", "Ты не откроешь дверь?", "просьба"],
+            ["Can you help, please?", "Ты не поможешь?", "просьба"],
+          ],
+        },
+        {
+          id: "prosba-eto-vopros-po-vidu",
+          kind: "explain",
+          text: [
+            "По виду просьба — обычный вопрос с can из модуля «Я умею».",
+            "Порядок тот же: can, потом тот, кого просят, потом глагол.",
+            "И вопросительный знак в конце тоже остаётся.",
+          ],
+        },
+        {
+          id: "ne-can-you-to-help",
+          kind: "note",
+          tone: "mistake",
+          text:
+            "«Can you to help?» — так не говорят.\n\nПосле can глагол стоит без to, " +
+            "как и в рассказе об умении: Can you help?",
+        },
+        {
+          id: "primer-prosby-s-can",
+          kind: "example",
+          caption: "Три просьбы",
+          text: "Can you help, please?\nCan you open the door?\nCan you come tomorrow?",
+          explain:
+            "Во всех трёх can стоит первым, глагол — без окончания. Слово please " +
+            "ставят в конце.",
+        },
+        {
+          id: "zapis-prosby-s-can",
+          kind: "audio",
+          planned: true,
+          pace: "slow",
+          caption: "Послушай три просьбы",
+          transcript: "Can you help, please? Can you open the door? Can you come tomorrow?",
+        },
+        {
+          id: "otvet-na-prosbu",
+          kind: "note",
+          tone: "info",
+          text:
+            "Отвечают на просьбу коротко: Yes, of course. Или просто Yes.\n\nОтказ " +
+            "звучит так: Sorry, I can't.",
+        },
+
+        // ---- задания ----
+        {
+          id: "z1-dopisat-can-v-prosbe",
+          kind: "gap",
+          prompt: "Ты просишь незнакомого человека помочь. Допиши недостающее слово.",
+          before: "",
+          after: " you help, please?",
+          answer: "Can",
+          hint: "Просьба открывается тем же словом, что вопрос об умении.",
+          why: "Can you help, please? Просьба по виду — вопрос с can.",
+        },
+        {
+          id: "z2-vybrat-prosbu",
+          kind: "choice",
+          prompt: "Ты просишь незнакомого человека открыть дверь. Как сказать?",
+          options: [
+            { text: "Can you open the door?", correct: true },
+            { text: "Can you to open the door?" },
+            { text: "Can you opening the door?" },
+          ],
+          hint: "После can глагол стоит без добавок.",
+          why:
+            "Can you open the door? Ни to, ни окончание -ing после can не ставят.",
+        },
+        {
+          id: "z3-otmetit-ukazaniya-i-prosby",
+          kind: "hottext",
+          prompt: "Отметь записи, которые являются просьбой, а не указанием.",
+          parts: [
+            { text: "Open the door.", selectable: true },
+            { text: " · " },
+            { text: "Can you open the door?", selectable: true, correct: true },
+            { text: " · " },
+            { text: "Can you wait, please?", selectable: true, correct: true },
+            { text: " · " },
+            { text: "Wait, please.", selectable: true },
+          ],
+          hint: "Просьба начинается с can и кончается вопросительным знаком.",
+          why:
+            "Просьбы — «Can you open the door?» и «Can you wait, please?». Два других " +
+            "предложения указания.",
+        },
+        {
+          id: "z4-sobrat-prosbu",
+          kind: "order",
+          prompt: "Собери просьбу: «Ты не закроешь окно?»",
+          items: ["close", "Can", "the window?", "you"],
+          answer: [1, 3, 0, 2],
+          hint: "Первым идёт can, вторым — тот, кого просят.",
+          why: "Can you close the window? Порядок тот же, что в вопросе об умении.",
+        },
+        {
+          id: "z5-napisat-prosbu",
+          kind: "short",
+          prompt: "Попроси незнакомого человека прийти завтра. Прийти — come, завтра — tomorrow.",
+          answer: "Can you come tomorrow?",
+          accept: ["Can you come tomorrow, please?"],
+          hint: "Начни с can.",
+          why: "Can you come tomorrow? Годится и с please в конце.",
+        },
+      ],
+    },
+
+    // =====================================================================
+    {
+      slug: "mozhno-mne",
+      title: "Можно мне: Can I sit here?",
+      estimatedMinutes: 12,
+      outcome: "спрашивать разрешения: Can I sit here?",
+
+      blocks: [
+        {
+          id: "zachem-razreshenie",
+          kind: "explain",
+          text: [
+            "Бывает наоборот: не ты делаешь одолжение, а тебе нужно разрешение.",
+            "Тогда после can стоит не you, а I: Can I sit here?",
+            "Смысл меняется целиком: дело будешь делать ты, а разрешает собеседник.",
+          ],
+        },
+        {
+          id: "tablica-can-i-can-you",
+          kind: "table",
+          caption: "Кто будет делать дело",
+          head: ["Английский", "Перевод", "Кто делает"],
+          rows: [
+            ["Can you open the door?", "Ты не откроешь дверь?", "собеседник"],
+            ["Can I open the door?", "Можно я открою дверь?", "ты сам"],
+            ["Can I sit here?", "Можно мне здесь сесть?", "ты сам"],
+          ],
+        },
+        {
+          id: "kak-otlichit-can-i",
+          kind: "explain",
+          text: [
+            "Отличить просто: смотри, кто стоит сразу после can.",
+            "Can you — просишь собеседника. Can I — просишь разрешения себе.",
+            "Больше в этих двух вопросах ничего не различается.",
+          ],
+        },
+        {
+          id: "ne-can-me",
+          kind: "note",
+          tone: "mistake",
+          text:
+            "«Can me sit here?» — так не говорят.\n\nПеред глаголом стоит I, а не " +
+            "me. Слово me приходит только после глагола или предлога.",
+        },
+        {
+          id: "primer-razresheniya",
+          kind: "example",
+          caption: "Разговор в кафе",
+          text: "— Can I sit here?\n— Yes, of course.\n— Can I open the window?\n— Sorry, I'm cold.",
+          explain:
+            "В обоих вопросах после can стоит I: разрешения просит тот, кто " +
+            "спрашивает. Ответ бывает и отказом.",
+        },
+        {
+          id: "zapis-razresheniya",
+          kind: "audio",
+          planned: true,
+          pace: "slow",
+          caption: "Послушай два вопроса",
+          transcript: "Can I sit here? Can I open the window?",
+        },
+        {
+          id: "can-i-help-you-tozhe-syuda",
+          kind: "note",
+          tone: "info",
+          text:
+            "Оборот Can I help you? из модуля «Я умею» устроен так же.\n\nПосле can " +
+            "стоит I — значит помогать будет тот, кто спрашивает.",
+        },
+
+        // ---- задания ----
+        {
+          id: "z1-dopisat-i-v-razreshenii",
+          kind: "gap",
+          prompt: "Ты просишь разрешения сесть здесь. Допиши недостающее слово.",
+          before: "Can ",
+          after: " sit here?",
+          answer: "I",
+          exact: true,
+          hint: "Дело будешь делать ты сам.",
+          why: "Can I sit here? Слово I пишется с заглавной буквы всегда.",
+        },
+        {
+          id: "z2-vybrat-kto-delaet",
+          kind: "choice",
+          prompt: "Ты просишь разрешения открыть окно. Как сказать?",
+          options: [
+            { text: "Can you open the window?" },
+            { text: "Can I open the window?", correct: true },
+            { text: "Can me open the window?" },
+          ],
+          hint: "Смотри, кто будет открывать окно.",
+          why:
+            "Can I open the window? В первом вопросе окно откроет собеседник, а слово " +
+            "me перед глаголом не ставят.",
+        },
+        {
+          id: "z3-otmetit-razresheniya",
+          kind: "hottext",
+          prompt: "Отметь вопросы, где человек просит разрешения себе.",
+          parts: [
+            { text: "Can you wait here?", selectable: true },
+            { text: " · " },
+            { text: "Can I wait here?", selectable: true, correct: true },
+            { text: " · " },
+            { text: "Can I come tomorrow?", selectable: true, correct: true },
+            { text: " · " },
+            { text: "Can you come tomorrow?", selectable: true },
+          ],
+          hint: "Смотри, кто стоит сразу после can.",
+          why:
+            "Разрешения просят в «Can I wait here?» и «Can I come tomorrow?». В двух " +
+            "других вопросах просят собеседника.",
+        },
+        {
+          id: "z4-sopostavit-kto-delaet",
+          kind: "match",
+          prompt: "Сопоставь вопрос и того, кто будет делать дело.",
+          left: ["Can you help?", "Can I help?", "Can I sit here?"],
+          right: ["собеседник поможет", "ты сядешь", "ты поможешь"],
+          answer: [0, 2, 1],
+          hint: "Смотри, кто стоит сразу после can.",
+          why:
+            "Can you help — поможет собеседник. Can I help — поможешь ты. Can I sit " +
+            "here — сядешь ты.",
+        },
+        {
+          id: "z5-napisat-razreshenie",
+          kind: "short",
+          prompt: "Попроси разрешения прийти завтра. Прийти — come, завтра — tomorrow.",
+          answer: "Can I come tomorrow?",
+          accept: ["Can I come tomorrow, please?"],
+          hint: "После can стоит тот, кто будет делать дело.",
+          why: "Can I come tomorrow? Приходить будешь ты, значит после can стоит I.",
+        },
+      ],
+    },
+
+    // =====================================================================
+    {
+      slug: "priglashenie",
+      title: "Приглашение: Would you like to come?",
+      estimatedMinutes: 13,
+      outcome: "приглашать: Would you like to come?",
+
+      blocks: [
+        {
+          id: "zachem-priglashenie",
+          kind: "explain",
+          text: [
+            "У тебя вечеринка, и ты зовёшь друга.",
+            "Указание «Come to my party» звучит как приказ, а приглашение — это " +
+              "предложение, от которого можно отказаться.",
+            "Для него берут оборот из модуля «Мне нравится», но вопросом: Would you " +
+              "like to come?",
+          ],
+        },
+        {
+          id: "tablica-priglasheniy",
+          kind: "table",
+          caption: "Приглашение и предложение вещи",
+          head: ["Английский", "Перевод"],
+          rows: [
+            ["Would you like to come?", "Не хочешь прийти?"],
+            ["Would you like to come to my party?", "Не хочешь прийти на мою вечеринку?"],
+            ["Would you like a coffee?", "Хочешь кофе?"],
+          ],
+        },
+        {
+          id: "kak-ustroeno-priglashenie",
+          kind: "explain",
+          text: [
+            "Оборот тот же, что в «I'd like», только would вышло вперёд.",
+            "Порядок такой: would, you, like, потом to и глагол.",
+            "Если предлагаешь вещь, а не занятие, слово to не нужно: Would you like a " +
+              "coffee?",
+          ],
+        },
+        {
+          id: "ne-do-you-like-priglashenie",
+          kind: "note",
+          tone: "mistake",
+          text:
+            "«Do you like to come?» — это не приглашение.\n\nТак спрашивают о вкусе: " +
+            "нравится ли человеку приходить вообще. Приглашение начинается с would.",
+        },
+        {
+          id: "primer-priglasheniya",
+          kind: "example",
+          caption: "Приглашение на вечеринку",
+          text: "— Would you like to come to my party?\n— Yes, I'd like to. Thanks!",
+          explain:
+            "Вопрос начинается с would. В ответе тот же оборот, только утверждением: " +
+            "I'd like to.",
+        },
+        {
+          id: "zapis-priglasheniya",
+          kind: "audio",
+          planned: true,
+          pace: "slow",
+          caption: "Послушай приглашение и ответ",
+          transcript: "Would you like to come to my party? Yes, I'd like to. Thanks!",
+        },
+        {
+          id: "priglashenie-uzhe-vstrechalos",
+          kind: "note",
+          tone: "info",
+          text:
+            "Этот вопрос уже встречался тебе в модуле «Мне нравится» — там он стоял " +
+            "одной строкой, для узнавания на слух.\n\nТеперь ты строишь его сам.",
+        },
+
+        // ---- задания ----
+        {
+          id: "z1-dopisat-would",
+          kind: "gap",
+          prompt: "Ты приглашаешь друга прийти. Допиши недостающее слово.",
+          before: "",
+          after: " you like to come?",
+          answer: "Would",
+          hint: "Приглашение открывает то же слово, что стоит в обороте I'd like.",
+          why: "Would you like to come? В приглашении would выходит вперёд.",
+        },
+        {
+          id: "z2-vybrat-priglashenie",
+          kind: "choice",
+          prompt: "Ты приглашаешь друга на свою вечеринку. Как сказать?",
+          options: [
+            { text: "Do you like to come to my party?" },
+            { text: "Would you like to come to my party?", correct: true },
+            { text: "Would you like come to my party?" },
+          ],
+          hint: "Приглашение начинается с would, а перед глаголом стоит to.",
+          why:
+            "Would you like to come to my party? Вопрос с do спрашивает о вкусе, а " +
+            "без to два глагола рядом не идут.",
+        },
+        {
+          id: "z3-otmetit-priglasheniya",
+          kind: "hottext",
+          prompt: "Отметь записи, которые являются приглашением.",
+          parts: [
+            { text: "Come to my party.", selectable: true },
+            { text: " · " },
+            { text: "Would you like to come to my party?", selectable: true, correct: true },
+            { text: " · " },
+            { text: "Would you like a coffee?", selectable: true, correct: true },
+            { text: " · " },
+            { text: "Do you like coffee?", selectable: true },
+          ],
+          hint: "Приглашение начинается с would.",
+          why:
+            "Приглашения — «Would you like to come to my party?» и «Would you like a " +
+            "coffee?». Первая запись — указание, последняя — вопрос о вкусе.",
+        },
+        {
+          id: "z4-sobrat-priglashenie",
+          kind: "order",
+          prompt: "Собери приглашение: «Не хочешь чаю?»",
+          items: ["like", "Would", "a tea?", "you"],
+          answer: [1, 3, 0, 2],
+          hint: "Первым идёт would, вторым — тот, кого приглашают.",
+          why: "Would you like a tea? Перед названием вещи слово to не нужно.",
+        },
+        {
+          id: "z5-napisat-priglashenie",
+          kind: "short",
+          prompt: "Пригласи друга прийти завтра. Прийти — come, завтра — tomorrow.",
+          answer: "Would you like to come tomorrow?",
+          hint: "Начни с would, перед глаголом поставь to.",
+          why: "Would you like to come tomorrow? Порядок: would, you, like, to, глагол.",
+        },
+      ],
+    },
+
+    // =====================================================================
+    {
+      slug: "otvet-na-priglashenie",
+      title: "Ответ на приглашение: Yes, please",
+      estimatedMinutes: 12,
+      outcome: "отвечать на приглашение: Yes, please",
+
+      blocks: [
+        {
+          id: "zachem-otvet-na-priglashenie",
+          kind: "explain",
+          text: [
+            "Тебя позвали на вечеринку или предложили чаю. Молчать нельзя, отвечать " +
+              "надо коротко.",
+            "На предложение вещи отвечают Yes, please или No, thank you.",
+            "На приглашение к делу — Yes, I'd like to или Sorry, I can't.",
+          ],
+        },
+        {
+          id: "tablica-otvetov",
+          kind: "table",
+          caption: "Что отвечать",
+          head: ["Вопрос", "Согласие", "Отказ"],
+          rows: [
+            ["Would you like a tea?", "Yes, please.", "No, thank you."],
+            ["Would you like to come?", "Yes, I'd like to.", "Sorry, I can't."],
+            ["Can you help?", "Yes, of course.", "Sorry, I can't."],
+          ],
+        },
+        {
+          id: "yes-please-i-no-thank-you",
+          kind: "explain",
+          text: [
+            "Пара Yes, please и No, thank you работает только с вещами.",
+            "Ответить на «Would you like a tea?» словом Yes нельзя: это звучит " +
+              "оборванно.",
+            "А отказ без thank you выходит резким, поэтому его почти всегда " +
+              "договаривают.",
+          ],
+        },
+        {
+          id: "ne-no-please",
+          kind: "note",
+          tone: "mistake",
+          text:
+            "«No, please» — так не отвечают.\n\nСлово please идёт с согласием: " +
+            "Yes, please. С отказом идёт thank you: No, thank you.",
+        },
+        {
+          id: "primer-otvetov",
+          kind: "example",
+          caption: "Два коротких разговора",
+          text:
+            "— Would you like a coffee?\n— Yes, please.\n\n— Would you like to come tomorrow?\n— Sorry, I can't.",
+          explain:
+            "В первом разговоре предлагают вещь — ответ Yes, please. Во втором зовут " +
+            "на дело, и отказ идёт со словом sorry.",
+        },
+        {
+          id: "zapis-otvetov",
+          kind: "audio",
+          planned: true,
+          pace: "slow",
+          caption: "Послушай два ответа",
+          transcript: "Yes, please. No, thank you.",
+        },
+        {
+          id: "thanks-koroche",
+          kind: "note",
+          tone: "info",
+          text:
+            "Вместо thank you часто говорят короче: thanks.\n\nОба слова значат одно, " +
+            "и в ответе годятся оба: No, thanks.",
+        },
+
+        // ---- задания ----
+        {
+          id: "z1-dopisat-please-v-otvete",
+          kind: "gap",
+          prompt: "Тебе предложили чаю, и ты соглашаешься. Допиши недостающее слово.",
+          before: "Yes, ",
+          after: ".",
+          answer: "please",
+          hint: "С согласием идёт слово из просьбы.",
+          why: "Yes, please. Слово please идёт именно с согласием.",
+        },
+        {
+          id: "z2-vybrat-otkaz",
+          kind: "choice",
+          prompt: "Тебе предложили кофе, а ты не хочешь. Как отказаться?",
+          options: [
+            { text: "No, please." },
+            { text: "No, thank you.", correct: true },
+            { text: "No, I don't like." },
+          ],
+          hint: "С отказом идёт thank you.",
+          why:
+            "No, thank you. Слово please идёт только с согласием, а «I don't like» " +
+            "говорит о вкусе вообще, а не об этой чашке.",
+        },
+        {
+          id: "z3-sopostavit-vopros-i-otvet",
+          kind: "match",
+          prompt: "Сопоставь вопрос и подходящий ответ.",
+          left: ["Would you like a tea?", "Would you like to come?", "Can you help?"],
+          right: ["Yes, of course.", "Yes, please.", "Yes, I'd like to."],
+          answer: [1, 2, 0],
+          hint: "На предложение вещи отвечают одним способом, на приглашение — другим.",
+          why:
+            "Would you like a tea? — Yes, please. Would you like to come? — Yes, I'd " +
+            "like to. Can you help? — Yes, of course.",
+        },
+        {
+          id: "z4-otmetit-neverne-otvety",
+          kind: "hottext",
+          prompt: "Отметь ответы, которых не бывает.",
+          parts: [
+            { text: "Yes, please.", selectable: true },
+            { text: " · " },
+            { text: "No, please.", selectable: true, correct: true },
+            { text: " · " },
+            { text: "Yes, thank you.", selectable: true },
+            { text: " · " },
+            { text: "Yes, thanks please.", selectable: true, correct: true },
+          ],
+          hint: "Please идёт с согласием, thank you — и с согласием, и с отказом.",
+          why:
+            "Не бывает «No, please» и «Yes, thanks please». Верные ответы — Yes, " +
+            "please и Yes, thank you.",
+        },
+        {
+          id: "z5-napisat-otkaz",
+          kind: "short",
+          prompt: "Тебя позвали прийти завтра, но ты не можешь. Откажись двумя словами и словом sorry.",
+          answer: "Sorry, I can't.",
+          accept: ["Sorry, I cannot."],
+          hint: "После sorry идёт короткий отказ с can.",
+          why: "Sorry, I can't. Отказ на приглашение к делу строится с can.",
+        },
+      ],
+    },
+
+    // =====================================================================
+    {
+      slug: "razgovor-s-prosboy",
+      title: "Разговор целиком",
+      estimatedMinutes: 13,
+      outcome: "вести разговор с просьбой целиком",
+
+      blocks: [
+        {
+          id: "zachem-razgovor-s-prosboy",
+          kind: "explain",
+          text: [
+            "Ты заходишь в кафе, где все места заняты, кроме одного.",
+            "За один короткий разговор тебе понадобится и просьба, и разрешение, и " +
+              "благодарность.",
+            "Всё это у тебя уже есть — осталось сложить в нужном порядке.",
+          ],
+        },
+        {
+          id: "tablica-iz-chego-razgovor",
+          kind: "table",
+          caption: "Из чего складывается разговор",
+          head: ["Что нужно", "Как это выглядит"],
+          rows: [
+            ["спросить разрешения", "Can I sit here?"],
+            ["попросить", "Can you help, please?"],
+            ["пригласить", "Would you like a coffee?"],
+            ["ответить", "Yes, please."],
+            ["поблагодарить", "Thanks!"],
+          ],
+        },
+        {
+          id: "poryadok-razgovora",
+          kind: "explain",
+          text: [
+            "Порядок обычный: сначала вопрос, потом ответ, потом благодарность.",
+            "Благодарность в конце — не украшение: без неё разговор обрывается.",
+            "Слово thanks короче и годится в любом разговоре с приятелем.",
+          ],
+        },
+        {
+          id: "ne-tolko-ukazaniya",
+          kind: "note",
+          tone: "info",
+          text:
+            "Разговор из одних указаний звучит как приказ.\n\nЧередуй: указание, " +
+            "просьба с can, приглашение — все три у тебя есть.",
+        },
+        {
+          id: "primer-razgovora-s-prosboy",
+          kind: "example",
+          caption: "Разговор в кафе",
+          text:
+            "— Can I sit here?\n— Yes, of course.\n— Would you like a coffee?\n— Yes, please. Thanks!",
+          explain:
+            "Первый вопрос — разрешение себе. Второй — предложение собеседнику. " +
+            "Ответы короткие, и в конце стоит благодарность.",
+        },
+        {
+          id: "zapis-razgovora-s-prosboy",
+          kind: "audio",
+          planned: true,
+          pace: "slow",
+          caption: "Послушай разговор целиком",
+          transcript: "Can I sit here? Yes, of course. Would you like a coffee? Yes, please. Thanks!",
+        },
+        {
+          id: "sorry-tozhe-nuzhen",
+          kind: "note",
+          tone: "info",
+          text:
+            "Слово sorry в таком разговоре нужно не реже, чем please.\n\nИм " +
+            "начинают отказ и им же обращаются к незнакомому человеку: Sorry, can " +
+            "you help?",
+        },
+
+        // ---- задания ----
+        {
+          id: "z1-sobrat-razgovor",
+          kind: "order",
+          prompt: "Собери разговор: сначала вопрос о месте, потом согласие, потом благодарность.",
+          items: ["Yes, of course.", "Can I sit here?", "Thanks!"],
+          answer: [1, 0, 2],
+          hint: "Порядок задан в условии.",
+          why: "Can I sit here? Yes, of course. Thanks!",
+        },
+        {
+          id: "z2-napisat-prosbu-i-blagodarnost",
+          kind: "short",
+          prompt:
+            "Напиши два предложения: попроси незнакомого человека помочь и поблагодари. " +
+            "Помочь — help.",
+          answer: "Can you help, please? Thanks!",
+          accept: ["Can you help, please? Thank you!"],
+          hint: "Сначала просьба, потом благодарность.",
+          why: "Can you help, please? Thanks! Годится и полное Thank you.",
+        },
+        {
+          id: "z3-dopisat-v-razgovore",
+          kind: "gap",
+          prompt: "Тебе предложили кофе, и ты соглашаешься. Допиши недостающее слово.",
+          before: "Would you like a coffee? — Yes, ",
+          after: ".",
+          answer: "please",
+          hint: "С согласием идёт одно слово.",
+          why: "Yes, please. С отказом было бы No, thank you.",
+        },
+        {
+          id: "z4-otmetit-prikaz",
+          kind: "hottext",
+          prompt: "Отметь записи, которые незнакомому человеку не скажешь.",
+          parts: [
+            { text: "Can you help, please?", selectable: true },
+            { text: " · " },
+            { text: "Help me.", selectable: true, correct: true },
+            { text: " · " },
+            { text: "Open the door.", selectable: true, correct: true },
+            { text: " · " },
+            { text: "Can you open the door?", selectable: true },
+          ],
+          hint: "Голое указание звучит как приказ.",
+          why:
+            "Незнакомому человеку говорят просьбой: Can you help, please? и Can you " +
+            "open the door? Голые указания оставь для своих.",
+        },
+        {
+          id: "z5-razgovor-vsluh",
+          kind: "speak",
+          prompt: "Разыграй вслух разговор в кафе: спроси разрешения, услышь согласие, поблагодари.",
+          phrase: "Can I sit here? Yes, of course. Thanks!",
+          translation: "Можно мне здесь сесть? Да, конечно. Спасибо!",
+          hint: "Три коротких предложения, и в конце благодарность.",
+          why:
+            "Три реплики — уже разговор. В нём есть вопрос, ответ и благодарность.",
+        },
+      ],
+    },
+  ],
+
+  quiz: {
+    ask: 12,
+    passRatio: 0.7,
+    questions: [
+      // Работа не повторяет задания уроков: другие глаголы, другие случаи,
+      // другой пропущенный кусок.
+
+      // ---- итог 1 ----
+      {
+        id: "q-ukazanie-vybor",
+        kind: "choice",
+        outcome: "давать указание: Open the door",
+        prompt: "Ты просишь спутника сесть здесь. Как сказать?",
+        options: [
+          { text: "You sit here." },
+          { text: "Sit here.", correct: true },
+          { text: "To sit here." },
+        ],
+        hint: "Указание начинается прямо с глагола.",
+        why:
+          "Sit here. Первое предложение сообщает, что человек садится, а слово to в " +
+          "указании не нужно.",
+      },
+      {
+        id: "q-ukazanie-dopisat",
+        kind: "gap",
+        outcome: "давать указание: Open the door",
+        prompt: "Ты просишь спутника подойти сюда. Допиши глагол. Подойти — come.",
+        before: "",
+        after: " here.",
+        answer: "Come",
+        hint: "Глагол стоит как в словаре, и перед ним ничего нет.",
+        why: "Come here. Указание начинается с глагола.",
+      },
+      {
+        id: "q-ukazanie-sobrat",
+        kind: "order",
+        outcome: "давать указание: Open the door",
+        prompt: "Собери указание: «Закрой дверь.»",
+        items: ["door", "Close", "the"],
+        answer: [1, 2, 0],
+        hint: "Первым идёт глагол.",
+        why: "Close the door. Сначала глагол, потом название вещи.",
+      },
+
+      // ---- итог 2 ----
+      {
+        id: "q-zapret-dopisat",
+        kind: "gap",
+        outcome: "запрещать: Don't open the door",
+        prompt: "Ты просишь спутника не закрывать дверь. Допиши недостающее слово.",
+        before: "",
+        after: " close the door.",
+        answer: "Don't",
+        accept: ["Do not"],
+        hint: "Оно встаёт в самом начале, перед глаголом.",
+        why: "Don't close the door. Годится и полная запись Do not.",
+      },
+      {
+        id: "q-zapret-vybor",
+        kind: "choice",
+        outcome: "запрещать: Don't open the door",
+        prompt: "Ты просишь спутника не приходить завтра. Как сказать?",
+        options: [
+          { text: "Don't come tomorrow.", correct: true },
+          { text: "You don't come tomorrow." },
+          { text: "Don't coming tomorrow." },
+        ],
+        hint: "Запрет идёт без you, а глагол — без окончания.",
+        why:
+          "Don't come tomorrow. Второе предложение сообщает, что человек не приходит, " +
+          "а окончание -ing после don't не ставят.",
+      },
+      {
+        id: "q-zapret-napisat",
+        kind: "short",
+        outcome: "запрещать: Don't open the door",
+        prompt: "Скажи спутнику, чтобы он не ждал здесь. Ждать — wait, здесь — here.",
+        answer: "Don't wait here.",
+        accept: ["Do not wait here.", "Don't wait here, please."],
+        hint: "Запрет начинается с don't.",
+        why: "Don't wait here. Годится и полная запись Do not.",
+      },
+
+      // ---- итог 3 ----
+      {
+        id: "q-please-dopisat",
+        kind: "gap",
+        outcome: "ставить please в указании и просьбе",
+        prompt: "Ты просишь спутника подойти сюда и добавляешь «пожалуйста» в конце.",
+        before: "Come here, ",
+        after: ".",
+        answer: "please",
+        hint: "В конце это слово идёт после запятой.",
+        why: "Come here, please. В конце please отделяют запятой.",
+      },
+      {
+        id: "q-please-vybor",
+        kind: "choice",
+        outcome: "ставить please в указании и просьбе",
+        prompt: "Ты просишь спутника открыть дверь и добавляешь «пожалуйста». Как сказать?",
+        options: [
+          { text: "Open please the door." },
+          { text: "Open the please door." },
+          { text: "Open the door, please.", correct: true },
+        ],
+        hint: "Место у please только два: начало и конец.",
+        why: "Open the door, please. В середину указания please не ставят.",
+      },
+      {
+        id: "q-please-napisat",
+        kind: "short",
+        outcome: "ставить please в указании и просьбе",
+        prompt:
+          "Скажи спутнику, чтобы он закрыл окно, и поставь «пожалуйста» в начале. " +
+          "Закрыть — close, окно — the window.",
+        answer: "Please close the window.",
+        hint: "В начале please запятой не отделяют.",
+        why: "Please close the window. Условие просило начало, поэтому запятой нет.",
+      },
+
+      // ---- итог 4 ----
+      {
+        id: "q-prosba-dopisat",
+        kind: "gap",
+        outcome: "просить: Can you help?",
+        prompt: "Ты просишь незнакомого человека подождать. Допиши недостающее слово.",
+        before: "",
+        after: " you wait, please?",
+        answer: "Can",
+        hint: "Просьба открывается тем же словом, что вопрос об умении.",
+        why: "Can you wait, please? Просьба по виду — вопрос с can.",
+      },
+      {
+        id: "q-prosba-vybor",
+        kind: "choice",
+        outcome: "просить: Can you help?",
+        prompt: "Ты просишь незнакомого человека закрыть окно. Как сказать?",
+        options: [
+          { text: "Can you close the window?", correct: true },
+          { text: "Can you closing the window?" },
+          { text: "Can you to close the window?" },
+        ],
+        hint: "После can глагол стоит без добавок.",
+        why: "Can you close the window? Ни окончание -ing, ни to после can не ставят.",
+      },
+      {
+        id: "q-prosba-napisat",
+        kind: "short",
+        outcome: "просить: Can you help?",
+        prompt: "Попроси незнакомого человека помочь и добавь «пожалуйста». Помочь — help.",
+        answer: "Can you help, please?",
+        hint: "Начни с can, а please поставь в конец.",
+        why: "Can you help, please? Просьба строится вопросом с can.",
+      },
+
+      // ---- итог 5 ----
+      {
+        id: "q-razreshenie-dopisat",
+        kind: "gap",
+        outcome: "спрашивать разрешения: Can I sit here?",
+        prompt: "Ты просишь разрешения открыть окно. Допиши недостающее слово.",
+        before: "Can ",
+        after: " open the window?",
+        answer: "I",
+        exact: true,
+        hint: "Дело будешь делать ты сам.",
+        why: "Can I open the window? Слово I пишется с заглавной буквы всегда.",
+      },
+      {
+        id: "q-razreshenie-vybor",
+        kind: "choice",
+        outcome: "спрашивать разрешения: Can I sit here?",
+        prompt: "Ты просишь разрешения подождать здесь. Как сказать?",
+        options: [
+          { text: "Can you wait here?" },
+          { text: "Can me wait here?" },
+          { text: "Can I wait here?", correct: true },
+        ],
+        hint: "Смотри, кто будет ждать.",
+        why:
+          "Can I wait here? В первом вопросе ждать будет собеседник, а слово me перед " +
+          "глаголом не ставят.",
+      },
+      {
+        id: "q-razreshenie-napisat",
+        kind: "short",
+        outcome: "спрашивать разрешения: Can I sit here?",
+        prompt: "Попроси разрешения сесть здесь. Сесть — sit, здесь — here.",
+        answer: "Can I sit here?",
+        accept: ["Can I sit here, please?"],
+        hint: "После can стоит тот, кто будет делать дело.",
+        why: "Can I sit here? Садиться будешь ты, значит после can стоит I.",
+      },
+
+      // ---- итог 6 ----
+      {
+        id: "q-priglashenie-dopisat",
+        kind: "gap",
+        outcome: "приглашать: Would you like to come?",
+        prompt: "Ты приглашаешь друга на свою вечеринку. Допиши недостающее слово.",
+        before: "Would you like to come to my ",
+        after: "?",
+        answer: "party",
+        hint: "Слово называет то, куда ты зовёшь.",
+        why: "Would you like to come to my party? Приглашение начинается с would.",
+      },
+      {
+        id: "q-priglashenie-vybor",
+        kind: "choice",
+        outcome: "приглашать: Would you like to come?",
+        prompt: "Ты предлагаешь другу кофе. Как сказать?",
+        options: [
+          { text: "Do you like a coffee?" },
+          { text: "Would you like to a coffee?" },
+          { text: "Would you like a coffee?", correct: true },
+        ],
+        hint: "Перед названием вещи слово to не нужно.",
+        why:
+          "Would you like a coffee? Вопрос с do спрашивает о вкусе вообще, а слово to " +
+          "стоит только перед глаголом.",
+      },
+      {
+        id: "q-priglashenie-napisat",
+        kind: "short",
+        outcome: "приглашать: Would you like to come?",
+        prompt: "Пригласи друга прийти на твою вечеринку. Прийти — come, вечеринка — my party.",
+        answer: "Would you like to come to my party?",
+        hint: "Начни с would, перед глаголом поставь to.",
+        why: "Would you like to come to my party? Порядок: would, you, like, to, глагол.",
+      },
+
+      // ---- итог 7 ----
+      {
+        id: "q-otvet-vybor",
+        kind: "choice",
+        outcome: "отвечать на приглашение: Yes, please",
+        prompt: "Тебе предложили чаю, и ты соглашаешься. Как ответить?",
+        options: [
+          { text: "Yes, please.", correct: true },
+          { text: "No, please." },
+          { text: "Yes, thanks please." },
+        ],
+        hint: "С согласием идёт одно короткое слово.",
+        why: "Yes, please. Слово please идёт с согласием, а «No, please» не говорят.",
+      },
+      {
+        id: "q-otvet-dopisat",
+        kind: "gap",
+        outcome: "отвечать на приглашение: Yes, please",
+        prompt: "Тебе предложили кофе, а ты не хочешь. Допиши недостающее.",
+        before: "No, ",
+        after: ".",
+        answer: "thank you",
+        accept: ["thanks"],
+        hint: "С отказом идёт благодарность.",
+        why: "No, thank you. Годится и короткое No, thanks.",
+      },
+      {
+        id: "q-otvet-napisat",
+        kind: "short",
+        outcome: "отвечать на приглашение: Yes, please",
+        prompt: "Тебя позвали прийти завтра, и ты соглашаешься. Ответь оборотом I'd like to.",
+        answer: "Yes, I'd like to.",
+        accept: ["Yes, I would like to."],
+        hint: "На приглашение к делу отвечают тем же оборотом.",
+        why: "Yes, I'd like to. Полная запись I would like to тоже верна.",
+      },
+
+      // ---- итог 8 ----
+      {
+        id: "q-razgovor-sobrat",
+        kind: "order",
+        outcome: "вести разговор с просьбой целиком",
+        prompt: "Собери разговор: сначала предложение кофе, потом согласие, потом благодарность.",
+        items: ["Thanks!", "Would you like a coffee?", "Yes, please."],
+        answer: [1, 2, 0],
+        hint: "Порядок задан в условии.",
+        why: "Would you like a coffee? Yes, please. Thanks!",
+      },
+      {
+        id: "q-razgovor-napisat",
+        kind: "short",
+        outcome: "вести разговор с просьбой целиком",
+        prompt:
+          "Напиши два предложения: попроси разрешения сесть здесь и поблагодари. " +
+          "Сесть — sit, здесь — here.",
+        answer: "Can I sit here? Thanks!",
+        accept: ["Can I sit here? Thank you!"],
+        hint: "Сначала вопрос, потом благодарность.",
+        why: "Can I sit here? Thanks! Годится и полное Thank you.",
+      },
+      {
+        id: "q-razgovor-vybor",
+        kind: "choice",
+        outcome: "вести разговор с просьбой целиком",
+        prompt: "Что из этого скажешь незнакомому человеку?",
+        options: [
+          { text: "Wait." },
+          { text: "Can you wait, please?", correct: true },
+          { text: "Don't wait." },
+        ],
+        hint: "Голое указание звучит как приказ.",
+        why:
+          "Can you wait, please? Указание и запрет без please оставь для тех, кого " +
+          "знаешь близко.",
+      },
+    ],
+  },
+};
+
+export default module;
