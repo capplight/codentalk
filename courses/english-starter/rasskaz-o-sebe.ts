@@ -575,7 +575,7 @@ const module: Module = {
     // =====================================================================
     {
       slug: "chem-ty-zanyat",
-      title: "Чем ты занят",
+      title: "Чем ты занимаешься",
       estimatedMinutes: 14,
       outcome: "называть своё занятие: I'm a doctor, I'm a student",
 

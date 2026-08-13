@@ -584,7 +584,7 @@ const module: Module = {
           id: "zachem-s-be",
           kind: "explain",
           text: [
-            "Ты знаешь I am busy — я занят. И знаешь, что наречие стоит перед глаголом.",
+            "Ты знаешь оборот I am busy и знаешь, что наречие стоит перед глаголом.",
             "Сложив два умения, получаешь «I always am busy». Так не говорят.",
             "Форма be — это am, is или are. С ней порядок другой: наречие идёт после " +
               "неё. I am always busy.",
@@ -652,7 +652,7 @@ const module: Module = {
         {
           id: "z1-dopisat-posle-be",
           kind: "gap",
-          prompt: "Ты всегда занят по понедельникам. Допиши недостающее слово.",
+          prompt: "По понедельникам у тебя всегда много дел. Допиши недостающее слово.",
           before: "I am ",
           after: " busy on Monday.",
           answer: "always",
@@ -693,7 +693,9 @@ const module: Module = {
         {
           id: "z4-dva-predlozheniya",
           kind: "short",
-          prompt: "Напиши два предложения о себе: что ты всегда занят и что ты всегда работаешь.",
+          prompt:
+            "Напиши два предложения о себе: что у тебя всегда много дел и что ты " +
+            "всегда работаешь. Много дел — busy.",
           answer: "I am always busy. I always work.",
           accept: [
             "i am always busy. i always work.",
@@ -1251,7 +1253,7 @@ const module: Module = {
         {
           id: "z4-s-formoy-be",
           kind: "gap",
-          prompt: "Допиши предложение так, чтобы вышло «По пятницам я всегда занят».",
+          prompt: "Допиши предложение так, чтобы вышло «По пятницам у меня всегда много дел».",
           before: "I am ",
           after: " busy on Friday.",
           answer: "always",
@@ -1415,7 +1417,7 @@ const module: Module = {
         id: "q-be-vybor",
         kind: "choice",
         outcome: "ставить наречие при форме be: I am always busy",
-        prompt: "По понедельникам ты всегда занят. Как сказать?",
+        prompt: "По понедельникам у тебя всегда много дел. Как сказать?",
         options: [
           { text: "I always am busy on Monday." },
           { text: "Always I am busy on Monday." },

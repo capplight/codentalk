@@ -41,11 +41,24 @@ import type { Module } from "@/lib/content/types";
  *
  *   ПОЧЕМУ ВЗЯТЫ: то же основание, что в модулях 15 и 16. Курс, который учит
  *   утверждать и отнимает отрицание и вопрос, оставляет ученика с третью
- *   умения. Второе подтверждение по ступени: руководство Cambridge, с. 76,
- *   описание A2 Flyers — «the present continuous tense of some action verbs
- *   (for example: come, go, buy, put on, carry)»; там же в списке
- *   грамматики — «Present continuous (not with future reference) — What are
- *   you doing?».
+ *   умения. Второе подтверждение по ступени: руководство Cambridge, с. 29,
+ *   список грамматики Pre A1 Starters — «Present continuous (not with future
+ *   reference) — What are you doing?», и заголовок графы там «Verbs (Positive,
+ *   negative, question, imperative and short-answer forms)». То есть у
+ *   Cambridge отрицание и вопрос стоят на той же ступени, что утверждение.
+ *   Совет с. 76 — это Flyers Speaking Part 3, устная часть, а не список
+ *   грамматики: приписывать ему ступень нельзя. Разбор методиста.
+ *
+ * — ПУСТОЕ `it` О ПОГОДЕ (`It is raining`) — A2, PRONOUNS subject/object,
+ *   «FORM: (SUBJECT) EMPTY 'IT'»: «Can use 'it' as an empty subject when there
+ *   is nothing else to put in subject position, particularly with weather or
+ *   time», пример источника — «It's warm and windy».
+ *
+ *   ПОЧЕМУ ВЗЯТО: модуль 10 уже взял ту же строку сверх ступени, но только для
+ *   времени («It's eight o'clock»). Здесь она распространяется на погоду —
+ *   иначе не сказать «идёт дождь», а без погоды рассказ о происходящем вокруг
+ *   рассыпается. Заимствование объявлено здесь по разбору методиста: прежде
+ *   оно молчало, и следующий проверяющий не отличил бы замысел от недосмотра.
  *
  * ЧЕГО В МОДУЛЕ НЕТ:
  *
@@ -70,8 +83,23 @@ const module: Module = {
         "A1, PRESENT present continuous, «USE: EVENTS IN PROGRESS»: «Can use the present " +
         "continuous with a limited range of verbs to talk about situations and events in " +
         "progress», пример источника — «We are missing you». " +
-        "A2, та же подкатегория, «FORM: NEGATIVE» и «FORM: QUESTIONS» — это ступень " +
-        "уроков 6 и 7, взята сверх и объявлена в шапке модуля",
+        "A2, PRESENT present continuous, «FORM: NEGATIVE»: «Can use the negative " +
+        "forms» — это ступень урока 6, взята сверх и объявлена в шапке модуля. " +
+        "A2, QUESTIONS yes/no, «FORM: AUXILIARY 'BE'»: «Can use auxiliary 'be' + " +
+        "subject + the '-ing' form (continuous form) to form 'yes/no' questions», " +
+        "пример источника — «Are you going to come?» — это вопрос Are you working? " +
+        "из урока 7. " +
+        "A2, QUESTIONS wh-, «FORM: WITH AUXILIARY 'BE'»: «Can use 'wh-'words + " +
+        "auxiliary 'be' to form 'wh-'questions», пример источника — «Who are you " +
+        "going with?» — это вопрос What are you doing? из того же урока. " +
+        "ПЕРВАЯ РЕДАКЦИЯ подпирала оба вопроса строкой «FORM: QUESTIONS» из " +
+        "подкатегории present continuous. Ступень она называет ту же, но говорит " +
+        "только о вопросах с вопросительным словом и притом в письмах, а вопроса " +
+        "Are you working? не описывает вовсе. Нашёл методист. " +
+        "A2, PRONOUNS subject/object, «FORM: (SUBJECT) EMPTY 'IT'»: «Can use 'it' as " +
+        "an empty subject when there is nothing else to put in subject position, " +
+        "particularly with weather or time», пример источника — «It's warm and " +
+        "windy» — это It is raining, взято сверх и объявлено в шапке модуля",
       license: "внутреннее использование, публично не называем",
     },
     {
@@ -102,8 +130,13 @@ const module: Module = {
       ref: "Council of Europe, CEFR Companion Volume 2020",
       section:
         "с. 62, Overall oral production, A1: «Can produce simple, mainly isolated " +
-        "phrases about people and places» — это урок 8, рассказ из отдельных " +
-        "предложений. " +
+        "phrases about people and places» — это задание урока 8, где рассказ " +
+        "произносится вслух. " +
+        "с. 66, Overall written production, A1: «Can produce simple isolated phrases " +
+        "and sentences» — это остальные задания урока 8 и вопросы работы по " +
+        "восьмому итогу: они письменные. Разделение по разбору методиста: прежде " +
+        "весь урок 8 опирался на графу об устной речи, хотя письменных заданий в " +
+        "нём четыре из пяти. " +
         "с. 79, Information exchange, A1: «Can ask and answer questions about themselves " +
         "and other people…» — это урок 7, где спрашивают и отвечают. " +
         "ПЕРВАЯ РЕДАКЦИЯ подпирала уроком 8 графу об обмене вопросами, хотя урок 8 — " +
@@ -408,11 +441,11 @@ const module: Module = {
         {
           id: "z5-sobrat-o-nyom",
           kind: "order",
-          prompt: "Собери предложение: «Он стоит здесь.»",
-          items: ["standing", "He", "here", "is"],
-          answer: [1, 3, 0, 2],
-          hint: "Вторым идёт форма be.",
-          why: "He is standing here. Форма is, потом глагол с окончанием, потом всё остальное.",
+          prompt: "Собери предложение: «Мой брат читает книгу.»",
+          items: ["a", "book", "My brother", "reading", "is"],
+          answer: [2, 4, 3, 0, 1],
+          hint: "Вторым идёт форма be, третьим — глагол с окончанием.",
+          why: "My brother is reading a book. Форма is, потом глагол, потом всё остальное.",
         },
       ],
     },
@@ -431,7 +464,8 @@ const module: Module = {
           text: [
             "У большинства глаголов окончание просто приписывается: work — working, " +
               "read — reading, wait — waiting.",
-            "Но у двух видов глаголов перед окончанием кое-что меняется. Их и разбираем.",
+            "Но у двух видов глаголов из трёх перед окончанием кое-что меняется. " +
+              "Их и разбираем.",
           ],
         },
         {
@@ -442,7 +476,7 @@ const module: Module = {
           rows: [
             ["обычный", "окончание приписывается", "work — working"],
             ["кончается на e", "e уходит", "make — making"],
-            ["один гласный между согласными", "согласный удваивается", "sit — sitting"],
+            ["в один слог и на конце один согласный", "согласный удваивается", "sit — sitting"],
           ],
         },
         {
@@ -458,10 +492,15 @@ const module: Module = {
           kind: "note",
           tone: "info",
           text:
-            "Удвоение нужно там, где в глаголе один гласный и он стоит между " +
-            "согласными: sit — sitting, run — running.\n\nБез удвоения слово читалось " +
-            "бы иначе: sit и site — разные слова.\n\nВ слове open гласных два, и " +
-            "удвоения нет: opening.",
+            "Удвоение нужно у коротких глаголов в один слог. У тех, где на конце " +
+            "один согласный, а перед ним один гласный: sit — sitting, " +
+            "run — running.\n\nСлог — часть слова с одним гласным звуком: в sit слог " +
+            "один, в open — два, o-pen.\n\nЕсли на конце два согласных, удвоения нет: " +
+            "work — working, stand — standing, sing — singing.\n\nЕсли перед " +
+            "согласным два гласных, удвоения тоже нет: wait — waiting, " +
+            "read — reading.\n\nВ слове open два слога, и оно сюда не подходит: " +
+            "opening.\n\nЗачем это нужно: без удвоения слово читалось бы иначе, ведь " +
+            "sit и site — разные слова.",
         },
         {
           id: "primer-ing",
@@ -512,10 +551,11 @@ const module: Module = {
             { text: "danceing" },
             { text: "sitting", correct: true },
           ],
-          hint: "Удвоение нужно там, где один гласный стоит между согласными.",
+          hint: "Удвоение нужно у коротких глаголов в один слог с одним согласным на конце.",
           why:
-            "Sitting. У sit один гласный между согласными, и t удваивается. В openning " +
-            "удвоение лишнее: в open два гласных, верно opening. В danceing не ушла " +
+            "Sitting. Глагол sit в один слог и кончается на один согласный, поэтому t " +
+            "удваивается. В openning удвоение лишнее: в open два слога, верно " +
+            "opening. В danceing не ушла " +
             "буква e, верно dancing.",
         },
         {
@@ -619,8 +659,8 @@ const module: Module = {
             "I work in a shop.\nBut now I am sitting at home.\nMy sister sings well.\nShe is singing now.",
           explain:
             "Первая и третья строки — о том, что вообще так. Вторая и четвёртая — о том, " +
-            "что идёт в эту минуту. Разницу задаёт запись, а слова now и but её только " +
-            "подчёркивают.",
+            "что идёт в эту минуту. Разницу задаёт сама запись, а слова now и but эту " +
+            "разницу только подчёркивают.",
         },
         {
           id: "zapis-razlicheniya-seychas",
@@ -712,6 +752,12 @@ const module: Module = {
             "I work in a shop. Now I'm sitting at home.",
             "I work in a shop. I am sitting at home now.",
             "I work in a shop. I'm sitting at home now.",
+            // Урок сам показывает оба образца — с точкой и со словом but. Ученик,
+            // списавший строение с примера, обязан получить «верно».
+            "I work in a shop. But now I am sitting at home.",
+            "I work in a shop. But now I'm sitting at home.",
+            "I work in a shop, but now I am sitting at home.",
+            "I work in a shop, but now I'm sitting at home.",
           ],
           hint: "В первом предложении глагол без окончания, во втором — форма be и -ing.",
           why:
@@ -753,7 +799,8 @@ const module: Module = {
           id: "imena-vo-mnozhestvennom",
           kind: "explain",
           text: [
-            "Форма are идёт не только со словом they, но и с названием нескольких людей.",
+            "Форма are идёт не только со словом they, но и там, где подлежащее " +
+              "называет нескольких людей.",
             "My friends are waiting. Alim and Dana are working.",
             "Считать надо людей, а не слова: my friends — это несколько человек, значит are.",
           ],
@@ -859,7 +906,7 @@ const module: Module = {
           id: "zachem-otricanie-seychas",
           kind: "explain",
           text: [
-            "Тебя зовут по делу, а ты сейчас занят другим.",
+            "Тебя зовут по делу, а ты в эту минуту делаешь что-то другое.",
             "Отрицание строится не через don't, а через not после формы be: I am not " +
               "working.",
             "Это тот же порядок, что в модуле «Не так»: I am not a doctor. Слово not " +
@@ -999,6 +1046,9 @@ const module: Module = {
               "вперёд. Are you working?",
             "А чтобы спросить «что ты делаешь», перед ней ставят вопросительное слово: " +
               "What are you doing?",
+            "Слово do здесь — обычный глагол «делать», и окончание -ing он берёт как " +
+              "все: doing. В модуле «Спросить о делах» то же самое do открывало вопрос " +
+              "и само не переводилось — здесь у него своё значение.",
           ],
         },
         {
@@ -1027,7 +1077,10 @@ const module: Module = {
           tone: "info",
           text:
             "Короткий ответ здесь такой же, как на вопрос с формой be: Yes, I am. No, " +
-            "I'm not.\n\nГлагол в ответе не повторяют.",
+            "I'm not.\n\nГлагол в ответе не повторяют.\n\nЕсть похожий на вид " +
+            "вопрос — What do you do? из модуля «Спросить о делах».\n\nОн " +
+            "спрашивает, кем человек работает. А What are you doing? — что человек " +
+            "делает в эту минуту.",
         },
         {
           id: "primer-voprosa-seychas",
@@ -1046,6 +1099,14 @@ const module: Module = {
           pace: "slow",
           caption: "Послушай два вопроса",
           transcript: "Are you working? What are you doing?",
+        },
+        {
+          id: "slovar-voprosa-seychas",
+          kind: "vocab",
+          caption: "Слова урока",
+          items: [
+            { term: "do", translation: "делать", example: "What are you doing?", hint: "/duː/" },
+          ],
         },
 
         // ---- задания ----
@@ -1116,10 +1177,11 @@ const module: Module = {
           id: "zachem-rasskaz-seychas",
           kind: "explain",
           text: [
-            "Отдельное предложение о происходящем рассказом не становится.",
-            "Рассказ — это несколько предложений подряд: что делаешь ты, что делают " +
-              "другие, что происходит вокруг.",
-            "Все части у тебя уже есть. Осталось сложить их в нужном порядке.",
+            "Друг звонит и спрашивает, что у тебя происходит. Одним предложением тут " +
+              "не обойтись.",
+            "Он ждёт нескольких: что делаешь ты, что делают рядом другие, что за " +
+              "окном.",
+            "Из таких трёх-четырёх предложений и выходит рассказ.",
           ],
         },
         {
@@ -1148,8 +1210,8 @@ const module: Module = {
           kind: "note",
           tone: "info",
           text:
-            "Рассказ из одних I выходит однообразным.\n\nСкажи и о других: о сестре, о " +
-            "друзьях, о погоде за окном.",
+            "Рассказ только про себя выходит однообразным.\n\nСкажи и о других: о " +
+            "сестре, о друзьях, о погоде за окном.",
         },
         {
           id: "primer-rasskaza-seychas",
@@ -1194,7 +1256,8 @@ const module: Module = {
           id: "z2-tri-predlozheniya-seychas",
           kind: "short",
           prompt:
-            "Напиши два предложения: ты читаешь книгу, а твоя сестра поёт. Сестра — my sister.",
+            "Напиши два предложения: ты сейчас читаешь книгу, а твоя сестра сейчас " +
+            "поёт. Сестра — my sister.",
           answer: "I am reading a book. My sister is singing.",
           accept: [
             "i am reading a book. my sister is singing.",
@@ -1210,13 +1273,14 @@ const module: Module = {
         {
           id: "z3-o-druzyah-seychas",
           kind: "gap",
-          prompt: "Твои друзья ждут на улице. Допиши недостающее слово.",
-          before: "My friends ",
-          after: " waiting outside.",
-          answer: "are",
-          accept: ["Are"],
-          hint: "Друзей несколько.",
-          why: "My friends are waiting outside. О нескольких — форма are.",
+          // Пропуск нарочно не на форме be: точно такое же задание уже стоит в
+          // уроке «Мы и они сейчас», и второй раз оно ничему не учит.
+          prompt: "Твои друзья сейчас ждут на улице. Допиши глагол с окончанием.",
+          before: "My friends are ",
+          after: " outside.",
+          answer: "waiting",
+          hint: "Форма be уже стоит, дело за глаголом.",
+          why: "My friends are waiting outside. При форме be у глагола окончание -ing.",
         },
         {
           id: "z4-pogoda-seychas",
@@ -1354,18 +1418,18 @@ const module: Module = {
         id: "q-ing-dopisat",
         kind: "gap",
         outcome: "писать окончание -ing без ошибок: make — making, sit — sitting",
-        prompt: "Глагол sit с окончанием -ing. Допиши форму.",
+        prompt: "Он сейчас сидит дома. Допиши глагол с окончанием. Сидеть — sit.",
         before: "He is ",
         after: " at home.",
         answer: "sitting",
-        hint: "В глаголе один гласный, и он между согласными.",
+        hint: "Глагол в один слог и кончается на один согласный.",
         why: "He is sitting at home. У sit удваивается t: sitting, а не siting.",
       },
       {
         id: "q-ing-sopostavit",
         kind: "match",
         outcome: "писать окончание -ing без ошибок: make — making, sit — sitting",
-        prompt: "Сопоставь глагол и его форму с окончанием.",
+        prompt: "Сопоставь глагол и то, как он пишется с окончанием.",
         left: ["dance", "open", "read"],
         right: ["reading", "dancing", "opening"],
         answer: [1, 2, 0],
@@ -1376,13 +1440,13 @@ const module: Module = {
         id: "q-ing-napisat",
         kind: "short",
         outcome: "писать окончание -ing без ошибок: make — making, sit — sitting",
-        prompt: "Напиши, что он открывает дверь. Открывать — open, дверь — the door.",
+        prompt: "Напиши, что он сейчас открывает дверь. Открывать — open, дверь — the door.",
         answer: "He is opening the door.",
         accept: ["He's opening the door."],
-        hint: "В глаголе open два гласных, удвоения нет.",
+        hint: "В слове open два слога, удвоения нет.",
         why:
-          "He is opening the door. Согласный удваивается только там, где один гласный " +
-          "стоит между согласными, а в open гласных два.",
+          "He is opening the door. Согласный удваивается только у коротких глаголов в " +
+          "один слог, а в open слогов два.",
       },
 
       // ---- итог 4 ----
@@ -1436,7 +1500,9 @@ const module: Module = {
         id: "q-neskolko-seychas-dopisat",
         kind: "gap",
         outcome: "говорить о нескольких: We are waiting",
-        prompt: "Вы с другом сейчас стоите на улице. Допиши глагол с окончанием. Стоять — stand.",
+        prompt:
+          "Ты и твой друг сейчас стоите на улице. Допиши глагол с окончанием. " +
+          "Стоять — stand.",
         before: "We are ",
         after: " outside.",
         answer: "standing",
@@ -1492,8 +1558,8 @@ const module: Module = {
         accept: ["They're not waiting."],
         hint: "Сливаться могут обе пары слов.",
         why:
-          "They aren't waiting. Годится и They're not waiting: слиться могут либо are " +
-          "и not, либо they и are.",
+          "They aren't waiting. Годится и They're not waiting: сливаться могут либо " +
+          "are и not, либо they и are.",
       },
       {
         id: "q-otricanie-seychas-napisat",
@@ -1538,13 +1604,14 @@ const module: Module = {
           "тот, о ком речь, и глагол с окончанием.",
       },
       {
-        id: "q-vopros-seychas-otvetit",
+        id: "q-vopros-seychas-sprosit",
         kind: "short",
         outcome: "спрашивать, что происходит: What are you doing?",
-        prompt: "Тебя спросили: Are you sitting at home? Ты дома. Ответь коротко — да.",
-        answer: "Yes, I am.",
-        hint: "Глагол в коротком ответе не повторяют.",
-        why: "Yes, I am. Короткую форму I'm в конце ответа не ставят.",
+        prompt: "Спроси у собеседника, ждут ли сейчас его друзья. Его друзья — your friends.",
+        answer: "Are your friends waiting?",
+        accept: ["Are your friends waiting now?"],
+        hint: "Вопрос открывает форма be.",
+        why: "Are your friends waiting? Форма be выходит вперёд, а за ней — те, о ком речь.",
       },
 
       // ---- итог 8 ----
@@ -1563,8 +1630,8 @@ const module: Module = {
         kind: "short",
         outcome: "рассказывать, что происходит вокруг",
         prompt:
-          "Напиши два предложения: ты читаешь книгу, а твои друзья ждут на улице. " +
-          "На улице — outside.",
+          "Напиши два предложения: ты сейчас читаешь книгу, а твои друзья сейчас ждут " +
+          "на улице. На улице — outside.",
         answer: "I am reading a book. My friends are waiting outside.",
         accept: ["I'm reading a book. My friends are waiting outside."],
         hint: "О себе — am, о нескольких — are.",
