@@ -73,7 +73,7 @@ import type { Module } from "@/lib/content/types";
  *
  * — ВОПРОС СО СЛОВОМ `who` В РОЛИ ДЕЙСТВУЮЩЕГО ЛИЦА — «Who works here?». Такой
  *   строки нет ни в English Grammar Profile (в подкатегории QUESTIONS wh-
- *   восемь строк, и ни одна такого вопроса не описывает; порядок везде «слово
+ *   девять строк, и ни одна такого вопроса не описывает; порядок везде «слово
  *   + вспомогательный глагол + тот, кто действует + глагол», кроме строки
  *   «FORM: MAIN VERB 'BE'», где вспомогательного глагола нет вовсе), ни в
  *   списках Cambridge на с. 29, 52 и 77. Проверено методистом построчно.
@@ -124,7 +124,7 @@ const module: Module = {
         "ГРАФЫ МЕЖДУ СОБОЙ НЕ СОГЛАСНЫ: по этой строке вопрос о третьем лице выходит B1, " +
         "по двум строкам выше — A2. Модуль держится A2 и говорит об этом прямо. " +
         "ЧЕГО В ИСТОЧНИКЕ НЕТ: строки о вопросе, где who — само действующее лицо. " +
-        "Подкатегория QUESTIONS wh- проверена построчно, все восемь строк",
+        "Подкатегория QUESTIONS wh- проверена построчно, все девять строк",
       license: "внутреннее использование, публично не называем",
     },
     {
@@ -139,8 +139,8 @@ const module: Module = {
         "ступени. Отсюда взят Who is your teacher? в уроке 6. " +
         "ОСТОРОЖНО СО СТРОКОЙ «Verbs» на с. 29: скобка «Positive, negative, question, " +
         "imperative and short-answer forms, including contractions» выглядит как защита " +
-        "для Does he…? и Yes, I do, но примеры под ней — только с формой be: «Is that " +
-        "your sister? Yes, it is». Первая редакция модуля приводила её именно так; это " +
+        "для Does he…? и Yes, I do, но среди примеров графы нет ни одного вопроса с do " +
+        "и ни одного краткого ответа с do. Первая редакция модуля приводила графу как защиту; это " +
         "подмена графы, и нашёл её методист. Ступень вопроса с do держится на с. 52. " +
         "ОСТОРОЖНО: строку «Impersonal you» с примером «How do you spell that?» нельзя " +
         "приводить как защиту для вопросов с do. Графа названа по безличному you, и " +
@@ -232,8 +232,9 @@ const module: Module = {
           text: [
             "Порядок такой: сначала Do, потом тот, о ком речь, потом сам глагол.",
             "Do | you | work | on Sunday?",
-            "Тот же порядок стоит в отрицании: там don't вставляют перед глаголом. Здесь " +
-              "то же слово выходит вперёд и становится вопросом.",
+            "То же слово do стоит и в отрицании, только в другом месте: там оно спрятано " +
+              "в don't перед глаголом — you don't work.",
+            "В вопросе оно выходит из середины к самому началу — Do you work?",
           ],
         },
         {
@@ -270,7 +271,7 @@ const module: Module = {
           kind: "vocab",
           caption: "Слова урока",
           items: [
-            { term: "do", translation: "1) стоит в начале вопроса, само не переводится; 2) делать", example: "What do you do?", hint: "/duː/" },
+            { term: "do", translation: "стоит в начале вопроса, само не переводится", example: "Do you work?", hint: "/duː/" },
             { term: "job", translation: "работа (место, должность)", example: "I like my job.", hint: "/dʒɒb/" },
             { term: "office", translation: "офис", example: "I work in an office.", hint: "/ˈɒfɪs/" },
           ],
@@ -352,8 +353,8 @@ const module: Module = {
           id: "zachem-korotkiy",
           kind: "explain",
           text: [
-            "Тебя спросили: Do you work on Sunday? Повторять весь ответ — I work on Sunday — " +
-              "долго и странно.",
+            "Тебя спросили: Do you work on Sunday? Весь ответ — I work on Sunday — " +
+              "при этом не повторяют.",
             "Отвечают коротко: Yes, I do. Или No, I don't.",
             "Повторяют не глагол, а do — то слово, с которого начался вопрос.",
           ],
@@ -394,7 +395,7 @@ const module: Module = {
             "— Do you live in Almaty?\n— Yes, I do.\n— Do you work in an office?\n" +
             "— No, I don't. I work in a school.",
           explain:
-            "После короткого «нет» часто добавляют, как на самом деле. Тот же порядок был " +
+            "После короткого «нет» добавляют, как на самом деле. Тот же порядок был " +
             "в модуле «Я не делаю».",
         },
         {
@@ -460,7 +461,7 @@ const module: Module = {
           parts: [
             { text: "Yes, I do.", selectable: true },
             { text: " · " },
-            { text: "Yes, I do work.", selectable: true, correct: true },
+            { text: "Yes, I am work.", selectable: true, correct: true },
             { text: " · " },
             { text: "No, I don't.", selectable: true },
             { text: " · " },
@@ -587,7 +588,7 @@ const module: Module = {
           hint: "Окончание стоит только в одном месте.",
           why:
             "Does Alim work here? Окончание уже внутри Does, поэтому глагол остаётся " +
-            "простым: work.",
+            "без окончания: work.",
         },
         {
           id: "z3-otmetit-dva-okonchaniya",
@@ -605,7 +606,7 @@ const module: Module = {
           hint: "Смотри на конец глагола после Does.",
           why:
             "Дважды окончание стоит в «Does she studies English?» и «Does Alim lives here?». " +
-            "После Does глагол простой: study, live.",
+            "После Does глагол без окончания: study, live.",
         },
         {
           id: "z4-perestroit-v-vopros",
@@ -645,8 +646,9 @@ const module: Module = {
             "Теперь у тебя два вида вопросов, и различает их одно.",
             "Are you a doctor? спрашивает, кто человек. Do you work? спрашивает, что он " +
               "делает.",
-            "Чтобы не спутать, посмотри, что идёт после того, о ком речь. Действие — нужен Do. " +
-              "Если дальше стоит название человека или прилагательное — нужна форма be.",
+            "Чтобы не спутать, посмотри, что идёт после того, о ком речь.",
+            "Если действие — нужен Do. Если действия нет — нужна форма be: после неё идёт " +
+              "название человека, прилагательное или место.",
           ],
         },
         {
@@ -665,10 +667,10 @@ const module: Module = {
           id: "kak-proverit-vopros",
           kind: "explain",
           text: [
-            "Посмотри, что стоит после того, о ком спрашиваешь.",
-            "a doctor, a student — название человека, busy — прилагательное. И то и другое " +
-              "формы be.",
-            "work, live, study — это действие, и вопрос начинается с Do или Does. Если действия нет вовсе — Are you from Almaty? — вопрос тоже начинается с формы be.",
+            "Посмотри, что стоит после того, о ком речь.",
+            "work, live, study — это действие, и вопрос начинается с Do или Does.",
+            "a doctor, busy, from Almaty — это не действие, и вопрос начинается с формы " +
+              "be: Are you a doctor? Are you busy? Are you from Almaty?",
           ],
         },
         {
@@ -720,7 +722,7 @@ const module: Module = {
             { text: "Do you are work here?" },
           ],
           hint: "После you идёт действие.",
-          why: "Do you work here? После того, о ком спрашивают, идёт действие — значит Do.",
+          why: "Do you work here? После того, о ком речь, идёт действие — значит Do.",
         },
         {
           id: "z2-vybrat-vtoroy-vid",
@@ -773,7 +775,7 @@ const module: Module = {
           hint: "Действие, и человек один другой — значит Does.",
           why:
             "Does my brother study at a university? Дальше идёт действие, поэтому вопрос " +
-            "начинается с Does, а глагол остаётся простым.",
+            "начинается с Does, а глагол остаётся без окончания.",
         },
       ],
     },
@@ -833,8 +835,8 @@ const module: Module = {
             "— What do you study?\n— I study English.\n— And what does your sister study?\n" +
             "— She studies music.",
           explain:
-            "На такой вопрос отвечают не да и не нет, а полным предложением. И заметь: у " +
-            "ответе окончание вернулось к глаголу — She studies music, — потому что does в ответе нет.",
+            "На такой вопрос отвечают не да и не нет, а полным предложением. И заметь: в " +
+            "ответе окончание вернулось к глаголу — She studies music, — потому что в ответе нет does.",
         },
         {
           id: "zapis-what",
@@ -951,8 +953,8 @@ const module: Module = {
           text: [
             "Четвёртое вопросительное слово — who, «кто». Спрашивают им о человеке: " +
               "Who is your teacher? — кто твой преподаватель.",
-            "Здесь Do не нужен: дальше идёт не действие, а человек. Значит вопрос " +
-              "начинается с формы be — так же, как Are you a doctor? в четвёртом уроке.",
+            "В этом вопросе Do не нужен: дальше идёт не действие, а человек. Порядок такой: " +
+              "who, потом is, потом всё остальное.",
           ],
         },
         {
@@ -968,7 +970,7 @@ const module: Module = {
           kind: "note",
           tone: "mistake",
           text:
-            "Вопросительное слово ставят одно и в самом начале.\n\n«Do you where work?» " +
+            "Вопросительное слово стоит в самом начале.\n\n«Do you where work?» " +
             "сказать нельзя. Верно — Where do you work?",
         },
         {
@@ -1022,7 +1024,7 @@ const module: Module = {
           options: [
             { text: "Where do you start?" },
             { text: "When do you start?", correct: true },
-            { text: "Who do you start?" },
+            { text: "What do you start?" },
           ],
           hint: "Речь о времени.",
           why: "When do you start? Слово when спрашивает о времени.",
@@ -1174,7 +1176,7 @@ const module: Module = {
           hint: "Родителей несколько.",
           why:
             "Do my parents work together? Людей несколько, поэтому Do, а глагол остаётся " +
-            "простым.",
+            "без окончания.",
         },
         {
           id: "z3-otmetit-does-o-mnogih",
@@ -1343,7 +1345,7 @@ const module: Module = {
           hint: "Человек один другой.",
           why:
             "Does your sister live in Astana? Об одном другом человеке спрашивают через " +
-            "Does, а глагол остаётся простым.",
+            "Does, а глагол остаётся без окончания.",
         },
         {
           id: "z5-razgovor-vsluh",
@@ -1404,7 +1406,7 @@ const module: Module = {
       {
         id: "q-korotkiy-dopisat",
         kind: "choice",
-        outcome: "коротко отвечать на такой вопрос: Yes, I do. No, I don't.",
+        outcome: "спрашивать о другом человеке: Does he work here?",
         prompt: "Тебя спросили: Does your brother work here? Брат работает. Как ответить коротко?",
         options: [
           { text: "Yes, he does.", correct: true },
@@ -1616,7 +1618,7 @@ const module: Module = {
           { text: "Do my friends studies English?" },
         ],
         hint: "Друзей несколько, и глагол остаётся без окончания.",
-        why: "Do my friends study English? Людей несколько — значит Do, глагол простой.",
+        why: "Do my friends study English? Людей несколько — значит Do, глагол без окончания.",
       },
 
       // ---- итог 8 ----
@@ -1642,9 +1644,10 @@ const module: Module = {
         kind: "gap",
         outcome: "вести короткий разговор о делах: спросить и ответить",
         prompt: "Ответ дан, и теперь вопрос надо вернуть собеседнику. Допиши недостающее слово.",
-        before: "Yes, I do. And ",
+        before: "Yes, I do. ",
         after: "?",
-        answer: "you",
+        answer: "And you",
+        accept: ["and you"],
         hint: "Двух слов достаточно, повторять весь вопрос не нужно.",
         why: "And you? Так вопрос возвращают собеседнику, не повторяя его целиком.",
       },

@@ -15,6 +15,7 @@ import zdesEst from "./zdes-est";
 import chtoYaDelayu from "./chto-ya-delayu";
 import yaNeDelayu from "./ya-ne-delayu";
 import sprositODelah from "./sprosit-o-delah";
+import kakChasto from "./kak-chasto";
 
 /**
  * Английский с нуля — ступень до A1.
@@ -50,6 +51,7 @@ const course: Course = {
     chtoYaDelayu,
     yaNeDelayu,
     sprositODelah,
+    kakChasto,
   ],
 };
 
