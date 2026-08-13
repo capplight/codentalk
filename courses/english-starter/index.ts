@@ -23,6 +23,7 @@ import mneNravitsya from "./mne-nravitsya";
 import prosbyIUkazaniya from "./prosby-i-ukazaniya";
 import vMagazineIKafe from "./v-magazine-i-kafe";
 import iNoPotomuChto from "./i-no-potomu-chto";
+import vcheraIZavtra from "./vchera-i-zavtra";
 
 /**
  * Английский с нуля — ступень до A1.
@@ -72,6 +73,7 @@ const course: Course = {
     prosbyIUkazaniya,
     vMagazineIKafe,
     iNoPotomuChto,
+    vcheraIZavtra,
   ],
 };
 
