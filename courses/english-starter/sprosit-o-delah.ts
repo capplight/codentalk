@@ -469,8 +469,9 @@ const module: Module = {
           ],
           hint: "Короткий ответ кончается на do или don't.",
           why:
-            "Лишний глагол в «Yes, I do work» и «No, I don't live». Короткий ответ на этом " +
-            "и кончается: Yes, I do. No, I don't.",
+            "Лишнее в «Yes, I am work» и «No, I don't live». В первом сразу два начала, " +
+            "во втором повторён глагол. Короткий ответ кончается на do или don't: " +
+            "Yes, I do. No, I don't.",
         },
         {
           id: "z5-otvetit-korotko",
@@ -1311,7 +1312,7 @@ const module: Module = {
           answer: [1, 3, 2, 0],
           hint: "Сначала тот вопрос, на который отвечают да или нет.",
           why:
-            "Do you work in this city? — Yes, I do. — Where do you work? — I work in a " +
+            "Do you work in this city? — Yes, I do. — Where do you work? — I work at a " +
             "school. Сначала общий вопрос, потом уточнение.",
         },
         {
@@ -1407,15 +1408,15 @@ const module: Module = {
       {
         id: "q-korotkiy-o-brate",
         kind: "choice",
-        outcome: "спрашивать о другом человеке: Does he work here?",
-        prompt: "Тебя спросили: Does your brother work here? Брат работает. Как ответить коротко?",
+        outcome: "коротко отвечать на такой вопрос: Yes, I do. No, I don't.",
+        prompt: "Тебя спросили: Do you study at a college? Ты учишься. Как ответить коротко?",
         options: [
-          { text: "Yes, he does.", correct: true },
-          { text: "Yes, he do." },
-          { text: "Yes, he is." },
+          { text: "Yes, I do.", correct: true },
+          { text: "Yes, I study." },
+          { text: "Yes, I am." },
         ],
-        hint: "Об одном другом человеке отвечают тем же словом, с которого начался вопрос.",
-        why: "Yes, he does. Вопрос начался с Does — им и отвечают.",
+        hint: "Отвечают тем же словом, с которого начался вопрос.",
+        why: "Yes, I do. Вопрос начался с Do — им и отвечают, а глагол не повторяют.",
       },
       {
         id: "q-korotkiy-vybor",
@@ -1460,8 +1461,8 @@ const module: Module = {
         outcome: "спрашивать о другом человеке: Does he work here?",
         prompt: "Ты спрашиваешь, учит ли Дана английский. Как сказать?",
         options: [
-          { text: "Does Dana studies English?" },
           { text: "Does Dana study English?", correct: true },
+          { text: "Does Dana studies English?" },
           { text: "Do Dana study English?" },
         ],
         hint: "Окончание стоит только в одном месте.",
@@ -1549,18 +1550,20 @@ const module: Module = {
         id: "q-what-otmetit",
         kind: "hottext",
         outcome: "спрашивать, что человек делает: What do you study?",
-        prompt: "Отметь вопросы, где после what пропущено do.",
+        prompt: "Отметь вопросы, построенные неверно.",
         parts: [
           { text: "What do you read?", selectable: true },
           { text: " · " },
-          { text: "What you read?", selectable: true, correct: true },
+          { text: "What does you read?", selectable: true, correct: true },
           { text: " · " },
           { text: "What do you eat?", selectable: true },
           { text: " · " },
-          { text: "What you eat?", selectable: true, correct: true },
+          { text: "What do you eats?", selectable: true, correct: true },
         ],
-        hint: "После вопросительного слова идёт do.",
-        why: "Do пропущено в «What you read?» и «What you eat?».",
+        hint: "Смотри на форму do и на окончание у глагола.",
+        why:
+          "Неверны «What does you read?» — о собеседнике говорят do, а не does — и "
+          + "«What do you eats?»: после do глагол остаётся без окончания.",
       },
 
       // ---- итог 6 ----
@@ -1638,21 +1641,20 @@ const module: Module = {
 
       // ---- итог 8 ----
       {
-        id: "q-razgovor-sobrat",
-        kind: "order",
+        id: "q-razgovor-dopisat",
+        kind: "gap",
         outcome: "вести короткий разговор о делах: спросить и ответить",
-        prompt: "Собери разговор по порядку.",
-        items: [
-          "I work at a school.",
-          "Do you work at the weekend?",
-          "No, I don't.",
-          "Where do you work?",
-        ],
-        answer: [1, 2, 3, 0],
-        hint: "Сначала тот вопрос, на который отвечают да или нет.",
+        prompt:
+          "Разговор идёт так: — Do you study here? — Yes, I do. Допиши недостающее слово "
+          + "в следующем вопросе.",
+        before: "",
+        after: " do you study?",
+        answer: "What",
+        accept: ["what"],
+        hint: "После короткого ответа спрашивают о новом.",
         why:
-          "Do you work at the weekend? — No, I don't. — Where do you work? — I work at " +
-          "a school. Сначала вопрос и ответ на него, потом уточнение и ответ на него.",
+          "What do you study? Общий вопрос и короткий ответ уже были — дальше "
+          + "спрашивают подробнее.",
       },
       {
         id: "q-razgovor-vernut",
