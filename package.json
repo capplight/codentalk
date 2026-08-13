@@ -15,6 +15,7 @@
     "kontrol": "tsx scripts/kontrol.mts",
     "yazyk": "tsx scripts/yazyk.mts",
     "tekst": "tsx scripts/tekst.mts",
+    "zadaniya": "tsx scripts/zadaniya.mts",
     "pdf": "tsx scripts/pdf-text.mts",
     "db:seed:courses": "tsx scripts/seed-courses.mts",
     "smoke": "tsx scripts/smoke-api.mts",
