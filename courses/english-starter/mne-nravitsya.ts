@@ -1135,7 +1135,7 @@ const module: Module = {
           kind: "example",
           caption: "Рассказ целиком",
           text:
-            "I like reading and I really like sport.\nI don't like waiting.\nMy favourite food is bread.",
+            "I like reading, and I really like sport.\nI don't like waiting.\nMy favourite food is bread.",
           explain:
             "Первое предложение соединяет два вкуса словом and. Второе говорит " +
             "обратное. Третье называет любимое — через favourite.",
@@ -1147,7 +1147,7 @@ const module: Module = {
           pace: "slow",
           caption: "Послушай рассказ целиком",
           transcript:
-            "I like reading and I really like sport. I don't like waiting. My favourite food is bread.",
+            "I like reading, and I really like sport. I don't like waiting. My favourite food is bread.",
         },
         {
           id: "favourite-eto-lyubimyy",

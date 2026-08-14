@@ -649,7 +649,7 @@ const module: Module = {
           tone: "info",
           text:
             "Слово I — «я» — пишется заглавной всегда, где бы оно ни стояло: " +
-            "My name is Alim and I am from Kazakhstan. Другие короткие слова так себя не " +
+            "My name is Alim, and I am from Kazakhstan. Другие короткие слова так себя не " +
             "ведут: my, is, from в середине предложения пишутся с маленькой буквы.",
         },
         {
