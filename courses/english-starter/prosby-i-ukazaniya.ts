@@ -56,7 +56,15 @@ import type { Module } from "@/lib/content/types";
  *    объявлен: без него приглашения не выходит вовсе, а модуль 21 уже показал
  *    этот вопрос на узнавание.
  *
- * 5. Слова модуля — Oxford 3000: party n. A1, thanks exclam. A1. Уже введены
+ * 5. РАЗРЕШЕНИЕ `Can I…?` (урок 5) — основание у него одно, и это Cambridge:
+ *    руководство для младших ступеней, с. 29, объединённая строка «Can for
+ *    requests/permission» с примером «Can I have some birthday cake?». В
+ *    английском профиле отдельной строки под вопрос «можно ли мне» нет:
+ *    ближайшая — MODALITY can, A2, «USE: PERMISSION», и она про утверждение
+ *    «ты можешь», а не про вопрос. Расхождение объявлено здесь по разбору
+ *    методиста: прежде урок 5 источником подтверждён не был вовсе.
+ *
+ * 6. Слова модуля — Oxford 3000: party n. A1, thanks exclam. A1. Уже введены
  *    раньше: open, close, come, go, sit, stand, wait, help, please, sorry,
  *    tomorrow.
  *
@@ -71,7 +79,14 @@ import type { Module } from "@/lib/content/types";
  * — ОБОРОТА `let's`. English Grammar Profile ставит его на A2 отдельной
  *   строкой («FORM/USE: 'LET'S', SUGGESTION»), у Cambridge на Pre A1 его нет,
  *   и программа его не называет.
- * — ОБОРОТА `could you`. Его нет ни в одном списке этой ступени.
+ * — ОБОРОТА `could you`. В английском профиле он ЕСТЬ — MODALITY could, A2,
+ *   «USE: REQUESTS»: «Can use 'could' to make requests», пример источника —
+ *   «Could you help me to paint my bedroom?». У Cambridge `could` появляется
+ *   ещё выше, только на A2 Flyers. Не берём не потому, что его нет, а потому
+ *   что `can you` уже покрывает просьбу целиком, а второй оборот того же
+ *   назначения на этой ступени только множит выбор.
+ *   ПЕРВАЯ РЕДАКЦИЯ писала «его нет ни в одном списке этой ступени» — это
+ *   неверно, и запрещено правилами работы. Нашёл методист.
  * — УКАЗАНИЙ ИЗ НЕСКОЛЬКИХ ДЕЙСТВИЙ («Take a taxi then call me»). Источник даёт
  *   такой пример, но соединение двух указаний словом then — предмет модуля 24.
  */
@@ -476,8 +491,8 @@ const module: Module = {
           kind: "note",
           tone: "info",
           text:
-            "То же слово годится и в вопросе-просьбе: Can you help, please?\n\nМесто " +
-            "у него там одно — конец.",
+            "То же слово годится и в вопросе-просьбе: Can you help, please?\n\nЧаще " +
+            "всего его ставят в конец, но встречается и «Can you please help?».",
         },
 
         // ---- задания ----
@@ -666,7 +681,7 @@ const module: Module = {
           kind: "short",
           prompt: "Попроси незнакомого человека прийти завтра. Прийти — come, завтра — tomorrow.",
           answer: "Can you come tomorrow?",
-          accept: ["Can you come tomorrow, please?"],
+          accept: ["Can you come tomorrow, please?", "Can you please come tomorrow?"],
           hint: "Начни с can.",
           why: "Can you come tomorrow? Годится и с please в конце.",
         },
@@ -1249,7 +1264,7 @@ const module: Module = {
           { text: "Sit here.", correct: true },
           { text: "To sit here." },
         ],
-        hint: "Указание начинается прямо с глагола.",
+        hint: "Перед глаголом здесь ничего не стоит.",
         why:
           "Sit here. Первое предложение сообщает, что человек садится, а слово to в " +
           "указании не нужно.",
@@ -1272,7 +1287,7 @@ const module: Module = {
         prompt: "Собери указание: «Закрой дверь.»",
         items: ["door", "Close", "the"],
         answer: [1, 2, 0],
-        hint: "Первым идёт глагол.",
+        hint: "Начни с того, что надо сделать.",
         why: "Close the door. Сначала глагол, потом название вещи.",
       },
 
@@ -1311,7 +1326,7 @@ const module: Module = {
         prompt: "Скажи знакомому, чтобы он не ждал здесь. Ждать — wait, здесь — here.",
         answer: "Don't wait here.",
         accept: ["Do not wait here.", "Don't wait here, please."],
-        hint: "Запрет начинается с don't.",
+        hint: "Перед глаголом встанет одно слово из двух частей.",
         why: "Don't wait here. Годится и полная запись Do not.",
       },
 
@@ -1361,7 +1376,7 @@ const module: Module = {
         before: "",
         after: " you wait, please?",
         answer: "Can",
-        hint: "Просьба открывается тем же словом, что вопрос об умении.",
+        hint: "Первое слово то же, что в вопросе «умеешь ли ты».",
         why: "Can you wait, please? Просьба по виду — вопрос с can.",
       },
       {
@@ -1374,7 +1389,7 @@ const module: Module = {
           { text: "Can you closing the window?" },
           { text: "Can you to close the window?" },
         ],
-        hint: "После can глагол стоит без добавок.",
+        hint: "К глаголу здесь ничего не приделывают.",
         why: "Can you close the window? Ни окончание -ing, ни to после can не ставят.",
       },
       {
@@ -1383,6 +1398,7 @@ const module: Module = {
         outcome: "просить: Can you help?",
         prompt: "Попроси незнакомого человека помочь и добавь «пожалуйста». Помочь — help.",
         answer: "Can you help, please?",
+        accept: ["Can you please help?"],
         hint: "Начни с can, а please поставь в конец.",
         why: "Can you help, please? Просьба строится вопросом с can.",
       },
@@ -1397,7 +1413,7 @@ const module: Module = {
         after: " open the window?",
         answer: "I",
         exact: true,
-        hint: "Открывать или садиться будешь ты.",
+        hint: "Окно откроешь ты, а не собеседник.",
         why: "Can I open the window? Слово I пишется с заглавной буквы всегда.",
       },
       {
@@ -1422,7 +1438,7 @@ const module: Module = {
         prompt: "Попроси разрешения сесть здесь. Сесть — sit, здесь — here.",
         answer: "Can I sit here?",
         accept: ["Can I sit here, please?"],
-        hint: "После can стоит тот, кто это сделает.",
+        hint: "Садиться собираешься ты — значит с себя и начинай после can.",
         why: "Can I sit here? Садиться будешь ты, значит после can стоит I.",
       },
 
@@ -1459,7 +1475,7 @@ const module: Module = {
         outcome: "приглашать: Would you like to come?",
         prompt: "Пригласи друга прийти на твою вечеринку. Прийти — come, вечеринка — my party.",
         answer: "Would you like to come to my party?",
-        hint: "Начни с would, перед глаголом поставь to.",
+        hint: "Пять слов до глагола, и первое из них — не do.",
         why: "Would you like to come to my party? Порядок: would, you, like, to, глагол.",
       },
 
@@ -1508,7 +1524,7 @@ const module: Module = {
         prompt: "Собери разговор: сначала предложение кофе, потом согласие, потом благодарность.",
         items: ["Thanks!", "Would you like a coffee?", "Yes, please."],
         answer: [1, 2, 0],
-        hint: "Порядок задан в условии.",
+        hint: "Сначала предложение, потом согласие, потом благодарность.",
         why: "Would you like a coffee? Yes, please. Thanks!",
       },
       {
@@ -1533,7 +1549,7 @@ const module: Module = {
           { text: "Can you wait, please?", correct: true },
           { text: "Don't wait." },
         ],
-        hint: "Голое указание звучит как приказ.",
+        hint: "Одно из трёх построено как вопрос.",
         why:
           "Can you wait, please? Указание и запрет без please оставь для тех, кого " +
           "знаешь близко.",
