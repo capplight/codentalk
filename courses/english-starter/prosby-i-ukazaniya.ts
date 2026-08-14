@@ -234,7 +234,9 @@ const module: Module = {
         {
           id: "z3-otmetit-lishnee-v-ukazanii",
           kind: "hottext",
-          prompt: "Отметь указания, где перед глаголом стоит лишнее слово.",
+          // Прежде задание звалось «отметь, где лишнее слово» и объявляло ошибкой
+          // «You come here» — а это верное предложение, только не указание.
+          prompt: "Отметь записи, которые указанием не являются.",
           parts: [
             { text: "Come here.", selectable: true },
             { text: " · " },
@@ -245,7 +247,9 @@ const module: Module = {
             { text: "Sit here.", selectable: true },
           ],
           hint: "Указание начинается прямо с глагола.",
-          why: "Верно: Come here и Sit here. Ни you, ни to перед глаголом не ставят.",
+          why:
+            "«You come here» — рассказ о человеке, а «To sit here» и вовсе не " +
+            "предложение. Указания здесь два: Come here и Sit here.",
         },
         {
           id: "z4-sobrat-ukazanie",
