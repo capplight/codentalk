@@ -701,7 +701,7 @@ const module: Module = {
           kind: "explain",
           text: [
             "Продавец со своей стороны спросит примерно так же коротко.",
-            "Can I help you? — «Вам помочь?» из модуля «Я умею».",
+            "Can I help you? — «Тебе помочь?» из модуля «Я умею».",
             "Anything else? — «Что-нибудь ещё?». Отвечают No, thank you.",
           ],
         },
@@ -729,7 +729,9 @@ const module: Module = {
           planned: true,
           pace: "slow",
           caption: "Послушай разговор в магазине",
-          transcript: "Can I help you? I'd like some bread, please. Anything else? No, thank you.",
+          transcript:
+            "Can I help you? I'd like some bread, please. Anything else? No, thank " +
+            "you. How much is it?",
         },
         {
           id: "can-i-have-tozhe-goditsya",
@@ -869,7 +871,9 @@ const module: Module = {
           planned: true,
           pace: "slow",
           caption: "Послушай заказ",
-          transcript: "I'd like a coffee and a cake, please. Anything else? No, thanks.",
+          transcript:
+            "Can I help you? I'd like a coffee and a cake, please. Anything else? " +
+            "No, thanks.",
         },
         {
           id: "voda-v-kafe",
@@ -977,8 +981,7 @@ const module: Module = {
           id: "some-i-any-ryadom",
           kind: "explain",
           text: [
-            "Правила «some только в утверждении» курс не даёт — оно не такое " +
-              "простое.",
+            "Точного правила, которое подошло бы всегда, здесь нет.",
             "Держись образца: в утверждении обычно стоит some, в отрицании и в " +
               "вопросе — any.",
             "Образец покрывает почти всё, что встретится тебе в магазине.",
@@ -1092,8 +1095,8 @@ const module: Module = {
           kind: "explain",
           text: [
             "Настоящий разговор в магазине редко идёт по одной строке.",
-            "Продавец спрашивает, ты просишь, он уточняет количество, ты называешь " +
-              "цену.",
+            "Продавец спрашивает, ты просишь, он уточняет количество, ты называешь, " +
+              "сколько нужно, и спрашиваешь цену.",
             "Каждый кусок ты уже умеешь — собери их вместе.",
           ],
         },
@@ -1144,7 +1147,8 @@ const module: Module = {
           pace: "slow",
           caption: "Послушай разговор целиком",
           transcript:
-            "Can I help you? I'd like some bread and some water, please. Anything else? No, thank you. How much is it?",
+            "Can I help you? I'd like some bread and some water, please. Anything " +
+            "else? No, thank you. How much is it? Five hundred tenge. Thanks!",
         },
         {
           id: "tenge-i-cena",
@@ -1258,7 +1262,8 @@ const module: Module = {
           { text: "friend, meat, book" },
         ],
         hint: "В ряду не должно быть ни книг, ни магазинов, ни друзей.",
-        why: "Не считают water, money и rice. В двух других рядах есть считаемые слова.",
+        why: "Не считают water, money и rice. В двух других рядах есть слова, которые " +
+        "считают.",
       },
       {
         id: "q-neschitaemye-sopostavit",
