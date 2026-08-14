@@ -377,7 +377,7 @@ const module: Module = {
         {
           id: "z5-napisat-studied",
           kind: "short",
-          prompt: "Напиши, что ты вчера учился. Учиться — study, вчера — yesterday.",
+          prompt: "Вчерашний день прошёл за учёбой. Напиши это о себе: учиться — study, вчера — yesterday.",
           answer: "I studied yesterday.",
           hint: "Буква y перед окончанием меняется на i.",
           why: "I studied yesterday. У study перед окончанием y стала i.",
@@ -397,10 +397,9 @@ const module: Module = {
           id: "zachem-osobye",
           kind: "explain",
           text: [
-            "А теперь неприятная новость, и лучше сказать её прямо.",
-            "У части глаголов прошедшая форма не делается никаким правилом: её " +
-              "просто надо знать.",
-            "Go — went. Не «goed», а именно went, и объяснить это нечем.",
+            "У части глаголов прошедшая форма не строится по общему правилу.",
+            "Её запоминают отдельно, как отдельное слово.",
+            "Go — went. Не «goed», а именно went.",
           ],
         },
         {
@@ -534,7 +533,7 @@ const module: Module = {
           id: "zachem-was",
           kind: "explain",
           text: [
-            "Форма be тоже имеет прошедшее время, и оно нужно чаще всего.",
+            "У формы be тоже есть прошедшее время, и оно нужно чаще всего.",
             "«Я был дома», «она была на работе» — всё это строится через was и were.",
             "Форм две вместо трёх: am и is стали was, are стало were.",
           ],
@@ -597,7 +596,7 @@ const module: Module = {
         {
           id: "z1-dopisat-was",
           kind: "gap",
-          prompt: "Вчерашний день ты провёл дома. Допиши недостающее слово.",
+          prompt: "Вчерашний день прошёл дома. Допиши недостающее слово.",
           before: "I ",
           after: " at home yesterday.",
           answer: "was",
@@ -731,7 +730,7 @@ const module: Module = {
         {
           id: "z1-dopisat-last",
           kind: "gap",
-          prompt: "Ты работал на прошлой неделе. Допиши недостающее слово.",
+          prompt: "На прошлой неделе у тебя была работа. Допиши недостающее слово.",
           before: "I worked ",
           after: " week.",
           answer: "last",
@@ -780,7 +779,7 @@ const module: Module = {
           id: "z5-napisat-kogda",
           kind: "short",
           prompt:
-            "Прошлую пятницу ты провёл дома. Напиши это о себе: дома — at home, " +
+            "Прошлая пятница прошла дома. Напиши это о себе: дома — at home, " +
             "прошлая пятница — last Friday.",
           answer: "I was at home last Friday.",
           hint: "Оборот времени встаёт в конец, предлог не нужен.",
@@ -1074,7 +1073,7 @@ const module: Module = {
         {
           id: "tablica-treh-vremen",
           kind: "table",
-          caption: "Три времени рядом",
+          caption: "Четыре времени рядом",
           head: ["Когда", "Как это выглядит"],
           rows: [
             ["вчера", "I worked yesterday."],
@@ -1133,7 +1132,7 @@ const module: Module = {
         {
           id: "z1-vybrat-vremya-po-slovu",
           kind: "choice",
-          prompt: "Ты работал вчера. Как сказать?",
+          prompt: "Вчера у тебя была работа. Как сказать?",
           options: [
             { text: "I work yesterday." },
             { text: "I worked yesterday.", correct: true },
@@ -1233,7 +1232,7 @@ const module: Module = {
         id: "q-proshedshee-napisat",
         kind: "short",
         outcome: "рассказывать о вчерашнем дне: I worked yesterday",
-        prompt: "Вчера у тебя был фильм. Напиши это о себе: смотреть — watch, фильм — a film.",
+        prompt: "Вчерашний вечер прошёл за фильмом. Напиши это о себе: смотреть — watch, фильм — a film.",
         answer: "I watched a film yesterday.",
         hint: "К глаголу приделай окончание прошедшего времени.",
         why: "I watched a film yesterday. Окончание -ed одно на всех.",
@@ -1319,7 +1318,7 @@ const module: Module = {
         id: "q-was-vybor",
         kind: "choice",
         outcome: "говорить, где был: I was at home",
-        prompt: "Вчерашний день ты провёл на работе. В каком предложении нет ошибки?",
+        prompt: "Вчерашний день прошёл на работе. В каком предложении нет ошибки?",
         options: [
           { text: "I were at work yesterday." },
           { text: "I was at work yesterday.", correct: true },
@@ -1356,7 +1355,7 @@ const module: Module = {
         id: "q-vremya-vybor",
         kind: "choice",
         outcome: "называть время: yesterday, last week",
-        prompt: "Ты работал на прошлой неделе. Как сказать?",
+        prompt: "На прошлой неделе у тебя была работа. Как сказать?",
         options: [
           { text: "I worked last week.", correct: true },
           { text: "I worked in last week." },
@@ -1381,7 +1380,7 @@ const module: Module = {
         kind: "short",
         outcome: "называть время: yesterday, last week",
         prompt:
-          "Прошлую неделю ты провёл дома. Напиши это о себе: дома — at home, " +
+          "Прошлая неделя прошла дома. Напиши это о себе: дома — at home, " +
           "прошлая неделя — last week.",
         answer: "I was at home last week.",
         hint: "Оборот времени встаёт в конец, предлог не нужен.",
