@@ -52,7 +52,7 @@ import type { Module } from "@/lib/content/types";
  *
  * 4. Слова модуля — Oxford 3000, все A1: love v. A1, food n. A1, sport n. A1,
  *    swimming n. A1, cinema n. A1, favourite adj. A1, cake n. A1. Уже введены
- *    раньше: like, want, music, coffee (модуль 14), tea (модуль 5), film
+ *    раньше: like, music, coffee (модуль 14), tea (модуль 5), film
  *    (модуль 17), walk (модуль 15).
  *
  * ЧТО ВЗЯТО СВЕРХ СТУПЕНИ И ОБЪЯВЛЕНО:
@@ -470,7 +470,7 @@ const module: Module = {
           kind: "vocab",
           caption: "Слова урока",
           items: [
-            { term: "cinema", translation: "кинотеатр", example: "I like the cinema.", hint: "/ˈsɪnəmə/" },
+            { term: "cinema", translation: "кинотеатр", example: "The cinema is near my home.", hint: "/ˈsɪnəmə/" },
           ],
         },
 
@@ -574,7 +574,7 @@ const module: Module = {
           text: [
             "Место у really то же, что у наречий частоты из модуля «Как часто».",
             "Оно встаёт между тем, о ком речь, и глаголом: I really like sport.",
-            "А very much в середину не ставят никогда — только в конец.",
+            "А very much обычно ставят в конец: I like sport very much.",
           ],
         },
         {
@@ -582,7 +582,7 @@ const module: Module = {
           kind: "note",
           tone: "mistake",
           text:
-            "«I like it really» — так не говорят.\n\nСлово really стоит перед " +
+            "«I like it really» — так обычно не говорят.\n\nСлово really стоит перед " +
             "глаголом, а в конец ставят very much.",
         },
         {
@@ -645,19 +645,21 @@ const module: Module = {
             { text: " · " },
             { text: "I like sport really.", selectable: true, correct: true },
             { text: " · " },
-            { text: "I very much like sport.", selectable: true, correct: true },
+            { text: "I like very much sport.", selectable: true, correct: true },
             { text: " · " },
             { text: "I like sport very much.", selectable: true },
           ],
           hint: "Really идёт перед глаголом, very much — в конец.",
           why:
-            "Верно: I really like sport и I like sport very much. Поменять их местами " +
-            "нельзя.",
+            "Верно: I really like sport и I like sport very much. В «I like sport " +
+            "really» и «I like very much sport» усиление стоит не на своём месте.",
         },
         {
           id: "z4-sobrat-very-much",
           kind: "order",
-          prompt: "Собери предложение: «Мне очень нравится этот фильм.»",
+          prompt:
+            "Собери предложение: «Мне очень нравится этот фильм.» Слова very much " +
+            "поставь в конец.",
           items: ["very much", "this film", "like", "I"],
           answer: [3, 2, 1, 0],
           hint: "Усиление very much идёт в самый конец.",
@@ -1366,14 +1368,16 @@ const module: Module = {
         id: "q-usilenie-vybor",
         kind: "choice",
         outcome: "усиливать сказанное: I really like it",
-        prompt: "Тебе очень нравится эта еда. В каком предложении нет ошибки?",
+        prompt: "Твоему брату очень нравится плавание. Как сказать?",
         options: [
-          { text: "I really like this food.", correct: true },
-          { text: "I like really this food." },
-          { text: "Really I like this food." },
+          { text: "My brother really likes swimming.", correct: true },
+          { text: "My brother likes really swimming." },
+          { text: "My brother really like swimming." },
         ],
-        hint: "Really стоит между тем, о ком речь, и глаголом.",
-        why: "I really like this food. Слово really встаёт перед глаголом.",
+        hint: "Really встаёт перед глаголом, а у глагола о брате есть окончание.",
+        why:
+          "My brother really likes swimming. Really стоит перед глаголом, и " +
+          "окончание -s у likes остаётся на месте.",
       },
       {
         id: "q-usilenie-napisat",
@@ -1405,20 +1409,20 @@ const module: Module = {
         prompt: "Ты хочешь узнать, что нравится собеседнику. Как спросить?",
         options: [
           { text: "What you like?" },
-          { text: "What do you like to?" },
+          { text: "What like you?" },
           { text: "What do you like?", correct: true },
         ],
         hint: "После вопросительного слова идёт do.",
-        why: "What do you like? Слово to в конце вопроса лишнее.",
+        why: "What do you like? Без do вопрос не строится, а порядок «What like you» перевёрнут.",
       },
       {
-        id: "q-vopros-o-vkusah-otvetit",
+        id: "q-vopros-o-vkusah-sprosit",
         kind: "short",
         outcome: "спрашивать о вкусах: Do you like coffee?",
-        prompt: "Тебя спросили: Do you like sport? Тебе нравится. Ответь коротко — да.",
-        answer: "Yes, I do.",
-        hint: "Глагол like в ответе не повторяют.",
-        why: "Yes, I do. Хватает одного do.",
+        prompt: "Спроси у собеседника, нравится ли ему спорт. Спорт — sport.",
+        answer: "Do you like sport?",
+        hint: "Вопрос о вкусах открывает то же слово, что вопрос о делах.",
+        why: "Do you like sport? Вопрос строится через do.",
       },
 
       // ---- итог 6 ----
@@ -1518,12 +1522,16 @@ const module: Module = {
         kind: "short",
         outcome: "рассказывать о своих вкусах",
         prompt:
-          "Напиши два предложения о себе: что тебе нравится музыка и что не нравится " +
-          "ждать. Музыка — music, ждать — wait.",
-        answer: "I like music. I don't like waiting.",
-        accept: ["I like music. I don't like to wait."],
-        hint: "Во втором предложении отрицание.",
-        why: "I like music. I don't like waiting. Годится и I don't like to wait.",
+          "Напиши два предложения о себе: что тебе нравится кино и что не нравится " +
+          "готовить. Кино — the cinema, готовить — cook.",
+        answer: "I like the cinema. I don't like cooking.",
+        accept: [
+          "I like the cinema. I don't like to cook.",
+          "I like the cinema. I do not like cooking.",
+        ],
+        hint: "Во втором предложении отрицание, и способ можно взять любой.",
+        why:
+          "I like the cinema. I don't like cooking. Годится и I don't like to cook.",
       },
       {
         id: "q-rasskaz-o-vkusah-dopisat",
