@@ -1470,13 +1470,14 @@ const module: Module = {
         prompt: "Дана любит музыку и любит фильмы. Как сказать это короче?",
         options: [
           { text: "Dana likes music and like films." },
-          { text: "Dana likes music and she films." },
+          { text: "Dana likes music, and she likes films." },
           { text: "Dana likes music and films.", correct: true },
         ],
         hint: "Глагол называют один раз.",
         why:
-          "Dana likes music and films. Во второй записи глагол потерял окончание, а в " +
-          "третьей его нет вовсе.",
+          "Dana likes music and films. В первой записи у второго глагола сломано " +
+          "окончание. Вторая запись верна, но не короче: в ней и Dana, и likes " +
+          "названы дважды.",
       },
       {
         id: "q-napisat-koroche-hleb-i-ris",
