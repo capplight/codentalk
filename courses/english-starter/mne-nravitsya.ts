@@ -119,7 +119,7 @@ const module: Module = {
 
   outcomes: [
     "говорить, что нравится делать: I like to read",
-    "пользоваться вторым способом: I like reading",
+    "пользоваться формой с -ing: I like reading",
     "говорить, что не нравится: I don't like waiting",
     "усиливать сказанное: I really like it",
     "спрашивать о вкусах: Do you like coffee?",
@@ -257,7 +257,7 @@ const module: Module = {
           kind: "short",
           prompt: "Напиши, что тебе нравится гулять. Гулять — walk.",
           answer: "I like to walk.",
-          // Второй способ ученик встретит в следующем уроке, но если он уже его
+          // Форму с -ing ученик встретит в следующем уроке, но если он уже её
           // знает — ответ верен, и засчитать его обязаны.
           accept: ["I like walking."],
           hint: "Не забудь слово между глаголами.",
@@ -269,25 +269,25 @@ const module: Module = {
     // =====================================================================
     {
       slug: "vtoroy-sposob",
-      title: "Второй способ: I like reading",
+      title: "Форма с -ing: I like reading",
       estimatedMinutes: 14,
-      outcome: "пользоваться вторым способом: I like reading",
+      outcome: "пользоваться формой с -ing: I like reading",
 
       blocks: [
         {
           id: "zachem-vtoroy-sposob",
           kind: "explain",
           text: [
-            "У этой мысли есть и второй способ: I like reading.",
+            "У этой мысли есть и вторая форма — с окончанием -ing: I like reading.",
             "Значит он ровно то же, что I like to read. Выбирай любой.",
-            "Второй способ встречается чаще, и узнавать его надо обязательно.",
+            "Форма с -ing встречается чаще, и узнавать её надо обязательно.",
           ],
         },
         {
           id: "tablica-dva-sposoba",
           kind: "table",
-          caption: "Два способа, одно значение",
-          head: ["Первый способ", "Второй способ", "Перевод"],
+          caption: "Две формы, одно значение",
+          head: ["Форма с to", "Форма с -ing", "Перевод"],
           rows: [
             ["I like to read.", "I like reading.", "Мне нравится читать."],
             ["I like to swim.", "I like swimming.", "Мне нравится плавать."],
@@ -343,7 +343,7 @@ const module: Module = {
         {
           id: "z1-dopisat-ing-posle-like",
           kind: "gap",
-          prompt: "Тебе нравится плавать. Скажи это вторым способом. Плавать — swim.",
+          prompt: "Тебе нравится плавать. Скажи это формой с -ing. Плавать — swim.",
           before: "I like ",
           after: ".",
           answer: "swimming",
@@ -385,7 +385,7 @@ const module: Module = {
         {
           id: "z4-sopostavit-sposoby",
           kind: "match",
-          prompt: "Сопоставь запись первым способом и ту же мысль вторым.",
+          prompt: "Сопоставь запись с to и ту же мысль с окончанием -ing.",
           left: ["I like to swim.", "I like to read.", "I like to cook."],
           right: ["I like cooking.", "I like swimming.", "I like reading."],
           answer: [1, 2, 0],
@@ -395,7 +395,7 @@ const module: Module = {
         {
           id: "z5-napisat-vtorym-sposobom",
           kind: "short",
-          prompt: "Напиши вторым способом: I like to walk.",
+          prompt: "Напиши это формой с -ing: I like to walk.",
           answer: "I like walking.",
           hint: "Слово to уходит, а глагол берёт окончание.",
           why: "I like walking. Значение то же самое, что у I like to walk.",
@@ -417,7 +417,7 @@ const module: Module = {
           text: [
             "Рассказ о вкусах неполон, пока не сказано и обратное.",
             "Отрицание строится как всегда: перед like встаёт don't.",
-            "I don't like waiting. Оба способа после этого работают по-прежнему.",
+            "I don't like waiting. Обе формы после этого работают по-прежнему.",
           ],
         },
         {
@@ -451,11 +451,11 @@ const module: Module = {
         {
           id: "primer-ne-nravitsya",
           kind: "example",
-          caption: "Чего человек не любит",
+          caption: "Что человеку не нравится",
           text: "I don't like waiting.\nI don't like to wait.\nMy brother doesn't like cooking.",
           explain:
             "Первые два предложения значат одно: отрицание не отменяет ни одного из " +
-            "двух способов. В третьем стоит doesn't, потому что речь о брате.",
+            "двух форм. В третьем стоит doesn't, потому что речь о брате.",
         },
         {
           id: "zapis-ne-nravitsya",
@@ -531,10 +531,10 @@ const module: Module = {
           prompt: "Напиши, что тебе не нравится готовить. Готовить — cook.",
           answer: "I don't like cooking.",
           accept: ["I don't like to cook.", "I do not like cooking.", "I do not like to cook."],
-          hint: "Годится любой из двух способов.",
+          hint: "Годится любая из двух форм.",
           why:
             "I don't like cooking. Годится и I don't like to cook: отрицание не " +
-            "отменяет ни одного из способов.",
+            "отменяет ни одной из форм.",
         },
       ],
     },
@@ -553,14 +553,14 @@ const module: Module = {
           text: [
             "«Мне нравится» и «мне очень нравится» — разные вещи.",
             "Усилить помогает слово really, и стоит оно перед like: I really like it.",
-            "Есть и второй способ — very much, но он встаёт в конец: I like it very " +
+            "Есть и другое слово — very much, но оно встаёт в конец: I like it very " +
               "much.",
           ],
         },
         {
           id: "tablica-usileniya",
           kind: "table",
-          caption: "Два способа усилить",
+          caption: "Два места для усиления",
           head: ["Английский", "Перевод", "Где стоит слово"],
           rows: [
             ["I like it.", "Мне это нравится.", "—"],
@@ -607,7 +607,7 @@ const module: Module = {
           kind: "note",
           tone: "info",
           text:
-            "Есть и третий способ — глагол love: I love music.\n\nОн сильнее, чем " +
+            "Усилить можно и глаголом love: I love music.\n\nОн сильнее, чем " +
             "like, и с названием вещи ведёт себя так же: I love sport.",
         },
 
@@ -697,7 +697,7 @@ const module: Module = {
           caption: "Три вопроса о вкусах",
           head: ["Английский", "Перевод"],
           rows: [
-            ["Do you like coffee?", "Ты любишь кофе?"],
+            ["Do you like coffee?", "Тебе нравится кофе?"],
             ["Do you like swimming?", "Тебе нравится плавать?"],
             ["What do you like?", "Что тебе нравится?"],
           ],
@@ -726,7 +726,7 @@ const module: Module = {
           text: "— Do you like coffee?\n— No, I don't. I like tea.\n— What do you like doing?\n— I like reading.",
           explain:
             "В первом вопросе после like стоит название вещи. В третьем — вопрос о " +
-            "занятии, и там же второй способ: doing и reading с окончанием.",
+            "занятии, и там же форма с -ing: doing и reading с окончанием.",
         },
         {
           id: "zapis-voprosa-o-vkusah",
@@ -749,7 +749,7 @@ const module: Module = {
         {
           id: "z1-dopisat-do-v-voprose-o-vkusah",
           kind: "gap",
-          prompt: "Ты хочешь узнать, любит ли собеседник кофе. Допиши недостающее слово.",
+          prompt: "Ты хочешь узнать, нравится ли собеседнику кофе. Допиши недостающее слово.",
           before: "",
           after: " you like coffee?",
           answer: "Do",
@@ -768,12 +768,12 @@ const module: Module = {
           hint: "Способ нужно взять один, а не оба сразу.",
           why:
             "Do you like swimming? Годится и Do you like to swim, а вот смешивать " +
-            "способы нельзя.",
+            "формы нельзя.",
         },
         {
           id: "z3-otvetit-net-o-vkusah",
           kind: "short",
-          prompt: "Тебя спросили: Do you like coffee? Ты кофе не любишь. Ответь коротко — нет.",
+          prompt: "Тебя спросили: Do you like coffee? Кофе тебе не нравится. Ответь коротко — нет.",
           answer: "No, I don't.",
           accept: ["No, I do not."],
           hint: "Глагол like в ответе не повторяют.",
@@ -782,7 +782,7 @@ const module: Module = {
         {
           id: "z4-otmetit-smeshannye-sposoby",
           kind: "hottext",
-          prompt: "Отметь вопросы, где два способа смешаны в один.",
+          prompt: "Отметь вопросы, где две формы смешаны в одну.",
           parts: [
             { text: "Do you like reading?", selectable: true },
             { text: " · " },
@@ -830,7 +830,7 @@ const module: Module = {
           caption: "Вкус и желание",
           head: ["Английский", "Перевод", "О чём речь"],
           rows: [
-            ["I like coffee.", "Я люблю кофе.", "о вкусе вообще"],
+            ["I like coffee.", "Мне нравится кофе.", "о вкусе вообще"],
             ["I'd like a coffee.", "Я хочу кофе.", "о желании сейчас"],
             ["I'd like a tea, please.", "Я хочу чаю, пожалуйста.", "о желании сейчас"],
           ],
@@ -925,12 +925,12 @@ const module: Module = {
           kind: "match",
           prompt: "Сопоставь предложение и то, о чём в нём речь.",
           left: ["I like coffee.", "I'd like a coffee.", "I don't like coffee."],
-          right: ["чего человек хочет сейчас", "что человек любит вообще", "чего человек не любит"],
+          right: ["чего человек хочет сейчас", "что человеку нравится вообще", "что человеку не нравится"],
           answer: [1, 0, 2],
           hint: "Оборот I'd like говорит о желании в эту минуту.",
           why:
             "I like coffee — о вкусе вообще. I'd like a coffee — о желании сейчас. " +
-            "I don't like coffee — о том, чего человек не любит.",
+            "I don't like coffee — о том, что человеку не нравится.",
         },
         {
           id: "z5-napisat-zakaz",
@@ -986,9 +986,9 @@ const module: Module = {
           kind: "note",
           tone: "mistake",
           text:
-            "«I'd like reading» о желании — так не говорят.\n\nВторой способ с " +
-            "окончанием работает только у обычного like. После I'd like стоит " +
-            "слово to и глагол: I'd like to read.",
+            "«I'd like reading» о желании — так не говорят.\n\nФорма с окончанием " +
+            "-ing работает только у обычного like. После I'd like стоит слово to " +
+            "и глагол: I'd like to read.",
         },
         {
           id: "primer-would-like-to",
@@ -1037,7 +1037,7 @@ const module: Module = {
             { text: "I'd like see this film." },
             { text: "I'd like to see this film.", correct: true },
           ],
-          hint: "После I'd like второй способ не работает.",
+          hint: "После I'd like форма с -ing не работает.",
           why:
             "I'd like to see this film. Окончание -ing после I'd like не ставят, а " +
             "без to два глагола рядом не идут.",
@@ -1094,7 +1094,7 @@ const module: Module = {
           id: "zachem-rasskaz-o-vkusah",
           kind: "explain",
           text: [
-            "При знакомстве быстро доходит до вопроса «а что ты любишь».",
+            "При знакомстве быстро доходит до вопроса «а что тебе нравится».",
             "Одним предложением тут не отделаться: собеседник ждёт нескольких.",
             "Всё нужное у тебя есть — осталось выстроить их подряд.",
           ],
@@ -1180,7 +1180,7 @@ const module: Module = {
           hint: "В первом усиление, во втором отрицание.",
           why:
             "I really like sport. I don't like waiting. Годится и I don't like to " +
-            "wait: способа два.",
+            "wait: годятся обе формы.",
         },
         {
           id: "z3-dopisat-favourite",
@@ -1252,11 +1252,11 @@ const module: Module = {
         outcome: "говорить, что нравится делать: I like to read",
         prompt: "Напиши, что твоей сестре нравится готовить. Сестра — my sister, готовить — cook.",
         answer: "My sister likes to cook.",
-        // Оба способа верны — источник говорит об этом прямо.
+        // Обе формы верны — источник говорит об этом прямо.
         accept: ["My sister likes cooking."],
         hint: "О сестре у like стоит окончание -s.",
         why:
-          "My sister likes to cook. Годится и My sister likes cooking: способа два, " +
+          "My sister likes to cook. Годится и My sister likes cooking: формы две, " +
           "и значат они одно.",
       },
       {
@@ -1274,8 +1274,8 @@ const module: Module = {
       {
         id: "q-like-ing-dopisat",
         kind: "gap",
-        outcome: "пользоваться вторым способом: I like reading",
-        prompt: "Тебе нравится готовить. Скажи это вторым способом. Готовить — cook.",
+        outcome: "пользоваться формой с -ing: I like reading",
+        prompt: "Тебе нравится готовить. Скажи это формой с -ing. Готовить — cook.",
         before: "I like ",
         after: ".",
         answer: "cooking",
@@ -1285,7 +1285,7 @@ const module: Module = {
       {
         id: "q-like-ing-vybor",
         kind: "choice",
-        outcome: "пользоваться вторым способом: I like reading",
+        outcome: "пользоваться формой с -ing: I like reading",
         prompt: "Какая запись значит «мне нравится гулять»?",
         options: [
           { text: "I like walking.", correct: true },
@@ -1300,8 +1300,8 @@ const module: Module = {
       {
         id: "q-like-ing-perepisat",
         kind: "short",
-        outcome: "пользоваться вторым способом: I like reading",
-        prompt: "Напиши вторым способом: I like to swim.",
+        outcome: "пользоваться формой с -ing: I like reading",
+        prompt: "Напиши это формой с -ing: I like to swim.",
         answer: "I like swimming.",
         hint: "У swim перед окончанием удваивается последняя буква.",
         why: "I like swimming. Слово to ушло, глагол взял окончание.",
@@ -1346,7 +1346,7 @@ const module: Module = {
           "I do not like waiting.",
           "I do not like to wait.",
         ],
-        hint: "Годится любой из двух способов.",
+        hint: "Годится любая из двух форм.",
         why: "I don't like waiting. Годится и I don't like to wait.",
       },
 
@@ -1395,7 +1395,7 @@ const module: Module = {
         after: "?",
         answer: "swimming",
         accept: ["to swim"],
-        hint: "Годится любой из двух способов.",
+        hint: "Годится любая из двух форм.",
         why: "Do you like swimming? Годится и Do you like to swim.",
       },
       {
@@ -1481,7 +1481,7 @@ const module: Module = {
           { text: "I'd like go home." },
           { text: "I'd like to go home.", correct: true },
         ],
-        hint: "После I'd like второй способ не работает.",
+        hint: "После I'd like форма с -ing не работает.",
         why:
           "I'd like to go home. Окончание -ing после I'd like не ставят, а без to " +
           "два глагола рядом не идут.",

@@ -19,8 +19,21 @@ import type { Module } from "@/lib/content/types";
  * ученики делают настоящим образом — они и стоят в заданиях неверными
  * вариантами.
  *
- * ЧТО ПРОВЕРЕНО ДО НАПИСАНИЯ. Редкий случай: ступень подтверждена по всем
- * семи пунктам, ничего сверх A1 модуль не берёт.
+ * ЧТО ПРОВЕРЕНО ДО НАПИСАНИЯ. Сам `can` целиком стоит на A1 — все семь
+ * записей. Но два оборота модуля на A1 не стоят, и первая редакция шапки
+ * утверждала обратное. Нашёл методист, исправлено:
+ *
+ * — ВОПРОС `What can you do?` (урок 5) — A2, QUESTIONS wh-, «FORM: MODAL
+ *   VERBS»: «Can use 'wh-'words + modal verbs + subject + main verb to form
+ *   'wh-'questions», пример источника — «What will you bring?». Взят сверх
+ *   ступени по тому же основанию, что вопрос в модулях 16 и 18: курс, который
+ *   учит отвечать и отнимает вопрос, оставляет ученика с половиной умения.
+ * — БЕЗЛИЧНОЕ `you` (урок 6, «You can buy milk here») — A2, PRONOUNS generic
+ *   use, «USE: 'YOU', GENERAL»: «Can use 'you' to refer to people in general»,
+ *   пример источника — «You can play games, you can take pictures». Графы
+ *   между собой не согласны: A1-строка «USE: POSSIBILITY» сама содержит «There
+ *   you can find milk…», то есть безличное you в ней уже есть. Держим A1-строку
+ *   как основание урока, а расхождение объявляем здесь.
  *
  * 1. English Grammar Profile, MODALITY can, ступень A1 у всех семи записей:
  *    — «FORM: AFFIRMATIVE» — «Can use the affirmative form», пример источника:
@@ -80,7 +93,7 @@ const module: Module = {
     "спрашивать об умении: Can you swim?",
     "спрашивать, что человек умеет: What can you do?",
     "говорить о возможности: You can buy milk here",
-    "просить и предлагать помощь: Can you help?",
+    "просить и предлагать: Can you help? Can I have your pen?",
     "рассказывать, что умеешь и чего не умеешь",
   ],
   sources: [
@@ -98,7 +111,18 @@ const module: Module = {
         "пример источника — «Can I help you?». " +
         "A1, MODALITY can, «USE: POSSIBILITY»: «Can use 'can' to talk about " +
         "possibility». " +
-        "Все семь записей стоят на A1 — модуль не берёт ничего сверх ступени.",
+        "Все семь записей про сам can стоят на A1. " +
+        "A2, QUESTIONS wh-, «FORM: MODAL VERBS»: «Can use 'wh-'words + modal " +
+        "verbs + subject + main verb to form 'wh-'questions», пример источника — " +
+        "«What will you bring?» — это вопрос What can you do? из урока 5, взят " +
+        "сверх ступени и объявлен в шапке. " +
+        "A2, PRONOUNS generic use, «USE: 'YOU', GENERAL»: «Can use 'you' to " +
+        "refer to people in general», пример источника — «You can play games, you " +
+        "can take pictures» — это безличное you из урока 6. При этом A1-строка " +
+        "«USE: POSSIBILITY» сама содержит «There you can find milk…»: графы между " +
+        "собой не согласны, и расхождение объявлено в шапке. " +
+        "ПЕРВАЯ РЕДАКЦИЯ утверждала, что модуль не берёт ничего сверх A1. Оба " +
+        "оборота нашёл методист.",
     },
     {
       ref: "Cambridge English, руководство для младших ступеней",
@@ -329,7 +353,7 @@ const module: Module = {
           caption: "Слова урока",
           items: [
             { term: "draw", translation: "рисовать", example: "My sister can draw.", hint: "/drɔː/" },
-            { term: "run", translation: "бегать", example: "He can run fast.", hint: "/rʌn/" },
+            { term: "run", translation: "бегать", example: "He can run.", hint: "/rʌn/" },
           ],
         },
 
@@ -602,7 +626,12 @@ const module: Module = {
           kind: "vocab",
           caption: "Слова урока",
           items: [
-            { term: "guitar", translation: "гитара", example: "She can play the guitar.", hint: "/gɪˈtɑː/" },
+            {
+              term: "play the guitar",
+              translation: "играть на гитаре",
+              example: "She can play the guitar.",
+              hint: "/pleɪ ðə gɪˈtɑː/ — с названиями инструментов ставят the, оборот берётся целиком",
+            },
           ],
         },
 
@@ -623,12 +652,12 @@ const module: Module = {
           prompt: "Ты хочешь узнать, умеет ли твой брат плавать. Как спросить?",
           options: [
             { text: "Can your brother swim?", correct: true },
-            { text: "Do your brother can swim?" },
+            { text: "Does your brother can swim?" },
             { text: "Can swim your brother?" },
           ],
           hint: "Сначала can, потом тот, о ком речь, потом глагол.",
           why:
-            "Can your brother swim? Слово do здесь не нужно, а в третьем варианте " +
+            "Can your brother swim? Слово does здесь не нужно, а в третьем варианте " +
             "порядок перевёрнут.",
         },
         {
@@ -686,7 +715,7 @@ const module: Module = {
           rows: [
             ["What can you do?", "Что ты умеешь?"],
             ["What can your sister do?", "Что умеет твоя сестра?"],
-            ["Who can drive?", "Кто умеет водить машину?"],
+            ["What can your friends do?", "Что умеют твои друзья?"],
           ],
         },
         {
@@ -695,8 +724,7 @@ const module: Module = {
           text: [
             "Порядок такой: вопросительное слово, can, тот, о ком речь, глагол.",
             "What can your sister do? — What, can, your sister, do.",
-            "У слова who всё короче: оно само называет того, о ком речь, и после него " +
-              "сразу идёт can. Who can drive?",
+            "Порядок один и тот же, о ком бы ни шла речь: What can your friends do?",
           ],
         },
         {
@@ -711,10 +739,10 @@ const module: Module = {
           id: "primer-chto-umeesh",
           kind: "example",
           caption: "Разговор при знакомстве",
-          text: "— What can you do?\n— I can swim and I can draw.\n— Who can drive?\n— My sister can.",
+          text: "— What can you do?\n— I can swim.\n— What can your sister do?\n— She can drive.",
           explain:
-            "В первом вопросе can стоит вторым, после What. В ответе на Who хватает " +
-            "одного can: глагол drive не повторяют.",
+            "В обоих вопросах can стоит вторым, сразу после What. Дальше идёт тот, о " +
+            "ком речь, и только потом глагол.",
         },
         {
           id: "zapis-chto-umeesh",
@@ -722,15 +750,15 @@ const module: Module = {
           planned: true,
           pace: "slow",
           caption: "Послушай два вопроса",
-          transcript: "What can you do? Who can drive?",
+          transcript: "What can you do? What can your sister do?",
         },
         {
           id: "otvet-odnim-can",
           kind: "note",
           tone: "info",
           text:
-            "Ответ «My sister can» кажется незаконченным, но он верный.\n\nЭто тот же " +
-            "короткий ответ, что и Yes, I can: глагол в нём не повторяют.",
+            "Отвечать на такой вопрос можно и коротко: She can drive.\n\nПовторять " +
+            "вопрос целиком не нужно — хватает того, что человек умеет.",
         },
 
         // ---- задания ----
@@ -940,9 +968,9 @@ const module: Module = {
     // =====================================================================
     {
       slug: "prosba-i-pomoshch",
-      title: "Просьба: Can you help?",
+      title: "Просьба о помощи: Can you help?",
       estimatedMinutes: 13,
-      outcome: "просить и предлагать помощь: Can you help?",
+      outcome: "просить и предлагать: Can you help? Can I have your pen?",
 
       blocks: [
         {
@@ -961,7 +989,7 @@ const module: Module = {
           caption: "Просьба и предложение помощи",
           head: ["Английский", "Перевод"],
           rows: [
-            ["Can you help?", "Помоги, пожалуйста."],
+            ["Can you help?", "Ты не поможешь?"],
             ["Can I help you?", "Тебе помочь?"],
             ["Can I have your pen?", "Можно взять твою ручку?"],
           ],
@@ -1002,12 +1030,17 @@ const module: Module = {
           transcript: "Can you help, please? Can I help you?",
         },
         {
-          id: "prosba-eto-vopros",
-          kind: "note",
-          tone: "info",
-          text:
-            "Просьба здесь выглядит как вопрос и вопросительный знак сохраняет.\n\n" +
-            "Так и есть: по виду это вопрос, а по делу — просьба.",
+          id: "slovar-prosby",
+          kind: "vocab",
+          caption: "Слова урока",
+          items: [
+            {
+              term: "Can I have…?",
+              translation: "можно мне…?",
+              example: "Can I have your pen?",
+              hint: "берётся целым оборотом: have здесь значит «взять», а не «иметь»",
+            },
+          ],
         },
 
         // ---- задания ----
@@ -1115,11 +1148,10 @@ const module: Module = {
           kind: "example",
           caption: "Рассказ целиком",
           text:
-            "I can swim and I can ride a bike.\nI can't drive.\nMy sister can drive, but she can't swim.",
+            "I can swim.\nI can't drive.\nMy sister can drive.",
           explain:
-            "Первое предложение соединяет два умения словом and. Второе говорит об " +
-            "обратном. Третье — о другом человеке, и в нём то же but, что в модуле " +
-            "«Здесь есть».",
+            "Первое предложение о том, что умеешь, второе — об обратном, третье — о " +
+            "другом человеке. Соединять их в одно длинное пока не нужно.",
         },
         {
           id: "zapis-rasskaza-umeniya",
@@ -1128,7 +1160,7 @@ const module: Module = {
           pace: "slow",
           caption: "Послушай рассказ целиком",
           transcript:
-            "I can swim and I can ride a bike. I can't drive. My sister can drive, but she can't swim.",
+            "I can swim. I can't drive. My sister can drive.",
         },
         {
           id: "ne-tolko-pro-sebya",
@@ -1170,24 +1202,24 @@ const module: Module = {
           why: "My sister can't swim. Годится и полная запись cannot.",
         },
         {
-          id: "z4-soedinit-and-but",
+          id: "z4-dva-predlozheniya-o-sestre",
           kind: "short",
           prompt:
-            "Напиши одно предложение: сестра умеет водить машину, но не умеет плавать. " +
-            "Сестра — my sister.",
-          answer: "My sister can drive, but she can't swim.",
-          accept: ["My sister can drive but she can't swim."],
-          hint: "Две части соединяет but.",
+            "Напиши два предложения о сестре: она умеет водить машину и не умеет " +
+            "плавать. Сестра — my sister.",
+          answer: "My sister can drive. She can't swim.",
+          accept: ["My sister can drive. She cannot swim."],
+          hint: "Во втором предложении имя не повторяй — поставь she.",
           why:
-            "My sister can drive, but she can't swim. Во второй части стоит she — " +
-            "имя не повторяют.",
+            "My sister can drive. She can't swim. Во второй раз имя заменено словом " +
+            "she.",
         },
         {
           id: "z5-rasskaz-vsluh-umeniya",
           kind: "speak",
           prompt: "Расскажи вслух, что ты умеешь и чего не умеешь: три предложения.",
-          phrase: "I can swim and I can draw. I can't drive. My brother can drive.",
-          translation: "Я умею плавать и умею рисовать. Я не умею водить машину. Мой брат умеет.",
+          phrase: "I can swim. I can't drive. My brother can drive.",
+          translation: "Я умею плавать. Я не умею водить машину. Мой брат умеет.",
           hint: "Начни с умений, потом скажи об обратном, потом о другом человеке.",
           why:
             "Три предложения — это уже рассказ. Can в них не меняется, меняется " +
@@ -1369,12 +1401,12 @@ const module: Module = {
         id: "q-chto-umeet-dopisat",
         kind: "gap",
         outcome: "спрашивать, что человек умеет: What can you do?",
-        prompt: "Ты хочешь узнать, кто умеет водить машину. Допиши недостающее слово.",
-        before: "Who ",
-        after: " drive?",
+        prompt: "Ты хочешь узнать, что умеют твои друзья. Допиши недостающее слово.",
+        before: "What ",
+        after: " your friends do?",
         answer: "can",
-        hint: "После who сразу идёт оно.",
-        why: "Who can drive? Слово who само называет того, о ком речь, и can идёт следом.",
+        hint: "Оно встаёт сразу после вопросительного слова.",
+        why: "What can your friends do? После What сразу идёт can.",
       },
       {
         id: "q-chto-umeet-sprosit",
@@ -1435,7 +1467,7 @@ const module: Module = {
       {
         id: "q-prosba-vybor",
         kind: "choice",
-        outcome: "просить и предлагать помощь: Can you help?",
+        outcome: "просить и предлагать: Can you help? Can I have your pen?",
         prompt: "Собеседнику тяжело, и ты предлагаешь свою помощь. Как сказать?",
         options: [
           { text: "Can I help you?", correct: true },
@@ -1450,7 +1482,7 @@ const module: Module = {
       {
         id: "q-prosba-dopisat",
         kind: "gap",
-        outcome: "просить и предлагать помощь: Can you help?",
+        outcome: "просить и предлагать: Can you help? Can I have your pen?",
         prompt: "Ты просишь собеседника помочь. Допиши недостающее слово.",
         before: "Can ",
         after: " help, please?",
@@ -1461,8 +1493,8 @@ const module: Module = {
       {
         id: "q-prosba-napisat",
         kind: "short",
-        outcome: "просить и предлагать помощь: Can you help?",
-        prompt: "Попроси у собеседника его ручку. Твоя ручка — your pen.",
+        outcome: "просить и предлагать: Can you help? Can I have your pen?",
+        prompt: "Попроси у собеседника его ручку. Его ручка — your pen.",
         answer: "Can I have your pen?",
         hint: "Начни с can, вторым поставь того, кто просит.",
         why: "Can I have your pen? По виду это вопрос, а по делу — просьба.",
@@ -1492,15 +1524,23 @@ const module: Module = {
         why: "I can cook. I can't drive. Первое об умении, второе — об обратном.",
       },
       {
-        id: "q-rasskaz-umeniya-dopisat",
-        kind: "gap",
+        id: "q-rasskaz-umeniya-otmetit",
+        kind: "hottext",
         outcome: "рассказывать, что умеешь и чего не умеешь",
-        prompt: "Твоя сестра умеет рисовать, но не умеет водить машину. Допиши недостающее слово.",
-        before: "My sister can draw, ",
-        after: " she can't drive.",
-        answer: "but",
-        hint: "Слово, которое соединяет две несогласные части.",
-        why: "My sister can draw, but she can't drive. Части соединяет but.",
+        prompt: "Отметь записи, где сказано о чужом умении, а не о своём.",
+        parts: [
+          { text: "I can swim.", selectable: true },
+          { text: " · " },
+          { text: "My sister can drive.", selectable: true, correct: true },
+          { text: " · " },
+          { text: "I can't cook.", selectable: true },
+          { text: " · " },
+          { text: "My brother can play football.", selectable: true, correct: true },
+        ],
+        hint: "Смотри, о ком идёт речь в начале предложения.",
+        why:
+          "О чужом умении говорят «My sister can drive» и «My brother can play " +
+          "football». Два других предложения — о себе.",
       },
     ],
   },

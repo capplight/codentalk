@@ -321,7 +321,7 @@ const module: Module = {
         {
           id: "z1-dopisat-me",
           kind: "gap",
-          prompt: "Дана знает тебя. Допиши недостающее слово.",
+          prompt: "Дана знает тебя. Напиши это о себе — допиши недостающее слово.",
           before: "Dana knows ",
           after: ".",
           answer: "me",
@@ -467,7 +467,7 @@ const module: Module = {
         {
           id: "z2-dopisat-him-posle-glagola",
           kind: "gap",
-          prompt: "Ты знаешь этого человека. Допиши недостающее слово.",
+          prompt: "Ты знаешь Алима. Допиши недостающее слово.",
           before: "I know ",
           after: ".",
           answer: "him",
@@ -703,7 +703,7 @@ const module: Module = {
           id: "primer-posle-predloga",
           kind: "example",
           caption: "Три предлога подряд",
-          text: "This is for me.\nI work with him.\nThe letter is for them.",
+          text: "This is for me.\nI work with him.\nThis book is for them.",
           explain:
             "После for и with стоят me, him и them — те же слова, что после глагола. " +
             "Предлог их не меняет.",
@@ -714,7 +714,7 @@ const module: Module = {
           planned: true,
           pace: "slow",
           caption: "Послушай три предложения",
-          transcript: "This is for me. I work with him. The letter is for them.",
+          transcript: "This is for me. I work with him. This book is for them.",
         },
         {
           id: "slovar-predlogov",
@@ -803,7 +803,8 @@ const module: Module = {
           text: [
             "По-русски «слушать» идёт без предлога: слушаю музыку, слушаю тебя.",
             "По-английски у глагола listen предлог обязателен: I listen to music.",
-            "У глагола look то же самое, только предлог другой: I look at the picture.",
+            "У look предлог есть и по-русски — «смотрю на картинку», — только в " +
+              "английском он всегда at: I look at the picture.",
           ],
         },
         {
@@ -822,8 +823,9 @@ const module: Module = {
           id: "predlog-prikleen",
           kind: "explain",
           text: [
-            "Предлог у таких глаголов не выбирают.",
-            "У listen всегда to, у look всегда at. Другого сочетания не бывает.",
+            "Предлог у таких глаголов не выбирают: он задан самим глаголом.",
+            "Когда назван тот, кого слушают, у listen идёт to. Когда назван тот, на " +
+              "кого смотрят, у look идёт at.",
             "А слово после предлога берётся то же, что после глагола, — как везде.",
           ],
         },
