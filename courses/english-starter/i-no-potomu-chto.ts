@@ -16,17 +16,25 @@ import type { Module } from "@/lib/content/types";
  * Поэтому уроки построены не вокруг слов, а вокруг случаев: перечислить,
  * противопоставить, дать выбор, назвать причину.
  *
- * ГЛАВНАЯ ОПАСНОСТЬ — русская запятая. По-русски «я работаю, и я учусь» пишется
- * с запятой перед «и», а по-английски запятой там нет: I work and I study.
- * Зато в перечислении запятые как раз есть. Урок 2 разводит эти два случая.
+ * ПРО ЗАПЯТУЮ — ОСТОРОЖНО. По-русски «я работаю, и я учусь» пишется с запятой
+ * перед «и», по-английски она не требуется: I work and I study. Но первая
+ * редакция модуля пошла дальше и объявила запятую ошибкой — врезкой, заданием
+ * и разбором. Основания под этим нет: пунктуацию английский профиль не
+ * описывает вовсе, а по правилам английской пунктуации запятая перед союзом
+ * между двумя полными предложениями допустима. Утверждение убрано, вопрос
+ * записан владельцу (docs/zadachi-vladeltsa.md, п. 1.27): твёрдый запрет — его
+ * решение как преподавателя, а не вывод из источника.
+ *
+ * Зато в перечислении запятые обязательны, и это как раз из источника. Урок 2
+ * разводит два случая.
  *
  * ВТОРАЯ ОПАСНОСТЬ — `because` в начале ответа. По-русски на вопрос «почему»
  * отвечают «потому что…», и это целый ответ. По-английски `because` тоже
  * годится в ответе, но в письме источник ставит его ПОСЛЕ главного
  * предложения: «I love her because she is friendly».
  *
- * ЧТО ПРОВЕРЕНО ДО НАПИСАНИЯ. Ступень подтверждена по всем пунктам, ничего
- * сверх A1 модуль не берёт.
+ * ЧТО ПРОВЕРЕНО ДО НАПИСАНИЯ. Все пять союзов стоят на A1. Форма вопроса
+ * `Why do you work here?` — выше ступени, она объявлена ниже отдельно.
  *
  * 1. English Grammar Profile, CLAUSES coordinated, A1, «FORM: MAIN CLAUSE +
  *    MAIN CLAUSE» — «Can combine two main declarative clauses using
@@ -52,7 +60,33 @@ import type { Module } from "@/lib/content/types";
  * 5. Слова модуля — Oxford 3000, все A1: or conj. A1, because conj. A1, why
  *    adv. A1. Уже введены раньше: and, but.
  *
+ * ЧТО ВЗЯТО СВЕРХ СТУПЕНИ И ОБЪЯВЛЕНО:
+ *
+ * — ФОРМА ВОПРОСА `Why do you work here?` — A2, английский профиль, QUESTIONS
+ *   wh-, «FORM: WITH AUXILIARY 'DO'»: «Can use 'wh-'words + auxiliary 'do' +
+ *   subject + main verb to form 'wh-'questions», пример источника — «What do
+ *   you think?». Вопросов с вопросительным словом на A1 в профиле нет ни
+ *   одного: подкатегория QUESTIONS wh- начинается сразу с A2.
+ *
+ *   ПОЧЕМУ ВЗЯТО: сама эта форма уже введена в модуле 16 «Спросить о делах» и
+ *   там же объявлена взятой сверх ступени. Здесь к ней добавляется только новое
+ *   слово `why`, которое в словнике стоит на A1. Без вопроса о причине урок про
+ *   `because` остаётся половинчатым: назвать причину ученик умеет, а спросить
+ *   о ней — нет.
+ *
+ *   ЗАПИСАНО ПОСЛЕ РАЗБОРА. Сначала шапка утверждала, что модуль не берёт
+ *   ничего сверх A1. Это неверно, и это третий модуль подряд, где шапка врала о
+ *   ступени. Проверять надо не слово, а конструкцию, в которой оно стоит:
+ *   словник подтверждает `why adv. A1`, но о форме вопроса он не говорит
+ *   ничего.
+ *
  * ЧЕГО В МОДУЛЕ НЕТ И ПОЧЕМУ:
+ *
+ * — ВОПРОСА `Why can't you come?`. Он стоял в таблице, в примере и в
+ *   проверочной работе, а это B1: английский профиль, QUESTIONS wh-, «FORM:
+ *   NEGATIVE QUESTIONS WITH MODALS», пример источника — «Why can't you do both
+ *   things?». Хуже ступени было другое: урок объясняет «после why идёт do», а
+ *   эта строка ему прямо противоречила и ничего не поясняла. Убран отовсюду.
  *
  * — СОЮЗА `so` («поэтому»). В Oxford 3000 он стоит на A1, но программа его не
  *   называет, а английский профиль на этой ступени о нём молчит. Брать слово
@@ -89,7 +123,10 @@ const module: Module = {
         "friendly». " +
         "A1, CONJUNCTIONS subordinating, «FORM: 'BECAUSE'»: «Can use 'because' as a " +
         "subordinating conjunction to introduce a subordinate clause». " +
-        "Все записи стоят на A1 — модуль не берёт ничего сверх ступени",
+        "A2, QUESTIONS wh-, «FORM: WITH AUXILIARY 'DO'»: «Can use 'wh-'words + " +
+        "auxiliary 'do' + subject + main verb to form 'wh-'questions», пример " +
+        "источника — «What do you think?» — это форма вопроса Why do you work here?, " +
+        "взята сверх ступени и объявлена в шапке; та же форма уже введена в модуле 16",
       license: "внутреннее использование, публично не называем",
     },
     {
@@ -145,19 +182,19 @@ const module: Module = {
           id: "zapyatoy-net",
           kind: "explain",
           text: [
-            "По-русски перед «и» в таком предложении стоит запятая: «я работаю, и я " +
-              "учусь».",
-            "По-английски запятой там нет: I work and I study.",
-            "Это первое, на чём спотыкаются, и запомнить надо именно это.",
+            "По-русски перед «и» в таком предложении запятая обязательна: «я " +
+              "работаю, и я учусь».",
+            "По-английски она не нужна: I work and I study.",
+            "Пиши без неё — так короче: I work and I study.",
           ],
         },
         {
           id: "ne-zapyataya-pered-and",
           kind: "note",
-          tone: "mistake",
+          tone: "info",
           text:
-            "«I work, and I study» — так обычно не пишут.\n\nПеред and в таком " +
-            "предложении запятая не нужна.",
+            "Русская запятая перед «и» сюда не переносится.\n\nI work and I study — " +
+            "английский её здесь не требует.",
         },
         {
           id: "primer-and",
@@ -194,36 +231,40 @@ const module: Module = {
           after: " I study.",
           answer: "and",
           hint: "Слово соединяет две мысли.",
-          why: "I work and I study. Запятая перед and здесь не нужна.",
+          why: "I work and I study. По бокам от and — две полные мысли.",
         },
         {
           id: "z2-vybrat-bez-zapyatoy",
           kind: "choice",
-          prompt: "Ты любишь чай и любишь кофе. В каком предложении нет ошибки?",
+          prompt: "Ты любишь чай и любишь кофе. Как соединить это в одно предложение?",
           options: [
-            { text: "I like tea, and I like coffee." },
+            { text: "I like tea and I coffee." },
             { text: "I like tea and I like coffee.", correct: true },
-            { text: "I like tea and I like coffee and." },
+            { text: "I like tea. I like coffee." },
           ],
-          hint: "Запятая перед and в таком предложении не ставится.",
+          hint: "Обе части должны остаться полными.",
           why:
-            "I like tea and I like coffee. Слово and стоит один раз и посередине.",
+            "I like tea and I like coffee. У каждой части свой глагол. В первой " +
+            "записи глагол потерян, а третья верна, но это по-прежнему два " +
+            "предложения.",
         },
         {
           id: "z3-otmetit-lishnyuyu-zapyatuyu",
           kind: "hottext",
-          prompt: "Отметь записи с лишней запятой.",
+          prompt: "Отметь записи, где and соединяет два полных предложения.",
           parts: [
-            { text: "I work and I study.", selectable: true },
+            { text: "I work and I study.", selectable: true, correct: true },
             { text: " · " },
-            { text: "I work, and I study.", selectable: true, correct: true },
+            { text: "tea and coffee", selectable: true },
             { text: " · " },
-            { text: "She can swim, and she can drive.", selectable: true, correct: true },
+            { text: "She can swim and she can drive.", selectable: true, correct: true },
             { text: " · " },
-            { text: "She can swim and she can drive.", selectable: true },
+            { text: "Alim and Dana", selectable: true },
           ],
-          hint: "Перед and в соединённом предложении запятой нет.",
-          why: "Верно: I work and I study и She can swim and she can drive.",
+          hint: "Полная мысль — та, у которой есть свой глагол.",
+          why:
+            "I work and I study и She can swim and she can drive — по бокам от and " +
+            "полные мысли. Tea and coffee и Alim and Dana соединяют только слова.",
         },
         {
           id: "z4-sobrat-and",
@@ -344,15 +385,15 @@ const module: Module = {
         {
           id: "z3-otmetit-perechislenie",
           kind: "hottext",
-          prompt: "Отметь перечисления с ошибкой.",
+          prompt: "Отметь перечисления, где между вещами запятые, а перед последней — and.",
           parts: [
-            { text: "tea, coffee and milk", selectable: true },
+            { text: "tea, coffee and milk", selectable: true, correct: true },
             { text: " · " },
-            { text: "tea and coffee and milk", selectable: true, correct: true },
+            { text: "tea and coffee and milk", selectable: true },
             { text: " · " },
-            { text: "bread, water, rice", selectable: true, correct: true },
+            { text: "bread, water, rice", selectable: true },
             { text: " · " },
-            { text: "bread, water and rice", selectable: true },
+            { text: "bread, water and rice", selectable: true, correct: true },
           ],
           hint: "Запятые между вещами, and перед последней.",
           why: "Верно: tea, coffee and milk и bread, water and rice.",
@@ -469,15 +510,17 @@ const module: Module = {
           options: [
             { text: "I can drive and I can't swim." },
             { text: "I can drive but I can't swim.", correct: true },
-            { text: "I can drive, but I can't swim, and." },
+            { text: "I can drive but I don't can swim." },
           ],
-          hint: "Вторая мысль спорит с первой.",
-          why: "I can drive but I can't swim. Слово and здесь не годится: мысли спорят.",
+          hint: "Части спорят между собой, а слово can обходится без помощников.",
+          why:
+            "I can drive but I can't swim. Слово and здесь не годится: мысли спорят. " +
+            "А can отрицают через can't, слово don't ему не нужно.",
         },
         {
           id: "z3-otmetit-and-vmesto-but",
           kind: "hottext",
-          prompt: "Отметь записи, где вместо and нужно but.",
+          prompt: "Отметь записи, где вторая мысль спорит с первой.",
           parts: [
             { text: "I like tea and I like coffee.", selectable: true },
             { text: " · " },
@@ -487,10 +530,11 @@ const module: Module = {
             { text: " · " },
             { text: "She can swim and she can drive.", selectable: true },
           ],
-          hint: "Смотри, спорит ли вторая мысль с первой.",
+          hint: "Спор виден по отрицанию во второй части.",
           why:
-            "But нужно там, где вторая часть отрицает: I like tea but I don't like " +
-            "coffee, She can swim but she can't drive.",
+            "Спорят «I like tea and I don't like coffee» и «She can swim and she " +
+            "can't drive». В таких предложениях яснее звучит but: I like tea but I " +
+            "don't like coffee.",
         },
         {
           id: "z4-sobrat-but",
@@ -955,7 +999,7 @@ const module: Module = {
           head: ["Вопрос", "Ответ"],
           rows: [
             ["Why do you work here?", "Because I like this shop."],
-            ["Why can't you come?", "Because I work."],
+            ["Why does she live here?", "Because she works in this shop."],
             ["Why are you happy?", "Because I have got a bike."],
           ],
         },
@@ -981,10 +1025,10 @@ const module: Module = {
           kind: "example",
           caption: "Разговор о причинах",
           text:
-            "— Why do you work here?\n— Because I like this shop.\n— Why can't you come tomorrow?\n— Because I work.",
+            "— Why do you work here?\n— Because I like this shop.\n— Why does Dana work here?\n— Because she likes this shop too.",
           explain:
-            "В обоих вопросах после why стоит do или can. В ответах because стоит " +
-            "первым — так отвечают коротко.",
+            "В первом вопросе после why стоит do, во втором — does: речь о Dana. В " +
+            "ответах because стоит первым — так отвечают коротко.",
         },
         {
           id: "zapis-why",
@@ -1079,22 +1123,25 @@ const module: Module = {
           id: "zachem-svyaznyy-rasskaz",
           kind: "explain",
           text: [
-            "Рассказ из отдельных предложений похож на список.",
-            "Пять слов этого модуля превращают список в речь.",
-            "Соединяй, противопоставляй, объясняй — и рассказ пойдёт сам.",
+            "Собеседник спросил, как ты живёшь. Ты отвечаешь: I work. I study. I " +
+              "want a good job.",
+            "Три предложения подряд звучат как список дел, и связи между ними не " +
+              "слышно.",
+            "Соединишь их — и получится рассказ.",
           ],
         },
         {
-          id: "tablica-pyat-slov",
+          id: "tablica-spisok-i-rasskaz",
           kind: "table",
-          caption: "Пять слов на все случаи",
-          head: ["Слово", "Когда брать"],
+          caption: "Список и рассказ",
+          head: ["Список", "Рассказ"],
           rows: [
-            ["and", "добавить"],
-            ["but", "возразить"],
-            ["or", "дать выбор"],
-            ["because", "объяснить"],
-            ["why", "спросить о причине"],
+            ["I work. I study.", "I work and I study."],
+            [
+              "I like my work. I don't like early mornings.",
+              "I like my work but I don't like early mornings.",
+            ],
+            ["I study. I want a good job.", "I study because I want a good job."],
           ],
         },
         {
@@ -1186,7 +1233,7 @@ const module: Module = {
         {
           id: "z4-otmetit-nuzhnuyu-svyazku",
           kind: "hottext",
-          prompt: "Отметь записи, где вместо and нужно but или because.",
+          prompt: "Отметь записи, где вторая часть спорит с первой или объясняет её.",
           parts: [
             { text: "I work and I study.", selectable: true },
             { text: " · " },
@@ -1198,8 +1245,8 @@ const module: Module = {
           ],
           hint: "Смотри на смысл: возражение или причина.",
           why:
-            "Во втором нужно but: мысли спорят. В третьем нужно because: вторая " +
-            "часть объясняет первую.",
+            "Во втором части спорят — там яснее звучит but. В третьем вторая часть " +
+            "объясняет первую — там просится because.",
         },
         {
           id: "z5-rasskaz-vsluh-svyaznyy",
@@ -1221,340 +1268,361 @@ const module: Module = {
     ask: 12,
     passRatio: 0.7,
     questions: [
-      // Работа не повторяет задания уроков: другие предложения, другой
-      // пропущенный кусок.
+      // Работа написана заново, отдельно от уроков. Первая её редакция была
+      // зеркалом: девятнадцать подсказок из двадцати четырёх совпадали с
+      // урочными дословно, менялось одно слово в условии. Здесь другие углы —
+      // исправить чужую запись, сосчитать союзы, узнать связку по смыслу,
+      // ответить на вопрос, собрать другой рассказ.
 
       // ---- итог 1 ----
       {
-        id: "q-and-dopisat",
-        kind: "gap",
-        outcome: "соединять два предложения: I work and I study",
-        prompt: "Ты живёшь здесь и работаешь здесь. Допиши недостающее слово.",
-        before: "I live here ",
-        after: " I work here.",
-        answer: "and",
-        hint: "Слово соединяет две мысли.",
-        why: "I live here and I work here. Запятая перед and здесь не нужна.",
-      },
-      {
-        id: "q-and-vybor",
-        kind: "choice",
-        outcome: "соединять два предложения: I work and I study",
-        prompt: "Ты умеешь плавать и умеешь рисовать. В каком предложении нет ошибки?",
-        options: [
-          { text: "I can swim, and I can draw." },
-          { text: "I can swim and I can draw.", correct: true },
-          { text: "I can swim and and I can draw." },
-        ],
-        hint: "Запятая перед and в таком предложении не ставится.",
-        why: "I can swim and I can draw. Слово and стоит один раз и посередине.",
-      },
-      {
-        id: "q-and-napisat",
+        id: "q-soedinit-dva-predlozheniya",
         kind: "short",
         outcome: "соединять два предложения: I work and I study",
-        prompt: "Напиши, что тебе нравится музыка и нравится спорт. Музыка — music, спорт — sport.",
-        answer: "I like music and I like sport.",
-        accept: ["I like music and sport."],
-        hint: "Соедини две мысли словом and.",
+        prompt: "Друг написал два предложения: I live here. I work here. Соедини их в одно.",
+        answer: "I live here and I work here.",
+        accept: ["I live here and work here."],
+        hint: "Обе части остаются полными.",
         why:
-          "I like music and I like sport. Годится и короткая запись I like music and " +
-          "sport.",
+          "I live here and I work here. Годится и короткая запись I live here and " +
+          "work here.",
+      },
+      {
+        id: "q-dva-cheloveka-v-odnom",
+        kind: "choice",
+        outcome: "соединять два предложения: I work and I study",
+        prompt: "Она учительница, он врач. Как сказать это одним предложением?",
+        options: [
+          { text: "She is a teacher and he is a doctor.", correct: true },
+          { text: "She is a teacher and doctor." },
+          { text: "She and he are a teacher and a doctor." },
+        ],
+        hint: "Люди разные, поэтому обе части остаются целыми.",
+        why:
+          "She is a teacher and he is a doctor. Вторая запись выходит про одного " +
+          "человека сразу с двумя занятиями, а в третьей потерялось, кто есть кто.",
+      },
+      {
+        id: "q-skolko-predlozheniy",
+        kind: "hottext",
+        outcome: "соединять два предложения: I work and I study",
+        prompt: "Отметь записи, в которых одно предложение, а не два.",
+        parts: [
+          { text: "I work. I study.", selectable: true },
+          { text: " · " },
+          { text: "I work and I study.", selectable: true, correct: true },
+          { text: " · " },
+          { text: "She can swim and she can drive.", selectable: true, correct: true },
+          { text: " · " },
+          { text: "I like tea. I like coffee.", selectable: true },
+        ],
+        hint: "Считай точки.",
+        why:
+          "Одно предложение в I work and I study и She can swim and she can drive: " +
+          "в каждом одна точка. В двух других записях предложений по два.",
       },
 
       // ---- итог 2 ----
       {
-        id: "q-perechislenie-vybor",
-        kind: "choice",
-        outcome: "перечислять через запятую: tea, coffee and water",
-        prompt: "Ты перечисляешь три вещи: хлеб, молоко и рис. Как сказать?",
-        options: [
-          { text: "bread and milk and rice" },
-          { text: "bread, milk, rice" },
-          { text: "bread, milk and rice", correct: true },
-        ],
-        hint: "Между вещами запятые, перед последней — and.",
-        why:
-          "Bread, milk and rice. В первом варианте and лишнее, в третьем его не " +
-          "хватает.",
-      },
-      {
-        id: "q-perechislenie-dopisat",
-        kind: "gap",
-        outcome: "перечислять через запятую: tea, coffee and water",
-        prompt: "Ты перечисляешь три напитка. Допиши недостающее слово.",
-        before: "water, milk ",
-        after: " tea",
-        answer: "and",
-        hint: "Перед последней вещью стоит одно слово.",
-        why: "Water, milk and tea. Перед последней вещью идёт and, а не запятая.",
-      },
-      {
-        id: "q-perechislenie-napisat",
+        id: "q-ispravit-perechislenie",
         kind: "short",
         outcome: "перечислять через запятую: tea, coffee and water",
-        prompt:
-          "Напиши, что тебе нравятся хлеб, рис и мясо. Хлеб — bread, рис — rice, " +
-          "мясо — meat.",
-        answer: "I like bread, rice and meat.",
-        hint: "Между вещами запятые, перед последней — and.",
-        why: "I like bread, rice and meat. Запятая одна, and одно.",
+        prompt: "Друг перечислил напитки так: tea and coffee and milk. Запиши то же перечисление через запятую.",
+        answer: "tea, coffee and milk",
+        hint: "В списке and стоит один раз — перед последней вещью.",
+        why: "Tea, coffee and milk. Между первыми двумя запятая, and — перед последней.",
+      },
+      {
+        id: "q-skolko-and",
+        kind: "hottext",
+        outcome: "перечислять через запятую: tea, coffee and water",
+        prompt: "Отметь перечисления, где слово and стоит один раз.",
+        parts: [
+          { text: "bread, water and rice", selectable: true, correct: true },
+          { text: " · " },
+          { text: "bread and water and rice", selectable: true },
+          { text: " · " },
+          { text: "tea, coffee and milk", selectable: true, correct: true },
+          { text: " · " },
+          { text: "tea and coffee and milk", selectable: true },
+        ],
+        hint: "Сосчитай, сколько раз встретилось and.",
+        why:
+          "В bread, water and rice и tea, coffee and milk слово and стоит один раз — " +
+          "перед последней вещью.",
+      },
+      {
+        id: "q-perechislit-dela",
+        kind: "gap",
+        outcome: "перечислять через запятую: tea, coffee and water",
+        prompt: "Ты умеешь плавать, водить машину и рисовать. Допиши недостающее слово.",
+        before: "I can swim, drive ",
+        after: " draw.",
+        answer: "and",
+        hint: "Перед последним делом стоит союз.",
+        why: "I can swim, drive and draw. Дела перечисляют так же, как вещи.",
       },
 
       // ---- итог 3 ----
       {
-        id: "q-but-dopisat",
-        kind: "gap",
-        outcome: "противопоставлять: I work but I don't study",
-        prompt: "Ты любишь кофе, но не любишь чай. Допиши недостающее слово.",
-        before: "I like coffee ",
-        after: " I don't like tea.",
-        answer: "but",
-        hint: "Вторая мысль спорит с первой.",
-        why: "I like coffee but I don't like tea. Для спора берут but.",
-      },
-      {
-        id: "q-but-vybor",
-        kind: "choice",
-        outcome: "противопоставлять: I work but I don't study",
-        prompt: "Твой брат умеет плавать, но не умеет водить машину. Как сказать?",
-        options: [
-          { text: "My brother can swim but he can't drive.", correct: true },
-          { text: "My brother can swim and he can't drive." },
-          { text: "My brother can swim because he can't drive." },
-        ],
-        hint: "Вторая мысль спорит с первой.",
-        why:
-          "My brother can swim but he can't drive. Слово and здесь не годится, а " +
-          "because вводит причину, которой тут нет.",
-      },
-      {
-        id: "q-but-napisat",
+        id: "q-zamenit-na-but",
         kind: "short",
         outcome: "противопоставлять: I work but I don't study",
-        prompt: "Напиши, что ты работаешь, но не учишься. Работать — work, учиться — study.",
-        answer: "I work but I don't study.",
-        accept: ["I work but I do not study."],
-        hint: "Соедини мысли словом but.",
-        why: "I work but I don't study. Запятая перед but не нужна.",
+        prompt:
+          "Друг написал: I like my work and I don't like early mornings. " +
+          "Замени соединение так, чтобы спор был слышен.",
+        answer: "I like my work but I don't like early mornings.",
+        hint: "Меняется одно слово.",
+        why:
+          "I like my work but I don't like early mornings. Слово but показывает, что " +
+          "части спорят.",
+      },
+      {
+        id: "q-sopostavit-spor",
+        kind: "match",
+        outcome: "противопоставлять: I work but I don't study",
+        prompt: "Сопоставь начало и продолжение, которое с ним спорит.",
+        left: ["I like tea", "She can swim", "I work"],
+        right: ["but she can't drive.", "but I don't study.", "but I don't like coffee."],
+        answer: [2, 0, 1],
+        hint: "Продолжение всегда отрицает то, о чём начало говорит.",
+        why:
+          "I like tea but I don't like coffee. She can swim but she can't drive. " +
+          "I work but I don't study.",
+      },
+      {
+        id: "q-brat-sport-i-muzyka",
+        kind: "short",
+        outcome: "противопоставлять: I work but I don't study",
+        prompt:
+          "Напиши, что твой брат любит спорт, но не любит музыку. Брат — my brother, " +
+          "спорт — sport, музыка — music.",
+        answer: "My brother likes sport but he doesn't like music.",
+        accept: ["My brother likes sport but he does not like music."],
+        hint: "Речь о брате, поэтому у глагола появится окончание.",
+        why:
+          "My brother likes sport but he doesn't like music. Во второй части стоит " +
+          "he: имя уже названо.",
       },
 
       // ---- итог 4 ----
       {
-        id: "q-or-dopisat",
-        kind: "gap",
-        outcome: "давать выбор: tea or coffee",
-        prompt: "Ты предлагаешь на выбор воду или молоко. Допиши недостающее слово.",
-        before: "water ",
-        after: " milk",
-        answer: "or",
-        hint: "Слово даёт выбор, а не добавляет.",
-        why: "Water or milk. Слово or оставляет выбор одного из двух.",
-      },
-      {
-        id: "q-or-vybor",
+        id: "q-dva-dnya-na-vybor",
         kind: "choice",
         outcome: "давать выбор: tea or coffee",
-        prompt: "Ты берёшь в магазине и рис, и мясо. Как сказать?",
+        prompt: "Ты можешь прийти в понедельник, а можешь во вторник — на выбор. Как сказать?",
         options: [
-          { text: "I'd like some rice or some meat." },
-          { text: "I'd like some rice but some meat." },
-          { text: "I'd like some rice and some meat.", correct: true },
+          { text: "Monday and Tuesday." },
+          { text: "Monday or Tuesday.", correct: true },
+          { text: "Monday but Tuesday." },
         ],
-        hint: "Ты берёшь и то и другое.",
+        hint: "Нужен один день из двух, а не оба сразу.",
         why:
-          "I'd like some rice and some meat. Слово or оставило бы выбор, а but здесь " +
-          "не о чем спорить.",
+          "Monday or Tuesday. Слово and взяло бы оба дня сразу, а but здесь не о чем " +
+          "спорить.",
       },
       {
-        id: "q-or-sopostavit",
-        kind: "match",
+        id: "q-oba-srazu",
+        kind: "gap",
         outcome: "давать выбор: tea or coffee",
-        prompt: "Сопоставь слово и то, что оно делает.",
-        left: ["or", "and", "but"],
-        right: ["спорит", "даёт выбор", "добавляет"],
-        answer: [1, 2, 0],
-        hint: "Три слова — три разных дела.",
-        why: "Or даёт выбор, and добавляет, but спорит.",
+        prompt: "Ты берёшь в магазине и хлеб, и молоко — оба сразу. Допиши недостающее слово.",
+        before: "I'd like some bread ",
+        after: " some milk.",
+        answer: "and",
+        hint: "Выбора здесь нет: нужно и то и другое.",
+        why: "I'd like some bread and some milk. Слово or оставило бы выбор одного.",
+      },
+      {
+        id: "q-predlozhit-dva-napitka",
+        kind: "short",
+        outcome: "давать выбор: tea or coffee",
+        prompt: "Предложи собеседнику на выбор воду или чай. Вода — water, чай — tea.",
+        answer: "Water or tea.",
+        hint: "Между напитками стоит слово выбора.",
+        why: "Water or tea. Собеседник возьмёт что-то одно.",
       },
 
       // ---- итог 5 ----
       {
-        id: "q-koroche-vybor",
-        kind: "choice",
-        outcome: "не повторять себя дважды: I work and study",
-        prompt: "Ты умеешь плавать и умеешь рисовать. Как сказать короче?",
-        options: [
-          { text: "I can swim and draw.", correct: true },
-          { text: "I can swim and I can draw." },
-          { text: "I can swim and draws." },
-        ],
-        hint: "Слова I и can второй раз не нужны.",
-        why:
-          "I can swim and draw. Второе верно, но длиннее, а в третьем осталось " +
-          "окончание от другого человека.",
-      },
-      {
-        id: "q-koroche-dopisat",
-        kind: "gap",
-        outcome: "не повторять себя дважды: I work and study",
-        prompt: "Ты любишь чай и кофе. Скажи это короче. Кофе — coffee.",
-        before: "I like tea and ",
-        after: ".",
-        answer: "coffee",
-        hint: "Слова I и like второй раз не нужны.",
-        why: "I like tea and coffee. Глагол назван один раз.",
-      },
-      {
-        id: "q-koroche-otmetit",
+        id: "q-korotkaya-zapis-bez-poter",
         kind: "hottext",
         outcome: "не повторять себя дважды: I work and study",
-        prompt: "Отметь предложения, которые сократить нельзя.",
+        prompt: "Отметь короткие записи, в которых ничего не сломано.",
         parts: [
-          { text: "I like tea and I like coffee.", selectable: true },
+          { text: "I work and study.", selectable: true, correct: true },
           { text: " · " },
-          { text: "I like tea and she likes coffee.", selectable: true, correct: true },
+          { text: "I work and studies.", selectable: true },
           { text: " · " },
-          { text: "He can swim and she can drive.", selectable: true, correct: true },
+          { text: "She can swim and drive.", selectable: true, correct: true },
           { text: " · " },
-          { text: "He can swim and he can drive.", selectable: true },
+          { text: "She can swim and drives.", selectable: true },
         ],
-        hint: "Сокращают только там, где в обеих частях один человек.",
+        hint: "Окончание во второй части здесь лишнее.",
         why:
-          "Нельзя сократить «I like tea and she likes coffee» и «He can swim and she " +
-          "can drive»: люди в частях разные.",
+          "I work and study и She can swim and drive. В двух других записях у второго " +
+          "глагола осталось окончание, которого там быть не должно.",
+      },
+      {
+        id: "q-dana-muzyka-i-filmy",
+        kind: "choice",
+        outcome: "не повторять себя дважды: I work and study",
+        prompt: "Дана любит музыку и любит фильмы. Как сказать это короче?",
+        options: [
+          { text: "Dana likes music and like films." },
+          { text: "Dana likes music and she films." },
+          { text: "Dana likes music and films.", correct: true },
+        ],
+        hint: "Глагол называют один раз.",
+        why:
+          "Dana likes music and films. Во второй записи глагол потерял окончание, а в " +
+          "третьей его нет вовсе.",
+      },
+      {
+        id: "q-napisat-koroche-hleb-i-ris",
+        kind: "short",
+        outcome: "не повторять себя дважды: I work and study",
+        prompt: "Напиши короче: I like bread and I like rice.",
+        answer: "I like bread and rice.",
+        hint: "То, что сказано дважды, назови один раз.",
+        why: "I like bread and rice. Слова I и like названы по одному разу.",
       },
 
       // ---- итог 6 ----
       {
-        id: "q-because-dopisat",
-        kind: "gap",
-        outcome: "называть причину: because",
-        prompt: "Ты радуешься тому, что у тебя есть велосипед. Допиши недостающее слово.",
-        before: "I am happy ",
-        after: " I have got a bike.",
-        answer: "because",
-        hint: "Слово вводит причину.",
-        why: "I am happy because I have got a bike. Сначала главное, потом причина.",
-      },
-      {
-        id: "q-because-vybor",
-        kind: "choice",
-        outcome: "называть причину: because",
-        prompt: "Ты не можешь прийти, потому что работаешь. Как сказать?",
-        options: [
-          { text: "Because I work I can't come." },
-          { text: "I can't come because work." },
-          { text: "I can't come because I work.", correct: true },
-        ],
-        hint: "Сначала главное, потом причина, и причина — полное предложение.",
-        why:
-          "I can't come because I work. После because нужно полное предложение: " +
-          "I work.",
-      },
-      {
-        id: "q-because-napisat",
+        id: "q-otvetit-prichinoy-celikom",
         kind: "short",
         outcome: "называть причину: because",
         prompt:
-          "Напиши, что тебе нравится этот магазин, потому что он рядом. Магазин — " +
-          "this shop, рядом — near.",
-        answer: "I like this shop because it is near.",
-        accept: ["I like this shop because it's near."],
-        hint: "После because идёт полное предложение.",
-        why: "I like this shop because it is near. Обе части полные, у обеих свой глагол.",
+          "Собеседник спросил, почему ты работаешь здесь. Причина — магазин рядом. " +
+          "Ответь целым предложением.",
+        answer: "I work here because this shop is near.",
+        accept: ["I work here because it is near."],
+        hint: "Главное стоит первым, because — вторым.",
+        why:
+          "I work here because this shop is near. Годится и короткое I work here " +
+          "because it is near.",
+      },
+      {
+        id: "q-otmetit-prichinu",
+        kind: "hottext",
+        outcome: "называть причину: because",
+        prompt: "Отметь предложения, в которых названа причина.",
+        parts: [
+          { text: "I can't come because I work.", selectable: true, correct: true },
+          { text: " · " },
+          { text: "I like tea and I like coffee.", selectable: true },
+          { text: " · " },
+          { text: "She is happy because she has got a bike.", selectable: true, correct: true },
+          { text: " · " },
+          { text: "I work but I don't study.", selectable: true },
+        ],
+        hint: "Причину вводит одно слово.",
+        why:
+          "Причина названа в I can't come because I work и She is happy because she " +
+          "has got a bike. В двух других предложениях части добавляют и спорят.",
+      },
+      {
+        id: "q-dopisat-prichinu-dana",
+        kind: "gap",
+        outcome: "называть причину: because",
+        prompt: "Дана любит этот магазин. Причина — он рядом. Допиши недостающее слово.",
+        before: "Dana likes this shop ",
+        after: " it is near.",
+        answer: "because",
+        hint: "Вторая часть отвечает на вопрос «почему».",
+        why: "Dana likes this shop because it is near. Причина идёт второй частью.",
       },
 
       // ---- итог 7 ----
       {
-        id: "q-why-dopisat",
-        kind: "gap",
+        id: "q-ispravit-vopros-why",
+        kind: "short",
         outcome: "спрашивать о причине: Why do you work here?",
-        prompt: "Ты хочешь узнать, почему собеседник живёт здесь. Допиши недостающее слово.",
-        before: "Why ",
-        after: " you live here?",
-        answer: "do",
-        hint: "После вопросительного слова идёт то же, что во всех вопросах о делах.",
-        why: "Why do you live here? После why идёт do.",
+        prompt: "Друг написал: Why you like this shop? Напиши этот вопрос без ошибки.",
+        answer: "Why do you like this shop?",
+        hint: "Не хватает одного слова.",
+        why: "Why do you like this shop? После why идёт do.",
       },
       {
-        id: "q-why-vybor",
+        id: "q-vopros-o-dane",
         kind: "choice",
         outcome: "спрашивать о причине: Why do you work here?",
-        prompt: "Ты хочешь узнать, почему твоя сестра любит этот магазин. Как спросить?",
+        prompt: "Ты хочешь узнать, почему Дана учится. Как спросить?",
         options: [
-          { text: "Why she likes this shop?" },
-          { text: "Why does she like this shop?", correct: true },
-          { text: "Why does she likes this shop?" },
+          { text: "Why Dana studies?" },
+          { text: "Why does Dana study?", correct: true },
+          { text: "Why does Dana studies?" },
         ],
-        hint: "О сестре идёт does, а окончание после него уже не нужно.",
+        hint: "Окончание уходит в does.",
         why:
-          "Why does she like this shop? Окончание -s ушло в does, а без does вопрос " +
-          "неполон.",
+          "Why does Dana study? Окончание -s ушло в does, поэтому у глагола его уже " +
+          "нет, а без does вопрос неполон.",
       },
       {
         id: "q-why-otvetit",
         kind: "short",
         outcome: "спрашивать о причине: Why do you work here?",
         prompt:
-          "Тебя спросили: Why can't you come? Причина — ты работаешь. Ответь коротко, " +
-          "начав с because.",
-        answer: "Because I work.",
-        hint: "Короткий ответ начинается с because.",
-        why: "Because I work. В ответе на вопрос why слово because стоит первым.",
+          "Тебя спросили: Why do you live here? Причина — здесь твоя работа. Ответь " +
+          "коротко, начав с because.",
+        answer: "Because I work here.",
+        accept: ["I live here because I work here."],
+        hint: "Ответ на вопрос why начинается с because.",
+        why: "Because I work here. Полный ответ I live here because I work here тоже верен.",
       },
 
       // ---- итог 8 ----
       {
-        id: "q-svyaznyy-sobrat",
+        id: "q-sobrat-rasskaz-o-rabote",
         kind: "order",
         outcome: "рассказывать связно, с причинами",
-        prompt: "Собери рассказ: сначала что делаешь, потом причина, потом возражение.",
+        prompt:
+          "Собери рассказ: сначала где работаешь, потом почему тебе там нравится, " +
+          "потом чего не хватает.",
         items: [
-          "I like my work but I don't like early mornings.",
+          "I like this shop because it is near.",
           "I work in a shop.",
-          "I work because I want money.",
+          "I like my work but I want a good job.",
         ],
-        answer: [1, 2, 0],
-        hint: "Порядок задан в условии.",
+        answer: [1, 0, 2],
+        hint: "Первым идёт само дело, причина — за ним.",
         why:
-          "I work in a shop. I work because I want money. I like my work but I don't " +
-          "like early mornings.",
+          "I work in a shop. I like this shop because it is near. I like my work but " +
+          "I want a good job.",
       },
       {
-        id: "q-svyaznyy-otmetit",
-        kind: "hottext",
-        outcome: "рассказывать связно, с причинами",
-        prompt: "Отметь записи, где вместо and нужно but или because.",
-        parts: [
-          { text: "I work and I study.", selectable: true },
-          { text: " · " },
-          { text: "I like tea and I don't like coffee.", selectable: true, correct: true },
-          { text: " · " },
-          { text: "I am happy and I have got a bike.", selectable: true, correct: true },
-          { text: " · " },
-          { text: "I like music and I like sport.", selectable: true },
-        ],
-        hint: "Смотри на смысл: возражение или причина.",
-        why:
-          "Во втором нужно but: мысли спорят. В третьем нужно because: вторая часть " +
-          "объясняет первую.",
-      },
-      {
-        id: "q-svyaznyy-napisat",
+        id: "q-dva-predlozheniya-o-sebe",
         kind: "short",
         outcome: "рассказывать связно, с причинами",
         prompt:
-          "Напиши два предложения: ты работаешь в магазине и учишься; ты учишься, " +
-          "потому что хочешь хорошую работу. Хорошая работа — a good job.",
-        answer: "I work in a shop and I study. I study because I want a good job.",
+          "Напиши два предложения о себе: ты работаешь и учишься; ты любишь чай, но " +
+          "не любишь кофе.",
+        answer: "I work and I study. I like tea but I don't like coffee.",
         accept: [
-          "I work in a shop and study. I study because I want a good job.",
+          "I work and study. I like tea but I don't like coffee.",
+          "I work and I study. I like tea but I do not like coffee.",
         ],
-        hint: "В первом and, во втором because.",
+        hint: "Первое предложение соединяет, второе спорит.",
         why:
-          "I work in a shop and I study. I study because I want a good job. Годится " +
-          "и короткая запись I work in a shop and study.",
+          "I work and I study. I like tea but I don't like coffee. Годится и короткая " +
+          "запись I work and study.",
+      },
+      {
+        id: "q-vybrat-svyazku-v-rasskaze",
+        kind: "choice",
+        outcome: "рассказывать связно, с причинами",
+        prompt:
+          "В рассказе не хватает слова: I don't like early mornings ___ I work in the " +
+          "morning. Какое слово подойдёт?",
+        options: [
+          { text: "but" },
+          { text: "or" },
+          { text: "because", correct: true },
+        ],
+        hint: "Спроси себя: вторая часть спорит, предлагает выбор или отвечает «почему»?",
+        why:
+          "I don't like early mornings because I work in the morning. Вторая часть — " +
+          "причина, а не спор и не выбор.",
       },
     ],
   },
