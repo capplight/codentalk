@@ -1,53 +1,93 @@
 /* ---------- дизайн-токены ----------
  *
- * Оформление второй версии: белый лист, синий акцент, спокойные нейтральные
- * серые. Вид намеренно узнаваемый — аудитория взрослая, и знакомая форма
- * работает на доверие сильнее, чем оригинальность.
+ * Основа оформления. Собрана 14 августа 2026 из трёх источников:
+ *   — макеты Stitch (владелец выбрал их вид: «красиво и аккуратно»);
+ *   — навыки .claude/skills/emil-design-eng и apple-design;
+ *   — то, что у нас уже было и оказалось лучше макета.
  *
- * Имена токенов сохранены от первой версии, поэтому все прежние страницы
- * подхватывают новую палитру без правки компонентов.
+ * ПРАВИЛО, РАДИ КОТОРОГО ЭТОТ ФАЙЛ И СУЩЕСТВУЕТ: значения берутся ТОЛЬКО
+ * отсюда. Произвольные размеры и отступы в отдельных файлах расползаются, и
+ * через месяц на соседних страницах разные заголовки и разные промежутки.
  *
- * Роли цветов разведены и не должны смешиваться:
+ * Роли цветов разведены и не смешиваются:
  *   --accent  — навигация, ссылки, главные кнопки
- *   --amber   — «ваша очередь работать»: подпись и фон заданий
+ *   --amber   — «твоя очередь работать»: подпись и фон заданий
+ *   --violet  — раздел «программирование» в каталоге
  *   --good / --bad — только смыслы «верно» и «ошибка»
  */
 :root {
   color-scheme: light;
 
-  /* Лист белый. Отдельный тон --paper-alt служит для чередующихся полос и
-     мелких заливок: он даёт карточкам опору там, где иначе они держались бы
-     на одной тонкой рамке. */
-  --paper: #ffffff;
-  --paper-alt: #f2f5f9;
+  /* ---------- слои ----------
+   *
+   * ГЛАВНОЕ ИЗМЕНЕНИЕ ОТ ПРЕЖНЕЙ РЕДАКЦИИ: лист стал светло-серым, а карточки
+   * белыми. Раньше было наоборот — белый лист и серые полосы. Разница в одну
+   * строку, а вид меняет целиком: карточка теперь видимо лежит НА странице, а
+   * не нарисована на ней рамкой. Отсюда ощущение порядка, ещё до типографики.
+   */
+  --paper: #f6f8fb;
+  --paper-alt: #eef2f7;
   --surface: #ffffff;
   --ink: #16202e;
   --ink-soft: #5b6b7f;
   --line: #dde3ea;
-  --accent: #1a56b8;
+
+  /* Синий звонче прежнего (#1a56b8): так в макете. Для ТЕКСТА ссылок остаётся
+     отдельный тёмный тон — на белом ярко-синий даёт впритык проходной
+     контраст, и мелкий текст им набирать нельзя. */
+  --accent: #2563eb;
+  --accent-strong: #1d4ed8;
   --accent-ink: #123f88;
   --accent-soft: #e8f0fd;
+
   --amber: #8a5a11;
   --amber-soft: #fdf6e9;
+  --violet: #6d28d9;
+  --violet-soft: #f1ebfe;
   --good: #0e7a5a;
   --good-soft: #e3f4ee;
   --bad: #b23b32;
   --bad-soft: #fbeae8;
   --btn-text: #ffffff;
-  --shadow: 0 1px 2px rgba(22, 32, 46, 0.06), 0 6px 20px rgba(22, 32, 46, 0.07);
 
-  /* Заголовки и служебное — гротеск. Серифный остался только там, где
-     текст действительно читают подолгу: объяснения внутри уроков. */
-  --font-story: ui-sans-serif, system-ui, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  /* ---------- глубина ----------
+   *
+   * Тени мягкие и широкие, а не плотные: в макете карточка отделяется от листа
+   * рассеянным пятном, а не тёмной каймой. Ступеней три, по слоям.
+   */
+  --shadow-1: 0 1px 2px rgba(16, 24, 40, 0.04), 0 2px 8px rgba(16, 24, 40, 0.05);
+  --shadow-2: 0 2px 4px rgba(16, 24, 40, 0.05), 0 10px 24px rgba(16, 24, 40, 0.07);
+  --shadow-3: 0 8px 16px rgba(16, 24, 40, 0.08), 0 24px 48px rgba(16, 24, 40, 0.12);
+  /* прежнее имя: страницы, написанные раньше, продолжают работать */
+  --shadow: var(--shadow-1);
+
+  /* Стеклянная шапка. Содержимое едет ПОД ней, а не отодвигается полосой.
+     Осторожно: светлый прозрачный слой нельзя класть на другой такой же —
+     читаемость рушится. */
+  --glass: rgba(255, 255, 255, 0.72);
+  --glass-blur: 12px;
+
+  /* ---------- шрифты ----------
+   *
+   * Два семейства, не три. В макете их три, но третий стоит только на мелких
+   * подписях: разницу заметит один человек из ста, а вес страницы вырастет.
+   *
+   * Manrope — заголовки: геометричный, с насыщенностью 700–800 заголовок
+   * отличается от текста рисунком буквы, а не только размером.
+   * Inter — весь остальной текст интерфейса.
+   * Серифный остался там, где текст читают подолгу: объяснения внутри уроков.
+   */
+  --font-display: var(--font-manrope), ui-sans-serif, system-ui, "Segoe UI", Roboto, sans-serif;
+  --font-ui: var(--font-inter), ui-sans-serif, system-ui, "Segoe UI", Roboto, sans-serif;
+  --font-story: var(--font-inter), ui-sans-serif, system-ui, "Segoe UI", Roboto, sans-serif;
   --font-reading: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
-  --font-ui: ui-sans-serif, system-ui, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   --font-mono: ui-monospace, "Cascadia Mono", Consolas, monospace;
 
   /*
    * Шкала кеглей. Каждая ступень растёт вместе с шириной экрана, поэтому
-   * отдельные правила под телефон почти не нужны. Размеры набираются ТОЛЬКО
-   * из этой шкалы: произвольные значения в отдельных файлах расползаются,
-   * и через месяц на соседних страницах заголовки разного размера.
+   * отдельные правила под телефон почти не нужны. В макете ступени жёсткие
+   * (48, 32, 24, 18, 16) — наше решение на телефоне удобнее, и мы его
+   * оставляем.
    */
   --step--1: clamp(0.78rem, 0.76rem + 0.1vw, 0.85rem);
   --step-0: clamp(0.95rem, 0.92rem + 0.15vw, 1.05rem);
@@ -56,9 +96,66 @@
   --step-3: clamp(2rem, 1.7rem + 1.5vw, 3.1rem);
   --step-4: clamp(2.6rem, 2rem + 2.6vw, 4.4rem);
 
+  /*
+   * Межбуквенное расстояние ЗАВИСИТ ОТ КЕГЛЯ, одного значения на всё не
+   * бывает: у крупного заголовка буквы расходятся и его поджимают, у мелкого
+   * текста наоборот чуть разводят. Правило из разбора типографики Apple.
+   */
+  --track-display: -0.02em;
+  --track-head: -0.01em;
+  --track-body: 0;
+  --track-small: 0.01em;
+  --track-caps: 0.08em;
+
+  /* ---------- отступы ----------
+   *
+   * Этого у нас не было вовсе: шкала кеглей была, а расстояния каждый
+   * компонент назначал сам. Именно это читается как неаккуратность — соседние
+   * блоки дышат по-разному. Основа восьмёрка, как в макете.
+   */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+  --space-9: 80px;
+
+  /* Ходовые сочетания, чтобы не пересчитывать их в каждом файле. */
+  --gutter: var(--space-5);
+  --section-gap: clamp(var(--space-7), 6vw, var(--space-9));
+  --page-pad: clamp(var(--space-4), 4vw, var(--space-6));
+
   --radius-s: 8px;
-  --radius-m: 10px;
+  --radius-m: 12px;
   --radius-l: 16px;
+  --radius-pill: 999px;
+
+  /* ---------- движение ----------
+   *
+   * Встроенные в браузер кривые вялые. Эти взяты из навыка emil-design-eng.
+   *
+   * ease-in в интерфейсе НЕ ПРИМЕНЯЕТСЯ НИКОГДА: он задерживает начало
+   * движения — ровно тот миг, на который человек смотрит внимательнее всего, —
+   * и оттого интерфейс кажется медленным при той же длительности.
+   */
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+
+  /*
+   * Длительности. Предел для интерфейса — 300 мс, и почти всё должно быть
+   * заметно быстрее.
+   *
+   * И правило, которое для обучающей платформы важнее самих чисел: ЧАСТОЕ НЕ
+   * АНИМИРУЕТСЯ. Ученик нажимает «проверить» десятки раз за занятие; анимация
+   * там сделает платформу медленной на ощупь, оставив её быстрой на деле.
+   * Действия с клавиатуры не анимируются никогда.
+   */
+  --dur-press: 140ms;
+  --dur-fast: 180ms;
+  --dur-base: 240ms;
 }
 
 /*
@@ -78,16 +175,23 @@
   --ink-soft: #94a4b8;
   --line: #24303f;
   --accent: #6fa4ff;
+  --accent-strong: #8ab6ff;
   --accent-ink: #9cc0ff;
   --accent-soft: #16243c;
   --amber: #e0b071;
   --amber-soft: #2b2317;
+  --violet: #b79bfa;
+  --violet-soft: #1e1833;
   --good: #4fbf95;
   --good-soft: #10281f;
   --bad: #e08880;
   --bad-soft: #2e1b19;
   --btn-text: #0e141d;
-  --shadow: 0 1px 2px rgba(0, 0, 0, 0.4), 0 6px 20px rgba(0, 0, 0, 0.35);
+  --shadow-1: 0 1px 2px rgba(0, 0, 0, 0.3), 0 2px 8px rgba(0, 0, 0, 0.25);
+  --shadow-2: 0 2px 4px rgba(0, 0, 0, 0.35), 0 10px 24px rgba(0, 0, 0, 0.35);
+  --shadow-3: 0 8px 16px rgba(0, 0, 0, 0.4), 0 24px 48px rgba(0, 0, 0, 0.5);
+  --shadow: var(--shadow-1);
+  --glass: rgba(20, 28, 39, 0.72);
 }
 
 * {
@@ -106,6 +210,7 @@ body {
   font-family: var(--font-ui);
   font-size: var(--step-0);
   line-height: 1.55;
+  letter-spacing: var(--track-body);
   -webkit-font-smoothing: antialiased;
   /* длинные слова/фразы не должны выталкивать страницу вширь на телефоне */
   overflow-wrap: break-word;
@@ -126,48 +231,103 @@ a:focus-visible {
   outline-offset: 2px;
 }
 
+/*
+ * Заголовки набираются отдельным шрифтом и с поджатым межбуквенным. Чем
+ * крупнее кегль, тем сильнее поджатие — потому шкала трекинга и разведена по
+ * ступеням.
+ */
 h1,
 h2,
-h3 {
+h3,
+h4 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 1.15;
   text-wrap: balance;
+}
+
+h1 {
+  font-size: var(--step-3);
+  letter-spacing: var(--track-display);
+}
+
+h2 {
+  font-size: var(--step-2);
+  letter-spacing: var(--track-head);
+}
+
+h3 {
+  font-size: var(--step-1);
+  letter-spacing: var(--track-head);
 }
 
 /* ---------- общие элементы ---------- */
 
 /* Колонка для сплошного текста: уроки, проверочные работы, экзамен.
-   Длинная строка утомляет глаз, поэтому здесь ширина ограничена жёстко. */
+   Длинная строка утомляет глаз, поэтому здесь ширина ограничена жёстко.
+   В макете такой задачи нет — там витрина, а не чтение. */
 .wrap {
   max-width: 720px;
   margin: 0 auto;
-  padding-inline: clamp(16px, 4vw, 32px);
+  padding-inline: var(--page-pad);
 }
 
 /* Витрина, каталоги и кабинет: там колонки и карточки, а не сплошной текст. */
 .wrap-wide {
-  max-width: 1120px;
+  max-width: 1180px;
   margin: 0 auto;
-  padding-inline: clamp(16px, 4vw, 32px);
+  padding-inline: var(--page-pad);
+}
+
+/* Карточка: белая плоскость на сером листе. Рамка здесь вспомогательная —
+   отделяет тень, а не заменяет её. */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-l);
+  box-shadow: var(--shadow-1);
 }
 
 .btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
+  gap: var(--space-2);
   font-weight: 650;
   font-size: var(--step-0);
   cursor: pointer;
   background: var(--accent);
   color: var(--btn-text);
   border: 1px solid transparent;
-  border-radius: var(--radius-m);
+  border-radius: var(--radius-s);
   padding: 11px 20px;
   text-decoration: none;
   text-align: center;
+  /* Названы ровно те свойства, которые меняются: transition: all заставляет
+     браузер следить за всем подряд. */
+  transition: transform var(--dur-press) var(--ease-out),
+    background-color var(--dur-fast) var(--ease-out);
 }
 
-.btn:hover {
-  filter: brightness(1.06);
+/*
+ * Отклик на нажатие. Кнопка обязана показать, что интерфейс услышал человека,
+ * и показать это МГНОВЕННО — на нажатии, а не на отпускании.
+ */
+.btn:active {
+  transform: scale(0.97);
+}
+
+/* Наведение отделено: на сенсорном экране касание считается наведением, и без
+   этой оговорки подсветка залипала бы после нажатия. */
+@media (hover: hover) and (pointer: fine) {
+  .btn:hover {
+    background: var(--accent-strong);
+  }
+
+  .btn.ghost:hover {
+    border-color: var(--accent);
+    background: var(--accent-soft);
+  }
 }
 
 .btn.big {
@@ -181,18 +341,32 @@ h3 {
   border-color: var(--line);
 }
 
-.btn.ghost:hover {
-  border-color: var(--accent);
-  filter: none;
-}
-
 .tag-label {
   font-size: var(--step--1);
-  letter-spacing: 0.1em;
+  letter-spacing: var(--track-caps);
   text-transform: uppercase;
   font-weight: 700;
 }
 
+/* Метка раздела: скругление полное, чтобы её не путали с кнопкой. */
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  border-radius: var(--radius-pill);
+  padding: 4px 12px;
+  font-size: var(--step--1);
+  font-weight: 650;
+  letter-spacing: var(--track-small);
+  background: var(--accent-soft);
+  color: var(--accent-ink);
+}
+
+/*
+ * Уменьшенное движение — это не «ноль анимации», а мягче: убираем
+ * перемещение, оставляем прозрачность и цвет, которые помогают понять
+ * происходящее.
+ */
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -200,5 +374,17 @@ h3 {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+  }
+
+  .btn:active {
+    transform: none;
+  }
+}
+
+/* Кому мешает прозрачность — стекло становится плотным. */
+@media (prefers-reduced-transparency: reduce) {
+  :root {
+    --glass: var(--surface);
+    --glass-blur: 0px;
   }
 }
