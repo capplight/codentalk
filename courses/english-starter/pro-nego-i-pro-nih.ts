@@ -73,14 +73,22 @@ const module: Module = {
         "the object pronouns 'me', 'you', 'him', 'her', 'it', 'us' and 'them' in the " +
         "object position after prepositions», пример источника — «It's very " +
         "important for me». " +
-        "Все три записи стоят на A1 — модуль не берёт ничего сверх ступени",
+        "A1, VERBS prepositional, «FORM: VERB + PREPOSITION + OBJECT»: «Can use a " +
+        "limited range of prepositional verbs followed by noun or pronoun objects», " +
+        "пример источника — «I listen to music in the living room…» — это урок 6, " +
+        "глагол с предлогом. Строку нашёл методист: прежде урок 6 источником " +
+        "подтверждён не был вовсе. " +
+        "Все записи стоят на A1 — модуль не берёт ничего сверх ступени",
       license: "внутреннее использование, публично не называем",
     },
     {
       ref: "Cambridge English, руководство для младших ступеней",
       section:
         "с. 29, Grammar and Structures List ступени Pre A1 Starters, графа " +
-        "«Pronouns» с примером «Can you see me?». Ступень ниже A1, а умение то же",
+        "«Pronouns» с примером «Can you see me?». Ступень ниже A1, а умение то же. " +
+        "с. 50, A1 Movers, Speaking Part 2: «…the present continuous tense of some " +
+        "action verbs (for example: play, read, look at, write, laugh, go)» — это " +
+        "подтверждение сочетания look at, которого Oxford 3000 не даёт",
       license: "свободно распространяется, в уроки не копируется",
     },
     {
@@ -361,14 +369,15 @@ const module: Module = {
             { text: " · " },
             { text: "We know they.", selectable: true, correct: true },
             { text: " · " },
-            { text: "Me know him.", selectable: true, correct: true },
+            { text: "Know him.", selectable: true, correct: true },
             { text: " · " },
             { text: "I know him.", selectable: true },
           ],
           hint: "Перед глаголом идут I, we, they, а после — me, us, them.",
           why:
-            "В «We know they» после глагола нужно them. В «Me know him» перед " +
-            "глаголом нужно I. Верно: We know them, I know him.",
+            "В «We know they» после глагола нужно them. В «Know him» потерян тот, " +
+            "кто знает: по-английски его называют всегда. Верно: We know them, " +
+            "I know him.",
         },
         {
           id: "z5-napisat-znayut-nas",
@@ -508,6 +517,8 @@ const module: Module = {
           prompt:
             "Напиши два предложения: это её велосипед и ты знаешь её. Велосипед — a bike.",
           answer: "This is her bike. I know her.",
+          // Курс учил и обороту It's (модуль «Мои вещи»), значит он тоже верен.
+          accept: ["It's her bike. I know her."],
           hint: "Слово her в обоих предложениях одно и то же.",
           why:
             "This is her bike. I know her. У женского рода одно слово на оба места, " +
@@ -645,6 +656,7 @@ const module: Module = {
           kind: "short",
           prompt: "Напиши два предложения: это её ручка и тебе она нравится. Ручка — a pen.",
           answer: "This is her pen. I like it.",
+          accept: ["It's her pen. I like it."],
           hint: "Во втором предложении речь о вещи.",
           why:
             "This is her pen. I like it. Ручка — вещь, поэтому во втором предложении " +
@@ -919,6 +931,7 @@ const module: Module = {
           kind: "short",
           prompt: "Напиши, что ты слушаешь её. Слушать — listen.",
           answer: "I listen to her.",
+          accept: ["I am listening to her.", "I'm listening to her."],
           hint: "Не забудь предлог.",
           why: "I listen to her. У глагола listen предлог обязателен.",
         },
@@ -1353,6 +1366,7 @@ const module: Module = {
         outcome: "говорить о вещи словом it: I like it",
         prompt: "Напиши два предложения: это его велосипед и тебе он нравится. Велосипед — a bike.",
         answer: "This is his bike. I like it.",
+        accept: ["It's his bike. I like it."],
         hint: "Во втором предложении речь о вещи, а не о человеке.",
         why: "This is his bike. I like it. Перед вещью стоит his, а сама вещь — это it.",
       },

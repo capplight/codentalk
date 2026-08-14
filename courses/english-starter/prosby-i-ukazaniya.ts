@@ -144,7 +144,7 @@ const module: Module = {
           id: "zachem-ukazanie",
           kind: "explain",
           text: [
-            "У тебя заняты руки, и ты просишь спутника открыть дверь.",
+            "У тебя заняты руки, и ты просишь знакомого открыть дверь.",
             "По-английски это одно слово и название вещи: Open the door.",
             "Ни I, ни you перед глаголом не ставят — и это новое.",
           ],
@@ -210,7 +210,7 @@ const module: Module = {
         {
           id: "z1-vybrat-ukazanie",
           kind: "choice",
-          prompt: "Ты просишь спутника открыть дверь. Как сказать?",
+          prompt: "Ты просишь знакомого открыть дверь. Как сказать?",
           options: [
             { text: "You open the door." },
             { text: "Open the door.", correct: true },
@@ -224,7 +224,7 @@ const module: Module = {
         {
           id: "z2-dopisat-ukazanie",
           kind: "gap",
-          prompt: "Ты просишь спутника закрыть окно. Допиши глагол. Закрыть — close.",
+          prompt: "Ты просишь знакомого закрыть окно. Допиши глагол. Закрыть — close.",
           before: "",
           after: " the window.",
           answer: "Close",
@@ -263,7 +263,7 @@ const module: Module = {
         {
           id: "z5-napisat-ukazanie",
           kind: "short",
-          prompt: "Скажи спутнику, чтобы он подождал. Ждать — wait.",
+          prompt: "Скажи знакомому, чтобы он подождал. Ждать — wait.",
           answer: "Wait.",
           accept: ["Wait, please."],
           hint: "Хватает одного глагола.",
@@ -347,7 +347,7 @@ const module: Module = {
         {
           id: "z1-dopisat-dont",
           kind: "gap",
-          prompt: "Ты просишь спутника не открывать окно. Допиши недостающее слово.",
+          prompt: "Ты просишь знакомого не открывать окно. Допиши недостающее слово.",
           before: "",
           after: " open the window.",
           answer: "Don't",
@@ -358,7 +358,7 @@ const module: Module = {
         {
           id: "z2-vybrat-zapret",
           kind: "choice",
-          prompt: "Ты просишь спутника не ждать. Как сказать?",
+          prompt: "Ты просишь знакомого не ждать. Как сказать?",
           options: [
             { text: "You don't wait." },
             { text: "Don't wait.", correct: true },
@@ -399,7 +399,7 @@ const module: Module = {
         {
           id: "z5-napisat-zapret",
           kind: "short",
-          prompt: "Скажи спутнику, чтобы он не приходил завтра. Приходить — come, завтра — tomorrow.",
+          prompt: "Скажи знакомому, чтобы он не приходил завтра. Приходить — come, завтра — tomorrow.",
           answer: "Don't come tomorrow.",
           accept: ["Do not come tomorrow.", "Don't come tomorrow, please."],
           hint: "Запрет начинается с don't.",
@@ -421,7 +421,7 @@ const module: Module = {
           kind: "explain",
           text: [
             "«Open the door» звучит как приказ, и незнакомому человеку так не скажешь.",
-            "Одно слово меняет дело: Open the door, please.",
+            "Одно слово меняет всё: Open the door, please.",
             "Слово please ты знаешь с модуля «Приветствие» — здесь оно работает в " +
               "полную силу.",
           ],
@@ -484,7 +484,7 @@ const module: Module = {
         {
           id: "z1-dopisat-please",
           kind: "gap",
-          prompt: "Ты просишь спутника подождать и добавляешь «пожалуйста». Допиши недостающее слово.",
+          prompt: "Ты просишь знакомого подождать и добавляешь «пожалуйста». Допиши недостающее слово.",
           before: "Wait, ",
           after: ".",
           answer: "please",
@@ -494,7 +494,7 @@ const module: Module = {
         {
           id: "z2-vybrat-mesto-please",
           kind: "choice",
-          prompt: "Ты просишь спутника открыть окно и добавляешь «пожалуйста». Как сказать?",
+          prompt: "Ты просишь знакомого открыть окно и добавляешь «пожалуйста». Как сказать?",
           options: [
             { text: "Open please the window." },
             { text: "Open the window, please.", correct: true },
@@ -531,7 +531,7 @@ const module: Module = {
         {
           id: "z5-napisat-s-please",
           kind: "short",
-          prompt: "Скажи спутнику, чтобы он сел здесь, и добавь «пожалуйста» в конце. Сесть — sit.",
+          prompt: "Скажи знакомому, чтобы он сел здесь, и добавь «пожалуйста» в конце. Сесть — sit.",
           answer: "Sit here, please.",
           hint: "В конце please отделяют запятой.",
           why: "Sit here, please. Годится и Please sit here, но условие просило конец.",
@@ -687,25 +687,25 @@ const module: Module = {
           text: [
             "Бывает наоборот: не ты делаешь одолжение, а тебе нужно разрешение.",
             "Тогда после can стоит не you, а I: Can I sit here?",
-            "Смысл меняется целиком: дело будешь делать ты, а разрешает собеседник.",
+            "Смысл меняется целиком: действие выполнишь ты, а разрешение даёт собеседник.",
           ],
         },
         {
           id: "tablica-can-i-can-you",
           kind: "table",
-          caption: "Кто будет делать дело",
+          caption: "Кто выполняет действие",
           head: ["Английский", "Перевод", "Кто делает"],
           rows: [
             ["Can you open the door?", "Ты не откроешь дверь?", "собеседник"],
-            ["Can I open the door?", "Можно я открою дверь?", "ты сам"],
-            ["Can I sit here?", "Можно мне здесь сесть?", "ты сам"],
+            ["Can I open the door?", "Можно я открою дверь?", "ты"],
+            ["Can I sit here?", "Можно мне здесь сесть?", "ты"],
           ],
         },
         {
           id: "kak-otlichit-can-i",
           kind: "explain",
           text: [
-            "Отличить просто: смотри, кто стоит сразу после can.",
+            "Различие в одном: смотри, кто стоит сразу после can.",
             "Can you — просишь собеседника. Can I — просишь разрешения себе.",
             "Больше в этих двух вопросах ничего не различается.",
           ],
@@ -753,7 +753,7 @@ const module: Module = {
           after: " sit here?",
           answer: "I",
           exact: true,
-          hint: "Дело будешь делать ты сам.",
+          hint: "Открывать или садиться будешь ты.",
           why: "Can I sit here? Слово I пишется с заглавной буквы всегда.",
         },
         {
@@ -791,7 +791,7 @@ const module: Module = {
         {
           id: "z4-sopostavit-kto-delaet",
           kind: "match",
-          prompt: "Сопоставь вопрос и того, кто будет делать дело.",
+          prompt: "Сопоставь вопрос и того, кто это сделает.",
           left: ["Can you help?", "Can I help?", "Can I sit here?"],
           right: ["собеседник поможет", "ты сядешь", "ты поможешь"],
           answer: [0, 2, 1],
@@ -806,7 +806,7 @@ const module: Module = {
           prompt: "Попроси разрешения прийти завтра. Прийти — come, завтра — tomorrow.",
           answer: "Can I come tomorrow?",
           accept: ["Can I come tomorrow, please?"],
-          hint: "После can стоит тот, кто будет делать дело.",
+          hint: "После can стоит тот, кто это сделает.",
           why: "Can I come tomorrow? Приходить будешь ты, значит после can стоит I.",
         },
       ],
@@ -983,8 +983,8 @@ const module: Module = {
           kind: "explain",
           text: [
             "Пара Yes, please и No, thank you работает только с вещами.",
-            "Ответить на «Would you like a tea?» словом Yes нельзя: это звучит " +
-              "оборванно.",
+            "Ответить на «Would you like a tea?» одним словом Yes не принято: фраза " +
+              "звучит незаконченной.",
             "А отказ без thank you выходит резким, поэтому его почти всегда " +
               "договаривают.",
           ],
@@ -1005,7 +1005,7 @@ const module: Module = {
             "— Would you like a coffee?\n— Yes, please.\n\n— Would you like to come tomorrow?\n— Sorry, I can't.",
           explain:
             "В первом разговоре предлагают вещь — ответ Yes, please. Во втором зовут " +
-            "на дело, и отказ идёт со словом sorry.",
+            "прийти, и отказ идёт со словом sorry.",
         },
         {
           id: "zapis-otvetov",
@@ -1242,7 +1242,7 @@ const module: Module = {
         id: "q-ukazanie-vybor",
         kind: "choice",
         outcome: "давать указание: Open the door",
-        prompt: "Ты просишь спутника сесть здесь. Как сказать?",
+        prompt: "Ты просишь знакомого сесть здесь. Как сказать?",
         options: [
           { text: "You sit here." },
           { text: "Sit here.", correct: true },
@@ -1257,7 +1257,7 @@ const module: Module = {
         id: "q-ukazanie-dopisat",
         kind: "gap",
         outcome: "давать указание: Open the door",
-        prompt: "Ты просишь спутника подойти сюда. Допиши глагол. Подойти — come.",
+        prompt: "Ты просишь знакомого подойти сюда. Допиши глагол. Подойти — come.",
         before: "",
         after: " here.",
         answer: "Come",
@@ -1280,7 +1280,7 @@ const module: Module = {
         id: "q-zapret-dopisat",
         kind: "gap",
         outcome: "запрещать: Don't open the door",
-        prompt: "Ты просишь спутника не закрывать дверь. Допиши недостающее слово.",
+        prompt: "Ты просишь знакомого не закрывать дверь. Допиши недостающее слово.",
         before: "",
         after: " close the door.",
         answer: "Don't",
@@ -1292,7 +1292,7 @@ const module: Module = {
         id: "q-zapret-vybor",
         kind: "choice",
         outcome: "запрещать: Don't open the door",
-        prompt: "Ты просишь спутника не приходить завтра. Как сказать?",
+        prompt: "Ты просишь знакомого не приходить завтра. Как сказать?",
         options: [
           { text: "Don't come tomorrow.", correct: true },
           { text: "You don't come tomorrow." },
@@ -1307,7 +1307,7 @@ const module: Module = {
         id: "q-zapret-napisat",
         kind: "short",
         outcome: "запрещать: Don't open the door",
-        prompt: "Скажи спутнику, чтобы он не ждал здесь. Ждать — wait, здесь — here.",
+        prompt: "Скажи знакомому, чтобы он не ждал здесь. Ждать — wait, здесь — here.",
         answer: "Don't wait here.",
         accept: ["Do not wait here.", "Don't wait here, please."],
         hint: "Запрет начинается с don't.",
@@ -1319,7 +1319,7 @@ const module: Module = {
         id: "q-please-dopisat",
         kind: "gap",
         outcome: "ставить please в указании и просьбе",
-        prompt: "Ты просишь спутника подойти сюда и добавляешь «пожалуйста» в конце.",
+        prompt: "Ты просишь знакомого подойти сюда и добавляешь «пожалуйста» в конце.",
         before: "Come here, ",
         after: ".",
         answer: "please",
@@ -1330,7 +1330,7 @@ const module: Module = {
         id: "q-please-vybor",
         kind: "choice",
         outcome: "ставить please в указании и просьбе",
-        prompt: "Ты просишь спутника открыть дверь и добавляешь «пожалуйста». Как сказать?",
+        prompt: "Ты просишь знакомого открыть дверь и добавляешь «пожалуйста». Как сказать?",
         options: [
           { text: "Open please the door." },
           { text: "Open the please door." },
@@ -1344,7 +1344,7 @@ const module: Module = {
         kind: "short",
         outcome: "ставить please в указании и просьбе",
         prompt:
-          "Скажи спутнику, чтобы он закрыл окно, и поставь «пожалуйста» в начале. " +
+          "Скажи знакомому, чтобы он закрыл окно, и поставь «пожалуйста» в начале. " +
           "Закрыть — close, окно — the window.",
         answer: "Please close the window.",
         hint: "В начале please запятой не отделяют.",
@@ -1396,7 +1396,7 @@ const module: Module = {
         after: " open the window?",
         answer: "I",
         exact: true,
-        hint: "Дело будешь делать ты сам.",
+        hint: "Открывать или садиться будешь ты.",
         why: "Can I open the window? Слово I пишется с заглавной буквы всегда.",
       },
       {
@@ -1421,7 +1421,7 @@ const module: Module = {
         prompt: "Попроси разрешения сесть здесь. Сесть — sit, здесь — here.",
         answer: "Can I sit here?",
         accept: ["Can I sit here, please?"],
-        hint: "После can стоит тот, кто будет делать дело.",
+        hint: "После can стоит тот, кто это сделает.",
         why: "Can I sit here? Садиться будешь ты, значит после can стоит I.",
       },
 
