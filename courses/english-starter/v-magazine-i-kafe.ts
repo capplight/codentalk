@@ -48,20 +48,31 @@ import type { Module } from "@/lib/content/types";
  *   модуля. Слово `any` при этом ученик уже видел в модуле 13, и там оно тоже
  *   объявлено взятым сверх.
  *
- * — `much` С НЕИСЧИСЛЯЕМЫМ В ВОПРОСЕ (`How much bread?`) — граница проходит
- *   тонко. Само слово `much` стоит в Oxford 3000 на A1, и вопрос `How much is
- *   it?` взят ещё в модуле 9 по строке QUESTIONS wh-. А вот `much` с
- *   существительным английский профиль называет только на A2 и только в
- *   отрицании («FORM: 'MUCH' WITH UNCOUNTABLE NOUNS, NEGATIVE»). Вопрос о
- *   количестве вида `How much bread?` источники не описывают вовсе — искал в
- *   английском профиле по подкатегориям quantity и wh-, в списке Cambridge
- *   Pre A1 Starters с. 29 и в словнике. НЕ НАШЁЛ, ПРОВЕРИТЬ методисту.
+ * — `much` С НЕИСЧИСЛЯЕМЫМ В ВОПРОСЕ (`How much bread?`) — B1, английский
+ *   профиль, DETERMINERS quantity, «FORM: 'MUCH' WITH UNCOUNTABLE NOUNS,
+ *   INTERROGATIVE»: «Can use 'much' with uncountable nouns in interrogative
+ *   contexts», пример источника — «How much television do you watch?».
+ *
+ *   ПОЧЕМУ ВЗЯТО: то же основание, что в модуле 9, где по этой же строке взят
+ *   вопрос `How much is it?` — руководство A2 Key, с. 52, перечень
+ *   вопросительных слов: «How; How much; How many; How often; How long». То
+ *   есть Cambridge спрашивает `how much` ниже той ступени, на которую строку
+ *   ставит профиль.
+ *
+ *   ЗАПИСАНО ПОСЛЕ РАЗБОРА. Сначала здесь стояло «источники не описывают
+ *   вовсе». Это неверно: я искал в подкатегориях quantity и wh- и не заглянул
+ *   в NOUNS uncountable, а главное — не сверился с собственным модулем 9,
+ *   который цитирует ту же строку дословно. Пятый случай в курсе, когда
+ *   «в источнике этого нет» не выдержало проверки.
  *
  * ЧЕГО В МОДУЛЕ НЕТ И ПОЧЕМУ:
  *
  * — СЛОВ `a bottle of`, `a cup of`, `a piece of`. Ими обычно и считают
- *   неисчисляемое, но ни в одном списке этой ступени их нет, а модуль и без
- *   них полон.
+ *   неисчисляемое, и в источнике они есть: A2, NOUNS uncountable, «FORM:
+ *   CONTAINERS, QUANTITY EXPRESSIONS», пример источника — «We have to bring a
+ *   bottle of water». То есть ступень позволяет. Не взяты по объёму: модуль и
+ *   так вводит отмену артикля, отмену -s, `some`, `any` и вопрос о количестве.
+ *   Раньше здесь стояло «ни в одном списке этой ступени их нет» — неверно.
  * — ОТЛИЧИЯ `some` ОТ `any` ПО ПРАВИЛУ («some в утверждении, any в вопросе»).
  *   Источник ставит их в одну строку и правила не даёт. Модуль показывает оба
  *   в деле, но правила не сочиняет.
@@ -89,8 +100,16 @@ const module: Module = {
         "lot of') with both plural nouns and uncountable nouns», пример источника — " +
         "«I think we should bring some water to drink» — это неисчисляемые, взяты " +
         "сверх ступени и объявлены в шапке модуля. " +
-        "Вопрос о количестве вида How much bread? источники не описывают: искал в " +
-        "подкатегориях quantity и wh-. НЕ НАШЁЛ, проверить",
+        "B1, DETERMINERS quantity, «FORM: 'MUCH' WITH UNCOUNTABLE NOUNS, " +
+        "INTERROGATIVE»: «Can use 'much' with uncountable nouns in interrogative " +
+        "contexts», пример источника — «How much television do you watch?» — это " +
+        "вопрос How much bread?, взят сверх ступени по тому же основанию, что и " +
+        "How much is it? в модуле 9. " +
+        "A2, NOUNS uncountable, «FORM: CONTAINERS, QUANTITY EXPRESSIONS»: «Can refer " +
+        "to an individual example or quantity of an uncountable noun using words for " +
+        "containers and countable items», пример источника — «We have to bring a " +
+        "bottle of water» — это a bottle of и a cup of, ступень позволяет, но в " +
+        "модуль они не взяты по объёму",
       license: "внутреннее использование, публично не называем",
     },
     {
@@ -98,7 +117,8 @@ const module: Module = {
       section:
         "новые слова модуля с пометкой A1: water n. A1, meat n. A1, rice n. A1, " +
         "money n. A1, price n. A1, shop n., v. A1, much det./pron. A1. Уже введены " +
-        "раньше: bread, milk (модуль 19), tea, coffee, food, cake (модули 5, 14, 21)",
+        "раньше: bread, milk (модуль 19), tea (модуль 1), coffee (модуль 14), food " +
+        "и cake (модуль 21)",
       license: "внутреннее использование",
     },
   ],
@@ -780,7 +800,7 @@ const module: Module = {
         {
           id: "z4-otmetit-prikaz-v-magazine",
           kind: "hottext",
-          prompt: "Отметь записи, которые в магазине звучат как приказ.",
+          prompt: "Отметь записи, которые не звучат как просьба.",
           parts: [
             { text: "I'd like some rice, please.", selectable: true },
             { text: " · " },
@@ -792,8 +812,9 @@ const module: Module = {
           ],
           hint: "Просьба строится оборотом I'd like или вопросом с can.",
           why:
-            "В магазине говорят «I'd like some rice, please» или «Can I have some " +
-            "rice?». Голое название и приказ там не годятся.",
+            "Просьбы здесь две: I'd like some rice, please и Can I have some rice? " +
+            "Give me rice — указание: предложение начинается с глагола. Rice — " +
+            "просто название товара, глагола в нём нет.",
         },
         {
           id: "z5-napisat-pokupku",
@@ -1230,332 +1251,347 @@ const module: Module = {
     ask: 12,
     passRatio: 0.7,
     questions: [
-      // Работа не повторяет задания уроков: другие слова, другие случаи, другой
-      // пропущенный кусок.
+      // Работа написана отдельно от уроков и после разбора переписана целиком:
+      // первый её вид повторял задания уроков с заменой одного слова, вплоть до
+      // совпадения подсказок. Здесь другие случаи и другой угол: реплики
+      // продавца, исправление чужой ошибки, разбор причины, а не только
+      // подстановка слова в тот же образец.
 
       // ---- итог 1 ----
       {
-        id: "q-neschitaemye-otmetit",
-        kind: "hottext",
-        outcome: "узнавать слова, которые не считают: water, bread, money",
-        prompt: "Отметь слова, которые считают.",
-        parts: [
-          { text: "rice", selectable: true },
-          { text: " · " },
-          { text: "friend", selectable: true, correct: true },
-          { text: " · " },
-          { text: "shop", selectable: true, correct: true },
-          { text: " · " },
-          { text: "meat", selectable: true },
-        ],
-        hint: "Попробуй показать пальцем и сосчитать.",
-        why: "Считают friend и shop: two friends, two shops. Рис и мясо не считают.",
-      },
-      {
-        id: "q-neschitaemye-vybor",
+        id: "q-schitaemoe-v-ryadu",
         kind: "choice",
         outcome: "узнавать слова, которые не считают: water, bread, money",
-        prompt: "В каком ряду ни одно слово не считают?",
+        prompt:
+          "В ряду milk, money, shop, bread только одно слово можно сосчитать. Какое?",
         options: [
-          { text: "water, money, rice", correct: true },
-          { text: "book, water, shop" },
-          { text: "friend, meat, book" },
+          { text: "milk" },
+          { text: "shop", correct: true },
+          { text: "bread" },
         ],
-        hint: "В ряду не должно быть ни книг, ни магазинов, ни друзей.",
-        why: "Не считают water, money и rice. В двух других рядах есть слова, которые " +
-        "считают.",
+        hint: "Два магазина назвать можно, а два молока — нет.",
+        why: "Shop. Магазины считают: two shops. Молоко, деньги и хлеб не считают.",
       },
       {
-        id: "q-neschitaemye-sopostavit",
-        kind: "match",
+        id: "q-otmetit-dva",
+        kind: "hottext",
         outcome: "узнавать слова, которые не считают: water, bread, money",
-        prompt: "Сопоставь слово и его перевод.",
-        left: ["bread", "rice", "money"],
-        right: ["деньги", "хлеб", "рис"],
-        answer: [1, 2, 0],
-        hint: "Все три слова не считают.",
-        why: "Bread — хлеб, rice — рис, money — деньги.",
+        prompt: "Отметь записи, которые сказать нельзя.",
+        parts: [
+          { text: "two books", selectable: true },
+          { text: " · " },
+          { text: "two moneys", selectable: true, correct: true },
+          { text: " · " },
+          { text: "two shops", selectable: true },
+          { text: " · " },
+          { text: "two rices", selectable: true, correct: true },
+        ],
+        hint: "Пересчитать пальцем можно не всё.",
+        why:
+          "Two books и two shops сказать можно. Деньги и рис не считают, поэтому " +
+          "two moneys и two rices — ошибка.",
+      },
+      {
+        id: "q-v-chem-oshibka-moneys",
+        kind: "choice",
+        outcome: "узнавать слова, которые не считают: water, bread, money",
+        prompt: "Друг написал: I have got two moneys. В чём здесь ошибка?",
+        options: [
+          {
+            text: "Деньги не считают: ни two moneys, ни two money сказать нельзя.",
+            correct: true,
+          },
+          { text: "Достаточно убрать -s: two money." },
+          { text: "Ошибки нет, так сказать можно." },
+        ],
+        hint: "Подумай, можно ли пересчитать деньги пальцем.",
+        why:
+          "Деньги не считают вовсе, поэтому перед ними не ставят число. " +
+          "Верно: I have got money.",
       },
 
       // ---- итог 2 ----
       {
-        id: "q-bez-a-i-s-vybor",
+        id: "q-ispravit-a-bread",
+        kind: "short",
+        outcome: "не ставить a и -s к таким словам",
+        prompt: "Друг написал: I like a bread. Напиши это предложение без ошибки.",
+        answer: "I like bread.",
+        hint: "Одно слово здесь лишнее.",
+        why: "I like bread. Перед словом bread ничего не ставят.",
+      },
+      {
+        id: "q-there-is-milk",
         kind: "choice",
         outcome: "не ставить a и -s к таким словам",
-        prompt: "У тебя дома много риса. В каком предложении нет ошибки?",
+        prompt: "Ты пишешь другу, что в магазине есть молоко. В каком предложении нет ошибки?",
         options: [
-          { text: "I have got a lot of rices." },
-          { text: "I have got a lot of a rice." },
-          { text: "I have got a lot of rice.", correct: true },
+          { text: "There are milks in the shop." },
+          { text: "There is a milk in the shop." },
+          { text: "There is milk in the shop.", correct: true },
         ],
-        hint: "К такому слову не приделывают ни -s, ни a.",
-        why: "I have got a lot of rice. Слово rice не меняется никогда.",
+        hint: "Молоко не считают, поэтому ни a, ни -s ему не нужны.",
+        why: "There is milk in the shop. Слово milk не меняется.",
       },
       {
-        id: "q-bez-a-i-s-dopisat",
+        id: "q-mnogo-risa",
         kind: "gap",
         outcome: "не ставить a и -s к таким словам",
-        prompt: "Ты любишь хлеб. Допиши слово. Хлеб — bread.",
-        before: "I like ",
+        prompt: "У тебя дома много риса. Допиши недостающее слово. Рис — rice.",
+        before: "I have got a lot of ",
         after: ".",
-        answer: "bread",
-        hint: "Перед ним ничего не ставят.",
-        why: "I like bread. Ни a, ни -s к этому слову не приходят.",
-      },
-      {
-        id: "q-bez-a-i-s-otmetit",
-        kind: "hottext",
-        outcome: "не ставить a и -s к таким словам",
-        prompt: "Отметь записи с ошибкой.",
-        parts: [
-          { text: "I like water.", selectable: true },
-          { text: " · " },
-          { text: "I like a money.", selectable: true, correct: true },
-          { text: " · " },
-          { text: "I like books.", selectable: true },
-          { text: " · " },
-          { text: "I like rices.", selectable: true, correct: true },
-        ],
-        hint: "Деньги и рис не считают, книги считают.",
-        why: "Верно: I like water и I like books. Слова money и rice не меняются.",
+        answer: "rice",
+        hint: "Слово остаётся таким, каким стоит в словаре.",
+        why: "I have got a lot of rice. Ни a, ни окончание -s к нему не приходят.",
       },
 
       // ---- итог 3 ----
       {
-        id: "q-some-dopisat",
-        kind: "gap",
-        outcome: "говорить о количестве: some water",
-        prompt: "Ты просишь немного риса. Допиши недостающее слово.",
-        before: "I'd like ",
-        after: " rice.",
-        answer: "some",
-        hint: "Слово знакомо тебе по книгам и магазинам.",
-        why: "I'd like some rice. Слово some годится и с рисом, и с книгами.",
-      },
-      {
-        id: "q-some-vybor",
+        id: "q-eshchyo-nemnogo-moloka",
         kind: "choice",
         outcome: "говорить о количестве: some water",
-        prompt: "Ты просишь немного хлеба. В каком предложении нет ошибки?",
+        prompt: "Продавец спросил Anything else? Тебе нужно ещё немного молока. Как ответить?",
         options: [
-          { text: "I'd like some bread.", correct: true },
-          { text: "I'd like a some bread." },
-          { text: "I'd like some breads." },
+          { text: "Yes, please. Milks." },
+          { text: "Yes, please. Some milk.", correct: true },
+          { text: "Yes, please. A milk." },
         ],
-        hint: "Слова a и some вместе не идут, а -s к хлебу не приходит.",
-        why: "I'd like some bread. Ни a рядом с some, ни окончание -s тут не нужны.",
+        hint: "«Немного» по-английски — одно короткое слово.",
+        why: "Yes, please. Some milk. Слово some и значит «немного».",
       },
       {
-        id: "q-some-napisat",
+        id: "q-some-v-rasskaze",
+        kind: "gap",
+        outcome: "говорить о количестве: some water",
+        prompt: "Ты рассказываешь другу, что у тебя есть немного мяса. Допиши недостающее слово.",
+        before: "I have got ",
+        after: " meat.",
+        answer: "some",
+        hint: "То же слово, с которым просят в магазине.",
+        why: "I have got some meat. Слово some годится и в просьбе, и в рассказе.",
+      },
+      {
+        id: "q-napisat-est-voda",
         kind: "short",
         outcome: "говорить о количестве: some water",
-        prompt: "Попроси немного мяса и добавь «пожалуйста». Мясо — meat.",
-        answer: "I'd like some meat, please.",
-        accept: [
-          "I would like some meat, please.",
-          "Can I have some meat, please?",
-        ],
-        hint: "Начни с оборота I'd like.",
-        why: "I'd like some meat, please. Годится и Can I have some meat, please?",
+        prompt: "Напиши другу, что у тебя есть немного воды. Вода — water.",
+        answer: "I have got some water.",
+        accept: ["I've got some water."],
+        hint: "Возьми оборот have got.",
+        why: "I have got some water. Короткая запись I've got some water тоже верна.",
       },
 
       // ---- итог 4 ----
       {
-        id: "q-how-much-dopisat",
-        kind: "gap",
-        outcome: "спрашивать о количестве: How much bread?",
-        prompt: "Ты спрашиваешь, сколько нужно денег. Допиши недостающее слово.",
-        before: "How ",
-        after: " money?",
-        answer: "much",
-        hint: "Деньги не считают.",
-        why: "How much money? С тем, что не считают, идёт much.",
-      },
-      {
-        id: "q-how-much-vybor",
+        id: "q-vopros-prodavtsa-o-rise",
         kind: "choice",
         outcome: "спрашивать о количестве: How much bread?",
-        prompt: "Ты спрашиваешь, сколько нужно магазинов обойти. Как спросить?",
+        prompt: "Ты просишь риса, и продавец хочет узнать количество. Что он спросит?",
         options: [
-          { text: "How much shops?" },
-          { text: "How many shops?", correct: true },
-          { text: "How many shop?" },
+          { text: "How many rice?" },
+          { text: "How much rices?" },
+          { text: "How much rice?", correct: true },
         ],
-        hint: "Магазины считают, и во множественном числе у них окончание.",
-        why: "How many shops? Считают — значит many, и слово стоит с окончанием -s.",
+        hint: "Рис не считают, и окончание к нему не приходит.",
+        why: "How much rice? С тем, что не считают, идёт much, а слово остаётся как есть.",
       },
       {
-        id: "q-how-much-sprosit",
+        id: "q-ispravit-how-many-water",
         kind: "short",
         outcome: "спрашивать о количестве: How much bread?",
-        prompt: "Спроси, сколько нужно воды. Вода — water.",
+        prompt: "Друг написал: How many water? Напиши этот вопрос без ошибки.",
         answer: "How much water?",
-        hint: "Воду не считают.",
-        why: "How much water? С тем, что не считают, идёт much.",
+        hint: "Заменить нужно одно слово.",
+        why: "How much water? Воду не считают, поэтому many здесь не годится.",
+      },
+      {
+        id: "q-sprosit-skolko-edy",
+        kind: "short",
+        outcome: "спрашивать о количестве: How much bread?",
+        prompt: "Спроси, сколько нужно еды. Еда — food.",
+        answer: "How much food?",
+        hint: "Еду пальцем не пересчитать.",
+        why: "How much food? Еду не считают, поэтому вопрос строится с much, а не many.",
       },
 
       // ---- итог 5 ----
       {
-        id: "q-magazin-vybor",
-        kind: "choice",
-        outcome: "покупать в магазине",
-        prompt: "Ты просишь в магазине немного риса. Как сказать?",
-        options: [
-          { text: "Give me rice." },
-          { text: "I like rice." },
-          { text: "Can I have some rice, please?", correct: true },
-        ],
-        hint: "В магазине просят, а не приказывают.",
-        why:
-          "Can I have some rice, please? Первое звучит как приказ, а второе говорит " +
-          "о вкусе вообще.",
-      },
-      {
-        id: "q-magazin-sobrat",
+        id: "q-sobrat-nachalo-razgovora",
         kind: "order",
         outcome: "покупать в магазине",
-        prompt: "Собери разговор: сначала просьба, потом вопрос о цене, потом благодарность.",
-        items: ["Thanks!", "How much is it?", "I'd like some meat, please."],
-        answer: [2, 1, 0],
-        hint: "Порядок задан в условии.",
-        why: "I'd like some meat, please. How much is it? Thanks!",
+        prompt:
+          "Собери разговор: продавец предлагает помощь, ты просишь молока, продавец спрашивает про добавку.",
+        items: ["Anything else?", "Can I help you?", "I'd like some milk, please."],
+        answer: [1, 2, 0],
+        hint: "Разговор начинает продавец.",
+        why: "Can I help you? I'd like some milk, please. Anything else?",
       },
       {
-        id: "q-magazin-napisat",
+        id: "q-otmetit-slova-prodavtsa",
+        kind: "hottext",
+        outcome: "покупать в магазине",
+        prompt: "Отметь то, что говорит продавец.",
+        parts: [
+          { text: "Can I help you?", selectable: true, correct: true },
+          { text: " · " },
+          { text: "I'd like some rice, please.", selectable: true },
+          { text: " · " },
+          { text: "Anything else?", selectable: true, correct: true },
+          { text: " · " },
+          { text: "How much is it?", selectable: true },
+        ],
+        hint: "Продавец спрашивает, а покупатель просит и узнаёт цену.",
+        why:
+          "Продавец говорит Can I help you? и Anything else? Просьба и вопрос о " +
+          "цене — слова покупателя.",
+      },
+      {
+        id: "q-otvetit-prodavtsu-prosboy",
         kind: "short",
         outcome: "покупать в магазине",
-        prompt: "Попроси в магазине немного хлеба и добавь «пожалуйста». Хлеб — bread.",
-        answer: "I'd like some bread, please.",
+        prompt:
+          "Продавец спросил Can I help you? Попроси немного молока и добавь «пожалуйста». Молоко — milk.",
+        answer: "I'd like some milk, please.",
         accept: [
-          "Can I have some bread, please?",
-          "I would like some bread, please.",
+          "Can I have some milk, please?",
+          "I would like some milk, please.",
         ],
-        hint: "Годится и оборот I'd like, и вопрос с can.",
-        why: "I'd like some bread, please. Годится и Can I have some bread, please?",
+        hint: "Ответь просьбой, а не рассказом о том, что тебе нравится.",
+        why: "I'd like some milk, please. Годится и Can I have some milk, please?",
       },
 
       // ---- итог 6 ----
       {
-        id: "q-kafe-dopisat",
+        id: "q-sopostavit-mesto-i-zakaz",
+        kind: "match",
+        outcome: "заказывать в кафе",
+        prompt: "Сопоставь просьбу и её английскую запись.",
+        left: [
+          "в кафе — одну чашку чая",
+          "в магазине — немного хлеба",
+          "в магазине — немного воды",
+        ],
+        right: ["some bread", "some water", "a tea"],
+        answer: [2, 0, 1],
+        hint: "Чашку сосчитать можно, хлеб и воду — нет.",
+        why:
+          "В кафе — a tea: чашка одна, и её считают. В магазине — some bread и " +
+          "some water.",
+      },
+      {
+        id: "q-dobavka-v-kafe",
         kind: "gap",
         outcome: "заказывать в кафе",
-        prompt: "Ты заказываешь в кафе чай. Допиши недостающее слово. Чай — tea.",
-        before: "I'd like ",
-        after: " tea, please.",
+        prompt: "В кафе спросили Anything else? Ты хочешь ещё чашку кофе. Допиши недостающее слово.",
+        before: "Yes, please. Can I have ",
+        after: " coffee?",
         answer: "a",
-        hint: "В кафе так говорят про чашку.",
-        why: "I'd like a tea, please. В заказе a значит «чашка чая».",
+        hint: "Речь об одной чашке.",
+        why: "Yes, please. Can I have a coffee? В заказе a значит «чашка».",
       },
       {
-        id: "q-kafe-vybor",
-        kind: "choice",
-        outcome: "заказывать в кафе",
-        prompt: "Ты заказываешь в кафе пирожное. Как сказать?",
-        options: [
-          { text: "I want a cake." },
-          { text: "Can I have a cake, please?", correct: true },
-          { text: "I like cake." },
-        ],
-        hint: "В кафе берут I'd like или Can I have.",
-        why:
-          "Can I have a cake, please? Первое звучит резко, а третье говорит о вкусе " +
-          "вообще.",
-      },
-      {
-        id: "q-kafe-napisat",
+        id: "q-zakazat-chay-i-pirozhnoe",
         kind: "short",
         outcome: "заказывать в кафе",
-        prompt: "Закажи в кафе кофе и пирожное. Кофе — a coffee, пирожное — a cake.",
-        answer: "I'd like a coffee and a cake, please.",
+        prompt: "Закажи в кафе чай и пирожное, добавь «пожалуйста». Чай — a tea, пирожное — a cake.",
+        answer: "I'd like a tea and a cake, please.",
         accept: [
-          "I'd like a coffee and a cake.",
-          "Can I have a coffee and a cake, please?",
+          "Can I have a tea and a cake, please?",
+          "I would like a tea and a cake, please.",
         ],
-        hint: "Два заказа соединяет and.",
-        why: "I'd like a coffee and a cake, please. Слово and соединяет два заказа.",
+        hint: "Перед каждым заказом стоит a.",
+        why: "I'd like a tea and a cake, please. Слово a стоит перед каждым из двух заказов.",
       },
 
       // ---- итог 7 ----
       {
-        id: "q-net-dopisat",
-        kind: "gap",
-        outcome: "говорить, что чего-то нет: I haven't got any water",
-        prompt: "У тебя дома нет риса. Допиши недостающее слово.",
-        before: "I haven't got ",
-        after: " rice.",
-        answer: "any",
-        hint: "В отрицании стоит не some.",
-        why: "I haven't got any rice. В отрицании берут any.",
-      },
-      {
-        id: "q-net-vybor",
+        id: "q-net-moloka-u-prodavtsa",
         kind: "choice",
         outcome: "говорить, что чего-то нет: I haven't got any water",
-        prompt: "У тебя нет воды. В каком предложении нет ошибки?",
+        prompt: "В магазине нет молока. Что скажет продавец?",
         options: [
-          { text: "I haven't got any waters." },
-          { text: "I haven't got a water." },
-          { text: "I haven't got any water.", correct: true },
+          { text: "Sorry, we haven't got any milk.", correct: true },
+          { text: "Sorry, we haven't got some milk." },
+          { text: "Sorry, we haven't got a milk." },
         ],
-        hint: "Воду не считают.",
-        why: "I haven't got any water. К слову water не приходят ни -s, ни a.",
+        hint: "В отрицании слово some уступает место другому.",
+        why: "Sorry, we haven't got any milk. В отрицании берут any, и слово milk не меняется.",
       },
       {
-        id: "q-net-napisat",
+        id: "q-otmetit-chego-net",
+        kind: "hottext",
+        outcome: "говорить, что чего-то нет: I haven't got any water",
+        prompt: "Отметь предложения, в которых чего-то нет.",
+        parts: [
+          { text: "There is some bread.", selectable: true },
+          { text: " · " },
+          { text: "There isn't any bread.", selectable: true, correct: true },
+          { text: " · " },
+          { text: "I have got some money.", selectable: true },
+          { text: " · " },
+          { text: "I haven't got any money.", selectable: true, correct: true },
+        ],
+        hint: "Ищи isn't и haven't.",
+        why:
+          "Чего-то нет в There isn't any bread и I haven't got any money. Два " +
+          "других предложения говорят, что вещь есть.",
+      },
+      {
+        id: "q-napisat-net-edy",
         kind: "short",
         outcome: "говорить, что чего-то нет: I haven't got any water",
-        prompt: "Напиши, что у тебя нет денег. Деньги — money.",
-        answer: "I haven't got any money.",
-        accept: ["I have not got any money."],
-        hint: "В отрицании берут any.",
-        why: "I haven't got any money. Слово money не меняется.",
+        prompt: "Напиши, что у тебя нет еды. Еда — food.",
+        answer: "I haven't got any food.",
+        accept: ["I have not got any food."],
+        hint: "После haven't got стоит any.",
+        why: "I haven't got any food. Слово food не меняется.",
       },
 
       // ---- итог 8 ----
       {
-        id: "q-razgovor-pokupka-sobrat",
+        id: "q-sobrat-razgovor-iz-chetyryoh",
         kind: "order",
         outcome: "вести разговор о покупке целиком",
-        prompt: "Собери разговор: сначала просьба, потом отказ от добавки, потом благодарность.",
-        items: ["No, thank you.", "Thanks!", "I'd like some water, please."],
-        answer: [2, 0, 1],
-        hint: "Порядок задан в условии.",
-        why: "I'd like some water, please. No, thank you. Thanks!",
+        prompt:
+          "Собери разговор: продавец предлагает помощь, ты просишь хлеба, продавец спрашивает про добавку, ты отказываешься.",
+        items: [
+          "Anything else?",
+          "I'd like some bread, please.",
+          "No, thank you.",
+          "Can I help you?",
+        ],
+        answer: [3, 1, 0, 2],
+        hint: "Первым говорит продавец, последним — ты.",
+        why: "Can I help you? I'd like some bread, please. Anything else? No, thank you.",
       },
       {
-        id: "q-razgovor-pokupka-napisat",
+        id: "q-soglasitsya-na-dobavku",
         kind: "short",
         outcome: "вести разговор о покупке целиком",
         prompt:
-          "Попроси в магазине немного мяса и немного риса. Мясо — meat, рис — rice.",
-        answer: "I'd like some meat and some rice, please.",
+          "Продавец спросил Anything else? Тебе нужно ещё немного риса. " +
+          "Согласись и назови товар.",
+        answer: "Yes, please. Some rice.",
         accept: [
-          "I'd like some meat and some rice.",
-          "Can I have some meat and some rice, please?",
+          "Yes, please. I'd like some rice.",
+          "Yes, please. Can I have some rice?",
+          "Yes, please. Some rice, please.",
         ],
-        hint: "Два товара соединяет and.",
-        why:
-          "I'd like some meat and some rice, please. Слово some стоит перед каждым " +
-          "из двух товаров.",
+        hint: "Сначала согласись, потом назови товар.",
+        why: "Yes, please. Some rice. Годится и полный ответ: Yes, please. I'd like some rice.",
       },
       {
-        id: "q-razgovor-pokupka-otmetit",
-        kind: "hottext",
+        id: "q-konets-razgovora",
+        kind: "choice",
         outcome: "вести разговор о покупке целиком",
-        prompt: "Отметь ответы, которые на вопрос Anything else? не годятся.",
-        parts: [
-          { text: "No, thank you.", selectable: true },
-          { text: " · " },
-          { text: "How much rice?", selectable: true, correct: true },
-          { text: " · " },
-          { text: "Yes, please. Some bread.", selectable: true },
-          { text: " · " },
-          { text: "I like meat.", selectable: true, correct: true },
+        prompt: "Покупка сделана, деньги отданы. Что сказать продавцу в конце?",
+        options: [
+          { text: "Thanks!", correct: true },
+          { text: "Anything else?" },
+          { text: "Can I help you?" },
         ],
-        hint: "Вопрос спрашивает, нужно ли что-то ещё.",
-        why:
-          "На Anything else? отвечают No, thank you или называют, что ещё нужно. " +
-          "Встречный вопрос и рассказ о вкусе сюда не подходят.",
+        hint: "Две другие записи говорит продавец.",
+        why: "Thanks! Так покупатель заканчивает разговор.",
       },
     ],
   },
