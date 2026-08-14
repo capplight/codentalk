@@ -1294,12 +1294,12 @@ const module: Module = {
         id: "q-drugoy-umenie-dopisat",
         kind: "gap",
         outcome: "говорить, что умеет другой человек: He can drive",
-        prompt: "Твой друг умеет водить машину. Допиши недостающее слово.",
-        before: "My friend ",
-        after: " drive.",
+        prompt: "Алим и Дана умеют петь. Допиши недостающее слово.",
+        before: "Alim and Dana ",
+        after: " sing.",
         answer: "can",
-        hint: "Оно одинаково для всех.",
-        why: "My friend can drive. Can не берёт окончания ни с кем.",
+        hint: "Слово одно и то же, о ком бы ни шла речь.",
+        why: "Alim and Dana can sing. Can не меняется и о двоих.",
       },
       {
         id: "q-drugoy-umenie-sobrat",
@@ -1308,8 +1308,8 @@ const module: Module = {
         prompt: "Собери предложение: «Она умеет играть на гитаре.»",
         items: ["the guitar", "play", "She", "can"],
         answer: [2, 3, 1, 0],
-        hint: "Вторым идёт can, третьим — глагол.",
-        why: "She can play the guitar. Порядок тот же, что и с I.",
+        hint: "Начни с того, о ком речь, а глагол поставь последним.",
+        why: "She can play the guitar. После can глагол стоит без добавок.",
       },
 
       // ---- итог 3 ----
@@ -1322,8 +1322,8 @@ const module: Module = {
         after: " drive.",
         answer: "can't",
         accept: ["cannot"],
-        hint: "Короткая запись из can и not.",
-        why: "She can't drive. Годится и полная запись cannot.",
+        hint: "Два слова слились в одно.",
+        why: "She can't drive. Полная запись cannot тоже засчитывается.",
       },
       {
         id: "q-neumenie-vybor",
@@ -1357,8 +1357,8 @@ const module: Module = {
         before: "",
         after: " your friend sing?",
         answer: "Can",
-        hint: "Вопрос открывает то же слово, что стоит перед глаголом в утверждении.",
-        why: "Can your friend sing? Слово do здесь не нужно: вперёд выходит сам can.",
+        hint: "Первым в вопросе стоит не do.",
+        why: "Can your friend sing? В вопросе об умении вперёд выходит сам can.",
       },
       {
         id: "q-vopros-umenie-sobrat",
@@ -1367,8 +1367,8 @@ const module: Module = {
         prompt: "Собери вопрос: «Ты умеешь готовить?»",
         items: ["cook?", "you", "Can"],
         answer: [2, 1, 0],
-        hint: "Первым идёт can.",
-        why: "Can you cook? Сначала can, потом тот, о ком речь, потом глагол.",
+        hint: "Вопрос открывается одним коротким словом.",
+        why: "Can you cook? Три слова, и глагол среди них последний.",
       },
       {
         id: "q-vopros-umenie-otvetit",
@@ -1377,8 +1377,8 @@ const module: Module = {
         prompt: "Тебя спросили: Can you play the guitar? Ты не умеешь. Ответь коротко — нет.",
         answer: "No, I can't.",
         accept: ["No, I cannot."],
-        hint: "Глагол в коротком ответе не повторяют.",
-        why: "No, I can't. Слово play повторять не нужно.",
+        hint: "Ответ из трёх слов, и глагола среди них нет.",
+        why: "No, I can't. Оборот play the guitar в ответе не повторяют.",
       },
 
       // ---- итог 5 ----
@@ -1392,10 +1392,10 @@ const module: Module = {
           { text: "What can your sister do?", correct: true },
           { text: "What does your sister can?" },
         ],
-        hint: "Вторым словом идёт can.",
+        hint: "Между вопросительным словом и сестрой стоит одно слово.",
         why:
-          "What can your sister do? После вопросительного слова сразу идёт can, а " +
-          "слово does здесь не нужно.",
+          "What can your sister do? Слово does в вопросе с can не нужно, а порядок " +
+          "«What your sister can» перевёрнут.",
       },
       {
         id: "q-chto-umeet-dopisat",
@@ -1447,10 +1447,10 @@ const module: Module = {
           { text: " · " },
           { text: "My sister can draw.", selectable: true, correct: true },
         ],
-        hint: "Умение принадлежит человеку, возможность — месту.",
+        hint: "Спроси себя: это про человека или про место.",
         why:
-          "Об умении говорят «I can cook» и «My sister can draw». Два других " +
-          "предложения — о том, что можно в этом месте.",
+          "«I can cook» и «My sister can draw» — про человека и его умение. Два " +
+          "других предложения — про то, что доступно всякому в этом месте.",
       },
       {
         id: "q-vozmozhnost-napisat",
@@ -1459,8 +1459,8 @@ const module: Module = {
         prompt: "Напиши, что здесь нельзя купить молоко. Молоко — milk.",
         answer: "You can't buy milk here.",
         accept: ["You cannot buy milk here."],
-        hint: "Начни со слова you.",
-        why: "You can't buy milk here. Слово you здесь означает «кто угодно».",
+        hint: "Первым идёт слово, которое здесь значит «кто угодно».",
+        why: "You can't buy milk here. Речь о месте, а не о собеседнике.",
       },
 
       // ---- итог 7 ----
@@ -1516,12 +1516,14 @@ const module: Module = {
         kind: "short",
         outcome: "рассказывать, что умеешь и чего не умеешь",
         prompt:
-          "Напиши два предложения о себе: что ты умеешь готовить и что не умеешь " +
-          "водить машину.",
-        answer: "I can cook. I can't drive.",
-        accept: ["I can cook. I cannot drive."],
+          "Напиши два предложения о себе: что ты умеешь рисовать и что не умеешь " +
+          "играть на гитаре. Рисовать — draw, играть на гитаре — play the guitar.",
+        answer: "I can draw. I can't play the guitar.",
+        accept: ["I can draw. I cannot play the guitar."],
         hint: "Во втором предложении отрицает сам can.",
-        why: "I can cook. I can't drive. Первое об умении, второе — об обратном.",
+        why:
+          "I can draw. I can't play the guitar. Первое об умении, второе — об " +
+          "обратном.",
       },
       {
         id: "q-rasskaz-umeniya-otmetit",

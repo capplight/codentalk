@@ -1229,32 +1229,32 @@ const module: Module = {
         options: [
           { text: "I call she." },
           { text: "I call her.", correct: true },
-          { text: "I her call." },
+          { text: "I call to her." },
         ],
         hint: "Слово о ней стоит сразу после глагола.",
         why:
-          "I call her. Перед глаголом было бы she, а порядок слов в английском " +
-          "другой, чем в русском «я ей звоню».",
+          "I call her. Перед глаголом стояло бы she, а предлог to у глагола call " +
+          "не нужен: по-русски «звоню ей», по-английски просто call her.",
       },
       {
         id: "q-vmesto-imeni-dopisat",
         kind: "gap",
         outcome: "заменять имя словом после глагола: I know him",
-        prompt: "Ты спрашиваешь Дану. Скажи это, не называя имени. Допиши недостающее слово.",
-        before: "I ask ",
+        prompt: "Дана и Алим тебя знают. Допиши недостающее слово.",
+        before: "Dana and Alim know ",
         after: ".",
-        answer: "her",
-        hint: "Слово об одной женщине, стоит после глагола.",
-        why: "I ask her. После глагола идёт her, а не she.",
+        answer: "me",
+        hint: "Слово о себе, но не первое в предложении.",
+        why: "Dana and Alim know me. Первым стояло бы I, после глагола идёт me.",
       },
       {
         id: "q-vmesto-imeni-napisat",
         kind: "short",
         outcome: "заменять имя словом после глагола: I know him",
-        prompt: "Напиши, что ты видишь Алима, не называя имени. Видеть — see.",
-        answer: "I see him.",
-        hint: "Слово о нём стоит после глагола.",
-        why: "I see him. Имя заменено словом him, и стоит оно после глагола.",
+        prompt: "Напиши, что твоя сестра знает Алима, не называя имени. Знать — know.",
+        answer: "My sister knows him.",
+        hint: "О сестре у глагола есть окончание, а слово об Алиме идёт следом.",
+        why: "My sister knows him. У knows окончание -s, а имя заменено словом him.",
       },
 
       // ---- итог 2 ----
