@@ -136,6 +136,33 @@ async function tekst(file: string): Promise<string | null> {
   return gotovo;
 }
 
+/**
+ * Второй разбор того же PDF — через markitdown, кэш в materials/.md.
+ *
+ * Нужен затем, что разборщики портят по-разному: pdf-parse теряет строение
+ * таблиц, markitdown местами рассыпает буквы. Цитата, не нашедшаяся в одном,
+ * часто находится в другом. Это прямо уменьшает число ложных «в источнике
+ * этого нет» — самой опасной ошибки проекта.
+ *
+ * Если второго разбора нет, молчим: он необязателен, делается командой
+ * `npm run md`. Отсутствие кэша не должно превращаться в замечание.
+ */
+const keshMd = new Map<string, string>();
+
+function vtoroyRazbor(file: string): string | null {
+  if (!file.toLowerCase().endsWith(".pdf")) return null;
+  if (keshMd.has(file)) return keshMd.get(file);
+
+  const ryadom = join(MATERIALS, ".md", file.replace(/\.pdf$/i, ".md"));
+  if (!existsSync(ryadom)) {
+    keshMd.set(file, null as unknown as string);
+    return null;
+  }
+  const gotovo = privesti(readFileSync(ryadom, "utf8"));
+  keshMd.set(file, gotovo);
+  return gotovo;
+}
+
 function failIstochnika(ref: string): string | null {
   for (const [obrazec, file] of FAILY) if (obrazec.test(ref)) return file;
   return null;
@@ -220,10 +247,16 @@ async function proveritCitaty(mod: Module, gde: string): Promise<void> {
     }
     const senoGoloe = golyi(seno);
 
+    const vtoroy = vtoroyRazbor(file);
+
     for (const citata of citaty(source.section)) {
       const slov = golyi(citata).split(" ").length;
       const svoy = poiskv(seno, senoGoloe, citata);
       if (svoy === slov) continue;
+
+      // Не нашлось в первом разборе — пробуем второй, через markitdown. Он
+      // портит текст в других местах, поэтому находит то, что потерял первый.
+      if (vtoroy && poiskv(vtoroy, golyi(vtoroy), citata) === slov) continue;
 
       // Прежде чем сказать «не нашёл», обойдём остальные источники. Одна запись
       // `sources` часто ссылается на два места сразу («…английский профиль… и
@@ -247,7 +280,8 @@ async function proveritCitaty(mod: Module, gde: string): Promise<void> {
           `в ${file} есть «${golyi(citata).split(" ").slice(0, svoy).join(" ")}…», дальше расходится — сверь хвост глазами`);
       } else {
         skazat("ВОПРОС", gde, `цитату не нашёл ни в одном источнике: «${citata}»`,
-          `названо: ${file}. «Не нашёл» не значит «нет»: проверь глазами через ` +
+          `названо: ${file}${vtoroy ? " (искал в обоих разборах: .text и .md)" : ""}. ` +
+          `«Не нашёл» не значит «нет»: проверь глазами через ` +
           `npm run pdf -- materials/${file} --find "…". Если цитата верна, впиши случай в courses/resheno.ts`);
       }
     }

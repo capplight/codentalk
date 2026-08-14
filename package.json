@@ -17,6 +17,7 @@
     "tekst": "tsx scripts/tekst.mts",
     "zadaniya": "tsx scripts/zadaniya.mts",
     "pdf": "tsx scripts/pdf-text.mts",
+    "md": "tsx scripts/md-istochniki.mts",
     "db:seed:courses": "tsx scripts/seed-courses.mts",
     "smoke": "tsx scripts/smoke-api.mts",
     "demo": "tsx scripts/demo-users.mts",
