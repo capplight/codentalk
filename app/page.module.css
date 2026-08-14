@@ -197,40 +197,103 @@
   margin-bottom: 22px;
 }
 
-/* ---------- направления ---------- */
+/* ---------- направления ----------
+ *
+ * Карточка устроена как в макете: сверху обложка, снизу текст. Но обложка у
+ * нас не фотография.
+ *
+ * ПОЧЕМУ НЕ ФОТОГРАФИЯ И НЕ ЗНАЧОК. Фотографий из фотобанка у нас нет и
+ * покупать их незачем: человек за ноутбуком ничего не говорит о курсе.
+ * Значок «глобус» для девяти языков одинаков и потому бесполезен. Вместо них
+ * на обложке стоит приветствие на самом языке — Bonjour, 你好, مرحبا. Это
+ * сразу и опознавательный знак, и обещание: вот что ты научишься говорить.
+ * У курсов по коду там строка кода.
+ */
+/* auto-FIT, а не auto-fill: открытых курсов пока два, и при auto-fill они
+   жались бы в левый угол, оставляя половину ряда пустой. Здесь они делят ряд
+   поровну, а когда курсов станет больше, ряд разложится сам. */
 .tracks {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(265px, 1fr));
-  gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--space-5);
 }
 
 .track {
   background: var(--surface);
   border: 1px solid var(--line);
   border-radius: var(--radius-l);
-  padding: 24px;
-  box-shadow: var(--shadow);
+  box-shadow: var(--shadow-1);
+  overflow: hidden;
   display: flex;
   flex-direction: column;
-  gap: 12px;
   text-decoration: none;
   color: inherit;
-  transition: border-color 0.15s;
+  transition:
+    transform var(--dur-press) var(--ease-out),
+    box-shadow var(--dur-fast) var(--ease-out);
 }
 
-a.track:hover {
-  border-color: var(--accent);
+@media (hover: hover) and (pointer: fine) {
+  a.track:hover {
+    box-shadow: var(--shadow-2);
+  }
 }
 
-.trackSoon {
-  opacity: 0.75;
-  box-shadow: none;
+a.track:active {
+  transform: scale(0.995);
+}
+
+/* Обложка. Высота задана прямо, а не пропорцией: при пропорции широкая
+   карточка вырастала в цветное поле на четверть экрана, посреди которого
+   терялось одно слово. */
+.cover {
+  min-height: 128px;
+  display: grid;
+  place-items: center;
+  padding: var(--space-5);
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: var(--step-3);
+  letter-spacing: var(--track-head);
+  line-height: 1;
+  text-align: center;
+  overflow: hidden;
+}
+
+/* Два тона по роду занятия: языки синим, код фиолетовым. Роль цвета та же,
+   что в каталоге макета, и та же, что записана в токенах. */
+.coverLang {
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+
+.coverCode {
+  background: var(--violet-soft);
+  color: var(--violet);
+  font-family: var(--font-mono);
+  font-size: var(--step-1);
+  letter-spacing: 0;
+}
+
+/* У готовящихся обложка приглушена: обещание не должно кричать громче того,
+   что уже работает. */
+.coverSoon {
+  background: var(--paper-alt);
+  color: var(--ink-soft);
+}
+
+.trackBody {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding: var(--space-5);
+  flex: 1;
 }
 
 .trackTitle {
   font-size: var(--step-1);
   font-weight: 700;
-  letter-spacing: -0.015em;
+  letter-spacing: var(--track-head);
   margin: 0;
 }
 
@@ -241,14 +304,22 @@ a.track:hover {
   flex: 1;
 }
 
+.trackMetaRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  margin-top: var(--space-2);
+}
+
 .badge {
   align-self: flex-start;
   font-size: var(--step--1);
   font-weight: 700;
-  letter-spacing: 0.06em;
+  letter-spacing: var(--track-caps);
   text-transform: uppercase;
-  padding: 3px 9px;
-  border-radius: 999px;
+  padding: 3px 10px;
+  border-radius: var(--radius-pill);
   background: var(--accent-soft);
   color: var(--accent-ink);
 }
@@ -256,6 +327,60 @@ a.track:hover {
 .badgeFree {
   background: var(--good-soft);
   color: var(--good);
+}
+
+/* Готовящиеся направления идут отдельной, более плотной сеткой: их много, и
+   каждое из них — обещание, а не товар. */
+.soonHead {
+  margin-top: var(--space-7);
+  margin-bottom: var(--space-4);
+  color: var(--ink-soft);
+  font-size: var(--step-0);
+}
+
+.soon {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: var(--space-3);
+}
+
+.soonCard {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-m);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.soonCard .cover {
+  min-height: 76px;
+  padding: var(--space-4);
+  font-size: var(--step-1);
+}
+
+.soonBody {
+  padding: var(--space-4);
+  display: grid;
+  gap: 2px;
+}
+
+.soonTitle {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--step-0);
+  letter-spacing: var(--track-head);
+}
+
+.soonNote {
+  color: var(--ink-soft);
+  font-size: var(--step--1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  a.track:active {
+    transform: none;
+  }
 }
 
 .badgeSoon {

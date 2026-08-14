@@ -11,10 +11,41 @@ import styles from "./page.module.css";
  * доверие сильнее, чем оригинальность: человек понимает, где он и что делать,
  * ещё не прочитав заголовок.
  */
-/** Направления, о которых сказано на витрине, но курсов по ним ещё нет. */
-const PLANNED: Array<{ title: string; tagline: string }> = [
-  { title: "Казахский язык", tagline: "Разговорный казахский для повседневных дел" },
-  { title: "Python", tagline: "От первой программы до работы с данными" },
+/**
+ * Обложка карточки: приветствие на самом языке или строка кода.
+ *
+ * Значка для языка не подобрать — глобус одинаков для всех девяти. А
+ * «Bonjour» на обложке сразу говорит, о каком языке речь, и показывает, что
+ * человек научится произносить. Для курсов по коду там строка кода.
+ */
+type Cover = { text: string; kind: "lang" | "code" };
+
+const COVERS: Record<string, Cover> = {
+  "english-starter": { text: "Hello", kind: "lang" },
+  "web-vvedenie": { text: "<h1>", kind: "code" },
+};
+
+/**
+ * Направления, о которых сказано на витрине, но содержания по ним ещё нет.
+ *
+ * Девять языков — это план владельца, записанный в
+ * docs/sources-learning-materials.md: под все девять уже найдена законная
+ * основа (курсы государственных школ США в общественном достоянии).
+ *
+ * Карточка без ссылки — обещание, за которым пока ничего нет. Поэтому они
+ * стоят отдельной, более скромной сеткой, а не вперемешку с готовым.
+ */
+const PLANNED: Array<{ title: string; cover: Cover }> = [
+  { title: "Французский", cover: { text: "Bonjour", kind: "lang" } },
+  { title: "Испанский", cover: { text: "¡Hola!", kind: "lang" } },
+  { title: "Немецкий", cover: { text: "Hallo", kind: "lang" } },
+  { title: "Итальянский", cover: { text: "Ciao", kind: "lang" } },
+  { title: "Турецкий", cover: { text: "Merhaba", kind: "lang" } },
+  { title: "Арабский", cover: { text: "مرحبا", kind: "lang" } },
+  { title: "Китайский", cover: { text: "你好", kind: "lang" } },
+  { title: "Японский", cover: { text: "こんにちは", kind: "lang" } },
+  { title: "Корейский", cover: { text: "안녕하세요", kind: "lang" } },
+  { title: "Python", cover: { text: "print()", kind: "code" } },
 ];
 
 export default function HomePage() {
@@ -59,23 +90,22 @@ export default function HomePage() {
           <div className={styles.peek} aria-label="Пример задания из урока">
             <div className={styles.peekHead}>
               <span>Английский с нуля · «Что я делаю»</span>
+            {/* Задание настоящее: z1-s-ili-es из урока «Когда одной s мало». */}
               <span>задание 3 из 5</span>
             </div>
             <div className={styles.peekTask}>
-              <p className={styles.peekPrompt}>
-                Твоя сестра говорит по-английски. В каком предложении нет ошибки?
-              </p>
+              <p className={styles.peekPrompt}>Сестра смотрит футбол. Какую запись выбрать?</p>
               <div className={styles.peekOptions}>
-                <div className={styles.peekOption}>My sister speak English.</div>
+                <div className={styles.peekOption}>She watchs football.</div>
                 <div className={`${styles.peekOption} ${styles.peekOptionRight}`}>
-                  My sister speaks English.
+                  She watches football.
                 </div>
-                <div className={styles.peekOption}>My sister is speak English.</div>
+                <div className={styles.peekOption}>She watch football.</div>
               </div>
             </div>
             <p className={styles.peekWhy}>
-              Речь об одном человеке, поэтому у глагола появляется{" "}
-              <span className={styles.nowrap}>окончание -s</span>.
+              She watches football. После звука «ч» прибавляют{" "}
+              <span className={styles.nowrap}>es</span>.
             </p>
           </div>
         </section>
@@ -89,36 +119,66 @@ export default function HomePage() {
           </div>
 
           <div className={styles.tracks}>
-            {cards.map((card) => (
-              <Link key={card.slug} href={`/learn/${card.slug}`} className={styles.track}>
-                <span
-                  className={`${styles.badge} ${card.access === "free" ? styles.badgeFree : ""}`}
-                >
-                  {card.access === "free" ? "Бесплатно" : "По подписке"}
-                </span>
+            {cards.map((card) => {
+              const cover = COVERS[card.slug];
+              return (
+                <Link key={card.slug} href={`/learn/${card.slug}`} className={styles.track}>
+                  <div
+                    className={`${styles.cover} ${
+                      cover?.kind === "code" ? styles.coverCode : styles.coverLang
+                    }`}
+                    aria-hidden="true"
+                  >
+                    {cover?.text ?? card.title}
+                  </div>
 
-                <h3 className={styles.trackTitle}>{card.title}</h3>
+                  <div className={styles.trackBody}>
+                    <h3 className={styles.trackTitle}>{card.title}</h3>
 
-                {/* Одна строка, а не абзац: карточки в сетке должны быть одной
-                    высоты, иначе ряд разваливается. */}
-                <p className={styles.trackDesc}>{card.tagline ?? ""}</p>
+                    {/* Одна строка, а не абзац: карточки в сетке должны быть одной
+                        высоты, иначе ряд разваливается. */}
+                    <p className={styles.trackDesc}>{card.tagline ?? ""}</p>
 
-                <span className={styles.trackMeta}>
-                  {withCount(card.lessons, "урок", "урока", "уроков")}
-                  {card.hasExam ? " · с экзаменом" : ""}
-                </span>
-              </Link>
-            ))}
+                    <div className={styles.trackMetaRow}>
+                      <span className={styles.trackMeta}>
+                        {withCount(card.lessons, "урок", "урока", "уроков")}
+                        {card.hasExam ? " · с экзаменом" : ""}
+                      </span>
+                      <span
+                        className={`${styles.badge} ${
+                          card.access === "free" ? styles.badgeFree : ""
+                        }`}
+                      >
+                        {card.access === "free" ? "Бесплатно" : "По подписке"}
+                      </span>
+                    </div>
+                  </div>
+                </Link>
+              );
+            })}
+          </div>
 
-            {/* Направления, о которых сказано, но содержания по ним ещё нет.
-                Карточка без ссылки: обещание, за которым пока ничего нет,
-                хуже честного «готовится». */}
+          <p className={styles.soonHead}>
+            Готовятся ещё {PLANNED.length} направлений — по каждому уже собраны источники.
+          </p>
+
+          {/* Карточка без ссылки: обещание, за которым пока ничего нет, хуже
+              честного «готовится». Поэтому они мельче и без действия. */}
+          <div className={styles.soon}>
             {PLANNED.map((planned) => (
-              <div key={planned.title} className={`${styles.track} ${styles.trackSoon}`}>
-                <span className={`${styles.badge} ${styles.badgeSoon}`}>Скоро</span>
-                <h3 className={styles.trackTitle}>{planned.title}</h3>
-                <p className={styles.trackDesc}>{planned.tagline}</p>
-                <span className={styles.trackMeta}>готовится</span>
+              <div key={planned.title} className={styles.soonCard}>
+                <div
+                  className={`${styles.cover} ${styles.coverSoon} ${
+                    planned.cover.kind === "code" ? styles.coverCode : ""
+                  }`}
+                  aria-hidden="true"
+                >
+                  {planned.cover.text}
+                </div>
+                <div className={styles.soonBody}>
+                  <span className={styles.soonTitle}>{planned.title}</span>
+                  <span className={styles.soonNote}>готовится</span>
+                </div>
               </div>
             ))}
           </div>
