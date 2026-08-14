@@ -27,62 +27,57 @@ export default function HomePage() {
       <div className="wrap-wide">
         <section className={styles.hero}>
           <div className={styles.heroCol}>
-            <h1 className={styles.title}>
-              Учись в своём темпе — и возвращайся, когда сможешь
-            </h1>
+            <span className={styles.eyebrow}>Языки и программирование</span>
+            <h1 className={styles.title}>Сначала понятно, потом упражнение, потом проверка</h1>
             <p className={styles.lead}>
-              Английский и основы веб-разработки бесплатны навсегда. Остальные курсы — по одной
-              подписке, которую можно приостановить в любой месяц. Всё сохранится: вернётесь на
-              тот же урок, даже спустя полгода.
+              Каждый урок объясняет правило простыми словами и сразу даёт разобрать его на деле.
+              Занимает восемь–пятнадцать минут.
             </p>
 
-            <form className={styles.search} action="#" role="search">
-              <input
-                className={styles.searchInput}
-                type="search"
-                name="q"
-                placeholder="Какой предмет тебе нужен?"
-                aria-label="Поиск по направлениям"
-              />
-              <button className={`btn ${styles.searchBtn}`} type="submit">
-                Найти
-              </button>
-            </form>
-
-            <div className={styles.trust}>
-              <div>
-                <span className={styles.trustNum}>{lessons}</span>
-                <span className={styles.trustLabel}>уроков открыто</span>
-              </div>
-              <div>
-                <span className={styles.trustNum}>{hours} ч</span>
-                <span className={styles.trustLabel}>занятий с проверкой</span>
-              </div>
-              <div>
-                <span className={styles.trustNum}>0 ₸</span>
-                <span className={styles.trustLabel}>английский навсегда</span>
-              </div>
+            <div className={styles.actions}>
+              <Link className="btn big" href="/register">
+                Начать бесплатно
+              </Link>
+              <Link className="btn big ghost" href="#podpiska">
+                Что входит в подписку
+              </Link>
             </div>
+
+            <p className={styles.heroMeta}>
+              {withCount(lessons, "урок", "урока", "уроков")} открыто ·{" "}
+              {withCount(hours, "час", "часа", "часов")} занятий с проверкой · английский бесплатен
+              навсегда
+            </p>
           </div>
 
-          <aside className={styles.panel} id="podpiska">
-            <span className={styles.eyebrow}>Что входит в подписку</span>
-            <p className={styles.panelItem}>
-              <b>Два курса одновременно.</b> Достаточно, чтобы не распыляться, и честно: платишь
-              за то, что действительно проходишь.
+          {/*
+            Окно в урок вместо картинки. Задание настоящее — из модуля «Что я
+            делаю» курса английского. Если урок изменится, это место надо
+            поправить руками: связи с содержанием тут намеренно нет, иначе
+            витрина потянула бы за собой все курсы целиком.
+          */}
+          <div className={styles.peek} aria-label="Пример задания из урока">
+            <div className={styles.peekHead}>
+              <span>Английский с нуля · «Что я делаю»</span>
+              <span>задание 3 из 5</span>
+            </div>
+            <div className={styles.peekTask}>
+              <p className={styles.peekPrompt}>
+                Твоя сестра говорит по-английски. В каком предложении нет ошибки?
+              </p>
+              <div className={styles.peekOptions}>
+                <div className={styles.peekOption}>My sister speak English.</div>
+                <div className={`${styles.peekOption} ${styles.peekOptionRight}`}>
+                  My sister speaks English.
+                </div>
+                <div className={styles.peekOption}>My sister is speak English.</div>
+              </div>
+            </div>
+            <p className={styles.peekWhy}>
+              Речь об одном человеке, поэтому у глагола появляется{" "}
+              <span className={styles.nowrap}>окончание -s</span>.
             </p>
-            <p className={styles.panelItem}>
-              <b>Настоящие проверочные работы.</b> Вопросы каждый раз новые — работу не пройти,
-              нажимая одну и ту же кнопку.
-            </p>
-            <p className={styles.panelItem}>
-              <b>Сертификат с проверкой.</b> Работодатель откроет ссылку и убедится, что он
-              подлинный.
-            </p>
-            <Link className="btn" href="/register">
-              Начать бесплатно
-            </Link>
-          </aside>
+          </div>
         </section>
       </div>
 
@@ -160,6 +155,42 @@ export default function HomePage() {
               После итогового экзамена. С уникальным номером и страницей проверки — её можно
               отправить работодателю.
             </p>
+          </div>
+        </div>
+      </div>
+
+      {/*
+        Подписка переехала сюда из первого экрана: выбранная витрина отдала
+        правую колонку заданию. Якорь podpiska сохранён — на него ссылается
+        шапка сайта, и ссылка не должна вести в пустоту.
+      */}
+      <div className={styles.sectionAlt} id="podpiska">
+        <div className={`wrap-wide ${styles.section}`}>
+          <div className={styles.sectionHead}>
+            <span className={styles.eyebrow}>Подписка</span>
+            <h2 className={styles.sectionTitle}>Что входит</h2>
+          </div>
+
+          <div className={styles.plan}>
+            <p className={styles.planItem}>
+              <b>Два курса одновременно</b>
+              Достаточно, чтобы не распыляться, и честно: платишь за то, что действительно
+              проходишь.
+            </p>
+            <p className={styles.planItem}>
+              <b>Настоящие проверочные работы</b>
+              Вопросы каждый раз новые — работу не пройти, нажимая одну и ту же кнопку.
+            </p>
+            <p className={styles.planItem}>
+              <b>Сертификат с проверкой</b>
+              Работодатель откроет ссылку и убедится, что он подлинный.
+            </p>
+          </div>
+
+          <div className={styles.planAction}>
+            <Link className="btn big" href="/register">
+              Начать бесплатно
+            </Link>
           </div>
         </div>
       </div>

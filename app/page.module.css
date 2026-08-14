@@ -1,23 +1,40 @@
-/* ---------- первый экран ---------- */
+/* ---------- первый экран ----------
+ *
+ * Выбран владельцем из трёх проб (папка app/prototypes была удалена после
+ * выбора). Смысл этой версии — ПОКАЗАТЬ продукт, а не пообещать его: справа
+ * стоит настоящее задание из урока, с верным и неверными вариантами.
+ *
+ * В макетах Stitch на этом месте стоковая фотография человека за ноутбуком.
+ * У нас есть своё содержание, и оно честнее: видно, чем именно человек будет
+ * заниматься, ещё до регистрации.
+ */
 .hero {
-  padding: clamp(36px, 6vw, 68px) 0;
+  padding-block: var(--space-7) var(--space-8);
   display: grid;
-  grid-template-columns: 1.15fr 1fr;
-  gap: 40px;
+  /* Левому столбцу дано больше: при равных долях две кнопки не вставали в
+     строку и разъезжались по вертикали — это было видно на пробах. */
+  grid-template-columns: 1.2fr 1fr;
+  gap: var(--space-7);
   align-items: center;
 }
 
-@media (max-width: 860px) {
+@media (max-width: 900px) {
   .hero {
     grid-template-columns: 1fr;
-    gap: 28px;
+    gap: var(--space-6);
   }
+}
+
+.heroCol {
+  display: grid;
+  gap: var(--space-5);
+  min-width: 0;
 }
 
 .title {
   font-size: var(--step-3);
   line-height: 1.1;
-  letter-spacing: -0.025em;
+  letter-spacing: var(--track-display);
   margin: 0;
   font-weight: 800;
 }
@@ -25,87 +42,128 @@
 .lead {
   color: var(--ink-soft);
   font-size: var(--step-1);
+  line-height: 1.5;
   max-width: 58ch;
   margin: 0;
 }
 
-.heroCol {
+/* Кнопки держатся в строке, пока помещаются: столбец узкий, и без
+   min-width: 0 они разъезжались по вертикали при живом тексте. */
+.actions {
   display: flex;
-  flex-direction: column;
-  gap: 22px;
-}
-
-/* Поиск в первом экране: привычная точка входа для тех,
-   кто уже знает, что ищет. */
-.search {
-  display: flex;
-  border: 2px solid var(--line);
-  border-radius: var(--radius-m);
-  overflow: hidden;
-  background: var(--surface);
-  max-width: 520px;
-}
-
-.searchInput {
-  font: inherit;
-  font-size: var(--step-0);
-  border: 0;
-  padding: 14px 18px;
-  flex: 1;
-  min-width: 0;
-  background: transparent;
-  color: var(--ink);
-}
-
-.searchInput::placeholder {
-  color: var(--ink-soft);
-}
-
-.searchBtn {
-  border-radius: 0;
-  border: 0;
-}
-
-/* Цифры, а не обещания: их можно проверить */
-.trust {
-  display: flex;
-  gap: 26px;
   flex-wrap: wrap;
+  gap: var(--space-3);
 }
 
-.trustNum {
-  display: block;
-  font-size: var(--step-2);
-  font-weight: 800;
-  letter-spacing: -0.02em;
+.heroMeta {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: var(--step--1);
   font-variant-numeric: tabular-nums;
 }
 
-.trustLabel {
-  font-size: var(--step--1);
-  color: var(--ink-soft);
-}
-
-/* ---------- панель «что входит» ---------- */
-.panel {
+/* ---------- окно в урок ---------- */
+.peek {
   background: var(--surface);
   border: 1px solid var(--line);
   border-radius: var(--radius-l);
-  padding: 28px;
-  box-shadow: var(--shadow);
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
+  box-shadow: var(--shadow-2);
+  padding: var(--space-5);
+  display: grid;
+  gap: var(--space-4);
+  min-width: 0;
 }
 
-.panelItem {
+.peekHead {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-3);
+  color: var(--ink-soft);
+  font-size: var(--step--1);
+}
+
+/* Янтарная заливка — принятый в курсе знак «твоя очередь работать».
+   На витрине он делает ту же работу: видно, что это задание, а не текст. */
+.peekTask {
+  background: var(--amber-soft);
+  border-radius: var(--radius-m);
+  padding: var(--space-4);
+  display: grid;
+  gap: var(--space-3);
+}
+
+.peekPrompt {
+  margin: 0;
+  font-weight: 650;
+}
+
+.peekOptions {
+  display: grid;
+  gap: var(--space-2);
+}
+
+.peekOption {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-s);
+  padding: 10px var(--space-4);
+  font-size: var(--step-0);
+}
+
+.peekOptionRight {
+  border-color: var(--good);
+  color: var(--good);
+  font-weight: 650;
+}
+
+.peekWhy {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: var(--step--1);
+}
+
+/* Окончание не разрывается по дефису: «окончание -» и «s» на разных строках
+   читаются как опечатка. У body стоит overflow-wrap: break-word, и без этого
+   правила перенос происходит прямо внутри «-s». */
+.nowrap {
+  white-space: nowrap;
+}
+
+/* ---------- что входит в подписку ----------
+ *
+ * Раньше это была панель в первом экране. Выбранная версия отдала правую
+ * колонку заданию, поэтому раздел переехал вниз — и остался с прежним якорем
+ * podpiska, на который ссылается шапка сайта.
+ */
+.plan {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: var(--space-5);
+}
+
+.planItem {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-l);
+  box-shadow: var(--shadow-1);
+  padding: var(--space-5);
   margin: 0;
   color: var(--ink-soft);
   font-size: var(--step-0);
 }
 
-.panelItem b {
+.planItem b {
+  display: block;
+  margin-bottom: var(--space-2);
   color: var(--ink);
+  font-family: var(--font-display);
+  font-size: var(--step-1);
+  letter-spacing: var(--track-head);
+}
+
+.planAction {
+  margin-top: var(--space-5);
 }
 
 .eyebrow {
