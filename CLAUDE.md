@@ -23,7 +23,8 @@
 Читай перед работой: [docs/TZ-platform-v2.md](docs/TZ-platform-v2.md) —
 техническое задание, [docs/sources-learning-materials.md](docs/sources-learning-materials.md) —
 источники учебных материалов, [docs/zadachi-vladeltsa.md](docs/zadachi-vladeltsa.md) —
-что ждёт решения владельца.
+что ждёт решения владельца, [docs/instrumenty.md](docs/instrumenty.md) — какие
+инструменты смотрели, что взяли и почему отказались от остального.
 
 ## Язык текстов — самое частое замечание
 
