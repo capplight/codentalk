@@ -217,8 +217,8 @@ const module: Module = {
           ],
           hint: "После глагола идут him и her, а не he и she.",
           why:
-            "В «I know he» и «I see she» после глагола стоят слова из первого " +
-            "столбца. Верно: I know him, I see her.",
+            "В «I know he» и «I see she» после глагола стоят he и she. Верно: I know " +
+            "him, I see her.",
         },
         {
           id: "z4-sobrat-znayu-ego",
@@ -252,9 +252,10 @@ const module: Module = {
           id: "zachem-vse-shest",
           kind: "explain",
           text: [
-            "Таких слов шесть — по одному на каждое слово из первого столбца.",
-            "Первый столбец ты знаешь с модуля «Приветствие»: I, you, he, she, we, they.",
-            "Второй столбец — те же люди, но после глагола.",
+            "Таких слов шесть — по одному на каждое слово, что стоит перед глаголом.",
+            "Слова перед глаголом ты знаешь с модуля «Приветствие»: I, you, he, she, " +
+              "we, they.",
+            "Слова после глагола — те же люди, но на другом месте.",
           ],
         },
         {
@@ -294,8 +295,8 @@ const module: Module = {
           caption: "Все шесть в деле",
           text: "She knows me.\nI know you.\nWe know them.\nThey know us.",
           explain:
-            "В каждом предложении первое слово взято из первого столбца, а слово " +
-            "после глагола — из второго. Перепутать их местами нельзя.",
+            "В каждом предложении первое слово — то, что стоит перед глаголом, а " +
+            "второе — то, что после него. Перепутать их местами нельзя.",
         },
         {
           id: "zapis-shesti",
@@ -336,7 +337,7 @@ const module: Module = {
             { text: "I know them.", correct: true },
             { text: "I them know." },
           ],
-          hint: "После глагола идёт слово из второго столбца.",
+          hint: "После глагола идут me, him, her, us и them.",
           why:
             "I know them. Перед глаголом стояло бы they, а порядок слов в английском " +
             "другой, чем в русском «я их знаю».",
@@ -354,7 +355,7 @@ const module: Module = {
         {
           id: "z4-otmetit-pereputannye-slova",
           kind: "hottext",
-          prompt: "Отметь записи, где слово стоит не в том столбце.",
+          prompt: "Отметь записи, где слово стоит не на своём месте.",
           parts: [
             { text: "We know them.", selectable: true },
             { text: " · " },
@@ -394,7 +395,7 @@ const module: Module = {
           text: [
             "Слово her уже встречалось в модуле «Мои вещи»: her book — её книга.",
             "Теперь то же her стоит после глагола: I know her — я знаю её.",
-            "Это одно слово в двух работах, и различает их только место.",
+            "Это одно и то же слово, только у него два места.",
           ],
         },
         {
@@ -421,8 +422,8 @@ const module: Module = {
           kind: "note",
           tone: "mistake",
           text:
-            "«I know his» — так не говорят.\n\nОшибка выходит из образца her: там " +
-            "одно слово на два места, а у мужчины их два. После глагола — только him.",
+            "«I know his» — так не говорят.\n\nПутаница здесь из-за her: там " +
+            "одно слово на оба места, а у мужчины слов два. После глагола — только him.",
         },
         {
           id: "primer-her-i-him",
@@ -548,7 +549,8 @@ const module: Module = {
           kind: "explain",
           text: [
             "Слово it не меняется совсем: и перед глаголом, и после него оно одно.",
-            "Из семи слов такое поведение только у него и у you.",
+            "Слов теперь семь: шесть про людей и it про вещи. Так же, как it, не " +
+              "меняется только you.",
             "Поэтому и учить нечего: увидел вещь — берёшь it.",
           ],
         },
@@ -583,7 +585,7 @@ const module: Module = {
           tone: "info",
           text:
             "Слово it тебе уже знакомо: им говорят о погоде и о времени — It is " +
-            "raining, It is eight o'clock.\n\nЗдесь у него другая работа, но само " +
+            "raining, It is eight o'clock.\n\nЗдесь оно используется по-другому, но " +
             "слово то же.",
         },
 
@@ -664,7 +666,7 @@ const module: Module = {
           kind: "explain",
           text: [
             "Предлоги ты знаешь с модуля «Где это»: in, on, at, next to.",
-            "После предлога тоже стоит слово из второго столбца: This is for me.",
+            "После предлога стоит то же слово, что после глагола: This is for me.",
             "Правило выходит одно на два случая — после глагола и после предлога.",
           ],
         },
@@ -683,9 +685,10 @@ const module: Module = {
           id: "odno-pravilo-na-dva-sluchaya",
           kind: "explain",
           text: [
-            "Проверить себя просто: если слово стоит не первым, оно из второго столбца.",
+            "Проверить себя можно так: перед глаголом идут I, he, we, а после глагола и " +
+              "после предлога — me, him, us.",
             "I know him — после глагола. This is for him — после предлога.",
-            "Первым в предложении из второго столбца не стоит никто.",
+            "Слова me, him, her, us и them первыми в предложении не стоят никогда.",
           ],
         },
         {
@@ -731,7 +734,7 @@ const module: Module = {
           before: "This is for ",
           after: ".",
           answer: "me",
-          hint: "После предлога стоит слово из второго столбца.",
+          hint: "После предлога идут me, him, her, us и them.",
           why: "This is for me. Слово I стоит только перед глаголом.",
         },
         {
@@ -743,7 +746,7 @@ const module: Module = {
             { text: "I work with them.", correct: true },
             { text: "I with them work." },
           ],
-          hint: "После предлога идёт слово из второго столбца.",
+          hint: "После предлога идут me, him, her, us и them.",
           why:
             "I work with them. После with стоит them, а порядок слов в английском " +
             "другой, чем в русском «я с ними работаю».",
@@ -780,7 +783,7 @@ const module: Module = {
           kind: "short",
           prompt: "Напиши, что эта книга для них. Книга — this book.",
           answer: "This book is for them.",
-          hint: "После for стоит слово из второго столбца.",
+          hint: "После for идут me, him, her, us и them.",
           why: "This book is for them. После предлога идёт them, а не they.",
         },
       ],
@@ -819,9 +822,9 @@ const module: Module = {
           id: "predlog-prikleen",
           kind: "explain",
           text: [
-            "Предлог у таких глаголов не выбирают: он приклеен к глаголу насмерть.",
+            "Предлог у таких глаголов не выбирают.",
             "У listen всегда to, у look всегда at. Другого сочетания не бывает.",
-            "А слово после предлога берётся из второго столбца, как везде.",
+            "А слово после предлога берётся то же, что после глагола, — как везде.",
           ],
         },
         {
@@ -879,7 +882,7 @@ const module: Module = {
             { text: "I look at they." },
             { text: "I look at them.", correct: true },
           ],
-          hint: "Нужны обе части: предлог at и слово из второго столбца.",
+          hint: "Нужны обе части: предлог at и слово, которое идёт после глагола.",
           why:
             "I look at them. Без at предложение неполно, а после предлога идёт them, " +
             "а не they.",
@@ -1013,7 +1016,7 @@ const module: Module = {
             { text: "Can you see he?" },
             { text: "Can you him see?" },
           ],
-          hint: "После глагола стоит слово из второго столбца.",
+          hint: "После глагола идут me, him, her, us и them.",
           why:
             "Can you see him? После глагола идёт him, и стоит оно сразу за глаголом.",
         },
@@ -1261,9 +1264,9 @@ const module: Module = {
           { text: "Dana knows our." },
           { text: "Dana knows us.", correct: true },
         ],
-        hint: "После глагола идёт слово из второго столбца.",
+        hint: "После глагола идут me, him, her, us и them.",
         why:
-          "Dana knows us. Перед глаголом стояло бы we, а our — это слово о вещи: " +
+          "Dana knows us. Перед глаголом стояло бы we, а our стоит перед вещью: " +
           "our house.",
       },
       {
@@ -1361,7 +1364,7 @@ const module: Module = {
         before: "This book is for ",
         after: ".",
         answer: "him",
-        hint: "После предлога стоит слово из второго столбца.",
+        hint: "После предлога идут me, him, her, us и them.",
         why: "This book is for him. После for идёт him, а не he.",
       },
       {
@@ -1374,7 +1377,7 @@ const module: Module = {
           { text: "I work with she." },
           { text: "I with her work." },
         ],
-        hint: "После предлога идёт слово из второго столбца.",
+        hint: "После предлога идут me, him, her, us и them.",
         why:
           "I work with her. После with стоит her, и порядок слов в английском другой, " +
           "чем в русском «я с ней работаю».",
@@ -1385,7 +1388,7 @@ const module: Module = {
         outcome: "ставить слово после предлога: This is for me",
         prompt: "Напиши, что это для них. Это — this.",
         answer: "This is for them.",
-        hint: "После предлога стоит слово из второго столбца.",
+        hint: "После предлога идут me, him, her, us и them.",
         why: "This is for them. После for идёт them, а не they.",
       },
 
@@ -1411,7 +1414,7 @@ const module: Module = {
           { text: "I listen to they." },
           { text: "I listen to them.", correct: true },
         ],
-        hint: "Нужны обе части: предлог и слово из второго столбца.",
+        hint: "Нужны обе части: предлог и слово, которое идёт после глагола.",
         why:
           "I listen to them. Без to предложение неполно, а после предлога идёт them, " +
           "а не they.",
@@ -1437,7 +1440,7 @@ const module: Module = {
           { text: "Do you know them?", correct: true },
           { text: "Do you them know?" },
         ],
-        hint: "После глагола стоит слово из второго столбца.",
+        hint: "После глагола идут me, him, her, us и them.",
         why:
           "Do you know them? Вопрос порядок слова после глагола не меняет, и после " +
           "глагола идёт them.",
