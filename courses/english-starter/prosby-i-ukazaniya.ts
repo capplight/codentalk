@@ -133,6 +133,22 @@ const module: Module = {
       section: "новые слова модуля с пометкой A1: party n. A1, thanks exclam., n. A1",
       license: "внутреннее использование",
     },
+    {
+      ref: "docs/istochniki-vezhlivost.md",
+      section:
+        "сведения об обычаях, которых наши материалы не дают вовсе. Указание — " +
+        "прямая форма, вопрос звучит мягче: Википедия, «Imperative mood» — «In " +
+        "polite speech, orders or requests are often phrased instead as questions " +
+        "or statements, rather than imperatives: Could you come here for a moment? " +
+        "(more polite than 'Come here!')». " +
+        "Слово please смягчает: Grammarly — «You can make imperative sentences " +
+        "sound a little softer in tone by adding the word please». " +
+        "Отказ: Longman, статья «no, thank you» — «used to say politely that you " +
+        "do not want something». " +
+        "Чего в источниках НЕТ: запрета говорить указание незнакомому человеку и " +
+        "утверждения, что голое No звучит резко. Обе формулировки из модуля убраны",
+      license: "открытые источники, ссылки в файле",
+    },
   ],
 
   outcomes: [
@@ -435,7 +451,7 @@ const module: Module = {
           id: "zachem-please",
           kind: "explain",
           text: [
-            "«Open the door» звучит как приказ, и незнакомому человеку так не скажешь.",
+            "«Open the door» — это указание, и звучит оно прямо.",
             "Одно слово меняет всё: Open the door, please.",
             "Слово please ты знаешь с модуля «Приветствие» — здесь оно работает в " +
               "полную силу.",
@@ -566,7 +582,7 @@ const module: Module = {
           id: "zachem-prosba-s-can",
           kind: "explain",
           text: [
-            "Указание годится не всегда: незнакомому человеку так не скажешь.",
+            "Указание звучит прямо, и мягче оно не станет.",
             "Тогда берут вопрос с can: Can you help?",
             "Это уже не указание, а просьба — собеседник может и отказать.",
           ],
@@ -1001,8 +1017,8 @@ const module: Module = {
             "Пара Yes, please и No, thank you работает только с вещами.",
             "Ответить на «Would you like a tea?» одним словом Yes не принято: фраза " +
               "звучит незаконченной.",
-            "А отказ без thank you выходит резким, поэтому его почти всегда " +
-              "договаривают.",
+            "Отказ тоже договаривают: No, thank you — вежливый способ сказать, что " +
+              "тебе этого не нужно.",
           ],
         },
         {
@@ -1217,7 +1233,7 @@ const module: Module = {
         {
           id: "z4-otmetit-prikaz",
           kind: "hottext",
-          prompt: "Отметь записи, которые незнакомому человеку не скажешь.",
+          prompt: "Отметь записи, которые звучат как указание, а не как просьба.",
           parts: [
             { text: "Can you help, please?", selectable: true },
             { text: " · " },
@@ -1227,10 +1243,10 @@ const module: Module = {
             { text: " · " },
             { text: "Can you open the door?", selectable: true },
           ],
-          hint: "Голое указание звучит как приказ.",
+          hint: "Просьба строится вопросом, а указание начинается с глагола.",
           why:
-            "Незнакомому человеку говорят просьбой: Can you help, please? и Can you " +
-            "open the door? Голые указания оставь для своих.",
+            "Указания — Help me и Open the door: предложение начинается с глагола. " +
+            "Can you help, please? и Can you open the door? — просьбы.",
         },
         {
           id: "z5-razgovor-vsluh",
@@ -1543,7 +1559,7 @@ const module: Module = {
         id: "q-razgovor-vybor",
         kind: "choice",
         outcome: "вести разговор с просьбой целиком",
-        prompt: "Что из этого скажешь незнакомому человеку?",
+        prompt: "Что из этого прозвучит как просьба, а не как указание?",
         options: [
           { text: "Wait." },
           { text: "Can you wait, please?", correct: true },
@@ -1551,8 +1567,8 @@ const module: Module = {
         ],
         hint: "Одно из трёх построено как вопрос.",
         why:
-          "Can you wait, please? Указание и запрет без please оставь для тех, кого " +
-          "знаешь близко.",
+          "Can you wait, please? Просьба строится вопросом. Wait — указание, " +
+          "Don't wait — запрет, и оба звучат прямо.",
       },
     ],
   },

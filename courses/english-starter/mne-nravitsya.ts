@@ -574,8 +574,7 @@ const module: Module = {
           text: [
             "Место у really то же, что у наречий частоты из модуля «Как часто».",
             "Оно встаёт между тем, о ком речь, и глаголом: I really like sport.",
-            "А very much ставят в конец: I like sport very much.",
-            "В середину предложения very much не ставят.",
+            "А very much обычно ставят в конец: I like sport very much.",
           ],
         },
         {

@@ -89,6 +89,11 @@ const FAILY: Array<[RegExp, string]> = [
   [/Pre A1 Starters|A1 Movers|A2 Flyers|младших ступеней/i, "cambridge-young-learners-pre-a1-a2.pdf"],
   [/ipa-en-uk/i, "ipa-en-uk.txt"],
   [/wikipron-en-uk/i, "wikipron-en-uk.tsv"],
+  // Сведения об обычаях — не из materials/, а из открытых источников: наши
+  // материалы отвечают «как читается» и «на какой ступени», но не «где как
+  // принято». Выписки лежат в репозитории, потому что они маленькие и потому
+  // что проверяющий должен видеть, откуда взято утверждение о вежливости.
+  [/^docs\/istochniki-vezhlivost/i, "docs/istochniki-vezhlivost.md"],
 ];
 
 const kesh = new Map<string, string>();
@@ -96,7 +101,9 @@ const kesh = new Map<string, string>();
 async function tekst(file: string): Promise<string | null> {
   if (kesh.has(file)) return kesh.get(file)!;
 
-  const put = join(MATERIALS, file);
+  // Источник может лежать и в репозитории: так хранятся выписки об обычаях,
+  // которых в materials/ нет вовсе.
+  const put = file.startsWith("docs/") ? file : join(MATERIALS, file);
   if (!existsSync(put)) return null;
 
   let syroy: string;
