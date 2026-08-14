@@ -1432,7 +1432,7 @@ const module: Module = {
         prompt: "Спроси цену нескольких предметов. Запиши вопрос целиком.",
         answer: "How much are they?",
         accept: ["How much are they"],
-        why: "How much are they? О цене спрашивают через much, даже когда предметов несколько.",
+        why: "How much are they? Слово much не меняется от числа предметов — меняется только форма be.",
       },
       {
         id: "q-much-ili-many-quiz",

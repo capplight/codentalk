@@ -1594,7 +1594,7 @@ const module: Module = {
         answer: "There are some trees in the garden.",
         exact: true,
         accept: ["There are some trees in the garden"],
-        why: "There are some trees in the garden.",
+        why: "There are some trees in the garden. Деревьев несколько, поэтому идёт are, а число не названо.",
       },
       {
         id: "q-vopros-postroit",

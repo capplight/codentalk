@@ -1333,7 +1333,7 @@ const module: Module = {
         before: "I am ",
         after: " now.",
         answer: "working",
-        hint: "Форма be уже стоит, дело за глаголом.",
+        hint: "Слово am на месте — не хватает окончания у глагола.",
         why: "I am working now. При форме be у глагола всегда окончание -ing.",
       },
       {
@@ -1358,7 +1358,7 @@ const module: Module = {
         prompt: "Собери предложение: «Я читаю книгу.»",
         items: ["a", "reading", "book", "I", "am"],
         answer: [3, 4, 1, 0, 2],
-        hint: "Вторым идёт форма be, третьим — глагол с окончанием.",
+        hint: "Начни с того, кто говорит, и не разрывай a book.",
         why: "I am reading a book. Сначала I, потом am, потом глагол с окончанием.",
       },
 
@@ -1392,7 +1392,7 @@ const module: Module = {
           { text: " · " },
           { text: "She is singing.", selectable: true },
         ],
-        hint: "При форме be у глагола всегда окончание -ing.",
+        hint: "Смотри на конец глагола в каждой записи.",
         why:
           "В «He is waits» и «She is sing» окончания нет. Верно: He is waiting, " +
           "She is singing.",
@@ -1409,7 +1409,7 @@ const module: Module = {
           "My brother is singing now.",
           "My brother's singing now.",
         ],
-        hint: "Об одном другом человеке — форма is.",
+        hint: "Брат один, и форма be для него своя.",
         why: "My brother is singing. С he, she и с именем идёт is.",
       },
 
@@ -1491,7 +1491,7 @@ const module: Module = {
         before: "It is ",
         after: " now.",
         answer: "raining",
-        hint: "Слово now говорит, что дело идёт в эту минуту.",
+        hint: "Дождь идёт не вообще, а в эту самую минуту.",
         why: "It is raining now. Со словом now идёт запись о происходящем.",
       },
 
@@ -1506,7 +1506,7 @@ const module: Module = {
         before: "We are ",
         after: " outside.",
         answer: "standing",
-        hint: "Форма be уже стоит, дело за глаголом.",
+        hint: "Слово are уже стоит — допиши глагол.",
         why:
           "We are standing outside. Форма be меняется по тому, о ком речь, а окончание " +
           "-ing остаётся прежним.",
@@ -1585,7 +1585,7 @@ const module: Module = {
         before: "",
         after: " your sister singing?",
         answer: "Is",
-        hint: "Вопрос открывает форма be.",
+        hint: "Сестра одна, и вопрос начинается с формы be.",
         why: "Is your sister singing? Форма be выходит вперёд, а за ней идёт тот, о ком речь.",
       },
       {
@@ -1598,7 +1598,7 @@ const module: Module = {
           { text: "What your brother is doing?" },
           { text: "What is doing your brother?" },
         ],
-        hint: "Вопросительное слово впереди всего, за ним форма be.",
+        hint: "Проверь, что стоит сразу за словом What.",
         why:
           "What is your brother doing? Порядок такой: вопросительное слово, форма be, " +
           "тот, о ком речь, и глагол с окончанием.",
@@ -1610,7 +1610,7 @@ const module: Module = {
         prompt: "Спроси у собеседника, ждут ли сейчас его друзья. Его друзья — your friends.",
         answer: "Are your friends waiting?",
         accept: ["Are your friends waiting now?"],
-        hint: "Вопрос открывает форма be.",
+        hint: "Друзей несколько — выбери для них форму be.",
         why: "Are your friends waiting? Форма be выходит вперёд, а за ней — те, о ком речь.",
       },
 
@@ -1622,7 +1622,7 @@ const module: Module = {
         prompt: "Собери рассказ: сначала о погоде, потом о себе, потом о брате.",
         items: ["I am sitting at home.", "My brother is singing.", "It is raining."],
         answer: [2, 0, 1],
-        hint: "Порядок задан в условии.",
+        hint: "Условие называет порядок прямо.",
         why: "It is raining. I am sitting at home. My brother is singing.",
       },
       {
@@ -1647,7 +1647,7 @@ const module: Module = {
         before: "It ",
         after: " raining.",
         answer: "is",
-        hint: "О погоде говорят через it.",
+        hint: "Слово it ведёт себя как he и she.",
         why: "It is raining. С it идёт is — так же, как с he и she.",
       },
     ],

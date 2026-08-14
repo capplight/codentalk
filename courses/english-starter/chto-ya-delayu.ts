@@ -1486,7 +1486,7 @@ const module: Module = {
         before: "She ",
         after: " English.",
         answer: "speaks",
-        why: "She speaks Kazakh. После she у глагола появляется -s.",
+        why: "She speaks English. Речь об одной сестре, поэтому у глагола появилось -s.",
       },
       {
         id: "q-kto-beryot-s-quiz",

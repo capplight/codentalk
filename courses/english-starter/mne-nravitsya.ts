@@ -1268,7 +1268,7 @@ const module: Module = {
         prompt: "Собери предложение: «Мне нравится читать.»",
         items: ["read", "to", "I", "like"],
         answer: [2, 3, 1, 0],
-        hint: "Третьим идёт короткое слово перед глаголом.",
+        hint: "Между like и глаголом встаёт ещё одно слово.",
         why: "I like to read. Порядок: I, like, to, read.",
       },
 
@@ -1281,7 +1281,7 @@ const module: Module = {
         before: "I like ",
         after: ".",
         answer: "cooking",
-        hint: "Слово to уходит, а глагол берёт окончание.",
+        hint: "Запиши глагол так, чтобы to не понадобилось.",
         why: "I like cooking. Это то же самое, что I like to cook.",
       },
       {
@@ -1294,7 +1294,7 @@ const module: Module = {
           { text: "I am walking." },
           { text: "I walk every day." },
         ],
-        hint: "Форма be рядом с like не стоит.",
+        hint: "Речь о вкусе, а не о том, что идёт сейчас.",
         why:
           "I like walking. «I am walking» — о том, что идёт сейчас, «I walk every " +
           "day» — о том, что бывает каждый день.",
@@ -1305,7 +1305,7 @@ const module: Module = {
         outcome: "пользоваться формой с -ing: I like reading",
         prompt: "Напиши это формой с -ing: I like to swim.",
         answer: "I like swimming.",
-        hint: "У swim перед окончанием удваивается последняя буква.",
+        hint: "У короткого глагола на один согласный буква перед окончанием повторяется.",
         why: "I like swimming. Слово to ушло, глагол взял окончание.",
       },
 
@@ -1348,7 +1348,7 @@ const module: Module = {
           "I do not like waiting.",
           "I do not like to wait.",
         ],
-        hint: "Годится любая из двух форм.",
+        hint: "Отрицание строится через don't.",
         why: "I don't like waiting. Годится и I don't like to wait.",
       },
 
@@ -1399,7 +1399,7 @@ const module: Module = {
         after: "?",
         answer: "swimming",
         accept: ["to swim"],
-        hint: "Годится любая из двух форм.",
+        hint: "Обе записи глагола здесь равно хороши.",
         why: "Do you like swimming? Годится и Do you like to swim.",
       },
       {
@@ -1421,7 +1421,7 @@ const module: Module = {
         outcome: "спрашивать о вкусах: Do you like coffee?",
         prompt: "Спроси у собеседника, нравится ли ему спорт. Спорт — sport.",
         answer: "Do you like sport?",
-        hint: "Вопрос о вкусах открывает то же слово, что вопрос о делах.",
+        hint: "Вопрос начинается с двух букв.",
         why: "Do you like sport? Вопрос строится через do.",
       },
 
@@ -1447,7 +1447,7 @@ const module: Module = {
           { text: "I like coffee." },
           { text: "I'd like to a coffee." },
         ],
-        hint: "О желании сейчас говорят оборотом I'd like.",
+        hint: "Речь о желании прямо сейчас, а не о вкусе вообще.",
         why:
           "I'd like a coffee. «I like coffee» — о вкусе вообще, а в третьем " +
           "предложении слово to лишнее.",
@@ -1459,7 +1459,7 @@ const module: Module = {
         prompt: "Ты в кафе и хочешь пирожное. Напиши это и добавь «пожалуйста». Пирожное — a cake.",
         answer: "I'd like a cake, please.",
         accept: ["I would like a cake, please."],
-        hint: "Слово please идёт в конце.",
+        hint: "Начни с оборота о желании и не забудь вежливое слово.",
         why: "I'd like a cake, please. Полная запись I would like тоже верна.",
       },
 
@@ -1485,7 +1485,7 @@ const module: Module = {
           { text: "I'd like go home." },
           { text: "I'd like to go home.", correct: true },
         ],
-        hint: "После I'd like форма с -ing не работает.",
+        hint: "Два глагола рядом сами не встанут.",
         why:
           "I'd like to go home. Окончание -ing после I'd like не ставят, а без to " +
           "два глагола рядом не идут.",
@@ -1498,7 +1498,7 @@ const module: Module = {
         left: ["I like to swim.", "I'd like to swim.", "I am swimming."],
         right: ["Я плаваю сейчас.", "Мне нравится плавать.", "Я хочу поплавать."],
         answer: [1, 2, 0],
-        hint: "Три записи — три разных смысла.",
+        hint: "Различай вкус вообще, желание сейчас и дело этой минуты.",
         why:
           "I like to swim — о вкусе вообще. I'd like to swim — о желании сейчас. " +
           "I am swimming — о том, что идёт в эту минуту.",
@@ -1514,7 +1514,7 @@ const module: Module = {
           "любимое.",
         items: ["My favourite sport is swimming.", "I don't like cooking.", "I like reading."],
         answer: [1, 2, 0],
-        hint: "Порядок задан в условии.",
+        hint: "Условие называет порядок прямо.",
         why: "I don't like cooking. I like reading. My favourite sport is swimming.",
       },
       {

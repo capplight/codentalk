@@ -1472,7 +1472,7 @@ const module: Module = {
           { text: "Does Dana studies English?" },
           { text: "Do Dana study English?" },
         ],
-        hint: "Окончание стоит только в одном месте.",
+        hint: "Дважды одно окончание в вопросе не ставят.",
         why: "Does Dana study English? Окончание уже внутри Does.",
       },
       {

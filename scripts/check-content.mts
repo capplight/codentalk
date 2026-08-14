@@ -168,6 +168,69 @@ function checkDubli(task: any, where: string): void {
   }
 }
 
+/**
+ * Работа не должна быть зеркалом уроков.
+ *
+ * Написана после того, как три модуля подряд дали одну и ту же ошибку: я писал
+ * проверочную работу ПОСЛЕ заданий уроков и по их образцу, меняя одно слово. В
+ * модуле 24 из двадцати четырёх подсказок девятнадцать совпадали с урочными
+ * буква в букву. Ученик тогда отвечает по узнаванию вида задания, а не разбирая
+ * языковой факт заново, и работа перестаёт что-либо показывать.
+ *
+ * Ни один проверяющий этого сам не находил: методист говорил «вид задания почти
+ * везде меняется», а совпадали не виды, а слова. Зато сравнение строк — работа
+ * ровно для машины.
+ *
+ * Сравниваем без учёта заглавных, знаков и «ё». Короткие подсказки в три слова
+ * и меньше пропускаем: «Учи их парами» может честно повториться.
+ */
+function slova(text: string): string {
+  return text
+    .toLowerCase()
+    .replace(/ё/g, "е")
+    .replace(/[^\p{L}\p{N}\s]/gu, " ")
+    .split(/\s+/)
+    .filter(Boolean)
+    .join(" ");
+}
+
+function sobratPodskazki(tasks: TaskBlock[]): string[] {
+  const out: string[] = [];
+  for (const task of tasks) {
+    for (const pole of [task.hint, (task as any).why]) {
+      if (typeof pole === "string" && pole.trim()) out.push(pole);
+    }
+  }
+  return out;
+}
+
+function checkRabotaNePovtoryaetUroki(mod: Module, where: string): void {
+  const urochnye = new Set<string>();
+  for (const lesson of mod.lessons) {
+    const tasks = lesson.blocks.filter((b: any) => isTask(b)) as TaskBlock[];
+    for (const text of sobratPodskazki(tasks)) urochnye.add(slova(text));
+  }
+
+  const povtory: string[] = [];
+  for (const question of mod.quiz.questions as any[]) {
+    for (const pole of [question.hint, question.why]) {
+      if (typeof pole !== "string" || !pole.trim()) continue;
+      const klyuch = slova(pole);
+      if (klyuch.split(" ").length <= 3) continue;
+      if (urochnye.has(klyuch)) povtory.push(`${question.id}: «${pole}»`);
+    }
+  }
+
+  if (povtory.length > 0) {
+    fail(
+      `${where} → проверочная`,
+      `подсказка или разбор повторяют урок слово в слово (${povtory.length} шт.):\n      ` +
+        povtory.join("\n      ") +
+        "\n      Работа проверяет знание, а не память на вид задания: перепиши своими словами"
+    );
+  }
+}
+
 function checkTask(task: TaskBlock, where: string): void {
   if (blank(task.prompt)) fail(where, "нет формулировки задания");
   checkDubli(task, where);
@@ -458,6 +521,8 @@ function checkModule(mod: Module, where: string): void {
     lessonSlugs.add(lesson.slug);
     checkLesson(lesson, `${where} → ${lesson.slug}`);
   }
+
+  checkRabotaNePovtoryaetUroki(mod, where);
 
   checkQuiz(mod.quiz, `${where} → проверочная`, {
     label: "проверочной работе",

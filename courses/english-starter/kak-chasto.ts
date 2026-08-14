@@ -1315,7 +1315,7 @@ const module: Module = {
         prompt: "Собери предложение: «Я иногда работаю по воскресеньям.»",
         items: ["on Sunday", "I", "work", "sometimes"],
         answer: [1, 3, 2, 0],
-        hint: "Наречие вторым, глагол третьим.",
+        hint: "Слово о частоте встаёт между тем, кто говорит, и делом.",
         why: "I sometimes work on Sunday.",
       },
 
@@ -1329,7 +1329,7 @@ const module: Module = {
         after: " go to the park.",
         answer: "usually",
         accept: ["Usually"],
-        hint: "Так заведено, но исключения бывают.",
+        hint: "Нужно слово о том, что бывает почти всегда.",
         why: "I usually go to the park. Usually — обычный порядок вещей.",
       },
       {
@@ -1367,7 +1367,7 @@ const module: Module = {
           { text: "I never go to the gym.", correct: true },
           { text: "I never don't go to the gym." },
         ],
-        hint: "Отрицание в предложении одно.",
+        hint: "Слово never отрицает само, без помощников.",
         why: "I never go to the gym. При never слово don't не нужно.",
       },
       {
@@ -1377,7 +1377,7 @@ const module: Module = {
         prompt: "Скажи то же самое через never: I don't work on Sunday.",
         answer: "I never work on Sunday.",
         accept: ["i never work on sunday.", "I never work on Sunday"],
-        hint: "Don't уходит, never встаёт на его место.",
+        hint: "Одно слово заменяет собой два.",
         why: "I never work on Sunday. Never отрицает само, поэтому don't убирают.",
       },
       {
@@ -1410,8 +1410,8 @@ const module: Module = {
         after: " late.",
         answer: "never",
         accept: ["Never"],
-        hint: "После формы be наречие идёт следом за ней.",
-        why: "She is never late. Форма be стоит раньше наречия.",
+        hint: "Слово is уже стоит — допиши слово о частоте.",
+        why: "She is never late. Опозданий не бывает совсем, поэтому идёт never.",
       },
       {
         id: "q-be-vybor",
@@ -1424,7 +1424,7 @@ const module: Module = {
           { text: "I am always busy on Monday.", correct: true },
         ],
         hint: "Смотри, что идёт сразу после I.",
-        why: "I am always busy on Monday. При форме be наречие стоит после неё.",
+        why: "I am always busy on Monday. Слово am выходит вперёд слова always.",
       },
       {
         id: "q-be-otmetit",
@@ -1440,7 +1440,7 @@ const module: Module = {
           { text: " · " },
           { text: "I never am late.", selectable: true, correct: true },
         ],
-        hint: "Форма be идёт первой.",
+        hint: "Проверь в каждой паре, что стоит раньше.",
         why: "Перепутаны в «He often is busy» и «I never am late».",
       },
 
@@ -1467,8 +1467,8 @@ const module: Module = {
           { text: "I don't usually work on Sunday.", correct: true },
           { text: "I don't work usually on Sunday." },
         ],
-        hint: "Сначала don't, потом наречие.",
-        why: "I don't usually work on Sunday. Наречие встаёт между don't и глаголом.",
+        hint: "Слово о частоте стоит не первым и не последним.",
+        why: "I don't usually work on Sunday. Слово usually стоит внутри отрицания, а не рядом с ним.",
       },
       {
         id: "q-otricanie-sobrat",
@@ -1491,7 +1491,7 @@ const module: Module = {
         after: " up at six.",
         answer: "gets",
         accept: ["Gets"],
-        hint: "Речь об одном другом человеке.",
+        hint: "Сестра одна, и глагол это показывает.",
         why: "My sister usually gets up at six. Наречие окончание не забирает.",
       },
       {
@@ -1508,7 +1508,7 @@ const module: Module = {
           { text: " · " },
           { text: "She often read in the evening.", selectable: true, correct: true },
         ],
-        hint: "Об одном другом человеке глагол берёт -s.",
+        hint: "Смотри на конец глагола, а не на наречие.",
         why: "Окончание потеряно в «He never drink coffee» и «She often read in the evening».",
       },
       {
@@ -1534,7 +1534,7 @@ const module: Module = {
         after: " read?",
         answer: "often",
         accept: ["Often"],
-        hint: "Наречие идёт после you.",
+        hint: "Нужно слово о том, что бывает часто.",
         why: "Do you often read? Наречие стоит перед глаголом.",
       },
       {
@@ -1599,8 +1599,8 @@ const module: Module = {
         after: " busy on Friday.",
         answer: "always",
         accept: ["Always"],
-        hint: "После формы be наречие идёт следом за ней.",
-        why: "I am always busy on Friday. При форме be наречие стоит после неё.",
+        hint: "Слово am уже стоит — допиши слово о частоте.",
+        why: "I am always busy on Friday. Дел много каждую пятницу без исключений.",
       },
     ],
   },

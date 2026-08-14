@@ -1280,7 +1280,7 @@ const module: Module = {
           { text: "Dana knows our." },
           { text: "Dana knows us.", correct: true },
         ],
-        hint: "После глагола идут me, him, her, us и them.",
+        hint: "Речь о двоих, и слово стоит не на месте подлежащего.",
         why:
           "Dana knows us. Перед глаголом стояло бы we, а our стоит перед вещью: " +
           "our house.",
@@ -1321,7 +1321,7 @@ const module: Module = {
         before: "This is ",
         after: " pen.",
         answer: "her",
-        hint: "Перед вещью стоит слово о том, чья она.",
+        hint: "Спроси себя: чья это ручка?",
         why: "This is her pen. У женского рода одно слово и перед вещью, и после глагола.",
       },
       {
@@ -1332,7 +1332,7 @@ const module: Module = {
         left: ["his bike", "I know him.", "her bike"],
         right: ["его велосипед", "её велосипед", "Я знаю его."],
         answer: [0, 2, 1],
-        hint: "Смотри, стоит ли после слова вещь.",
+        hint: "Различай по тому, что идёт следом за словом.",
         why: "His bike — его велосипед. I know him — я знаю его. Her bike — её велосипед.",
       },
 
@@ -1358,7 +1358,7 @@ const module: Module = {
         before: "This is her pen. I can see ",
         after: ".",
         answer: "it",
-        hint: "Во втором предложении речь о вещи.",
+        hint: "Ручка — не человек.",
         why: "I can see it. Ручка — вещь, поэтому her сюда не годится.",
       },
       {
@@ -1381,7 +1381,7 @@ const module: Module = {
         before: "This book is for ",
         after: ".",
         answer: "him",
-        hint: "После предлога идут me, him, her, us и them.",
+        hint: "После for форма слова меняется.",
         why: "This book is for him. После for идёт him, а не he.",
       },
       {
@@ -1394,7 +1394,7 @@ const module: Module = {
           { text: "I work with she." },
           { text: "I with her work." },
         ],
-        hint: "После предлога идут me, him, her, us и them.",
+        hint: "Смотри и на форму слова, и на место глагола.",
         why:
           "I work with her. После with стоит her, и порядок слов в английском другой, " +
           "чем в русском «я с ней работаю».",
@@ -1405,7 +1405,7 @@ const module: Module = {
         outcome: "ставить слово после предлога: This is for me",
         prompt: "Напиши, что это для них. Это — this.",
         answer: "This is for them.",
-        hint: "После предлога идут me, him, her, us и them.",
+        hint: "Форма после for не та, что перед глаголом.",
         why: "This is for them. После for идёт them, а не they.",
       },
 
@@ -1457,7 +1457,7 @@ const module: Module = {
           { text: "Do you know them?", correct: true },
           { text: "Do you them know?" },
         ],
-        hint: "После глагола идут me, him, her, us и them.",
+        hint: "Вопрос порядок слов после глагола не меняет.",
         why:
           "Do you know them? Вопрос порядок слова после глагола не меняет, и после " +
           "глагола идёт them.",
@@ -1493,7 +1493,7 @@ const module: Module = {
           "что у него есть машина.",
         items: ["He has got a car.", "Alim is my friend.", "I know him."],
         answer: [1, 2, 0],
-        hint: "Порядок задан в условии.",
+        hint: "Условие называет порядок прямо.",
         why: "Alim is my friend. I know him. He has got a car.",
       },
       {
@@ -1504,7 +1504,7 @@ const module: Module = {
           "Напиши два предложения: Дана — твоя подруга, и ты звонишь ей каждый день. " +
           "Звонить — call, каждый день — every day.",
         answer: "Dana is my friend. I call her every day.",
-        hint: "Во втором предложении имя не повторяй.",
+        hint: "Во втором предложении поставь замену имени.",
         why:
           "Dana is my friend. I call her every day. Имя названо один раз, дальше " +
           "стоит her.",

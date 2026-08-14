@@ -1250,7 +1250,7 @@ const module: Module = {
           { text: "I can runs." },
           { text: "I can run.", correct: true },
         ],
-        hint: "Окончание -s здесь не нужно нигде.",
+        hint: "Проверь оба слова: и can, и глагол за ним.",
         why: "I can run. Окончание -s не приходит ни к can, ни к глаголу после него.",
       },
       {
@@ -1335,7 +1335,7 @@ const module: Module = {
           { text: "I can't sing.", correct: true },
           { text: "I can't sings." },
         ],
-        hint: "Отрицает сам can, а глагол после него — без окончания.",
+        hint: "Слово don't при can не нужно.",
         why: "I can't sing. Слово don't при can не нужно, и окончание -s тоже.",
       },
       {
@@ -1405,7 +1405,7 @@ const module: Module = {
         before: "What ",
         after: " your friends do?",
         answer: "can",
-        hint: "Оно встаёт сразу после вопросительного слова.",
+        hint: "Нужное слово говорит об умении.",
         why: "What can your friends do? После What сразу идёт can.",
       },
       {
@@ -1508,7 +1508,7 @@ const module: Module = {
         prompt: "Собери рассказ: сначала о своём неумении, потом о своём умении, потом о брате.",
         items: ["I can swim.", "My brother can drive.", "I can't drive."],
         answer: [2, 0, 1],
-        hint: "Порядок задан в условии.",
+        hint: "Условие называет порядок прямо.",
         why: "I can't drive. I can swim. My brother can drive.",
       },
       {
@@ -1520,7 +1520,7 @@ const module: Module = {
           "играть на гитаре. Рисовать — draw, играть на гитаре — play the guitar.",
         answer: "I can draw. I can't play the guitar.",
         accept: ["I can draw. I cannot play the guitar."],
-        hint: "Во втором предложении отрицает сам can.",
+        hint: "Второе предложение говорит об обратном первому.",
         why:
           "I can draw. I can't play the guitar. Первое об умении, второе — об " +
           "обратном.",

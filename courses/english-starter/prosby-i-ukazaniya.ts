@@ -1352,7 +1352,7 @@ const module: Module = {
           { text: "Open the please door." },
           { text: "Open the door, please.", correct: true },
         ],
-        hint: "Место у please только два: начало и конец.",
+        hint: "В середину указания это слово не встаёт.",
         why: "Open the door, please. В середину указания please не ставят.",
       },
       {
