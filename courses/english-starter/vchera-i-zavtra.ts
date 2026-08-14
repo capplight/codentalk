@@ -19,8 +19,9 @@ import type { Module } from "@/lib/content/types";
  * модуль держится этого строго. Отрицание `I didn't work` и вопрос `Did you
  * work?` не показаны даже мельком: они идут в следующем курсе.
  *
- * ЧТО ПРОВЕРЕНО ДО НАПИСАНИЯ. Ступень подтверждена, сверх A1 модуль не берёт
- * ничего.
+ * ЧТО ПРОВЕРЕНО ДО НАПИСАНИЯ. Прошедшее простое стоит на A1 по обоим
+ * источникам. А вот `will` источники разводят по разным ступеням — это
+ * объявлено ниже отдельно.
  *
  * 1. English Grammar Profile, PAST past simple, A1, «FORM: AFFIRMATIVE» — «Can
  *    use the affirmative form with a limited range of regular and irregular
@@ -45,9 +46,39 @@ import type { Module } from "@/lib/content/types";
  *    "in November", "3 o'clock"». Источник называет обороты прямо, и модуль
  *    берёт их же.
  *
- * 6. Слова модуля — Oxford 3000, все A1: yesterday adv., n. A1, last det., adv.
- *    A1, next det., adv. A1, will modal v. A1. Уже введены раньше: tomorrow
- *    (модуль 10), week, day, morning, evening (модули 10 и 14).
+ * 5а. ПРОШЕДШЕЕ ПРОСТОЕ ПОДТВЕРЖДАЕТ И CAMBRIDGE — руководство для младших
+ *    ступеней, список «что нового на A1 Movers»: «Past simple regular and
+ *    irregular forms», примеры источника — «We went to the park yesterday»,
+ *    «Her father cooked lunch on Friday». Это же снимает вопрос о слове
+ *    `yesterday`: в английском профиле оно стоит в строке наречий времени на
+ *    A2, но у Cambridge оно же входит в пример ступени A1. Слово в словнике
+ *    тоже A1.
+ *
+ * 6. Слова модуля — Oxford 3000: yesterday adv., n. A1, will modal v. A1,
+ *    last (final) det. A1 (наречное last в том же словнике стоит на A2, но
+ *    модуль берёт его только перед словом времени: last week, last Friday),
+ *    next adj., adv. A1. Уже введены раньше: tomorrow (модуль 10), week, day,
+ *    morning, evening (модули 10 и 14).
+ *
+ * ЧТО ВЗЯТО СВЕРХ СТУПЕНИ И ОБЪЯВЛЕНО:
+ *
+ * — `will` О БУДУЩЕМ. Источники расходятся, и это надо было увидеть сразу.
+ *   Английский профиль ставит его на A1 (пункты 3 и 4 выше). Cambridge — на
+ *   A2: список «что нового на A2 Flyers» называет «Will — Will you do your
+ *   homework this evening?», а в списке A1 Movers слова `will` нет вовсе.
+ *
+ *   ПОЧЕМУ ЭТО ВАЖНО: `will` стоит в том же списке и в соседней строке с `Be
+ *   going to`, а `going to` модуль сам же исключил со словами «источник ставит
+ *   на A2». Проверить одну строку таблицы и не заметить соседнюю — это и есть
+ *   ошибка разбора.
+ *
+ *   ПОЧЕМУ ВЗЯТО: программа отдаёт модулю `will` о планах прямо, и без него
+ *   курс кончается на прошедшем времени, не давая сказать ни слова о завтра.
+ *   Из трёх прежних расхождений между английским профилем и Cambridge курс все
+ *   три решил в пользу Cambridge (docs/programma-english-starter.md, «Три
+ *   решения, где источники расходятся»), поэтому здесь честнее считать `will`
+ *   взятым сверх ступени. Окончательное решение за владельцем
+ *   (docs/zadachi-vladeltsa.md, п. 1.28).
  *
  * ЧЕГО В МОДУЛЕ НЕТ И ПОЧЕМУ:
  *
@@ -81,7 +112,19 @@ const module: Module = {
         "A1, MODALITY will, «USE: PLANS AND INTENTIONS»: «Can use 'will' to talk " +
         "about plans and intentions», пример источника — «I will bring some music " +
         "to the dinner». " +
-        "Все записи стоят на A1 — модуль не берёт ничего сверх ступени",
+        "Обе записи про will стоят здесь на A1, но руководство Cambridge ставит его " +
+        "на A2 — расхождение разобрано в шапке модуля",
+      license: "внутреннее использование, публично не называем",
+    },
+    {
+      ref: "Cambridge, руководство для младших ступеней (Pre A1 Starters — A2 Flyers)",
+      section:
+        "список «что нового на A1 Movers»: «Past simple regular and irregular " +
+        "forms», примеры источника — «We went to the park yesterday», «Her father " +
+        "cooked lunch on Friday» — это уроки 1–4 и слово yesterday. " +
+        "Список «что нового на A2 Flyers»: «Will — Will you do your homework this " +
+        "evening?», строкой ниже «Be going to» — это will, взято сверх ступени и " +
+        "объявлено в шапке модуля",
       license: "внутреннее использование, публично не называем",
     },
     {
@@ -95,9 +138,10 @@ const module: Module = {
     {
       ref: "Oxford 3000",
       section:
-        "новые слова модуля с пометкой A1: yesterday adv., n. A1, last det., adv. " +
-        "A1, next det., adv. A1, will modal v. A1. Уже введены раньше: tomorrow, " +
-        "week, day, morning, evening",
+        "новые слова модуля: yesterday adv., n. A1, will modal v. A1, next adj., " +
+        "adv. A1, last (final) det. A1 — наречное last в той же записи стоит на A2, " +
+        "но модуль берёт его только перед словом времени: last week, last Friday. " +
+        "Уже введены раньше: tomorrow, week, day, morning, evening",
       license: "внутреннее использование",
     },
   ],
@@ -232,7 +276,7 @@ const module: Module = {
         {
           id: "z4-sobrat-proshedshee",
           kind: "order",
-          prompt: "Собери предложение: «Мы вчера смотрели фильм.»",
+          prompt: "Собери предложение: «Мы вчера смотрели фильм.» Слово о времени поставь в конец.",
           items: ["a film", "watched", "We", "yesterday"],
           answer: [2, 1, 0, 3],
           hint: "Слово yesterday встаёт в конец.",
@@ -243,6 +287,7 @@ const module: Module = {
           kind: "short",
           prompt: "Вчера у тебя была работа. Напиши это о себе: работать — work, вчера — yesterday.",
           answer: "I worked yesterday.",
+          accept: ["Yesterday I worked."],
           hint: "К глаголу приделай окончание прошедшего времени.",
           why: "I worked yesterday. Окончание -ed одно на всех.",
         },
@@ -379,6 +424,7 @@ const module: Module = {
           kind: "short",
           prompt: "Вчерашний день прошёл за учёбой. Напиши это о себе: учиться — study, вчера — yesterday.",
           answer: "I studied yesterday.",
+          accept: ["Yesterday I studied."],
           hint: "Буква y перед окончанием меняется на i.",
           why: "I studied yesterday. У study перед окончанием y стала i.",
         },
@@ -412,7 +458,7 @@ const module: Module = {
             ["have", "had", "I had a good day."],
             ["come", "came", "She came at six."],
             ["see", "saw", "I saw my friend."],
-            ["get", "got", "I got a letter."],
+            ["get", "got", "I got a book."],
             ["do", "did", "I did my work."],
           ],
         },
@@ -514,7 +560,7 @@ const module: Module = {
           kind: "short",
           prompt: "Напиши, что у тебя вчера был хороший день. Иметь — have, хороший день — a good day.",
           answer: "I had a good day yesterday.",
-          accept: ["I had a good day."],
+          accept: ["I had a good day.", "Yesterday I had a good day."],
           hint: "У глагола have своя форма прошедшего времени.",
           why: "I had a good day yesterday. Форма had берётся целиком, без окончания.",
         },
@@ -636,7 +682,7 @@ const module: Module = {
         {
           id: "z4-sobrat-was",
           kind: "order",
-          prompt: "Собери предложение: «Она вчера была на работе.»",
+          prompt: "Собери предложение: «Она вчера была на работе.» Слово о времени поставь в конец.",
           items: ["at work", "was", "yesterday", "She"],
           answer: [3, 1, 0, 2],
           hint: "Слово yesterday встаёт в конец.",
@@ -647,6 +693,7 @@ const module: Module = {
           kind: "short",
           prompt: "Вчерашний день прошёл дома. Напиши это о себе: дома — at home, вчера — yesterday.",
           answer: "I was at home yesterday.",
+          accept: ["Yesterday I was at home."],
           hint: "Со словом I идёт was.",
           why: "I was at home yesterday. Форма was одна на I, he, she и it.",
         },
@@ -782,6 +829,7 @@ const module: Module = {
             "Прошлая пятница прошла дома. Напиши это о себе: дома — at home, " +
             "прошлая пятница — last Friday.",
           answer: "I was at home last Friday.",
+          accept: ["Last Friday I was at home."],
           hint: "Оборот времени встаёт в конец, предлог не нужен.",
           why: "I was at home last Friday. Перед last предлога нет.",
         },
@@ -903,7 +951,7 @@ const module: Module = {
         {
           id: "z4-sobrat-will",
           kind: "order",
-          prompt: "Собери предложение: «Она придёт в шесть.»",
+          prompt: "Собери предложение: «Она придёт в шесть.» Слова о времени поставь в конец.",
           items: ["at six", "come", "She", "will"],
           answer: [2, 3, 1, 0],
           hint: "Вторым идёт will, третьим — глагол.",
@@ -914,6 +962,7 @@ const module: Module = {
           kind: "short",
           prompt: "Напиши, что ты будешь работать завтра. Работать — work, завтра — tomorrow.",
           answer: "I will work tomorrow.",
+          accept: ["Tomorrow I will work.", "I'll work tomorrow."],
           hint: "Перед глаголом поставь will.",
           why: "I will work tomorrow. Глагол после will не меняется.",
         },
@@ -1047,7 +1096,7 @@ const module: Module = {
           answer: "I'll come at six.",
           accept: ["I will come at six."],
           hint: "Слово will сливается со словом I.",
-          why: "I'll come at six. Полная запись I will come at six тоже верна.",
+          why: "I'll come at six. Просили короткую запись, но полная I will come at six тоже верна.",
         },
       ],
     },
@@ -1198,314 +1247,350 @@ const module: Module = {
     ask: 12,
     passRatio: 0.7,
     questions: [
-      // Работа не повторяет задания уроков: другие глаголы, другие дни, другой
-      // пропущенный кусок.
+      // Работа написана заново, отдельно от уроков. Первая её редакция была
+      // зеркалом: шестнадцать подсказок и разборов из сорока восьми совпадали
+      // с урочными слово в слово. Здесь другие углы — перевести предложение в
+      // другое время, исправить чужую запись, назвать причину ошибки, отличить
+      // прошлое от будущего по смыслу, а не по образцу задания.
 
       // ---- итог 1 ----
       {
-        id: "q-proshedshee-vybor",
-        kind: "choice",
-        outcome: "рассказывать о вчерашнем дне: I worked yesterday",
-        prompt: "Твой брат вчера смотрел фильм. В каком предложении нет ошибки?",
-        options: [
-          { text: "My brother watched a film yesterday.", correct: true },
-          { text: "My brother watcheds a film yesterday." },
-          { text: "My brother watches a film yesterday." },
-        ],
-        hint: "Окончание -s к прошедшей форме не приходит.",
-        why:
-          "My brother watched a film yesterday. В третьем предложении глагол стоит " +
-          "в настоящем времени, а yesterday говорит о прошлом.",
-      },
-      {
-        id: "q-proshedshee-dopisat",
-        kind: "gap",
-        outcome: "рассказывать о вчерашнем дне: I worked yesterday",
-        prompt: "Вчера у тебя был футбол. Допиши глагол в нужной форме. Играть — play.",
-        before: "I ",
-        after: " football yesterday.",
-        answer: "played",
-        hint: "К глаголу приделывают окончание прошедшего времени.",
-        why: "I played football yesterday. Перед y стоит гласный, поэтому y не меняется.",
-      },
-      {
-        id: "q-proshedshee-napisat",
+        id: "q-perevesti-v-proshedshee",
         kind: "short",
         outcome: "рассказывать о вчерашнем дне: I worked yesterday",
-        prompt: "Вчерашний вечер прошёл за фильмом. Напиши это о себе: смотреть — watch, фильм — a film.",
-        answer: "I watched a film yesterday.",
-        hint: "К глаголу приделай окончание прошедшего времени.",
-        why: "I watched a film yesterday. Окончание -ed одно на всех.",
+        prompt: "Переведи в прошедшее время: I work in a shop.",
+        answer: "I worked in a shop.",
+        hint: "Меняется только глагол.",
+        why: "I worked in a shop. Всё остальное осталось на месте.",
+      },
+      {
+        id: "q-otmetit-o-proshlom",
+        kind: "hottext",
+        outcome: "рассказывать о вчерашнем дне: I worked yesterday",
+        prompt: "Отметь предложения о прошлом.",
+        parts: [
+          { text: "I work every day.", selectable: true },
+          { text: " · " },
+          { text: "We watched a film.", selectable: true, correct: true },
+          { text: " · " },
+          { text: "She played football.", selectable: true, correct: true },
+          { text: " · " },
+          { text: "He works at school.", selectable: true },
+        ],
+        hint: "Смотри на конец глагола.",
+        why:
+          "О прошлом говорят We watched a film и She played football: у глагола " +
+          "окончание -ed. Два других предложения о том, что бывает всегда.",
+      },
+      {
+        id: "q-chto-ne-tak-work-yesterday",
+        kind: "choice",
+        outcome: "рассказывать о вчерашнем дне: I worked yesterday",
+        prompt: "Друг написал: I work yesterday. Что здесь не так?",
+        options: [
+          {
+            text: "Глагол стоит в настоящем времени, а yesterday говорит о прошлом.",
+            correct: true,
+          },
+          { text: "Слово yesterday стоит не на своём месте." },
+          { text: "Перед глаголом не хватает will." },
+        ],
+        hint: "Сравни глагол и слово времени.",
+        why:
+          "Верно: I worked yesterday. Слово времени и форма глагола должны " +
+          "говорить об одном.",
       },
 
       // ---- итог 2 ----
       {
-        id: "q-ed-vybor",
-        kind: "choice",
+        id: "q-ispravit-likeed",
+        kind: "short",
         outcome: "писать окончание -ed без ошибок: like — liked, study — studied",
-        prompt: "Какая запись верна?",
-        options: [
-          { text: "likeed" },
-          { text: "liked", correct: true },
-          { text: "studyed" },
-        ],
-        hint: "У like на конце e, у study перед y стоит согласный.",
-        why:
-          "Liked: у like добавляется только d. А в studyed ошибка — верно studied.",
+        prompt: "Друг написал: I likeed this film. Напиши это предложение без ошибки.",
+        answer: "I liked this film.",
+        hint: "У этого глагола на конце уже есть e.",
+        why: "I liked this film. К like добавляется только d.",
       },
       {
-        id: "q-ed-dopisat",
+        id: "q-dopisat-played",
         kind: "gap",
         outcome: "писать окончание -ed без ошибок: like — liked, study — studied",
-        prompt: "Глагол study в прошедшем времени. Допиши форму.",
-        before: "She ",
-        after: " yesterday.",
-        answer: "studied",
-        hint: "Перед y стоит согласный, значит y меняется.",
-        why: "She studied yesterday. У study буква y стала i.",
+        prompt: "Вчера ты и твои друзья играли в футбол. Допиши глагол в нужной форме. Играть — play.",
+        before: "We ",
+        after: " football yesterday.",
+        answer: "played",
+        hint: "Перед y здесь стоит гласный.",
+        why:
+          "We played football yesterday. У play перед y стоит a, поэтому y остаётся " +
+          "на месте.",
       },
       {
-        id: "q-ed-sopostavit",
-        kind: "match",
+        id: "q-ryad-form",
+        kind: "choice",
         outcome: "писать окончание -ed без ошибок: like — liked, study — studied",
-        prompt: "Сопоставь глагол и его форму прошедшего времени.",
-        left: ["play", "like", "study"],
-        right: ["studied", "played", "liked"],
-        answer: [1, 2, 0],
-        hint: "У одного меняется y, у другого добавляется только d.",
-        why: "Play — played, like — liked, study — studied.",
+        prompt: "В каком ряду обе формы написаны верно?",
+        options: [
+          { text: "likeed, studied" },
+          { text: "liked, studyed" },
+          { text: "liked, studied", correct: true },
+        ],
+        hint: "Проверь в ряду обе формы, а не первую.",
+        why: "Liked и studied. У like добавилась буква d, а у study буква y стала i.",
       },
 
       // ---- итог 3 ----
       {
-        id: "q-osobye-vybor",
-        kind: "choice",
+        id: "q-perevesti-go",
+        kind: "short",
         outcome: "пользоваться особыми глаголами: go — went",
-        prompt: "Вчера у тебя была работа. В каком предложении нет ошибки?",
-        options: [
-          { text: "I goed to work yesterday." },
-          { text: "I wented to work yesterday." },
-          { text: "I went to work yesterday.", correct: true },
+        prompt: "Переведи в прошедшее время: I go to work.",
+        answer: "I went to work.",
+        hint: "У go нет окончания в прошедшем — есть только went.",
+        why: "I went to work. Went — самостоятельное слово, а не go с добавкой.",
+      },
+      {
+        id: "q-otmetit-osobye-glagoly",
+        kind: "hottext",
+        outcome: "пользоваться особыми глаголами: go — went",
+        prompt: "Отметь глаголы, у которых форма прошедшего времени своя.",
+        parts: [
+          { text: "work", selectable: true },
+          { text: " · " },
+          { text: "see", selectable: true, correct: true },
+          { text: " · " },
+          { text: "play", selectable: true },
+          { text: " · " },
+          { text: "come", selectable: true, correct: true },
         ],
-        hint: "У глагола go своя форма прошедшего времени.",
-        why: "I went to work yesterday. Окончание -ed к особым глаголам не приходит.",
+        hint: "Особый глагол окончания -ed не берёт.",
+        why:
+          "Свои формы у see и come: saw и came. У work и play обычное окончание: " +
+          "worked, played.",
       },
       {
-        id: "q-osobye-dopisat",
-        kind: "gap",
-        outcome: "пользоваться особыми глаголами: go — went",
-        prompt: "Вчера у тебя была встреча с другом. Допиши глагол в нужной форме. Видеть — see.",
-        before: "I ",
-        after: " my friend yesterday.",
-        answer: "saw",
-        hint: "У этого глагола своя форма, и окончания у неё нет.",
-        why: "I saw my friend yesterday. Форма saw берётся целиком.",
-      },
-      {
-        id: "q-osobye-sopostavit",
+        id: "q-sopostavit-tri-osobyh",
         kind: "match",
         outcome: "пользоваться особыми глаголами: go — went",
         prompt: "Сопоставь глагол и его форму прошедшего времени.",
-        left: ["come", "get", "do"],
-        right: ["did", "came", "got"],
+        left: ["do", "get", "come"],
+        right: ["came", "did", "got"],
         answer: [1, 2, 0],
-        hint: "Учи их парами.",
-        why: "Come — came, get — got, do — did.",
+        hint: "Ни одну из трёх форм правило не даёт.",
+        why: "Do — did, get — got, come — came.",
       },
 
       // ---- итог 4 ----
       {
-        id: "q-was-vybor",
-        kind: "choice",
-        outcome: "говорить, где был: I was at home",
-        prompt: "Вчерашний день прошёл на работе. В каком предложении нет ошибки?",
-        options: [
-          { text: "I were at work yesterday." },
-          { text: "I was at work yesterday.", correct: true },
-          { text: "I am at work yesterday." },
-        ],
-        hint: "Со словом I идёт was.",
-        why:
-          "I was at work yesterday. Форма were берётся с we, you и they, а третье " +
-          "предложение стоит в настоящем времени.",
-      },
-      {
-        id: "q-was-dopisat",
+        id: "q-dopisat-were",
         kind: "gap",
         outcome: "говорить, где был: I was at home",
-        prompt: "Твои друзья вчера были дома. Допиши недостающее слово.",
+        prompt: "Твои друзья вчера были в школе. Допиши недостающее слово.",
         before: "My friends ",
-        after: " at home yesterday.",
+        after: " at school yesterday.",
         answer: "were",
-        hint: "Друзей несколько.",
-        why: "My friends were at home yesterday. О нескольких идёт were.",
+        hint: "Друг здесь не один.",
+        why:
+          "My friends were at school yesterday. Форма were подходит, когда речь " +
+          "о нескольких людях, а не об одном.",
       },
       {
-        id: "q-was-napisat",
+        id: "q-ispravit-they-was",
         kind: "short",
         outcome: "говорить, где был: I was at home",
-        prompt: "Напиши, что твоя сестра вчера была на работе. Сестра — my sister, на работе — at work.",
-        answer: "My sister was at work yesterday.",
-        hint: "Об одном человеке идёт was.",
-        why: "My sister was at work yesterday. Форма was одна на I, he, she и it.",
+        prompt: "Друг написал: They was at work. Напиши это предложение без ошибки.",
+        answer: "They were at work.",
+        hint: "Меняется одно слово.",
+        why: "They were at work. Со словом they идёт were.",
+      },
+      {
+        id: "q-my-doma-vchera",
+        kind: "choice",
+        outcome: "говорить, где был: I was at home",
+        prompt: "Вчера дома были ты и твоя сестра. Как сказать?",
+        options: [
+          { text: "We was at home yesterday." },
+          { text: "We were at home yesterday.", correct: true },
+          { text: "We are at home yesterday." },
+        ],
+        hint: "Речь о двоих сразу.",
+        why:
+          "We were at home yesterday. Про двоих и больше говорят were, а третий " +
+          "вариант к тому же стоит в настоящем времени.",
       },
 
       // ---- итог 5 ----
       {
-        id: "q-vremya-vybor",
+        id: "q-chto-lishnee-on-last",
         kind: "choice",
         outcome: "называть время: yesterday, last week",
-        prompt: "На прошлой неделе у тебя была работа. Как сказать?",
+        prompt: "Друг написал: I worked on last Monday. Что здесь лишнее?",
         options: [
-          { text: "I worked last week.", correct: true },
-          { text: "I worked in last week." },
-          { text: "I worked on last week." },
+          { text: "Ничего лишнего нет, так сказать можно." },
+          { text: "Предлог on: перед last он не нужен.", correct: true },
+          { text: "Окончание -ed: его тут быть не должно." },
         ],
-        hint: "С оборотом last предлог не ставят.",
-        why: "I worked last week. Ни in, ни on перед last не нужны.",
+        hint: "Посмотри, что стоит перед словом last.",
+        why: "I worked last Monday. Перед оборотом с last предлог не ставят.",
       },
       {
-        id: "q-vremya-dopisat",
+        id: "q-dopisat-last-year",
         kind: "gap",
         outcome: "называть время: yesterday, last week",
-        prompt: "Твоя подруга приходила в прошлый понедельник. Допиши недостающее слово.",
+        prompt: "Твоя подруга приходила в прошлом году. Допиши недостающее слово.",
         before: "She came ",
-        after: " Monday.",
+        after: " year.",
         answer: "last",
-        hint: "Слово значит «прошлый».",
-        why: "She came last Monday. Предлог перед оборотом не нужен.",
+        hint: "Нужно слово со значением «прошлый».",
+        why: "She came last year. Last, как и next, предлога перед собой не требует.",
       },
       {
-        id: "q-vremya-napisat",
+        id: "q-brat-na-rabote-na-proshloy-nedele",
         kind: "short",
         outcome: "называть время: yesterday, last week",
         prompt:
-          "Прошлая неделя прошла дома. Напиши это о себе: дома — at home, " +
-          "прошлая неделя — last week.",
-        answer: "I was at home last week.",
-        hint: "Оборот времени встаёт в конец, предлог не нужен.",
-        why: "I was at home last week. Перед last предлога нет.",
+          "Напиши, что твой брат был на работе на прошлой неделе. Брат — my brother, " +
+          "на работе — at work, прошлая неделя — last week.",
+        answer: "My brother was at work last week.",
+        accept: ["Last week my brother was at work."],
+        hint: "Оборот с last предлога не требует.",
+        why: "My brother was at work last week. Об одном человеке идёт was.",
       },
 
       // ---- итог 6 ----
       {
-        id: "q-will-vybor",
+        id: "q-sestra-budet-uchitsya",
+        kind: "short",
+        outcome: "говорить о завтрашнем дне: I will work",
+        prompt:
+          "Напиши, что твоя сестра будет учиться завтра. Сестра — my sister, " +
+          "учиться — study, завтра — tomorrow.",
+        answer: "My sister will study tomorrow.",
+        accept: ["Tomorrow my sister will study."],
+        hint: "После will глагол окончания не берёт.",
+        why:
+          "My sister will study tomorrow. Ни will, ни глагол за ним окончание -s " +
+          "не берут.",
+      },
+      {
+        id: "q-chto-ne-tak-will-works",
         kind: "choice",
         outcome: "говорить о завтрашнем дне: I will work",
-        prompt: "Твоя сестра будет работать завтра. В каком предложении нет ошибки?",
+        prompt: "Друг написал: He will works tomorrow. Что здесь не так?",
         options: [
-          { text: "My sister wills work tomorrow." },
-          { text: "My sister will works tomorrow." },
-          { text: "My sister will work tomorrow.", correct: true },
+          { text: "Слово will должно стоять после глагола." },
+          { text: "Слово tomorrow здесь лишнее." },
+          { text: "У глагола после will окончание -s лишнее.", correct: true },
         ],
-        hint: "Окончание -s здесь не нужно нигде.",
+        hint: "Посмотри на глагол, который стоит после will.",
+        why: "He will work tomorrow. Will не меняет форму глагола, который идёт следом.",
+      },
+      {
+        id: "q-otmetit-o-zavtra",
+        kind: "hottext",
+        outcome: "говорить о завтрашнем дне: I will work",
+        prompt: "Отметь предложения о завтрашнем дне.",
+        parts: [
+          { text: "I worked yesterday.", selectable: true },
+          { text: " · " },
+          { text: "I will work tomorrow.", selectable: true, correct: true },
+          { text: " · " },
+          { text: "She will come at six.", selectable: true, correct: true },
+          { text: " · " },
+          { text: "She came at six.", selectable: true },
+        ],
+        hint: "О будущем говорит одно короткое слово перед глаголом.",
         why:
-          "My sister will work tomorrow. Окончание -s не приходит ни к will, ни к " +
-          "глаголу после него.",
-      },
-      {
-        id: "q-will-dopisat",
-        kind: "gap",
-        outcome: "говорить о завтрашнем дне: I will work",
-        prompt: "Ты будешь дома завтра. Допиши недостающее слово.",
-        before: "I will ",
-        after: " at home tomorrow.",
-        answer: "be",
-        hint: "После will форма be не меняется.",
-        why: "I will be at home tomorrow. После will стоит be, а не am.",
-      },
-      {
-        id: "q-will-sobrat",
-        kind: "order",
-        outcome: "говорить о завтрашнем дне: I will work",
-        prompt: "Собери предложение: «Он придёт завтра.»",
-        items: ["tomorrow", "come", "He", "will"],
-        answer: [2, 3, 1, 0],
-        hint: "Вторым идёт will, третьим — глагол.",
-        why: "He will come tomorrow. Порядок: он, will, глагол, время.",
+          "О завтрашнем дне говорят I will work tomorrow и She will come at six. Два " +
+          "других предложения о прошлом.",
       },
 
       // ---- итог 7 ----
       {
-        id: "q-plan-vybor",
+        id: "q-koroche-we-will",
+        kind: "short",
+        outcome: "рассказывать о планах: I'll come tomorrow",
+        prompt: "Запиши короче: We will be at home.",
+        answer: "We'll be at home.",
+        hint: "Will теряет часть букв и сливается с предыдущим словом.",
+        why: "We'll be at home. Пропали буквы wi.",
+      },
+      {
+        id: "q-gde-apostrof",
         kind: "choice",
         outcome: "рассказывать о планах: I'll come tomorrow",
-        prompt: "Вы с другом будете дома. Как записать это короче?",
+        prompt: "В какой записи апостроф стоит верно?",
         options: [
-          { text: "We'll be at home.", correct: true },
-          { text: "Well be at home." },
-          { text: "We'will be at home." },
+          { text: "Hell come at six." },
+          { text: "He'll come at six.", correct: true },
+          { text: "He'will come at six." },
         ],
-        hint: "Апостроф стоит на месте пропавших букв.",
+        hint: "Проверь, не потерялось ли значение слова без апострофа.",
         why:
-          "We'll be at home. Без апострофа выходит другое слово, а в третьем " +
-          "варианте апостроф стоит не на месте.",
+          "He'll come at six. Апостроф встаёт вместо пропавших букв w и i, а не " +
+          "перед всем словом will.",
       },
       {
-        id: "q-plan-koroche",
+        id: "q-poobeshchat-priyti",
         kind: "short",
         outcome: "рассказывать о планах: I'll come tomorrow",
-        prompt: "Запиши короче: She will come at six.",
-        answer: "She'll come at six.",
-        hint: "Слово will сливается с тем, о ком речь.",
-        why: "She'll come at six. Апостроф стоит там, где пропали буквы wi.",
-      },
-      {
-        id: "q-plan-napisat",
-        kind: "short",
-        outcome: "рассказывать о планах: I'll come tomorrow",
-        prompt: "Пообещай собеседнику помочь. Короткой записью. Помочь — help.",
-        answer: "I'll help you.",
-        accept: ["I will help you."],
-        hint: "Обещание строится через will.",
-        why: "I'll help you. Полная запись I will help you тоже верна.",
+        prompt:
+          "Пообещай собеседнику прийти завтра, короткой записью. Прийти — come, " +
+          "завтра — tomorrow.",
+        answer: "I'll come tomorrow.",
+        accept: ["I will come tomorrow."],
+        hint: "Обещание о будущем строится так же, как план.",
+        why:
+          "I'll come tomorrow. Полная форма I will come tomorrow тоже правильна, " +
+          "но задание просило короткую запись.",
       },
 
       // ---- итог 8 ----
       {
-        id: "q-vremena-vybor",
-        kind: "choice",
-        outcome: "рассказывать о вчера и о завтра вместе",
-        prompt: "Ты придёшь завтра. Как сказать?",
-        options: [
-          { text: "I came tomorrow." },
-          { text: "I will come tomorrow.", correct: true },
-          { text: "I come tomorrow." },
-        ],
-        hint: "Слово tomorrow говорит о будущем.",
-        why: "I will come tomorrow. Слово tomorrow требует will.",
-      },
-      {
-        id: "q-vremena-otmetit",
+        id: "q-vremya-sporit-s-glagolom",
         kind: "hottext",
         outcome: "рассказывать о вчера и о завтра вместе",
-        prompt: "Отметь записи, где форма глагола не подходит слову времени.",
+        prompt: "Отметь предложения, где слово времени спорит с формой глагола.",
         parts: [
-          { text: "I played football yesterday.", selectable: true },
+          { text: "I worked yesterday.", selectable: true },
           { text: " · " },
-          { text: "I will play football yesterday.", selectable: true, correct: true },
+          { text: "I will work yesterday.", selectable: true, correct: true },
           { text: " · " },
-          { text: "I played football tomorrow.", selectable: true, correct: true },
+          { text: "She came tomorrow.", selectable: true, correct: true },
           { text: " · " },
-          { text: "I will play football tomorrow.", selectable: true },
+          { text: "She will come tomorrow.", selectable: true },
         ],
-        hint: "Yesterday — прошедшая форма, tomorrow — will.",
+        hint: "Yesterday говорит о прошлом, tomorrow — о будущем.",
         why:
-          "Верно: I played football yesterday и I will play football tomorrow.",
+          "Спорят I will work yesterday и She came tomorrow: слово времени говорит " +
+          "об одном, а форма глагола о другом.",
       },
       {
-        id: "q-vremena-sobrat",
+        id: "q-sobrat-rasskaz-s-nastoyashchim",
         kind: "order",
         outcome: "рассказывать о вчера и о завтра вместе",
-        prompt: "Собери рассказ: сначала о завтра, потом о вчера, потом о сейчас.",
+        prompt: "Собери рассказ: сначала о сейчас, потом о вчера, потом о завтра.",
         items: [
           "I worked yesterday.",
-          "I am reading a book now.",
           "I will work tomorrow.",
+          "I am reading a book now.",
         ],
         answer: [2, 0, 1],
-        hint: "Порядок задан в условии.",
-        why: "I will work tomorrow. I worked yesterday. I am reading a book now.",
+        hint: "Условие называет порядок прямо.",
+        why: "I am reading a book now. I worked yesterday. I will work tomorrow.",
+      },
+      {
+        id: "q-vchera-rabota-zavtra-dom",
+        kind: "short",
+        outcome: "рассказывать о вчера и о завтра вместе",
+        prompt:
+          "Напиши о себе два предложения: вчерашний день прошёл на работе, " +
+          "завтрашний пройдёт дома. На работе — at work, дома — at home.",
+        answer: "I was at work yesterday. I will be at home tomorrow.",
+        accept: ["I was at work yesterday. I'll be at home tomorrow."],
+        hint: "Первое предложение о вчера, второе о завтра.",
+        why:
+          "I was at work yesterday. I will be at home tomorrow. Годится и короткая " +
+          "запись I'll be at home tomorrow.",
       },
     ],
   },
