@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { courseCards, type CourseCard } from "@/courses";
 import { withCount } from "@/lib/plural";
+import CourseArt from "@/components/CourseArt";
 import styles from "./page.module.css";
 
 /**
@@ -12,17 +13,16 @@ import styles from "./page.module.css";
  * ещё не прочитав заголовок.
  */
 /**
- * Обложка карточки: приветствие на самом языке или строка кода.
+ * Обложка карточки: флаг у языка, значок у программирования.
  *
- * Значка для языка не подобрать — глобус одинаков для всех девяти. А
- * «Bonjour» на обложке сразу говорит, о каком языке речь, и показывает, что
- * человек научится произносить. Для курсов по коду там строка кода.
+ * Рисунки живут в components/CourseArt.tsx — там же записано, почему они
+ * нарисованы своими руками, а не взяты эмодзи или готовым набором.
  */
-type Cover = { text: string; kind: "lang" | "code" };
+type Cover = { art: string; kind: "lang" | "code" };
 
 const COVERS: Record<string, Cover> = {
-  "english-starter": { text: "Hello", kind: "lang" },
-  "web-vvedenie": { text: "<h1>", kind: "code" },
+  "english-starter": { art: "en", kind: "lang" },
+  "web-vvedenie": { art: "web", kind: "code" },
 };
 
 /**
@@ -36,16 +36,16 @@ const COVERS: Record<string, Cover> = {
  * стоят отдельной, более скромной сеткой, а не вперемешку с готовым.
  */
 const PLANNED: Array<{ title: string; cover: Cover }> = [
-  { title: "Французский", cover: { text: "Bonjour", kind: "lang" } },
-  { title: "Испанский", cover: { text: "¡Hola!", kind: "lang" } },
-  { title: "Немецкий", cover: { text: "Hallo", kind: "lang" } },
-  { title: "Итальянский", cover: { text: "Ciao", kind: "lang" } },
-  { title: "Турецкий", cover: { text: "Merhaba", kind: "lang" } },
-  { title: "Арабский", cover: { text: "مرحبا", kind: "lang" } },
-  { title: "Китайский", cover: { text: "你好", kind: "lang" } },
-  { title: "Японский", cover: { text: "こんにちは", kind: "lang" } },
-  { title: "Корейский", cover: { text: "안녕하세요", kind: "lang" } },
-  { title: "Python", cover: { text: "print()", kind: "code" } },
+  { title: "Французский", cover: { art: "fr", kind: "lang" } },
+  { title: "Испанский", cover: { art: "es", kind: "lang" } },
+  { title: "Немецкий", cover: { art: "de", kind: "lang" } },
+  { title: "Итальянский", cover: { art: "it", kind: "lang" } },
+  { title: "Турецкий", cover: { art: "tr", kind: "lang" } },
+  { title: "Арабский", cover: { art: "ar", kind: "lang" } },
+  { title: "Китайский", cover: { art: "cn", kind: "lang" } },
+  { title: "Японский", cover: { art: "jp", kind: "lang" } },
+  { title: "Корейский", cover: { art: "kr", kind: "lang" } },
+  { title: "Python", cover: { art: "python", kind: "code" } },
 ];
 
 export default function HomePage() {
@@ -82,15 +82,15 @@ export default function HomePage() {
           </div>
 
           {/*
-            Окно в урок вместо картинки. Задание настоящее — из модуля «Что я
-            делаю» курса английского. Если урок изменится, это место надо
-            поправить руками: связи с содержанием тут намеренно нет, иначе
-            витрина потянула бы за собой все курсы целиком.
+            Окно в урок вместо картинки. Задание настоящее: z1-s-ili-es из
+            урока «Когда одной s мало» модуля «Что я делаю». Если урок
+            изменится, это место надо поправить руками — связи с содержанием
+            тут намеренно нет, иначе витрина потянула бы за собой все курсы
+            целиком.
           */}
           <div className={styles.peek} aria-label="Пример задания из урока">
             <div className={styles.peekHead}>
               <span>Английский с нуля · «Что я делаю»</span>
-            {/* Задание настоящее: z1-s-ili-es из урока «Когда одной s мало». */}
               <span>задание 3 из 5</span>
             </div>
             <div className={styles.peekTask}>
@@ -129,7 +129,7 @@ export default function HomePage() {
                     }`}
                     aria-hidden="true"
                   >
-                    {cover?.text ?? card.title}
+                    <CourseArt id={cover?.art ?? ""} title={card.title} />
                   </div>
 
                   <div className={styles.trackBody}>
@@ -173,7 +173,7 @@ export default function HomePage() {
                   }`}
                   aria-hidden="true"
                 >
-                  {planned.cover.text}
+                  <CourseArt id={planned.cover.art} title={planned.title} />
                 </div>
                 <div className={styles.soonBody}>
                   <span className={styles.soonTitle}>{planned.title}</span>
