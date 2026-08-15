@@ -84,7 +84,10 @@ const module: Module = {
         "continuous with a limited range of verbs to talk about situations and events in " +
         "progress», пример источника — «We are missing you». " +
         "A2, PRESENT present continuous, «FORM: NEGATIVE»: «Can use the negative " +
-        "forms» — это ступень урока 6, взята сверх и объявлена в шапке модуля. " +
+        "form», пример источника — «[talking about a computer] I'm not using it any " +
+        "more» — это ступень урока 6, взята сверх и объявлена в шапке модуля. " +
+        "В прежней редакции цитата стояла во множественном числе, «negative forms»; " +
+        "в источнике единственное. Нашёл методист. " +
         "A2, QUESTIONS yes/no, «FORM: AUXILIARY 'BE'»: «Can use auxiliary 'be' + " +
         "subject + the '-ing' form (continuous form) to form 'yes/no' questions», " +
         "пример источника — «Are you going to come?» — это вопрос Are you working? " +
@@ -122,8 +125,12 @@ const module: Module = {
     {
       ref: "Oxford 3000",
       section:
-        "все слова модуля с пометкой A1: now, dance, sing, sit, stand, wait, open, rain. " +
-        "Проверено построчно по выгрузке словника",
+        "все слова модуля с пометкой A1: now, dance, sing, sit, stand, wait, open, rain, " +
+        "а также do («do1 v., auxiliary v. A1») и outside как наречие («outside adv. A1»; " +
+        "как предлог и прилагательное оно A2, но модуль берёт наречие: waiting outside). " +
+        "Проверено построчно по выгрузке словника. ПРЕЖНЯЯ РЕДАКЦИЯ писала «все слова» и " +
+        "перечисляла восемь из десяти: do и outside в список не попали, и следующий " +
+        "проверяющий их бы не сверил. Нашёл методист",
       license: "внутреннее использование",
     },
     {
@@ -462,10 +469,15 @@ const module: Module = {
           id: "zachem-pravila-ing",
           kind: "explain",
           text: [
+            // Урок открывался обзором правила: сколько видов глаголов и что в них
+            // меняется. Правило понятности требует сначала случай. Взят случай,
+            // который ученик уже может произвести сам и на котором ошибётся.
+            "Ты умеешь сказать I am working. Скажи то же самое про sit — «я сижу».",
+            "Если получилось I am siting, вышла ошибка: правильно I am sitting, с двумя t. " +
+              "А если бы речь шла про make, лишней оказалась бы, наоборот, буква: не " +
+              "makeing, а making.",
             "У большинства глаголов окончание просто приписывается: work — working, " +
-              "read — reading, wait — waiting.",
-            "Но у двух видов глаголов из трёх перед окончанием кое-что меняется. " +
-              "Их и разбираем.",
+              "read — reading, wait — waiting. Разберём два случая, где это не так.",
           ],
         },
         {
@@ -1355,11 +1367,14 @@ const module: Module = {
         id: "q-seychas-sobrat",
         kind: "order",
         outcome: "говорить, что делаешь прямо сейчас: I am working",
-        prompt: "Собери предложение: «Я читаю книгу.»",
-        items: ["a", "reading", "book", "I", "am"],
+        // «I am reading a book» напечатано в модуле четыре раза целым предложением:
+        // в примере урока 1, в разговоре урока 7, в примере и в ответе урока 8.
+        // Ученик расставлял слова по памяти рисунка. Взято другое предложение.
+        prompt: "Собери предложение: «Я открываю дверь.»",
+        items: ["the", "opening", "door", "I", "am"],
         answer: [3, 4, 1, 0, 2],
-        hint: "Начни с того, кто говорит, и не разрывай a book.",
-        why: "I am reading a book. Сначала I, потом am, потом глагол с окончанием.",
+        hint: "Начни с того, кто говорит, и не разрывай the door.",
+        why: "I am opening the door. Сначала I, потом am, потом глагол с окончанием.",
       },
 
       // ---- итог 2 ----
