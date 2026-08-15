@@ -201,7 +201,7 @@ const module: Module = {
 
   outcomes: [
     "говорить, что делаешь: I work, I live in Astana",
-    "прибавлять -s, когда речь об одном: he works, the shop opens",
+    "прибавлять -s, когда речь об одном человеке: he works, she lives",
     "прибавлять -es там, где одной s мало: goes, watches, studies",
     "рассказывать распорядок дня со временем: I get up at seven",
     "говорить, что нравится: I like music",
@@ -383,7 +383,7 @@ const module: Module = {
       slug: "on-delaet-s",
       title: "Он делает: окончание -s",
       estimatedMinutes: 14,
-      outcome: "прибавлять -s, когда речь об одном: he works, the shop opens",
+      outcome: "прибавлять -s, когда речь об одном человеке: he works, she lives",
 
       blocks: [
         {
@@ -569,11 +569,17 @@ const module: Module = {
           id: "kogda-es",
           kind: "explain",
           text: [
+            // В примерах правила стояло closes рядом с watches и finishes — а это
+            // разные вещи на письме: у close своя e на конце, и дописывают ему одну
+            // s. Механически применённое правило дало бы «closees». Нашёл методист.
             "Смотри на последний звук глагола. Если он сам похож на s — «с», «з», «ш», «ч» — " +
-              "прибавляют -es: watches, finishes, closes.",
-            "Слово go — особый случай: оно кончается на гласный, и к нему тоже прибавляют " +
-              "-es.",
-            "Всем остальным хватает одной s: works, reads, lives, plays.",
+              "к слову дописывают две буквы, es: watches, finishes.",
+            "Слово go — особый случай: оно кончается на гласный, и к нему тоже дописывают " +
+              "es.",
+            "Если у глагола на конце уже есть своя буква e, дописывают только s: close — " +
+              "closes, live — lives. На слух получается то же самое, а букв прибавилось " +
+              "меньше.",
+            "Всем остальным хватает одной s: works, reads, plays.",
           ],
         },
         {
@@ -1451,11 +1457,14 @@ const module: Module = {
         id: "q-ya-rabotayu",
         kind: "short",
         outcome: "говорить, что делаешь: I work, I live in Astana",
-        prompt: "Ты работаешь в магазине. Запиши предложение целиком, начни с I.",
-        answer: "I work in a shop.",
+        // «I work in a shop» напечатано в модуле шесть раз: в словаре, в таблице,
+        // в разборе задания, среди вариантов и в частях для сборки. Ученик писал
+        // фразу по памяти. Взято другое место работы.
+        prompt: "Ты работаешь в парке. Запиши предложение целиком, начни с I.",
+        answer: "I work in a park.",
         exact: true,
-        accept: ["I work in a shop"],
-        why: "I work in a shop. Работа — это действие, поэтому слово work встаёт сразу за I.",
+        accept: ["I work in a park"],
+        why: "I work in a park. Работа — это действие, поэтому слово work встаёт сразу за I.",
       },
       {
         id: "q-dva-glagola",
@@ -1481,7 +1490,7 @@ const module: Module = {
       {
         id: "q-dopisat-s",
         kind: "gap",
-        outcome: "прибавлять -s, когда речь об одном: he works, the shop opens",
+        outcome: "прибавлять -s, когда речь об одном человеке: he works, she lives",
         prompt: "Сестра говорит по-английски. Допиши глагол вместе с окончанием.",
         before: "She ",
         after: " English.",
@@ -1491,7 +1500,7 @@ const module: Module = {
       {
         id: "q-kto-beryot-s-quiz",
         kind: "choice",
-        outcome: "прибавлять -s, когда речь об одном: he works, the shop opens",
+        outcome: "прибавлять -s, когда речь об одном человеке: he works, she lives",
         prompt: "После какого слова глагол берёт окончание -s?",
         options: [
           { text: "they" },
@@ -1503,7 +1512,7 @@ const module: Module = {
       {
         id: "q-perestroit-na-nego-quiz",
         kind: "short",
-        outcome: "прибавлять -s, когда речь об одном: he works, the shop opens",
+        outcome: "прибавлять -s, когда речь об одном человеке: he works, she lives",
         prompt: "Скажи то же самое о брате: «I play football.» Начни с He.",
         answer: "He plays football.",
         exact: true,

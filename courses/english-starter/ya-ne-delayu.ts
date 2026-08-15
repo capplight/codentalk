@@ -108,6 +108,11 @@ const module: Module = {
         "(A2, «FORM: QUESTIONS») и глагол understand в настоящем простом (B1, «USE: MENTAL " +
         "PROCESS VERBS» — remember, understand, believe; на A2 в той же строке только " +
         "think, hope, know). Первая редакция объявляла оба отсутствующими; нашёл методист. " +
+        "ОГОВОРКА ПО understand, второй проход: строка B1 описывает употребление с " +
+        "придаточным — пример источника «I don't remember the title of the film». Урок " +
+        "берёт голую форму «I don't understand» без придаточного, то есть проще образца, " +
+        "а само слово стоит на A1 в Oxford 3000. Ступень названа по самой строгой из " +
+        "возможных оценок, но случай легче, чем она предполагает. " +
         "ЧЕГО ЗДЕСЬ НЕТ НАМЕРЕННО: A2 " +
         "NEGATION «FORM: 'DO', IMPERATIVES» (Don't go! — модуль 22), A2 NEGATION «FORM: " +
         "AUXILIARY VERB 'DO', PAST» (didn't — модуль 25)",
@@ -1347,11 +1352,14 @@ const module: Module = {
         id: "q-dont-napisat",
         kind: "short",
         outcome: "говорить, чего не делаешь сам: I don't work on Sunday",
-        prompt: "По воскресеньям ты не работаешь. Запиши предложение целиком, начни с I.",
-        answer: "I don't work on Sunday.",
+        // «I don't work on Sunday» напечатано в модуле шесть раз: в двух таблицах,
+        // в разговоре, в ответе задания урока 1 и в задании урока 3. Ученик писал
+        // фразу по памяти. Взяты другой день и другое действие.
+        prompt: "По субботам ты не готовишь. Запиши предложение целиком, начни с I.",
+        answer: "I don't cook on Saturday.",
         exact: true,
-        accept: ["I don't work on Sunday"],
-        why: "I don't work on Sunday.",
+        accept: ["I don't cook on Saturday"],
+        why: "I don't cook on Saturday.",
       },
       {
         id: "q-doesnt-dopisat",
@@ -1491,22 +1499,26 @@ const module: Module = {
         id: "q-popravka-sobrat",
         kind: "order",
         outcome: "поправлять собеседника: сказать, что не так, и как на самом деле",
-        prompt: "Собери поправку: «Он не водит машину. Он ходит пешком».",
-        items: ["He walks.", "He doesn't drive."],
+        // Пара «He doesn't drive. He walks.» — сквозной пример урока: таблица,
+        // врезка и задание. Собирали заученную витрину. Взята другая пара.
+        prompt: "Собери поправку: «Она не пьёт кофе. Она пьёт чай».",
+        items: ["She drinks tea.", "She doesn't drink coffee."],
         answer: [1, 0],
-        why: "He doesn't drive. He walks.",
+        why: "She doesn't drink coffee. She drinks tea.",
       },
       {
         id: "q-bez-artiklya",
         kind: "hottext",
         outcome: "называть свои привычки через «не»: I don't eat meat",
         prompt: "Отметь записи с лишним артиклем.",
+        // Три записи из четырёх были дословно теми же, что в задании урока.
+        // Оставлена одна общая, остальные взяты на других словах модуля.
         parts: [
-          { text: "I don't drink water.", selectable: true },
+          { text: "I don't drink coffee.", selectable: true },
           { text: " · " },
-          { text: "I don't drink a water.", selectable: true, correct: true },
+          { text: "I don't drink a coffee.", selectable: true, correct: true },
           { text: " · " },
-          { text: "I don't drink a tea.", selectable: true, correct: true },
+          { text: "I don't eat a fish.", selectable: true, correct: true },
           { text: " · " },
           { text: "I don't eat meat.", selectable: true },
         ],
