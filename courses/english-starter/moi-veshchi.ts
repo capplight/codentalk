@@ -457,7 +457,7 @@ const module: Module = {
           kind: "vocab",
           caption: "Слова урока",
           items: [
-            { term: "dog", translation: "собака", example: "I've got a dog.", hint: "/dɒɡ/" },
+            { term: "dog", translation: "собака", example: "I've got a dog.", hint: "/dɒg/" },
             { term: "cat", translation: "кошка", example: "She's got a cat.", hint: "/kæt/" },
             { term: "bike", translation: "велосипед", example: "You've got a bike.", hint: "/baɪk/" },
             { term: "camera", translation: "фотоаппарат", example: "He's got a camera.", hint: "/ˈkæmrə/" },

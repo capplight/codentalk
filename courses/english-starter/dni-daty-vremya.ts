@@ -432,7 +432,7 @@ const module: Module = {
             ["May", "май", "/meɪ/"],
             ["June", "июнь", "/dʒuːn/"],
             ["July", "июль", "/dʒuˈlaɪ/"],
-            ["August", "август", "/ˈɔːɡəst/"],
+            ["August", "август", "/ˈɔːgəst/"],
             ["September", "сентябрь", "/sepˈtembə/"],
             ["October", "октябрь", "/ɒkˈtəʊbə/"],
             ["November", "ноябрь", "/nəʊˈvembə/"],
@@ -485,7 +485,7 @@ const module: Module = {
             { term: "January", translation: "январь", example: "in January", hint: "/ˈdʒænjʊəri/" },
             { term: "March", translation: "март", example: "12 March", hint: "/mɑːtʃ/" },
             { term: "May", translation: "май", example: "in May", hint: "/meɪ/" },
-            { term: "August", translation: "август", example: "in August", hint: "/ˈɔːɡəst/" },
+            { term: "August", translation: "август", example: "in August", hint: "/ˈɔːgəst/" },
             { term: "December", translation: "декабрь", example: "in December", hint: "/dɪˈsembə/" },
             { term: "month", translation: "месяц", example: "this month", hint: "/mʌnθ/" },
             { term: "year", translation: "год", example: "this year", hint: "/jɪə/" },
@@ -560,7 +560,7 @@ const module: Module = {
         {
           id: "z6-mesyac-po-chteniyu",
           kind: "choice",
-          prompt: "Какой месяц читается как /ˈɔːɡəst/?",
+          prompt: "Какой месяц читается как /ˈɔːgəst/?",
           options: [
             { text: "April" },
             { text: "August", correct: true },
@@ -568,7 +568,7 @@ const module: Module = {
           ],
           hint: "Начало названия звучит как русское «о», длинное.",
           why:
-            "August — /ˈɔːɡəst/. April читается /ˈeɪprəl/, October — /ɒkˈtəʊbə/.",
+            "August — /ˈɔːgəst/. April читается /ˈeɪprəl/, October — /ɒkˈtəʊbə/.",
         },
       ],
     },
@@ -1647,7 +1647,7 @@ const module: Module = {
           items: [
             { term: "see you", translation: "увидимся", example: "See you on Friday!", hint: "/ˈsiː juː/" },
             { term: "OK", translation: "хорошо, договорились", example: "OK. See you!", hint: "/ˌəʊˈkeɪ/" },
-            { term: "good", translation: "хорошо (отклик на сказанное)", example: "Good. See you!", hint: "/ɡʊd/" },
+            { term: "good", translation: "хорошо (отклик на сказанное)", example: "Good. See you!", hint: "/gʊd/" },
           ],
         },
         {

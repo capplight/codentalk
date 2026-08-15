@@ -69,8 +69,13 @@ const module: Module = {
       section:
         "A1, PRONOUNS subject/object «FORM: (SUBJECT) STATEMENTS» — дословно: «Can use the " +
         "pronouns 'I', 'you', 'he', 'she', 'it', 'we' and 'they' in the subject position " +
-        "before a verb in statements». Состав урока о местоимениях взят отсюда поимённо, " +
-        "ничего не добавлено и не убрано. " +
+        "before a verb in statements». Состав урока о местоимениях — эти семь слов, взяты " +
+        "отсюда поимённо. " +
+        "A1, PRONOUNS subject/object «FORM: (SUBJECT) 'IT' FOR FIRST PERSON»: «Can use the " +
+        "pronoun 'it' before 'be' to refer to a first person speaker or writer», пример " +
+        "источника — «Hello Mrs Bishop. It's Clarisse». Это опора врезки о том, что о " +
+        "звонящем или вошедшем говорят it. Прежняя редакция писала «ничего не добавлено», " +
+        "хотя врезка добавлена: нашёл методист, строка найдена и названа. " +
         "A1, VERBS types «FORM: LINKING VERB, 'BE'»: «Can use linking verb 'be'» — отсюда " +
         "урок о am/is/are. " +
         "A1, строка 5865: VERBS types «LINKING VERB 'BE'». " +
@@ -88,7 +93,7 @@ const module: Module = {
         "все слова модуля с пометкой A1: hello, hi, good, morning, afternoon, " +
         "evening, night, bye, goodbye, see, you, your, I, be, name, what, nice, meet, too, " +
         "how, fine, OK, please, thank, thanks, sorry, welcome, he, she, it, we, they, " +
-        "yes, again, understand. " +
+        "yes, again. " +
         "ОГОВОРКА: am, is и are отдельными словами в словнике не стоят — там одна запись " +
         "«be v. A1», и формы покрыты ею",
       license: "внутреннее использование",
@@ -161,7 +166,7 @@ const module: Module = {
   outcomes: [
     "здороваться, выбирая приветствие по времени дня, и прощаться",
     "называть своё имя и понимать, когда имя спрашивают",
-    "отвечать на вопрос о делах и к месту говорить please, thank you и sorry",
+    "отвечать на вопрос о делах, к месту говорить please, thank you и sorry и узнавать you're welcome",
     "ставить местоимение перед глаголом: I, you, he, she, it, we, they",
     "выбирать am, is или are по слову перед глаголом",
     "узнавать и писать короткие формы глагола be: I'm, you're, he's",
@@ -213,9 +218,9 @@ const module: Module = {
           caption: "Приветствия по времени дня",
           head: ["Английский", "Когда", "Как читается"],
           rows: [
-            ["Good morning", "с утра до полудня", "/ˌɡʊd ˈmɔːnɪŋ/"],
-            ["Good afternoon", "с полудня до вечера", "/ˌɡʊd ˌɑːftəˈnuːn/"],
-            ["Good evening", "вечером", "/ˌɡʊd ˈiːvnɪŋ/"],
+            ["Good morning", "с утра до полудня", "/ˌgʊd ˈmɔːnɪŋ/"],
+            ["Good afternoon", "с полудня до вечера", "/ˌgʊd ˌɑːftəˈnuːn/"],
+            ["Good evening", "вечером", "/ˌgʊd ˈiːvnɪŋ/"],
           ],
         },
         {
@@ -260,21 +265,27 @@ const module: Module = {
               term: "good morning",
               translation: "доброе утро",
               example: "Good morning!",
-              hint: "/ˌɡʊd ˈmɔːnɪŋ/",
+              hint: "/ˌgʊd ˈmɔːnɪŋ/",
             },
             {
               term: "good afternoon",
               translation: "добрый день",
               example: "Good afternoon!",
-              hint: "/ˌɡʊd ˌɑːftəˈnuːn/",
+              hint: "/ˌgʊd ˌɑːftəˈnuːn/",
             },
             {
               term: "good evening",
               translation: "добрый вечер",
               example: "Good evening!",
-              hint: "/ˌɡʊd ˈiːvnɪŋ/",
+              hint: "/ˌgʊd ˈiːvnɪŋ/",
             },
-            { term: "goodbye", translation: "до свидания", example: "Goodbye!", hint: "/ɡʊdˈbaɪ/" },
+            {
+              term: "good night",
+              translation: "спокойной ночи",
+              example: "Good night!",
+              hint: "/ˌgʊd ˈnaɪt/",
+            },
+            { term: "goodbye", translation: "до свидания", example: "Goodbye!", hint: "/gʊdˈbaɪ/" },
             { term: "bye", translation: "пока", example: "Bye!", hint: "/baɪ/" },
             { term: "see you", translation: "увидимся", example: "See you!", hint: "/ˈsiː juː/" },
           ],
@@ -569,7 +580,7 @@ const module: Module = {
       slug: "kak-dela",
       title: "Как дела и вежливые слова",
       estimatedMinutes: 15,
-      outcome: "отвечать на вопрос о делах и к месту говорить please, thank you и sorry",
+      outcome: "отвечать на вопрос о делах, к месту говорить please, thank you и sorry и узнавать you're welcome",
 
       blocks: [
         {
@@ -1287,8 +1298,11 @@ const module: Module = {
           kind: "vocab",
           caption: "Слова урока",
           items: [
-            { term: "again", translation: "ещё раз", example: "Again, please.", hint: "/əˈɡen/" },
-            { term: "understand", translation: "понимать", example: "I understand.", hint: "/ˌʌndəˈstænd/" },
+            { term: "again", translation: "ещё раз", example: "Again, please.", hint: "/əˈgen/" },
+            // Слово understand отсюда убрано: в уроке оно нигде не работало — ни в
+            // объяснении, ни в задании, — а по смыслу спорило с уроком, который учит
+            // сообщать о НЕпонимании. Своё место оно занимает в модуле 21, где есть
+            // отрицание и оборот I don't understand. Нашёл методист.
           ],
         },
 
@@ -1575,9 +1589,10 @@ const module: Module = {
         outcome: "выбирать am, is или are по слову перед глаголом",
         prompt: "Допиши форму глагола be.",
         before: "She ",
-        after: " fine.",
+        // Было «She ___ fine.» — то же предложение, что в двух заданиях урока.
+        after: " OK.",
         answer: "is",
-        why: "She is fine. С he, she и it идёт форма is.",
+        why: "She is OK. С he, she и it идёт форма is.",
       },
       {
         id: "q-korotkaya-he-is",
@@ -1606,35 +1621,45 @@ const module: Module = {
         id: "q-ne-rasslyshal",
         kind: "choice",
         outcome: "просить повторить сказанное и переспрашивать имя",
-        prompt: "Имя названо, но расслышать его не удаётся. Что сказать?",
+        // Прежний вопрос повторял урочный сценарий («имя названо, расслышать не
+        // удаётся») вместе с обоими вариантами. Ученик отвечал по памяти на вид
+        // задания. Нашёл методист вторым проходом.
+        prompt: "Собеседник говорит тихо, и слов не разобрать. Что сказать?",
         options: [
-          { text: "Thank you." },
-          { text: "See you." },
+          { text: "Nice to meet you." },
+          { text: "You're welcome." },
           { text: "Sorry?", correct: true },
         ],
-        why: "Sorry? с вопросительной интонацией — просьба повторить.",
+        why:
+          "Sorry? с вопросительной интонацией — просьба повторить. Два других отклика " +
+          "уместны в разговоре, но о непонимании не говорят ничего.",
       },
       {
         id: "q-dopisat-again",
-        kind: "gap",
+        kind: "short",
         outcome: "просить повторить сказанное и переспрашивать имя",
-        prompt: "Допиши просьбу повторить: «Ещё раз, пожалуйста».",
-        before: "",
-        after: ", please.",
-        answer: "Again",
-        exact: true,
-        why: "Again, please. Please стоит в конце и отделяется запятой.",
+        // Было задание на вставку со слово в слово тем же условием, что в уроке, и
+        // с той же двухсловной фразой: урок закрывал одну половину, работа — другую.
+        // Теперь фразу надо написать целиком, вместе со знаками.
+        prompt: "Собеседник говорит быстро. Попроси повторить — два слова, начни с Again.",
+        answer: "Again, please.",
+        accept: ["Again, please", "again, please."],
+        why: "Again, please. Вежливое слово идёт вторым, и от первого его отделяет запятая.",
       },
       {
         id: "q-razgovor-ot-i-do",
         kind: "order",
         outcome: "вести короткий разговор при знакомстве: от приветствия до прощания",
+        // Прежний набор реплик повторял урочный: три куска из четырёх стояли на тех
+        // же местах, и ученик расставлял их по памяти. Взят другой разговор — с
+        // откликом на знакомство вместо вопроса о делах.
         prompt: "Расставь реплики разговора по порядку — от приветствия до прощания.",
-        items: ["How are you?", "Good morning! What's your name?", "Goodbye!", "I'm Dana."],
-        answer: [1, 3, 0, 2],
+        items: ["See you!", "I'm Alim.", "Hi! What's your name?", "Nice to meet you."],
+        answer: [2, 1, 3, 0],
         why:
-          "Приветствие с вопросом об имени, ответ, вопрос о делах, прощание. Тот же " +
-          "порядок разобран в уроке.",
+          "Hi! What's your name? — I'm Alim. — Nice to meet you. — See you! Сначала " +
+          "здороваются и спрашивают имя, потом его называют, потом откликаются на " +
+          "знакомство. Прощание идёт последним.",
       },
       {
         id: "q-vernut-vopros",
@@ -1695,7 +1720,9 @@ const module: Module = {
         outcome: "называть своё имя и понимать, когда имя спрашивают",
         prompt: "Допиши пропущенное слово.",
         before: "I ",
-        after: " Dana.",
+        // Было «I ___ Dana.» — ровно то предложение, которое ученик уже дважды
+        // разбирал в уроках. Имя заменено, чтобы проверялось правило, а не память.
+        after: " Alim.",
         answer: "am",
         why:
           "С подлежащим I употребляется am. В английском глагол в таком предложении обязателен.",
@@ -1738,7 +1765,7 @@ const module: Module = {
       {
         id: "q-otvet-na-how",
         kind: "short",
-        outcome: "отвечать на вопрос о делах и к месту говорить please, thank you и sorry",
+        outcome: "отвечать на вопрос о делах, к месту говорить please, thank you и sorry и узнавать you're welcome",
         prompt: "Тебя спросили «How are you?». Напиши обычный ответ: «хорошо, спасибо».",
         answer: "I'm fine, thank you",
         accept: [
@@ -1762,7 +1789,7 @@ const module: Module = {
       {
         id: "q-vezhlivye",
         kind: "match",
-        outcome: "отвечать на вопрос о делах и к месту говорить please, thank you и sorry",
+        outcome: "отвечать на вопрос о делах, к месту говорить please, thank you и sorry и узнавать you're welcome",
         prompt: "Сопоставь случай и нужное слово.",
         left: ["Просишь чай", "Тебя поблагодарили", "Извиняешься"],
         right: ["You're welcome", "Sorry", "Please"],
@@ -1773,7 +1800,7 @@ const module: Module = {
       },
       {
         id: "q-napisat-please",
-        outcome: "отвечать на вопрос о делах и к месту говорить please, thank you и sorry",
+        outcome: "отвечать на вопрос о делах, к месту говорить please, thank you и sorry и узнавать you're welcome",
         kind: "gap",
         prompt: "Ты просишь чай. Допиши слово вежливости.",
         before: "Tea, ",

@@ -77,6 +77,7 @@ const shapka = `# Модуль ${nomer + 1}. ${mod.title}
 | \`istochniki.md\` | поле \`sources\` модуля целиком |
 | \`kontrol.txt\` | сверка цитат с источниками и таблица «задание → блок» |
 | \`yazyk.txt\` | механические проверки русского языка |
+| \`proverki.txt\` | что общие проверки нашли в этом модуле — в том числе ВОПРОСЫ, которые решать тебе |
 
 **Что уже проверено машиной — не перепроверяй:**
 
@@ -117,6 +118,33 @@ writeFileSync(join(papka, "tekst.md"), skript("tekst", [kurs, modul]), "utf8");
 writeFileSync(join(papka, "zadaniya.txt"), skript("zadaniya", [kurs, modul]), "utf8");
 writeFileSync(join(papka, "kontrol.txt"), skript("kontrol", [kurs, modul]), "utf8");
 writeFileSync(join(papka, "yazyk.txt"), skript("yazyk", [kurs]), "utf8");
+
+/*
+ * Отчёт общих проверок — только та его часть, что относится к этому модулю.
+ *
+ * Нужен из-за проверки перекличек с уроками: она даёт не ошибки, а ВОПРОСЫ
+ * («вопрос работы построен на том же примере, что задание урока»), а решить их
+ * может только методист. Без этого файла он о них не узнаёт: отчёт печатается
+ * сразу по всему курсу и в папку не попадал.
+ */
+// Двоеточие в конце обязательно: без него сюда попадал список заготовок записи
+// — по строке на каждый урок, ни одного слова о содержании.
+const zagolovok = new RegExp(`^\\s*[·✗]\\s${kurs} → ${modul}\\b.*: `);
+const nachaloBloka = /^\s*[·✗]\s/;
+const stroki = skript("check-content", []).split(/\r?\n/);
+const nashi: string[] = [];
+let beryom = false;
+for (const stroka of stroki) {
+  if (nachaloBloka.test(stroka)) beryom = zagolovok.test(stroka);
+  if (beryom) nashi.push(stroka);
+}
+writeFileSync(
+  join(papka, "proverki.txt"),
+  nashi.length > 0
+    ? `Что общие проверки говорят об этом модуле:\n\n${nashi.join("\n")}\n`
+    : "Общие проверки по этому модулю молчат.\n\nЭто не значит, что всё верно: они проверяют только перечисленное в README.\n",
+  "utf8"
+);
 
 console.log(`Папка собрана: ${papka}`);
 console.log("Файлы: README.md, tekst.md, zadaniya.txt, istochniki.md, kontrol.txt, yazyk.txt");

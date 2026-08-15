@@ -439,7 +439,7 @@ const module: Module = {
           caption: "Слова урока",
           items: [
             { term: "there are", translation: "есть, имеются", example: "There are two rooms.", hint: "/ðeər ɑː/" },
-            { term: "garden", translation: "сад", example: "a garden behind the house", hint: "/ˈɡɑːdn/" },
+            { term: "garden", translation: "сад", example: "a garden behind the house", hint: "/ˈgɑːdn/" },
             { term: "tree", translation: "дерево", example: "a tree in the garden", hint: "/triː/" },
             { term: "people", translation: "люди", example: "There are five people.", hint: "/ˈpiːpl/" },
           ],

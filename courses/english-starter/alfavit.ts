@@ -658,7 +658,7 @@ const module: Module = {
           caption: "Слова урока",
           items: [
             { term: "country", translation: "страна", example: "my country", hint: "/ˈkʌntri/" },
-            { term: "English", translation: "английский язык", example: "I speak English.", hint: "/ˈɪŋɡlɪʃ/" },
+            { term: "English", translation: "английский язык", example: "I speak English.", hint: "/ˈɪŋglɪʃ/" },
             { term: "Russian", translation: "русский язык", example: "I speak Russian.", hint: "/ˈrʌʃn/" },
             { term: "Kazakh", translation: "казахский язык", example: "I speak Kazakh.", hint: "/kəˈzɑːk/" },
           ],

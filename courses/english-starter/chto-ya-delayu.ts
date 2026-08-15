@@ -559,7 +559,7 @@ const module: Module = {
           caption: "Где нужно -es",
           head: ["Глагол", "Он или она", "Как читается"],
           rows: [
-            ["go", "he goes", "/ɡəʊz/"],
+            ["go", "he goes", "/gəʊz/"],
             ["watch", "she watches", "/ˈwɒtʃɪz/"],
             ["finish", "he finishes", "/ˈfɪnɪʃɪz/"],
             ["work", "he works", "/wɜːks/"],
@@ -583,7 +583,7 @@ const module: Module = {
           text:
             "Окончание -es добавляет слову слог. Watch произносят в один слог, watches — в " +
             "два: /ˈwɒtʃɪz/.\n\nПоэтому его и ставят: без гласного звуки «ч» и «с» подряд " +
-            "не выговорить.\n\nУ go иначе: goes звучит в один слог, /ɡəʊz/, и лишняя буква " +
+            "не выговорить.\n\nУ go иначе: goes звучит в один слог, /gəʊz/, и лишняя буква " +
             "нужна только на письме.\n\nСамо окончание читается то «с», то «з»: works — " +
             "/wɜːks/, lives — /lɪvz/. Выбирать не приходится, оно подстраивается само.",
         },
@@ -625,8 +625,8 @@ const module: Module = {
           kind: "vocab",
           caption: "Слова урока",
           items: [
-            { term: "go", translation: "идти, ходить, ездить", example: "I go to work.", hint: "/ɡəʊ/" },
-            { term: "goes", translation: "ходит, ездит", example: "He goes to work.", hint: "/ɡəʊz/" },
+            { term: "go", translation: "идти, ходить, ездить", example: "I go to work.", hint: "/gəʊ/" },
+            { term: "goes", translation: "ходит, ездит", example: "He goes to work.", hint: "/gəʊz/" },
             { term: "watch", translation: "смотреть", example: "I watch football.", hint: "/wɒtʃ/" },
             { term: "finish", translation: "заканчивать", example: "I finish at five.", hint: "/ˈfɪnɪʃ/" },
           ],
@@ -783,7 +783,7 @@ const module: Module = {
           kind: "vocab",
           caption: "Слова урока",
           items: [
-            { term: "get up", translation: "вставать", example: "I get up at seven.", hint: "/ˌɡet ˈʌp/" },
+            { term: "get up", translation: "вставать", example: "I get up at seven.", hint: "/ˌget ˈʌp/" },
             { term: "eat", translation: "есть", example: "I eat breakfast.", hint: "/iːt/" },
             { term: "breakfast", translation: "завтрак", example: "I eat breakfast at eight.", hint: "/ˈbrekfəst/" },
             { term: "lunch", translation: "обед", example: "I eat lunch at one.", hint: "/lʌntʃ/" },

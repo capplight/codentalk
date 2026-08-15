@@ -457,7 +457,7 @@ const module: Module = {
           caption: "Шесть предметов",
           head: ["Слово", "Перевод", "Произношение"],
           rows: [
-            ["bag", "сумка", "/bæɡ/"],
+            ["bag", "сумка", "/bæg/"],
             ["key", "ключ", "/kiː/"],
             ["phone", "телефон", "/fəʊn/"],
             ["pen", "ручка", "/pen/"],
@@ -496,7 +496,7 @@ const module: Module = {
           kind: "vocab",
           caption: "Слова урока",
           items: [
-            { term: "bag", translation: "сумка", example: "It's a bag.", hint: "/bæɡ/" },
+            { term: "bag", translation: "сумка", example: "It's a bag.", hint: "/bæg/" },
             { term: "phone", translation: "телефон", example: "It's a phone.", hint: "/fəʊn/" },
             { term: "box", translation: "коробка", example: "It's a box.", hint: "/bɒks/" },
           ],

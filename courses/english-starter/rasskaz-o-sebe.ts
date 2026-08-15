@@ -492,7 +492,7 @@ const module: Module = {
             { term: "artist", translation: "художник", example: "She's an artist.", hint: "/ˈɑːtɪst/" },
             { term: "actor", translation: "актёр", example: "He's an actor.", hint: "/ˈæktə/" },
             { term: "apple", translation: "яблоко", example: "an apple", hint: "/ˈæpl/" },
-            { term: "egg", translation: "яйцо", example: "an egg", hint: "/eɡ/" },
+            { term: "egg", translation: "яйцо", example: "an egg", hint: "/eg/" },
           ],
         },
 

@@ -928,7 +928,7 @@ const module: Module = {
           kind: "vocab",
           caption: "Слова урока",
           items: [
-            { term: "together", translation: "вместе", example: "We work together.", hint: "/təˈɡeðə/" },
+            { term: "together", translation: "вместе", example: "We work together.", hint: "/təˈgeðə/" },
           ],
         },
 

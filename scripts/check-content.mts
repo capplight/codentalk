@@ -269,6 +269,115 @@ function checkRabotaNePovtoryaetUroki(mod: Module, where: string): void {
   }
 }
 
+/**
+ * Второй способ списать у самого себя: не слова разбора, а условие и сам пример.
+ *
+ * Проверка выше сравнивает подсказки и разборы. Методист вторым проходом по
+ * модулю 2 нашёл ту же породу с другой стороны: условие работы совпадало с
+ * урочным посимвольно («Допиши просьбу повторить: „Ещё раз, пожалуйста“»), а
+ * фраза была та же самая — урок закрывал в ней одно слово, работа другое.
+ * Разбор при этом был написан заново, и первая проверка молчала.
+ *
+ * Рядом нашлось и повторение самого примера: предложение «I ___ Dana.» стояло
+ * в двух уроках и третий раз в работе — с тем же пропуском и тем же ответом.
+ *
+ * ДВА УРОВНЯ, И ГРАНИЦА МЕЖДУ НИМИ ВЫВЕРЕНА ОПЫТОМ. Первая редакция объявляла
+ * ошибкой любое совпавшее условие — и на первом же прогоне обвинила девятнадцать
+ * верных мест. «Допиши форму глагола be», «Сопоставь букву и её название» — это
+ * не сценарий, а голое указание, какого рода работа предстоит; у двух разных
+ * заданий оно совпадает законно. Скрипт, который кричит на правильное, хуже, чем
+ * никакого: его перестают читать.
+ *
+ * Поэтому ошибка — только когда совпало И условие, И сам пример: это одно и то
+ * же задание, переписанное дважды. Совпало что-то одно — вопрос методисту.
+ */
+/*
+ * Части складываются через «|», и это не украшение. Первая редакция склеивала
+ * их пробелом и прогоняла через `slova`, а он вычищает все знаки — граница
+ * между «до пропуска», «ответом» и «после» пропадала. Проверку испытали
+ * нарочно испорченным заданием, и она промолчала: ровно та мёртвая проверка,
+ * против которой в этом проекте заведено правило.
+ */
+function yadroZadaniya(task: any): string {
+  const chasti = (xs: any[]): string => xs.map((x) => slova(String(x ?? ""))).join(" | ");
+  switch (task.kind) {
+    case "gap":
+      return chasti([task.before, task.answer, task.after]);
+    case "short":
+      return slova(String(task.answer ?? ""));
+    case "order":
+      return chasti([...(task.items ?? [])]);
+    case "choice":
+      return chasti([...(task.options ?? [])].map((o: any) => o.text));
+    case "hottext":
+      return chasti([...(task.parts ?? [])].map((p: any) => p.text));
+    case "match":
+      return chasti([...(task.left ?? []), ...(task.right ?? [])]);
+    default:
+      return "";
+  }
+}
+
+/** Сколько в ядре настоящих слов — разделители не в счёт. */
+function slovVYadre(yadro: string): number {
+  return yadro.split("|").join(" ").split(/\s+/).filter(Boolean).length;
+}
+
+function checkRabotaNePovtoryaetZadaniya(mod: Module, where: string): void {
+  const usloviya = new Map<string, string>();
+  const yadra = new Map<string, string>();
+
+  for (const lesson of mod.lessons) {
+    for (const block of lesson.blocks as any[]) {
+      if (!isTask(block)) continue;
+      const uslovie = slova(String(block.prompt ?? ""));
+      if (uslovie.split(" ").length > 3 && !usloviya.has(uslovie)) {
+        usloviya.set(uslovie, `${lesson.slug} → ${block.id}`);
+      }
+      const yadro = yadroZadaniya(block);
+      // Ядро в одно-два слова ничего не значит: ответом бывает одно слово, и
+      // совпадёт оно у десятка заданий подряд.
+      if (slovVYadre(yadro) >= 3 && !yadra.has(yadro)) {
+        yadra.set(yadro, `${lesson.slug} → ${block.id}`);
+      }
+    }
+  }
+
+  const sovpali: string[] = [];
+  const pohozhi: string[] = [];
+  for (const question of mod.quiz.questions as any[]) {
+    const uslovie = slova(String(question.prompt ?? ""));
+    const yadro = yadroZadaniya(question);
+    const gdeUslovie = usloviya.get(uslovie);
+    const gdeYadro = yadro ? yadra.get(yadro) : undefined;
+
+    if (gdeUslovie && gdeYadro) {
+      sovpali.push(`${question.id}: то же задание, что ${gdeYadro} — «${question.prompt}»`);
+    } else if (gdeUslovie) {
+      pohozhi.push(`${question.id}: условие как у ${gdeUslovie} — «${question.prompt}»`);
+    } else if (gdeYadro) {
+      pohozhi.push(`${question.id}: тот же пример, что в ${gdeYadro}`);
+    }
+  }
+
+  if (sovpali.length > 0) {
+    fail(
+      `${where} → проверочная`,
+      `вопрос повторяет задание урока условием и примером сразу (${sovpali.length} шт.):\n      ` +
+        sovpali.join("\n      ") +
+        "\n      Это то же задание во второй раз: ученик узнаёт его раньше, чем читает"
+    );
+  }
+  if (pohozhi.length > 0) {
+    warn(
+      `${where} → проверочная`,
+      `вопрос перекликается с заданием урока (${pohozhi.length} шт.):\n      ` +
+        pohozhi.join("\n      ") +
+        "\n      Иногда это законно — голое указание или единственная в курсе фраза. Решает методист"
+    );
+  }
+}
+
 function checkTask(task: TaskBlock, where: string): void {
   if (blank(task.prompt)) fail(where, "нет формулировки задания");
   checkDubli(task, where);
@@ -561,6 +670,7 @@ function checkModule(mod: Module, where: string): void {
   }
 
   checkRabotaNePovtoryaetUroki(mod, where);
+  checkRabotaNePovtoryaetZadaniya(mod, where);
 
   checkQuiz(mod.quiz, `${where} → проверочная`, {
     label: "проверочной работе",

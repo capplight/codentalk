@@ -176,7 +176,7 @@ const module: Module = {
       section:
         "произношение слов модуля, британская норма. Условности курса соблюдены: краткий " +
         "гласный через e вместо ɛ, конечный безударный через ə вместо ɐ (together — " +
-        "/təˈɡeðə/), r вместо ɹ (restaurant — /ˈrestrɒnt/). " +
+        "/təˈgeðə/), r вместо ɹ (restaurant — /ˈrestrɒnt/). " +
         "Отдельно: does — /dʌz/, и гласный в нём не такой, как в do /duː/. Пара do — does " +
         "на слух не похожа, и при озвучке это надо передать",
       license: "CC BY-SA и свободная лицензия, базы не перепубликуются",
@@ -860,7 +860,7 @@ const module: Module = {
           kind: "vocab",
           caption: "Слова урока",
           items: [
-            { term: "language", translation: "язык", example: "English is a language.", hint: "/ˈlæŋɡwɪdʒ/" },
+            { term: "language", translation: "язык", example: "English is a language.", hint: "/ˈlæŋgwɪdʒ/" },
             { term: "film", translation: "фильм", example: "I watch a film.", hint: "/fɪlm/" },
           ],
         },
@@ -1157,7 +1157,7 @@ const module: Module = {
           caption: "Слова урока",
           items: [
             { term: "city", translation: "город", example: "I live in this city.", hint: "/ˈsɪti/" },
-            { term: "together", translation: "вместе", example: "They work together.", hint: "/təˈɡeðə/" },
+            { term: "together", translation: "вместе", example: "They work together.", hint: "/təˈgeðə/" },
           ],
         },
 

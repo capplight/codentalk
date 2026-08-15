@@ -1160,7 +1160,7 @@ const module: Module = {
           kind: "vocab",
           caption: "Слова урока",
           items: [
-            { term: "go", translation: "иди, идти", example: "Go straight.", hint: "/ɡəʊ/" },
+            { term: "go", translation: "иди, идти", example: "Go straight.", hint: "/gəʊ/" },
             { term: "turn", translation: "поверни, поворачивать", example: "Turn left.", hint: "/tɜːn/" },
             { term: "left", translation: "налево, левый", example: "Turn left.", hint: "/left/" },
             { term: "right", translation: "направо, правый", example: "Turn right.", hint: "/raɪt/" },
