@@ -1618,7 +1618,7 @@ const module: Module = {
         items: ["live here?", "Do", "your parents"],
         answer: [1, 2, 0],
         hint: "Родителей несколько.",
-        why: "Do your parents live here? Родителей двое, и вопрос о них открывает Do.",
+        why: "Do your parents live here? Родители — это не один человек, и вопрос о них открывает Do.",
       },
       {
         id: "q-neskolko-dopisat",

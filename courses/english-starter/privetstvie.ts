@@ -1567,7 +1567,7 @@ const module: Module = {
         outcome: "выбирать am, is или are по слову перед глаголом",
         prompt: "Какая форма глагола be нужна после they?",
         options: [{ text: "are", correct: true }, { text: "is" }, { text: "am" }],
-        why: "They are. Слово they означает нескольких, и с ним стоит та же форма are, что с you и we.",
+        why: "They are. Слово they указывает на нескольких людей, и с ним стоит та же форма are, что с you и we.",
       },
       {
         id: "q-vstavit-is",

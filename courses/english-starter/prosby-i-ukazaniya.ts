@@ -1369,7 +1369,7 @@ const module: Module = {
           { text: "Open the door, please.", correct: true },
         ],
         hint: "В середину указания это слово не встаёт.",
-        why: "Open the door, please. Вежливое слово ждёт конца указания, а внутри него разрывает вещь и действие.",
+        why: "Open the door, please. Вежливое слово ждёт конца указания. В середине оно разделило бы действие и дверь.",
       },
       {
         id: "q-please-napisat",

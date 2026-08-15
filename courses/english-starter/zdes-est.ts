@@ -1506,7 +1506,7 @@ const module: Module = {
           { text: "There are four room." },
           { text: "There are four rooms.", correct: true },
         ],
-        why: "There are four rooms. В первой записи глагол остался как при одной комнате. Во второй у комнаты пропало окончание -s.",
+        why: "There are four rooms. В первой записи глагол не изменился, как будто комната одна. Во второй у комнаты пропало окончание -s.",
       },
       {
         id: "q-there-are-dopisat",

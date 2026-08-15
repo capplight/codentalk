@@ -1251,7 +1251,7 @@ const module: Module = {
           { text: "I can run.", correct: true },
         ],
         hint: "Проверь оба слова: и can, и глагол за ним.",
-        why: "I can run. В первой записи -s прилипло к can, во второй — к бегу, а лишнее оно и там и там.",
+        why: "I can run. В первой записи -s прилипло к can, во второй — к run, а лишнее оно и там и там.",
       },
       {
         id: "q-umenie-dopisat",

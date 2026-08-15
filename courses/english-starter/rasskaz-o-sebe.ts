@@ -1314,7 +1314,7 @@ const module: Module = {
         answer: "I'm from Italy.",
         exact: true,
         accept: ["I'm from Italy", "I am from Italy.", "I am from Italy"],
-        why: "I'm from Italy. Страна — имя собственное, и заглавная нужна ей всюду, даже в середине предложения.",
+        why: "I'm from Italy. Название страны — это имя, и заглавная буква нужна ему в любом месте предложения.",
       },
       {
         id: "q-napisanie-italii",

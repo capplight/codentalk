@@ -1385,7 +1385,7 @@ const module: Module = {
           "I am not a driver. I am a teacher.",
           "I am not a driver. I am a teacher",
         ],
-        why: "I'm not a driver. I'm a teacher. Первое предложение отводит чужое слово, второе называет верное.",
+        why: "I'm not a driver. I'm a teacher. В первом предложении ты не соглашаешься, во втором называешь своё занятие.",
       },
       {
         id: "q-nezakonchennaya-popravka",
@@ -1419,7 +1419,7 @@ const module: Module = {
         before: "He isn't ",
         after: " Rome.",
         answer: "in",
-        why: "He isn't in Rome. Отрицание меняет только глагол, а слово при месте остаётся прежним.",
+        why: "He isn't in Rome. Отрицание меняет только глагол, а предлог in остаётся на месте.",
       },
       {
         id: "q-prav-ili-net",
