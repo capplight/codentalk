@@ -115,10 +115,15 @@ const module: Module = {
     {
       ref: "Oxford 3000",
       section:
-        "новые слова модуля с пометкой A1: water n. A1, meat n. A1, rice n. A1, " +
-        "money n. A1, price n. A1, shop n., v. A1, much det./pron. A1. Уже введены " +
-        "раньше: bread, milk (модуль 19), tea (модуль 1), coffee (модуль 14), food " +
-        "и cake (модуль 21)",
+        "новое слово модуля с пометкой A1: rice n. A1. " +
+        "Уже введены раньше: bread, milk (модуль 19), tea (модуль 1), coffee " +
+        "(модуль 14), food и cake (модуль 21), water (модули 1 и 15), money " +
+        "(модуль 6), meat (модуль 15), price (модуль 9), shop (модули 6 и 12), " +
+        "much (модуль 9). " +
+        "ПРЕЖНЯЯ РЕДАКЦИЯ называла новыми семь слов, а новое из них одно. Шесть " +
+        "остальных курс уже вводил, и пять из них стояли здесь словарными карточками " +
+        "по второму разу. Сверка была сделана для одной половины списка и не сделана " +
+        "для другой. Нашёл методист",
       license: "внутреннее использование",
     },
   ],
@@ -206,10 +211,7 @@ const module: Module = {
           kind: "vocab",
           caption: "Слова урока",
           items: [
-            { term: "water", translation: "вода", example: "I like water.", hint: "/ˈwɔːtə/" },
-            { term: "money", translation: "деньги", example: "I have got money.", hint: "/ˈmʌni/" },
             { term: "rice", translation: "рис", example: "I like rice.", hint: "/raɪs/" },
-            { term: "meat", translation: "мясо", example: "I don't like meat.", hint: "/miːt/" },
           ],
         },
 
@@ -342,15 +344,8 @@ const module: Module = {
           caption: "Послушай, как это звучит",
           transcript: "a book, two books, water, bread",
         },
-        {
-          id: "slovar-dvuh-zapretov",
-          kind: "vocab",
-          caption: "Слова урока",
-          items: [
-            { term: "shop", translation: "магазин", example: "I work in a shop.", hint: "/ʃɒp/" },
-            { term: "price", translation: "цена", example: "The price is here.", hint: "/praɪs/" },
-          ],
-        },
+        // Словаря у урока больше нет: слова shop и price введены раньше — shop в
+        // модулях 6 и 12, price в модуле 9. Урок весь об отмене артикля и -s.
 
         // ---- задания ----
         {
@@ -730,7 +725,7 @@ const module: Module = {
           kind: "note",
           tone: "mistake",
           text:
-            "«Give me bread» звучит как приказ.\n\nВ магазине берут просьбу: I'd " +
+            "«Give me bread» — это указание, и звучит оно прямо.\n\nВ магазине берут просьбу: I'd " +
             "like some bread, please. Или Can I have some bread?",
         },
         {
@@ -772,10 +767,10 @@ const module: Module = {
             { text: "I'd like some bread, please.", correct: true },
             { text: "I like bread." },
           ],
-          hint: "В магазине просят, а не приказывают.",
+          hint: "В магазине берут не указание, а просьбу.",
           why:
-            "I'd like some bread, please. Первое звучит как приказ, а третье говорит " +
-            "о вкусе вообще.",
+            "I'd like some bread, please. Первое — указание, оно звучит прямо, а " +
+            "третье говорит о вкусе вообще.",
         },
         {
           id: "z2-dopisat-anything-else",
@@ -874,7 +869,7 @@ const module: Module = {
           kind: "note",
           tone: "mistake",
           text:
-            "«I want a coffee» звучит резко.\n\nВ кафе берут I'd like или Can I " +
+            "«I want a coffee» говорит о желании вообще, а не о заказе.\n\nВ кафе берут I'd like или Can I " +
             "have. Слово want оставь для рассказа о желаниях.",
         },
         {
@@ -917,8 +912,8 @@ const module: Module = {
           ],
           hint: "В кафе берут оборот I'd like.",
           why:
-            "I'd like a coffee, please. Первое звучит резко, а третье говорит о " +
-            "вкусе вообще.",
+            "I'd like a coffee, please. Первое говорит о желании вообще, а третье — " +
+            "о вкусе.",
         },
         {
           id: "z2-dopisat-a-v-zakaze",
@@ -1374,11 +1369,13 @@ const module: Module = {
         id: "q-napisat-est-voda",
         kind: "short",
         outcome: "говорить о количестве: some water",
-        prompt: "Напиши другу, что у тебя есть немного воды. Вода — water.",
-        answer: "I have got some water.",
-        accept: ["I've got some water."],
+        // «I have got some water» стоит строкой таблицы урока: ученик вспоминал её
+        // целиком. Взят другой продукт.
+        prompt: "Напиши другу, что у тебя есть немного риса. Рис — rice.",
+        answer: "I have got some rice.",
+        accept: ["I've got some rice."],
         hint: "Возьми оборот have got.",
-        why: "I have got some water. Короткая запись I've got some water тоже верна.",
+        why: "I have got some rice. Короткая запись I've got some rice тоже верна.",
       },
 
       // ---- итог 4 ----
@@ -1399,10 +1396,12 @@ const module: Module = {
         id: "q-ispravit-how-many-water",
         kind: "short",
         outcome: "спрашивать о количестве: How much bread?",
-        prompt: "Друг написал: How many water? Напиши этот вопрос без ошибки.",
-        answer: "How much water?",
+        // Ровно эта пара — «How many water?» и «How much water?» — стоит во врезке
+        // урока с готовым разбором и ещё раз в задании. Взято другое слово.
+        prompt: "Друг написал: How many money? Напиши этот вопрос без ошибки.",
+        answer: "How much money?",
         hint: "Заменить нужно одно слово.",
-        why: "How much water? Воду не считают, поэтому many здесь не годится.",
+        why: "How much money? Деньги по-английски не считают, поэтому many здесь не годится.",
       },
       {
         id: "q-sprosit-skolko-edy",
