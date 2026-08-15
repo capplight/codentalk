@@ -123,8 +123,10 @@ const module: Module = {
         "forms», примеры источника — «We went to the park yesterday», «Her father " +
         "cooked lunch on Friday» — это уроки 1–4 и слово yesterday. " +
         "Список «что нового на A2 Flyers»: «Will — Will you do your homework this " +
-        "evening?», строкой ниже «Be going to» — это will, взято сверх ступени и " +
-        "объявлено в шапке модуля",
+        "evening?», а строкой ВЫШЕ стоит «Be going to — It isn't going to rain " +
+        "today». Это will, взято сверх ступени и объявлено в шапке модуля. " +
+        "Порядок строк в прежней редакции был назван обратным; сверил методист по " +
+        "странице источника",
       license: "внутреннее использование, публично не называем",
     },
     {
@@ -228,7 +230,6 @@ const module: Module = {
           caption: "Слова урока",
           items: [
             { term: "yesterday", translation: "вчера", example: "I worked yesterday.", hint: "/ˈjestədeɪ/" },
-            { term: "watch", translation: "смотреть (фильм, телевизор)", example: "We watched a film.", hint: "/wɒtʃ/" },
           ],
         },
 
@@ -306,9 +307,14 @@ const module: Module = {
           id: "zachem-pravila-ed",
           kind: "explain",
           text: [
+            // Было «случаев ровно три, и разбираются они так же, как правила для
+            // -ing» — а набор случаев там другой: у -ing есть удвоение согласной,
+            // здесь его нет. «Ровно три» давало ложное чувство полноты. Нашёл
+            // методист.
             "У большинства глаголов окончание просто приделывается: work — worked.",
-            "Но у двух видов глаголов из трёх перед окончанием кое-что меняется.",
-            "Случаев ровно три, и разбираются они так же, как правила для -ing.",
+            "Но у некоторых перед окончанием кое-что меняется.",
+            "Смотри на конец слова — так же, как в правиле про -ing. Разберём три " +
+              "случая, которые встретятся тебе в этом модуле.",
           ],
         },
         {
@@ -1343,10 +1349,12 @@ const module: Module = {
         id: "q-perevesti-go",
         kind: "short",
         outcome: "пользоваться особыми глаголами: go — went",
-        prompt: "Переведи в прошедшее время: I go to work.",
-        answer: "I went to work.",
+        // «I went to work» — единственный контекст для go во всём уроке, он стоит
+        // там четыре раза. Взято другое место.
+        prompt: "Переведи в прошедшее время: I go to school.",
+        answer: "I went to school.",
         hint: "У go нет окончания в прошедшем — есть только went.",
-        why: "I went to work. Went — самостоятельное слово, а не go с добавкой.",
+        why: "I went to school. Went — самостоятельное слово, а не go с добавкой.",
       },
       {
         id: "q-otmetit-osobye-glagoly",
@@ -1423,14 +1431,14 @@ const module: Module = {
         id: "q-chto-lishnee-on-last",
         kind: "choice",
         outcome: "называть время: yesterday, last week",
-        prompt: "Друг написал: I worked on last Monday. Что здесь лишнее?",
+        prompt: "Друг написал: I studied on last Friday. Что здесь лишнее?",
         options: [
           { text: "Ничего лишнего нет, так сказать можно." },
           { text: "Предлог on: перед last он не нужен.", correct: true },
           { text: "Окончание -ed: его тут быть не должно." },
         ],
         hint: "Посмотри, что стоит перед словом last.",
-        why: "I worked last Monday. Перед оборотом с last предлог не ставят.",
+        why: "I studied last Friday. Перед оборотом с last предлог не ставят.",
       },
       {
         id: "q-dopisat-last-year",
@@ -1475,14 +1483,14 @@ const module: Module = {
         id: "q-chto-ne-tak-will-works",
         kind: "choice",
         outcome: "говорить о завтрашнем дне: I will work",
-        prompt: "Друг написал: He will works tomorrow. Что здесь не так?",
+        prompt: "Друг написал: She will comes tomorrow. Что здесь не так?",
         options: [
           { text: "Слово will должно стоять после глагола." },
           { text: "Слово tomorrow здесь лишнее." },
           { text: "У глагола после will окончание -s лишнее.", correct: true },
         ],
         hint: "Посмотри на глагол, который стоит после will.",
-        why: "He will work tomorrow. Will не меняет форму глагола, который идёт следом.",
+        why: "She will come tomorrow. Will не меняет форму глагола, который идёт следом.",
       },
       {
         id: "q-otmetit-o-zavtra",
@@ -1533,15 +1541,17 @@ const module: Module = {
         id: "q-poobeshchat-priyti",
         kind: "short",
         outcome: "рассказывать о планах: I'll come tomorrow",
+        // «I'll come tomorrow» стоит в таблице урока и ответом задания. Взято
+        // другое обещание из тех же слов модуля.
         prompt:
-          "Пообещай собеседнику прийти завтра, короткой записью. Прийти — come, " +
+          "Пообещай собеседнику позвонить завтра, короткой записью. Позвонить — call, " +
           "завтра — tomorrow.",
-        answer: "I'll come tomorrow.",
-        accept: ["I will come tomorrow."],
+        answer: "I'll call you tomorrow.",
+        accept: ["I will call you tomorrow."],
         hint: "Обещание о будущем строится так же, как план.",
         why:
-          "I'll come tomorrow. Полная форма I will come tomorrow тоже правильна, " +
-          "но задание просило короткую запись.",
+          "I'll call you tomorrow. Полная форма I will call you tomorrow тоже " +
+          "правильна, но задание просило короткую запись.",
       },
 
       // ---- итог 8 ----
