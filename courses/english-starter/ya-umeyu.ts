@@ -90,7 +90,7 @@ const module: Module = {
     "говорить, что умеешь: I can swim",
     "говорить, что умеет другой человек: He can drive",
     "говорить, чего не умеешь: I can't swim",
-    "спрашивать об умении: Can you swim?",
+    "спрашивать об умении и коротко отвечать: Can you swim? Yes, I can.",
     "спрашивать, что человек умеет: What can you do?",
     "говорить о возможности: You can buy milk here",
     "просить и предлагать: Can you help? Can I have your pen?",
@@ -138,6 +138,20 @@ const module: Module = {
         "can1 modal v. A1; cannot v. A1; ride v. A1; draw v. A1; run v. A1; " +
         "guitar n. A1; milk n. A1; bread n. A1. Уже введены раньше: swim, cook, " +
         "drive, buy (модуль 15), play, speak, help (модуль 14).",
+    },
+    {
+      // Модуль говорит о вежливости в двух местах — про please и про ответ на
+      // предложение помощи, — а ссылки на разобранное не имел: она стояла только
+      // у модуля 22, хотя утверждение то же самое. Нашёл методист.
+      ref: "docs/istochniki-vezhlivost.md",
+      section:
+        "слово please смягчает: Grammarly — «You can make imperative sentences sound " +
+        "a little softer in tone by adding the word please». " +
+        "Отказ: Longman, статья «no, thank you» — «used to say politely that you do " +
+        "not want something». Отсюда ответ «No, thank you» на предложение помощи в " +
+        "уроке 7: он вежливый и не повторяет can, потому что отказываются не от " +
+        "умения, а от самой помощи.",
+      license: "открытые источники, ссылки в файле",
     },
   ],
 
@@ -295,8 +309,10 @@ const module: Module = {
           kind: "explain",
           text: [
             "Теперь то же самое о другом человеке: твоя сестра умеет водить машину.",
+            // Пример «she drives» был приписан модулю 14, а глагола drive там нет
+            // вовсе: он вводится в модуле 15 и только в отрицании. Нашёл методист.
             "В модуле «Что я делаю» глагол о третьем человеке брал окончание -s: " +
-              "she drives.",
+              "she lives.",
             "С can этого не происходит. Окончания нет ни у can, ни у глагола после " +
               "него: She can drive.",
           ],
@@ -563,7 +579,7 @@ const module: Module = {
       slug: "umeesh-li-ty",
       title: "Умеешь ли ты: Can you swim?",
       estimatedMinutes: 13,
-      outcome: "спрашивать об умении: Can you swim?",
+      outcome: "спрашивать об умении и коротко отвечать: Can you swim? Yes, I can.",
 
       blocks: [
         {
@@ -630,7 +646,9 @@ const module: Module = {
               term: "play the guitar",
               translation: "играть на гитаре",
               example: "She can play the guitar.",
-              hint: "/pleɪ ðə gɪˈtɑː/ — с названиями инструментов ставят the, оборот берётся целиком",
+              // Было «с названиями инструментов ставят the» — правило, источника
+              // которому не нашёл ни методист, ни я. Оборот показан как целый.
+              hint: "/pleɪ ðə gɪˈtɑː/ — оборот берётся целиком, вместе с the",
             },
           ],
         },
@@ -1018,6 +1036,8 @@ const module: Module = {
           text:
             "— Can you help, please?\n— Yes, I can.\n\n— Can I help you?\n— No, thank you.",
           explain:
+            "Во втором разговоре ответ не повторяет can, и это не оговорка: " +
+            "отказываются не от умения, а от самой помощи. " +
             "В первом разговоре помощи просят, во втором её предлагают. Отвечают так " +
             "же коротко, как на любой вопрос с can.",
         },
@@ -1352,7 +1372,7 @@ const module: Module = {
       {
         id: "q-vopros-umenie-dopisat",
         kind: "gap",
-        outcome: "спрашивать об умении: Can you swim?",
+        outcome: "спрашивать об умении и коротко отвечать: Can you swim? Yes, I can.",
         prompt: "Ты хочешь узнать, умеет ли твой друг петь. Допиши недостающее слово.",
         before: "",
         after: " your friend sing?",
@@ -1363,7 +1383,7 @@ const module: Module = {
       {
         id: "q-vopros-umenie-sobrat",
         kind: "order",
-        outcome: "спрашивать об умении: Can you swim?",
+        outcome: "спрашивать об умении и коротко отвечать: Can you swim? Yes, I can.",
         prompt: "Собери вопрос: «Ты умеешь готовить?»",
         items: ["cook?", "you", "Can"],
         answer: [2, 1, 0],
@@ -1373,7 +1393,7 @@ const module: Module = {
       {
         id: "q-vopros-umenie-otvetit",
         kind: "short",
-        outcome: "спрашивать об умении: Can you swim?",
+        outcome: "спрашивать об умении и коротко отвечать: Can you swim? Yes, I can.",
         prompt: "Тебя спросили: Can you play the guitar? Ты не умеешь. Ответь коротко — нет.",
         answer: "No, I can't.",
         accept: ["No, I cannot."],
@@ -1469,10 +1489,14 @@ const module: Module = {
         kind: "choice",
         outcome: "просить и предлагать: Can you help? Can I have your pen?",
         prompt: "Собеседнику тяжело, и ты предлагаешь свою помощь. Как сказать?",
+        // Вариант «I can help you.» был помечен неверным, а в этом самом случае —
+        // у собеседника тяжёлые сумки — так и предлагают помощь. Задание наказывало
+        // за верный ответ. Взята ошибка того же рода, что в уроке: про умение
+        // собеседника, а не своё. Нашёл методист.
         options: [
           { text: "Can I help you?", correct: true },
           { text: "Can you help?" },
-          { text: "I can help you." },
+          { text: "You can help me." },
         ],
         hint: "Дело будешь делать ты — значит после can стоишь ты.",
         why:
