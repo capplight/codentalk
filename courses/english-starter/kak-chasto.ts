@@ -177,8 +177,12 @@ const module: Module = {
             "У наречия частоты своё место, и это не конец предложения.",
             "Наречие стоит между тем, о ком речь, и глаголом: I always work. Сначала I, " +
               "потом always, потом work.",
+            // Было «По-английски место одно» — а задания этого же урока принимают
+            // «Sometimes I work on Sunday», и принимают верно: такой порядок есть.
+            // Утверждение спорило с собственными ответами. Нашёл методист.
             "По-русски порядок свободнее: «я всегда работаю» и «я работаю всегда» — оба " +
-              "годятся. По-английски место одно.",
+              "годятся. По-английски держись места между тем, о ком речь, и глаголом: " +
+              "оно подходит всегда.",
           ],
         },
         {
@@ -188,6 +192,18 @@ const module: Module = {
           text:
             "«Always I work» — так не говорят.\n\nНаречие идёт вторым, после того, о ком " +
             "речь: I always work.",
+        },
+        {
+          // Слово sometimes в начале предложения — не ошибка, и задания урока такой
+          // ответ принимают. Молчать об этом нельзя: ученик прочтёт, что место
+          // одно, а потом увидит зачтённый другой порядок.
+          id: "sometimes-v-nachale",
+          kind: "note",
+          tone: "info",
+          text:
+            "Со словом sometimes есть и второй порядок: Sometimes I work on Sunday. Он " +
+            "тоже верный. Со словом always так не говорят, поэтому проще держаться одного " +
+            "места для всех слов сразу.",
         },
         {
           id: "primer-vsegda",
@@ -504,7 +520,7 @@ const module: Module = {
           caption: "Слова урока",
           items: [
             { term: "never", translation: "никогда", example: "I never drink coffee.", hint: "/ˈnevə/" },
-            { term: "coffee", translation: "кофе", example: "I drink coffee in the morning.", hint: "/ˈkɒfi/" },
+            // Слово coffee стояло здесь как новое, а введено оно в модуле 14.
             { term: "late", translation: "поздно", example: "I go to bed late.", hint: "/leɪt/" },
           ],
         },
@@ -820,7 +836,10 @@ const module: Module = {
         {
           id: "z3-otmetit-poryadok",
           kind: "hottext",
-          prompt: "Отметь предложения, где наречие стоит перед don't.",
+          // Четыре других задания вида «Отметь…» в этом модуле — про настоящие
+          // ошибки, и по накопленной привычке это читалось как «найди ошибку».
+          // А тут отмечают верный второй порядок. Сказано прямо.
+          prompt: "Оба порядка верны. Отметь те предложения, где наречие стоит перед don't.",
           parts: [
             { text: "I don't usually work on Sunday.", selectable: true },
             { text: " · " },
@@ -1385,14 +1404,16 @@ const module: Module = {
         kind: "hottext",
         outcome: "говорить, что чего-то не бывает никогда: I never drink coffee",
         prompt: "Отметь предложения, где отрицание стоит дважды.",
+        // Две записи из четырёх были дословно взяты из примера и задания уроков.
+        // Ученик узнавал строку. Взяты другие подлежащие и другие действия.
         parts: [
-          { text: "I never go to bed late.", selectable: true },
+          { text: "We never work at the weekend.", selectable: true },
           { text: " · " },
-          { text: "I don't never go to bed late.", selectable: true, correct: true },
+          { text: "We don't never work at the weekend.", selectable: true, correct: true },
           { text: " · " },
-          { text: "She never drinks coffee.", selectable: true },
+          { text: "He never reads in the morning.", selectable: true },
           { text: " · " },
-          { text: "She doesn't never drink coffee.", selectable: true, correct: true },
+          { text: "He doesn't never read in the morning.", selectable: true, correct: true },
         ],
         hint: "Never отрицает само.",
         why:
@@ -1594,13 +1615,16 @@ const module: Module = {
         id: "q-rasskaz-dopisat",
         kind: "gap",
         outcome: "рассказывать о своей неделе, называя частоту",
-        prompt: "Допиши предложение так, чтобы вышло «По пятницам я всегда занят».",
+        // Задание было тем же, что в уроке, до последнего английского слова:
+        // менялся только русский перевод условия. И в переводе стояло «я занят» —
+        // краткое прилагательное, которое выдаёт пол ученика.
+        prompt: "Допиши предложение так, чтобы вышло «По понедельникам у меня всегда много дел».",
         before: "I am ",
-        after: " busy on Friday.",
+        after: " busy on Monday.",
         answer: "always",
         accept: ["Always"],
         hint: "Слово am уже стоит — допиши слово о частоте.",
-        why: "I am always busy on Friday. Дел много каждую пятницу без исключений.",
+        why: "I am always busy on Monday. Дел много каждый понедельник без исключений.",
       },
     ],
   },
