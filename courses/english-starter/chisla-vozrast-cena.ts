@@ -1457,7 +1457,7 @@ const module: Module = {
         prompt: "Напиши словом число 48.",
         answer: "forty-eight",
         accept: ["Forty-eight", "forty eight"],
-        why: "Forty-eight. Между десятком и единицей стоит дефис.",
+        why: "Forty-eight. Сорок и восемь соединились в одно слово, а на месте склейки — дефис.",
       },
       {
         id: "q-teen-ili-ty",
@@ -1511,7 +1511,7 @@ const module: Module = {
         before: "a lot ",
         after: " people",
         answer: "of",
-        why: "A lot of people. Оборот состоит из трёх слов и не разделяется.",
+        why: "A lot of people. Без of выйдет «a lot people», а так не говорят: слово of держит оборот вместе.",
       },
       {
         id: "q-tri-voprosa",

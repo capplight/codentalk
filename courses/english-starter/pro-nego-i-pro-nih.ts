@@ -1471,7 +1471,7 @@ const module: Module = {
         after: "?",
         answer: "me",
         hint: "Слово о себе после глагола.",
-        why: "Can you see me? После глагола идёт me, а не I.",
+        why: "Can you see me? Видят тебя, а не ты видишь, — и слово о себе меняется на me.",
       },
       {
         id: "q-vopros-o-cheloveke-sprosit",

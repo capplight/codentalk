@@ -1410,7 +1410,7 @@ const module: Module = {
           "My brother's singing now.",
         ],
         hint: "Брат один, и форма be для него своя.",
-        why: "My brother is singing. С he, she и с именем идёт is.",
+        why: "My brother is singing. Брат один, поэтому ему досталась форма is, а к пению прибавилось -ing.",
       },
 
       // ---- итог 3 ----
@@ -1636,8 +1636,8 @@ const module: Module = {
         accept: ["I'm reading a book. My friends are waiting outside."],
         hint: "О себе — am, о нескольких — are.",
         why:
-          "I am reading a book. My friends are waiting outside. Форма be разная, " +
-          "окончание -ing одно и то же.",
+          "I am reading a book. My friends are waiting outside. Ты один, друзей несколько — " +
+          "оттого am в первом предложении и are во втором.",
       },
       {
         id: "q-rasskaz-seychas-dopisat",

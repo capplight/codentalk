@@ -1486,7 +1486,7 @@ const module: Module = {
         prompt: "Напиши короче: I like bread, and I like rice.",
         answer: "I like bread and rice.",
         hint: "То, что сказано дважды, назови один раз.",
-        why: "I like bread and rice. Слова I и like названы по одному разу.",
+        why: "I like bread and rice. Раз действие одно и то же, and соединяет уже не предложения, а два продукта.",
       },
 
       // ---- итог 6 ----
@@ -1606,8 +1606,8 @@ const module: Module = {
         ],
         hint: "Первое предложение соединяет, второе спорит.",
         why:
-          "I work, and I study. I like tea, but I don't like coffee. Годится и короткая " +
-          "запись I work and study.",
+          "I work, and I study. I like tea, but I don't like coffee. Запятая стоит там, где " +
+          "союз соединяет два целых предложения. Короткая запись I work and study тоже принимается.",
       },
       {
         id: "q-vybrat-svyazku-v-rasskaze",

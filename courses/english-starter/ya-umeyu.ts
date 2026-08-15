@@ -1251,7 +1251,7 @@ const module: Module = {
           { text: "I can run.", correct: true },
         ],
         hint: "Проверь оба слова: и can, и глагол за ним.",
-        why: "I can run. Окончание -s не приходит ни к can, ни к глаголу после него.",
+        why: "I can run. В первой записи -s прилипло к can, во второй — к бегу, а лишнее оно и там и там.",
       },
       {
         id: "q-umenie-dopisat",
@@ -1262,7 +1262,7 @@ const module: Module = {
         after: " play the guitar.",
         answer: "can",
         hint: "Оно встаёт перед глаголом.",
-        why: "I can play the guitar. Слово can стоит перед глаголом, а глагол — без окончания.",
+        why: "I can play the guitar. Об умении говорит can, и место ему нашлось сразу за I.",
       },
       {
         id: "q-umenie-napisat",
@@ -1406,7 +1406,7 @@ const module: Module = {
         after: " your friends do?",
         answer: "can",
         hint: "Нужное слово говорит об умении.",
-        why: "What can your friends do? После What сразу идёт can.",
+        why: "What can your friends do? Спрашивают об умении, поэтому вторым словом встаёт can.",
       },
       {
         id: "q-chto-umeet-sprosit",
@@ -1522,8 +1522,8 @@ const module: Module = {
         accept: ["I can draw. I cannot play the guitar."],
         hint: "Второе предложение говорит об обратном первому.",
         why:
-          "I can draw. I can't play the guitar. Первое об умении, второе — об " +
-          "обратном.",
+          "I can draw. I can't play the guitar. Во втором предложении к can приросло n't — " +
+          "то же not, только короче.",
       },
       {
         id: "q-rasskaz-umeniya-otmetit",

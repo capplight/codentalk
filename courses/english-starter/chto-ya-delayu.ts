@@ -1455,7 +1455,7 @@ const module: Module = {
         answer: "I work in a shop.",
         exact: true,
         accept: ["I work in a shop"],
-        why: "I work in a shop. После I сразу идёт действие, без формы be.",
+        why: "I work in a shop. Работа — это действие, поэтому слово work встаёт сразу за I.",
       },
       {
         id: "q-dva-glagola",
@@ -1520,7 +1520,7 @@ const module: Module = {
           { text: "He watch football." },
           { text: "He watches football.", correct: true },
         ],
-        why: "He watches football. После звука «ч» прибавляют es.",
+        why: "He watches football. Одной s тут мало: «watchs» выговорить нельзя, потому и es.",
       },
       {
         id: "q-dopisat-goes-quiz",
@@ -1669,7 +1669,7 @@ const module: Module = {
         answer: "We know Dana.",
         exact: true,
         accept: ["We know Dana"],
-        why: "We know Dana. Глагол вернулся к словарной форме.",
+        why: "We know Dana. Речь уже не об одном человеке, и окончание -s глаголу больше не нужно.",
       },
       {
         id: "q-rasskaz-den-poryadok",

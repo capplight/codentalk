@@ -1460,7 +1460,7 @@ const module: Module = {
         answer: "Does",
         accept: ["does"],
         hint: "Речь об одном другом человеке.",
-        why: "Does he work here? Об одном другом человеке спрашивают через Does.",
+        why: "Does he work here? Брат один, и он не ты, поэтому вопрос открывает Does.",
       },
       {
         id: "q-does-vybor",
@@ -1539,7 +1539,7 @@ const module: Module = {
         answer: "What",
         accept: ["what"],
         hint: "Оно значит «что».",
-        why: "What do you eat? Вопросительное слово ставят перед Do.",
+        why: "What do you eat? Слово what встаёт впереди, а сам вопрос за ним остаётся прежним.",
       },
       {
         id: "q-what-dopisat-does",
@@ -1618,7 +1618,7 @@ const module: Module = {
         items: ["live here?", "Do", "your parents"],
         answer: [1, 2, 0],
         hint: "Родителей несколько.",
-        why: "Do your parents live here? О нескольких людях спрашивают через Do.",
+        why: "Do your parents live here? Родителей двое, и вопрос о них открывает Do.",
       },
       {
         id: "q-neskolko-dopisat",
@@ -1630,7 +1630,7 @@ const module: Module = {
         answer: "Do",
         accept: ["do"],
         hint: "Родителей несколько.",
-        why: "Do my parents live in this city? О нескольких людях спрашивают через Do.",
+        why: "Do my parents live in this city? Does понадобилось бы для одного человека, а тут их несколько.",
       },
       {
         id: "q-neskolko-vybor",

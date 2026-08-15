@@ -1520,8 +1520,8 @@ const module: Module = {
         accept: ["my sister usually gets up early.", "My sister usually gets up early"],
         hint: "Наречие частоты вторым, глагол с окончанием третьим.",
         why:
-          "My sister usually gets up early. Наречие стоит перед глаголом, окончание при " +
-          "глаголе.",
+          "My sister usually gets up early. Слово usually встало между сестрой и действием, " +
+          "а окончание -s осталось при действии.",
       },
 
       // ---- итог 7 ----
@@ -1549,8 +1549,8 @@ const module: Module = {
         ],
         hint: "Наречие идёт после того, о ком речь, а глагол остаётся без окончания.",
         why:
-          "Does your sister often work at the weekend? Порядок: Does, человек, наречие, " +
-          "глагол.",
+          "Does your sister often work at the weekend? Во второй записи глагол зря взял -s, " +
+          "в третьей often обогнало сестру.",
       },
       {
         id: "q-vopros-sobrat",
@@ -1560,7 +1560,7 @@ const module: Module = {
         items: ["early", "usually", "Does", "get up", "he"],
         answer: [2, 4, 1, 3, 0],
         hint: "Наречие третьим, глагол четвёртым.",
-        why: "Does he usually get up early? Порядок: Does, человек, наречие, глагол.",
+        why: "Does he usually get up early? Наречие стоит между he и действием, а действие идёт без окончания.",
       },
 
       // ---- итог 8 ----

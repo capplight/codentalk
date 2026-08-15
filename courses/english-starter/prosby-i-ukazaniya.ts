@@ -1304,7 +1304,7 @@ const module: Module = {
         items: ["door", "Close", "the"],
         answer: [1, 2, 0],
         hint: "Начни с того, что надо сделать.",
-        why: "Close the door. Сначала глагол, потом название вещи.",
+        why: "Close the door. Указание начинается с действия, и того, к кому обращаются, в нём не называют.",
       },
 
       // ---- итог 2 ----
@@ -1318,7 +1318,7 @@ const module: Module = {
         answer: "Don't",
         accept: ["Do not"],
         hint: "Оно встаёт в самом начале, перед глаголом.",
-        why: "Don't close the door. Годится и полная запись Do not.",
+        why: "Don't close the door. Don't — это сжатое do not, и длинная запись принимается тоже.",
       },
       {
         id: "q-zapret-vybor",
@@ -1343,7 +1343,7 @@ const module: Module = {
         answer: "Don't wait here.",
         accept: ["Do not wait here.", "Don't wait here, please."],
         hint: "Перед глаголом встанет одно слово из двух частей.",
-        why: "Don't wait here. Годится и полная запись Do not.",
+        why: "Don't wait here. Запрет собран из готового указания: впереди встало одно слово, остальное не изменилось.",
       },
 
       // ---- итог 3 ----
@@ -1369,7 +1369,7 @@ const module: Module = {
           { text: "Open the door, please.", correct: true },
         ],
         hint: "В середину указания это слово не встаёт.",
-        why: "Open the door, please. В середину указания please не ставят.",
+        why: "Open the door, please. Вежливое слово ждёт конца указания, а внутри него разрывает вещь и действие.",
       },
       {
         id: "q-please-napisat",
@@ -1393,7 +1393,7 @@ const module: Module = {
         after: " you wait, please?",
         answer: "Can",
         hint: "Первое слово то же, что в вопросе «умеешь ли ты».",
-        why: "Can you wait, please? Просьба по виду — вопрос с can.",
+        why: "Can you wait, please? Со словом can выходит вопрос, а вопрос звучит мягче приказа.",
       },
       {
         id: "q-prosba-vybor",
@@ -1430,7 +1430,7 @@ const module: Module = {
         answer: "I",
         exact: true,
         hint: "Окно откроешь ты, а не собеседник.",
-        why: "Can I open the window? Слово I пишется с заглавной буквы всегда.",
+        why: "Can I open the window? Разрешения спрашивают о себе, и после can встаёт I — всегда с заглавной.",
       },
       {
         id: "q-razreshenie-vybor",
@@ -1492,7 +1492,7 @@ const module: Module = {
         prompt: "Пригласи друга прийти на твою вечеринку. Прийти — come, вечеринка — my party.",
         answer: "Would you like to come to my party?",
         hint: "Пять слов до глагола, и первое из них — не do.",
-        why: "Would you like to come to my party? Порядок: would, you, like, to, глагол.",
+        why: "Would you like to come to my party? Приглашение открывает would, а само действие приходит после to.",
       },
 
       // ---- итог 7 ----
@@ -1553,7 +1553,7 @@ const module: Module = {
         answer: "Can I sit here? Thanks!",
         accept: ["Can I sit here? Thank you!"],
         hint: "Сначала вопрос, потом благодарность.",
-        why: "Can I sit here? Thanks! Годится и полное Thank you.",
+        why: "Can I sit here? Thanks! Предложения два, и знак вопроса нужен только первому. Вместо Thanks принимается и Thank you.",
       },
       {
         id: "q-razgovor-vybor",

@@ -1460,7 +1460,7 @@ const module: Module = {
         answer: "I'd like a cake, please.",
         accept: ["I would like a cake, please."],
         hint: "Начни с оборота о желании и не забудь вежливое слово.",
-        why: "I'd like a cake, please. Полная запись I would like тоже верна.",
+        why: "I'd like a cake, please. Короткое I'd прячет в себе would, поэтому и длинная запись годится.",
       },
 
       // ---- итог 7 ----
@@ -1487,8 +1487,8 @@ const module: Module = {
         ],
         hint: "Два глагола рядом сами не встанут.",
         why:
-          "I'd like to go home. Окончание -ing после I'd like не ставят, а без to " +
-          "два глагола рядом не идут.",
+          "I'd like to go home. В первой записи лишнее -ing, во второй пропало to. " +
+          "Без to два действия подряд не встают.",
       },
       {
         id: "q-would-like-to-sopostavit",

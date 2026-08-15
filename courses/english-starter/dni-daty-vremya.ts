@@ -1800,7 +1800,7 @@ const module: Module = {
         after: "",
         answer: "October",
         exact: true,
-        why: "3 October. Сначала число, потом месяц — и месяц с заглавной буквы.",
+        why: "3 October. День в бланке остаётся цифрой, а месяц пишут словом и с заглавной буквы.",
       },
       {
         id: "q-mesyac-rozhdeniya-quiz",

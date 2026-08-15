@@ -1246,7 +1246,7 @@ const module: Module = {
           { text: "Are you a student?" },
           { text: "Are he a doctor?", correct: true },
         ],
-        why: "«Are he» — с he идёт is. Правильно: Is he a doctor?",
+        why: "«Are he» — форма are осталась от you, а он один: Is he a doctor?",
       },
       {
         id: "q-vopros-o-drugom",

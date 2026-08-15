@@ -1437,7 +1437,7 @@ const module: Module = {
           { text: "I don't am a teacher." },
           { text: "I'm not a teacher.", correct: true },
         ],
-        why: "I'm not a teacher. Названию занятия нужна форма be, а отрицание к ней — not.",
+        why: "I'm not a teacher. Учитель — это не действие, а кто ты, и такому предложению нужна форма be с not.",
       },
       {
         id: "q-pereputannye",
@@ -1570,16 +1570,19 @@ const module: Module = {
         id: "q-rasskaz-oba-poryadok",
         kind: "order",
         outcome: "рассказывать, что делаешь и чего не делаешь",
-        prompt: "Расставь предложения так, чтобы вышел рассказ по шагам.",
+        // Раньше здесь стоял тот же рассказ, что в уроке, только перемешанный:
+        // ученик узнавал знакомые четыре предложения, а не строил рассказ. Другой
+        // день, и порядок задан временем, а не привычкой к образцу.
+        prompt: "Расставь предложения по времени дня. Первым идёт подъём.",
         items: [
-          "I don't watch football.",
-          "I cook.",
-          "I don't work.",
-          "I get up at nine on Sunday.",
+          "I don't read books in the evening.",
+          "I work in the afternoon.",
+          "I don't cook in the morning.",
+          "I get up at seven.",
         ],
         answer: [3, 2, 1, 0],
         why:
-          "I get up at nine on Sunday. I don't work. I cook. I don't watch football.",
+          "I get up at seven. I don't cook in the morning. I work in the afternoon. I don't read books in the evening.",
       },
       {
         id: "q-rasskaz-oba-shag",

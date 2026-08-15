@@ -1314,7 +1314,7 @@ const module: Module = {
         answer: "I'm from Italy.",
         exact: true,
         accept: ["I'm from Italy", "I am from Italy.", "I am from Italy"],
-        why: "I'm from Italy. Название страны пишется с заглавной буквы.",
+        why: "I'm from Italy. Страна — имя собственное, и заглавная нужна ей всюду, даже в середине предложения.",
       },
       {
         id: "q-napisanie-italii",
@@ -1352,7 +1352,7 @@ const module: Module = {
         before: "He's a ",
         after: ".",
         answer: "doctor",
-        why: "He's a doctor. Название занятия идёт после a.",
+        why: "He's a doctor. Врач по-английски doctor, и после a слово идёт без изменений.",
       },
       {
         id: "q-kto-uchitsya-quiz",

@@ -1281,7 +1281,7 @@ const module: Module = {
         answer: "he isn't",
         exact: true,
         accept: ["He isn't"],
-        why: "He isn't. Из not выпала o, на её месте апостроф.",
+        why: "He isn't. Апостроф показывает место пропавшей буквы: is not сжалось в isn't.",
       },
       {
         id: "q-amnt",
@@ -1385,7 +1385,7 @@ const module: Module = {
           "I am not a driver. I am a teacher.",
           "I am not a driver. I am a teacher",
         ],
-        why: "I'm not a driver. I'm a teacher. Два шага: что не так и как на самом деле.",
+        why: "I'm not a driver. I'm a teacher. Первое предложение отводит чужое слово, второе называет верное.",
       },
       {
         id: "q-nezakonchennaya-popravka",
@@ -1419,7 +1419,7 @@ const module: Module = {
         before: "He isn't ",
         after: " Rome.",
         answer: "in",
-        why: "He isn't in Rome. Предлог из отрицания не выпадает.",
+        why: "He isn't in Rome. Отрицание меняет только глагол, а слово при месте остаётся прежним.",
       },
       {
         id: "q-prav-ili-net",
@@ -1456,7 +1456,7 @@ const module: Module = {
           "No, I am not. I am a teacher.",
           "No, I am not. I am a teacher",
         ],
-        why: "No, I'm not. I'm a teacher. Краткий ответ и отдельное предложение о том, как есть.",
+        why: "No, I'm not. I'm a teacher. Сначала короткий отклик на вопрос, потом отдельная мысль о занятии.",
       },
       {
         id: "q-slipshiesya-predlozheniya",
