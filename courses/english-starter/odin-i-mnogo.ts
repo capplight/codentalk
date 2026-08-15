@@ -62,9 +62,11 @@ const module: Module = {
         "СВЕРХ СТУПЕНИ, ЧЕТЫРЕ ПУНКТА: " +
         "A2, NOUNS plural «FORM: PLURAL '-ES'»: «Can form plurals by adding '-es' to " +
         "countable nouns ending in '-o', '-ch', '-s', '-sh', '-x' or '-z'». " +
-        "ОГОВОРКА: правило источника включает -o, а урок его НЕ берёт. Причина: photo и " +
-        "video стоят на A1 в Oxford 3000 и берут обычную -s, а довод урока («конец и так " +
-        "звучит как s») к -o не подходит вовсе. Слова на -o отданы более поздней ступени. " +
+        "ОГОВОРКА: правило источника перечисляет шесть окончаний, урок берёт четыре. " +
+        "Не взято -o: photo и video стоят на A1 в Oxford 3000 и берут обычную -s, а довод " +
+        "урока («конец и так звучит как s») к -o не подходит вовсе. Не взято и -z, но там " +
+        "учить нечего: слов на -z в курсе нет ни одного. Оба исключения названы здесь, " +
+        "чтобы проверяющий не искал в уроке то, чего в нём нет намеренно. " +
         "A2, NOUNS plural «FORM: IRREGULAR PLURAL NOUNS»: «Can form some irregular plural " +
         "nouns», пример источника — «I bought some clothes for my children». " +
         "A2, DETERMINERS demonstratives «FORM: 'THESE'» и «FORM: 'THOSE'»: «Can use " +
@@ -106,9 +108,13 @@ const module: Module = {
     {
       ref: "Oxford 3000",
       section:
-        "новые слова модуля с пометкой A1: man, woman, child, people, thing. Формы men, " +
+        "новые слова модуля с пометкой A1: man, woman, child, people, thing, а также " +
+        "watch (с. 11, «watch v., n. A1») и dish (с. 3, «dish n. A1»). Формы men, " +
         "women и children в словнике отдельными записями не стоят — это формы тех же слов. " +
-        "Остальное — предметы из модулей 6 и 7",
+        "Остальное — предметы из модулей 6 и 7. " +
+        "ПРЕЖНЯЯ РЕДАКЦИЯ относила watch и dish к предметам модулей 6 и 7, а их там нет " +
+        "вовсе: оба слова новые и вводятся здесь. Проверяющий по такой записи решил бы, " +
+        "что они уже сверены. Нашёл методист",
       license: "внутреннее использование",
     },
     {
@@ -620,9 +626,13 @@ const module: Module = {
               "и её приходится запоминать. Таких слов немного, но встречаются они постоянно.",
             "Man — мужчина, men — мужчины. Woman — женщина, women — женщины. Child — " +
               "ребёнок, children — дети.",
-            "Со звуком тут отдельная ловушка. На письме в woman — women поменялась вторая " +
-              "буква, а слышно перемену в первом слоге: /ˈwʊmən/ и /ˈwɪmɪn/. У child — " +
-              "children меняется и то и другое: /tʃaɪld/ и /ˈtʃɪldrən/.",
+            // Было «поменялась вторая буква»: в woman — women меняется буква перед
+            // n, четвёртая по счёту. Считать её второй можно, только мысленно
+            // разложив слово на wo- и -man, а этого нигде не сказано.
+            "Со звуком тут отдельная ловушка. На письме в woman — women поменялась одна " +
+              "буква, та, что перед n: a на e. А на слух заметнее всего меняется первый " +
+              "слог: /ˈwʊmən/ и /ˈwɪmɪn/. У child — children меняется и то и другое: " +
+              "/tʃaɪld/ и /ˈtʃɪldrən/.",
           ],
         },
         {
@@ -689,7 +699,7 @@ const module: Module = {
           before: "They're ",
           after: ".",
           answer: "women",
-          hint: "Пять букв. На письме меняется вторая буква, а в речи — первый слог.",
+          hint: "Пять букв. На письме меняется буква перед n, а в речи — первый слог.",
           why: "Women. Буква a в середине превратилась в e, а s не прибавилась.",
         },
         {
@@ -1161,12 +1171,13 @@ const module: Module = {
         kind: "choice",
         outcome: "говорить о нескольких предметах без артикля: They're books",
         prompt: "В какой строке артикль лишний?",
+        // «A books» стояло образцом ошибки в задании урока. Взято другое слово.
         options: [
-          { text: "a book" },
-          { text: "my books" },
-          { text: "a books", correct: true },
+          { text: "a pen" },
+          { text: "my keys" },
+          { text: "a friends", correct: true },
         ],
-        why: "«A books» — a обещает один предмет, а s говорит, что их несколько.",
+        why: "«A friends» — a обещает одного, а s говорит, что их несколько.",
       },
       {
         id: "q-perepisat-bez-a",
@@ -1214,16 +1225,18 @@ const module: Module = {
         kind: "hottext",
         outcome: "называть людей во множественном числе: men, women, children, people",
         prompt: "Отметь слова, написанные с ошибкой.",
+        // Верные слова были те же, что в задании урока: men и people. Ученик помнил
+        // их как безопасные и отмечал остальные, не читая. Взяты другие верные формы.
         parts: [
-          { text: "men", selectable: true },
+          { text: "women", selectable: true },
           { text: " · " },
           { text: "mans", selectable: true, correct: true },
           { text: " · " },
-          { text: "people", selectable: true },
+          { text: "children", selectable: true },
           { text: " · " },
-          { text: "childrens", selectable: true, correct: true },
+          { text: "peoples", selectable: true, correct: true },
         ],
-        why: "Правильно men и children: буква s к этим формам не прибавляется.",
+        why: "Правильно women и children. К ним s не прибавляется, и к people тоже.",
       },
       {
         id: "q-these-ili-this",

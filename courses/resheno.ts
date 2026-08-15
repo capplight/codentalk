@@ -29,6 +29,23 @@ export interface Resheno {
 
 export const resheno: Resheno[] = [
   {
+    chto: "z1-sdelat-vopros-mnozh",
+    pochemu:
+      "образец стоит прямо во вводном объяснении урока: «They are books → Are " +
+      "they books? → They aren't books» и в таблице строкой «Are they books?». " +
+      "Сопоставитель ищет общие слова с блоком, а условие задания короткое и " +
+      "своими словами — совпадать нечему. Разобрал методист",
+    kto: "методист",
+  },
+  {
+    chto: "z3-kratkiy-otvet-mnozh",
+    pochemu:
+      "краткий ответ о нескольких предметах разобран во врезке урока («В " +
+      "кратком ответе о нескольких предметах стоит they: Yes, they are») и " +
+      "стоит в таблице. Причина расхождения та же, что у z1-sdelat-vopros-mnozh",
+    kto: "методист",
+  },
+  {
     chto: "z3-dopisat-has",
     pochemu:
       "материал в уроке есть: и таблица вопроса с have got, и врезка «Про he, " +
