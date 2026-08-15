@@ -206,9 +206,36 @@ function sobratPodskazki(tasks: TaskBlock[]): string[] {
 
 function checkRabotaNePovtoryaetUroki(mod: Module, where: string): void {
   const urochnye = new Set<string>();
+  // Сырые строки нужны отдельно: разбить на предложения можно только по
+  // знакам препинания, а в очищенных их уже нет. На этом первая редакция
+  // проверки и промолчала.
+  const syryeUrochnye: string[] = [];
   for (const lesson of mod.lessons) {
     const tasks = lesson.blocks.filter((b: any) => isTask(b)) as TaskBlock[];
-    for (const text of sobratPodskazki(tasks)) urochnye.add(slova(text));
+    for (const text of sobratPodskazki(tasks)) {
+      urochnye.add(slova(text));
+      syryeUrochnye.push(text);
+    }
+  }
+
+  /*
+   * Хвосты урочных подсказок. Разбор часто начинается с самого ответа, а
+   * дальше идёт объяснение — и именно объяснение повторяется дословно, при
+   * том что вся строка целиком не совпадает.
+   *
+   * Настоящий случай, модуль 1: «D-A-N-A. Буквы называют по одной, на письме
+   * их разделяет дефис» в уроке и «A-L-I-M. Буквы называют по одной, на
+   * письме их разделяет дефис» в работе. Первая проверка это пропускала —
+   * нашёл методист. Здесь сравниваются и хвосты, начиная со второго
+   * предложения.
+   */
+  const hvosty = new Set<string>();
+  for (const text of syryeUrochnye) {
+    const chasti = text.split(/(?<=[.!?])\s+/);
+    for (let i = 1; i < chasti.length; i++) {
+      const hvost = slova(chasti.slice(i).join(" "));
+      if (hvost.split(" ").length >= 5) hvosty.add(hvost);
+    }
   }
 
   const povtory: string[] = [];
@@ -217,7 +244,18 @@ function checkRabotaNePovtoryaetUroki(mod: Module, where: string): void {
       if (typeof pole !== "string" || !pole.trim()) continue;
       const klyuch = slova(pole);
       if (klyuch.split(" ").length <= 3) continue;
-      if (urochnye.has(klyuch)) povtory.push(`${question.id}: «${pole}»`);
+      if (urochnye.has(klyuch)) {
+        povtory.push(`${question.id}: «${pole}»`);
+        continue;
+      }
+      const chasti = pole.split(/(?<=[.!?])\s+/);
+      for (let i = 1; i < chasti.length; i++) {
+        const hvost = slova(chasti.slice(i).join(" "));
+        if (hvost.split(" ").length >= 5 && hvosty.has(hvost)) {
+          povtory.push(`${question.id}: хвост разбора — «${chasti.slice(i).join(" ")}»`);
+          break;
+        }
+      }
     }
   }
 
