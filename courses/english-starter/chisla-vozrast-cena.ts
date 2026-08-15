@@ -121,7 +121,7 @@ const module: Module = {
     "называть числа от одного до десяти",
     "называть числа от одиннадцати до двадцати",
     "говорить свой возраст и спрашивать о возрасте",
-    "спрашивать, сколько предметов: How many?",
+    "спрашивать и коротко отвечать, сколько предметов: How many?",
     "спрашивать цену: How much is it?",
     "диктовать номер по одной цифре",
     "называть числа от двадцати до ста",
@@ -556,7 +556,7 @@ const module: Module = {
       slug: "skolko-predmetov",
       title: "Сколько их: How many?",
       estimatedMinutes: 12,
-      outcome: "спрашивать, сколько предметов: How many?",
+      outcome: "спрашивать и коротко отвечать, сколько предметов: How many?",
 
       blocks: [
         {
@@ -829,7 +829,9 @@ const module: Module = {
           rows: [
             ["12", "one — two", "часть длинного номера"],
             ["405", "four — zero — five", "номер комнаты"],
-            ["77", "seven — seven", "часть телефона"],
+            // Было «часть телефона» — а урок нарочно переписан без телефона:
+            // его программа отдаёт модулю 10. След прежней редакции, нашёл методист.
+            ["77", "seven — seven", "часть номера рейса"],
           ],
         },
         {
@@ -837,8 +839,8 @@ const module: Module = {
           kind: "note",
           tone: "info",
           text:
-            "Ноль по-английски zero, произношение /ˈzɪərəʊ/. Без него номер телефона не " +
-            "продиктовать, поэтому он здесь.",
+            "Ноль по-английски zero, произношение /ˈzɪərəʊ/. Без него не продиктовать ни " +
+            "номер комнаты 405, ни номер счёта, поэтому он здесь.",
         },
         {
           id: "cifroy-tozhe-verno",
@@ -942,8 +944,10 @@ const module: Module = {
           text: [
             "Двадцатью числа не заканчиваются. Возраст, цена, номер дома — всё это часто " +
               "больше двадцати. Значит, нужен счёт до ста.",
-            "Хорошая новость: новых слов всего восемь. Всё остальное собирается из них и из " +
-              "первого десятка.",
+            // Было «новых слов всего восемь»: twenty ученик знает с прошлого урока,
+            // новых семь. Нашёл методист.
+            "Хорошая новость: десятков всего восемь, и twenty из них уже знаком. Новых слов " +
+              "семь, а всё остальное собирается из них и из первого десятка.",
           ],
         },
         {
@@ -1390,10 +1394,12 @@ const module: Module = {
         id: "q-sprosit-vozrast",
         kind: "short",
         outcome: "говорить свой возраст и спрашивать о возрасте",
-        prompt: "Спроси, сколько лет ей. Запиши вопрос целиком.",
-        answer: "How old is she?",
-        accept: ["How old is she"],
-        why: "How old is she? С she идёт форма is.",
+        // Было «спроси, сколько лет ей» — задание урока с заменённым местоимением.
+        // Теперь на этот вопрос надо ответить, а не задать его заново.
+        prompt: "«How old is your sister?» Ей девятнадцать. Ответь целым предложением.",
+        answer: "She's nineteen.",
+        accept: ["She is nineteen.", "She's nineteen", "She is nineteen"],
+        why: "She's nineteen. Возраст называют без слова years, а форма be идёт от she.",
       },
       {
         id: "q-oshibka-vozrasta",
@@ -1410,7 +1416,7 @@ const module: Module = {
       {
         id: "q-many-mnozhestvennoe",
         kind: "gap",
-        outcome: "спрашивать, сколько предметов: How many?",
+        outcome: "спрашивать и коротко отвечать, сколько предметов: How many?",
         prompt: "Допиши название во множественном: «сколько машин?»",
         before: "How many ",
         after: "?",
@@ -1419,11 +1425,24 @@ const module: Module = {
       },
       {
         id: "q-otvet-na-many",
-        kind: "choice",
-        outcome: "спрашивать, сколько предметов: How many?",
-        prompt: "«How many friends?» У тебя пять друзей. Что ответить?",
-        options: [{ text: "I'm five." }, { text: "Five.", correct: true }, { text: "Five old." }],
-        why: "Five. Одного числа достаточно; «I'm five» говорит о возрасте.",
+        // Было то же задание, что в уроке, с заменённым числом и словом: те же два
+        // неверных варианта, тот же вид работы. Теперь негодные ответы надо найти
+        // среди четырёх, а не выбрать верный из трёх.
+        kind: "hottext",
+        outcome: "спрашивать и коротко отвечать, сколько предметов: How many?",
+        prompt: "Отметь ответы, которые на вопрос «How many books?» не годятся.",
+        parts: [
+          { text: "Seven.", selectable: true },
+          { text: " · " },
+          { text: "I'm seven.", selectable: true, correct: true },
+          { text: " · " },
+          { text: "Seven books.", selectable: true },
+          { text: " · " },
+          { text: "Seven years.", selectable: true, correct: true },
+        ],
+        why:
+          "«I'm seven» говорит о возрасте, «seven years» — о годах. На вопрос о количестве " +
+          "отвечают числом или числом с названием предмета.",
       },
       {
         id: "q-cena-vopros",
@@ -1444,20 +1463,26 @@ const module: Module = {
       },
       {
         id: "q-sorok",
-        kind: "choice",
+        // Было узнавание из тех же трёх строк, что в задании урока. Число то же —
+        // выпадение u бывает только у него, — но написать его теперь надо самому.
+        kind: "gap",
         outcome: "называть числа от двадцати до ста",
-        prompt: "Как правильно написать 40?",
-        options: [{ text: "fourteen" }, { text: "fourty" }, { text: "forty", correct: true }],
-        why: "Forty. Буква u выпадает, а fourteen значит 14.",
+        prompt: "Допиши число словом: тебе 40 лет.",
+        before: "I'm ",
+        after: ".",
+        answer: "forty",
+        accept: ["Forty"],
+        why: "Forty. Буква u из four выпадает — это единственное такое число.",
       },
       {
         id: "q-sostavnoe-chislo",
         kind: "short",
         outcome: "называть числа от двадцати до ста",
-        prompt: "Напиши словом число 48.",
-        answer: "forty-eight",
-        accept: ["Forty-eight", "forty eight"],
-        why: "Forty-eight. Сорок и восемь соединились в одно слово, а на месте склейки — дефис.",
+        // Было 48 — ровно та пара, что стоит готовым примером в таблице урока.
+        prompt: "Напиши словом число 76.",
+        answer: "seventy-six",
+        accept: ["Seventy-six", "seventy six"],
+        why: "Seventy-six. Семьдесят и шесть соединились в одно слово, а на месте склейки — дефис.",
       },
       {
         id: "q-teen-ili-ty",
@@ -1479,13 +1504,17 @@ const module: Module = {
         id: "q-nomer-po-cifram",
         kind: "choice",
         outcome: "диктовать номер по одной цифре",
-        prompt: "Как назовут номер комнаты 12?",
+        // Номер 12 и ответ «one — two» стояли и в таблице урока, и в задании. А
+        // неверный вариант «one hundred two» — чтение числа 102, не двенадцати:
+        // так не ошибётся никто. Взят другой номер и настоящая ошибка — назвать
+        // число целиком.
+        prompt: "Как назовут номер комнаты 63?",
         options: [
-          { text: "one — two", correct: true },
-          { text: "twelve" },
-          { text: "one hundred two" },
+          { text: "six — three", correct: true },
+          { text: "sixty-three" },
+          { text: "six hundred three" },
         ],
-        why: "One — two. Номер называют по одной цифре, чтобы собеседник успел записать.",
+        why: "Six — three. Номер называют по одной цифре, чтобы собеседник успел записать.",
       },
       {
         id: "q-zapisat-nomer-quiz",
@@ -1515,13 +1544,17 @@ const module: Module = {
       },
       {
         id: "q-tri-voprosa",
-        kind: "match",
+        // Было сопоставление тех же трёх пар, что в задании урока, только
+        // перетасованных. Теперь вопрос надо выбрать под случай.
+        kind: "choice",
         outcome: "вести короткий разговор о возрасте, количестве и цене",
-        prompt: "Сопоставь вопрос и то, о чём он.",
-        left: ["How much is it?", "How old are you?", "How many books?"],
-        right: ["о возрасте", "о количестве", "о цене"],
-        answer: [2, 0, 1],
-        why: "How much — о цене, how old — о возрасте, how many — о количестве.",
+        prompt: "Ты хочешь узнать, сколько стоит книга. Какой вопрос задать?",
+        options: [
+          { text: "How much is it?", correct: true },
+          { text: "How many is it?" },
+          { text: "How old is it?" },
+        ],
+        why: "How much is it? О цене спрашивают через much, о количестве штук — через many.",
       },
       {
         id: "q-sobrat-razgovor-chisla-quiz",
