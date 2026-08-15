@@ -161,7 +161,7 @@ const module: Module = {
     "просить: Can you help?",
     "спрашивать разрешения: Can I sit here?",
     "приглашать: Would you like to come?",
-    "отвечать на предложение и на приглашение: Yes, please. Yes, I'd like to.",
+    "отвечать, когда предлагают вещь, и когда зовут: Yes, please. Yes, I'd like to.",
     "вести разговор с просьбой целиком",
   ],
 
@@ -994,7 +994,7 @@ const module: Module = {
       slug: "otvet-na-priglashenie",
       title: "Ответ на приглашение: Yes, please",
       estimatedMinutes: 12,
-      outcome: "отвечать на предложение и на приглашение: Yes, please. Yes, I'd like to.",
+      outcome: "отвечать, когда предлагают вещь, и когда зовут: Yes, please. Yes, I'd like to.",
 
       blocks: [
         {
@@ -1521,7 +1521,7 @@ const module: Module = {
       {
         id: "q-otvet-vybor",
         kind: "choice",
-        outcome: "отвечать на предложение и на приглашение: Yes, please. Yes, I'd like to.",
+        outcome: "отвечать, когда предлагают вещь, и когда зовут: Yes, please. Yes, I'd like to.",
         prompt: "Тебе предложили чаю, и ты соглашаешься. Как ответить?",
         options: [
           { text: "Yes, please.", correct: true },
@@ -1534,7 +1534,7 @@ const module: Module = {
       {
         id: "q-otvet-dopisat",
         kind: "gap",
-        outcome: "отвечать на предложение и на приглашение: Yes, please. Yes, I'd like to.",
+        outcome: "отвечать, когда предлагают вещь, и когда зовут: Yes, please. Yes, I'd like to.",
         prompt: "Тебе предложили кофе, а ты не хочешь. Допиши недостающее.",
         before: "No, ",
         after: ".",
@@ -1546,7 +1546,7 @@ const module: Module = {
       {
         id: "q-otvet-napisat",
         kind: "short",
-        outcome: "отвечать на предложение и на приглашение: Yes, please. Yes, I'd like to.",
+        outcome: "отвечать, когда предлагают вещь, и когда зовут: Yes, please. Yes, I'd like to.",
         prompt: "Тебя позвали прийти завтра, и ты соглашаешься. Ответь оборотом I'd like to.",
         answer: "Yes, I'd like to.",
         accept: ["Yes, I would like to."],
