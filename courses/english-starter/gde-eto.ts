@@ -163,7 +163,7 @@ const module: Module = {
     "говорить, где предмет относительно другого: next to, in front of, opposite",
     "спрашивать, где предмет: Where is и Where are",
     "называть места в городе: shop, station, hospital, park",
-    "понимать и повторять указания дороги: go, turn left, turn right",
+    "читать и повторять указания дороги: go, turn left, turn right",
     "объяснять дорогу двумя-тремя указаниями",
   ],
 
@@ -950,7 +950,8 @@ const module: Module = {
           tone: "info",
           text:
             "На указателе может стоять похожее слово — Parking. Это не парк: так помечают " +
-            "место, где ставят машины. Парк — park, а Parking длиннее на четыре буквы.",
+            // Было «длиннее на четыре буквы»: park — четыре, parking — семь.
+            "место, где ставят машины. Парк — park, а Parking длиннее на три буквы.",
         },
         {
           id: "nazvaniya-s-zaglavnoy",
@@ -959,7 +960,9 @@ const module: Module = {
           text:
             "На вывеске слово пишут с заглавной: Hospital, Station. Внутри предложения — с " +
             "маленькой: The hospital is opposite the park.\n\nЗаглавная нужна именам: " +
-            "Dana, Almaty, Kazakhstan — как в модуле «Алфавит и своё имя». Слово hospital " +
+            // Almaty стоит не в том модуле: в «Алфавите» его нет, оно из «Рассказа
+            // о себе». Пример заменён на тот, что там действительно есть.
+            "Dana, Alim, Kazakhstan — как в модуле «Алфавит и своё имя». Слово hospital " +
             "не имя, а обычное слово.",
         },
         {
@@ -1086,7 +1089,7 @@ const module: Module = {
       slug: "kak-proyti",
       title: "Как пройти",
       estimatedMinutes: 13,
-      outcome: "понимать и повторять указания дороги: go, turn left, turn right",
+      outcome: "читать и повторять указания дороги: go, turn left, turn right",
 
       blocks: [
         {
@@ -1434,20 +1437,22 @@ const module: Module = {
         id: "q-sobrat-pod-stulom",
         kind: "order",
         outcome: "говорить, где предмет: in, on, under",
-        prompt: "Собери предложение: «Ключ под стулом».",
-        items: ["under", "The key", "the chair", "is"],
+        // Было «Ключ под стулом» — задание урока с заменённым подлежащим: тот же
+        // предлог и то же место. Взяты другой предлог и другое место.
+        prompt: "Собери предложение: «Карта на окне».",
+        items: ["on", "The map", "the window", "is"],
         answer: [1, 3, 0, 2],
-        why: "The key is under the chair. Порядок тот же, что во всех предложениях с be.",
+        why: "The map is on the window. Порядок тот же, что во всех предложениях с be.",
       },
       {
         id: "q-tri-predloga-quiz",
-        kind: "match",
+        // Было сопоставление тех же трёх пар, что в задании урока, только
+        // переставленных. Теперь предлог надо выбрать по случаю.
+        kind: "choice",
         outcome: "говорить, где предмет: in, on, under",
-        prompt: "Сопоставь предлог и то, что он значит.",
-        left: ["in", "under", "on"],
-        right: ["на поверхности", "внутри", "под"],
-        answer: [1, 2, 0],
-        why: "In — внутри, under — под, on — на поверхности.",
+        prompt: "Ключ лежит внутри сумки. Какой предлог нужен?",
+        options: [{ text: "in", correct: true }, { text: "on" }, { text: "under" }],
+        why: "In. Внутри — это in; on говорит о поверхности, under — о том, что снизу.",
       },
       {
         id: "q-between-and",
@@ -1482,16 +1487,17 @@ const module: Module = {
         id: "q-bez-predloga-quiz",
         kind: "choice",
         outcome: "ставить here и there в конец предложения",
+        // Фраза «My car is here.» напечатана в уроке трижды. Взято другое место.
         prompt: "Какая запись верна?",
         options: [
-          { text: "My car is at here." },
-          { text: "My car is here.", correct: true },
+          { text: "The hotel is at there." },
+          { text: "The hotel is there.", correct: true },
           // Здесь стоял второй такой же вариант «My car is at here» — ученик
           // видел две одинаковые кнопки. Нашла проверка на повторы.
-          { text: "My car here." },
+          { text: "The hotel there." },
         ],
         why:
-          "My car is here. Перед here предлог не ставят, а форму be, наоборот, " +
+          "The hotel is there. Перед there предлог не ставят, а форму be, наоборот, " +
           "пропускать нельзя.",
       },
       {
@@ -1563,17 +1569,19 @@ const module: Module = {
         id: "q-otvet-they",
         kind: "hottext",
         outcome: "спрашивать, где предмет: Where is и Where are",
-        prompt: "Отметь ответы, которые подходят на вопрос «Where are my books?»",
+        // Все четыре строки были дословно теми же, что в задании урока: менялось
+        // одно слово в условии. Взят обратный случай — вопрос об одном предмете.
+        prompt: "Отметь ответы, которые подходят на вопрос «Where is my map?»",
         parts: [
-          { text: "It's on the table.", selectable: true },
+          { text: "It's under the chair.", selectable: true, correct: true },
           { text: " · " },
-          { text: "They're on the table.", selectable: true, correct: true },
+          { text: "They're under the chair.", selectable: true },
           { text: " · " },
-          { text: "They're in your bag.", selectable: true, correct: true },
+          { text: "It's on the window.", selectable: true, correct: true },
           { text: " · " },
-          { text: "It's in your bag.", selectable: true },
+          { text: "They're on the window.", selectable: true },
         ],
-        why: "Книг несколько, поэтому в ответе they're, а не it's.",
+        why: "Карта одна, поэтому в ответе it's, а не they're.",
       },
       {
         id: "q-mesta-sopostavit",
@@ -1616,7 +1624,7 @@ const module: Module = {
       {
         id: "q-ukazanie-bez-you",
         kind: "choice",
-        outcome: "понимать и повторять указания дороги: go, turn left, turn right",
+        outcome: "читать и повторять указания дороги: go, turn left, turn right",
         prompt: "Как сказать «поверни направо»?",
         options: [
           { text: "You are right." },
@@ -1631,7 +1639,7 @@ const module: Module = {
         // Раньше совпадал с заданием урока поле в поле. Нашёл методист.
         id: "q-go-straight-quiz",
         kind: "short",
-        outcome: "понимать и повторять указания дороги: go, turn left, turn right",
+        outcome: "читать и повторять указания дороги: go, turn left, turn right",
         prompt: "Скажи два указания подряд: поверни налево, потом иди прямо. Запиши оба предложения.",
         answer: "Turn left. Go straight.",
         accept: ["Turn left. Go straight", "turn left. go straight."],
@@ -1639,13 +1647,16 @@ const module: Module = {
       },
       {
         id: "q-ukazaniya-sopostavit",
-        kind: "match",
-        outcome: "понимать и повторять указания дороги: go, turn left, turn right",
-        prompt: "Сопоставь указание и перевод.",
-        left: ["Go straight.", "Turn right.", "Turn left."],
-        right: ["Поверни налево.", "Иди прямо.", "Поверни направо."],
-        answer: [1, 2, 0],
-        why: "Go straight — прямо, Turn right — направо, Turn left — налево.",
+        // Было сопоставление тех же трёх пар, что в задании урока. Указания в
+        // модуле только эти три, менять набор нечем — сменена сама работа.
+        kind: "gap",
+        outcome: "читать и повторять указания дороги: go, turn left, turn right",
+        prompt: "Тебе сказали идти прямо, а потом свернуть налево. Допиши второе указание.",
+        before: "Go straight. Turn ",
+        after: ".",
+        answer: "left",
+        accept: ["Left"],
+        why: "Turn left. Налево — left, направо — right; оба указания начинаются с turn.",
       },
       {
         // Та же беда, что была в уроке 8: сверка по точному совпадению снимала
