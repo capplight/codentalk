@@ -142,9 +142,12 @@ const module: Module = {
         "«Positive, negative, question, imperative and short-answer forms, including " +
         "contractions». Это основание давать вопрос и отрицание вместе с утверждением, " +
         "хотя отдельных строк о них нет. " +
-        "с. 50, о задании устной части: «The structures candidates will need most " +
-        "frequently in this task are There is/are, the present tense of the verbs be and " +
-        "have (got)» — оборот назван среди самых нужных",
+        "с. 50, A1 Movers, задание устной части (Part 2, рассказ по картинкам): «The " +
+        "structures candidates will need most frequently in this task are There is/are, " +
+        "the present tense of the verbs be and have (got)» — оборот назван среди самых " +
+        "нужных. СТУПЕНЬ ЗДЕСЬ ДРУГАЯ, и это важно: цитата стоит рядом с перечнем Pre A1 " +
+        "Starters, но сама она из раздела A1 Movers. Подпись уточнил методист, чтобы " +
+        "довод не читался как подтверждение низкой ступени",
       license: "внутреннее использование, публично не называем",
     },
     {
@@ -1491,10 +1494,13 @@ const module: Module = {
         id: "q-sobrat-there-is",
         kind: "order",
         outcome: "говорить, что где-то есть один предмет: There is a shop",
-        prompt: "Собери предложение: «Рядом со станцией есть магазин».",
-        items: ["near the station", "There is", "a shop"],
+        // Предложение «There is a shop near the station» напечатано в уроке
+        // четырежды: в объяснении, в таблице, в разборе порядка слов и в
+        // расшифровке записи. Ученик вспоминал рисунок. Взято другое сочетание.
+        prompt: "Собери предложение: «Рядом с парком есть гостиница».",
+        items: ["near the park", "There is", "a hotel"],
         answer: [1, 2, 0],
-        why: "There is a shop near the station.",
+        why: "There is a hotel near the park.",
       },
       {
         id: "q-there-are-vybor",
@@ -1562,11 +1568,13 @@ const module: Module = {
         id: "q-some-dopisat",
         kind: "gap",
         outcome: "говорить о нескольких, не называя числа: There are some books",
-        prompt: "На столе несколько книг. Допиши недостающее слово.",
+        // Предложение совпадало с урочным буква в букву — менялась только вводная
+        // фраза условия. Взяты другой предмет и другое место.
+        prompt: "В комнате несколько стульев. Допиши недостающее слово.",
         before: "There are ",
-        after: " books on the table.",
+        after: " chairs in the room.",
         answer: "some",
-        why: "There are some books on the table.",
+        why: "There are some chairs in the room.",
       },
       {
         id: "q-some-oshibka",
