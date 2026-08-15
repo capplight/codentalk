@@ -111,8 +111,13 @@ const module: Module = {
     {
       ref: "Oxford 3000",
       section:
-        "новые слова модуля с пометкой A1: love v. A1, food n. A1, sport n. A1, " +
-        "swimming n. A1, cinema n. A1, favourite adj., n. A1, cake n. A1",
+        "новые слова модуля с пометкой A1: love v. A1, food n. A1, swimming n. A1, " +
+        "cake n. A1. " +
+        "ПРЕЖНЯЯ РЕДАКЦИЯ называла новыми ещё три слова — sport, cinema и favourite, " +
+        "— а они введены раньше: sport в модуле 16, cinema в модуле 13, favourite в " +
+        "модуле 11. У sport совпадал даже пример на карточке. Вторая карточка говорит " +
+        "ученику, что слово новое, и он решает, что забыл его. Карточки убраны, слова " +
+        "остались в работе урока. Нашёл методист",
       license: "внутреннее использование",
     },
   ],
@@ -335,7 +340,6 @@ const module: Module = {
           caption: "Слова урока",
           items: [
             { term: "swimming", translation: "плавание", example: "I like swimming.", hint: "/ˈswɪmɪŋ/" },
-            { term: "sport", translation: "спорт", example: "I like sport.", hint: "/spɔːt/" },
           ],
         },
 
@@ -465,14 +469,8 @@ const module: Module = {
           caption: "Послушай три предложения",
           transcript: "I don't like waiting. I don't like to wait. My brother doesn't like cooking.",
         },
-        {
-          id: "slovar-ne-nravitsya",
-          kind: "vocab",
-          caption: "Слова урока",
-          items: [
-            { term: "cinema", translation: "кинотеатр", example: "The cinema is near my home.", hint: "/ˈsɪnəmə/" },
-          ],
-        },
+        // Словаря у урока больше нет: единственным словом было cinema, а оно
+        // введено в модуле 13. Новых слов урок не даёт — он весь о грамматике.
 
         // ---- задания ----
         {
@@ -738,14 +736,8 @@ const module: Module = {
           caption: "Послушай разговор",
           transcript: "Do you like coffee? No, I don't. I like tea.",
         },
-        {
-          id: "slovar-voprosa-o-vkusah",
-          kind: "vocab",
-          caption: "Слова урока",
-          items: [
-            { term: "favourite", translation: "любимый", example: "My favourite film is here.", hint: "/ˈfeɪvrɪt/" },
-          ],
-        },
+        // Словаря у урока больше нет: единственным словом было favourite, а оно
+        // введено в модуле 11.
 
         // ---- задания ----
         {
@@ -1265,11 +1257,13 @@ const module: Module = {
         id: "q-like-to-sobrat",
         kind: "order",
         outcome: "говорить, что нравится делать: I like to read",
-        prompt: "Собери предложение: «Мне нравится читать.»",
-        items: ["read", "to", "I", "like"],
+        // «I like to read» — заглавный пример первого урока, напечатанный в модуле
+        // одиннадцать раз. Собирали заученное. Взят другой глагол.
+        prompt: "Собери предложение: «Мне нравится готовить.»",
+        items: ["cook", "to", "I", "like"],
         answer: [2, 3, 1, 0],
         hint: "Между like и глаголом встаёт ещё одно слово.",
-        why: "I like to read. Порядок: I, like, to, read.",
+        why: "I like to cook. Порядок: I, like, to, cook.",
       },
 
       // ---- итог 2 ----
@@ -1341,15 +1335,17 @@ const module: Module = {
         id: "q-ne-nravitsya-napisat",
         kind: "short",
         outcome: "говорить, что не нравится: I don't like waiting",
-        prompt: "Напиши, что тебе не нравится ждать. Ждать — wait.",
-        answer: "I don't like waiting.",
+        // «I don't like waiting» — заглавный пример своего урока, в модуле он стоит
+        // семь раз. Взят другой глагол.
+        prompt: "Напиши, что тебе не нравится гулять. Гулять — walk.",
+        answer: "I don't like walking.",
         accept: [
-          "I don't like to wait.",
-          "I do not like waiting.",
-          "I do not like to wait.",
+          "I don't like to walk.",
+          "I do not like walking.",
+          "I do not like to walk.",
         ],
         hint: "Отрицание строится через don't.",
-        why: "I don't like waiting. Годится и I don't like to wait.",
+        why: "I don't like walking. Годится и I don't like to walk.",
       },
 
       // ---- итог 4 ----
