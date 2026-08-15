@@ -410,8 +410,8 @@ const module: Module = {
           tone: "info",
           text:
             "У ответа «нет» две записи, и обе верны: полная — No, she is not, короткая — " +
-            "No, she isn't. Апостроф в isn't стоит на месте выпавшей буквы o, ровно как в " +
-            "I'm и he's.",
+            "No, she isn't. Апостроф в isn't стоит на месте выпавшей буквы o. В I'm и he's " +
+            "он делает то же самое, только выпадают там другие буквы.",
         },
         {
           id: "amnt-ne-byvaet",
@@ -834,7 +834,7 @@ const module: Module = {
         {
           id: "z2-dobavit-posle-net",
           kind: "short",
-          prompt: "«Is he a doctor?» Ответь «нет» коротко, тремя словами.",
+          prompt: "«Is he a doctor?» Ответь «нет» коротко.",
           answer: "No, he isn't.",
           exact: true,
           accept: ["No, he isn't", "No, he is not.", "No, he is not"],
@@ -874,7 +874,7 @@ const module: Module = {
         {
           id: "z5-otvetit-s-dobavleniem",
           kind: "short",
-          prompt: "«Are you a teacher?» Ответь «нет» коротко, тремя словами.",
+          prompt: "«Are you a teacher?» Ответь «нет» коротко.",
           answer: "No, I'm not.",
           exact: true,
           accept: ["No, I'm not", "No, I am not.", "No, I am not"],
@@ -1252,11 +1252,14 @@ const module: Module = {
         id: "q-vopros-o-drugom",
         kind: "short",
         outcome: "спрашивать о другом человеке: Is he, Is she",
-        prompt: "Спроси, из Турции ли она. Запиши вопрос целиком.",
-        answer: "Is she from Turkey?",
+        // Было «Is she from Turkey?» — самая частая строка модуля: она стоит в двух
+        // таблицах, в разговоре, в расшифровке записи и в задании на сопоставление.
+        // Ученик писал её по памяти. Взята пара, которой в модуле нет.
+        prompt: "Спроси, из Италии ли он. Запиши вопрос целиком.",
+        answer: "Is he from Italy?",
         exact: true,
-        accept: ["Is she from Turkey"],
-        why: "Is she from Turkey? Форма is впереди, местоимение вторым, дальше предлог и страна.",
+        accept: ["Is he from Italy"],
+        why: "Is he from Italy? Форма is впереди, местоимение вторым, дальше предлог и страна.",
       },
       {
         id: "q-propusk-artiklya",
@@ -1323,13 +1326,18 @@ const module: Module = {
         id: "q-chto-otvetit-v-razgovore",
         kind: "choice",
         outcome: "вести разговор из вопросов и ответов",
-        prompt: "«Are you from Astana?» Ты из Алматы. Что ответить?",
+        // Вопрос был точной копией урочного задания: то же условие слово в слово и
+        // те же три варианта, переставленные местами. Взяты другая пара стран и
+        // другая настоящая ошибка — пропущенное «нет» в начале.
+        prompt: "«Are you from Italy?» Ты из Испании. Что ответить?",
         options: [
-          { text: "No, I'm not. I'm from Almaty.", correct: true },
-          { text: "Yes, I am. I'm from Almaty." },
-          { text: "No, I'm not from Astana Almaty." },
+          { text: "No, I'm not. I'm from Spain.", correct: true },
+          { text: "Yes, I am. I'm from Spain." },
+          { text: "I'm not. I'm from Spain." },
         ],
-        why: "No, I'm not. I'm from Almaty. Сначала краткий ответ, потом отдельное предложение.",
+        why:
+          "No, I'm not. I'm from Spain. Ответ начинается со слова No — без него собеседник " +
+          "не слышит отказа. Дальше идёт отдельное предложение о том, как есть.",
       },
       {
         id: "q-otvet-na-am-i",
@@ -1338,10 +1346,14 @@ const module: Module = {
         prompt: "«Am I right?» Как ответить утвердительно?",
         options: [
           { text: "Yes, I am." },
-          { text: "Yes, am I." },
+          // Было «Yes, am I.» — тот же набор, что в задании урока. Заменено на
+          // ошибку того же рода: местоимение уже поменяли, а форму be забыли.
+          { text: "Yes, you am." },
           { text: "Yes, you are.", correct: true },
         ],
-        why: "Yes, you are. На Am I…? отвечают про you: местоимение меняется.",
+        why:
+          "Yes, you are. Спрашивают про I, а отвечают про you — и вместе с местоимением " +
+          "меняется форма be.",
       },
       {
         id: "q-sdelat-soobshchenie",
