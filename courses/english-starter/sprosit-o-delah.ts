@@ -942,6 +942,11 @@ const module: Module = {
             "Where do you work? — где ты работаешь. When do you start? — когда ты " +
               "начинаешь.",
             "Меняется только первое слово, дальше всё то же самое.",
+            // Об одном другом человеке в этом уроке спрашивать требовалось, а
+            // примера с does тут не было ни одного — он остался в прошлом уроке.
+            // Задание опиралось на перенос через урок. Нашёл методист.
+            "Об одном другом человеке спрашивают так же, только вместо Do встаёт Does: " +
+              "Where does she work? — где она работает.",
           ],
         },
         {
@@ -952,6 +957,7 @@ const module: Module = {
           rows: [
             ["what", "что", "What do you study?"],
             ["where", "где", "Where do you work?"],
+            ["where", "где, об одном другом", "Where does she work?"],
             ["when", "когда", "When do you start?"],
             ["who", "кто", "Who is your teacher?"],
           ],
@@ -1414,26 +1420,29 @@ const module: Module = {
       // ---- итог 2 ----
       {
         id: "q-korotkiy-o-brate",
-        kind: "choice",
+        // Этот вопрос был близнецом соседнего: то же условие, те же три варианта,
+        // тот же верный ответ — менялось одно слово. Один из двадцати четырёх
+        // вопросов работы не проверял ничего нового. Теперь здесь короткий ответ
+        // «нет», и его надо написать, а не узнать. Нашёл методист.
+        kind: "short",
         outcome: "коротко отвечать на такой вопрос: Yes, I do. No, I don't.",
-        prompt: "Тебя спросили: Do you study at a college? Ты учишься. Как ответить коротко?",
-        options: [
-          { text: "Yes, I do.", correct: true },
-          { text: "Yes, I study." },
-          { text: "Yes, I am." },
-        ],
+        prompt: "Тебя спросили: Do you drive? Ты не водишь машину. Ответь коротко.",
+        answer: "No, I don't.",
+        accept: ["No, I don't", "No, I do not.", "No, I do not"],
         hint: "Отвечают тем же словом, с которого начался вопрос.",
-        why: "Yes, I do. Вопрос начался с Do — им и отвечают, а глагол не повторяют.",
+        why: "No, I don't. Вопрос начался с Do — им и отвечают, а глагол не повторяют.",
       },
       {
         id: "q-korotkiy-vybor",
         kind: "choice",
         outcome: "коротко отвечать на такой вопрос: Yes, I do. No, I don't.",
         prompt: "Тебя спросили: Do you study English? Ты учишь. Как ответить коротко?",
+        // Верный ответ переставлен первым: в работе он трижды подряд оказывался
+        // третьим, и тест проходился нажатием одной кнопки. Нашла проверка.
         options: [
+          { text: "Yes, I do.", correct: true },
           { text: "Yes, I study." },
           { text: "Yes, I am." },
-          { text: "Yes, I do.", correct: true },
         ],
         hint: "Повторяют не глагол, а то слово, с которого начался вопрос.",
         why: "Yes, I do. Ответ на вопрос с Do повторяет do, а не глагол.",
@@ -1464,16 +1473,15 @@ const module: Module = {
       },
       {
         id: "q-does-vybor",
-        kind: "choice",
+        // Было узнавание из трёх записей — с тем же условием и той же парой
+        // ошибок, что в задании урока. Теперь вопрос надо построить самому.
+        kind: "short",
         outcome: "спрашивать о другом человеке: Does he work here?",
-        prompt: "Ты спрашиваешь, учит ли Дана английский. Как сказать?",
-        options: [
-          { text: "Does Dana study English?", correct: true },
-          { text: "Does Dana studies English?" },
-          { text: "Do Dana study English?" },
-        ],
+        prompt: "Ты спрашиваешь, учит ли Дана английский. Запиши вопрос целиком.",
+        answer: "Does Dana study English?",
+        accept: ["Does Dana study English"],
         hint: "Дважды одно окончание в вопросе не ставят.",
-        why: "Does Dana study English? Окончание уже внутри Does.",
+        why: "Does Dana study English? Окончание уже внутри Does, поэтому глагол остаётся голым.",
       },
       {
         id: "q-does-otmetit",
@@ -1496,16 +1504,14 @@ const module: Module = {
       // ---- итог 4 ----
       {
         id: "q-razlichenie-vybor",
-        kind: "choice",
+        // Было узнавание с тем же условием и теми же вариантами, что в уроке.
+        kind: "short",
         outcome: "различать вопрос с формой be и вопрос с do: Are you a doctor? — Do you work?",
-        prompt: "Ты хочешь спросить, врач ли собеседник. Как начать?",
-        options: [
-          { text: "Do you a doctor?" },
-          { text: "Does you a doctor?" },
-          { text: "Are you a doctor?", correct: true },
-        ],
-        hint: "После you идёт название человека.",
-        why: "Are you a doctor? Название — значит форма be.",
+        prompt: "Ты хочешь спросить, врач ли собеседник. Запиши вопрос целиком.",
+        answer: "Are you a doctor?",
+        accept: ["Are you a doctor"],
+        hint: "Спрашивают не о деле, а о том, кто человек.",
+        why: "Are you a doctor? Названию человека нужна форма be, а do спрашивает о действии.",
       },
       {
         id: "q-razlichenie-sprosit",
@@ -1634,14 +1640,12 @@ const module: Module = {
       },
       {
         id: "q-neskolko-vybor",
-        kind: "choice",
+        // Было узнавание с тем же условием и той же парой ошибок, что в уроке.
+        kind: "short",
         outcome: "спрашивать о нескольких людях: Do they live here?",
-        prompt: "Ты спрашиваешь, учат ли твои друзья английский. Друзья — my friends.",
-        options: [
-          { text: "Does my friends study English?" },
-          { text: "Do my friends study English?", correct: true },
-          { text: "Do my friends studies English?" },
-        ],
+        prompt: "Ты спрашиваешь, учат ли твои друзья английский. Друзья — my friends. Запиши вопрос целиком.",
+        answer: "Do my friends study English?",
+        accept: ["Do my friends study English"],
         hint: "Друзей несколько, и глагол остаётся без окончания.",
         why: "Do my friends study English? Людей несколько — значит Do, глагол без окончания.",
       },
