@@ -177,8 +177,11 @@ const module: Module = {
           kind: "note",
           tone: "info",
           text:
-            "Оборот my name из модуля про приветствие устроен так же: my перед названием. " +
-            "Тогда его брали целиком, теперь видно, как он собран.",
+            // Ссылка вела в модуль 2, а «my name» стоит в модуле 1: там и словарная
+            // карточка, и задание «my name is aigul». В модуле 2 есть только
+            // «your name», и ученик, пошедший проверять, ничего бы не нашёл.
+            "Оборот my name из первого модуля, про алфавит, устроен так же: my перед " +
+            "названием. Тогда его брали целиком, теперь видно, как он собран.",
         },
         {
           id: "zapis-moy-tvoy",
@@ -705,8 +708,11 @@ const module: Module = {
           caption: "Зачем это нужно",
           text: "— Have you got a pen?\n— Yes, I have.\n— Thank you!",
           explain:
-            "Этим вопросом просят одолжить вещь. Ответ короткий, а дальше в ход идут слова " +
-            "вежливости из модуля про приветствие.",
+            // Было «Этим вопросом просят одолжить вещь» — утверждение о том, как
+            // говорят, а источника у него нет. Теперь сказано о показанном разговоре,
+            // а не об обычае вообще.
+            "В этом разговоре ручку просят на время: сначала вопрос, есть ли она, потом " +
+            "короткий ответ и слово благодарности из модуля про приветствие.",
         },
         {
           id: "zapis-voprosa-have",
@@ -891,7 +897,8 @@ const module: Module = {
           left: ["father", "friend", "family"],
           right: ["семья", "отец", "друг"],
           answer: [1, 2, 0],
-          hint: "Два слова начинаются с одной буквы — различай по остальному.",
+          // Было «два слова начинаются с одной буквы» — на f начинаются все три.
+          hint: "Все три слова начинаются с f — различай по второй букве.",
           why: "Father — отец, friend — друг, family — семья.",
         },
         {
@@ -1349,12 +1356,22 @@ const module: Module = {
       },
       {
         id: "q-sobrat-rasskaz-veshchi",
-        kind: "order",
+        // Было задание на сборку с тем же условием слово в слово, что в уроке, и с
+        // тем же видом работы: менялись только имя и вещи. Теперь рассказ надо
+        // написать, а не собрать из готового.
+        kind: "short",
         outcome: "рассказывать о своих вещах и о своей семье",
-        prompt: "Расставь рассказ по порядку: имя, что есть, чего нет.",
-        items: ["I've got a cat.", "I haven't got a dog.", "I'm Dana."],
-        answer: [2, 0, 1],
-        why: "I'm Dana. I've got a cat. I haven't got a dog.",
+        prompt:
+          "Напиши о себе три предложения: тебя зовут Дана, у тебя есть кошка, собаки нет. " +
+          "Кошка — a cat, собака — a dog.",
+        answer: "I'm Dana. I've got a cat. I haven't got a dog.",
+        exact: true,
+        accept: [
+          "I'm Dana. I've got a cat. I haven't got a dog",
+          "I am Dana. I have got a cat. I haven't got a dog.",
+          "I am Dana. I have got a cat. I have not got a dog.",
+        ],
+        why: "I'm Dana. I've got a cat. I haven't got a dog. Сначала имя, потом что есть, потом чего нет.",
       },
       {
         id: "q-dva-predlozheniya-o-veshchi",
@@ -1372,19 +1389,15 @@ const module: Module = {
       },
       {
         id: "q-otmetit-poteri-got",
-        kind: "hottext",
+        // Было отмечание с условием, дословно совпадающим с урочным, и тем же
+        // видом работы. Теперь потерянное слово надо вернуть, а не найти.
+        kind: "gap",
         outcome: "говорить, что у тебя есть: I've got a car",
-        prompt: "Отметь предложения, в которых потерялось слово.",
-        parts: [
-          { text: "We've got a room.", selectable: true },
-          { text: " · " },
-          { text: "She's got camera.", selectable: true, correct: true },
-          { text: " · " },
-          { text: "He's got a bike.", selectable: true },
-          { text: " · " },
-          { text: "You've a dog.", selectable: true, correct: true },
-        ],
-        why: "«She's got camera» — нет a. «You've a dog» — нет got.",
+        prompt: "В этой записи потерялось слово. Допиши его.",
+        before: "She's ",
+        after: " a camera.",
+        answer: "got",
+        why: "She's got a camera. Без got выходит «она есть фотоаппарат»: слово это и говорит «есть у неё».",
       },
       {
         id: "q-th-v-slovah",
