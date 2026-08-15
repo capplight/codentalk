@@ -1009,7 +1009,10 @@ const module: Module = {
           kind: "explain",
           text: [
             "На вопрос why отвечают с because — и здесь оно стоит первым.",
-            "Это единственный случай, когда because начинает мысль.",
+            // Было «единственный случай, когда because начинает мысль» — это
+            // неправда о языке: «Because it is near, I like this shop» тоже
+            // говорят. Ограничение наше, курсовое, а не английское.
+            "В остальных предложениях мы ставим because после главной части.",
             "Полный ответ тоже годится: I work here because I like this shop.",
           ],
         },
@@ -1338,14 +1341,16 @@ const module: Module = {
         kind: "hottext",
         outcome: "перечислять через запятую: tea, coffee and water",
         prompt: "Отметь перечисления, где слово and стоит один раз.",
+        // Три строки из четырёх были дословно теми же, что в задании урока.
+        // Взяты другие продукты.
         parts: [
-          { text: "bread, water and rice", selectable: true, correct: true },
+          { text: "milk, cake and food", selectable: true, correct: true },
           { text: " · " },
-          { text: "bread and water and rice", selectable: true },
+          { text: "milk and cake and food", selectable: true },
           { text: " · " },
-          { text: "tea, coffee and milk", selectable: true, correct: true },
+          { text: "water, rice and meat", selectable: true, correct: true },
           { text: " · " },
-          { text: "tea and coffee and milk", selectable: true },
+          { text: "water and rice and meat", selectable: true },
         ],
         hint: "Сосчитай, сколько раз встретилось and.",
         why:
@@ -1360,7 +1365,7 @@ const module: Module = {
         before: "I can swim, drive ",
         after: " draw.",
         answer: "and",
-        hint: "Перед последним делом стоит союз.",
+        hint: "Перед последним делом стоит соединяющее слово.",
         why: "I can swim, drive and draw. Дела перечисляют так же, как вещи.",
       },
 
@@ -1596,26 +1601,37 @@ const module: Module = {
         id: "q-dva-predlozheniya-o-sebe",
         kind: "short",
         outcome: "рассказывать связно, с причинами",
+        // Оба предложения были сквозными примерами модуля: «I work, and I study» —
+        // это подзаголовок первого урока, он повторяется больше десяти раз, а
+        // «I like tea, but I don't like coffee» — второй по частоте пример. Ученик
+        // писал заученное. Взяты другие дела и другие вкусы. И в accept не хватало
+        // четвёртой связки — короткой записи с полным do not. Нашёл методист.
         prompt:
-          "Напиши два предложения о себе: ты работаешь и учишься; ты любишь чай, но " +
-          "не любишь кофе.",
-        answer: "I work, and I study. I like tea, but I don't like coffee.",
+          "Напиши два предложения о себе: ты читаешь и рисуешь; ты любишь музыку, но " +
+          "не любишь спорт.",
+        answer: "I read, and I draw. I like music, but I don't like sport.",
         accept: [
-          "I work and study. I like tea, but I don't like coffee.",
-          "I work, and I study. I like tea, but I do not like coffee.",
+          "I read and draw. I like music, but I don't like sport.",
+          "I read, and I draw. I like music, but I do not like sport.",
+          "I read and draw. I like music, but I do not like sport.",
         ],
         hint: "Первое предложение соединяет, второе спорит.",
         why:
-          "I work, and I study. I like tea, but I don't like coffee. Запятая стоит там, где " +
-          "союз соединяет два целых предложения. Короткая запись I work and study тоже принимается.",
+          "I read, and I draw. I like music, but I don't like sport. Запятая стоит там, " +
+          "где соединяющее слово стоит между двумя целыми предложениями. Короткая запись " +
+          "I read and draw тоже принимается.",
       },
       {
         id: "q-vybrat-svyazku-v-rasskaze",
         kind: "choice",
         outcome: "рассказывать связно, с причинами",
+        // Здесь стояло «I don't like early mornings ___ I work in the morning», и
+        // ошибкой объявлялось but — а «не люблю раннее утро, но работаю по утрам»
+        // такое же верное предложение. Условие не задавало, причина это или спор.
+        // Взят случай, где вторая часть может быть только причиной. Нашёл методист.
         prompt:
-          "В рассказе не хватает слова: I don't like early mornings ___ I work in the " +
-          "morning. Какое слово подойдёт?",
+          "В рассказе не хватает слова: I like this shop ___ it is near my home. " +
+          "Какое слово подойдёт?",
         options: [
           { text: "but" },
           { text: "or" },
@@ -1623,8 +1639,8 @@ const module: Module = {
         ],
         hint: "Спроси себя: вторая часть спорит, предлагает выбор или отвечает «почему»?",
         why:
-          "I don't like early mornings because I work in the morning. Вторая часть — " +
-          "причина, а не спор и не выбор.",
+          "I like this shop because it is near my home. Вторая часть — причина, а не " +
+          "спор и не выбор.",
       },
     ],
   },
