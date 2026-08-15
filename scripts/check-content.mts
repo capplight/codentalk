@@ -1036,9 +1036,66 @@ function checkTermsOrder(course: Course): void {
   }
 }
 
+/**
+ * Слово, введённое словарной карточкой дважды.
+ *
+ * Карточка «Слова урока» — это обещание: слово новое, вот его перевод и
+ * произношение. Когда то же слово через несколько модулей объявляют новым
+ * снова, ученик решает, что забыл его, а поле `sources` вдобавок считает его
+ * в новой лексике модуля дважды.
+ *
+ * Порода найдена методистом трижды: `coffee` в модуле 17 (введено в 14),
+ * `cinema`, `sport` и `favourite` в модуле 21 (введены в 13, 16 и 11). У
+ * `sport` совпал даже пример на карточке — слово в слово.
+ *
+ * Это вопрос, а не ошибка: бывает, что слово намеренно показывают снова в
+ * другом значении. Но таких мест должно быть немного, и каждое решает методист.
+ *
+ * СРАВНИВАЕМ И ПЕРЕВОД, И ЭТО ГЛАВНОЕ. Первая редакция смотрела на само слово
+ * и выдала семьдесят пять мест — почти все верные: `in` как место и `in` как
+ * время, `no` как отклик и `no` как отрицание при слове. Это разные карточки об
+ * одном написании, и вводить их дважды правильно. Настоящий повтор — когда
+ * совпал и перевод: тогда вторая карточка не добавляет ничего.
+ */
+function checkSlovoNeVvoditsyaDvazhdy(course: Course): void {
+  const gde = new Map<string, { mesto: string; perevod: string }>();
+  const dvazhdy: string[] = [];
+
+  for (const mod of course.modules) {
+    for (const lesson of mod.lessons) {
+      for (const block of lesson.blocks as any[]) {
+        if (block.kind !== "vocab") continue;
+        for (const item of block.items ?? []) {
+          const slovo = String(item.term ?? "").trim().toLowerCase();
+          if (!slovo) continue;
+          const perevod = slova(String(item.translation ?? ""));
+          const bylo = gde.get(slovo);
+          if (!bylo) {
+            gde.set(slovo, { mesto: `${mod.slug} → ${lesson.slug}`, perevod });
+          } else if (bylo.perevod === perevod) {
+            dvazhdy.push(
+              `«${slovo}» (${item.translation}): ${bylo.mesto} и ещё раз ${mod.slug} → ${lesson.slug}`
+            );
+          }
+        }
+      }
+    }
+  }
+
+  if (dvazhdy.length > 0) {
+    warn(
+      course.slug,
+      `слово введено словарной карточкой дважды (${dvazhdy.length} шт.):\n      ` +
+        dvazhdy.join("\n      ") +
+        "\n      Вторая карточка говорит ученику, что слово новое. Решает методист"
+    );
+  }
+}
+
 for (const course of courses) {
   checkCourse(course);
   checkTermsOrder(course);
+  checkSlovoNeVvoditsyaDvazhdy(course);
 }
 
 // ---------------------------------------------------------------------------

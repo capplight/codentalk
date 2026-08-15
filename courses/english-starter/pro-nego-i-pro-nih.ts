@@ -104,7 +104,7 @@ const module: Module = {
   outcomes: [
     "заменять имя словом после глагола: I know him",
     "выбирать нужное слово из шести: me, you, him, her, us, them",
-    "различать «её книга» и «знаю её»: her book — I know her",
+    "различать «её» и «его» в двух местах: her book — I know her, his book — I know him",
     "говорить о вещи словом it: I like it",
     "ставить слово после предлога: This is for me",
     "соединять глагол с предлогом: I listen to him",
@@ -364,20 +364,24 @@ const module: Module = {
           id: "z4-otmetit-pereputannye-slova",
           kind: "hottext",
           prompt: "Отметь записи, где слово стоит не на своём месте.",
+          // Здесь стояло «Know him.» — а там слово не на чужом месте, а пропущено
+          // вовсе. Условие говорило об одном, а ошибка была другой породы. Хуже
+          // того, курс уже учил, что в указании подлежащего нет: «Go straight.»
+          // Ученик мог прочесть «Know him» как указание и был бы прав. Нашёл методист.
           parts: [
             { text: "We know them.", selectable: true },
             { text: " · " },
             { text: "We know they.", selectable: true, correct: true },
             { text: " · " },
-            { text: "Know him.", selectable: true, correct: true },
+            { text: "Them know us.", selectable: true, correct: true },
             { text: " · " },
             { text: "I know him.", selectable: true },
           ],
           hint: "Перед глаголом идут I, we, they, а после — me, us, them.",
           why:
-            "В «We know they» после глагола нужно them. В «Know him» потерян тот, " +
-            "кто знает: по-английски его называют всегда. Верно: We know them, " +
-            "I know him.",
+            "В «We know they» после глагола нужно them. В «Them know us» наоборот: " +
+            "перед глаголом стоит слово, место которому после. Верно: We know them, " +
+            "They know us.",
         },
         {
           id: "z5-napisat-znayut-nas",
@@ -395,7 +399,7 @@ const module: Module = {
       slug: "eyo-kniga-i-eyo-samu",
       title: "Её книга и её саму",
       estimatedMinutes: 14,
-      outcome: "различать «её книга» и «знаю её»: her book — I know her",
+      outcome: "различать «её» и «его» в двух местах: her book — I know her, his book — I know him",
 
       blocks: [
         {
@@ -816,8 +820,11 @@ const module: Module = {
           text: [
             "По-русски «слушать» идёт без предлога: слушаю музыку, слушаю тебя.",
             "По-английски у глагола listen предлог обязателен: I listen to music.",
-            "У look предлог есть и по-русски — «смотрю на картинку», — только в " +
-              "английском он всегда at: I look at the picture.",
+            // Было «он всегда at» — а у look есть и look for, и look after, и look
+            // like. Правило верно для этого значения, не для глагола вообще.
+            // Ровно та же порода уже находилась здесь про listen. Нашёл методист.
+            "У look предлог есть и по-русски — «смотрю на картинку», — и в английском, " +
+              "когда говоришь, на что смотришь, ставят at: I look at the picture.",
           ],
         },
         {
@@ -885,7 +892,7 @@ const module: Module = {
           before: "I listen ",
           after: " him.",
           answer: "to",
-          hint: "У глагола listen предлог всегда один и тот же.",
+          hint: "Когда слушаешь кого-то, у listen есть предлог.",
           why: "I listen to him. Без to получается набор слов.",
         },
         {
@@ -989,10 +996,14 @@ const module: Module = {
           id: "primer-voprosa-o-cheloveke",
           kind: "example",
           caption: "Разговор о знакомых",
-          text: "— Do you know Dana?\n— Yes, I do. I see her every day.\n— Can you call her?\n— Yes, I can.",
+          // Слово ask стояло в словаре урока и не работало нигде: ни в объяснении,
+          // ни в задании. Теперь оно живёт в этом разговоре. Нашёл методист.
+          text:
+            "— Do you know Dana?\n— Yes, I do. I see her every day.\n— Can you call her?\n" +
+            "— Yes, I can. I ask her about the lesson.",
           explain:
-            "Имя названо в первом вопросе, а дальше идёт her. В ответах повторяется " +
-            "только do или can.",
+            "Имя названо в первом вопросе, а дальше идёт her — четыре раза подряд. В " +
+            "ответах повторяется только do или can.",
         },
         {
           id: "zapis-voprosa-o-cheloveke",
@@ -1008,7 +1019,7 @@ const module: Module = {
           caption: "Слова урока",
           items: [
             { term: "call", translation: "звонить", example: "Can you call her?", hint: "/kɔːl/" },
-            { term: "ask", translation: "спрашивать", example: "I ask him every day.", hint: "/ɑːsk/" },
+            { term: "ask", translation: "спрашивать", example: "I ask her about the lesson.", hint: "/ɑːsk/" },
           ],
         },
 
@@ -1301,7 +1312,7 @@ const module: Module = {
       {
         id: "q-her-his-vybor",
         kind: "choice",
-        outcome: "различать «её книга» и «знаю её»: her book — I know her",
+        outcome: "различать «её» и «его» в двух местах: her book — I know her, his book — I know him",
         prompt: "Ты видишь этого человека. В каком предложении нет ошибки?",
         options: [
           { text: "I see him.", correct: true },
@@ -1316,7 +1327,7 @@ const module: Module = {
       {
         id: "q-her-his-dopisat",
         kind: "gap",
-        outcome: "различать «её книга» и «знаю её»: her book — I know her",
+        outcome: "различать «её» и «его» в двух местах: her book — I know her, his book — I know him",
         prompt: "Это её ручка. Допиши недостающее слово.",
         before: "This is ",
         after: " pen.",
@@ -1327,7 +1338,7 @@ const module: Module = {
       {
         id: "q-her-his-sopostavit",
         kind: "match",
-        outcome: "различать «её книга» и «знаю её»: her book — I know her",
+        outcome: "различать «её» и «его» в двух местах: her book — I know her, his book — I know him",
         prompt: "Сопоставь запись и её перевод.",
         left: ["his bike", "I know him.", "her bike"],
         right: ["его велосипед", "её велосипед", "Я знаю его."],
@@ -1418,7 +1429,7 @@ const module: Module = {
         before: "I look ",
         after: " her.",
         answer: "at",
-        hint: "У глагола look предлог всегда один и тот же.",
+        hint: "Когда смотришь на кого-то, у look есть предлог.",
         why: "I look at her. У look предлог at, у listen — to.",
       },
       {
