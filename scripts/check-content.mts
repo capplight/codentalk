@@ -378,6 +378,101 @@ function checkRabotaNePovtoryaetZadaniya(mod: Module, where: string): void {
   }
 }
 
+/**
+ * Третий способ списать у самого себя — самый незаметный: ответ работы уже
+ * напечатан в материале урока.
+ *
+ * Методист нашёл это в модуле 4. Работа просила написать вопрос целиком, и
+ * верный ответ — «Is she from Turkey?» — оказался самой частой строкой всего
+ * модуля: она стояла в двух таблицах, в разговоре, в расшифровке записи и в
+ * задании на сопоставление. Ученик вспоминал картинку из таблицы, а перестановку
+ * слов, ради которой задание и написано, не делал ни разу.
+ *
+ * Проверить это глазами нельзя: надо помнить весь модуль целиком. Зато машине
+ * ровно на один проход.
+ *
+ * ПОЧЕМУ ЭТО ВОПРОС, А НЕ ОШИБКА. Один-два раза ответ и должен встретиться:
+ * фраза сначала показывается, потом отрабатывается. Решает методист.
+ *
+ * ДВА ПОРОГА, И ОБА ВЫВЕРЕНЫ ПЕРВЫМ ПРОГОНОМ. Без них проверка выдала 39
+ * замечаний, и почти все были на устойчивых оборотах: «Yes, I am», «No, I'm
+ * not», «I am Alim». Их в модуле и должно быть много — курс им и учит, а
+ * другого способа ответить на вопрос с be просто нет. Обвинять их — значит
+ * требовать переписать то, что верно.
+ *
+ * Поэтому смотрим только на ответы от четырёх слов: короткий устойчивый оборот
+ * так не выразишь, а собранное предложение — да. И считаем от четырёх
+ * повторений: три — это обычная жизнь примера (показали, разобрали, свели).
+ */
+function sobratMaterial(lesson: any): string[] {
+  const out: string[] = [];
+  const sobrat = (x: any): void => {
+    if (typeof x === "string") out.push(x);
+    else if (Array.isArray(x)) x.forEach(sobrat);
+    else if (x && typeof x === "object") {
+      for (const [klyuch, znachenie] of Object.entries(x)) {
+        // id, kind, tone и прочее служебное в счёт не идёт.
+        if (["id", "kind", "tone", "pace", "voice", "slug"].includes(klyuch)) continue;
+        sobrat(znachenie);
+      }
+    }
+  };
+  for (const block of lesson.blocks) if (!isTask(block)) sobrat(block);
+  return out;
+}
+
+function otvetZadaniya(task: any): string {
+  switch (task.kind) {
+    // Задание на вставку сюда не входит намеренно. Там предложение и так стоит
+    // перед глазами целиком, а произвести надо одно слово: то, что фраза знакома
+    // по материалу, работе не мешает. Речь только о заданиях, где ученик строит
+    // предложение сам.
+    case "short":
+      return String(task.answer ?? "");
+    case "order":
+      return (task.answer ?? []).map((i: number) => (task.items ?? [])[i]).join(" ");
+    default:
+      return "";
+  }
+}
+
+const CHASTOTA_PREDELA = 4;
+const DLINA_PREDELA = 4;
+
+function checkOtvetNePropechatan(mod: Module, where: string): void {
+  const kuski: string[] = [];
+  for (const lesson of mod.lessons) kuski.push(...sobratMaterial(lesson));
+  const material = slova(kuski.join(" . "));
+
+  const chasto: string[] = [];
+  for (const question of mod.quiz.questions as any[]) {
+    const syroy = otvetZadaniya(question).trim();
+    // Длину считаем по сырой строке: `slova` рвёт «I'm» на два куска, и короткий
+    // оборот из трёх слов проходил бы за четырёхсловный.
+    if (syroy.split(/\s+/).filter(Boolean).length < DLINA_PREDELA) continue;
+    const otvet = slova(syroy);
+    if (!otvet) continue;
+    let skolko = 0;
+    let ot = material.indexOf(otvet);
+    while (ot >= 0) {
+      skolko++;
+      ot = material.indexOf(otvet, ot + 1);
+    }
+    if (skolko >= CHASTOTA_PREDELA) {
+      chasto.push(`${question.id}: «${otvetZadaniya(question).trim()}» — в материале ${skolko} раз`);
+    }
+  }
+
+  if (chasto.length > 0) {
+    warn(
+      `${where} → проверочная`,
+      `ответ вопроса напечатан в материале много раз (${chasto.length} шт.):\n      ` +
+        chasto.join("\n      ") +
+        "\n      Такой ответ вспоминают картинкой, а не строят. Решает методист"
+    );
+  }
+}
+
 function checkTask(task: TaskBlock, where: string): void {
   if (blank(task.prompt)) fail(where, "нет формулировки задания");
   checkDubli(task, where);
@@ -671,6 +766,7 @@ function checkModule(mod: Module, where: string): void {
 
   checkRabotaNePovtoryaetUroki(mod, where);
   checkRabotaNePovtoryaetZadaniya(mod, where);
+  checkOtvetNePropechatan(mod, where);
 
   checkQuiz(mod.quiz, `${where} → проверочная`, {
     label: "проверочной работе",
