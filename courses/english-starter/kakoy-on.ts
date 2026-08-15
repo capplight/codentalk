@@ -950,7 +950,10 @@ const module: Module = {
         {
           id: "z3-sobrat-dva-priznaka",
           kind: "order",
-          prompt: "Собери предложение: «Дом большой и красивый».",
+          // Оба порядка прилагательных по-английски верны, а собрать можно только
+          // один. Правило проекта: где верных порядков несколько, порядок
+          // оговаривают в условии. Нашёл методист.
+          prompt: "Собери предложение в том же порядке, что в русском: «Дом большой и красивый».",
           items: ["beautiful", "big", "The house is", "and"],
           answer: [2, 1, 3, 0],
           hint: "And стоит между двумя прилагательными.",
@@ -978,7 +981,13 @@ const module: Module = {
           prompt: "Машина старая и дешёвая. Запиши предложение целиком, начни с The car.",
           answer: "The car is old and cheap.",
           exact: true,
-          accept: ["The car is old and cheap"],
+          // Обратный порядок прилагательных — такой же верный английский, и
+          // задание проверяет связку and, а не очерёдность. Принимаем оба.
+          accept: [
+            "The car is old and cheap",
+            "The car is cheap and old.",
+            "The car is cheap and old",
+          ],
           hint: "Форма be одна, между прилагательными — and.",
           why:
             "The car is old and cheap. Два прилагательных, одна форма be и одно and между ними.",
@@ -1132,7 +1141,13 @@ const module: Module = {
           prompt: "Дана молодая и очень приятная. Запиши предложение целиком, начни с She.",
           answer: "She is young and very nice.",
           exact: true,
-          accept: ["She is young and very nice", "She's young and very nice.", "She's young and very nice"],
+          accept: [
+            "She is young and very nice",
+            "She's young and very nice.",
+            "She's young and very nice",
+            "She is very nice and young.",
+            "She's very nice and young.",
+          ],
           hint: "Два прилагательных через and, и very стоит перед вторым.",
           why:
             "She is young and very nice. Very усиливает только nice — то слово, перед " +
@@ -1334,9 +1349,11 @@ const module: Module = {
           kind: "note",
           tone: "info",
           text:
+            // Обещание «научимся позже» стояло без адреса. Адрес есть: соединять
+            // предложения учит модуль 24. Нашёл методист.
             "Три коротких предложения лучше одного длинного. Собеседник успевает понять " +
-            "каждое, а ты не путаешься в порядке слов. Складывать несколько слов в одну " +
-            "длинную цепочку научимся позже.",
+            "каждое, а ты не путаешься в порядке слов. Соединять предложения в одно " +
+            "научимся в модуле «И, но, потому что».",
         },
         {
           id: "opisanie-cheloveka",
@@ -1394,7 +1411,11 @@ const module: Module = {
           prompt: "Сумка новая и очень дорогая. Запиши предложение целиком, начни с The bag.",
           answer: "The bag is new and very expensive.",
           exact: true,
-          accept: ["The bag is new and very expensive"],
+          accept: [
+            "The bag is new and very expensive",
+            "The bag is very expensive and new.",
+            "The bag is very expensive and new",
+          ],
           hint: "Два прилагательных через and, very перед вторым.",
           why:
             "The bag is new and very expensive. Форма be одна, and между прилагательными, " +
@@ -1441,7 +1462,13 @@ const module: Module = {
             "Дана — твоя преподавательница, она высокая и очень приятная. Запиши второе предложение описания, начни с She.",
           answer: "She is tall and very nice.",
           exact: true,
-          accept: ["She is tall and very nice", "She's tall and very nice.", "She's tall and very nice"],
+          accept: [
+            "She is tall and very nice",
+            "She's tall and very nice.",
+            "She's tall and very nice",
+            "She is very nice and tall.",
+            "She's very nice and tall.",
+          ],
           hint: "Начало уже сказано: This is Dana. She's my teacher.",
           why:
             "She is tall and very nice. Второй шаг описания говорит, какая она, и удобно " +
@@ -1605,11 +1632,18 @@ const module: Module = {
         id: "q-and-dva",
         kind: "short",
         outcome: "соединять два прилагательных словом and",
-        prompt: "Дом большой и новый. Запиши предложение целиком, начни с The house.",
-        answer: "The house is big and new.",
+        // Ответ «The house is big and new.» напечатан в уроке четыре раза: во
+        // вводном тексте, в таблице, во врезке об ошибке и в расшифровке записи.
+        // Ученик вспоминал строку, а не собирал её. Взята другая пара.
+        prompt: "Стол новый и дешёвый. Запиши предложение целиком, начни с The table.",
+        answer: "The table is new and cheap.",
         exact: true,
-        accept: ["The house is big and new"],
-        why: "The house is big and new. Форма be одна на оба прилагательных.",
+        accept: [
+          "The table is new and cheap",
+          "The table is cheap and new.",
+          "The table is cheap and new",
+        ],
+        why: "The table is new and cheap. Форма be одна на оба прилагательных.",
       },
       {
         id: "q-lishnyaya-be",
@@ -1639,7 +1673,11 @@ const module: Module = {
           "Комната очень маленькая и очень чистая. Усиль оба слова. Запиши предложение целиком, начни с The room.",
         answer: "The room is very small and very clean.",
         exact: true,
-        accept: ["The room is very small and very clean"],
+        accept: [
+          "The room is very small and very clean",
+          "The room is very clean and very small.",
+          "The room is very clean and very small",
+        ],
         why:
           "The room is very small and very clean. Very усиливает только то слово, перед " +
           "которым стоит, поэтому для обоих слов его пишут дважды.",
@@ -1662,11 +1700,18 @@ const module: Module = {
         id: "q-opisat-cheloveka-quiz",
         kind: "short",
         outcome: "описывать человека: tall, young, nice",
-        prompt: "Айгуль высокая и очень приятная. Запиши предложение целиком, начни с She.",
-        answer: "She is tall and very nice.",
+        // Ответ совпадал с урочным слово в слово: менялось одно имя. Взята другая
+        // пара прилагательных.
+        prompt: "Айгуль молодая и очень интересная. Запиши предложение целиком, начни с She.",
+        answer: "She is young and very interesting.",
         exact: true,
-        accept: ["She is tall and very nice", "She's tall and very nice.", "She's tall and very nice"],
-        why: "She is tall and very nice. Два прилагательных через and, very перед вторым.",
+        accept: [
+          "She is young and very interesting",
+          "She's young and very interesting.",
+          "She's young and very interesting",
+          "She is very interesting and young.",
+        ],
+        why: "She is young and very interesting. Два прилагательных через and, very перед вторым.",
       },
       {
         id: "q-nice-woman",
@@ -1710,10 +1755,12 @@ const module: Module = {
         kind: "order",
         outcome: "описывать предмет и человека тремя предложениями",
         prompt: "Расставь предложения так, чтобы вышло описание по шагам.",
-        items: ["It's black.", "It's a bag.", "It's new and very big."],
+        // Два предложения из трёх повторяли речевое задание урока дословно. Взяты
+        // другие прилагательные и другой цвет.
+        items: ["It's brown.", "It's a bag.", "It's old and very cheap."],
         answer: [1, 2, 0],
         why:
-          "It's a bag. It's new and very big. It's black. Сначала называют предмет, потом " +
+          "It's a bag. It's old and very cheap. It's brown. Сначала называют предмет, потом " +
           "говорят, какой он.",
       },
       {
