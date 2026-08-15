@@ -462,10 +462,13 @@ const module: Module = {
           id: "data-vsluh-pozzhe",
           kind: "note",
           tone: "info",
+          // Было «Они идут дальше в курсе» — обещание, которого курс не держит:
+          // порядковых числительных в нём нет ни одного, и место для них ещё не
+          // решено (п. 1.17 задач владельца). Обещать то, чего нет, нельзя.
           text:
             "Записать дату ты уже можешь, а прочитать её вслух — пока нет: для этого " +
-            "нужны особые формы чисел, вроде «пятое» вместо «пять». Они идут дальше в " +
-            "курсе. Пока называй месяц целиком: My birthday is in May.",
+            "нужны особые формы чисел, вроде «пятое» вместо «пять». Этому наш курс не " +
+            "учит. Пока называй месяц целиком: My birthday is in May.",
         },
         {
           id: "zapis-mesyacev",
@@ -1877,22 +1880,30 @@ const module: Module = {
         id: "q-vremya-ciframi",
         kind: "short",
         outcome: "называть половину и четверть часа",
-        prompt: "На часах 3:20. Запиши, который час: три слова.",
-        answer: "twenty past three",
-        accept: ["Twenty past three", "It's twenty past three.", "It's twenty past three"],
-        why: "Twenty past three. Двадцать минут прошли после трёх, значит past.",
+        // Время 3:20 в уроке уже разобрано с готовым ответом. Взято другое.
+        prompt: "На часах 5:25. Запиши, который час: три слова.",
+        answer: "twenty-five past five",
+        accept: [
+          "Twenty-five past five",
+          "It's twenty-five past five.",
+          "It's twenty-five past five",
+          "twenty five past five",
+        ],
+        why: "Twenty-five past five. Двадцать пять минут прошли после пяти, значит past.",
       },
       {
         id: "q-past-ili-to-quiz",
         kind: "choice",
         outcome: "называть половину и четверть часа",
-        prompt: "На часах 6:50. Какое слово нужно?",
+        // Время 6:50 разобрано в уроке вместе с ответом: ученик узнавал цифры,
+        // а не считал минуты. Взято другое.
+        prompt: "На часах 8:40. Какое слово нужно?",
         options: [
           { text: "past" },
           { text: "to", correct: true },
           { text: "o'clock" },
         ],
-        why: "Ten to seven. До семи осталось десять минут, значит to.",
+        why: "Twenty to nine. До девяти осталось двадцать минут, значит to.",
       },
       {
         id: "q-the-po-situacii",
@@ -1983,10 +1994,19 @@ const module: Module = {
         id: "q-sopostavit-predlogi-quiz",
         kind: "short",
         outcome: "ставить at, in или on перед словом о времени",
+        // Порядок кусков модуль нигде не задаёт, а «at nine on Sunday in June» —
+        // такой же верный английский. Условие теперь называет порядок прямо, и
+        // обратный тоже принимается. Нашёл методист.
         prompt:
-          "Занятие в июне, в воскресенье, в девять часов. Запиши три куска подряд, каждый со своим предлогом.",
+          "Занятие в июне, в воскресенье, в девять часов. Запиши три куска подряд, " +
+          "каждый со своим предлогом: сначала месяц, потом день, потом время.",
         answer: "in June on Sunday at nine",
-        accept: ["In June on Sunday at nine", "in June, on Sunday, at nine"],
+        accept: [
+          "In June on Sunday at nine",
+          "in June, on Sunday, at nine",
+          "at nine on Sunday in June",
+          "at nine, on Sunday, in June",
+        ],
         hint: "Три предлога, и каждый выбирает слово, которое идёт следом.",
         why:
           "In June on Sunday at nine. Месяц берёт in, день — on, точное время — at.",
@@ -2028,11 +2048,13 @@ const module: Module = {
         id: "q-sobrat-vopros-quiz",
         kind: "order",
         outcome: "спрашивать о дне и о времени: When и What time",
-        prompt: "Собери вопрос «во сколько занятие?». Заглавную букву поставишь сам.",
-        items: ["lesson", "time", "is", "what", "the"],
+        // Собирали ровно то предложение, что и в задании урока. Взято другое —
+        // о встрече.
+        prompt: "Собери вопрос «во сколько встреча?». Заглавную букву поставишь сам.",
+        items: ["meeting", "time", "is", "what", "the"],
         answer: [3, 1, 2, 4, 0],
         why:
-          "What time is the lesson? Сначала сам вопрос — what time, — потом форма be, " +
+          "What time is the meeting? Сначала сам вопрос — what time, — потом форма be, " +
           "потом то, о чём спрашивают.",
       },
       {
