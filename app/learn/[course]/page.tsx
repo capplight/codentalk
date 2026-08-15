@@ -104,7 +104,29 @@ export default async function CoursePage({ params }: Params) {
   const all = lessonsInOrder(course);
   // «Продолжить» — первый непройденный урок по порядку, а не последний открытый:
   // если человек из любопытства заглянул вперёд, возвращать его туда неправильно.
-  const current = all.find((entry) => !done.has(entry.lesson.slug))?.lesson.slug;
+  const currentEntry = all.find((entry) => !done.has(entry.lesson.slug));
+  const current = currentEntry?.lesson.slug;
+
+  // Модуль, в котором человек сейчас: по нему решается, какую часть раскрыть.
+  const currentModule = currentEntry?.module.slug;
+
+  /*
+   * Модули, разложенные по частям.
+   *
+   * Проверка check:content следит, чтобы части покрывали все модули ровно по
+   * разу, поэтому здесь можно не бояться, что модуль потеряется. Курс без
+   * частей отдаёт одну группу без заголовка — так короткие курсы не обрастают
+   * лишней рамкой.
+   */
+  const byName = new Map(course.modules.map((module) => [module.slug, module]));
+  const groups = course.parts?.length
+    ? course.parts.map((part) => ({
+        part,
+        modules: part.modules
+          .map((name) => byName.get(name))
+          .filter((module): module is NonNullable<typeof module> => module !== undefined),
+      }))
+    : [{ part: null, modules: course.modules }];
 
   const totalMinutes = all.reduce((sum, entry) => sum + entry.lesson.estimatedMinutes, 0);
 
@@ -120,8 +142,36 @@ export default async function CoursePage({ params }: Params) {
         </span>
       </div>
 
+      {/*
+        Одна строка для вернувшегося: куда идти дальше. Раньше её не было, и
+        человек, вернувшийся через неделю, искал своё место глазами по всему
+        списку.
+      */}
+      {current && (
+        <p className={s.resume}>
+          <Link className="btn" href={`/learn/${course.slug}/${currentEntry?.lesson.slug}`}>
+            {done.size === 0 ? "Начать с первого урока" : "Продолжить"}
+          </Link>
+          <span className={s.resumeWhere}>
+            {currentEntry?.module.title} · {currentEntry?.lesson.title}
+          </span>
+        </p>
+      )}
+
       <div className={s.modules}>
-        {course.modules.map((module, index) => {
+        {groups.map((group) => {
+          // Раскрыта та часть, где человек сейчас. Если курс пройден целиком —
+          // последняя: возвращаться логичнее туда, где остановился.
+          const openGroup =
+            group.part === null ||
+            (currentModule
+              ? group.modules.some((m) => m.slug === currentModule)
+              : group === groups[groups.length - 1]);
+          const partLessons = group.modules.flatMap((m) => m.lessons);
+          const partDone = partLessons.filter((lesson) => done.has(lesson.slug)).length;
+
+          const body = group.modules.map((module) => {
+          const index = course.modules.indexOf(module);
           const lessonsDone = module.lessons.filter((lesson) => done.has(lesson.slug)).length;
           const moduleReady = lessonsDone === module.lessons.length;
           const asked = module.quiz.ask ?? module.quiz.questions.length;
@@ -189,6 +239,30 @@ export default async function CoursePage({ params }: Params) {
                 </span>
               </div>
             </section>
+          );
+          });
+
+          // Курс без частей (например, из одного модуля) показывается плоско:
+          // сворачивать там нечего.
+          if (group.part === null) return <div key="vse">{body}</div>;
+
+          return (
+            <details className={s.part} key={group.part.slug} open={openGroup}>
+              <summary className={s.partHead}>
+                <span className={s.partTitle}>{group.part.title}</span>
+                {group.part.tagline && (
+                  <span className={s.partTagline}>{group.part.tagline}</span>
+                )}
+                <span className={s.partMeta}>
+                  {group.modules.length}{" "}
+                  {plural(group.modules.length, "модуль", "модуля", "модулей")} ·{" "}
+                  {partDone === partLessons.length
+                    ? "пройдена"
+                    : `${partDone} из ${partLessons.length} уроков`}
+                </span>
+              </summary>
+              <div className={s.partBody}>{body}</div>
+            </details>
           );
         })}
       </div>

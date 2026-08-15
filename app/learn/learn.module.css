@@ -26,6 +26,107 @@
   color: var(--ink-soft);
 }
 
+/* ---------- части курса ----------
+ *
+ * Двадцать пять модулей одной цепочкой не читаются: чтобы дойти до
+ * двадцатого, надо проскроллить девятнадцать. Части сворачиваются, раскрыта
+ * та, где человек сейчас.
+ *
+ * Сделано на <details>: работает без единой строки на стороне браузера,
+ * открывается клавиатурой и не ломается, если разметка загрузилась, а код нет.
+ */
+.part {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-l);
+  box-shadow: var(--shadow-1);
+  overflow: hidden;
+}
+
+.partHead {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: baseline;
+  gap: var(--space-2) var(--space-4);
+  padding: var(--space-5);
+  cursor: pointer;
+  list-style: none;
+}
+
+/* Стрелка у <details> по умолчанию рисуется браузером и выглядит в каждом
+   по-своему. Своя — одинаковая везде. */
+.partHead::-webkit-details-marker {
+  display: none;
+}
+
+.partHead::after {
+  content: "";
+  grid-column: 2;
+  grid-row: 1;
+  width: 10px;
+  height: 10px;
+  border-right: 2px solid var(--ink-soft);
+  border-bottom: 2px solid var(--ink-soft);
+  transform: rotate(45deg) translate(-2px, -2px);
+  transition: transform var(--dur-fast) var(--ease-out);
+}
+
+.part[open] .partHead::after {
+  transform: rotate(-135deg) translate(-2px, -2px);
+}
+
+.partTitle {
+  grid-column: 1;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--step-1);
+  letter-spacing: var(--track-head);
+}
+
+.partTagline {
+  grid-column: 1;
+  grid-row: 2;
+  color: var(--ink-soft);
+  font-size: var(--step-0);
+}
+
+.partMeta {
+  grid-column: 1;
+  grid-row: 3;
+  color: var(--ink-soft);
+  font-size: var(--step--1);
+}
+
+.partBody {
+  padding: 0 var(--space-5) var(--space-5);
+  display: grid;
+  gap: var(--space-5);
+}
+
+/* Внутри части модуль уже не нуждается в собственной рамке: она бы дала
+   рамку в рамке. */
+.partBody .module {
+  border: 0;
+  border-top: 1px solid var(--line);
+  border-radius: 0;
+  box-shadow: none;
+  padding: var(--space-5) 0 0;
+}
+
+/* ---------- где я остановился ---------- */
+.resume {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-3) var(--space-4);
+  margin: 0 0 var(--space-6);
+}
+
+.resumeWhere {
+  color: var(--ink-soft);
+  font-size: var(--step-0);
+}
+
 .modules {
   display: flex;
   flex-direction: column;

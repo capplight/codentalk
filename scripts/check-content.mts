@@ -637,6 +637,38 @@ function checkCourse(course: Course): void {
     checkModule(mod, `${where} → ${mod.slug}`);
   }
 
+  /*
+   * Части курса обязаны покрывать все модули и ровно по разу.
+   *
+   * Ошибка тут не видна глазом: модуль, забытый в частях, просто исчезает со
+   * страницы, а модуль, попавший в две части, показывается дважды. И то и
+   * другое легко сделать при добавлении нового модуля — список частей лежит в
+   * другом месте файла, и про него забывают.
+   */
+  if (course.parts && course.parts.length > 0) {
+    const vChastyah = new Map<string, number>();
+    const imenaChastey = new Set<string>();
+    for (const part of course.parts) {
+      if (imenaChastey.has(part.slug)) fail(where, `имя части «${part.slug}» повторяется`);
+      imenaChastey.add(part.slug);
+      if (part.modules.length === 0) fail(where, `в части «${part.title}» нет модулей`);
+      for (const name of part.modules) {
+        vChastyah.set(name, (vChastyah.get(name) ?? 0) + 1);
+        if (!slugs.has(name)) {
+          fail(where, `часть «${part.title}» называет модуль «${name}», которого в курсе нет`);
+        }
+      }
+    }
+    for (const mod of course.modules) {
+      const skolko = vChastyah.get(mod.slug) ?? 0;
+      if (skolko === 0) {
+        fail(where, `модуль «${mod.slug}» не попал ни в одну часть — на странице курса его не будет`);
+      } else if (skolko > 1) {
+        fail(where, `модуль «${mod.slug}» стоит в ${skolko} частях сразу`);
+      }
+    }
+  }
+
   // Итоговый экзамен: то же, что у проверочной работы, но охват — весь курс.
   // Экзамен, спрашивающий про половину умений, выдавал бы ступень за половину
   // курса, а на нём держится сертификат.

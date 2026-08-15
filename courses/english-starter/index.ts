@@ -75,6 +75,71 @@ const course: Course = {
     iNoPotomuChto,
     vcheraIZavtra,
   ],
+
+  /*
+   * Части курса. Взяты из программы (docs/programma-english-starter.md) без
+   * изменений: там они были с самого начала как методическое решение
+   * владельца, и страница модулей теперь их показывает.
+   *
+   * Проверочные работы частей программа тоже называет — они пишутся отдельно
+   * и появятся в поле quiz. Пока их нет, страница про них не обещает ничего:
+   * обещание, за которым пусто, хуже честного молчания.
+   */
+  parts: [
+    {
+      slug: "ya-i-drugie",
+      title: "Я и другие",
+      tagline: "Назвать себя, спросить о другом, ответить и возразить",
+      modules: [
+        "alfavit",
+        "privetstvie",
+        "rasskaz-o-sebe",
+        "vopros-i-otvet",
+        "ne-tak",
+        "chto-eto-takoe",
+        "moi-veshchi",
+      ],
+    },
+    {
+      slug: "mir-vokrug",
+      title: "Мир вокруг",
+      tagline: "Считать, называть время и цену, описывать вещи и место",
+      modules: [
+        "odin-i-mnogo",
+        "chisla-vozrast-cena",
+        "dni-daty-vremya",
+        "kakoy-on",
+        "gde-eto",
+        "zdes-est",
+      ],
+    },
+    {
+      slug: "kazhdyy-den",
+      title: "Каждый день",
+      tagline: "Рассказать о делах, спросить о чужих и сказать, что умеешь",
+      modules: [
+        "chto-ya-delayu",
+        "ya-ne-delayu",
+        "sprosit-o-delah",
+        "kak-chasto",
+        "pryamo-seychas",
+        "ya-umeyu",
+      ],
+    },
+    {
+      slug: "dela-i-razgovory",
+      title: "Дела и разговоры",
+      tagline: "Просить, покупать, объяснять причину и говорить о вчера и завтра",
+      modules: [
+        "pro-nego-i-pro-nih",
+        "mne-nravitsya",
+        "prosby-i-ukazaniya",
+        "v-magazine-i-kafe",
+        "i-no-potomu-chto",
+        "vchera-i-zavtra",
+      ],
+    },
+  ],
 };
 
 export default course;
