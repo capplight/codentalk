@@ -434,6 +434,18 @@ const module: Module = {
           ],
         },
         {
+          // Артикль the в модуле не преподаётся, но и молчать о нём нельзя: ученик
+          // встретит его в первом же английском тексте. Адрес настоящий — урок
+          // «A и the» стоит в модуле 10. Нашёл методист вторым проходом.
+          id: "est-i-tretiy",
+          kind: "note",
+          tone: "info",
+          text:
+            "Артиклей в английском не два, а три: кроме a и an есть the. Он значит " +
+            "другое — «тот самый», о котором уже речь. Разберём его в модуле про дни " +
+            "и время, в уроке «A и the». Пока хватит a и an.",
+        },
+        {
           id: "tablica-a-an",
           kind: "table",
           caption: "Когда a, когда an",
@@ -649,7 +661,10 @@ const module: Module = {
             { term: "doctor", translation: "врач", example: "He's a doctor.", hint: "/ˈdɒktə/" },
             { term: "driver", translation: "водитель", example: "He's a driver.", hint: "/ˈdraɪvə/" },
             { term: "nurse", translation: "медсестра, медбрат", example: "She's a nurse.", hint: "/nɜːs/" },
-            { term: "job", translation: "работа, занятие", example: "a job at a school", hint: "/dʒɒb/" },
+            // Пример был «a job at a school»: предлог at курс объясняет только в
+            // модуле 10, а здесь он стоял без разбора. Взято предложение из уже
+            // разобранного.
+            { term: "job", translation: "работа, занятие", example: "What's your job?", hint: "/dʒɒb/" },
           ],
         },
 
@@ -1470,12 +1485,15 @@ const module: Module = {
         kind: "choice",
         outcome: "называть своё занятие: I'm a doctor, I'm a student",
         prompt: "В какой строке артикль лишний?",
+        // Прежние отвлекающие варианты повторяли урочные, а «It's a city.» стояло
+        // в обоих местах знак в знак. Взяты другие предложения, притом одно — с
+        // названием города, чтобы разница между именем и занятием была видна.
         options: [
-          { text: "She's a doctor." },
-          { text: "It's a city." },
-          { text: "He's a Alim.", correct: true },
+          { text: "I'm a student." },
+          { text: "He's an artist." },
+          { text: "She's a Dana.", correct: true },
         ],
-        why: "Перед именем a не ставят: правильно He's Alim.",
+        why: "Перед именем a не ставят: правильно She's Dana. Артикль нужен занятию, а не человеку.",
       },
     ],
   },
