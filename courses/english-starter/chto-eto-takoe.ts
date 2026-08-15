@@ -10,7 +10,12 @@ import type { Module } from "@/lib/content/types";
  * ЧТО ЗДЕСЬ СВЕРХ СТУПЕНИ — А ЭТО БОЛЬШЕ, ЧЕМ ОБЕЩАЕТ ПРОГРАММА:
  *
  * Программа помечает «сверх A1» только `what`. На деле опор у модуля шесть, и
- * пять из них выше ступени. Проверено построчно по English Grammar Profile:
+ * четыре из них выше ступени. Проверено построчно по English Grammar Profile.
+ *
+ * ПЯТЫМ ЗДЕСЬ СТОЯЛ ВОПРОС «Is this a key?», и это было неверно: ровно та же
+ * конструкция стоит на A1 в графе CLAUSES interrogatives, и на ней держится
+ * весь модуль 4. Выходило, что один вопрос у нас на двух ступенях сразу.
+ * Нашёл методист вторым проходом.
  *
  *   1. `this` + существительное в единственном числе — A1. Единственное, что
  *      здесь своей ступени.
@@ -19,8 +24,7 @@ import type { Module } from "@/lib/content/types";
  *   3. `this` и `that` как самостоятельные слова, без существительного
  *      («What is this?») — A2, PRONOUNS demonstratives.
  *   4. Вопрос вида «What is this?» — A2, QUESTIONS wh- «FORM: MAIN VERB 'BE'».
- *   5. Вопрос вида «Is this a key?» — A2, QUESTIONS yes/no, тот же guideword.
- *   6. `money` без артикля — A2 по NOUNS uncountable, но проходит по A1
+ *   5. `money` без артикля — A2 по NOUNS uncountable, но проходит по A1
  *      «FORM/USE: NO ARTICLE». Даётся как одно исключение, а не как разряд слов.
  *
  * Взято по решению 1 программы, тем же основанием, что вопросительные слова:
@@ -54,12 +58,21 @@ const module: Module = {
         "СВЕРХ СТУПЕНИ, ПЯТЬ ПУНКТОВ: " +
         "A2, DETERMINERS demonstratives «FORM: 'THAT'»: «Can use 'that' with singular nouns» " +
         "и «USE: 'THAT', POINTING». " +
-        "A2, PRONOUNS demonstratives «FORM: 'THIS'» и «USE: 'THAT', ALREADY MENTIONED» — " +
-        "употребление this и that без существительного. " +
+        "A2, PRONOUNS demonstratives «FORM: 'THIS'» и «FORM: 'THAT'»: «Can use 'that' as a " +
+        "pronoun with singular reference», пример источника — «That was amazing» — " +
+        "употребление this и that без существительного. ПРЕЖНЯЯ РЕДАКЦИЯ ссылалась здесь " +
+        "на «USE: 'THAT', ALREADY MENTIONED», а та графа о другом: о возврате к уже " +
+        "названному («You know that blue is my favourite colour… we are going to use that»). " +
+        "Урок этому не учит, он различает this и that по расстоянию. Графу поправил " +
+        "методист. " +
         "A2, QUESTIONS wh- «FORM: MAIN VERB 'BE'»: «Can use 'wh-'words + main verb 'be' + " +
         "subject to form 'wh-' questions». " +
-        "A2, QUESTIONS yes/no «FORM: MAIN VERB 'BE'»: «Can use main verb 'be' + subject to " +
-        "form 'yes/no' questions» — на этом стоит урок 7 (Is this a key?). " +
+        "ВОПРОС ВИДА Is this a key СВЕРХ СТУПЕНИ НЕ ИДЁТ, и прежняя редакция считала иначе. " +
+        "Она ссылалась на A2, QUESTIONS yes/no «FORM: MAIN VERB 'BE'» — но ровно эта же " +
+        "конструкция стоит и на A1: CLAUSES interrogatives «FORM: AFFIRMATIVE " +
+        "INTERROGATIVE, WITH 'BE'»: «Can form interrogative clauses with 'be'». На этой " +
+        "A1-строке стоит весь модуль 4, и получалось, что один и тот же вопрос у нас на " +
+        "двух ступенях сразу. Держимся A1-строки, как модуль 4. Нашёл методист. " +
         "A2, NOUNS uncountable «FORM: UNCOUNTABLE NOUNS» — слово money без артикля. Смягчает " +
         "дело A1, DETERMINERS articles «FORM/USE: NO ARTICLE»: «Can use no article before a " +
         "limited range of singular, plural and uncountable nouns when referring to things in " +
@@ -1274,11 +1287,13 @@ const module: Module = {
         id: "q-otvetit-o-knige",
         kind: "gap",
         outcome: "спрашивать «что это» и отвечать: What is this? — It's a book",
-        prompt: "«What's that?» Вдалеке телефон. Допиши ответ.",
+        // Было про телефон — тот же предмет и тот же вид задания, что в уроке,
+        // разница только в this/that. Взят предмет, которого в заданиях не было.
+        prompt: "«What's that?» Вдалеке картина. Допиши ответ.",
         before: "It's a ",
         after: ".",
-        answer: "phone",
-        why: "It's a phone. Отвечают через it, каким бы словом ни спросили.",
+        answer: "picture",
+        why: "It's a picture. Отвечают через it, каким бы словом ни спросили.",
       },
       {
         id: "q-this-ili-that",
@@ -1293,12 +1308,13 @@ const module: Module = {
         kind: "choice",
         outcome: "различать this и that: близко и далеко",
         prompt: "В какой строке лишнее слово?",
+        // Две строки из трёх повторяли задание урока дословно. Взяты другие предметы.
         options: [
-          { text: "that car" },
-          { text: "this book" },
-          { text: "this a pen", correct: true },
+          { text: "that bus" },
+          { text: "this table" },
+          { text: "this a key", correct: true },
         ],
-        why: "«This a pen» — между this и названием предмета a не ставят. Правильно: this pen.",
+        why: "«This a key» — между this и названием предмета a не ставят. Правильно: this key.",
       },
       {
         id: "q-sumka-po-angliyski",
@@ -1352,49 +1368,59 @@ const module: Module = {
         id: "q-dengi-bez-artiklya",
         kind: "choice",
         outcome: "называть то, что вокруг на улице",
-        prompt: "В какой строке про деньги сказано верно?",
+        // Вопрос был полным клоном задания урока: то же условие и те же три
+        // строки. И один вариант был выдуманным: «an money» не пишет никто —
+        // money начинается с согласного, а правило про an ученик знает с модуля 3.
+        // Настоящая ошибка здесь другая: неисчисляемое считают как обычное слово.
+        prompt: "Ты показываешь на деньги в витрине. Как сказать верно?",
         options: [
           { text: "It's a money." },
-          { text: "It's an money." },
+          { text: "It's moneys." },
           { text: "It's money.", correct: true },
         ],
-        why: "It's money. Перед money артикль не ставят.",
+        why:
+          "It's money. Перед money артикль не ставят, и во множественное число его " +
+          "тоже не ставят: деньги не считают по штукам.",
       },
       {
         id: "q-popravit-predmet",
         kind: "short",
         outcome: "говорить, что предмет не тот, и называть верный: It isn't a pen, it's a key",
-        prompt: "Собеседник сказал: «It's a bus.» На самом деле это машина. Возрази и назови верное — два предложения.",
-        answer: "It isn't a bus. It's a car.",
+        // Пара «автобус — машина» стояла в модуле трижды: в таблице примеров, в
+        // задании на сборку и здесь. Взята другая пара, из мебели.
+        prompt: "Собеседник сказал: «It's a chair.» На самом деле это стол. Возрази и назови верное — два предложения.",
+        answer: "It isn't a chair. It's a table.",
         exact: true,
         accept: [
-          "It isn't a bus. It's a car",
-          "It is not a bus. It is a car.",
-          "It is not a bus. It is a car",
+          "It isn't a chair. It's a table",
+          "It is not a chair. It is a table.",
+          "It is not a chair. It is a table",
         ],
-        why: "It isn't a bus. It's a car. Два шага, и артикль a в обоих предложениях.",
+        why: "It isn't a chair. It's a table. Два шага, и артикль a в обоих предложениях.",
       },
       {
         id: "q-poterya-a-v-otricanii",
         kind: "choice",
         outcome: "говорить, что предмет не тот, и называть верный: It isn't a pen, it's a key",
         prompt: "В какой строке потерялось короткое слово?",
+        // Все три строки были взяты из задания урока. Взяты другие предметы.
         options: [
-          { text: "It isn't a map." },
-          { text: "It isn't pen.", correct: true },
-          { text: "It's a key." },
+          { text: "It isn't a bag." },
+          { text: "It isn't box.", correct: true },
+          { text: "It's a chair." },
         ],
-        why: "«It isn't pen» — без a. Артикль нужен и в отрицании тоже.",
+        why: "«It isn't box» — без a. Артикль нужен и в отрицании тоже.",
       },
       {
         id: "q-vopros-o-predmete",
         kind: "short",
         outcome: "спрашивать о предмете с be и коротко отвечать",
-        prompt: "Проверь догадку о предмете вдалеке: спроси, автобус ли это. Запиши вопрос целиком.",
-        answer: "Is that a bus?",
+        // Автобус вдалеке уже был в задании урока с тем же вопросом. Взят магазин.
+        prompt: "Проверь догадку о доме вдалеке: спроси, магазин ли это. Запиши вопрос целиком.",
+        answer: "Is that a shop?",
         exact: true,
-        accept: ["Is that a bus"],
-        why: "Is that a bus? Форма be впереди, вдалеке — значит that.",
+        accept: ["Is that a shop"],
+        why: "Is that a shop? Форма be впереди, вдалеке — значит that.",
       },
       {
         id: "q-kratkiy-otvet-o-predmete",
