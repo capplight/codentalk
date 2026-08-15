@@ -554,10 +554,14 @@ const module: Module = {
           id: "sorry-pered-popravkoy",
           kind: "note",
           tone: "info",
+          // Здесь стояло: «Здесь оно не извинение за проступок, а смягчение
+          // возражения». Это утверждение о том, КАК ГОВОРЯТ, а такие у нас бывают
+          // только трёх родов: решение владельца, выписка из открытого источника
+          // или их нет вовсе. В docs/istochniki-vezhlivost.md о sorry нет ничего —
+          // искал методист и искал я. Убрано до слова владельца, вопрос 1.30.
           text:
             "Перед поправкой можно поставить sorry — слово из модуля про приветствие. " +
-            "Sorry, I'm not a doctor. I'm a nurse. Здесь оно не извинение за проступок, а " +
-            "смягчение возражения.",
+            "Sorry, I'm not a doctor. I'm a nurse.",
         },
         {
           id: "primer-popravki-v-razgovore",
@@ -1310,16 +1314,19 @@ const module: Module = {
         kind: "hottext",
         outcome: "строить отрицание, поставив not после формы be",
         prompt: "Отметь строки, где not стоит не на своём месте.",
+        // В уроке ошибочными были первая и третья строки — и здесь стояли те же
+        // места, только с другими занятиями. Ученик отмечал по счёту, не читая.
+        // Теперь ошибки на втором и четвёртом месте, и одна из них с they.
         parts: [
+          { text: "He is not in Almaty.", selectable: true },
+          { text: " · " },
           { text: "She not is a teacher.", selectable: true, correct: true },
           { text: " · " },
-          { text: "They are not from Spain.", selectable: true },
+          { text: "We are not from Spain.", selectable: true },
           { text: " · " },
-          { text: "I not am a driver.", selectable: true, correct: true },
-          { text: " · " },
-          { text: "He is not in Almaty.", selectable: true },
+          { text: "They not are in Rome.", selectable: true, correct: true },
         ],
-        why: "Not идёт после формы be: she is not, I am not. В двух строках он встал перед ней.",
+        why: "Not идёт после формы be: she is not, they are not. В двух строках он встал перед ней.",
       },
       {
         id: "q-sobrat-otricanie",
@@ -1366,35 +1373,42 @@ const module: Module = {
         kind: "choice",
         outcome: "различать no и not и ставить каждое на своё место",
         prompt: "В какой строке слова перепутаны местами?",
+        // Строка «I am no a doctor.» стояла точно так же в задании урока. Взята
+        // другая пара: путаница та же, слова другие.
         options: [
-          { text: "No, I'm not." },
-          { text: "I am no a doctor.", correct: true },
-          { text: "She is not a nurse." },
+          { text: "No, she isn't." },
+          { text: "He is no a student.", correct: true },
+          { text: "They are not in Astana." },
         ],
-        why: "«I am no a doctor» — внутри предложения нужен not. Правильно: I am not a doctor.",
+        why: "«He is no a student» — внутри предложения нужен not. Правильно: He is not a student.",
       },
       {
         id: "q-popravit-dvumya-shagami",
         kind: "short",
         outcome: "поправлять собеседника: говорить, что не так и как на самом деле",
-        prompt: "Собеседник сказал: «You are a driver.» Ты преподаватель. Возрази и скажи, как есть, — два предложения.",
-        answer: "I'm not a driver. I'm a teacher.",
+        // Пара «водитель — преподаватель» уже дважды показана в модуле целиком,
+        // вместе с готовым ответом. Взята другая пара, притом со вторым занятием
+        // на гласный звук: заодно проверяется an.
+        prompt: "Собеседник сказал: «You are a doctor.» Ты художник. Возрази и скажи, как есть, — два предложения.",
+        answer: "I'm not a doctor. I'm an artist.",
         exact: true,
         accept: [
-          "I'm not a driver. I'm a teacher",
-          "I am not a driver. I am a teacher.",
-          "I am not a driver. I am a teacher",
+          "I'm not a doctor. I'm an artist",
+          "I am not a doctor. I am an artist.",
+          "I am not a doctor. I am an artist",
         ],
-        why: "I'm not a driver. I'm a teacher. В первом предложении ты не соглашаешься, во втором называешь своё занятие.",
+        why: "I'm not a doctor. I'm an artist. В первом предложении ты не соглашаешься, во втором называешь своё занятие.",
       },
       {
         id: "q-nezakonchennaya-popravka",
         kind: "choice",
         outcome: "поправлять собеседника: говорить, что не так и как на самом деле",
         prompt: "Какая поправка закончена?",
+        // Верный вариант был дословным ответом задания урока. Взяты другие
+        // занятия, а неполный вариант оставлен настоящим: так поправку и обрывают.
         options: [
-          { text: "She isn't a doctor. She's a nurse.", correct: true },
-          { text: "She isn't a doctor." },
+          { text: "He isn't a student. He's a teacher.", correct: true },
+          { text: "He isn't a student." },
           { text: "Sorry." },
         ],
         why:
@@ -1423,16 +1437,15 @@ const module: Module = {
       },
       {
         id: "q-prav-ili-net",
-        kind: "choice",
+        kind: "short",
         outcome: "говорить, прав собеседник или нет: You're right, You're wrong",
-        prompt: "Собеседник ошибся. Какие два отклика годятся?",
-        multiple: true,
-        options: [
-          { text: "You're wrong.", correct: true },
-          { text: "You're right." },
-          { text: "You aren't right.", correct: true },
-        ],
-        why: "Об ошибке говорят и You're wrong, и You aren't right. You're right — наоборот, согласие.",
+        // Было узнавание из трёх откликов — ровно тех же трёх, что в двух заданиях
+        // урока. Три отклика в модуле только эти, других взять неоткуда, поэтому
+        // сменён не набор, а сама работа: теперь отклик надо произвести.
+        prompt: "Собеседник угадал верно. Скажи ему об этом — со словом right.",
+        answer: "You're right.",
+        accept: ["You are right.", "You're right", "You are right"],
+        why: "You're right. Согласие говорят через right, а об ошибке — через wrong или aren't right.",
       },
       {
         id: "q-vozrazit-cherez-otricanie",
@@ -1448,38 +1461,48 @@ const module: Module = {
         id: "q-otvet-s-utochneniem",
         kind: "short",
         outcome: "отвечать на вопрос отрицанием и уточнять",
-        prompt: "«Are you a student?» Ты преподаватель. Ответь коротко и уточни — два предложения.",
-        answer: "No, I'm not. I'm a teacher.",
+        // Пара «студент — преподаватель» стоит в уроке образцом полного ответа
+        // целиком. Сценарий сменён на место вместо занятия.
+        prompt: "«Are you in Astana?» Ты в Алматы. Ответь коротко и уточни — два предложения.",
+        answer: "No, I'm not. I'm in Almaty.",
         exact: true,
         accept: [
-          "No, I'm not. I'm a teacher",
-          "No, I am not. I am a teacher.",
-          "No, I am not. I am a teacher",
+          "No, I'm not. I'm in Almaty",
+          "No, I am not. I am in Almaty.",
+          "No, I am not. I am in Almaty",
         ],
-        why: "No, I'm not. I'm a teacher. Сначала короткий отклик на вопрос, потом отдельная мысль о занятии.",
+        why: "No, I'm not. I'm in Almaty. Сначала короткий отклик на вопрос, потом отдельная мысль о месте.",
       },
       {
         id: "q-slipshiesya-predlozheniya",
         kind: "choice",
         outcome: "отвечать на вопрос отрицанием и уточнять",
         prompt: "В какой строке два предложения слиплись в одно?",
+        // Слипшаяся строка была дословно взята из задания урока. Взята другая, с
+        // занятиями вместо мест.
         options: [
           { text: "No, she isn't. She's from Spain." },
-          { text: "No, I'm not. I'm a nurse." },
-          { text: "No, he isn't in Rome in Almaty.", correct: true },
+          { text: "No, he isn't. He's in Rome." },
+          { text: "No, I'm not a nurse a doctor.", correct: true },
         ],
         why:
-          "«No, he isn't in Rome in Almaty» — два сообщения без точки. Должно быть: " +
-          "No, he isn't in Rome. He's in Almaty.",
+          "«No, I'm not a nurse a doctor» — два сообщения без точки. Должно быть: " +
+          "No, I'm not a nurse. I'm a doctor.",
       },
       {
         id: "q-sobrat-razgovor-vozrazheniya",
         kind: "order",
         outcome: "вести разговор, в котором возражаешь и поправляешь собеседника",
         prompt: "Расставь реплики по порядку.",
-        items: ["Sorry, I'm not Dana. I'm Aigul.", "Are you Dana?", "Nice to meet you, Aigul."],
+        // Первые две реплики повторяли урочный разговор слово в слово. Взят другой:
+        // ошибается не в имени, а в занятии, и поправку возвращают вопросом.
+        items: [
+          "No, I'm not. I'm from Italy.",
+          "Hello! Are you from Spain?",
+          "Sorry! Nice to meet you.",
+        ],
         answer: [1, 0, 2],
-        why: "Догадка, поправка в два шага, вежливая концовка.",
+        why: "Приветствие с догадкой, поправка в два шага, отклик на поправку.",
       },
       {
         id: "q-popravit-i-vernut-vopros",
