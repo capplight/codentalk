@@ -150,12 +150,30 @@ export default function CourseArt({ id, title }: Props) {
         </Flag>
       );
     case "ar":
+      /*
+       * Флаг Саудовской Аравии — решение владельца: это страна литературного
+       * арабского, а нейтрального флага у языка нет.
+       *
+       * Надпись набрана настоящим текстом, а не срисована линиями. На флаге
+       * стоит шахада — исповедание веры, и рисовать вместо неё волнистую
+       * закорючку «под арабскую вязь» было бы неуважительно. На мелком размере
+       * текст всё равно читается как узор, но это настоящий текст.
+       */
       return (
         <Flag title={title}>
-          <rect width="60" height="13.4" fill="#000" />
-          <rect y="13.4" width="60" height="13.2" fill="#fff" />
-          <rect y="26.6" width="60" height="13.4" fill="#007A3D" />
-          <path d="M0 0 L26 20 L0 40 z" fill="#CE1126" />
+          <rect width="60" height="40" fill="#006C35" />
+          <text
+            x="30"
+            y="17"
+            textAnchor="middle"
+            fill="#fff"
+            fontSize="7"
+            fontFamily="'Segoe UI', 'Noto Naskh Arabic', 'Traditional Arabic', serif"
+          >
+            لا إله إلا الله
+          </text>
+          <path d="M12 26 H45 M45 26 l-4 -2.4 M45 26 l-4 2.4" stroke="#fff" strokeWidth="1.6" />
+          <rect x="8" y="24.4" width="4.5" height="3.2" rx="1" fill="#fff" />
         </Flag>
       );
 
