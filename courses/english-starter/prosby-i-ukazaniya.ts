@@ -130,7 +130,10 @@ const module: Module = {
     },
     {
       ref: "Oxford 3000",
-      section: "новые слова модуля с пометкой A1: party n. A1, thanks exclam., n. A1",
+      section:
+        "новое слово модуля с пометкой A1: party n. A1. Слово thanks (exclam., n. A1) " +
+        "введено ещё в модуле 2 и здесь карточкой не повторяется — прежде повторялось, " +
+        "с тем же переводом, примером и произношением. Нашёл методист",
       license: "внутреннее использование",
     },
     {
@@ -158,7 +161,7 @@ const module: Module = {
     "просить: Can you help?",
     "спрашивать разрешения: Can I sit here?",
     "приглашать: Would you like to come?",
-    "отвечать на приглашение: Yes, please",
+    "отвечать на предложение и на приглашение: Yes, please. Yes, I'd like to.",
     "вести разговор с просьбой целиком",
   ],
 
@@ -233,7 +236,6 @@ const module: Module = {
           caption: "Слова урока",
           items: [
             { term: "party", translation: "вечеринка", example: "Come to my party.", hint: "/ˈpɑːti/" },
-            { term: "thanks", translation: "спасибо", example: "Thanks!", hint: "/θæŋks/" },
           ],
         },
 
@@ -507,8 +509,11 @@ const module: Module = {
           kind: "note",
           tone: "info",
           text:
-            "То же слово годится и в вопросе-просьбе: Can you help, please?\n\nЧаще " +
-            "всего его ставят в конец, но встречается и «Can you please help?».",
+            // Было «чаще всего его ставят в конец» — утверждение о частоте, а
+            // частотности наши источники не дают вовсе. Осталось место и второй
+            // возможный порядок, без счёта, где чего больше.
+            "То же слово годится и в вопросе-просьбе: Can you help, please?\n\nМесто у " +
+            "него в конце, а второе — перед глаголом: «Can you please help?».",
         },
 
         // ---- задания ----
@@ -856,7 +861,10 @@ const module: Module = {
           kind: "explain",
           text: [
             "У тебя вечеринка, и ты зовёшь друга.",
-            "Указание «Come to my party» звучит как приказ, а приглашение — это " +
+            // Слово «приказ» модуль уже заменил в двух местах на «прямо» — так
+            // говорит источник. Здесь и ещё в двух местах оно осталось: правка
+            // была не доведена. Нашёл методист.
+            "Указание «Come to my party» звучит прямо, а приглашение — это " +
               "предложение, от которого можно отказаться.",
             "Для него берут оборот из модуля «Мне нравится», но вопросом: Would you " +
               "like to come?",
@@ -986,7 +994,7 @@ const module: Module = {
       slug: "otvet-na-priglashenie",
       title: "Ответ на приглашение: Yes, please",
       estimatedMinutes: 12,
-      outcome: "отвечать на приглашение: Yes, please",
+      outcome: "отвечать на предложение и на приглашение: Yes, please. Yes, I'd like to.",
 
       blocks: [
         {
@@ -1014,11 +1022,13 @@ const module: Module = {
           id: "yes-please-i-no-thank-you",
           kind: "explain",
           text: [
+            // Было «одним словом Yes не принято: фраза звучит незаконченной» —
+            // утверждение об обычае, которого нет ни в одном нашем источнике.
+            // Осталось то, что показано: пара ответов.
             "Пара Yes, please и No, thank you работает только с вещами.",
-            "Ответить на «Would you like a tea?» одним словом Yes не принято: фраза " +
-              "звучит незаконченной.",
-            "Отказ тоже договаривают: No, thank you — вежливый способ сказать, что " +
-              "тебе этого не нужно.",
+            "На «Would you like a tea?» отвечают одной из двух: Yes, please или " +
+              "No, thank you.",
+            "Второй — вежливый отказ: он говорит, что тебе этого не нужно.",
           ],
         },
         {
@@ -1052,7 +1062,7 @@ const module: Module = {
           kind: "note",
           tone: "info",
           text:
-            "Вместо thank you часто говорят короче: thanks.\n\nОба слова значат одно, " +
+            "У thank you есть короткая форма — thanks.\n\nОба слова значат одно, " +
             "и в ответе годятся оба: No, thanks.",
         },
 
@@ -1168,7 +1178,7 @@ const module: Module = {
           kind: "note",
           tone: "info",
           text:
-            "Разговор из одних указаний звучит как приказ.\n\nЧередуй: указание, " +
+            "Разговор из одних указаний звучит слишком прямо.\n\nЧередуй: указание, " +
             "просьба с can, приглашение — все три у тебя есть.",
         },
         {
@@ -1194,7 +1204,7 @@ const module: Module = {
           kind: "note",
           tone: "info",
           text:
-            "Слово sorry в таком разговоре нужно не реже, чем please.\n\nИм " +
+            "Слово sorry в таком разговоре тоже пригодится.\n\nИм " +
             "начинают отказ и им же обращаются к незнакомому человеку: Sorry, can " +
             "you help?",
         },
@@ -1216,9 +1226,18 @@ const module: Module = {
             "Напиши два предложения: попроси незнакомого человека помочь и поблагодари. " +
             "Помочь — help.",
           answer: "Can you help, please? Thanks!",
-          accept: ["Can you help, please? Thank you!"],
+          // Условие про please не говорит ни слова, а принимался ответ только с
+          // ним — при том что модуль сам учит: без please просьба тоже верна.
+          // Задание наказывало за верный ответ. Нашёл методист.
+          accept: [
+            "Can you help, please? Thank you!",
+            "Can you help? Thanks!",
+            "Can you help? Thank you!",
+          ],
           hint: "Сначала просьба, потом благодарность.",
-          why: "Can you help, please? Thanks! Годится и полное Thank you.",
+          why:
+            "Can you help, please? Thanks! Годится и полное Thank you, и просьба без " +
+            "please — оно необязательное.",
         },
         {
           id: "z3-dopisat-v-razgovore",
@@ -1251,7 +1270,7 @@ const module: Module = {
         {
           id: "z5-razgovor-vsluh",
           kind: "speak",
-          prompt: "Разыграй вслух разговор в кафе: спроси разрешения, услышь согласие, поблагодари.",
+          prompt: "Разыграй вслух разговор в кафе за обоих: спроси разрешения, ответь согласием, поблагодари.",
           phrase: "Can I sit here? Yes, of course. Thanks!",
           translation: "Можно мне здесь сесть? Да, конечно. Спасибо!",
           hint: "Три коротких предложения, и в конце благодарность.",
@@ -1317,7 +1336,7 @@ const module: Module = {
         after: " close the door.",
         answer: "Don't",
         accept: ["Do not"],
-        hint: "Оно встаёт в самом начале, перед глаголом.",
+        hint: "Слово из двух частей, и место у него первое.",
         why: "Don't close the door. Don't — это сжатое do not, и длинная запись принимается тоже.",
       },
       {
@@ -1330,7 +1349,7 @@ const module: Module = {
           { text: "You don't come tomorrow." },
           { text: "Don't coming tomorrow." },
         ],
-        hint: "Запрет идёт без you, а глагол — без окончания.",
+        hint: "Того, к кому обращаются, в запрете не называют.",
         why:
           "Don't come tomorrow. Второе предложение сообщает, что человек не приходит, " +
           "а окончание -ing после don't не ставят.",
@@ -1393,7 +1412,7 @@ const module: Module = {
         after: " you wait, please?",
         answer: "Can",
         hint: "Первое слово то же, что в вопросе «умеешь ли ты».",
-        why: "Can you wait, please? Со словом can выходит вопрос, а вопрос звучит мягче приказа.",
+        why: "Can you wait, please? Со словом can выходит вопрос, а вопрос звучит мягче прямого указания.",
       },
       {
         id: "q-prosba-vybor",
@@ -1412,11 +1431,13 @@ const module: Module = {
         id: "q-prosba-napisat",
         kind: "short",
         outcome: "просить: Can you help?",
-        prompt: "Попроси незнакомого человека помочь и добавь «пожалуйста». Помочь — help.",
-        answer: "Can you help, please?",
-        accept: ["Can you please help?"],
+        // «Can you help, please?» — сквозной пример модуля, он стоит в пяти местах
+        // до этого вопроса. Ученик доставал строку из памяти. Взято другое дело.
+        prompt: "Попроси незнакомого человека закрыть окно и добавь «пожалуйста». Закрыть — close, окно — the window.",
+        answer: "Can you close the window, please?",
+        accept: ["Can you please close the window?"],
         hint: "Начни с can, а please поставь в конец.",
-        why: "Can you help, please? Просьба строится вопросом с can.",
+        why: "Can you close the window, please? Просьба строится вопросом с can.",
       },
 
       // ---- итог 5 ----
@@ -1451,11 +1472,12 @@ const module: Module = {
         id: "q-razreshenie-napisat",
         kind: "short",
         outcome: "спрашивать разрешения: Can I sit here?",
-        prompt: "Попроси разрешения сесть здесь. Сесть — sit, здесь — here.",
-        answer: "Can I sit here?",
-        accept: ["Can I sit here, please?"],
-        hint: "Садиться собираешься ты — значит с себя и начинай после can.",
-        why: "Can I sit here? Садиться будешь ты, значит после can стоит I.",
+        // «Can I sit here?» — сквозной пример модуля, семь мест до этого вопроса.
+        prompt: "Попроси разрешения подождать здесь. Ждать — wait, здесь — here.",
+        answer: "Can I wait here?",
+        accept: ["Can I wait here, please?"],
+        hint: "Ждать собираешься ты — значит с себя и начинай после can.",
+        why: "Can I wait here? Ждать будешь ты, значит после can стоит I.",
       },
 
       // ---- итог 6 ----
@@ -1499,7 +1521,7 @@ const module: Module = {
       {
         id: "q-otvet-vybor",
         kind: "choice",
-        outcome: "отвечать на приглашение: Yes, please",
+        outcome: "отвечать на предложение и на приглашение: Yes, please. Yes, I'd like to.",
         prompt: "Тебе предложили чаю, и ты соглашаешься. Как ответить?",
         options: [
           { text: "Yes, please.", correct: true },
@@ -1512,7 +1534,7 @@ const module: Module = {
       {
         id: "q-otvet-dopisat",
         kind: "gap",
-        outcome: "отвечать на приглашение: Yes, please",
+        outcome: "отвечать на предложение и на приглашение: Yes, please. Yes, I'd like to.",
         prompt: "Тебе предложили кофе, а ты не хочешь. Допиши недостающее.",
         before: "No, ",
         after: ".",
@@ -1524,7 +1546,7 @@ const module: Module = {
       {
         id: "q-otvet-napisat",
         kind: "short",
-        outcome: "отвечать на приглашение: Yes, please",
+        outcome: "отвечать на предложение и на приглашение: Yes, please. Yes, I'd like to.",
         prompt: "Тебя позвали прийти завтра, и ты соглашаешься. Ответь оборотом I'd like to.",
         answer: "Yes, I'd like to.",
         accept: ["Yes, I would like to."],
