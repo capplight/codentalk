@@ -225,7 +225,6 @@ const module: Module = {
         {
           id: "zapis-ukazaniy",
           kind: "audio",
-          planned: true,
           pace: "slow",
           caption: "Послушай четыре указания",
           transcript: "Open the door. Close the window. Come here. Sit here.",
@@ -362,7 +361,6 @@ const module: Module = {
         {
           id: "zapis-zapreta",
           kind: "audio",
-          planned: true,
           pace: "slow",
           caption: "Послушай три запрета",
           transcript: "Don't open the window. Don't wait here. Don't come tomorrow.",
@@ -499,7 +497,6 @@ const module: Module = {
         {
           id: "zapis-please",
           kind: "audio",
-          planned: true,
           pace: "slow",
           caption: "Послушай три записи",
           transcript: "Open the door. Open the door, please. Please open the door.",
@@ -632,7 +629,6 @@ const module: Module = {
         {
           id: "zapis-prosby-s-can",
           kind: "audio",
-          planned: true,
           pace: "slow",
           caption: "Послушай три просьбы",
           transcript: "Can you help, please? Can you open the door? Can you come tomorrow?",
@@ -766,7 +762,6 @@ const module: Module = {
         {
           id: "zapis-razresheniya",
           kind: "audio",
-          planned: true,
           pace: "slow",
           caption: "Послушай два вопроса",
           transcript: "Can I sit here? Can I open the window?",
@@ -911,7 +906,6 @@ const module: Module = {
         {
           id: "zapis-priglasheniya",
           kind: "audio",
-          planned: true,
           pace: "slow",
           caption: "Послушай приглашение и ответ",
           transcript: "Would you like to come to my party? Yes, I'd like to. Thanks!",
@@ -1052,7 +1046,6 @@ const module: Module = {
         {
           id: "zapis-otvetov",
           kind: "audio",
-          planned: true,
           pace: "slow",
           caption: "Послушай два ответа",
           transcript: "Yes, please. No, thank you.",
@@ -1194,7 +1187,6 @@ const module: Module = {
         {
           id: "zapis-razgovora-s-prosboy",
           kind: "audio",
-          planned: true,
           pace: "slow",
           caption: "Послушай разговор целиком",
           transcript: "Can I sit here? Yes, of course. Would you like a coffee? Yes, please. Thanks!",

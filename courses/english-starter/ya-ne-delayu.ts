@@ -245,7 +245,6 @@ const module: Module = {
         {
           id: "zapis-dont",
           kind: "audio",
-          planned: true,
           pace: "slow",
           caption: "Послушай пары",
           transcript:
@@ -395,7 +394,6 @@ const module: Module = {
         {
           id: "zapis-doesnt",
           kind: "audio",
-          planned: true,
           pace: "slow",
           caption: "Послушай пары",
           transcript:
@@ -549,7 +547,6 @@ const module: Module = {
         {
           id: "zapis-polnoy",
           kind: "audio",
-          planned: true,
           pace: "slow",
           caption: "Послушай обе записи",
           transcript:
@@ -670,7 +667,6 @@ const module: Module = {
         {
           id: "zapis-razlicheniya",
           kind: "audio",
-          planned: true,
           pace: "slow",
           caption: "Послушай оба отрицания рядом",
           transcript:
@@ -811,7 +807,6 @@ const module: Module = {
         {
           id: "zapis-popravki",
           kind: "audio",
-          planned: true,
           pace: "slow",
           voice: "два голоса",
           caption: "Послушай поправки",
@@ -955,7 +950,6 @@ const module: Module = {
         {
           id: "zapis-chego-ne",
           kind: "audio",
-          planned: true,
           pace: "slow",
           caption: "Послушай пять предложений",
           transcript:
@@ -1102,7 +1096,6 @@ const module: Module = {
         {
           id: "zapis-oni-ne",
           kind: "audio",
-          planned: true,
           pace: "slow",
           caption: "Послушай все формы",
           transcript:
@@ -1236,7 +1229,6 @@ const module: Module = {
         {
           id: "zapis-oba",
           kind: "audio",
-          planned: true,
           pace: "slow",
           voice: "два голоса",
           caption: "Послушай оба рассказа",

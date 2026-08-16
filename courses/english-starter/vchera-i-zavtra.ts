@@ -220,7 +220,6 @@ const module: Module = {
         {
           id: "zapis-proshedshego",
           kind: "audio",
-          planned: true,
           pace: "slow",
           caption: "Послушай три предложения",
           transcript: "I worked yesterday. She played football. We watched a film.",
@@ -360,7 +359,6 @@ const module: Module = {
         {
           id: "zapis-ed",
           kind: "audio",
-          planned: true,
           pace: "slow",
           caption: "Послушай три формы",
           transcript: "worked, liked, studied",
@@ -499,7 +497,6 @@ const module: Module = {
         {
           id: "zapis-osobyh",
           kind: "audio",
-          planned: true,
           pace: "slow",
           caption: "Послушай три предложения",
           transcript: "I went to work. I saw my friend. I had a good day.",
@@ -631,7 +628,6 @@ const module: Module = {
         {
           id: "zapis-was",
           kind: "audio",
-          planned: true,
           pace: "slow",
           caption: "Послушай три предложения",
           transcript: "I was at home. She was at work. They were at school.",
@@ -766,7 +762,6 @@ const module: Module = {
         {
           id: "zapis-kogda",
           kind: "audio",
-          planned: true,
           pace: "slow",
           caption: "Послушай три предложения",
           transcript: "I worked yesterday. She came last week. We were at home last Friday.",
@@ -900,7 +895,6 @@ const module: Module = {
         {
           id: "zapis-will",
           kind: "audio",
-          planned: true,
           pace: "slow",
           caption: "Послушай три предложения",
           transcript: "I will work tomorrow. She will come at six. We will be at home.",
@@ -1033,7 +1027,6 @@ const module: Module = {
         {
           id: "zapis-planov",
           kind: "audio",
-          planned: true,
           pace: "slow",
           caption: "Послушай короткую запись",
           transcript: "I'll come at six. She'll be at home. We'll work on Monday.",
@@ -1168,7 +1161,6 @@ const module: Module = {
         {
           id: "zapis-vmeste",
           kind: "audio",
-          planned: true,
           pace: "slow",
           caption: "Послушай рассказ целиком",
           transcript:

@@ -197,7 +197,6 @@ const module: Module = {
         {
           id: "zapis-do-desyati",
           kind: "audio",
-          planned: true,
           pace: "slow",
           caption: "Послушай первый десяток",
           transcript: "One. Two. Three. Four. Five. Six. Seven. Eight. Nine. Ten.",
@@ -339,7 +338,6 @@ const module: Module = {
         {
           id: "zapis-vtoroy-desyatok",
           kind: "audio",
-          planned: true,
           pace: "slow",
           caption: "Послушай второй десяток",
           transcript:
@@ -463,7 +461,6 @@ const module: Module = {
         {
           id: "zapis-vozrasta",
           kind: "audio",
-          planned: true,
           pace: "slow",
           caption: "Послушай вопрос и ответ",
           transcript: "How old are you? — I'm twenty. How old is he? — He's ten.",
@@ -599,7 +596,6 @@ const module: Module = {
         {
           id: "zapis-how-many",
           kind: "audio",
-          planned: true,
           pace: "slow",
           caption: "Послушай вопрос и ответ",
           transcript: "How many books? — Three. How many people? — Ten.",
@@ -726,7 +722,6 @@ const module: Module = {
         {
           id: "zapis-how-much",
           kind: "audio",
-          planned: true,
           pace: "slow",
           caption: "Послушай вопрос о цене",
           transcript: "How much is it? — Ten. How much are they? — Twenty.",
@@ -854,7 +849,6 @@ const module: Module = {
         {
           id: "zapis-nomerov",
           kind: "audio",
-          planned: true,
           pace: "slow",
           caption: "Послушай, как диктуют номер",
           transcript: "Four — zero — five. Seven — seven. One — two.",
@@ -1007,7 +1001,6 @@ const module: Module = {
         {
           id: "zapis-desyatkov",
           kind: "audio",
-          planned: true,
           pace: "slow",
           caption: "Послушай десятки",
           transcript:
@@ -1141,7 +1134,6 @@ const module: Module = {
         {
           id: "zapis-some",
           kind: "audio",
-          planned: true,
           pace: "slow",
           caption: "Послушай обороты",
           transcript: "Some books. A lot of friends. Some people. A lot of cars.",
@@ -1267,7 +1259,6 @@ const module: Module = {
         {
           id: "zapis-razgovora-chisla",
           kind: "audio",
-          planned: true,
           pace: "slow",
           voice: "два голоса",
           caption: "Послушай разговор целиком",

@@ -21,8 +21,11 @@ import {
   type TaskBlock,
 } from "../lib/content/types.ts";
 import { checkPositionBalance } from "../lib/domain/testing.ts";
+import { adresBloka, adresObrazca, adresSlova } from "../lib/content/zvuk.ts";
 import { resheno } from "../courses/resheno.ts";
 import { courses } from "../courses/index.ts";
+import { existsSync } from "node:fs";
+import { join } from "node:path";
 
 const errors: string[] = [];
 const warnings: string[] = [];
@@ -637,18 +640,39 @@ function checkMaterial(block: Block, where: string): void {
           fail(where, "заготовка помечена planned, но ссылка на запись уже есть — сними пометку");
         }
         planned.push(where);
-      } else if (blank(block.src)) {
-        fail(
-          where,
-          "нет ссылки на запись. Если запись ещё не сделана, пометь блок planned: true"
-        );
       }
+      // Ссылку на запись здесь не требуем: адрес выводится из самого текста
+      // (lib/content/zvuk.ts), а есть ли файл — проверяет checkZvuk ниже. Она
+      // же ловит расхождение, когда фразу поправили, а переозвучить забыли.
       break;
 
     case "image":
       if (blank(block.src)) fail(where, "нет ссылки на изображение");
       if (blank(block.alt)) fail(where, "нет описания изображения");
       break;
+
+    case "text": {
+      if (block.body.length === 0) fail(where, "текст пустой");
+      if (block.body.some(blank)) fail(where, "пустой абзац в тексте");
+      const slov = block.body.join(" ").split(/\s+/).filter(Boolean).length;
+      if (slov < 15) {
+        fail(where, `в тексте ${slov} слов — это не текст, а пример; возьми вид example`);
+      }
+      // Порог взят с запасом: у Cambridge самый длинный текст экзамена A2 —
+      // один «long text» на пять вопросов. Это не ошибка, а повод посмотреть.
+      if (slov > 250) {
+        warn(where, `в тексте ${slov} слов — на первых ступенях это много, решает методист`);
+      }
+      block.glossary?.forEach((item, i) => {
+        const at = `${where}, слово словарика ${i + 1}`;
+        if (blank(item.term)) fail(at, "нет самого слова");
+        if (blank(item.translation)) fail(at, "нет перевода");
+        if (!block.body.some((p) => p.includes(item.term))) {
+          warn(at, `«${item.term}» объяснено, но в тексте не встречается — проверить`);
+        }
+      });
+      break;
+    }
 
     case "vocab": {
       if (block.items.length === 0) fail(where, "набор слов пустой");
@@ -666,6 +690,71 @@ function checkMaterial(block: Block, where: string): void {
 // ---------------------------------------------------------------------------
 // Урок
 // ---------------------------------------------------------------------------
+
+/**
+ * Привязка заданий к источнику — тексту для чтения или записи.
+ *
+ * Три беды, каждая из которых видна скрипту и почти не видна глазу.
+ *
+ * 1. Задание ссылается на блок, которого нет. Опечатка в имени — и ученик
+ *    отвечает на вопрос о неизвестно чём.
+ * 2. Задание на слух стоит при записи с открытой расшифровкой. Тогда это не
+ *    аудирование, а чтение: ответ лежит строкой ниже вопроса.
+ * 3. Расшифровка спрятана, а спрашивать по записи нечего. Тогда мы просто
+ *    отняли текст у того, кому он нужен, и не дали взамен ничего.
+ */
+function checkPrivyazka(lesson: Lesson, where: string): void {
+  const poImeni = new Map(lesson.blocks.map((b) => [b.id, b]));
+  const sprosheno = new Set<string>();
+
+  for (const block of lesson.blocks) {
+    if (!isTask(block)) continue;
+    const pro = (block as { about?: string }).about;
+    if (!pro) continue;
+
+    const at = `${where} → ${block.id}`;
+    const istochnik = poImeni.get(pro);
+
+    if (!istochnik) {
+      fail(at, `задание о блоке «${pro}», а такого блока в уроке нет`);
+      continue;
+    }
+    if (istochnik.kind !== "text" && istochnik.kind !== "audio") {
+      fail(at, `задание о блоке «${pro}», но тот не текст и не запись, а ${istochnik.kind}`);
+      continue;
+    }
+    sprosheno.add(pro);
+
+    if (istochnik.kind === "audio" && !istochnik.skryt) {
+      fail(
+        at,
+        `задание по записи «${pro}», но её расшифровка на виду — это чтение, а не ` +
+          "понимание на слух. Поставь записи skryt: true"
+      );
+    }
+
+    // Ответ, которого в тексте нет, ученику не выиграть. Ищем только у заданий с
+    // одним словесным ответом: у выбора и сопоставления искать нечего.
+    if (istochnik.kind === "text" && (block.kind === "short" || block.kind === "gap")) {
+      const otvet = String((block as { answer?: string }).answer ?? "").trim().toLowerCase();
+      const telo = istochnik.body.join(" ").toLowerCase();
+      // Замечание, а не ошибка: «не нашёл» — это не «нет». В этом проекте вывод
+      // об отсутствии строки четырежды оказывался неверным.
+      if (otvet.length > 2 && !telo.includes(otvet)) {
+        warn(at, `ответ «${otvet}» в тексте «${pro}» не нашёлся — проверить, есть ли он там`);
+      }
+    }
+  }
+
+  for (const block of lesson.blocks) {
+    if (block.kind === "audio" && block.skryt && !sprosheno.has(block.id)) {
+      fail(
+        `${where} → ${block.id}`,
+        "расшифровка спрятана, а заданий по записи нет: текст отняли, взамен не дали ничего"
+      );
+    }
+  }
+}
 
 function checkLesson(lesson: Lesson, where: string): void {
   if (blank(lesson.outcome)) {
@@ -697,6 +786,8 @@ function checkLesson(lesson: Lesson, where: string): void {
     if (isTask(block)) checkTask(block, at);
     else checkMaterial(block, at);
   }
+
+  checkPrivyazka(lesson, where);
 
   // Время урока против числа блоков. Оценка грубая: объяснение читают около
   // минуты, задание занимает примерно полторы. Расхождение больше пяти минут
@@ -1257,10 +1348,67 @@ function checkSlovoNeVvoditsyaDvazhdy(course: Course): void {
   }
 }
 
+// ---------------------------------------------------------------------------
+// Записи на месте
+//
+// Адрес записи выводится из текста, а не хранится в уроке. У этого есть одна
+// беда, и она тихая: поправил фразу — получилось другое имя файла, а файла с
+// таким именем нет, и вместо звука ученик получает пустоту. Заметить это
+// чтением нельзя, потому что в материалах ничего не поменялось.
+//
+// Поэтому здесь сверяется список: на каждый звучащий кусок должен лежать файл.
+// Лечится одной командой — `npm run ozvuchka`.
+// ---------------------------------------------------------------------------
+
+function checkZvuk(course: Course): void {
+  // Курс по коду не озвучивается: его словарь — названия меток разметки.
+  if (course.track !== "english") return;
+
+  const netu: string[] = [];
+  const est = (adres: string): boolean => existsSync(join(process.cwd(), "public", adres));
+
+  for (const mod of course.modules) {
+    for (const lesson of mod.lessons) {
+      for (const block of lesson.blocks) {
+        if (block.kind === "audio") {
+          if (block.planned) continue;
+          const temp = block.pace === "slow" ? "slow" : "normal";
+          const adres = block.src ?? adresBloka(block.transcript, temp, Boolean(block.voice));
+          if (!est(adres)) netu.push(`${lesson.slug} · ${block.id}: «${block.transcript.slice(0, 60)}»`);
+          continue;
+        }
+
+        if (block.kind === "vocab") {
+          for (const item of block.items) {
+            if (!est(adresSlova(item.term))) netu.push(`${lesson.slug} · слово «${item.term}»`);
+          }
+          continue;
+        }
+
+        if (isTask(block) && block.kind === "speak") {
+          if (!est(adresObrazca(block.phrase))) {
+            netu.push(`${lesson.slug} · ${block.id}: образец «${block.phrase.slice(0, 60)}»`);
+          }
+        }
+      }
+    }
+  }
+
+  if (netu.length > 0) {
+    fail(
+      course.slug,
+      `нет записей (${netu.length} шт.), запусти npm run ozvuchka:\n      ` +
+        netu.slice(0, 15).join("\n      ") +
+        (netu.length > 15 ? `\n      … и ещё ${netu.length - 15}` : "")
+    );
+  }
+}
+
 for (const course of courses) {
   checkCourse(course);
   checkTermsOrder(course);
   checkSlovoNeVvoditsyaDvazhdy(course);
+  checkZvuk(course);
 }
 
 // ---------------------------------------------------------------------------

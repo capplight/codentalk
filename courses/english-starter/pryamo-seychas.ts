@@ -228,7 +228,6 @@ const module: Module = {
         {
           id: "zapis-seychas",
           kind: "audio",
-          planned: true,
           pace: "slow",
           caption: "Послушай две записи подряд",
           transcript: "I work in a shop. I am working now.",
@@ -378,7 +377,6 @@ const module: Module = {
         {
           id: "zapis-o-drugom-seychas",
           kind: "audio",
-          planned: true,
           pace: "slow",
           caption: "Послушай о себе и о нём",
           transcript: "I am working. He is working. She is reading.",
@@ -526,7 +524,6 @@ const module: Module = {
         {
           id: "zapis-ing",
           kind: "audio",
-          planned: true,
           pace: "slow",
           caption: "Послушай три глагола с окончанием",
           transcript: "working, making, sitting",
@@ -677,7 +674,6 @@ const module: Module = {
         {
           id: "zapis-razlicheniya-seychas",
           kind: "audio",
-          planned: true,
           pace: "slow",
           caption: "Послушай две записи подряд",
           transcript: "I work in a shop. But now I am sitting at home.",
@@ -837,7 +833,6 @@ const module: Module = {
         {
           id: "zapis-neskolko-seychas",
           kind: "audio",
-          planned: true,
           pace: "slow",
           caption: "Послушай об одном и о нескольких",
           transcript: "She is waiting. They are waiting. My friends are working.",
@@ -965,7 +960,6 @@ const module: Module = {
         {
           id: "zapis-otricaniya-seychas",
           kind: "audio",
-          planned: true,
           pace: "slow",
           caption: "Послушай отрицание",
           transcript: "I am not working now. She isn't reading.",
@@ -1107,7 +1101,6 @@ const module: Module = {
         {
           id: "zapis-voprosa-seychas",
           kind: "audio",
-          planned: true,
           pace: "slow",
           caption: "Послушай два вопроса",
           transcript: "Are you working? What are you doing?",
@@ -1238,7 +1231,6 @@ const module: Module = {
         {
           id: "zapis-rasskaza-seychas",
           kind: "audio",
-          planned: true,
           pace: "slow",
           caption: "Послушай рассказ целиком",
           transcript:

@@ -310,7 +310,6 @@ const module: Module = {
         {
           id: "zapis-alfavita",
           kind: "audio",
-          planned: true,
           pace: "slow",
           caption: "Послушай алфавит целиком",
           transcript:
@@ -523,7 +522,6 @@ const module: Module = {
         {
           id: "zapis-par",
           kind: "audio",
-          planned: true,
           pace: "slow",
           caption: "Послушай пары с близкими названиями",
           transcript: "G — J. B — V. M — N.",
@@ -905,7 +903,6 @@ const module: Module = {
         {
           id: "zapis-poryadka",
           kind: "audio",
-          planned: true,
           pace: "slow",
           caption: "Послушай, как звучит порядок букв от H до P",
           transcript: "H I J K L M N O P",
@@ -1023,7 +1020,6 @@ const module: Module = {
         {
           id: "zapis-imeni",
           kind: "audio",
-          planned: true,
           pace: "slow",
           caption: "Послушай, как диктуют имя",
           transcript: "My name is Aigul. A-I-G-U-L. Aigul.",
@@ -1149,7 +1145,6 @@ const module: Module = {
         {
           id: "zapis-blanka",
           kind: "audio",
-          planned: true,
           pace: "slow",
           caption: "Послушай, как эти данные диктуют у стойки",
           transcript:
@@ -1316,7 +1311,6 @@ const module: Module = {
         {
           id: "zapis-sochetaniy",
           kind: "audio",
-          planned: true,
           pace: "slow",
           caption: "Послушай слова из таблицы",
           transcript:

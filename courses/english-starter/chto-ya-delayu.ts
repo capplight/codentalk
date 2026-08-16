@@ -289,7 +289,6 @@ const module: Module = {
         {
           id: "zapis-glagolov",
           kind: "audio",
-          planned: true,
           pace: "slow",
           caption: "Послушай пять дел",
           transcript:
@@ -450,7 +449,6 @@ const module: Module = {
         {
           id: "zapis-s",
           kind: "audio",
-          planned: true,
           pace: "slow",
           caption: "Послушай пары",
           transcript:
@@ -627,7 +625,6 @@ const module: Module = {
         {
           id: "zapis-es",
           kind: "audio",
-          planned: true,
           pace: "slow",
           caption: "Послушай окончания",
           transcript:
@@ -784,7 +781,6 @@ const module: Module = {
         {
           id: "zapis-dnya",
           kind: "audio",
-          planned: true,
           pace: "slow",
           caption: "Послушай распорядок",
           transcript:
@@ -932,7 +928,6 @@ const module: Module = {
         {
           id: "zapis-like",
           kind: "audio",
-          planned: true,
           pace: "slow",
           caption: "Послушай, что кому нравится",
           transcript:
@@ -1077,7 +1072,6 @@ const module: Module = {
         {
           id: "zapis-obshchego",
           kind: "audio",
-          planned: true,
           pace: "slow",
           caption: "Послушай расписание",
           transcript:
@@ -1223,7 +1217,6 @@ const module: Module = {
         {
           id: "zapis-my-oni",
           kind: "audio",
-          planned: true,
           pace: "slow",
           caption: "Послушай все формы",
           transcript:
@@ -1370,7 +1363,6 @@ const module: Module = {
         {
           id: "zapis-rasskaza-o-dne",
           kind: "audio",
-          planned: true,
           pace: "slow",
           voice: "два голоса",
           caption: "Послушай оба рассказа",

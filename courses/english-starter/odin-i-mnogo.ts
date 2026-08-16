@@ -194,7 +194,6 @@ const module: Module = {
         {
           id: "zapis-s",
           kind: "audio",
-          planned: true,
           pace: "slow",
           caption: "Послушай пары",
           transcript: "A book — books. A key — keys. A car — cars. A friend — friends.",
@@ -324,7 +323,6 @@ const module: Module = {
         {
           id: "zapis-es",
           kind: "audio",
-          planned: true,
           pace: "slow",
           caption: "Послушай, как прибавляется слог",
           transcript: "A box — boxes. A bus — buses. A watch — watches.",
@@ -434,7 +432,6 @@ const module: Module = {
         {
           id: "zapis-bez-a",
           kind: "audio",
-          planned: true,
           pace: "slow",
           caption: "Послушай пары",
           transcript: "It's a book. They're books. It's my key. They're my keys.",
@@ -546,7 +543,6 @@ const module: Module = {
         {
           id: "zapis-is-are",
           kind: "audio",
-          planned: true,
           pace: "slow",
           caption: "Послушай пары",
           transcript: "It is a book. They are books. It's a key. They're keys.",
@@ -666,7 +662,6 @@ const module: Module = {
         {
           id: "zapis-osobyh",
           kind: "audio",
-          planned: true,
           pace: "slow",
           caption: "Послушай пары",
           transcript: "A man — men. A woman — women. A child — children. People.",
@@ -787,7 +782,6 @@ const module: Module = {
         {
           id: "zapis-these-those",
           kind: "audio",
-          planned: true,
           pace: "slow",
           caption: "Послушай пары",
           transcript: "This book — these books. That car — those cars. What are these?",
@@ -902,7 +896,6 @@ const module: Module = {
         {
           id: "zapis-vopros-mnozh",
           kind: "audio",
-          planned: true,
           pace: "slow",
           caption: "Послушай три предложения",
           transcript: "They're books. Are they books? They aren't books. Yes, they are.",
@@ -1034,7 +1027,6 @@ const module: Module = {
         {
           id: "zapis-rasskaza-mnozh",
           kind: "audio",
-          planned: true,
           pace: "slow",
           caption: "Послушай рассказ целиком",
           transcript:

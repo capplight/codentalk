@@ -159,7 +159,6 @@ const module: Module = {
         {
           id: "zapis-otricaniya",
           kind: "audio",
-          planned: true,
           pace: "slow",
           caption: "Послушай утверждение и отрицание рядом",
           transcript:
@@ -310,7 +309,6 @@ const module: Module = {
         {
           id: "zapis-korotkih-otricaniy",
           kind: "audio",
-          planned: true,
           pace: "slow",
           caption: "Послушай короткие формы",
           transcript: "I'm not a student. She isn't from Turkey. They aren't in Astana.",
@@ -442,7 +440,6 @@ const module: Module = {
         {
           id: "zapis-no-not",
           kind: "audio",
-          planned: true,
           pace: "slow",
           caption: "Послушай оба слова в одном ответе",
           transcript: "Are you a student? — No, I'm not. I am not a student. I am a teacher.",
@@ -585,7 +582,6 @@ const module: Module = {
         {
           id: "zapis-popravki",
           kind: "audio",
-          planned: true,
           pace: "slow",
           voice: "два голоса",
           caption: "Послушай поправку",
@@ -734,7 +730,6 @@ const module: Module = {
         {
           id: "zapis-o-predmetah",
           kind: "audio",
-          planned: true,
           pace: "slow",
           caption: "Послушай четыре отрицания",
           transcript: "It isn't a city. He isn't in Rome. She isn't from Spain. It isn't OK.",
@@ -877,7 +872,6 @@ const module: Module = {
         {
           id: "zapis-prav",
           kind: "audio",
-          planned: true,
           pace: "slow",
           caption: "Послушай отклики",
           transcript: "You're right. You're wrong. You aren't right. Are you Dana?",
@@ -1009,7 +1003,6 @@ const module: Module = {
         {
           id: "zapis-obmena",
           kind: "audio",
-          planned: true,
           pace: "slow",
           voice: "два голоса",
           caption: "Послушай обмен",
@@ -1146,7 +1139,6 @@ const module: Module = {
         {
           id: "zapis-razgovora-vozrazheniya",
           kind: "audio",
-          planned: true,
           pace: "slow",
           voice: "два голоса",
           caption: "Послушай разговор целиком",

@@ -169,7 +169,6 @@ const module: Module = {
         {
           id: "zapis-vmesto-imeni",
           kind: "audio",
-          planned: true,
           pace: "slow",
           caption: "Послушай две пары",
           transcript: "Alim works in a shop. I know him. Dana is a teacher. I see her.",
@@ -309,7 +308,6 @@ const module: Module = {
         {
           id: "zapis-shesti",
           kind: "audio",
-          planned: true,
           pace: "slow",
           caption: "Послушай четыре предложения",
           transcript: "She knows me. I know you. We know them. They know us.",
@@ -450,7 +448,6 @@ const module: Module = {
         {
           id: "zapis-her-i-him",
           kind: "audio",
-          planned: true,
           pace: "slow",
           caption: "Послушай четыре записи",
           transcript: "This is her book. I know her. This is his book. I know him.",
@@ -589,7 +586,6 @@ const module: Module = {
         {
           id: "zapis-it",
           kind: "audio",
-          planned: true,
           pace: "slow",
           caption: "Послушай две пары",
           transcript: "This is my bike. I like it. This is her book. I can see it.",
@@ -728,7 +724,6 @@ const module: Module = {
         {
           id: "zapis-posle-predloga",
           kind: "audio",
-          planned: true,
           pace: "slow",
           caption: "Послушай три предложения",
           transcript: "This is for me. I work with him. This book is for them.",
@@ -869,7 +864,6 @@ const module: Module = {
         {
           id: "zapis-glagola-s-predlogom",
           kind: "audio",
-          planned: true,
           pace: "slow",
           caption: "Послушай четыре предложения",
           transcript: "I listen to her. She is listening to me. I look at them. They are looking at us.",
@@ -1008,7 +1002,6 @@ const module: Module = {
         {
           id: "zapis-voprosa-o-cheloveke",
           kind: "audio",
-          planned: true,
           pace: "slow",
           caption: "Послушай два вопроса и два ответа",
           transcript: "Do you know Dana? Yes, I do. Can you call her? Yes, I can.",
@@ -1140,7 +1133,6 @@ const module: Module = {
         {
           id: "zapis-rasskaza-bez-povtorov",
           kind: "audio",
-          planned: true,
           pace: "slow",
           caption: "Послушай рассказ целиком",
           transcript: "Dana is my friend. I see her every day. She has got a bike. I like it.",

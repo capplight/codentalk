@@ -262,7 +262,6 @@ const module: Module = {
         {
           id: "zapis-voprosa",
           kind: "audio",
-          planned: true,
           pace: "slow",
           caption: "Послушай пары: сказать и спросить",
           transcript:
@@ -404,7 +403,6 @@ const module: Module = {
         {
           id: "zapis-korotkogo",
           kind: "audio",
-          planned: true,
           pace: "slow",
           caption: "Послушай вопрос и оба ответа",
           transcript:
@@ -552,7 +550,6 @@ const module: Module = {
         {
           id: "zapis-does",
           kind: "audio",
-          planned: true,
           pace: "slow",
           caption: "Послушай пары: о собеседнике и о другом",
           transcript:
@@ -701,7 +698,6 @@ const module: Module = {
         {
           id: "zapis-razlicheniya",
           kind: "audio",
-          planned: true,
           pace: "slow",
           caption: "Послушай пары вопросов",
           transcript:
@@ -851,7 +847,6 @@ const module: Module = {
         {
           id: "zapis-what",
           kind: "audio",
-          planned: true,
           pace: "slow",
           caption: "Послушай вопросы со словом what",
           transcript:
@@ -1004,7 +999,6 @@ const module: Module = {
         {
           id: "zapis-gde-kogda",
           kind: "audio",
-          planned: true,
           pace: "slow",
           caption: "Послушай четыре вопросительных слова",
           transcript:
@@ -1149,7 +1143,6 @@ const module: Module = {
         {
           id: "zapis-o-neskolkih",
           kind: "audio",
-          planned: true,
           pace: "slow",
           caption: "Послушай пары: об одном и о нескольких",
           transcript:
@@ -1292,7 +1285,6 @@ const module: Module = {
         {
           id: "zapis-razgovora",
           kind: "audio",
-          planned: true,
           pace: "slow",
           caption: "Послушай разговор целиком",
           transcript:

@@ -215,7 +215,6 @@ const module: Module = {
         {
           id: "zapis-umeniya",
           kind: "audio",
-          planned: true,
           pace: "slow",
           caption: "Послушай три умения",
           transcript: "I can swim. I can ride a bike. I can speak English.",
@@ -357,7 +356,6 @@ const module: Module = {
         {
           id: "zapis-o-drugom-umenie",
           kind: "audio",
-          planned: true,
           pace: "slow",
           caption: "Послушай о себе и о других",
           transcript: "I can drive. She can drive. They can drive.",
@@ -495,7 +493,6 @@ const module: Module = {
         {
           id: "zapis-can-i-cant",
           kind: "audio",
-          planned: true,
           pace: "slow",
           caption: "Послушай can и can't подряд",
           transcript: "I can swim. I can't swim.",
@@ -631,7 +628,6 @@ const module: Module = {
         {
           id: "zapis-voprosa-umenie",
           kind: "audio",
-          planned: true,
           pace: "slow",
           caption: "Послушай вопрос и два ответа",
           transcript: "Can you swim? Yes, I can. No, I can't.",
@@ -764,7 +760,6 @@ const module: Module = {
         {
           id: "zapis-chto-umeesh",
           kind: "audio",
-          planned: true,
           pace: "slow",
           caption: "Послушай два вопроса",
           transcript: "What can you do? What can your sister do?",
@@ -901,7 +896,6 @@ const module: Module = {
         {
           id: "zapis-vozmozhnosti",
           kind: "audio",
-          planned: true,
           pace: "slow",
           caption: "Послушай про магазин",
           transcript: "You can buy milk here. You can't buy bread here.",
@@ -1043,7 +1037,6 @@ const module: Module = {
         {
           id: "zapis-prosby",
           kind: "audio",
-          planned: true,
           pace: "slow",
           caption: "Послушай просьбу и предложение помощи",
           transcript: "Can you help, please? Can I help you?",
@@ -1175,7 +1168,6 @@ const module: Module = {
         {
           id: "zapis-rasskaza-umeniya",
           kind: "audio",
-          planned: true,
           pace: "slow",
           caption: "Послушай рассказ целиком",
           transcript:

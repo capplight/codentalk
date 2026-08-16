@@ -217,7 +217,6 @@ const module: Module = {
         {
           id: "zapis-vsegda",
           kind: "audio",
-          planned: true,
           pace: "slow",
           caption: "Послушай, где стоит наречие",
           transcript: "I always work on Monday. I sometimes work on Monday.",
@@ -362,7 +361,6 @@ const module: Module = {
         {
           id: "zapis-obychno",
           kind: "audio",
-          planned: true,
           pace: "slow",
           caption: "Послушай четыре наречия",
           transcript:
@@ -507,7 +505,6 @@ const module: Module = {
         {
           id: "zapis-never",
           kind: "audio",
-          planned: true,
           pace: "slow",
           caption: "Послушай два способа",
           transcript: "I don't drink coffee. I never drink coffee.",
@@ -647,7 +644,6 @@ const module: Module = {
         {
           id: "zapis-s-be",
           kind: "audio",
-          planned: true,
           pace: "slow",
           caption: "Послушай оба порядка",
           transcript: "I am always busy. I always work. She is never late. She never comes late.",
@@ -801,7 +797,6 @@ const module: Module = {
         {
           id: "zapis-v-otricanii",
           kind: "audio",
-          planned: true,
           pace: "slow",
           caption: "Послушай отрицание с наречием",
           transcript: "I don't usually work on Sunday. I don't often go to the gym.",
@@ -938,7 +933,6 @@ const module: Module = {
         {
           id: "zapis-o-drugom",
           kind: "audio",
-          planned: true,
           pace: "slow",
           caption: "Послушай рассказ о брате",
           transcript:
@@ -1076,7 +1070,6 @@ const module: Module = {
         {
           id: "zapis-v-voprose",
           kind: "audio",
-          planned: true,
           pace: "slow",
           caption: "Послушай вопрос с наречием",
           transcript: "Do you always work on Monday? Does he usually get up early?",
@@ -1218,7 +1211,6 @@ const module: Module = {
         {
           id: "zapis-nedelya",
           kind: "audio",
-          planned: true,
           pace: "slow",
           caption: "Послушай рассказ целиком",
           transcript:

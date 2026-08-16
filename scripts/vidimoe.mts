@@ -81,6 +81,14 @@ function kuskiBloka(b: any, gde: string): Kusok[] {
       dobavit("описание рисунка", b.alt);
       dobavit("подпись рисунка", b.caption);
       break;
+    case "text":
+      dobavit("заголовок текста", b.title);
+      (b.body ?? []).forEach((p: string) => dobavit("текст для чтения", p));
+      for (const it of b.glossary ?? []) {
+        dobavit("слово из текста", it.term);
+        dobavit("перевод слова из текста", it.translation);
+      }
+      break;
     case "vocab":
       dobavit("подпись словаря", b.caption);
       for (const it of b.items ?? []) {

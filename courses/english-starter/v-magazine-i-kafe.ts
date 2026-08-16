@@ -201,7 +201,6 @@ const module: Module = {
         {
           id: "zapis-neschitaemyh",
           kind: "audio",
-          planned: true,
           pace: "slow",
           caption: "Послушай пять слов",
           transcript: "water, bread, money, rice, meat",
@@ -339,7 +338,6 @@ const module: Module = {
         {
           id: "zapis-dvuh-zapretov",
           kind: "audio",
-          planned: true,
           pace: "slow",
           caption: "Послушай, как это звучит",
           transcript: "a book, two books, water, bread",
@@ -476,7 +474,6 @@ const module: Module = {
         {
           id: "zapis-some",
           kind: "audio",
-          planned: true,
           pace: "slow",
           caption: "Послушай три просьбы",
           transcript: "I'd like some bread. I'd like some water. I'd like some rice.",
@@ -608,7 +605,6 @@ const module: Module = {
         {
           id: "zapis-how-much",
           kind: "audio",
-          planned: true,
           pace: "slow",
           caption: "Послушай два вопроса",
           transcript: "How much bread? How many books?",
@@ -741,7 +737,6 @@ const module: Module = {
         {
           id: "zapis-pokupki",
           kind: "audio",
-          planned: true,
           pace: "slow",
           caption: "Послушай разговор в магазине",
           transcript:
@@ -884,7 +879,6 @@ const module: Module = {
         {
           id: "zapis-zakaza",
           kind: "audio",
-          planned: true,
           pace: "slow",
           caption: "Послушай заказ",
           transcript:
@@ -1023,7 +1017,6 @@ const module: Module = {
         {
           id: "zapis-chego-to-net",
           kind: "audio",
-          planned: true,
           pace: "slow",
           caption: "Послушай три предложения",
           transcript: "I haven't got any bread. I haven't got any money. There isn't any water.",
@@ -1159,7 +1152,6 @@ const module: Module = {
         {
           id: "zapis-razgovora-o-pokupke",
           kind: "audio",
-          planned: true,
           pace: "slow",
           caption: "Послушай разговор целиком",
           transcript:

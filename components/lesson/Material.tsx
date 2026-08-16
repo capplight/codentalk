@@ -6,6 +6,9 @@
  * (таблицы, словарь, код) набрано гротеском и моноширинным.
  */
 import type { MaterialBlock } from "@/lib/content/types";
+import { adresBloka, adresSlova } from "@/lib/content/zvuk";
+import Rasshifrovka from "./Rasshifrovka";
+import Zvuk from "./Zvuk";
 import s from "./lesson.module.css";
 
 /**
@@ -92,7 +95,14 @@ export default function Material({ block }: { block: MaterialBlock }) {
         </aside>
       );
 
-    case "audio":
+    case "audio": {
+      /* Адрес записи выводится из самого текста, в уроке он не хранится: правка
+         фразы означает другой файл, и забыть переозвучить нельзя. Поле `src`
+         остаётся ходом назад — им подменяют одну запись живым голосом, не
+         трогая остальные. */
+      const temp = block.pace === "slow" ? "slow" : "normal";
+      const zapis = block.src ?? adresBloka(block.transcript, temp, Boolean(block.voice));
+
       return (
         <div className={s.audio}>
           {block.caption && <span className={s.exampleCaption}>{block.caption}</span>}
@@ -106,12 +116,43 @@ export default function Material({ block }: { block: MaterialBlock }) {
               звучать:
             </p>
           ) : (
-            <audio controls src={block.src} />
+            <audio controls preload="none" src={zapis} />
           )}
 
-          {/* Расшифровка не спрятана: без неё запись бесполезна глухим и тем, кто без наушников */}
-          <p className={s.transcript}>{block.transcript}</p>
+          {/* Расшифровка доступна всегда — без неё запись бесполезна глухим и
+              тем, кто без наушников. Прячется она только там, где проверяется
+              понимание на слух, и то за кнопку, а не за верный ответ. */}
+          {block.skryt ? (
+            <Rasshifrovka text={block.transcript} />
+          ) : (
+            <p className={s.transcript}>{block.transcript}</p>
+          )}
         </div>
+      );
+    }
+
+    case "text":
+      return (
+        <article className={`${s.tekst} ${s[`tekst_${block.genre}`] ?? ""}`}>
+          {block.title && <h3 className={s.tekstTitle}>{block.title}</h3>}
+          <div className={s.tekstBody} lang="en">
+            {block.body.map((paragraph, i) => (
+              <p key={i}>{paragraph}</p>
+            ))}
+          </div>
+          {block.glossary && block.glossary.length > 0 && (
+            /* Незнакомое слово даётся здесь же. Текст, где его нет, на первых
+               ступенях не читается, а разгадывается — и ученик бросает. */
+            <dl className={s.tekstSlovar}>
+              {block.glossary.map((item, i) => (
+                <div key={i}>
+                  <dt lang="en">{item.term}</dt>
+                  <dd>{item.translation}</dd>
+                </div>
+              ))}
+            </dl>
+          )}
+        </article>
       );
 
     case "image":
@@ -132,6 +173,10 @@ export default function Material({ block }: { block: MaterialBlock }) {
           {block.items.map((item, i) => (
             <div className={s.vocabItem} key={i}>
               <span className={s.vocabTerm}>
+                {/* Слово без звука ученик запоминает написанием и произносит
+                    по-своему. Кнопка, а не проигрыватель: у слова одна секунда,
+                    перематывать нечего. */}
+                <Zvuk src={adresSlova(item.term)} chto={item.term} />
                 {item.term}
                 {item.hint && <span className={s.vocabHint}> · {item.hint}</span>}
               </span>

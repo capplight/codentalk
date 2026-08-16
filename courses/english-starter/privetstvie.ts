@@ -249,7 +249,6 @@ const module: Module = {
           // речи «very slowly and clearly», а ухо привыкает только временем.
           id: "zapis-privetstviya",
           kind: "audio",
-          planned: true,
           pace: "slow",
           caption: "Послушай и повтори",
           transcript: "Hello. Hi. Good morning. Good afternoon. Good evening. Good night. Goodbye.",
@@ -849,7 +848,6 @@ const module: Module = {
         {
           id: "zapis-mestoimeniy",
           kind: "audio",
-          planned: true,
           pace: "slow",
           caption: "Послушай местоимения по одному",
           transcript: "I. You. He. She. It. We. They.",
@@ -1000,7 +998,6 @@ const module: Module = {
         {
           id: "zapis-be",
           kind: "audio",
-          planned: true,
           pace: "slow",
           caption: "Послушай три формы в предложениях",
           transcript: "I am Alim. She is fine. They are Dana and Aigul. How are you?",
@@ -1142,7 +1139,6 @@ const module: Module = {
         {
           id: "zapis-korotkih",
           kind: "audio",
-          planned: true,
           pace: "slow",
           caption: "Послушай короткие формы",
           transcript: "I'm Alim. You're Dana. He's Nurlan. She's Aigul. It's OK. We're fine.",
@@ -1284,7 +1280,6 @@ const module: Module = {
         {
           id: "zapis-peresprosa",
           kind: "audio",
-          planned: true,
           pace: "slow",
           caption: "Послушай переспрос в разговоре",
           transcript: "Hello! I'm Aigerim. — Sorry? — Aigerim. A-I-G-E-R-I-M.",
@@ -1451,7 +1446,6 @@ const module: Module = {
         {
           id: "zapis-razgovora",
           kind: "audio",
-          planned: true,
           pace: "slow",
           voice: "два голоса",
           caption: "Послушай разговор целиком",

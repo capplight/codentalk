@@ -186,7 +186,6 @@ const module: Module = {
         {
           id: "zapis-moy-tvoy",
           kind: "audio",
-          planned: true,
           pace: "slow",
           caption: "Послушай пары",
           transcript: "My bag. Your bag. My key. Your key. It's my phone. It's your phone.",
@@ -316,7 +315,6 @@ const module: Module = {
         {
           id: "zapis-pyati",
           kind: "audio",
-          planned: true,
           pace: "slow",
           caption: "Послушай пять слов",
           transcript: "My bag. Your key. His phone. Her book. Our room.",
@@ -450,7 +448,6 @@ const module: Module = {
         {
           id: "zapis-have-got",
           kind: "audio",
-          planned: true,
           pace: "slow",
           caption: "Послушай, у кого что есть",
           transcript: "I've got a car. You've got a bike. He's got a dog. She's got a cat.",
@@ -585,7 +582,6 @@ const module: Module = {
         {
           id: "zapis-otricaniya-have",
           kind: "audio",
-          planned: true,
           pace: "slow",
           caption: "Послушай отрицания",
           transcript: "I haven't got a car. He hasn't got a dog. She hasn't got a cat.",
@@ -717,7 +713,6 @@ const module: Module = {
         {
           id: "zapis-voprosa-have",
           kind: "audio",
-          planned: true,
           pace: "slow",
           caption: "Послушай вопрос и ответы",
           transcript: "Have you got a pen? — Yes, I have. Has he got a dog? — No, he hasn't.",
@@ -852,7 +847,6 @@ const module: Module = {
         {
           id: "zapis-rodnyh",
           kind: "audio",
-          planned: true,
           pace: "slow",
           caption: "Послушай шесть слов",
           transcript: "Family. Mother. Father. Sister. Brother. Friend.",
@@ -988,7 +982,6 @@ const module: Module = {
         {
           id: "zapis-chya",
           kind: "audio",
-          planned: true,
           pace: "slow",
           voice: "два голоса",
           caption: "Послушай разговор о находке",
@@ -1111,7 +1104,6 @@ const module: Module = {
         {
           id: "zapis-rasskaza-o-veshchah",
           kind: "audio",
-          planned: true,
           pace: "slow",
           caption: "Послушай рассказ целиком",
           transcript:

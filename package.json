@@ -14,6 +14,7 @@
     "chain": "tsx scripts/chain.mts",
     "kontrol": "tsx scripts/kontrol.mts",
     "yazyk": "tsx scripts/yazyk.mts",
+    "ozvuchka": "tsx scripts/ozvuchka.mts",
     "tekst": "tsx scripts/tekst.mts",
     "zadaniya": "tsx scripts/zadaniya.mts",
     "itogi": "tsx scripts/itogi.mts",

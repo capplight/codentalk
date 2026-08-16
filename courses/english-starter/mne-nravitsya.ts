@@ -192,7 +192,6 @@ const module: Module = {
         {
           id: "zapis-like-to",
           kind: "audio",
-          planned: true,
           pace: "slow",
           caption: "Послушай три предложения",
           transcript: "I like to read. I like to cook. My sister likes to swim.",
@@ -329,7 +328,6 @@ const module: Module = {
         {
           id: "zapis-dva-sposoba",
           kind: "audio",
-          planned: true,
           pace: "slow",
           caption: "Послушай три предложения",
           transcript: "I like reading. I like to read. I am reading now.",
@@ -464,7 +462,6 @@ const module: Module = {
         {
           id: "zapis-ne-nravitsya",
           kind: "audio",
-          planned: true,
           pace: "slow",
           caption: "Послушай три предложения",
           transcript: "I don't like waiting. I don't like to wait. My brother doesn't like cooking.",
@@ -595,7 +592,6 @@ const module: Module = {
         {
           id: "zapis-usileniya",
           kind: "audio",
-          planned: true,
           pace: "slow",
           caption: "Послушай три предложения",
           transcript: "I like music. I really like music. I like music very much.",
@@ -731,7 +727,6 @@ const module: Module = {
         {
           id: "zapis-voprosa-o-vkusah",
           kind: "audio",
-          planned: true,
           pace: "slow",
           caption: "Послушай разговор",
           transcript: "Do you like coffee? No, I don't. I like tea.",
@@ -858,7 +853,6 @@ const module: Module = {
         {
           id: "zapis-would-like",
           kind: "audio",
-          planned: true,
           pace: "slow",
           caption: "Послушай два заказа",
           transcript: "I'd like a coffee, please. I'd like a tea.",
@@ -996,7 +990,6 @@ const module: Module = {
         {
           id: "zapis-would-like-to",
           kind: "audio",
-          planned: true,
           pace: "slow",
           caption: "Послушай три желания",
           transcript: "I'd like to go home. I'd like to see this film. My sister would like to swim.",
@@ -1135,7 +1128,6 @@ const module: Module = {
         {
           id: "zapis-rasskaza-o-vkusah",
           kind: "audio",
-          planned: true,
           pace: "slow",
           caption: "Послушай рассказ целиком",
           transcript:

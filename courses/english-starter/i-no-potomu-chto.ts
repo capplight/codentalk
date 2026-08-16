@@ -209,7 +209,6 @@ const module: Module = {
         {
           id: "zapis-and",
           kind: "audio",
-          planned: true,
           pace: "slow",
           caption: "Послушай три предложения",
           transcript: "I work, and I study. She can swim, and she can drive. I like music, and I like sport.",
@@ -344,7 +343,6 @@ const module: Module = {
         {
           id: "zapis-perechisleniya",
           kind: "audio",
-          planned: true,
           pace: "slow",
           caption: "Послушай два перечисления",
           transcript: "I'd like some bread, some water and some rice. I like tea, coffee and milk.",
@@ -479,7 +477,6 @@ const module: Module = {
         {
           id: "zapis-but",
           kind: "audio",
-          planned: true,
           pace: "slow",
           caption: "Послушай три предложения",
           transcript: "I work, but I don't study. She can drive, but she can't swim. I like tea, but I don't like coffee.",
@@ -620,7 +617,6 @@ const module: Module = {
         {
           id: "zapis-or",
           kind: "audio",
-          planned: true,
           pace: "slow",
           caption: "Послушай три записи",
           transcript: "tea or coffee, tea, coffee or water, I work on Monday or on Tuesday.",
@@ -759,7 +755,6 @@ const module: Module = {
         {
           id: "zapis-koroche",
           kind: "audio",
-          planned: true,
           pace: "slow",
           caption: "Послушай длинную и короткую запись",
           transcript: "I work, and I study. I work and study.",
@@ -895,7 +890,6 @@ const module: Module = {
         {
           id: "zapis-because",
           kind: "audio",
-          planned: true,
           pace: "slow",
           caption: "Послушай три причины",
           transcript: "I like this shop because it is near. I can't come because I work.",
@@ -1037,7 +1031,6 @@ const module: Module = {
         {
           id: "zapis-why",
           kind: "audio",
-          planned: true,
           pace: "slow",
           caption: "Послушай вопрос и ответ",
           transcript: "Why do you work here? Because I like this shop.",
@@ -1178,7 +1171,6 @@ const module: Module = {
         {
           id: "zapis-svyaznogo-rasskaza",
           kind: "audio",
-          planned: true,
           pace: "slow",
           caption: "Послушай рассказ целиком",
           transcript:

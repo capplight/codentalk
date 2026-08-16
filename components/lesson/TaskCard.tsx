@@ -13,7 +13,9 @@
 import { useState } from "react";
 import { checkAnswer, missingParts, type Answer } from "@/lib/content/check";
 import type { TaskBlock } from "@/lib/content/types";
+import { adresObrazca } from "@/lib/content/zvuk";
 import { useLessonFlow } from "./LessonFlow";
+import Zvuk from "./Zvuk";
 import s from "./lesson.module.css";
 
 type Status = "idle" | "right" | "wrong" | "shown";
@@ -292,6 +294,11 @@ export default function TaskCard({
         <div className={s.hottext}>
           <span lang="en">{task.phrase}</span>
           {task.translation && <div className={s.transcript}>{task.translation}</div>}
+          {/* Образец обязателен: без него ученику предлагают произнести то,
+              чего он ни разу не слышал, и он произносит по написанию. */}
+          <div className={s.obrazec}>
+            <Zvuk src={adresObrazca(task.phrase)} chto={task.phrase} vid="stroka" />
+          </div>
         </div>
       )}
 
@@ -342,6 +349,19 @@ export default function TaskCard({
         <div className={`${s.feedback} ${s.neutral}`}>
           {task.kind === "essay" && (
             <>
+              {/* Счёт слов, а не оценка. Cambridge требует от письма «25 words
+                  or more», и ученику надо знать, добрал ли он объём. Короткий
+                  ответ не объявляется ошибкой: письмо машина не оценивает. */}
+              {task.minWords && (
+                <p className={s.exampleExplain}>
+                  {(() => {
+                    const napisano = text.trim().split(/\s+/).filter(Boolean).length;
+                    return napisano >= task.minWords
+                      ? `Слов написано: ${napisano}, нужно было от ${task.minWords}. Объём набран.`
+                      : `Слов написано: ${napisano}, а нужно от ${task.minWords}. Допиши и сравни снова.`;
+                  })()}
+                </p>
+              )}
               <b>Так мог бы выглядеть ответ.</b>
               <p className={s.sample}>{task.sample}</p>
               <p className={s.exampleExplain}>Сравни со своим:</p>

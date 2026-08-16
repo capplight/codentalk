@@ -307,7 +307,6 @@ const module: Module = {
         {
           id: "zapis-dney",
           kind: "audio",
-          planned: true,
           pace: "slow",
           caption: "Послушай семь дней подряд",
           transcript:
@@ -473,7 +472,6 @@ const module: Module = {
         {
           id: "zapis-mesyacev",
           kind: "audio",
-          planned: true,
           pace: "slow",
           caption: "Послушай двенадцать месяцев",
           transcript:
@@ -636,7 +634,6 @@ const module: Module = {
         {
           id: "zapis-chasov",
           kind: "audio",
-          planned: true,
           pace: "slow",
           caption: "Послушай целые часы",
           transcript:
@@ -805,7 +802,6 @@ const module: Module = {
         {
           id: "zapis-polovin",
           kind: "audio",
-          planned: true,
           pace: "slow",
           caption: "Послушай половину и четверть",
           transcript:
@@ -1002,7 +998,6 @@ const module: Module = {
         {
           id: "zapis-a-the",
           kind: "audio",
-          planned: true,
           pace: "slow",
           caption: "Послушай a и the рядом",
           transcript:
@@ -1158,7 +1153,6 @@ const module: Module = {
         {
           id: "zapis-sutok",
           kind: "audio",
-          planned: true,
           pace: "slow",
           caption: "Послушай четыре оборота",
           transcript:
@@ -1320,7 +1314,6 @@ const module: Module = {
         {
           id: "zapis-predlogov",
           kind: "audio",
-          planned: true,
           pace: "slow",
           caption: "Послушай три предлога подряд",
           transcript:
@@ -1485,7 +1478,6 @@ const module: Module = {
         {
           id: "zapis-voprosov-o-vremeni",
           kind: "audio",
-          planned: true,
           pace: "slow",
           caption: "Послушай два вопроса и ответы",
           transcript:
@@ -1654,7 +1646,6 @@ const module: Module = {
         {
           id: "zapis-ugovora",
           kind: "audio",
-          planned: true,
           pace: "slow",
           voice: "два голоса",
           caption: "Послушай разговор целиком",

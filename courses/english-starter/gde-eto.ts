@@ -241,7 +241,6 @@ const module: Module = {
         {
           id: "zapis-treh-predlogov",
           kind: "audio",
-          planned: true,
           pace: "slow",
           caption: "Послушай три предлога",
           transcript:
@@ -384,7 +383,6 @@ const module: Module = {
         {
           id: "zapis-ryadom",
           kind: "audio",
-          planned: true,
           pace: "slow",
           caption: "Послушай три предлога",
           transcript:
@@ -531,7 +529,6 @@ const module: Module = {
         {
           id: "zapis-zdes",
           kind: "audio",
-          planned: true,
           pace: "slow",
           caption: "Послушай here и there",
           transcript:
@@ -672,7 +669,6 @@ const module: Module = {
         {
           id: "zapis-next-to",
           kind: "audio",
-          planned: true,
           pace: "slow",
           caption: "Послушай три предлога",
           transcript:
@@ -821,7 +817,6 @@ const module: Module = {
         {
           id: "zapis-voprosa-gde",
           kind: "audio",
-          planned: true,
           pace: "slow",
           caption: "Послушай вопрос и ответ",
           transcript:
@@ -987,7 +982,6 @@ const module: Module = {
         {
           id: "zapis-goroda",
           kind: "audio",
-          planned: true,
           pace: "slow",
           caption: "Послушай восемь мест",
           transcript:
@@ -1143,7 +1137,6 @@ const module: Module = {
         {
           id: "zapis-dorogi",
           kind: "audio",
-          planned: true,
           pace: "slow",
           caption: "Послушай указания",
           transcript:
@@ -1295,7 +1288,6 @@ const module: Module = {
         {
           id: "zapis-obyasneniya",
           kind: "audio",
-          planned: true,
           pace: "slow",
           voice: "два голоса",
           caption: "Послушай разговор целиком",

@@ -215,7 +215,6 @@ const module: Module = {
         {
           id: "zapis-what",
           kind: "audio",
-          planned: true,
           pace: "slow",
           caption: "Послушай вопрос и ответ",
           transcript: "What is this? — It's a book. What's this? — It's a pen.",
@@ -360,7 +359,6 @@ const module: Module = {
         {
           id: "zapis-this-that",
           kind: "audio",
-          planned: true,
           pace: "slow",
           caption: "Послушай оба слова",
           transcript: "What is this? — It's a pen. What is that? — It's a car.",
@@ -499,7 +497,6 @@ const module: Module = {
         {
           id: "zapis-predmetov",
           kind: "audio",
-          planned: true,
           pace: "slow",
           caption: "Послушай шесть слов",
           transcript: "A bag. A key. A phone. A pen. A book. A box.",
@@ -635,7 +632,6 @@ const module: Module = {
         {
           id: "zapis-komnaty",
           kind: "audio",
-          planned: true,
           pace: "slow",
           caption: "Послушай шесть слов",
           transcript: "A room. A table. A chair. A door. A window. A picture.",
@@ -774,7 +770,6 @@ const module: Module = {
         {
           id: "zapis-ulicy",
           kind: "audio",
-          planned: true,
           pace: "slow",
           caption: "Послушай шесть слов",
           transcript: "A car. A bus. A shop. A ticket. Money. A map.",
@@ -910,7 +905,6 @@ const module: Module = {
         {
           id: "zapis-popravki-o-predmete",
           kind: "audio",
-          planned: true,
           pace: "slow",
           caption: "Послушай поправку",
           transcript: "Is this a pen? — No, it isn't. It isn't a pen. It's a key.",
@@ -1034,7 +1028,6 @@ const module: Module = {
         {
           id: "zapis-voprosov-o-predmete",
           kind: "audio",
-          planned: true,
           pace: "slow",
           caption: "Послушай оба вопроса подряд",
           transcript: "What is this? — It's a key. Is this a key? — Yes, it is.",
@@ -1172,7 +1165,6 @@ const module: Module = {
         {
           id: "zapis-razgovora-o-predmetah",
           kind: "audio",
-          planned: true,
           pace: "slow",
           voice: "два голоса",
           caption: "Послушай разговор целиком",

@@ -166,7 +166,6 @@ const module: Module = {
         {
           id: "zapis-voprosov",
           kind: "audio",
-          planned: true,
           pace: "slow",
           caption: "Послушай сообщение и вопрос рядом",
           transcript: "You are a student. Are you a student? She is from Turkey. Is she from Turkey?",
@@ -291,7 +290,6 @@ const module: Module = {
         {
           id: "zapis-otvetov-da",
           kind: "audio",
-          planned: true,
           pace: "slow",
           caption: "Послушай вопросы и ответы",
           transcript: "Are you a student? — Yes, I am. Is she from Turkey? — Yes, she is.",
@@ -425,7 +423,6 @@ const module: Module = {
         {
           id: "zapis-otvetov-net",
           kind: "audio",
-          planned: true,
           pace: "slow",
           caption: "Послушай ответы «нет»",
           transcript: "No, I'm not. No, she isn't. No, he isn't. No, they aren't.",
@@ -558,7 +555,6 @@ const module: Module = {
         {
           id: "zapis-vseh",
           kind: "audio",
-          planned: true,
           pace: "slow",
           caption: "Послушай вопросы со всеми местоимениями",
           transcript: "Am I…? Are you…? Is he…? Is she…? Is it…? Are we…? Are they…?",
@@ -689,7 +685,6 @@ const module: Module = {
         {
           id: "zapis-o-drugom",
           kind: "audio",
-          planned: true,
           pace: "slow",
           caption: "Послушай разговор о третьем человеке",
           transcript:
@@ -810,7 +805,6 @@ const module: Module = {
         {
           id: "zapis-vyborov",
           kind: "audio",
-          planned: true,
           pace: "slow",
           caption: "Послушай короткий и полный ответ",
           transcript:
@@ -934,7 +928,6 @@ const module: Module = {
         {
           id: "zapis-otlichiy",
           kind: "audio",
-          planned: true,
           pace: "slow",
           caption: "Послушай пару: сообщение и вопрос",
           transcript: "She is a nurse. Is she a nurse? He is from Spain. Is he from Spain?",
@@ -1061,7 +1054,6 @@ const module: Module = {
         {
           id: "zapis-razgovora-voprosov",
           kind: "audio",
-          planned: true,
           pace: "slow",
           voice: "два голоса",
           caption: "Послушай разговор целиком",

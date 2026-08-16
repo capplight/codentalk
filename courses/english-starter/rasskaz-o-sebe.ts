@@ -174,7 +174,6 @@ const module: Module = {
         {
           id: "zapis-from",
           kind: "audio",
-          planned: true,
           pace: "slow",
           caption: "Послушай, как это звучит",
           transcript: "I'm from Kazakhstan. He's from Turkey. She's from Astana.",
@@ -303,7 +302,6 @@ const module: Module = {
         {
           id: "zapis-stran",
           kind: "audio",
-          planned: true,
           pace: "slow",
           caption: "Послушай названия",
           transcript: "Kazakhstan. Turkey. Spain. Italy. France. Astana. Almaty.",
@@ -486,7 +484,6 @@ const module: Module = {
         {
           id: "zapis-artiklya",
           kind: "audio",
-          planned: true,
           pace: "slow",
           caption: "Послушай пары",
           transcript: "A doctor. An artist. A teacher. An actor. A city. An apple.",
@@ -647,7 +644,6 @@ const module: Module = {
         {
           id: "zapis-zanyatiy",
           kind: "audio",
-          planned: true,
           pace: "slow",
           caption: "Послушай названия занятий",
           transcript: "A student. A teacher. A doctor. A driver. A nurse. An artist.",
@@ -786,7 +782,6 @@ const module: Module = {
         {
           id: "zapis-in",
           kind: "audio",
-          planned: true,
           pace: "slow",
           caption: "Послушай пару предложений",
           transcript: "I'm from Almaty. I'm in Astana. She's from Turkey. She's in Ankara.",
@@ -931,7 +926,6 @@ const module: Module = {
         {
           id: "zapis-poryadka",
           kind: "audio",
-          planned: true,
           pace: "slow",
           caption: "Послушай четыре предложения",
           transcript: "I am a student. She is from Turkey. He is in Astana. You are a teacher.",
@@ -1055,7 +1049,6 @@ const module: Module = {
         {
           id: "zapis-voprosa",
           kind: "audio",
-          planned: true,
           pace: "slow",
           caption: "Послушай вопрос и ответ",
           transcript: "Where are you from? — I'm from Turkey. And you? — I'm from Kazakhstan.",
@@ -1208,7 +1201,6 @@ const module: Module = {
         {
           id: "zapis-rasskaza",
           kind: "audio",
-          planned: true,
           pace: "slow",
           caption: "Послушай рассказ целиком",
           transcript:

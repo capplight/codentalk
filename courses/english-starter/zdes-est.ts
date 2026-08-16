@@ -279,7 +279,6 @@ const module: Module = {
         {
           id: "zapis-there-is",
           kind: "audio",
-          planned: true,
           pace: "slow",
           caption: "Послушай четыре предложения",
           transcript:
@@ -429,7 +428,6 @@ const module: Module = {
         {
           id: "zapis-there-are",
           kind: "audio",
-          planned: true,
           pace: "slow",
           caption: "Послушай пары",
           transcript:
@@ -590,7 +588,6 @@ const module: Module = {
         {
           id: "zapis-komnat",
           kind: "audio",
-          planned: true,
           pace: "slow",
           caption: "Послушай комнаты и вещи",
           transcript:
@@ -745,7 +742,6 @@ const module: Module = {
         {
           id: "zapis-some",
           kind: "audio",
-          planned: true,
           pace: "slow",
           caption: "Послушай some в предложениях",
           transcript:
@@ -915,7 +911,6 @@ const module: Module = {
         {
           id: "zapis-voprosa-there",
           kind: "audio",
-          planned: true,
           pace: "slow",
           voice: "два голоса",
           caption: "Послушай вопросы и ответы",
@@ -1083,7 +1078,6 @@ const module: Module = {
         {
           id: "zapis-otricaniya-there",
           kind: "audio",
-          planned: true,
           pace: "slow",
           caption: "Послушай отрицания",
           transcript:
@@ -1229,7 +1223,6 @@ const module: Module = {
         {
           id: "zapis-goroda-there",
           kind: "audio",
-          planned: true,
           pace: "slow",
           caption: "Послушай четыре места",
           transcript:
@@ -1374,7 +1367,6 @@ const module: Module = {
         {
           id: "zapis-rasskaza-zhilyo",
           kind: "audio",
-          planned: true,
           pace: "slow",
           caption: "Послушай рассказ целиком",
           transcript:

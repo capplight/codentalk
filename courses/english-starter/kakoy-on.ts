@@ -267,7 +267,6 @@ const module: Module = {
         {
           id: "zapis-priznakov",
           kind: "audio",
-          planned: true,
           pace: "slow",
           caption: "Послушай слова парами",
           transcript:
@@ -438,7 +437,6 @@ const module: Module = {
         {
           id: "zapis-pered",
           kind: "audio",
-          planned: true,
           pace: "slow",
           caption: "Послушай слова перед названием",
           transcript:
@@ -594,7 +592,6 @@ const module: Module = {
         {
           id: "zapis-cvetov",
           kind: "audio",
-          planned: true,
           pace: "slow",
           caption: "Послушай десять цветов",
           transcript:
@@ -761,7 +758,6 @@ const module: Module = {
         {
           id: "zapis-very",
           kind: "audio",
-          planned: true,
           pace: "slow",
           caption: "Послушай very в предложениях",
           transcript:
@@ -911,7 +907,6 @@ const module: Module = {
         {
           id: "zapis-dvuh",
           kind: "audio",
-          planned: true,
           pace: "slow",
           caption: "Послушай пары слов",
           transcript:
@@ -1059,7 +1054,6 @@ const module: Module = {
         {
           id: "zapis-o-cheloveke",
           kind: "audio",
-          planned: true,
           pace: "slow",
           caption: "Послушай описание человека",
           transcript:
@@ -1218,7 +1212,6 @@ const module: Module = {
         {
           id: "zapis-lyubimogo",
           kind: "audio",
-          planned: true,
           pace: "slow",
           caption: "Послушай разговор о любимом",
           transcript:
@@ -1380,7 +1373,6 @@ const module: Module = {
         {
           id: "zapis-opisaniya",
           kind: "audio",
-          planned: true,
           pace: "slow",
           voice: "два голоса",
           caption: "Послушай оба описания",
