@@ -43,7 +43,6 @@ model User {
   certificates     Certificate[]
   accounts         Account[]
   sessions         Session[]
-  exerciseAttempts ExerciseAttempt[]
   testAttempts     TestAttempt[]
   confusionMarks   ConfusionMark[]
   lessonNotes      LessonNote[]
@@ -246,7 +245,6 @@ model Lesson {
   sort Int @default(0)
 
   progress       LessonProgress[]
-  exercises      Exercise[]
   confusionMarks ConfusionMark[]
   notes          LessonNote[]
 
@@ -374,40 +372,13 @@ model CourseProgress {
 // ---------------------------------------------------------------------------
 // Проверка знаний
 //
-// Упражнения и проверочные работы — разное по назначению (раздел 5.3
-// техзадания): упражнения учат и на оценку не влияют, проверочные оценивают.
+// Задания уроков в базе НЕ хранятся. Раздел 5.3 техзадания разделял упражнения
+// и проверочные работы, и под упражнения были заведены две таблицы. Ученик
+// решает задания прямо на странице урока по данным из courses/, ответ
+// проверяется в браузере, а сохраняется только сам факт прохождения урока
+// (lesson_progress). Таблицы простояли без единого чтения и без единой попытки
+// и сняты 16 августа 2026, чтобы зеркало базы не расходилось с правдой.
 // ---------------------------------------------------------------------------
-
-model Exercise {
-  id       String @id @default(uuid()) @db.Uuid
-  lessonId String @map("lesson_id") @db.Uuid
-  lesson   Lesson @relation(fields: [lessonId], references: [id], onDelete: Cascade)
-
-  kind    String // choice | fill | assemble | listen | code
-  payload Json // варианты, ответ, подсказка — форма зависит от вида
-  sort    Int    @default(0)
-
-  attempts ExerciseAttempt[]
-
-  @@map("exercises")
-}
-
-model ExerciseAttempt {
-  id     String @id @default(uuid()) @db.Uuid
-  userId String @map("user_id") @db.Uuid
-  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
-
-  exerciseId String   @map("exercise_id") @db.Uuid
-  exercise   Exercise @relation(fields: [exerciseId], references: [id], onDelete: Cascade)
-
-  answer    Json
-  isCorrect Boolean  @map("is_correct")
-  hintsUsed Int      @default(0) @map("hints_used")
-  createdAt DateTime @default(now()) @map("created_at")
-
-  @@index([userId, exerciseId])
-  @@map("exercise_attempts")
-}
 
 enum TestKind {
   module_quiz

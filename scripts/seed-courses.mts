@@ -148,20 +148,10 @@ async function main(): Promise<void> {
         });
         lessonSort += 1;
 
-        // Упражнения переписываются целиком: их правят вместе с уроком, а
-        // попыток по ним не хранится ничего, что стоило бы беречь.
-        await prisma.exercise.deleteMany({ where: { lessonId: savedLesson.id } });
+        // Задания урока в базу не кладутся: ученик решает их на странице по
+        // данным из courses/, а база хранит только достигнутое. Здесь их
+        // считают ради отчёта.
         const tasks = lesson.blocks.filter(isTask);
-        if (tasks.length > 0) {
-          await prisma.exercise.createMany({
-            data: tasks.map((task, index) => ({
-              lessonId: savedLesson.id,
-              kind: task.kind,
-              payload: task as never,
-              sort: index,
-            })),
-          });
-        }
 
         console.log(`  ✓ ${lesson.slug} (${tasks.length} заданий)`);
       }

@@ -414,11 +414,16 @@ course_progress                  -- заранее посчитанное, ра�
 
 ### 8.4 Проверка знаний
 
-```sql
-exercises          id, lesson_id, kind, payload jsonb, sort
-exercise_attempts  id, user_id, exercise_id, answer jsonb,
-                   is_correct, hints_used, created_at
+Задания уроков в базе не хранятся. Здесь стояли таблицы `exercises` и
+`exercise_attempts`; их сняли 16 августа 2026. Ученик решает задание на
+странице урока по данным из `courses/`, ответ проверяется на месте, а в базу
+уходит только факт прохождения урока — `lesson_progress`. Первая таблица была
+зеркалом заданий, которое переписывалось при каждом переносе и не читалось ни
+разу, во второй не было ни одной строки.
 
+Оценивают знания только проверочные работы, и вот их таблицы:
+
+```sql
 tests              id, course_id, module_id (может быть пусто),
                    kind,                    -- проверочная модуля | экзамен курса
                    title,
@@ -489,9 +494,12 @@ PUT    /lessons/:id/progress  {status, position}
 POST   /lessons/:id/complete
 ```
 
-### Упражнения и проверочные
+### Проверочные работы
+
+Метода для заданий урока здесь нет намеренно: они проверяются в браузере по
+данным из `courses/`, а на сервер уходит только прохождение урока.
+
 ```
-POST   /exercises/:id/submit          {answer} -> {is_correct, feedback, hint?}
 POST   /tests/:id/attempts            начать попытку -> выборка вопросов
 PUT    /tests/attempts/:id            промежуточное сохранение
 POST   /tests/attempts/:id/submit     -> {score, passed, weak_topics[]}
