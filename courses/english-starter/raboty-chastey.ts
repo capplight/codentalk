@@ -688,10 +688,15 @@ export const rabotaDelaIRazgovory: Quiz = {
       id: "ch4-poobeshchat-pomoch",
       kind: "short",
       outcome: "рассказывать о планах: I'll come tomorrow",
+      // Условие просило короткую запись, а список принимаемых ответов брал и
+      // полную. Либо условие лишнее, либо ответ. Оставлено условие: короткая
+      // запись — предмет урока, и разбор о ней же. Нашёл редактор.
       prompt: "Пообещай собеседнику помочь завтра, короткой записью. Помочь — help.",
       answer: "I'll help you tomorrow.",
-      accept: ["I will help you tomorrow.", "I'll help you tomorrow"],
-      why: "I'll help you tomorrow. Короткая запись I'll — это то же I will.",
+      accept: ["I'll help you tomorrow"],
+      why:
+        "I'll help you tomorrow. Полная запись I will help you tomorrow тоже верна, " +
+        "но задание просило короткую.",
     },
     {
       id: "ch4-glagol-s-predlogom",

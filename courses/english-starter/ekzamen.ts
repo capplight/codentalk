@@ -64,7 +64,7 @@ export const ekzamenEnglishStarter: Quiz = {
       prompt: "Запиши коротко: they are.",
       answer: "they're",
       accept: ["They're"],
-      why: "They're. Из are выпала a, и на её месте стоит апостроф.",
+      why: "They're. Из are выпала буква a, и на её месте стоит апостроф.",
     },
 
     // ===== 3. Рассказ о себе =====
@@ -385,7 +385,7 @@ export const ekzamenEnglishStarter: Quiz = {
       before: "She usually ",
       after: " early.",
       answer: "gets up",
-      why: "She usually gets up early. Наречие места не меняет, а окончание остаётся при глаголе.",
+      why: "She usually gets up early. Наречие не сдвигает окончание -s: оно остаётся при глаголе.",
     },
 
     // ===== 18. Прямо сейчас =====
@@ -524,7 +524,9 @@ export const ekzamenEnglishStarter: Quiz = {
       id: "ex-soedinit-but",
       kind: "short",
       outcome: "противопоставлять: I work, but I don't study",
-      prompt: "Соедини в одно предложение так, чтобы был слышен спор: I like tea. I don't like milk.",
+      prompt:
+        "Соедини в одно предложение так, чтобы было слышно противопоставление: " +
+        "I like tea. I don't like milk.",
       answer: "I like tea, but I don't like milk.",
       accept: ["I like tea, but I do not like milk."],
       why:

@@ -1547,7 +1547,10 @@ const module: Module = {
           "Пообещай собеседнику позвонить завтра, короткой записью. Позвонить — call, " +
           "завтра — tomorrow.",
         answer: "I'll call you tomorrow.",
-        accept: ["I will call you tomorrow."],
+        // Полная запись из принимаемых убрана: условие прямо просит короткую, а
+        // засчитывать оба — значит обещать одно и проверять другое. То же место
+        // редактор нашёл в работе части.
+        accept: ["I'll call you tomorrow"],
         hint: "Обещание о будущем строится так же, как план.",
         why:
           "I'll call you tomorrow. Полная форма I will call you tomorrow тоже " +
