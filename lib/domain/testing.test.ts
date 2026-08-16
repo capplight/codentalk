@@ -45,7 +45,7 @@ test("выборка берёт вопросы из разных тем, а не
     ...Array.from({ length: 10 }, (_, i) => q(`p${i}`, "предлоги", "in")),
   ];
   const picked = selectQuestions(pool, 6, "seed");
-  const topics = new Set(picked.map((x) => x.topic));
+  const topics = new Set(picked.map((x) => x.group ?? x.topic));
   assert.equal(picked.length, 6);
   assert.equal(topics.size, 3, "должны быть представлены все три темы");
 });
@@ -160,4 +160,41 @@ test("перемешивание вариантов сохраняет их со
   const mixed = shuffleOptions(question, "seed");
   assert.deepEqual([...mixed.options!].sort(), ["a", "b", "c", "d"]);
   assert.equal(mixed.answer, "b", "правильный ответ не должен подменяться");
+});
+
+/* --- охват модулей на экзамене --- */
+
+test("экзамен берёт по вопросу из каждого модуля и не пропускает ни одного", () => {
+  /*
+   * Настоящий случай экзамена ступени: двадцать пять модулей, по два вопроса
+   * на каждый, показывается тридцать. У каждого вопроса свой итог урока —
+   * поэтому группировка по теме здесь бесполезна, и без признака модуля
+   * выборка вырождалась в случайные тридцать из пятидесяти. Считали: примерно
+   * четыре модуля из двадцати пяти не проверялись в попытке вовсе.
+   */
+  const bank: Array<Question & { group: string }> = [];
+  for (let m = 1; m <= 25; m += 1) {
+    for (let n = 1; n <= 2; n += 1) {
+      bank.push({ ...q(`m${m}-${n}`, `итог урока ${m}.${n}`, "да"), group: `модуль-${m}` });
+    }
+  }
+
+  // Несколько разных зёрен: охват не должен зависеть от везения.
+  for (const seed of ["a", "b", "c", "проверка", "2026"]) {
+    const picked = selectQuestions(bank, 30, seed);
+    const moduli = new Set(picked.map((x) => x.group));
+    assert.equal(picked.length, 30, `зерно ${seed}: должно быть ровно тридцать вопросов`);
+    assert.equal(moduli.size, 25, `зерно ${seed}: должны быть представлены все двадцать пять модулей`);
+  }
+});
+
+test("без признака модуля выборка идёт по теме, как раньше", () => {
+  const bank = [
+    q("1", "тема A", "да"),
+    q("2", "тема A", "да"),
+    q("3", "тема Б", "да"),
+    q("4", "тема В", "да"),
+  ];
+  const picked = selectQuestions(bank, 3, "seed");
+  assert.equal(new Set(picked.map((x) => x.topic)).size, 3, "три темы — три вопроса");
 });

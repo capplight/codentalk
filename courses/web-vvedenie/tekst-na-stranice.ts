@@ -355,7 +355,7 @@ const module: Module = {
   // ---------------------------------------------------------------------------
   quiz: {
     ask: 6,
-    passRatio: 0.7,
+    passRatio: 0.8,
     questions: [
       {
         id: "quiz-h1-odin",

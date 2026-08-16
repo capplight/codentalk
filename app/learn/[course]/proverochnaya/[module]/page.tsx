@@ -5,6 +5,7 @@ import { prisma } from "@/lib/db";
 import { findCourse } from "@/courses";
 import QuizRunner from "@/components/lesson/QuizRunner";
 import { plural } from "@/lib/plural";
+import { nuzhnoVerno } from "@/lib/domain/porog";
 import s from "@/components/lesson/lesson.module.css";
 
 type Params = { params: Promise<{ course: string; module: string }> };
@@ -77,10 +78,13 @@ export default async function QuizPage({ params }: Params) {
           {course.title} · {module.title}
         </span>
         <h1 className={s.title}>Проверочная работа</h1>
+        {/* Порог счётом, а не в баллах: «нужно 8 из 10» человек понимает
+            сразу, «нужно 80 баллов» требует пересчёта в уме. */}
         <span className={s.meta}>
           {test.questionsPerAttempt}{" "}
           {plural(test.questionsPerAttempt, "вопрос", "вопроса", "вопросов")} · для зачёта
-          нужно {test.passScore} {plural(test.passScore, "балл", "балла", "баллов")}
+          нужно {nuzhnoVerno(test.passScore, test.questionsPerAttempt)} из{" "}
+          {test.questionsPerAttempt}
         </span>
         {/* Итоги идут списком, как на странице курса: восемь строк, склеенных
             точками с запятой, на телефоне дают пять строк сплошного жирного. */}

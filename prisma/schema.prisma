@@ -448,8 +448,14 @@ model TestQuestion {
   payload Json
 
   /// Тема вопроса: по ней собирается разбор «слабые места»
-  topic      String?
-  difficulty Int     @default(1)
+  topic String?
+
+  /// Группа для равномерной выборки: у экзамена и работ частей это модуль.
+  /// Отдельно от темы, потому что тема — итог урока, и на экзамене она у
+  /// каждого вопроса своя: группировать по ней там нечего.
+  groupKey String? @map("group_key")
+
+  difficulty Int @default(1)
 
   @@index([testId])
   @@map("test_questions")

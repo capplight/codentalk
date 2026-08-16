@@ -29,7 +29,7 @@ import type { Quiz } from "@/lib/content/types";
 // ===========================================================================
 export const rabotaYaIDrugie: Quiz = {
   ask: 10,
-  passRatio: 0.7,
+  passRatio: 0.8,
   questions: [
     // ---- Алфавит и своё имя ----
     {
@@ -210,7 +210,7 @@ export const rabotaYaIDrugie: Quiz = {
 // ===========================================================================
 export const rabotaMirVokrug: Quiz = {
   ask: 10,
-  passRatio: 0.7,
+  passRatio: 0.8,
   questions: [
     // ---- Один и много ----
     {
@@ -380,7 +380,7 @@ export const rabotaMirVokrug: Quiz = {
 // ===========================================================================
 export const rabotaKazhdyyDen: Quiz = {
   ask: 10,
-  passRatio: 0.7,
+  passRatio: 0.8,
   questions: [
     // ---- Что я делаю ----
     {
@@ -547,7 +547,7 @@ export const rabotaKazhdyyDen: Quiz = {
 // ===========================================================================
 export const rabotaDelaIRazgovory: Quiz = {
   ask: 10,
-  passRatio: 0.7,
+  passRatio: 0.8,
   questions: [
     // ---- Про него и про них ----
     {

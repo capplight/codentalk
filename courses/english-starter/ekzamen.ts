@@ -26,7 +26,7 @@ import type { Quiz } from "@/lib/content/types";
  */
 export const ekzamenEnglishStarter: Quiz = {
   ask: 30,
-  passRatio: 0.75,
+  passRatio: 0.8,
   questions: [
     // ===== 1. Алфавит и своё имя =====
     {

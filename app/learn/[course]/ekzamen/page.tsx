@@ -5,6 +5,7 @@ import { prisma } from "@/lib/db";
 import { findCourse } from "@/courses";
 import QuizRunner from "@/components/lesson/QuizRunner";
 import { plural } from "@/lib/plural";
+import { nuzhnoVerno } from "@/lib/domain/porog";
 import s from "@/components/lesson/lesson.module.css";
 
 type Params = { params: Promise<{ course: string }> };
@@ -67,7 +68,8 @@ export default async function ExamPage({ params }: Params) {
         <span className={s.eyebrow}>{course.title}</span>
         <h1 className={s.title}>Итоговый экзамен</h1>
         <span className={s.meta}>
-          {test.questionsPerAttempt} вопросов · для зачёта нужно {test.passScore} баллов
+          {test.questionsPerAttempt} вопросов · для зачёта нужно{" "}
+          {nuzhnoVerno(test.passScore, test.questionsPerAttempt)} верных
         </span>
         <p className={s.outcome}>
           Экзамен спрашивает про <b>весь курс</b>, а не про последний модуль. После него выдаётся

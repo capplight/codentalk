@@ -1354,7 +1354,7 @@ const module: Module = {
   // =======================================================================
   quiz: {
     ask: 9,
-    passRatio: 0.7,
+    passRatio: 0.8,
     questions: [
       {
         id: "q-chislo-slovom",

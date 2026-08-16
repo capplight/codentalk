@@ -214,6 +214,21 @@ async function main(): Promise<void> {
     // ---- итоговый экзамен курса -------------------------------------------
     if (course.exam) {
       const exam = course.exam;
+
+      /*
+       * Каждому вопросу экзамена проставляем модуль — по итогу урока, который
+       * вопрос проверяет.
+       *
+       * Зачем: выборка вопросов идёт по кругу групп. На экзамене группой была
+       * тема, а тема — это итог урока, и у каждого из пятидесяти вопросов он
+       * свой. Круг вырождался в случайную горсть, и примерно четыре модуля из
+       * двадцати пяти не попадали в попытку вовсе — при том что шапка экзамена
+       * обещает весь курс.
+       */
+      const modulPoItogu = new Map<string, string>();
+      for (const module of course.modules) {
+        for (const lesson of module.lessons) modulPoItogu.set(lesson.outcome, module.slug);
+      }
       const existingExam = await prisma.test.findFirst({
         where: { courseId: savedCourse.id, kind: "final_exam" },
         select: { id: true },
@@ -247,8 +262,16 @@ async function main(): Promise<void> {
           kind: question.kind,
           payload: question as never,
           topic: question.outcome,
+          groupKey: modulPoItogu.get(question.outcome) ?? null,
         })),
       });
+
+      const bezModulya = exam.questions.filter((q) => !modulPoItogu.has(q.outcome)).length;
+      if (bezModulya > 0) {
+        // Молчать об этом нельзя: такой вопрос выпадает из круга по модулям и
+        // снова делает охват случайным.
+        console.log(`  ⚠ вопросов экзамена без модуля: ${bezModulya}`);
+      }
 
       console.log(`  ✓ итоговый экзамен: ${exam.questions.length} вопросов`);
     }

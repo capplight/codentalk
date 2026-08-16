@@ -1120,7 +1120,7 @@ const module: Module = {
   // =======================================================================
   quiz: {
     ask: 8,
-    passRatio: 0.7,
+    passRatio: 0.8,
     questions: [
       {
         id: "q-okonchanie-mnozh",

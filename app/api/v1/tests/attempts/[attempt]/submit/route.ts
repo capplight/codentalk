@@ -39,7 +39,7 @@ export const POST = handler(async (request: Request, { params }: Params) => {
           passScore: true,
           timeLimitMinutes: true,
           courseId: true,
-          questions: { select: { id: true, topic: true, payload: true } },
+          questions: { select: { id: true, topic: true, groupKey: true, payload: true } },
         },
       },
     },

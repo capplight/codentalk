@@ -1298,7 +1298,7 @@ const module: Module = {
 
   quiz: {
     ask: 12,
-    passRatio: 0.7,
+    passRatio: 0.8,
     questions: [
       // ---- итог 1 ----
       {

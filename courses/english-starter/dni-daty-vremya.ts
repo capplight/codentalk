@@ -1761,7 +1761,7 @@ const module: Module = {
     // При восьми один итог остался бы неспрошенным, и какой именно — вышло бы
     // случайно.
     ask: 9,
-    passRatio: 0.7,
+    passRatio: 0.8,
     questions: [
       {
         id: "q-den-posle-vtornika",

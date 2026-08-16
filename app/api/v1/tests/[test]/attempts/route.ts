@@ -35,7 +35,7 @@ export const POST = handler(async (_request: Request, { params }: Params) => {
       passScore: true,
       moduleId: true,
       course: { select: { id: true, slug: true, access: true, isPublished: true } },
-      questions: { select: { id: true, topic: true, payload: true } },
+      questions: { select: { id: true, topic: true, groupKey: true, payload: true } },
     },
   });
 

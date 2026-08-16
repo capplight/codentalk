@@ -86,8 +86,8 @@ export function forBrowser(question: QuizQuestion): BrowserQuestion {
   }
 }
 
-/** Вопрос из базы: авторский вопрос плюс тема для выборки и разбора. */
-export type PooledQuestion = QuizQuestion & { topic: string };
+/** Вопрос из базы: авторский вопрос, тема для разбора и группа для выборки. */
+export type PooledQuestion = QuizQuestion & { topic: string; group?: string };
 
 /**
  * Собрать банк вопросов из записей базы.
@@ -96,7 +96,7 @@ export type PooledQuestion = QuizQuestion & { topic: string };
  * сверяются ответы попытки, и оно переживает правку материалов.
  */
 export function poolFrom(
-  rows: Array<{ id: string; topic: string | null; payload: unknown }>
+  rows: Array<{ id: string; topic: string | null; groupKey?: string | null; payload: unknown }>
 ): PooledQuestion[] {
   return rows.map((row) => {
     const authored = row.payload as QuizQuestion;
@@ -105,6 +105,9 @@ export function poolFrom(
       id: row.id,
       outcome: row.topic ?? authored.outcome,
       topic: row.topic ?? authored.outcome,
+      // Группа нужна только выборке. Где её нет — выборка идёт по теме, как
+      // раньше: у работы модуля это верно, там все вопросы про один модуль.
+      group: row.groupKey ?? undefined,
     };
   });
 }
