@@ -6,7 +6,13 @@ import { useRouter } from "next/navigation";
 import { signIn } from "next-auth/react";
 import styles from "./AuthForm.module.css";
 
-export default function LoginForm() {
+export default function LoginForm({
+  dalshe = "/",
+  mozhnoVosstanovit = false,
+}: {
+  dalshe?: string;
+  mozhnoVosstanovit?: boolean;
+}) {
   const router = useRouter();
   const [pending, setPending] = useState(false);
   const [formError, setFormError] = useState<string | null>(null);
@@ -33,7 +39,9 @@ export default function LoginForm() {
         return;
       }
 
-      router.push("/");
+      // Возвращаемся туда, откуда пришли: чаще всего это урок, закрытый до
+      // входа. Адрес уже проверен на сервере — наружу он увести не может.
+      router.push(dalshe);
       router.refresh();
     } catch {
       setFormError("Сеть не отвечает. Проверь соединение и попробуй ещё раз.");
@@ -45,7 +53,7 @@ export default function LoginForm() {
   return (
     <div className={styles.wrap}>
       <h1 className={styles.title}>Вход</h1>
-      <p className={styles.lead}>Продолжим с того места, где ты остановился.</p>
+      <p className={styles.lead}>Продолжим с того места, на котором прервались занятия.</p>
 
       <form className={styles.card} onSubmit={onSubmit} noValidate>
         {formError && <div className={styles.formError}>{formError}</div>}
@@ -83,8 +91,17 @@ export default function LoginForm() {
         </button>
       </form>
 
+      {mozhnoVosstanovit && (
+        <p className={styles.switch}>
+          <Link href="/zabyl-parol">Не помнишь пароль?</Link>
+        </p>
+      )}
+
       <p className={styles.switch}>
-        Ещё нет аккаунта? <Link href="/register">Создать</Link>
+        Ещё нет аккаунта?{" "}
+        <Link href={dalshe === "/" ? "/register" : `/register?dalshe=${encodeURIComponent(dalshe)}`}>
+          Создать
+        </Link>
       </p>
     </div>
   );

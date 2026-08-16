@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 import { auth } from "@/auth";
 import { prisma } from "@/lib/db";
 import { findLesson } from "@/courses";
@@ -25,6 +25,13 @@ export async function generateMetadata({ params }: Params) {
  * Материал разворачивается на сервере, а в браузер островками уезжают только
  * задания и кнопка «непонятно»: читать можно и без выполнения кода на стороне
  * ученика.
+ *
+ * УРОК ОТКРЫТ ТОЛЬКО ПОСЛЕ ВХОДА (решение владельца). Проверка стоит здесь, на
+ * сервере, а не в оформлении: спрятанная ссылка защитой не является — адрес
+ * урока прост, и его набирают руками.
+ *
+ * Каталог и состав уровня при этом открыты всем: по ним человек решает, идти
+ * ли учиться, и они же приводят людей из поиска.
  */
 export default async function LessonPage({ params }: Params) {
   const { course: courseSlug, lesson: lessonSlug } = await params;
@@ -35,6 +42,9 @@ export default async function LessonPage({ params }: Params) {
 
   const session = await auth();
   const userId = session?.user?.id;
+  if (!userId) {
+    redirect(`/login?dalshe=${encodeURIComponent(`/learn/${courseSlug}/${lessonSlug}`)}`);
+  }
 
   // Уже поставленные пометки, чтобы кнопки открылись в нужном состоянии.
   // Урока может не быть в базе (новое содержание переносится отдельно) —
@@ -141,16 +151,11 @@ export default async function LessonPage({ params }: Params) {
           </Link>
         )}
 
-        {userId ? (
-          <FinishLesson
-            nextHref={next ? `/learn/${courseSlug}/${next.slug}` : `/learn/${courseSlug}`}
-            label={next ? `дальше: ${next.title}` : "к уровню"}
-          />
-        ) : (
-          <Link className="btn" href="/register">
-            Зарегистрируйся, чтобы сохранять успехи
-          </Link>
-        )}
+        {/* Гостя здесь не бывает: страница закрыта до входа. */}
+        <FinishLesson
+          nextHref={next ? `/learn/${courseSlug}/${next.slug}` : `/learn/${courseSlug}`}
+          label={next ? `дальше: ${next.title}` : "к уровню"}
+        />
         </div>
       </LessonFlow>
     </main>

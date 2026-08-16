@@ -150,10 +150,12 @@ export default async function CoursePage({ params }: Params) {
       {current && (
         <p className={s.resume}>
           <Link className="btn" href={`/learn/${course.slug}/${currentEntry?.lesson.slug}`}>
-            {done.size === 0 ? "Начать с первого урока" : "Продолжить"}
+            {!userId ? "Начать учиться" : done.size === 0 ? "Начать с первого урока" : "Продолжить"}
           </Link>
           <span className={s.resumeWhere}>
-            {currentEntry?.module.title} · {currentEntry?.lesson.title}
+            {userId
+              ? `${currentEntry?.module.title} · ${currentEntry?.lesson.title}`
+              : "Уроки открываются после входа — так сохраняются успехи"}
           </span>
         </p>
       )}

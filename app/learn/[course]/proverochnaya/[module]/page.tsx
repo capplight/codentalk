@@ -31,7 +31,9 @@ export default async function QuizPage({ params }: Params) {
 
   const session = await auth();
   if (!session?.user?.id) {
-    redirect(`/login?next=/learn/${courseSlug}/proverochnaya/${moduleSlug}`);
+    redirect(
+      `/login?dalshe=${encodeURIComponent(`/learn/${courseSlug}/proverochnaya/${moduleSlug}`)}`
+    );
   }
 
   const test = await prisma.test.findFirst({

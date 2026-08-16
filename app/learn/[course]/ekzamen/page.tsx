@@ -29,7 +29,7 @@ export default async function ExamPage({ params }: Params) {
 
   const session = await auth();
   if (!session?.user?.id) {
-    redirect(`/login?next=/learn/${courseSlug}/ekzamen`);
+    redirect(`/login?dalshe=${encodeURIComponent(`/learn/${courseSlug}/ekzamen`)}`);
   }
 
   const test = await prisma.test.findFirst({

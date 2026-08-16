@@ -9,7 +9,7 @@ import styles from "./AuthForm.module.css";
 
 type FieldErrors = Partial<Record<"email" | "password" | "displayName", string[]>>;
 
-export default function RegisterForm() {
+export default function RegisterForm({ dalshe = "/" }: { dalshe?: string }) {
   const router = useRouter();
   const [pending, setPending] = useState(false);
   const [formError, setFormError] = useState<string | null>(null);
@@ -58,7 +58,8 @@ export default function RegisterForm() {
         return;
       }
 
-      router.push("/");
+      // Если человек пришёл с закрытого урока — возвращаем прямо туда.
+      router.push(dalshe);
       router.refresh();
     } catch {
       setFormError("Сеть не отвечает. Проверь соединение и попробуй ещё раз.");
@@ -71,7 +72,7 @@ export default function RegisterForm() {
     <div className={styles.wrap}>
       <h1 className={styles.title}>Создать аккаунт</h1>
       <p className={styles.lead}>
-        Чтобы сохранять успехи и возвращаться туда, где остановился.
+        Чтобы сохранять успехи и возвращаться туда, где занятия прервались.
       </p>
 
       <form className={styles.card} onSubmit={onSubmit} noValidate>
@@ -138,7 +139,10 @@ export default function RegisterForm() {
       </form>
 
       <p className={styles.switch}>
-        Уже есть аккаунт? <Link href="/login">Войти</Link>
+        Уже есть аккаунт?{" "}
+        <Link href={dalshe === "/" ? "/login" : `/login?dalshe=${encodeURIComponent(dalshe)}`}>
+          Войти
+        </Link>
       </p>
     </div>
   );

@@ -272,6 +272,102 @@ console.log("\nСертификат");
   }
 }
 
+// --- 8. Уроки закрыты до входа -----------------------------------------------
+console.log("\nУроки закрыты до входа");
+{
+  // Ходим мимо общей корзинки печений: важно, что видит именно гость.
+  const gost = (put: string) => fetch(`${BASE}${put}`, { redirect: "manual" });
+
+  const urok = await gost(`/learn/english-starter/${freeLessons[0]}`);
+  const kuda = urok.headers.get("location") ?? "";
+  check("гостя с урока уводит на вход", urok.status === 307 || urok.status === 302, urok.status);
+  check("и запоминает, куда он шёл", kuda.includes("/login?dalshe="), kuda);
+
+  const rabota = await gost("/learn/english-starter/proverochnaya/alfavit");
+  check(
+    "проверочная работа тоже закрыта",
+    rabota.status === 307 || rabota.status === 302,
+    rabota.status
+  );
+
+  // А вот это должно остаться открытым: по составу уровня человек решает,
+  // идти ли учиться, и эта же страница приводит людей из поиска.
+  const sostav = await gost("/learn/english-starter");
+  check("состав уровня открыт всем", sostav.status === 200, sostav.status);
+}
+
+// --- 9. Смена забытого пароля ------------------------------------------------
+console.log("\nСмена забытого пароля");
+{
+  const { prisma } = await import("../lib/db/index.ts");
+  const { sozdatKod } = await import("../lib/auth/reset.ts");
+  const { pochtaNastroena } = await import("../lib/mail/send.ts");
+
+  const zabyl = await api("/api/v1/auth/zabyl", {
+    method: "POST",
+    body: JSON.stringify({ email: EMAIL }),
+  });
+  if (pochtaNastroena()) {
+    check("письмо со ссылкой отправлено", zabyl.status === 200, zabyl.body);
+  } else {
+    // Молчаливый успех здесь был бы хуже отказа: человек ждал бы письма,
+    // которого никто не отправлял.
+    check(
+      "без настроенной почты метод отказывает честно",
+      zabyl.status === 500 && JSON.stringify(zabyl.body).includes("не настроена"),
+      zabyl.body
+    );
+    console.log("      (почта не настроена: нет RESEND_API_KEY и MAIL_FROM)");
+  }
+
+  /*
+   * Дальше проверяется вторая половина — сам переход по ссылке. Код берём не
+   * из письма (прочитать его отсюда нельзя), а кладём в базу тем же способом,
+   * каким это делает метод интерфейса.
+   */
+  const uchenik = await prisma.user.findUnique({ where: { email: EMAIL }, select: { id: true } });
+  const { kod, otpechatok, godenDo } = sozdatKod();
+  await prisma.passwordResetToken.create({
+    data: { userId: uchenik!.id, tokenHash: otpechatok, expiresAt: godenDo },
+  });
+
+  const NOVYY_PAROL = "sovsem-drugoy-dlinnyy-parol";
+
+  const vydumannyy = await api("/api/v1/auth/novyy-parol", {
+    method: "POST",
+    body: JSON.stringify({ kod: "kod-kotorogo-ne-bylo", password: NOVYY_PAROL }),
+  });
+  check("выдуманный код не принимается", vydumannyy.status === 400, vydumannyy.body);
+
+  const korotkiy = await api("/api/v1/auth/novyy-parol", {
+    method: "POST",
+    body: JSON.stringify({ kod, password: "123" }),
+  });
+  check("короткий пароль отклонён", korotkiy.status === 400);
+
+  const smena = await api("/api/v1/auth/novyy-parol", {
+    method: "POST",
+    body: JSON.stringify({ kod, password: NOVYY_PAROL }),
+  });
+  check("пароль сменён по коду", smena.status === 200, smena.body);
+
+  const povtor = await api("/api/v1/auth/novyy-parol", {
+    method: "POST",
+    body: JSON.stringify({ kod, password: NOVYY_PAROL }),
+  });
+  check("тот же код второй раз не срабатывает", povtor.status === 400);
+
+  cookies = "";
+  await login(EMAIL, PASSWORD);
+  const staryy = await api("/api/v1/me/overview");
+  check("старый пароль больше не подходит", staryy.status === 401, staryy.status);
+
+  cookies = "";
+  await login(EMAIL, NOVYY_PAROL);
+  const novyy = await api("/api/v1/me/overview");
+  check("новый пароль подходит", novyy.status === 200, novyy.status);
+}
+
 // --- Уборка ------------------------------------------------------------------
 // Проверка создаёт настоящих учеников в базе — не оставляем мусор.
 {

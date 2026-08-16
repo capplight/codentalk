@@ -40,5 +40,16 @@ export const loginSchema = z.object({
   password: z.string().min(1, "Введи пароль"),
 });
 
+/** Просьба прислать ссылку на смену забытого пароля. */
+export const zabylSchema = z.object({ email: emailSchema });
+
+/** Смена пароля по коду из письма. */
+export const smenaParolyaSchema = z.object({
+  kod: z.string().min(1, "Ссылка неполная — открой её из письма целиком"),
+  password: passwordSchema,
+});
+
 export type RegisterInput = z.infer<typeof registerSchema>;
 export type LoginInput = z.infer<typeof loginSchema>;
+export type ZabylInput = z.infer<typeof zabylSchema>;
+export type SmenaParolyaInput = z.infer<typeof smenaParolyaSchema>;

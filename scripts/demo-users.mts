@@ -8,6 +8,15 @@
  * сертификатом, другой чистый — чтобы видеть кабинет и полным, и пустым.
  * Пустой кабинет новичка обычно забывают проверить, а видит его как раз
  * каждый первый пришедший.
+ *
+ * ПАРОЛЬ БОЛЬШЕ НЕ ЗАПИСАН ЗДЕСЬ, И ЭТО ВАЖНО. Раньше в этой строке стояло
+ * готовое слово, репозиторий открыт всем, а сами аккаунты жили на рабочем
+ * сайте — то есть войти под учеником мог любой, кто прочёл эту страницу на
+ * GitHub. Теперь пароль либо берётся из окружения (DEMO_PASSWORD), либо
+ * придумывается случайно и печатается один раз при создании.
+ *
+ * И отдельно: на рабочем сайте этих аккаунтов быть не должно вовсе. Скрипт
+ * отказывается работать против рабочей базы без явного согласия.
  */
 import { config } from "dotenv";
 config({ path: ".env.local", quiet: true });
@@ -18,9 +27,12 @@ const { formatSerial } = await import("../lib/domain/certificate.ts");
 const { startOfMonth } = await import("../lib/domain/enrollment.ts");
 const { randomBytes } = await import("node:crypto");
 
-const PASSWORD = "codentalk2026";
 const WITH_PROGRESS = "demo@codentalk.kz";
 const FRESH = "new@codentalk.kz";
+
+// Случайный пароль печатается один раз и нигде не сохраняется. Понадобится
+// свой — задай DEMO_PASSWORD в окружении.
+const PASSWORD = process.env.DEMO_PASSWORD ?? randomBytes(12).toString("base64url");
 
 if (process.argv.includes("--clean")) {
   const removed = await prisma.user.deleteMany({
@@ -29,6 +41,26 @@ if (process.argv.includes("--clean")) {
   console.log(`Удалено аккаунтов: ${removed.count}`);
   await prisma.$disconnect();
   process.exit(0);
+}
+
+/*
+ * Отказ работать против рабочей базы.
+ *
+ * Учебные аккаунты нужны для просмотра на своей машине. На рабочем сайте это
+ * лишние живые аккаунты, за которыми никто не следит: однажды они там уже
+ * оказались и прожили неделю с паролем из открытого репозитория. Удаление
+ * (--clean) под запрет не попадает — оно, наоборот, нужно именно там.
+ */
+const adresBazy = process.env.DATABASE_URL ?? "";
+const svoyaMashina = /localhost|127\.0\.0\.1/.test(adresBazy);
+if (!svoyaMashina && !process.argv.includes("--ya-znayu-chto-delayu")) {
+  console.error(
+    `База не похожа на местную. Учебные аккаунты на рабочем сайте не нужны:\n` +
+      `это живые аккаунты, за которыми никто не следит.\n\n` +
+      `Если всё же надо — добавь --ya-znayu-chto-delayu.`
+  );
+  await prisma.$disconnect();
+  process.exit(1);
 }
 
 await prisma.user.deleteMany({ where: { email: { in: [WITH_PROGRESS, FRESH] } } });
@@ -118,7 +150,8 @@ const certificate = await prisma.certificate.create({
 });
 
 console.log(`
-Аккаунты созданы. Пароль у обоих одинаковый.
+Аккаунты созданы. Пароль у обоих одинаковый и показывается только сейчас —
+в репозитории его нет, запиши или задай свой через DEMO_PASSWORD.
 
   Почта:  ${WITH_PROGRESS}
   Пароль: ${PASSWORD}
