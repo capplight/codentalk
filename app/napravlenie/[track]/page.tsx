@@ -88,10 +88,9 @@ export default async function NapravleniePage({ params }: Params) {
 
               <span className={styles.nomer}>Ступень {i + 1}</span>
 
-              <h2 className={styles.stupenName}>
-                {stupen.name}
-                <span className={styles.perevod}>{stupen.perevod}</span>
-              </h2>
+              {/* Название ступени идёт как есть, без русского пояснения рядом:
+                  прямое решение владельца. */}
+              <h2 className={styles.stupenName}>{stupen.name}</h2>
 
               <span className={styles.cefr}>{stupen.cefr}</span>
 

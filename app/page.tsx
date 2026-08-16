@@ -146,7 +146,7 @@ export default function HomePage() {
           */}
           <div className={styles.peek} aria-label="Пример задания из урока">
             <div className={styles.peekHead}>
-              <span>Английский с нуля · «Что я делаю»</span>
+              <span>Английский · Beginner · «Что я делаю»</span>
               <span>задание 3 из 5</span>
             </div>
             <div className={styles.peekTask}>

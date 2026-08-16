@@ -104,16 +104,6 @@
   flex-wrap: wrap;
 }
 
-/* Перевод названия — один раз, мелко и рядом. Ступени зовутся английскими
-   именами, потому что так их зовут везде; перевод нужен только на первой
-   встрече. */
-.perevod {
-  font-family: var(--font-body);
-  font-size: var(--step--1);
-  font-weight: 500;
-  color: var(--ink-soft);
-}
-
 .cefr {
   font-size: var(--step-0);
   font-weight: 600;

@@ -46,7 +46,10 @@ import { ekzamenEnglishStarter } from "./ekzamen";
 const course: Course = {
   slug: "english-starter",
   track: "english",
-  title: "Английский с нуля",
+  // Имя ступени, а не описание: на хабе направления карточка зовётся Beginner,
+  // и внутри должно стоять то же самое. Прежнее «Английский с нуля» давало
+  // одной вещи два имени. Решение владельца 16 августа.
+  title: "Английский · Beginner",
   level: "до A1",
   tagline: "Для тех, кто не учил язык или всё забыл",
   access: "free",
