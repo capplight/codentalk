@@ -53,7 +53,10 @@ export default async function SiteHeader() {
           </>
         ) : (
           <>
-            <nav className={styles.nav}>
+            {/* Отдельный признак, потому что на телефоне эти три ссылки
+                прячутся, а «Мои курсы» и «Каталог» у вошедшего остаются:
+                первые ведут на ту же страницу, вторые — настоящие переходы. */}
+            <nav className={`${styles.nav} ${styles.navAnchors}`}>
               <Link href="/#napravleniya">Направления</Link>
               <Link href="/#kak-eto-ustroeno">Как это работает</Link>
               <Link href="/#chto-vnutri">Что внутри</Link>
