@@ -2,6 +2,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { prisma } from "@/lib/db";
 import { isValidSerialFormat } from "@/lib/domain/certificate";
+import { svedeniyaKursa } from "@/lib/content/kurs-svedeniya";
 import styles from "./certificate.module.css";
 
 type Params = { params: Promise<{ serial: string }> };
@@ -44,13 +45,14 @@ export default async function CertificatePage({ params }: Params) {
       finalScore: true,
       revokedAt: true,
       user: { select: { displayName: true } },
-      course: { select: { title: true, level: true } },
+      course: { select: { title: true, level: true, slug: true } },
     },
   });
 
   if (!certificate) notFound();
 
   const revoked = certificate.revokedAt !== null;
+  const svedeniya = svedeniyaKursa(certificate.course.slug);
 
   return (
     <main className="wrap" style={{ paddingBottom: 56 }}>
@@ -92,6 +94,18 @@ export default async function CertificatePage({ params }: Params) {
             <dt className={styles.meta}>Дата выдачи</dt>
             <dd className={styles.factValue}>{formatDate(certificate.issuedAt)}</dd>
           </div>
+          {svedeniya.stupen && (
+            <div>
+              <dt className={styles.meta}>Ступень</dt>
+              <dd className={styles.factValue}>{svedeniya.stupen}</dd>
+            </div>
+          )}
+          {svedeniya.chasov > 0 && (
+            <div>
+              <dt className={styles.meta}>Занятий</dt>
+              <dd className={styles.factValue}>{svedeniya.chasov} ч</dd>
+            </div>
+          )}
           {certificate.finalScore !== null && (
             <div>
               <dt className={styles.meta}>Итоговый балл</dt>
@@ -105,12 +119,23 @@ export default async function CertificatePage({ params }: Params) {
         </dl>
       </div>
 
+      {/* Бланк отдельной страницей: эта отвечает на вопрос «настоящий ли»,
+          а та — то, что кладут в папку и прикладывают к отклику. Отозванному
+          сертификату бланка нет: печатать нечего. */}
+      {!revoked && (
+        <p className={styles.actions}>
+          <Link className="btn" href={`/certificate/${certificate.serial}/blank`}>
+            Открыть для печати
+          </Link>
+        </p>
+      )}
+
       <p className={styles.footnote}>
         Эта страница открыта без входа в аккаунт — её можно отправить работодателю.
         Она показывает только имя, курс и дату.
       </p>
       <p className={styles.footnote}>
-        <Link href="/">Что такое CodeNTalk</Link>
+        <Link href="/proverka">Проверить другой сертификат по номеру</Link>
       </p>
     </main>
   );

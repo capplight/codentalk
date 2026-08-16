@@ -1,0 +1,176 @@
+/*
+ * Бланк сертификата.
+ *
+ * Считаем в миллиметрах, а не в точках: лист бумаги измеряется в них, и при
+ * печати число совпадает с тем, что видно на экране.
+ */
+
+.stranica {
+  padding: var(--space-6) var(--page-pad) var(--space-8);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-5);
+}
+
+.upravlenie {
+  display: flex;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* Лист. Пропорции альбомного A4, ширина ограничена шириной экрана. */
+.list {
+  width: 100%;
+  max-width: 297mm;
+  aspect-ratio: 297 / 210;
+  background: #fff;
+  color: #14202e;
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow-2);
+  display: grid;
+  place-items: center;
+  padding: 10mm;
+}
+
+/* Рамка внутри листа — то, что делает лист документом, а не запиской. */
+.ramka {
+  width: 100%;
+  height: 100%;
+  border: 2px solid #1f4f8f;
+  outline: 1px solid #1f4f8f;
+  outline-offset: 3mm;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3mm;
+  text-align: center;
+  padding: 8mm 12mm;
+}
+
+.logo {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 5mm;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: #1f4f8f;
+}
+
+.logoAccent {
+  color: #c98a1b;
+}
+
+.zagolovok {
+  font-family: var(--font-display);
+  font-size: 13mm;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin: 2mm 0 3mm;
+  color: #14202e;
+}
+
+.podzagolovok {
+  margin: 0;
+  font-size: 3.6mm;
+  color: #4a5a6e;
+}
+
+.kurs {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 8mm;
+  font-weight: 700;
+  color: #14202e;
+}
+
+.stupen {
+  margin: 0;
+  font-size: 3.8mm;
+  color: #4a5a6e;
+}
+
+.itog {
+  margin: 1mm 0 3mm;
+  font-size: 4.2mm;
+  color: #14202e;
+  max-width: 150mm;
+}
+
+.imya {
+  margin: 0 0 4mm;
+  font-family: var(--font-display);
+  font-size: 10mm;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  color: #14202e;
+}
+
+.niz {
+  display: flex;
+  gap: 14mm;
+  align-items: baseline;
+  font-size: 3.6mm;
+  color: #4a5a6e;
+}
+
+.nomer {
+  font-family: var(--font-mono);
+  letter-spacing: 0.08em;
+}
+
+.proverka {
+  margin: 2mm 0 0;
+  font-size: 3mm;
+  color: #6b7a8d;
+}
+
+/*
+ * Печать.
+ *
+ * С листа уходит всё, что не документ: кнопки, шапка и подвал сайта. Лист
+ * занимает страницу целиком, поля задаёт правило @page — иначе браузер
+ * добавляет свои и рамка съезжает.
+ *
+ * print-color-adjust нужен обязательно: без него браузер «экономит краску» и
+ * печатает синюю рамку серой, а то и вовсе белой.
+ */
+@page {
+  size: A4 landscape;
+  margin: 8mm;
+}
+
+@media print {
+  .stranica {
+    padding: 0;
+    display: block;
+  }
+
+  .upravlenie {
+    display: none;
+  }
+
+  .list {
+    max-width: none;
+    width: 100%;
+    height: 100%;
+    aspect-ratio: auto;
+    border: 0;
+    box-shadow: none;
+    padding: 0;
+    break-inside: avoid;
+  }
+
+  .ramka,
+  .logo,
+  .logoAccent,
+  .zagolovok,
+  .kurs,
+  .imya {
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+}

@@ -23,6 +23,7 @@
     "db:seed:courses": "tsx scripts/seed-courses.mts",
     "smoke": "tsx scripts/smoke-api.mts",
     "demo": "tsx scripts/demo-users.mts",
+    "obrazec": "tsx scripts/obrazec-sertifikata.mts",
     "sources": "bash scripts/download-sources.sh"
   },
   "dependencies": {

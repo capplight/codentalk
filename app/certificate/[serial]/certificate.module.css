@@ -114,3 +114,10 @@
   max-width: 52ch;
   margin: 10px auto 0;
 }
+
+/* Кнопка «открыть для печати» под карточкой проверки */
+.actions {
+  display: flex;
+  justify-content: center;
+  margin: 0 0 20px;
+}
