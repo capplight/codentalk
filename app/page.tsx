@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { auth } from "@/auth";
 import { courseCards, type CourseCard } from "@/courses";
 import { kursyVNapravleniyah, napravleniya } from "@/courses/napravleniya";
 import { withCount } from "@/lib/plural";
@@ -81,7 +82,20 @@ interface VitrinaCard {
   free: boolean;
 }
 
-export default function HomePage() {
+export default async function HomePage() {
+  /*
+   * Витрина знает, вошёл ли человек, ради одной кнопки — и это не мелочь.
+   *
+   * Раньше «Начать учиться» вело на регистрацию всегда. Вошедшему предлагали
+   * завести второй аккаунт, а тому, у кого аккаунт уже был, — регистрацию
+   * вместо входа. Теперь гостя ведём на вход (оттуда одна ссылка на
+   * регистрацию), а вошедшего — к его курсам.
+   */
+  const session = await auth();
+  const voshyol = Boolean(session?.user?.id);
+  const nachatHref = voshyol ? "/dashboard" : "/login";
+  const nachatLabel = voshyol ? "К моим курсам" : "Начать учиться";
+
   const cards: CourseCard[] = courseCards();
   const lessons = cards.reduce((sum, card) => sum + card.lessons, 0);
   const hours = Math.max(1, Math.round(cards.reduce((s, c) => s + c.minutes, 0) / 60));
@@ -138,8 +152,8 @@ export default function HomePage() {
             </p>
 
             <div className={styles.actions}>
-              <Link className="btn big" href="/register">
-                Начать учиться
+              <Link className="btn big" href={nachatHref}>
+                {nachatLabel}
               </Link>
               <Link className="btn big ghost" href="#kak-eto-ustroeno">
                 Как это устроено
@@ -319,8 +333,8 @@ export default function HomePage() {
           </div>
 
           <div className={styles.planAction}>
-            <Link className="btn big" href="/register">
-              Начать учиться
+            <Link className="btn big" href={nachatHref}>
+              {nachatLabel}
             </Link>
           </div>
         </div>

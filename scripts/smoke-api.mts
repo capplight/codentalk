@@ -294,6 +294,28 @@ console.log("\nУроки закрыты до входа");
   // идти ли учиться, и эта же страница приводит людей из поиска.
   const sostav = await gost("/learn/english-starter");
   check("состав уровня открыт всем", sostav.status === 200, sostav.status);
+
+  /*
+   * Кнопка витрины ведёт в разные места, и оба раза это ловится здесь.
+   *
+   * Она вела на регистрацию всегда: вошедшему предлагали завести второй
+   * аккаунт, а тому, у кого аккаунт уже есть, — регистрацию вместо входа.
+   * Нашёл владелец, глазами. Проверка стоит затем, чтобы не нашёл во второй
+   * раз.
+   */
+  const vitrinaGostyu = await (await gost("/")).text();
+  check(
+    "гостя витрина зовёт войти, а не регистрироваться",
+    vitrinaGostyu.includes("Начать учиться") && vitrinaGostyu.includes('href="/login"'),
+    null
+  );
+
+  const vitrinaSvoyemu = await (await fetch(`${BASE}/`, { headers: { Cookie: cookies } })).text();
+  check(
+    "вошедшего витрина ведёт к его курсам",
+    vitrinaSvoyemu.includes("К моим курсам") && vitrinaSvoyemu.includes('href="/dashboard"'),
+    null
+  );
 }
 
 // --- 9. Смена забытого пароля ------------------------------------------------
