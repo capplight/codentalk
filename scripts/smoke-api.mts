@@ -303,9 +303,37 @@ console.log("\nСмена забытого пароля");
   const { sozdatKod } = await import("../lib/auth/reset.ts");
   const { pochtaNastroena } = await import("../lib/mail/send.ts");
 
+  /*
+   * НА КАКОЙ АДРЕС ШЛЁМ ПРОВЕРОЧНОЕ ПИСЬМО — не мелочь.
+   *
+   * Ученик сквозной проверки заведён на выдуманный ящик нашего же домена.
+   * Письмо туда не дойдёт никогда, и почтовая служба зачтёт отказ. Домен у нас
+   * новый, доверия к нему ещё нет, и десяток таких отказов приведёт к тому, что
+   * письма настоящим ученикам начнут падать в «Спам».
+   *
+   * Поэтому отправка проверяется на служебном адресе Resend: он принимает
+   * письмо и никуда его не несёт. Отказа не будет.
+   *
+   * Предел писем — три в час на адрес и пять с сетевого адреса. Больше пяти
+   * прогонов за час дадут отказ по пределу, и это не поломка.
+   */
+  const POCHTA_PROVERKI = "delivered@resend.dev";
+  if (pochtaNastroena()) {
+    // Ученик мог остаться от прошлого прогона — тогда придёт «почта занята», и
+    // это нам подходит: важно, чтобы он в базе был.
+    await api("/api/v1/auth/register", {
+      method: "POST",
+      body: JSON.stringify({
+        email: POCHTA_PROVERKI,
+        password: PASSWORD,
+        displayName: "Проверка отправки",
+      }),
+    });
+  }
+
   const zabyl = await api("/api/v1/auth/zabyl", {
     method: "POST",
-    body: JSON.stringify({ email: EMAIL }),
+    body: JSON.stringify({ email: pochtaNastroena() ? POCHTA_PROVERKI : EMAIL }),
   });
   if (pochtaNastroena()) {
     check("письмо со ссылкой отправлено", zabyl.status === 200, zabyl.body);
@@ -373,7 +401,9 @@ console.log("\nСмена забытого пароля");
 {
   const { prisma } = await import("../lib/db/index.ts");
   const removed = await prisma.user.deleteMany({
-    where: { email: { startsWith: "smoke-" } },
+    where: {
+      OR: [{ email: { startsWith: "smoke-" } }, { email: "delivered@resend.dev" }],
+    },
   });
   await prisma.$disconnect();
   console.log(`\nУбрано учебных аккаунтов: ${removed.count}`);
