@@ -29,8 +29,10 @@ import type { Module } from "@/lib/content/types";
  *   только в повелительном наклонении;
  * — сравнения и превосходной степени (A2).
  *
- * Звука нет — решение об источнике записей за владельцем
- * (docs/zadachi-vladeltsa.md, п. 1.4).
+ * Звук есть: озвучен синтезом речи Azure британскими голосами, разговоры — на
+ * два голоса (решение владельца 16 августа, docs/zadachi-vladeltsa.md, п. 1.4).
+ * В уроке слушания расшифровки записей спрятаны за кнопку, иначе задание
+ * проверяло бы чтение.
  *
  * МОДУЛЬ ПРИНЯТ: скрипт, редактор, методист. Полный перечень найденного —
  * docs/zadachi-vladeltsa.md, п. 1.21. Что важно помнить прямо здесь:
@@ -106,6 +108,19 @@ const module: Module = {
         "с. 56, Reading for orientation, Pre-A1: «Can understand simple everyday signs such " +
         "as “Parking”, “Station”, “Dining room”, “No smoking”» — названия мест в городе " +
         "названы прямо, и ступень ниже A1. " +
+        "ОПОРА УРОКОВ 9 И 10 (чтение и слушание), с. 56, графа A1 — ДВЕ СТРОКИ: " +
+        "«Can recognise familiar names, words/signs and very basic phrases on simple " +
+        "notices in the most common everyday situations» — это указатель CITY CENTRE; " +
+        "«Can find and understand simple, important information in advertisements, " +
+        "programmes for special events, leaflets and brochures (e.g. what is proposed, " +
+        "costs, the date and place of the event, departure times)» — это объявление музея " +
+        "со временем и ценой. " +
+        "ОСТОРОЖНО, ЗДЕСЬ Я УЖЕ ОШИБСЯ. Строку «Can find information about places, times " +
+        "and prices on posters, flyers and notices» я назвал описанием A1 — она стоит в " +
+        "графе Pre-A1, вторая после строки про Parking и Station. Оба разбора, pdf-parse и " +
+        "markitdown, сходятся. Нашёл методист. " +
+        "Общий размер текста задан там же, с. 54, A1: «Can understand very short, simple " +
+        "texts a single phrase at a time» — отсюда указатель строками, а не рассказ. " +
         "с. 79, Information exchange, A1: «Can ask and answer questions about themselves " +
         "and other people, where they live». " +
         "ГЛАВНАЯ ОПОРА УРОКА 7, НАЙДЕНА МЕТОДИСТОМ: с. 51, A1, дословно — «Can understand " +
@@ -121,6 +136,12 @@ const module: Module = {
     {
       ref: "Oxford 3000",
       section:
+        "НОВЫЕ СЛОВА УРОКА ЧТЕНИЯ, все A1 по Oxford 3000: «bank (money) n. A1», " +
+        "«museum n. A1», «toilet n. A1», «open adj., v. A1», «centre n. A1». " +
+        "РАСХОЖДЕНИЕ ИСТОЧНИКОВ, то же, что у left/right/straight ниже: в детском " +
+        "руководстве Cambridge, с. 82, «Places & directions», слова bank, hotel и museum " +
+        "стоят в графе A2 Flyers, а hospital, station, opposite, centre — в A1 Movers. " +
+        "Модуль держится Oxford 3000 — решение то же и по тому же основанию. " +
         "проверено построчно, все A1: in, on, under, behind, between, near, at, opposite; " +
         "here, there, left, right; go, turn; shop, station, hospital, park, school, street, " +
         "city, room, kitchen, house, hotel, table, chair, door, window, wall, bus, stop, " +
@@ -165,6 +186,8 @@ const module: Module = {
     "называть места в городе: shop, station, hospital, park",
     "читать и повторять указания дороги: go, turn left, turn right",
     "объяснять дорогу двумя-тремя указаниями",
+    "находить место и время на указателе и в объявлении",
+    "понимать на слух указания дороги, а в объявлении — время и цену",
   ],
 
   lessons: [
@@ -1395,17 +1418,427 @@ const module: Module = {
         },
       ],
     },
+
+    // =====================================================================
+    // Урок чтения.
+    //
+    // ОПОРА ИСПРАВЛЕНА ПОСЛЕ МЕТОДИСТА. Сначала здесь стояла строка «Can find
+    // information about places, times and prices on posters, flyers and
+    // notices», названная описанием A1. Это НЕВЕРНО: на с. 56 она вторая
+    // строка графы Pre-A1, а не A1. Оба разбора — pdf-parse и markitdown —
+    // сходятся. Настоящие строки A1 записаны в `sources` модуля.
+    //
+    // Ошибка та самая, о которой предупреждает CLAUDE.md: цитата верная, но из
+    // соседней графы. Скрипт такого не видит, потому что цитата в источнике
+    // есть. Держать обоснование в комментарии было второй ошибкой — `kontrol`
+    // сверяет только `sources`.
+    // =====================================================================
+    {
+      slug: "chitaem-ukazatel",
+      title: "Читаем указатель",
+      estimatedMinutes: 13,
+      outcome: "находить место и время на указателе и в объявлении",
+
+      blocks: [
+        {
+          id: "zachem-ukazatel",
+          kind: "explain",
+          text: [
+            "Указатель в городе не читают подряд. На него смотрят, чтобы найти одно: " +
+              "где нужное место или когда оно открыто.",
+            "Строки на указателе короткие — по одному месту в каждой. Часть мест ты " +
+              "уже знаешь: hospital, shop, hotel. Остальные даны ниже.",
+          ],
+        },
+        {
+          // Примеры на карточках нарочно НЕ повторяют строки указателя. Сначала
+          // повторяли, и методист поймал: три задания из пяти решались чтением
+          // словаря, а до указателя ученик не доходил вовсе.
+          id: "slovar-ukazatelya",
+          kind: "vocab",
+          caption: "Слова с указателей",
+          items: [
+            {
+              term: "bank",
+              translation: "банк",
+              example: "The bank is next to the school.",
+              hint: "/bæŋk/",
+            },
+            {
+              term: "museum",
+              translation: "музей",
+              example: "The museum is near the station.",
+              hint: "/mjuːˈziːəm/",
+            },
+            {
+              term: "toilet",
+              translation: "туалет; во множественном — toilets",
+              example: "The toilet is next to the door.",
+              hint: "/ˈtɔɪlət/",
+            },
+            {
+              term: "open",
+              translation: "открыт, открыто",
+              example: "The shop is open.",
+              hint: "/ˈəʊpən/",
+            },
+            {
+              term: "centre",
+              translation: "центр",
+              example: "The hotel is in the centre.",
+              hint: "/ˈsentə/",
+            },
+          ],
+        },
+        {
+          id: "ukazatel-v-gorode",
+          kind: "text",
+          genre: "notice",
+          title: "CITY CENTRE",
+          body: [
+            "MUSEUM — turn left",
+            "HOSPITAL — go straight",
+            "BANK — opposite the hotel",
+            "TOILETS — behind the shop",
+          ],
+        },
+        {
+          id: "razbor-ukazatelya",
+          kind: "note",
+          tone: "info",
+          text:
+            "Каждая строка указателя — это место и одно указание к нему. Слева место, " +
+              "справа куда идти. Тире их только разделяет и вслух не читается.",
+        },
+        {
+          // Стоит ПОСЛЕ указателя нарочно: совет, как искать, понятен только
+          // когда есть в чём искать. До примера это была бы просьба поверить
+          // на слово — та самая ошибка, о которой говорит формат урока.
+          id: "kak-iskat-na-ukazatele",
+          kind: "note",
+          tone: "info",
+          text:
+            "Вернись к этому указателю с любым вопросом — и увидишь, как это работает. " +
+              "Спрашивают про музей — ищи глазами строку MUSEUM и читай её целиком. " +
+              "Спрашивают про туалет — ищи TOILETS. Читать всё подряд не нужно.",
+        },
+        {
+          id: "obyavlenie-muzeya",
+          kind: "text",
+          genre: "notice",
+          title: "MUSEUM",
+          body: [
+            "Open: Monday — Friday",
+            "Time: 10 o'clock — 6 o'clock",
+            "Ticket: 90",
+            "The museum is behind the park, next to the bank.",
+          ],
+        },
+        {
+          // Тире здесь значит не то же, что на указателе выше, и об этом надо
+          // сказать прямо: методист поймал, что иначе врезка про указатель
+          // сбивает ученика ровно на этом объявлении.
+          id: "tire-eto-ot-i-do",
+          kind: "note",
+          tone: "info",
+          text:
+            "Тире между двумя днями или двумя временами значит «с … по …». " +
+              "Monday — Friday — это с понедельника по пятницу. " +
+              "10 o'clock — 6 o'clock — с десяти до шести: первое время начало, второе конец.",
+        },
+
+        // ---- задания ----
+        {
+          id: "z1-gde-muzey",
+          kind: "choice",
+          about: "ukazatel-v-gorode",
+          prompt: "Посмотри на указатель CITY CENTRE. Куда идти к музею?",
+          options: [
+            { text: "Налево", correct: true },
+            { text: "Прямо" },
+            { text: "За магазином" },
+          ],
+          hint: "Найди строку со словом MUSEUM и прочитай её до конца.",
+          why:
+            "MUSEUM — turn left. Turn left — «поверни налево». Строка «go straight» " +
+            "стоит у больницы, а «behind the shop» — у туалетов.",
+        },
+        {
+          id: "z2-gde-tualety",
+          kind: "short",
+          about: "ukazatel-v-gorode",
+          prompt:
+            "Посмотри на указатель CITY CENTRE. Туалеты позади какого места? " +
+            "Ответь одним английским словом из указателя.",
+          answer: "shop",
+          accept: ["the shop"],
+          hint: "Строка TOILETS кончается двумя словами: предлог и место.",
+          why: "TOILETS — behind the shop. Behind — «позади», значит туалеты за магазином.",
+        },
+        {
+          id: "z3-bank-i-otel",
+          kind: "choice",
+          about: "ukazatel-v-gorode",
+          prompt: "Посмотри на указатель CITY CENTRE. Что верно про банк?",
+          options: [
+            { text: "Банк рядом с гостиницей" },
+            { text: "Банк напротив гостиницы", correct: true },
+            { text: "Банк позади гостиницы" },
+          ],
+          hint: "Прочитай в строке BANK предлог: opposite, next to или behind.",
+          why:
+            "BANK — opposite the hotel. Opposite — «напротив»: банк и гостиница стоят " +
+            "друг против друга через дорогу. Next to было бы «рядом», behind — «позади».",
+        },
+        {
+          id: "z4-kogda-otkryt",
+          kind: "short",
+          about: "obyavlenie-muzeya",
+          prompt:
+            "Посмотри на объявление MUSEUM. Во сколько музей открывается? " +
+            "Ответь цифрой.",
+          answer: "10",
+          accept: ["10 o'clock", "ten", "десять"],
+          hint: "Строка Time называет два времени: начало и конец.",
+          why:
+            "Time: 10 o'clock — 6 o'clock. Первое время — начало, второе — конец. " +
+            "Музей открывается в десять.",
+        },
+        {
+          id: "z5-gde-muzey-stoit",
+          kind: "gap",
+          about: "obyavlenie-muzeya",
+          prompt: "Посмотри на объявление MUSEUM. Допиши предлог из последней строки.",
+          before: "The museum is ",
+          after: " the park.",
+          answer: "behind",
+          hint: "Это то же слово, что стоит в объявлении перед the park.",
+          why:
+            "The museum is behind the park. Behind — «позади». Рядом с банком музей " +
+            "тоже стоит, но об этом сказано отдельно: next to the bank.",
+        },
+      ],
+    },
+
+    // =====================================================================
+    // Урок слушания. Опора — `sources` модуля, запись о Совете Европы, с. 51.
+    //
+    // Расшифровки записей спрятаны. Пока текст на виду, «послушай и ответь» —
+    // это чтение. Кнопка открыта всегда: глухой ученик не заперт.
+    //
+    // ИТОГ ПЕРЕПИСАН ПОСЛЕ МЕТОДИСТА. Было «понимать на слух, как пройти, и
+    // куда идти по объявлению» — вторая половина обещала то, чего нет: в
+    // объявлении названы время и цена, а не дорога. Описание A1 говорит ровно
+    // про числа: «figures, prices and times... in an announcement».
+    // =====================================================================
+    {
+      slug: "slushaem-dorogu",
+      title: "Слушаем дорогу",
+      estimatedMinutes: 13,
+      outcome: "понимать на слух указания дороги, а в объявлении — время и цену",
+
+      blocks: [
+        {
+          id: "zachem-slushat-dorogu",
+          kind: "explain",
+          text: [
+            "Слушать труднее, чем читать: слова не стоят на месте, и разобрать надо " +
+              "сразу.",
+            "Помогает то, что ловить нужно не всё. В ответе про дорогу важны два-три " +
+              "указания и место в конце — остальное можно пропустить мимо ушей.",
+          ],
+        },
+        {
+          id: "chto-lovit-na-sluh",
+          kind: "note",
+          tone: "info",
+          text:
+            "В ответе про дорогу важны три вещи: куда идти (straight), где повернуть " +
+              "(left или right) и что искать в конце (место). Остальные слова можно " +
+              "пропустить мимо ушей — смысл от этого не потеряется.",
+        },
+        {
+          id: "zapis-doroga-k-banku",
+          kind: "audio",
+          skryt: true,
+          pace: "slow",
+          voice: "два голоса",
+          caption: "Послушай: человек спрашивает дорогу",
+          transcript:
+            "Excuse me! Where is the bank? — Go straight. Then turn left. " +
+            "The bank is opposite the hotel. — Thank you!",
+        },
+        {
+          id: "zapis-obyavlenie-stancii",
+          kind: "audio",
+          skryt: true,
+          pace: "slow",
+          caption: "Послушай объявление на вокзале",
+          // Цена счётная нарочно. Было 700, и методист поймал: сотнями курс не
+          // считает, образца «число + hundred» нет нигде до модуля 23, а от
+          // различения «seven hundred» и «eight hundred» зависел верный ответ.
+          transcript: "Good morning. The bus to Almaty is at 8 o'clock. The ticket is 90.",
+        },
+        {
+          id: "esli-ne-uslyshal",
+          kind: "note",
+          tone: "info",
+          // Оценки обихода сняты после методиста: «вежливее» и «так делают те,
+          // кто знает язык хорошо» ничем не подтверждены, а наши источники о
+          // таком не говорят вовсе. Осталось то, что можно показать.
+          text: "Если не удалось расслышать, переспроси одним словом: Sorry?",
+        },
+
+        // ---- задания ----
+        {
+          id: "z1-kuda-idti-snachala",
+          kind: "choice",
+          about: "zapis-doroga-k-banku",
+          prompt: "Послушай первую запись. Какое указание прозвучало первым?",
+          options: [
+            { text: "Иди прямо", correct: true },
+            { text: "Поверни налево" },
+            { text: "Поверни направо" },
+          ],
+          hint: "Слушай, что идёт сразу после вопроса.",
+          why:
+            "Go straight. Then turn left. Straight — «прямо», и это указание первое. " +
+            "Then — «потом»: оно как раз и показывает, что поворот идёт вторым.",
+        },
+        {
+          id: "z2-gde-bank-na-sluh",
+          kind: "choice",
+          about: "zapis-doroga-k-banku",
+          prompt: "Послушай первую запись. Где стоит банк?",
+          options: [
+            { text: "Напротив гостиницы", correct: true },
+            { text: "Рядом с гостиницей" },
+            { text: "Позади гостиницы" },
+          ],
+          hint: "Последнее предложение называет место.",
+          why:
+            "The bank is opposite the hotel. Указания говорят, куда идти, а последнее " +
+            "предложение — что искать в конце. Без него дорога бесполезна.",
+        },
+        {
+          // Было задание «сколько указаний?» — методист поймал, что ответ уже
+          // назван во вступлении урока, а считать реплики можно и не поняв их.
+          // Здесь ученик обязан разобрать оба указания и их порядок.
+          id: "z3-poryadok-ukazaniy",
+          kind: "order",
+          about: "zapis-doroga-k-banku",
+          prompt: "Послушай первую запись и поставь три части ответа по порядку.",
+          items: ["The bank is opposite the hotel.", "Go straight.", "Then turn left."],
+          answer: [1, 2, 0],
+          hint: "Место называют последним: сначала ведут, потом говорят, что искать.",
+          why:
+            "Go straight. Then turn left. The bank is opposite the hotel. Слово Then " +
+            "показывает, что поворот идёт вторым, а место всегда в конце.",
+        },
+        {
+          id: "z4-vo-skolko-avtobus",
+          kind: "short",
+          about: "zapis-obyavlenie-stancii",
+          prompt: "Послушай объявление на вокзале. Во сколько автобус? Ответь цифрой.",
+          answer: "8",
+          accept: ["8 o'clock", "eight", "восемь"],
+          hint: "Время стоит рядом со словом o'clock.",
+          why: "The bus to Almaty is at 8 o'clock. Автобус в восемь часов.",
+        },
+        {
+          id: "z5-skolko-bilet",
+          kind: "choice",
+          about: "zapis-obyavlenie-stancii",
+          prompt: "Послушай объявление на вокзале. Сколько стоит билет?",
+          options: [
+            { text: "8" },
+            { text: "90", correct: true },
+            { text: "19" },
+          ],
+          hint: "В объявлении два числа: одно про время, другое про цену.",
+          why:
+            "The ticket is 90. Восемь — это время, а не цена: оно стоит рядом с " +
+            "o'clock. Ninety и nineteen различает ударение: в ninety оно на первом " +
+            "слоге, в nineteen — на втором.",
+        },
+      ],
+    },
   ],
 
   // =======================================================================
   // Проверочная работа модуля.
-  // Вопросов 22, из них 10 требуют написать ответ самому (short и gap), ещё
-  // четыре — расставить части. Итогов восемь, на каждый не меньше двух вопросов.
+  // Счёт здесь дважды расходился с делом, поэтому пересчитывай его скриптом, а
+  // не правь по памяти: `npm run itogi`. Итогов десять — восемь прежних плюс
+  // чтение и слушание.
   // =======================================================================
   quiz: {
     ask: 8,
     passRatio: 0.8,
     questions: [
+      // ---- чтение и слушание ------------------------------------------
+      // ПЕРЕПИСАНЫ ПОСЛЕ МЕТОДИСТА. Прежние четыре повторяли рамку заданий
+      // уроков: тот же вид, то же условие, заменены слова. Один в один
+      // совпадал даже набор отвлекающих вариантов. Здесь сменены и вид
+      // задания, и то, что ученик делает: исправить чужую запись, выбрать
+      // строку объявления, назвать место на слух.
+      //
+      // Заодно убраны first и last: курс их как «первый» и «последний» не
+      // давал вовсе, а верный ответ держался ровно на их различении.
+      {
+        id: "q-obyavlenie-kogda-zakryto",
+        kind: "choice",
+        outcome: "находить место и время на указателе и в объявлении",
+        prompt:
+          "Объявление на двери: «SHOP. Open: Monday — Saturday. Time: 9 o'clock — " +
+          "8 o'clock.» В какой день магазин не работает?",
+        options: [
+          { text: "В воскресенье", correct: true },
+          { text: "В понедельник" },
+          { text: "В субботу" },
+        ],
+        why:
+          "Monday — Saturday значит «с понедельника по субботу». Воскресенья в этом " +
+          "промежутке нет, значит в воскресенье магазин закрыт.",
+      },
+      {
+        id: "q-ispravit-zapis-ukazatelya",
+        kind: "short",
+        outcome: "находить место и время на указателе и в объявлении",
+        prompt:
+          "На указателе написано «PARK — behind the hotel», а человек пересказал это " +
+          "так: «The park is in front of the hotel». Он ошибся в одном слове. " +
+          "Напиши верное английское слово вместо in front of.",
+        answer: "behind",
+        why:
+          "The park is behind the hotel. In front of — «перед», а на указателе стоит " +
+          "behind, «позади».",
+      },
+      {
+        id: "q-na-sluh-nazvat-mesto",
+        kind: "short",
+        outcome: "понимать на слух указания дороги, а в объявлении — время и цену",
+        zvuk: "Excuse me! Where is the hotel? — Go straight. The hotel is near the station.",
+        prompt:
+          "Послушай запись. Рядом с чем стоит гостиница? Ответь английским словом.",
+        answer: "station",
+        accept: ["the station"],
+        why: "The hotel is near the station. Near — «рядом с, недалеко от».",
+      },
+      {
+        id: "q-na-sluh-cena-v-obyavlenii",
+        kind: "choice",
+        outcome: "понимать на слух указания дороги, а в объявлении — время и цену",
+        zvuk: "Good afternoon. The museum is open at 10 o'clock. The ticket is 50.",
+        prompt: "Послушай объявление. Сколько стоит билет?",
+        options: [
+          { text: "10" },
+          { text: "50", correct: true },
+          { text: "15" },
+        ],
+        why:
+          "The ticket is 50. Десять — это время открытия. Fifty и fifteen различает " +
+          "ударение: в fifty оно на первом слоге, в fifteen — на втором.",
+      },
       {
         id: "q-in-on-under",
         kind: "gap",

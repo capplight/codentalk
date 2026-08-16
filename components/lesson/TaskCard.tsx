@@ -13,7 +13,7 @@
 import { useState } from "react";
 import { checkAnswer, missingParts, type Answer } from "@/lib/content/check";
 import type { TaskBlock } from "@/lib/content/types";
-import { adresObrazca } from "@/lib/content/zvuk";
+import { adresObrazca, adresVoprosa } from "@/lib/content/zvuk";
 import { useLessonFlow } from "./LessonFlow";
 import Zvuk from "./Zvuk";
 import s from "./lesson.module.css";
@@ -92,6 +92,14 @@ export default function TaskCard({
         Задание {index} из {total}
       </span>
       <p className={s.prompt}>{task.prompt}</p>
+
+      {/* Запись, по которой спрашивают. Расшифровки тут нет и быть не может:
+          она была бы ответом. Слушать можно сколько угодно раз. */}
+      {task.zvuk && (
+        <div className={s.obrazec}>
+          <Zvuk src={adresVoprosa(task.zvuk)} chto="запись к заданию" vid="stroka" />
+        </div>
+      )}
 
       {/* ------------------------------------------------ выбор варианта */}
       {task.kind === "choice" && (

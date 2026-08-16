@@ -8,6 +8,7 @@
  * Чистые правила: ни базы, ни React.
  */
 import { checkAnswer, type Answer } from "./check";
+import { adresVoprosa } from "./zvuk";
 import type { QuizQuestion, TaskBlock } from "./types";
 
 /**
@@ -39,6 +40,12 @@ export interface BrowserQuestion {
   /** speak */
   phrase?: string;
   translation?: string;
+  /**
+   * Адрес записи, по которой спрашивают. Именно АДРЕС, а не расшифровка:
+   * расшифровка в ответе сервера была бы ответом на вопрос. Адрес выведен из
+   * текста отпечатком и о содержании записи не говорит ничего.
+   */
+  zvuk?: string;
 }
 
 /**
@@ -50,7 +57,13 @@ export interface BrowserQuestion {
  * работе не место: она измеряет знания, а не догадливость.
  */
 export function forBrowser(question: QuizQuestion): BrowserQuestion {
-  const base = { id: question.id, kind: question.kind, prompt: question.prompt };
+  const base = {
+    id: question.id,
+    kind: question.kind,
+    prompt: question.prompt,
+    // Из `zvuk` наружу уходит только адрес файла.
+    zvuk: question.zvuk ? adresVoprosa(question.zvuk) : undefined,
+  };
 
   switch (question.kind) {
     case "choice":

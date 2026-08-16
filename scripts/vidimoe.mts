@@ -29,6 +29,10 @@ export interface Kusok {
 const NEVIDIMYE = new Set([
   "id", "kind", "src", "correct", "selectable", "exact", "multiple",
   "minWords", "planned", "pace", "voice", "answer", "check", "tone",
+  // Появились вместе с чтением и слушанием. `about` — имя блока, `genre` —
+  // вид текста, `skryt` — прятать ли расшифровку. Ни одно из них ученик не
+  // читает: это разметка, а не текст.
+  "about", "genre", "skryt",
 ]);
 
 /** Слепой разбор: все строки блока, кроме заведомо невидимых полей. */
@@ -104,6 +108,9 @@ function kuskiBloka(b: any, gde: string): Kusok[] {
       dobavit("условие задания", b.prompt);
       dobavit("подсказка", b.hint);
       dobavit("разбор задания", b.why);
+      // Ученик её не читает, а слышит, но проверять её всё равно нужно: это
+      // английский текст курса, и ошибка в нём такая же ошибка.
+      dobavit("запись к заданию", b.zvuk);
       switch (b.kind) {
         case "choice":
           (b.options ?? []).forEach((o: any) =>

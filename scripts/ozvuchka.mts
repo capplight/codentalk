@@ -5,10 +5,15 @@
  * записи. Что уже сделано и не менялось — не трогает: повторный запуск после
  * правки одного урока стоит одной записи, а не всего курса.
  *
- * Звучит три вида:
+ * Звучит четыре вида:
  *   blok    — блоки материала (`kind: "audio"`), в том числе разговоры на два голоса;
  *   slovo   — слова словарей, по одному;
- *   obrazec — образцы к заданиям «произнеси вслух».
+ *   obrazec — образцы к заданиям «произнеси вслух»;
+ *   vopros  — записи, по которым спрашивают задания, работы модулей и экзамен.
+ *
+ * Про последний вид отдельно: его расшифровка НИКОГДА не уходит в браузер,
+ * иначе она была бы ответом на вопрос. Наружу идёт только адрес файла, а он
+ * выведен отпечатком и о содержании не говорит ничего.
  *
  * Имя файла выводится из текста (`lib/content/zvuk.ts`), поэтому в материалах
  * ничего прописывать не нужно: поправил фразу — получилось другое имя.
@@ -33,7 +38,7 @@ const { klyuchZvuka } = await import("../lib/content/zvuk.ts");
 const { PROIZNOSHENIE } = await import("../lib/content/proiznoshenie.ts");
 
 type TempZvuka = "normal" | "slow";
-type RodZvuka = "blok" | "slovo" | "obrazec";
+type RodZvuka = "blok" | "slovo" | "obrazec" | "vopros";
 
 const KOREN = join(process.cwd(), "public", "zvuk");
 
@@ -121,8 +126,46 @@ function sobratOpis(): Zapis[] {
               otkuda: `${gde} · ${block.id}`,
             });
           }
+
+          // Запись, по которой спрашивает само задание.
+          if (isTask(block) && block.zvuk) {
+            dobavit({
+              rod: "vopros",
+              klyuch: klyuchZvuka(block.zvuk, "slow"),
+              text: block.zvuk,
+              temp: "slow",
+              dvaGolosa: false,
+              otkuda: `${gde} · ${block.id}`,
+            });
+          }
         }
       }
+
+      // Вопросы проверочной работы модуля тоже умеют звучать.
+      for (const vopros of module.quiz.questions) {
+        if (!vopros.zvuk) continue;
+        dobavit({
+          rod: "vopros",
+          klyuch: klyuchZvuka(vopros.zvuk, "slow"),
+          text: vopros.zvuk,
+          temp: "slow",
+          dvaGolosa: false,
+          otkuda: `${course.slug}/${module.slug} · работа · ${vopros.id}`,
+        });
+      }
+    }
+
+    // И вопросы итогового экзамена.
+    for (const vopros of course.exam?.questions ?? []) {
+      if (!vopros.zvuk) continue;
+      dobavit({
+        rod: "vopros",
+        klyuch: klyuchZvuka(vopros.zvuk, "slow"),
+        text: vopros.zvuk,
+        temp: "slow",
+        dvaGolosa: false,
+        otkuda: `${course.slug} · экзамен · ${vopros.id}`,
+      });
     }
   }
 
@@ -286,7 +329,7 @@ async function main(): Promise<void> {
     process.exit(1);
   }
 
-  for (const rod of ["blok", "slovo", "obrazec"]) {
+  for (const rod of ["blok", "slovo", "obrazec", "vopros"]) {
     await mkdir(join(KOREN, rod), { recursive: true });
   }
 
@@ -312,7 +355,7 @@ async function main(): Promise<void> {
   // ---- лишнее -------------------------------------------------------------
   const zhivye = new Set(opis.map((z) => `${z.rod}/${z.klyuch}`));
   const lishnie: string[] = [];
-  for (const rod of ["blok", "slovo", "obrazec"] as RodZvuka[]) {
+  for (const rod of ["blok", "slovo", "obrazec", "vopros"] as RodZvuka[]) {
     const papka = join(KOREN, rod);
     if (!existsSync(papka)) continue;
     for (const fayl of await readdir(papka)) {

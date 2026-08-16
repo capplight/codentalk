@@ -266,8 +266,21 @@ address, nationality and other personal details».
 
 **Проверочная работа части.** Разобрать вывески, указатели и объявления.
 Описание A1, с. 56: «Can recognise familiar names, words/signs and very basic
-phrases on simple notices… **Can find information about places, times and prices
-on posters, flyers and notices**».
+phrases on **simple notices** in the most common everyday situations» и там же
+«Can find and understand simple, important information in advertisements,
+programmes for special events, leaflets and brochures (e.g. what is proposed,
+**costs, the date and place of the event, departure times**)».
+
+> **Правка 16 августа 2026, нашёл методист.** Здесь стояла склейка двух строк
+> через многоточие, и вторая половина — «Can find information about places,
+> times and prices on posters, flyers and notices» — была подписана как A1.
+> На деле она стоит в графе **Pre-A1**, второй строкой после «Parking, Station,
+> Dining room, No smoking». Оба разбора, pdf-parse и markitdown, сходятся.
+>
+> Это ровно та ошибка, о которой предупреждает CLAUDE.md: цитата верная, но из
+> соседней графы, и скрипт её не видит — в источнике она есть. Ступень уроков
+> при этом не пострадала: настоящие строки A1 подходят даже точнее, потому что
+> прямо называют время и цену.
 
 ### Часть третья. Каждый день (модули 14–19)
 

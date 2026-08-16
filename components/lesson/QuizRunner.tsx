@@ -14,6 +14,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Zvuk from "./Zvuk";
 import s from "./lesson.module.css";
 
 interface BrowserQuestion {
@@ -31,6 +32,8 @@ interface BrowserQuestion {
   starter?: string;
   phrase?: string;
   translation?: string;
+  /** Адрес записи, по которой спрашивают. Расшифровки здесь нет и быть не может. */
+  zvuk?: string;
 }
 
 interface Result {
@@ -218,6 +221,14 @@ export default function QuizRunner({
             Вопрос {index + 1} из {questions.length}
           </span>
           <p className={s.prompt}>{question.prompt}</p>
+
+          {/* Слушать можно сколько угодно раз: работа проверяет понимание, а
+              не остроту слуха с первого предъявления. */}
+          {question.zvuk && (
+            <div className={s.obrazec}>
+              <Zvuk src={question.zvuk} chto="запись к вопросу" vid="stroka" />
+            </div>
+          )}
 
           {question.kind === "choice" && question.options && (
             <div className={s.options}>

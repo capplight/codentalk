@@ -19,7 +19,7 @@
 export type TempZvuka = "normal" | "slow";
 
 /** Что озвучиваем. Влияет только на папку — чтобы в них было видно глазами. */
-export type RodZvuka = "blok" | "slovo" | "obrazec";
+export type RodZvuka = "blok" | "slovo" | "obrazec" | "vopros";
 
 const OSNOVA = 0xcbf29ce484222325n;
 const MNOZHITEL = 0x100000001b3n;
@@ -62,4 +62,15 @@ export function adresSlova(slovo: string): string {
 /** Образец к заданию «произнеси вслух». */
 export function adresObrazca(fraza: string): string {
   return adresZvuka("obrazec", klyuchZvuka(fraza, "slow"));
+}
+
+/**
+ * Запись при вопросе — та, по которой спрашивают.
+ *
+ * Отдельная папка от образцов не ради порядка: одна и та же фраза может быть и
+ * образцом для повторения, и вопросом на понимание. Смешай их — и правка одной
+ * молча испортит другую.
+ */
+export function adresVoprosa(fraza: string): string {
+  return adresZvuka("vopros", klyuchZvuka(fraza, "slow"));
 }

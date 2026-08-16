@@ -21,7 +21,7 @@ import {
   type TaskBlock,
 } from "../lib/content/types.ts";
 import { checkPositionBalance } from "../lib/domain/testing.ts";
-import { adresBloka, adresObrazca, adresSlova } from "../lib/content/zvuk.ts";
+import { adresBloka, adresObrazca, adresSlova, adresVoprosa } from "../lib/content/zvuk.ts";
 import { resheno } from "../courses/resheno.ts";
 import { courses } from "../courses/index.ts";
 import { existsSync } from "node:fs";
@@ -1390,7 +1390,23 @@ function checkZvuk(course: Course): void {
             netu.push(`${lesson.slug} · ${block.id}: образец «${block.phrase.slice(0, 60)}»`);
           }
         }
+
+        if (isTask(block) && block.zvuk && !est(adresVoprosa(block.zvuk))) {
+          netu.push(`${lesson.slug} · ${block.id}: запись к заданию`);
+        }
       }
+    }
+
+    for (const vopros of mod.quiz.questions) {
+      if (vopros.zvuk && !est(adresVoprosa(vopros.zvuk))) {
+        netu.push(`${mod.slug} · работа · ${vopros.id}: запись к вопросу`);
+      }
+    }
+  }
+
+  for (const vopros of course.exam?.questions ?? []) {
+    if (vopros.zvuk && !est(adresVoprosa(vopros.zvuk))) {
+      netu.push(`экзамен · ${vopros.id}: запись к вопросу`);
     }
   }
 
