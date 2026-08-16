@@ -291,7 +291,7 @@ export default async function CoursePage({ params }: Params) {
                 ? "Экзамен сдан — можно получать сертификат."
                 : quizzesTotal > 0 && quizzesPassed >= quizzesTotal
                   ? "Все проверочные работы сданы, экзамен открыт."
-                  : `Откроется, когда сданы все проверочные работы: сдано ${quizzesPassed} из ${quizzesTotal}`}
+                  : `Откроется, когда сданы все проверочные работы: сдано ${quizzesPassed} из ${quizzesTotal} ${plural(quizzesTotal, "работы", "работ", "работ")}`}
             </span>
             <span className={s.quizAction}>
               {quizzesTotal > 0 && quizzesPassed >= quizzesTotal ? (

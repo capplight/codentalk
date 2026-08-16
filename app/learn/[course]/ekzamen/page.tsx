@@ -4,6 +4,7 @@ import { auth } from "@/auth";
 import { prisma } from "@/lib/db";
 import { findCourse } from "@/courses";
 import QuizRunner from "@/components/lesson/QuizRunner";
+import { plural } from "@/lib/plural";
 import s from "@/components/lesson/lesson.module.css";
 
 type Params = { params: Promise<{ course: string }> };
@@ -93,8 +94,8 @@ export default async function ExamPage({ params }: Params) {
         <div className={s.body}>
           <div className={`${s.feedback} ${s.neutral}`}>
             Экзамен откроется, когда сданы все проверочные работы модулей: сдано {quizzesPassed} из{" "}
-            {quizzes.length}. Он спрашивает про весь курс, и сдавать его, не разобравшись с
-            частями, — потратить попытку впустую.
+            {quizzes.length} {plural(quizzes.length, "работы", "работ", "работ")}. Он спрашивает про
+            весь курс, и сдавать его, не разобравшись с частями, — потратить попытку впустую.
           </div>
           <div className={s.footer}>
             <Link className="btn" href={`/learn/${courseSlug}`}>

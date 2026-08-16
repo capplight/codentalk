@@ -56,7 +56,7 @@ export default async function SiteHeader() {
             <nav className={styles.nav}>
               <Link href="/#napravleniya">Направления</Link>
               <Link href="/#kak-eto-ustroeno">Как это работает</Link>
-              <Link href="/#podpiska">Подписка</Link>
+              <Link href="/#chto-vnutri">Что внутри</Link>
             </nav>
             <div className={styles.end}>
               <ThemeToggle />

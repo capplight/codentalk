@@ -53,7 +53,7 @@ export default function LoginForm({
   return (
     <div className={styles.wrap}>
       <h1 className={styles.title}>Вход</h1>
-      <p className={styles.lead}>Продолжим с того места, на котором прервались занятия.</p>
+      <p className={styles.lead}>Продолжим с того места, где прервались занятия.</p>
 
       <form className={styles.card} onSubmit={onSubmit} noValidate>
         {formError && <div className={styles.formError}>{formError}</div>}

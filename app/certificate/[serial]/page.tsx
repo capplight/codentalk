@@ -70,11 +70,21 @@ export default async function CertificatePage({ params }: Params) {
           </p>
         </div>
 
+        {/*
+          Прошедшее время держится за КУРС, а не за ученика: «завершил» выдало
+          бы мужской род, а пола владельца сертификата платформа не знает.
+          Слэш вроде «завершил(а)» в проекте запрещён — он выглядит как бланк,
+          а не как награда.
+
+          Настоящее время («получает») выбрано и по второй причине: имя стоит
+          в именительном падеже, а «сертификат выдан» потребовало бы дательного
+          — склонять чужие имена машина не умеет.
+        */}
         <div className={styles.body}>
-          <span className={styles.meta}>Настоящим удостоверяется, что</span>
-          <p className={styles.name}>{certificate.user.displayName}</p>
-          <span className={styles.meta}>завершил обучение по курсу</span>
+          <span className={styles.meta}>Курс</span>
           <p className={styles.course}>{certificate.course.title}</p>
+          <span className={styles.meta}>пройден полностью. Сертификат получает</span>
+          <p className={styles.name}>{certificate.user.displayName}</p>
         </div>
 
         <dl className={styles.facts}>

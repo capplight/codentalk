@@ -5,6 +5,7 @@ import { requireUser } from "@/lib/api/session";
 import { selectQuestions } from "@/lib/domain/testing";
 import { forBrowser, poolFrom } from "@/lib/content/quiz";
 import { checkCourseAccess } from "@/lib/api/access";
+import { plural } from "@/lib/plural";
 
 type Params = { params: Promise<{ test: string }> };
 
@@ -69,7 +70,7 @@ export const POST = handler(async (_request: Request, { params }: Params) => {
     if (quizzes.length > 0 && passedCount < quizzes.length) {
       throw new ApiError(
         "forbidden",
-        `Экзамен откроется, когда сданы все проверочные работы модулей: сдано ${passedCount} из ${quizzes.length}`
+        `Экзамен откроется, когда сданы все проверочные работы модулей: сдано ${passedCount} из ${quizzes.length} ${plural(quizzes.length, "работы", "работ", "работ")}`
       );
     }
   }
@@ -92,7 +93,7 @@ export const POST = handler(async (_request: Request, { params }: Params) => {
     if (lessons.length > 0 && done < lessons.length) {
       throw new ApiError(
         "forbidden",
-        `Работа откроется, когда пройдены все уроки модуля: пройдено ${done} из ${lessons.length}`
+        `Работа откроется, когда пройдены все уроки модуля: пройдено ${done} из ${lessons.length} ${plural(lessons.length, "урока", "уроков", "уроков")}`
       );
     }
   }
@@ -114,7 +115,7 @@ export const POST = handler(async (_request: Request, { params }: Params) => {
     if (recent >= test.maxAttemptsPerDay) {
       throw new ApiError(
         "too_many_requests",
-        `За сутки эту работу можно пройти не больше ${test.maxAttemptsPerDay} раз. Попробуйте завтра — и загляните в разбор ошибок.`
+        `За сутки эту работу можно пройти не больше ${test.maxAttemptsPerDay} раз. Попробуй завтра — а пока загляни в разбор ошибок.`
       );
     }
   }

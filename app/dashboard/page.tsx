@@ -52,7 +52,7 @@ export default async function DashboardPage() {
           </h2>
           <p className={styles.emptyText}>
             {courses.length === 0
-              ? "Английский и введение в веб-разработку открыты бесплатно и без ограничения по времени. Начните с любого — прогресс сохранится, даже если вернётесь через полгода."
+              ? "Английский с нуля и введение в веб-разработку уже ждут. Начни с любого — успехи сохранятся, даже если вернёшься через полгода."
               : "Все взятые курсы пройдены. Загляни в каталог: там есть, чем продолжить."}
           </p>
           <Link className="btn" href="/">
@@ -65,9 +65,14 @@ export default async function DashboardPage() {
         <>
           <div className={styles.sectionHead}>
             <h2 className={styles.sectionTitle}>Мои курсы</h2>
-            <span className={styles.meta}>
-              Занято {slots.used} из {slots.total} мест
-            </span>
+            {/* Счёт мест показывается, только когда место и правда занято.
+                Открытые курсы мест не занимают, поэтому у всех сегодня стояло
+                бы «занято 0 из 2» — строка ни о чём. */}
+            {slots.used > 0 && (
+              <span className={styles.meta}>
+                Занято {slots.used} из {slots.total} мест
+              </span>
+            )}
           </div>
 
           <div className={styles.courses}>
@@ -78,13 +83,14 @@ export default async function DashboardPage() {
                   : Math.round((course.lessonsCompleted / course.lessonsTotal) * 100);
               return (
                 <Link key={course.slug} href={course.href} className={styles.course}>
+                  {/* Значка «по подписке» больше нет: платных курсов не
+                      существует, а витрина и кабинет должны говорить об одном
+                      и том же. */}
                   {course.completedAt ? (
                     <span className={`${styles.badge} ${styles.badgeDone}`}>Пройден</span>
                   ) : course.access === "free" ? (
                     <span className={`${styles.badge} ${styles.badgeFree}`}>Бесплатно</span>
-                  ) : (
-                    <span className={styles.badge}>По подписке</span>
-                  )}
+                  ) : null}
 
                   <h3 className={styles.courseTitle}>{course.title}</h3>
 
@@ -95,7 +101,7 @@ export default async function DashboardPage() {
                   <span className={styles.meta}>
                     Пройдено {course.lessonsCompleted} из {course.lessonsTotal} уроков
                     {course.quizzes &&
-                      ` · проверочных сдано ${course.quizzes.passed} из ${course.quizzes.total}`}
+                      ` · проверочных работ сдано ${course.quizzes.passed} из ${course.quizzes.total}`}
                     {course.holdsSlot && " · занимает место"}
                   </span>
                 </Link>
@@ -106,7 +112,7 @@ export default async function DashboardPage() {
           {slots.freeAt && (
             <p className={styles.slots}>
               Оба места заняты. Следующее освободится {formatDate(slots.freeAt)} — или раньше, если
-              закончите один из курсов.
+              закончишь один из курсов.
             </p>
           )}
         </>

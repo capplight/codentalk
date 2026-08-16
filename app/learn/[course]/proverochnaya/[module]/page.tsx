@@ -97,7 +97,8 @@ export default async function QuizPage({ params }: Params) {
       ) : (
         <div className={s.body}>
           <div className={`${s.feedback} ${s.neutral}`}>
-            Работа откроется, когда пройдены все уроки модуля: пройдено {done} из {lessons.length}.
+            Работа откроется, когда пройдены все уроки модуля: пройдено {done} из{" "}
+            {lessons.length} {plural(lessons.length, "урока", "уроков", "уроков")}.
             Это не наказание — она проверяет знания, а не догадливость, и сдавать её, не прочитав
             уроков, значит зря потратить время.
           </div>
