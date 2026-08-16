@@ -1017,6 +1017,72 @@ function checkCourse(course: Course): void {
       }
     }
 
+    /*
+     * Экзамен не должен быть зеркалом — ни уроков, ни работ модулей.
+     *
+     * ЭТА ПРОВЕРКА НАПИСАНА ПОСЛЕ ТОГО, КАК МЕТОДИСТ НАШЁЛ ОДИННАДЦАТЬ ПОВТОРОВ
+     * В ПЕРВОЙ ЖЕ РЕДАКЦИИ ЭКЗАМЕНА. Хуже находки было другое: в шапке файла
+     * стояло «ни один вопрос не повторяет задание урока… это проверяется
+     * скриптом» — а скрипт экзамен не смотрел вовсе. Сравнение с уроками
+     * вызывалось только для работы модуля.
+     *
+     * Соблазн здесь сильнее, чем где-либо: экзамен пишется последним, весь
+     * курс уже перед глазами, и показательный пример модуля просится в вопрос
+     * сам. Ровно поэтому машина нужна: помнить полторы тысячи заданий человек
+     * не может.
+     */
+    const usloviyaKursa = new Map<string, string>();
+    const yadraKursa = new Map<string, string>();
+    const zapomnit = (task: any, gde: string): void => {
+      const uslovie = slova(String(task.prompt ?? ""));
+      if (uslovie.split(" ").length > 3 && !usloviyaKursa.has(uslovie)) {
+        usloviyaKursa.set(uslovie, gde);
+      }
+      const yadro = yadroZadaniya(task);
+      if (slovVYadre(yadro) >= 3 && !yadraKursa.has(yadro)) yadraKursa.set(yadro, gde);
+    };
+
+    for (const mod of course.modules) {
+      for (const lesson of mod.lessons) {
+        for (const block of lesson.blocks as any[]) {
+          if (isTask(block)) zapomnit(block, `${mod.slug} → ${lesson.slug} → ${block.id}`);
+        }
+      }
+      for (const question of mod.quiz.questions as any[]) {
+        zapomnit(question, `${mod.slug} → работа → ${question.id}`);
+      }
+    }
+
+    const zerkalo: string[] = [];
+    const pereklichki: string[] = [];
+    for (const question of course.exam.questions as any[]) {
+      const uslovie = slova(String(question.prompt ?? ""));
+      const yadro = yadroZadaniya(question);
+      const gdeUslovie = usloviyaKursa.get(uslovie);
+      const gdeYadro = yadro ? yadraKursa.get(yadro) : undefined;
+
+      if (gdeUslovie && gdeYadro) zerkalo.push(`${question.id}: то же задание, что ${gdeYadro}`);
+      else if (gdeYadro) pereklichki.push(`${question.id}: тот же пример, что в ${gdeYadro}`);
+      else if (gdeUslovie) pereklichki.push(`${question.id}: условие как у ${gdeUslovie}`);
+    }
+
+    if (zerkalo.length > 0) {
+      fail(
+        `${where} → экзамен`,
+        `вопрос повторяет задание курса условием и примером сразу (${zerkalo.length} шт.):\n      ` +
+          zerkalo.join("\n      ") +
+          "\n      Экзамен пишется последним, и показательный пример просится в вопрос сам"
+      );
+    }
+    if (pereklichki.length > 0) {
+      warn(
+        `${where} → экзамен`,
+        `вопрос перекликается с заданием курса (${pereklichki.length} шт.):\n      ` +
+          pereklichki.join("\n      ") +
+          "\n      Решает методист: устойчивую фразу иногда взять больше неоткуда"
+      );
+    }
+
     // Экзамен решает судьбу ступени, поэтому его порог не может быть ниже,
     // чем у отдельной проверочной работы.
     const examRatio = course.exam.passRatio ?? 0.7;
