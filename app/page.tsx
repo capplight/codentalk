@@ -130,7 +130,9 @@ export default function HomePage() {
                 <Link key={card.slug} href={`/learn/${card.slug}`} className={styles.track}>
                   <div
                     className={`${styles.cover} ${
-                      cover?.kind === "code" ? styles.coverCode : styles.coverLang
+                      cover?.kind === "code"
+                        ? styles.coverCode
+                        : `${styles.coverLang} ${styles.coverFlag}`
                     }`}
                     aria-hidden="true"
                   >
@@ -176,7 +178,7 @@ export default function HomePage() {
               <div key={planned.title} className={styles.soonCard}>
                 <div
                   className={`${styles.cover} ${styles.coverSoon} ${
-                    planned.cover.kind === "code" ? styles.coverCode : ""
+                    planned.cover.kind === "code" ? styles.coverCode : styles.coverFlag
                   }`}
                   aria-hidden="true"
                 >
