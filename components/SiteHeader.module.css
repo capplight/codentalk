@@ -3,11 +3,16 @@
   background: var(--surface);
 }
 
+/*
+ * Только padding-block. Боковой отступ даёт `wrap-wide`, на котором эта же
+ * полоска и стоит. Свои двадцать точек по бокам расходились с отступом
+ * страницы, и логотип не вставал по одной линии с текстом под шапкой.
+ */
 .inner {
   display: flex;
   align-items: center;
   gap: 20px;
-  padding: 12px 20px;
+  padding-block: 12px;
   flex-wrap: wrap;
 }
 
@@ -25,7 +30,6 @@
  */
 @media (max-width: 640px) {
   .inner {
-    padding: 12px 14px;
     gap: 10px;
   }
 

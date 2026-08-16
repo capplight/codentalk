@@ -121,16 +121,20 @@ export default function CourseArt({ id, title }: Props) {
         </Flag>
       );
     case "tr":
+      // Полумесяц и звезда — во вложенном svg по той же причине, что и
+      // японское солнце: круглое при растяжении обложки становится овальным.
       return (
         <Flag title={title}>
           <rect width="60" height="40" fill="#E30A17" />
-          <circle cx="23" cy="20" r="10" fill="#fff" />
-          <circle cx="27" cy="20" r="8" fill="#E30A17" />
-          <path
-            d="M36 20 l7.6 2.5 -4.7 -6.5 0 8 4.7 -6.5 z"
-            fill="#fff"
-            transform="rotate(15 38 20)"
-          />
+          <svg x="0" y="0" width="60" height="40" viewBox="0 0 60 40" preserveAspectRatio="xMidYMid meet">
+            <circle cx="23" cy="20" r="10" fill="#fff" />
+            <circle cx="27" cy="20" r="8" fill="#E30A17" />
+            <path
+              d="M36 20 l7.6 2.5 -4.7 -6.5 0 8 4.7 -6.5 z"
+              fill="#fff"
+              transform="rotate(15 38 20)"
+            />
+          </svg>
         </Flag>
       );
     case "cn":
@@ -145,10 +149,18 @@ export default function CourseArt({ id, title }: Props) {
         </Flag>
       );
     case "jp":
+      /*
+       * Круг лежит во вложенном svg со своим `meet`, и без этого он был бы
+       * овалом: обложка шире флага, флаг растягивается целиком, а вместе с ним
+       * растянулось бы и солнце. Полосам растяжение безразлично, круглому знаку
+       * — нет. Тот же приём, что у надписи на саудовском флаге.
+       */
       return (
         <Flag title={title}>
           <rect width="60" height="40" fill="#fff" />
-          <circle cx="30" cy="20" r="11" fill="#BC002D" />
+          <svg x="0" y="0" width="60" height="40" viewBox="0 0 60 40" preserveAspectRatio="xMidYMid meet">
+            <circle cx="30" cy="20" r="11" fill="#BC002D" />
+          </svg>
         </Flag>
       );
     case "kr":
