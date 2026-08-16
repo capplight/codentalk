@@ -16,6 +16,7 @@
     "yazyk": "tsx scripts/yazyk.mts",
     "tekst": "tsx scripts/tekst.mts",
     "zadaniya": "tsx scripts/zadaniya.mts",
+    "itogi": "tsx scripts/itogi.mts",
     "papka": "tsx scripts/papka.mts",
     "pdf": "tsx scripts/pdf-text.mts",
     "md": "tsx scripts/md-istochniki.mts",

@@ -903,6 +903,68 @@ function checkCourse(course: Course): void {
         }
       }
     }
+    /*
+     * Проверочная работа части — если она написана.
+     *
+     * Правило покрытия здесь ДРУГОЕ, чем у работы модуля, и это не послабление.
+     * Работа модуля обязана проверить каждый его итог: итогов восемь, вопросов
+     * двадцать четыре, всё сходится. У части итогов пятьдесят, и требовать
+     * вопрос на каждый значило бы сделать работу на полсотни вопросов — её
+     * никто не пройдёт, и она перестанет быть проверкой.
+     *
+     * Поэтому требуем другое: каждый МОДУЛЬ части должен быть затронут. Часть
+     * сдана, только если работают все шесть-семь модулей, а не половина.
+     */
+    for (const part of course.parts) {
+      if (!part.quiz) continue;
+      const gde = `${where} → часть «${part.title}» → проверочная`;
+      const moduliChasti = part.modules
+        .map((name) => course.modules.find((m) => m.slug === name))
+        .filter((m): m is Module => Boolean(m));
+
+      const vseItogi = moduliChasti.flatMap((m) => m.lessons.map((l) => l.outcome));
+      checkQuiz(part.quiz, gde, {
+        label: "проверочной работе части",
+        mustCover: [],
+        allowed: new Set(vseItogi),
+      });
+
+      for (const mod of moduliChasti) {
+        const svoi = new Set(mod.lessons.map((l) => l.outcome));
+        const skolko = part.quiz.questions.filter((q) => svoi.has(q.outcome)).length;
+        if (skolko === 0) {
+          fail(gde, `модуль «${mod.slug}» не затронут ни одним вопросом`);
+        } else if (skolko === 1) {
+          warn(gde, `модуль «${mod.slug}» затронут одним вопросом — этого мало на шесть уроков`);
+        }
+      }
+
+      /*
+       * Работа части не должна быть зеркалом уроков — тем более что писалась
+       * она позже всех и соблазн взять готовый пример здесь сильнее всего.
+       * Сравниваем с заданиями ВСЕХ уроков части сразу.
+       */
+      const usloviyaUrokov = new Set<string>();
+      const yadraUrokov = new Set<string>();
+      for (const mod of moduliChasti) {
+        for (const lesson of mod.lessons) {
+          for (const block of lesson.blocks as any[]) {
+            if (!isTask(block)) continue;
+            usloviyaUrokov.add(slova(String(block.prompt ?? "")));
+            const yadro = yadroZadaniya(block);
+            if (slovVYadre(yadro) >= 3) yadraUrokov.add(yadro);
+          }
+        }
+      }
+      for (const question of part.quiz.questions as any[]) {
+        const uslovie = slova(String(question.prompt ?? ""));
+        const yadro = yadroZadaniya(question);
+        if (usloviyaUrokov.has(uslovie) && yadraUrokov.has(yadro)) {
+          fail(gde, `вопрос «${question.id}» повторяет задание урока условием и примером сразу`);
+        }
+      }
+    }
+
     for (const mod of course.modules) {
       const skolko = vChastyah.get(mod.slug) ?? 0;
       if (skolko === 0) {

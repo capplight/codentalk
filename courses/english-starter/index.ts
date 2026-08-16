@@ -24,6 +24,12 @@ import prosbyIUkazaniya from "./prosby-i-ukazaniya";
 import vMagazineIKafe from "./v-magazine-i-kafe";
 import iNoPotomuChto from "./i-no-potomu-chto";
 import vcheraIZavtra from "./vchera-i-zavtra";
+import {
+  rabotaYaIDrugie,
+  rabotaMirVokrug,
+  rabotaKazhdyyDen,
+  rabotaDelaIRazgovory,
+} from "./raboty-chastey";
 
 /**
  * Английский с нуля — ступень до A1.
@@ -81,9 +87,9 @@ const course: Course = {
    * изменений: там они были с самого начала как методическое решение
    * владельца, и страница модулей теперь их показывает.
    *
-   * Проверочные работы частей программа тоже называет — они пишутся отдельно
-   * и появятся в поле quiz. Пока их нет, страница про них не обещает ничего:
-   * обещание, за которым пусто, хуже честного молчания.
+   * Проверочные работы частей написаны 15 августа по слову владельца и лежат
+   * в `raboty-chastey.ts` — там же объяснено, чем они отличаются от работы
+   * модуля и почему почти каждый вопрос требует произвести ответ.
    */
   parts: [
     {
@@ -99,6 +105,7 @@ const course: Course = {
         "chto-eto-takoe",
         "moi-veshchi",
       ],
+      quiz: rabotaYaIDrugie,
     },
     {
       slug: "mir-vokrug",
@@ -112,6 +119,7 @@ const course: Course = {
         "gde-eto",
         "zdes-est",
       ],
+      quiz: rabotaMirVokrug,
     },
     {
       slug: "kazhdyy-den",
@@ -125,6 +133,7 @@ const course: Course = {
         "pryamo-seychas",
         "ya-umeyu",
       ],
+      quiz: rabotaKazhdyyDen,
     },
     {
       slug: "dela-i-razgovory",
@@ -138,6 +147,7 @@ const course: Course = {
         "i-no-potomu-chto",
         "vchera-i-zavtra",
       ],
+      quiz: rabotaDelaIRazgovory,
     },
   ],
 };
