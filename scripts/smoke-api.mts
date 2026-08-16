@@ -185,6 +185,21 @@ console.log("\nУчёт успехов");
     body: JSON.stringify({ status: "completed" }),
   });
   check("несуществующий урок отклоняется", ghost.status === 404);
+
+  /*
+   * Мусор вместо номера записи. База разбирает такой столбец сама и на мусор
+   * отвечает своей ошибкой — без проверки формы человек получал «что-то пошло
+   * не так» с кодом 500, а в журнал сервера сыпались ошибки базы, среди
+   * которых потом не видно настоящих.
+   */
+  const musorRabota = await api("/api/v1/tests/ne-nomer-vovse/attempts", { method: "POST" });
+  check("мусор вместо номера работы — «не найдено», а не поломка", musorRabota.status === 404, musorRabota.status);
+
+  const musorPopytka = await api("/api/v1/tests/attempts/ne-nomer-vovse/submit", {
+    method: "POST",
+    body: JSON.stringify({ answers: {} }),
+  });
+  check("мусор вместо номера попытки — «не найдено», а не поломка", musorPopytka.status === 404, musorPopytka.status);
 }
 
 // --- 6. Платный курс без подписки -------------------------------------------

@@ -2,6 +2,7 @@ import { z } from "zod";
 import { prisma } from "@/lib/db";
 import { ApiError, handler, ok, readJson } from "@/lib/api/respond";
 import { requireUser } from "@/lib/api/session";
+import { trebuetsyaUuid } from "@/lib/api/params";
 import { gradeQuiz, poolFrom } from "@/lib/content/quiz";
 
 const bodySchema = z.object({
@@ -23,6 +24,7 @@ type Params = { params: Promise<{ attempt: string }> };
 export const POST = handler(async (request: Request, { params }: Params) => {
   const user = await requireUser();
   const { attempt: attemptId } = await params;
+  trebuetsyaUuid(attemptId, "Попытка не найдена");
   const body = bodySchema.parse(await readJson(request));
 
   const attempt = await prisma.testAttempt.findUnique({
@@ -45,12 +47,16 @@ export const POST = handler(async (request: Request, { params }: Params) => {
     },
   });
 
-  if (!attempt) {
+  /*
+   * Чужую попытку сдать нельзя — проверяем владельца, а не только вход.
+   *
+   * Ответ на чужую попытку тот же, что на несуществующую, и это нарочно:
+   * «это чужая попытка» подтверждало бы, что запись с таким номером есть.
+   * Подобрать номер и так почти невозможно, но правило одно для всех чужих
+   * записей — иначе однажды его забудут там, где перебор возможен.
+   */
+  if (!attempt || attempt.userId !== user.id) {
     throw new ApiError("not_found", "Попытка не найдена");
-  }
-  // Чужую попытку сдать нельзя — проверяем владельца, а не только вход
-  if (attempt.userId !== user.id) {
-    throw new ApiError("forbidden", "Это чужая попытка");
   }
   if (attempt.submittedAt) {
     throw new ApiError("conflict", "Эта попытка уже сдана");

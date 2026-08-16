@@ -2,6 +2,7 @@ import { randomUUID } from "node:crypto";
 import { prisma } from "@/lib/db";
 import { ApiError, handler, ok } from "@/lib/api/respond";
 import { requireUser } from "@/lib/api/session";
+import { trebuetsyaUuid } from "@/lib/api/params";
 import { selectQuestions } from "@/lib/domain/testing";
 import { forBrowser, poolFrom } from "@/lib/content/quiz";
 import { checkCourseAccess } from "@/lib/api/access";
@@ -22,6 +23,7 @@ type Params = { params: Promise<{ test: string }> };
 export const POST = handler(async (_request: Request, { params }: Params) => {
   const user = await requireUser();
   const { test: testId } = await params;
+  trebuetsyaUuid(testId, "Проверочная работа не найдена");
 
   const test = await prisma.test.findUnique({
     where: { id: testId },
