@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { courseCards, type CourseCard } from "@/courses";
+import { kursyVNapravleniyah, napravleniya } from "@/courses/napravleniya";
 import { withCount } from "@/lib/plural";
 import CourseArt from "@/components/CourseArt";
 import styles from "./page.module.css";
@@ -48,10 +49,60 @@ const PLANNED: Array<{ title: string; cover: Cover }> = [
   { title: "Python", cover: { art: "python", kind: "code" } },
 ];
 
+/**
+ * Карточка витрины. Их две породы, и выглядят они одинаково нарочно.
+ *
+ * Направление ведёт к ступеням («Английский» → Beginner, Elementary), курс —
+ * прямо к урокам. Человеку на витрине эта разница не нужна: он выбирает, чему
+ * учиться, а не как у нас разложено содержание.
+ */
+interface VitrinaCard {
+  href: string;
+  title: string;
+  tagline: string;
+  art: string;
+  kind: "lang" | "code";
+  meta: string;
+  free: boolean;
+}
+
 export default function HomePage() {
   const cards: CourseCard[] = courseCards();
   const lessons = cards.reduce((sum, card) => sum + card.lessons, 0);
   const hours = Math.max(1, Math.round(cards.reduce((s, c) => s + c.minutes, 0) / 60));
+
+  const poSlug = new Map(cards.map((card) => [card.slug, card]));
+  const vNapravleniyah = kursyVNapravleniyah();
+
+  const vitrina: VitrinaCard[] = [
+    ...napravleniya.map((napravlenie) => {
+      const otkrytye = napravlenie.stupeni
+        .map((stupen) => (stupen.course ? poSlug.get(stupen.course) : undefined))
+        .filter((card): card is CourseCard => card !== undefined);
+      const urokov = otkrytye.reduce((sum, card) => sum + card.lessons, 0);
+      return {
+        href: `/napravlenie/${napravlenie.slug}`,
+        title: napravlenie.title,
+        tagline: napravlenie.tagline,
+        art: napravlenie.art,
+        kind: "lang" as const,
+        meta: `${withCount(napravlenie.stupeni.length, "ступень", "ступени", "ступеней")} · ${withCount(urokov, "урок", "урока", "уроков")} открыто`,
+        free: otkrytye.every((card) => card.access === "free"),
+      };
+    }),
+    // Курсы, которые ни в какое направление не входят, стоят сами по себе.
+    ...cards
+      .filter((card) => !vNapravleniyah.has(card.slug))
+      .map((card) => ({
+        href: `/learn/${card.slug}`,
+        title: card.title,
+        tagline: card.tagline ?? "",
+        art: COVERS[card.slug]?.art ?? "",
+        kind: COVERS[card.slug]?.kind ?? ("code" as const),
+        meta: `${withCount(card.lessons, "урок", "урока", "уроков")}${card.hasExam ? " · с экзаменом" : ""}`,
+        free: card.access === "free",
+      })),
+  ];
 
   return (
     <main>
@@ -124,47 +175,41 @@ export default function HomePage() {
           </div>
 
           <div className={styles.tracks}>
-            {cards.map((card) => {
-              const cover = COVERS[card.slug];
-              return (
-                <Link key={card.slug} href={`/learn/${card.slug}`} className={styles.track}>
-                  <div
-                    className={`${styles.cover} ${
-                      cover?.kind === "code"
-                        ? styles.coverCode
-                        : `${styles.coverLang} ${styles.coverFlag}`
-                    }`}
-                    aria-hidden="true"
-                  >
-                    <CourseArt id={cover?.art ?? ""} title={card.title} />
+            {vitrina.map((card) => (
+              <Link key={card.href} href={card.href} className={styles.track}>
+                <div
+                  className={`${styles.cover} ${
+                    card.kind === "code"
+                      ? styles.coverCode
+                      : `${styles.coverLang} ${styles.coverFlag}`
+                  }`}
+                  aria-hidden="true"
+                >
+                  <CourseArt id={card.art} title={card.title} />
+                </div>
+
+                <div className={styles.trackBody}>
+                  <h3 className={styles.trackTitle}>{card.title}</h3>
+
+                  {/* Одна строка, а не абзац: карточки в сетке должны быть одной
+                      высоты, иначе ряд разваливается. */}
+                  <p className={styles.trackDesc}>{card.tagline}</p>
+
+                  <div className={styles.trackMetaRow}>
+                    <span className={styles.trackMeta}>{card.meta}</span>
+                    {/*
+                      Значок стоит только у открытых курсов. Ветки «по
+                      подписке» больше нет: платных курсов сейчас не
+                      существует, и рассказывать о цене того, чего нет, —
+                      обещание, за которым ничего не стоит.
+                    */}
+                    {card.free && (
+                      <span className={`${styles.badge} ${styles.badgeFree}`}>Бесплатно</span>
+                    )}
                   </div>
-
-                  <div className={styles.trackBody}>
-                    <h3 className={styles.trackTitle}>{card.title}</h3>
-
-                    {/* Одна строка, а не абзац: карточки в сетке должны быть одной
-                        высоты, иначе ряд разваливается. */}
-                    <p className={styles.trackDesc}>{card.tagline ?? ""}</p>
-
-                    <div className={styles.trackMetaRow}>
-                      <span className={styles.trackMeta}>
-                        {withCount(card.lessons, "урок", "урока", "уроков")}
-                        {card.hasExam ? " · с экзаменом" : ""}
-                      </span>
-                      {/*
-                        Значок стоит только у открытых курсов. Ветки «по
-                        подписке» больше нет: платных курсов сейчас не
-                        существует, и рассказывать о цене того, чего нет, —
-                        обещание, за которым ничего не стоит.
-                      */}
-                      {card.access === "free" && (
-                        <span className={`${styles.badge} ${styles.badgeFree}`}>Бесплатно</span>
-                      )}
-                    </div>
-                  </div>
-                </Link>
-              );
-            })}
+                </div>
+              </Link>
+            ))}
           </div>
 
           {/* Про собранные источники здесь было лишнее: это наша кухня, а

@@ -1,0 +1,167 @@
+/*
+ * Ступени направления — сетка карточек (решение владельца).
+ *
+ * Карточки одного вида с каталогом: человек уже видел такие на витрине, и
+ * узнавание здесь дороже оригинальности.
+ */
+
+.head {
+  padding: var(--space-7) 0 var(--space-4);
+}
+
+.eyebrow {
+  display: block;
+  font-size: var(--step--1);
+  font-weight: 700;
+  letter-spacing: var(--track-eyebrow);
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: var(--space-2);
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: var(--step-4);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin: 0 0 var(--space-2);
+}
+
+.lead {
+  font-size: var(--step-1);
+  color: var(--ink-soft);
+  margin: 0;
+  max-width: 52ch;
+}
+
+.poryadok {
+  font-size: var(--step-0);
+  color: var(--ink-soft);
+  margin: 0 0 var(--space-5);
+  max-width: 60ch;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: var(--space-5);
+}
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: var(--space-5);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-l);
+  text-decoration: none;
+  color: inherit;
+}
+
+.cardOpen {
+  box-shadow: var(--shadow-1);
+  transition:
+    transform var(--dur-press) var(--ease-out),
+    box-shadow var(--dur-fast) var(--ease-out);
+}
+
+.cardOpen:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-2);
+}
+
+/* Готовящаяся ступень приглушена: обещание не должно кричать громче того,
+   что уже работает. */
+.cardSoon {
+  background: var(--paper-alt);
+  box-shadow: none;
+}
+
+.cardSoon .stupenName,
+.cardSoon .about {
+  color: var(--ink-soft);
+}
+
+.nomer {
+  font-size: var(--step--1);
+  font-weight: 700;
+  letter-spacing: var(--track-eyebrow);
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+.stupenName {
+  font-family: var(--font-display);
+  font-size: var(--step-2);
+  font-weight: 800;
+  letter-spacing: -0.015em;
+  margin: 0;
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+/* Перевод названия — один раз, мелко и рядом. Ступени зовутся английскими
+   именами, потому что так их зовут везде; перевод нужен только на первой
+   встрече. */
+.perevod {
+  font-family: var(--font-body);
+  font-size: var(--step--1);
+  font-weight: 500;
+  color: var(--ink-soft);
+}
+
+.cefr {
+  font-size: var(--step-0);
+  font-weight: 600;
+  color: var(--accent);
+}
+
+.about {
+  font-size: var(--step-0);
+  color: var(--ink);
+  margin: 4px 0 0;
+  flex: 1;
+}
+
+.meta {
+  font-size: var(--step--1);
+  color: var(--ink-soft);
+  margin-top: var(--space-3);
+}
+
+/*
+ * Печать «Пройдено».
+ *
+ * Нарочно похожа на штамп: рамка в две линии, поворот, разрядка. Ставится
+ * поверх угла карточки, как ставят печать на бумаге. Это единственное место на
+ * сайте, где оформление позволяет себе шутку, — и она уместна: ступень
+ * закрывают один раз.
+ */
+.pechat {
+  position: absolute;
+  top: var(--space-4);
+  right: var(--space-4);
+  transform: rotate(-8deg);
+  padding: 4px 12px;
+  border: 2px solid var(--accent);
+  border-radius: 4px;
+  box-shadow: 0 0 0 1px var(--surface), 0 0 0 3px var(--accent);
+  color: var(--accent);
+  font-family: var(--font-display);
+  font-size: var(--step--1);
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  opacity: 0.85;
+  pointer-events: none;
+}
+
+@media (max-width: 560px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
