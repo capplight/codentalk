@@ -59,6 +59,22 @@ function Icon({ children, title }: { children: React.ReactNode; title: string })
   );
 }
 
+/**
+ * Знак курса по коду — во всю обложку, как флаг у языка.
+ *
+ * Отличие от флага одно, и оно важное: флаг растягивается, а знак сохраняет
+ * пропорции (`meet`). Растянутый флаг остаётся флагом, растянутая надпись
+ * `.css {}` выглядит поломкой. Поэтому знак стоит по центру, а поле вокруг
+ * него заливает сама обложка — цветом из page.module.css.
+ */
+function Znak({ children, title }: { children: React.ReactNode; title: string }) {
+  return (
+    <svg viewBox="0 0 60 40" preserveAspectRatio="xMidYMid meet" role="img" aria-label={title}>
+      {children}
+    </svg>
+  );
+}
+
 export default function CourseArt({ id, title }: Props) {
   switch (id) {
     /* ---------- языки ---------- */
@@ -190,42 +206,73 @@ export default function CourseArt({ id, title }: Props) {
 
     /* ---------- программирование ---------- */
     case "web":
-      // Окно браузера с угловыми скобками: разметка страниц.
+      /*
+       * Шестиугольник и два ярлыка с названиями языков разметки.
+       *
+       * Владелец показал похожую картинку и сказал: можно такую. Нарисована
+       * заново своими руками — чужое изображение нельзя брать даже когда оно
+       * лежит в поиске первым.
+       */
       return (
-        <Icon title={title}>
-          <rect x="4" y="8" width="40" height="32" rx="5" stroke="currentColor" strokeWidth="2.5" />
-          <path d="M4 17 H44" stroke="currentColor" strokeWidth="2.5" />
-          <circle cx="10" cy="12.5" r="1.6" fill="currentColor" />
-          <circle cx="15.5" cy="12.5" r="1.6" fill="currentColor" />
+        <Znak title={title}>
           <path
-            d="M19 24 L14 29.5 L19 35 M29 24 L34 29.5 L29 35"
-            stroke="currentColor"
-            strokeWidth="2.5"
-            strokeLinecap="round"
+            d="M30 3.5 L44.7 11.75 L44.7 28.25 L30 36.5 L15.3 28.25 L15.3 11.75 Z"
+            fill="none"
+            stroke="rgba(255,255,255,0.85)"
+            strokeWidth="2.2"
             strokeLinejoin="round"
           />
-        </Icon>
+          <rect x="18.5" y="10.6" width="23" height="7.2" rx="2.2" fill="#fff" />
+          <text
+            x="30"
+            y="15.6"
+            textAnchor="middle"
+            fill="#1f6b68"
+            fontSize="4.6"
+            fontWeight="700"
+            fontFamily="ui-monospace, 'Cascadia Mono', 'Consolas', monospace"
+          >
+            &lt;html&gt;
+          </text>
+          <rect x="18.5" y="22.2" width="23" height="7.2" rx="2.2" fill="#fff" />
+          <text
+            x="30"
+            y="27.2"
+            textAnchor="middle"
+            fill="#1f6b68"
+            fontSize="4.6"
+            fontWeight="700"
+            fontFamily="ui-monospace, 'Cascadia Mono', 'Consolas', monospace"
+          >
+            .css &#123; &#125;
+          </text>
+        </Znak>
       );
     case "python":
-      // Змея: знак узнаётся, но чужой логотип не повторяет. Тело одной толстой
-      // линией — тонкая закорючка на мелком размере не читается вовсе.
+      /*
+       * Ярлык с расширением файла на синем поле — цвета питоновские, но сам
+       * знак наш.
+       *
+       * ПОЧЕМУ НЕ ДВЕ ЗМЕИ. Логотип Python — товарный знак фонда. Брать его
+       * как есть ещё можно, а вот «подправить под наши карточки» — уже нет:
+       * переделка чужого знака требует разрешения владельца знака. Цвета под
+       * запрет не попадают, и узнаётся курс по ним не хуже.
+       */
       return (
-        <Icon title={title}>
-          <path
-            d="M31 12 C20 12 20 22 27 24 C34 26 34 36 23 36 C17 36 14 33 14 29"
-            stroke="currentColor"
-            strokeWidth="5.5"
-            strokeLinecap="round"
-          />
-          <circle cx="31" cy="12" r="4.6" fill="currentColor" />
-          <circle cx="32.6" cy="10.8" r="1.15" fill="var(--surface)" />
-          <path
-            d="M35.5 12 L41 12 M41 12 L38.6 10.2 M41 12 L38.6 13.8"
-            stroke="currentColor"
-            strokeWidth="1.8"
-            strokeLinecap="round"
-          />
-        </Icon>
+        <Znak title={title}>
+          <rect x="13" y="11.5" width="34" height="17" rx="4" fill="#ffd43b" />
+          <text
+            x="30"
+            y="24.4"
+            textAnchor="middle"
+            fill="#2b5b84"
+            fontSize="10"
+            fontWeight="800"
+            fontFamily="ui-monospace, 'Cascadia Mono', 'Consolas', monospace"
+          >
+            .py
+          </text>
+        </Znak>
       );
     default:
       return null;

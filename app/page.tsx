@@ -27,6 +27,21 @@ const COVERS: Record<string, Cover> = {
 };
 
 /**
+ * Цвет поля под знаком курса по коду. У языков эту роль играет сам флаг, а у
+ * кода поля нет — его заливаем цветом предмета.
+ */
+const FON_ZNAKA: Record<string, string> = {
+  web: styles.coverWeb,
+  python: styles.coverPython,
+};
+
+/** Классы обложки: флаг растягивается во всю ширину, знак стоит по центру. */
+function oblozhka(art: string, kind: "lang" | "code"): string {
+  if (kind === "lang") return `${styles.coverLang} ${styles.coverFlag}`;
+  return `${styles.coverZnak} ${FON_ZNAKA[art] ?? styles.coverCode}`;
+}
+
+/**
  * Направления, о которых сказано на витрине, но содержания по ним ещё нет.
  *
  * Девять языков — это план владельца, записанный в
@@ -178,11 +193,7 @@ export default function HomePage() {
             {vitrina.map((card) => (
               <Link key={card.href} href={card.href} className={styles.track}>
                 <div
-                  className={`${styles.cover} ${
-                    card.kind === "code"
-                      ? styles.coverCode
-                      : `${styles.coverLang} ${styles.coverFlag}`
-                  }`}
+                  className={`${styles.cover} ${oblozhka(card.art, card.kind)}`}
                   aria-hidden="true"
                 >
                   <CourseArt id={card.art} title={card.title} />
@@ -222,9 +233,10 @@ export default function HomePage() {
             {PLANNED.map((planned) => (
               <div key={planned.title} className={styles.soonCard}>
                 <div
-                  className={`${styles.cover} ${styles.coverSoon} ${
-                    planned.cover.kind === "code" ? styles.coverCode : styles.coverFlag
-                  }`}
+                  className={`${styles.cover} ${styles.coverSoon} ${oblozhka(
+                    planned.cover.art,
+                    planned.cover.kind
+                  )}`}
                   aria-hidden="true"
                 >
                   <CourseArt id={planned.cover.art} title={planned.title} />
