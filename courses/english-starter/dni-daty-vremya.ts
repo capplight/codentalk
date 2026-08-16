@@ -491,7 +491,6 @@ const module: Module = {
             { term: "August", translation: "август", example: "in August", hint: "/ˈɔːgəst/" },
             { term: "December", translation: "декабрь", example: "in December", hint: "/dɪˈsembə/" },
             { term: "month", translation: "месяц", example: "this month", hint: "/mʌnθ/" },
-            { term: "year", translation: "год", example: "this year", hint: "/jɪə/" },
             { term: "date", translation: "дата", example: "Date: 5 May", hint: "/deɪt/" },
             { term: "birthday", translation: "день рождения", example: "my birthday", hint: "/ˈbɜːθdeɪ/" },
           ],
@@ -1174,7 +1173,7 @@ const module: Module = {
             { term: "morning", translation: "утро", example: "in the morning", hint: "/ˈmɔːnɪŋ/" },
             { term: "afternoon", translation: "день (после полудня)", example: "in the afternoon", hint: "/ˌɑːftəˈnuːn/" },
             { term: "evening", translation: "вечер", example: "in the evening", hint: "/ˈiːvnɪŋ/" },
-            { term: "night", translation: "ночь", example: "at night", hint: "/naɪt/" },
+            { term: "night", translation: "ночь — в обороте at night, без the", example: "at night", hint: "/naɪt/" },
           ],
         },
 
@@ -1648,7 +1647,6 @@ const module: Module = {
           kind: "vocab",
           caption: "Слова урока",
           items: [
-            { term: "see you", translation: "увидимся", example: "See you on Friday!", hint: "/ˈsiː juː/" },
             { term: "OK", translation: "хорошо, договорились", example: "OK. See you!", hint: "/ˌəʊˈkeɪ/" },
             { term: "good", translation: "хорошо (отклик на сказанное)", example: "Good. See you!", hint: "/gʊd/" },
           ],

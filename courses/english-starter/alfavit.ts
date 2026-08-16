@@ -1164,7 +1164,6 @@ const module: Module = {
             { term: "surname", translation: "фамилия", example: "Surname: Nurlanova", hint: "/ˈsɜːneɪm/" },
             { term: "last name", translation: "фамилия (то же поле, что surname)", example: "Last name: Nurlanova", hint: "/ˈlɑːst neɪm/" },
             { term: "address", translation: "адрес", example: "Address: 12 Abay Street", hint: "/əˈdres/" },
-            { term: "country", translation: "страна", example: "Country: Kazakhstan", hint: "/ˈkʌntri/" },
           ],
         },
 

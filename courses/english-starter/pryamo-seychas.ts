@@ -388,7 +388,6 @@ const module: Module = {
           caption: "Слова урока",
           items: [
             { term: "stand", translation: "стоять", example: "He is standing here.", hint: "/stænd/" },
-            { term: "sing", translation: "петь", example: "She is singing.", hint: "/sɪŋ/" },
           ],
         },
 

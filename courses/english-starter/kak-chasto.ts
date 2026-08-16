@@ -229,8 +229,6 @@ const module: Module = {
           items: [
             { term: "always", translation: "всегда", example: "I always work on Monday.", hint: "/ˈɔːlweɪz/" },
             { term: "sometimes", translation: "иногда", example: "I sometimes read in the evening.", hint: "/ˈsʌmtaɪmz/" },
-            { term: "morning", translation: "утро", example: "I work in the morning.", hint: "/ˈmɔːnɪŋ/" },
-            { term: "evening", translation: "вечер", example: "I read in the evening.", hint: "/ˈiːvnɪŋ/" },
           ],
         },
 
@@ -655,12 +653,21 @@ const module: Module = {
           transcript: "I am always busy. I always work. She is never late. She never comes late.",
         },
         {
+          // В этом блоке стояли weekend и park, и оба — повторы: weekend введён
+          // в модуле 16, park в модуле 12. Вместо них карточка, которой урок
+          // требовал и не имел: слово late здесь работает по-другому. После
+          // глагола это «поздно» (модуль 17, урок 3), а после формы be —
+          // «опоздавший», и на этом стоят три задания урока. Нашёл методист.
           id: "slovar-s-be",
           kind: "vocab",
           caption: "Слова урока",
           items: [
-            { term: "weekend", translation: "выходные", example: "I am free at the weekend.", hint: "/ˌwiːkˈend/" },
-            { term: "park", translation: "парк", example: "I go to the park.", hint: "/pɑːk/" },
+            {
+              term: "late",
+              translation: "опоздавший (после формы be)",
+              example: "She is never late.",
+              hint: "/leɪt/",
+            },
           ],
         },
 
@@ -799,15 +806,10 @@ const module: Module = {
           caption: "Послушай отрицание с наречием",
           transcript: "I don't usually work on Sunday. I don't often go to the gym.",
         },
-        {
-          id: "slovar-v-otricanii",
-          kind: "vocab",
-          caption: "Слова урока",
-          items: [
-            { term: "film", translation: "фильм", example: "I watch a film in the evening.", hint: "/fɪlm/" },
-            { term: "music", translation: "музыка", example: "I like music.", hint: "/ˈmjuːzɪk/" },
-          ],
-        },
+        // Словаря у урока больше нет: film и music оказались повторами (модули 16
+        // и 14), а других новых слов урок не даёт — он весь о месте наречия при
+        // отрицании. Ставить слово ради карточки нельзя: словарь — это новые
+        // слова, а не заполнитель.
 
         // ---- задания ----
         {
@@ -942,14 +944,11 @@ const module: Module = {
           transcript:
             "My brother always works late. He usually gets up at six. He never drinks coffee.",
         },
-        {
-          id: "slovar-o-drugom",
-          kind: "vocab",
-          caption: "Слова урока",
-          items: [
-            { term: "together", translation: "вместе", example: "We work together.", hint: "/təˈgeðə/" },
-          ],
-        },
+        // Словаря у урока больше нет: единственным словом было together, а оно
+        // введено в модуле 16. Новых слов в уроке нет вовсе — он про порядок
+        // слов, наречие с окончанием -s у глагола. Проверено по всем словам
+        // урока: brother, always, late, usually, never, coffee, often, busy,
+        // weekend — все введены раньше.
 
         // ---- задания ----
         {

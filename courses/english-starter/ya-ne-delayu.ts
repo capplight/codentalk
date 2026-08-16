@@ -824,8 +824,6 @@ const module: Module = {
           kind: "vocab",
           caption: "Слова урока",
           items: [
-            { term: "tea", translation: "чай", example: "I drink tea.", hint: "/tiː/" },
-            { term: "water", translation: "вода", example: "He drinks water.", hint: "/ˈwɔːtə/" },
             { term: "meat", translation: "мясо", example: "I don't eat meat.", hint: "/miːt/" },
             { term: "fish", translation: "рыба", example: "I eat fish.", hint: "/fɪʃ/" },
           ],
@@ -972,7 +970,6 @@ const module: Module = {
             { term: "sing", translation: "петь", example: "I don't sing.", hint: "/sɪŋ/" },
             { term: "swim", translation: "плавать", example: "I don't swim.", hint: "/swɪm/" },
             { term: "wash", translation: "мыть", example: "I wash my car on Sunday.", hint: "/wɒʃ/" },
-            { term: "sleep", translation: "спать", example: "I don't sleep in the day.", hint: "/sliːp/" },
             { term: "understand", translation: "понимать", example: "I don't understand.", hint: "/ˌʌndəˈstænd/" },
           ],
         },

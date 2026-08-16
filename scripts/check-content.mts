@@ -21,6 +21,7 @@ import {
   type TaskBlock,
 } from "../lib/content/types.ts";
 import { checkPositionBalance } from "../lib/domain/testing.ts";
+import { resheno } from "../courses/resheno.ts";
 import { courses } from "../courses/index.ts";
 
 const errors: string[] = [];
@@ -1144,11 +1145,20 @@ function checkSlovoNeVvoditsyaDvazhdy(course: Course): void {
     }
   }
 
-  if (dvazhdy.length > 0) {
+  /*
+   * Разобранное молчит — то же правило, что у `npm run kontrol`.
+   *
+   * Три повтора методист разобрал и признал намеренными: слово нужно заданиям
+   * второго урока, и его показывают там снова. Спрашивать о них каждый прогон
+   * значит приучать не читать отчёт целиком.
+   */
+  const ostalos = dvazhdy.filter((s) => !resheno.some((r) => s.includes(r.chto)));
+
+  if (ostalos.length > 0) {
     warn(
       course.slug,
-      `слово введено словарной карточкой дважды (${dvazhdy.length} шт.):\n      ` +
-        dvazhdy.join("\n      ") +
+      `слово введено словарной карточкой дважды (${ostalos.length} шт.):\n      ` +
+        ostalos.join("\n      ") +
         "\n      Вторая карточка говорит ученику, что слово новое. Решает методист"
     );
   }

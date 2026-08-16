@@ -227,7 +227,6 @@ const module: Module = {
           items: [
             { term: "can", translation: "уметь, мочь", example: "I can swim.", hint: "/kæn/" },
             { term: "ride", translation: "ездить верхом или на велосипеде", example: "I can ride a bike.", hint: "/raɪd/" },
-            { term: "bike", translation: "велосипед", example: "This is my bike.", hint: "/baɪk/" },
           ],
         },
 

@@ -461,7 +461,6 @@ const module: Module = {
             { term: "I", translation: "я — всегда с заглавной буквы", example: "I am Alim.", hint: "/aɪ/" },
             { term: "am", translation: "есть (только после I)", example: "I am here.", hint: "/æm/" },
             { term: "I'm", translation: "я (короткая форма I am)", example: "I'm Dana.", hint: "/aɪm/" },
-            { term: "name", translation: "имя", example: "What's your name?", hint: "/neɪm/" },
             { term: "your", translation: "ваш, твой", example: "your name", hint: "/jɔː/" },
             { term: "what", translation: "что, какой", example: "What's your name?", hint: "/wɒt/" },
             {
@@ -668,11 +667,9 @@ const module: Module = {
           kind: "vocab",
           caption: "Слова урока",
           items: [
-            { term: "how", translation: "как", example: "How are you?", hint: "/haʊ/" },
             { term: "are", translation: "форма глагола be для you", example: "How are you?", hint: "/ɑː/" },
             { term: "fine", translation: "хорошо", example: "I'm fine.", hint: "/faɪn/" },
             { term: "OK", translation: "нормально", example: "I'm OK.", hint: "/ˌəʊˈkeɪ/" },
-            { term: "please", translation: "пожалуйста (в просьбе)", example: "Coffee, please.", hint: "/pliːz/" },
             { term: "thank you", translation: "спасибо", example: "Thank you!", hint: "/ˈθæŋk juː/" },
             { term: "thanks", translation: "спасибо (короче)", example: "Thanks!", hint: "/θæŋks/" },
             { term: "sorry", translation: "извините", example: "Sorry!", hint: "/ˈsɒri/" },
@@ -1016,7 +1013,6 @@ const module: Module = {
             { term: "am", translation: "форма be для I", example: "I am Alim.", hint: "/æm/" },
             { term: "is", translation: "форма be для he, she, it", example: "She is fine.", hint: "/ɪz/" },
             { term: "are", translation: "форма be для you, we, they", example: "They are fine.", hint: "/ɑː/" },
-            { term: "yes", translation: "да", example: "Yes, I am Alim.", hint: "/jes/" },
           ],
         },
 

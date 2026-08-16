@@ -185,7 +185,6 @@ const module: Module = {
           caption: "Слова урока",
           items: [
             { term: "from", translation: "из, от", example: "I'm from Almaty.", hint: "/frɒm/" },
-            { term: "country", translation: "страна", example: "Kazakhstan is a country.", hint: "/ˈkʌntri/" },
             { term: "city", translation: "город", example: "Astana is a city.", hint: "/ˈsɪti/" },
           ],
         },

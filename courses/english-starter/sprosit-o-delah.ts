@@ -164,9 +164,12 @@ const module: Module = {
       ref: "Oxford 3000",
       section:
         "новые слова модуля, все с пометкой A1: job (n.), office (n.), weekend (n.), " +
-        "company (n.), university (n.), college (n.), restaurant (n.), cafe (n.), " +
-        "language (n.), film (n.), sport (n.), bus (n.), lunch (n.), breakfast (n.), " +
-        "city (n.), together (adv.), holiday (n.), about (prep.). Слова прежних модулей: " +
+        "company (n.), university (n.), college (n.), cafe (n.), " +
+        "language (n.), film (n.), sport (n.), holiday (n.), about (prep.). " +
+        "ПРЕЖНЯЯ РЕДАКЦИЯ считала новыми ещё шесть: restaurant введён в модуле 13, " +
+        "bus — в модуле 6, lunch и breakfast — в модуле 14, city — в модуле 3, " +
+        "together введено здесь и повторно объявлялось в модуле 17. Карточки-повторы " +
+        "убраны, список пересчитан. Нашёл методист. Слова прежних модулей: " +
         "work, live, study, read, play, watch, go, like, eat, drink, know, speak, start, " +
         "finish, coffee, football, music, teacher, doctor, student, school, shop",
       license: "внутреннее использование",
@@ -414,7 +417,6 @@ const module: Module = {
           caption: "Слова урока",
           items: [
             { term: "weekend", translation: "выходные", example: "I read at the weekend.", hint: "/ˌwiːkˈend/" },
-            { term: "restaurant", translation: "ресторан", example: "I eat in a restaurant.", hint: "/ˈrestrɒnt/" },
             { term: "cafe", translation: "кафе", example: "We drink coffee in a cafe.", hint: "/ˈkæfeɪ/" },
           ],
         },
@@ -1014,9 +1016,6 @@ const module: Module = {
           caption: "Слова урока",
           items: [
             { term: "who", translation: "кто", example: "Who is your teacher?", hint: "/huː/" },
-            { term: "bus", translation: "автобус", example: "Where is the bus?", hint: "/bʌs/" },
-            { term: "lunch", translation: "обед", example: "I eat lunch at one.", hint: "/lʌntʃ/" },
-            { term: "breakfast", translation: "завтрак", example: "I eat breakfast at eight.", hint: "/ˈbrekfəst/" },
           ],
         },
 
@@ -1162,7 +1161,6 @@ const module: Module = {
           kind: "vocab",
           caption: "Слова урока",
           items: [
-            { term: "city", translation: "город", example: "I live in this city.", hint: "/ˈsɪti/" },
             { term: "together", translation: "вместе", example: "They work together.", hint: "/təˈgeðə/" },
           ],
         },

@@ -255,10 +255,6 @@ const module: Module = {
             { term: "in", translation: "в, внутри", example: "in the bag", hint: "/ɪn/" },
             { term: "on", translation: "на", example: "on the table", hint: "/ɒn/" },
             { term: "under", translation: "под", example: "under the chair", hint: "/ˈʌndə/" },
-            { term: "table", translation: "стол", example: "on the table", hint: "/ˈteɪbl/" },
-            { term: "chair", translation: "стул", example: "under the chair", hint: "/tʃeə/" },
-            { term: "door", translation: "дверь", example: "at the door", hint: "/dɔː/" },
-            { term: "window", translation: "окно", example: "a big window", hint: "/ˈwɪndəʊ/" },
           ],
         },
 
@@ -403,7 +399,6 @@ const module: Module = {
             { term: "near", translation: "рядом с, недалеко от", example: "near the station", hint: "/nɪə/" },
             { term: "behind", translation: "позади, за", example: "behind the house", hint: "/bɪˈhaɪnd/" },
             { term: "between", translation: "между", example: "between the park and the shop", hint: "/bɪˈtwiːn/" },
-            { term: "shop", translation: "магазин", example: "a big shop", hint: "/ʃɒp/" },
             { term: "station", translation: "станция, вокзал", example: "near the station", hint: "/ˈsteɪʃn/" },
             { term: "park", translation: "парк", example: "behind the park", hint: "/pɑːk/" },
             // school стояло в заданиях этого урока за четыре урока до перевода
@@ -549,8 +544,6 @@ const module: Module = {
           items: [
             { term: "here", translation: "здесь, тут", example: "My house is here.", hint: "/hɪə/" },
             { term: "there", translation: "там", example: "The shop is there.", hint: "/ðeə/" },
-            { term: "house", translation: "дом", example: "a big house", hint: "/haʊs/" },
-            { term: "street", translation: "улица", example: "a long street", hint: "/striːt/" },
           ],
         },
 
@@ -840,8 +833,7 @@ const module: Module = {
           caption: "Слова урока",
           items: [
             { term: "where", translation: "где, куда", example: "Where is my key?", hint: "/weə/" },
-            { term: "key", translation: "ключ", example: "my keys", hint: "/kiː/" },
-            { term: "room", translation: "комната", example: "in the room", hint: "/ruːm/" },
+            { term: "key", translation: "ключ; во множественном — keys", example: "my keys", hint: "/kiː/" },
             { term: "kitchen", translation: "кухня", example: "in the kitchen", hint: "/ˈkɪtʃɪn/" },
           ],
         },
@@ -1007,7 +999,6 @@ const module: Module = {
           caption: "Слова урока",
           items: [
             { term: "hotel", translation: "гостиница", example: "opposite the hotel", hint: "/həʊˈtel/" },
-            { term: "bus", translation: "автобус", example: "a bus stop", hint: "/bʌs/" },
             { term: "stop", translation: "остановка", example: "the bus stop", hint: "/stɒp/" },
             { term: "map", translation: "карта", example: "a big map", hint: "/mæp/" },
           ],

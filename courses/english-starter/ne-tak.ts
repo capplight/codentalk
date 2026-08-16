@@ -170,7 +170,7 @@ const module: Module = {
           kind: "vocab",
           caption: "Слова урока",
           items: [
-            { term: "not", translation: "не", example: "I am not a doctor.", hint: "/nɒt/" },
+            { term: "not", translation: "не — стоит сразу после формы be", example: "I am not a doctor.", hint: "/nɒt/" },
             { term: "right", translation: "правильный, верный", example: "You are right.", hint: "/raɪt/" },
             { term: "wrong", translation: "неправильный, не тот", example: "It is wrong.", hint: "/rɒŋ/" },
           ],
@@ -452,7 +452,7 @@ const module: Module = {
           kind: "vocab",
           caption: "Слова урока",
           items: [
-            { term: "no", translation: "нет", example: "No, I'm not.", hint: "/nəʊ/" },
+            { term: "no", translation: "нет — ответ, стоит в начале, перед запятой", example: "No, I'm not.", hint: "/nəʊ/" },
           ],
         },
 
