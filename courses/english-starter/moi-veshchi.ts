@@ -1212,28 +1212,34 @@ const module: Module = {
           ],
         },
         {
+          // Таблица только о паре his/her: они и путаются. Слова our и your
+          // отсюда убраны — с ними у his и her нет ничего общего по звучанию,
+          // и рядом они создавали ложную пару. Нашёл редактор.
           id: "chey-i-chya-na-sluh",
           kind: "table",
-          caption: "Чья вещь — нажми и сравни",
+          caption: "Его и её — нажми и сравни",
           zvuk: {
             "his bag": "his bag",
             "her bag": "her bag",
-            "our room": "our room",
-            "your room": "your room",
+            "his room": "his room",
+            "her room": "her room",
           },
-          head: ["Про него или нас", "Про неё или вас"],
+          head: ["Про него", "Про неё"],
           rows: [
             ["his bag", "her bag"],
-            ["our room", "your room"],
+            ["his room", "her room"],
           ],
         },
         {
           id: "est-i-net-na-sluh",
           kind: "note",
           tone: "info",
+          // Слова «и он безударный» сняты: haven't как раз и несёт отрицание,
+          // а такое слово обычно выделяют голосом. Редактор усомнился, и он
+          // прав — утверждение было моим, источником не подтверждено.
           text:
             "Наличие и отсутствие тоже различает одно короткое место: I've got — есть, " +
-              "I haven't got — нет. Всё различие в слоге haven't, и он безударный.",
+              "I haven't got — нет. Слушай, что стоит сразу после I.",
         },
         {
           id: "zapis-chya-veshch",

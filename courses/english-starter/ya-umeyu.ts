@@ -95,6 +95,8 @@ const module: Module = {
     "говорить о возможности: You can buy milk here",
     "просить и предлагать: Can you help? Can I have your pen?",
     "рассказывать, что умеешь и чего не умеешь",
+    "понимать по объявлению, что нужно уметь и что там можно",
+    "слышать разницу между can и can't и понимать просьбу",
   ],
   sources: [
     {
@@ -1238,6 +1240,272 @@ const module: Module = {
         },
       ],
     },
+
+    // =====================================================================
+    // Урок чтения. Объявление о наборе — текст, где can работает сразу в двух
+    // смыслах: умение человека и возможность, которую даёт место.
+    // =====================================================================
+    {
+      slug: "chitaem-o-umeniyah",
+      title: "Читаем объявление об умениях",
+      estimatedMinutes: 13,
+      outcome: "понимать по объявлению, что нужно уметь и что там можно",
+
+      blocks: [
+        {
+          id: "zachem-chitat-ob-umeniyah",
+          kind: "explain",
+          text: [
+            "В объявлениях слово can встречается в двух разных смыслах. Одно дело " +
+              "«ты должен уметь», другое — «здесь это можно».",
+            "Различает их то, о ком речь. You can swim в объявлении о работе — это " +
+              "требование к человеку. You can buy tea here — это про место.",
+          ],
+        },
+        {
+          id: "obyavlenie-o-nabore",
+          kind: "text",
+          genre: "notice",
+          title: "WE NEED A TEACHER",
+          body: [
+            "You can speak English.",
+            "You can work in the evening.",
+            "You can't work on Sunday.",
+            "Phone: 8 7 0 5 4 3 2",
+          ],
+          glossary: [{ term: "speak", translation: "говорить" }],
+        },
+        {
+          id: "razbor-obyavleniya-can",
+          kind: "note",
+          tone: "info",
+          text:
+            "Строка с can't в таком объявлении — не про неумение. Она говорит, что " +
+              "в этот день работать нельзя: место закрыто.",
+        },
+        {
+          id: "obyavlenie-o-klube",
+          kind: "text",
+          genre: "notice",
+          title: "SPORT CLUB",
+          body: [
+            "You can swim here. You can play football.",
+            "You can't drive here.",
+            "Open: Monday — Friday",
+          ],
+        },
+
+        // ---- задания ----
+        {
+          id: "z1-chto-nuzhno-umet",
+          kind: "short",
+          about: "obyavlenie-o-nabore",
+          prompt:
+            "Прочитай объявление WE NEED A TEACHER. На каком языке нужно говорить? " +
+            "Ответь английским словом.",
+          answer: "English",
+          accept: ["english"],
+          hint: "Первая строка называет умение.",
+          why: "You can speak English. По-английски.",
+        },
+        {
+          id: "z2-kogda-nelzya",
+          kind: "choice",
+          about: "obyavlenie-o-nabore",
+          prompt: "Прочитай объявление WE NEED A TEACHER. Что говорит строка с can't?",
+          options: [
+            { text: "Что человек не умеет работать" },
+            { text: "Что в воскресенье работать нельзя", correct: true },
+            { text: "Что вечером работать нельзя" },
+          ],
+          hint: "Посмотри, какой день назван в этой строке.",
+          why:
+            "You can't work on Sunday. Это про место и день, а не про умение человека: " +
+            "в воскресенье там не работают.",
+        },
+        {
+          id: "z3-chto-mozhno-v-klube",
+          kind: "hottext",
+          about: "obyavlenie-o-klube",
+          prompt: "Прочитай объявление SPORT CLUB. Отметь то, что там можно.",
+          parts: [
+            { text: "swim", selectable: true, correct: true },
+            { text: "play football", selectable: true, correct: true },
+            { text: "drive", selectable: true },
+          ],
+          hint: "Одно из трёх дел стоит в строке с can't.",
+          why:
+            "You can swim here. You can play football. Водить там нельзя: You can't " +
+            "drive here.",
+        },
+        {
+          id: "z4-rabotaet-li-klub-v-subbotu",
+          kind: "choice",
+          about: "obyavlenie-o-klube",
+          prompt: "Прочитай объявление SPORT CLUB. Работает ли клуб в субботу?",
+          options: [
+            { text: "Работает" },
+            { text: "Не работает", correct: true },
+            { text: "Про субботу не сказано" },
+          ],
+          hint: "Последняя строка называет промежуток дней через тире.",
+          why:
+            "Open: Monday — Friday. Тире значит «с … по …»: с понедельника по пятницу. " +
+            "Суббота в этот промежуток не входит.",
+        },
+        {
+          id: "z5-dva-smysla-can",
+          kind: "choice",
+          about: "obyavlenie-o-nabore",
+          prompt:
+            "Сравни два объявления. В каком из них can говорит об умении человека, а " +
+            "не о том, что можно в этом месте?",
+          options: [
+            { text: "В объявлении о клубе" },
+            { text: "В объявлении о работе учителя", correct: true },
+            { text: "В обоих одинаково" },
+          ],
+          hint: "Спроси себя: строка требует чего-то от человека или разрешает что-то?",
+          why:
+            "You can speak English — это требование к человеку, он должен уметь. " +
+            "You can swim here — это про место: здесь есть такая возможность.",
+        },
+      ],
+    },
+
+    // =====================================================================
+    // Урок слушания.
+    // =====================================================================
+    {
+      slug: "slushaem-ob-umeniyah",
+      title: "Слушаем об умениях",
+      estimatedMinutes: 13,
+      outcome: "слышать разницу между can и can't и понимать просьбу",
+
+      blocks: [
+        {
+          id: "zachem-slushat-can",
+          kind: "explain",
+          text: [
+            "Can и can't различает только хвостик в конце, и звучит он коротко. " +
+              "А смысл от него переворачивается целиком.",
+            "Помогает то, что can в утверждении произносят слабо и быстро, а can't — " +
+              "отчётливо и с нажимом. Если слово прозвучало заметно, это отрицание.",
+          ],
+        },
+        {
+          id: "can-i-cant-na-sluh",
+          kind: "table",
+          caption: "Умею и не умею — нажми и сравни",
+          zvuk: {
+            "I can swim.": "I can swim.",
+            "I can't swim.": "I can't swim.",
+            "He can drive.": "He can drive.",
+            "He can't drive.": "He can't drive.",
+          },
+          head: ["Умеет", "Не умеет"],
+          rows: [
+            ["I can swim.", "I can't swim."],
+            ["He can drive.", "He can't drive."],
+          ],
+        },
+        {
+          id: "prosba-tozhe-can",
+          kind: "note",
+          tone: "info",
+          text:
+            "С can начинается и просьба: Can you help me? Отличить её от вопроса об " +
+              "умении можно по смыслу — просят обычно о том, что собеседник и так умеет.",
+        },
+        {
+          id: "zapis-chto-umeyu",
+          kind: "audio",
+          skryt: true,
+          pace: "slow",
+          caption: "Послушай рассказ об умениях",
+          transcript: "I can swim. I can't drive a car. My sister can drive.",
+        },
+        {
+          id: "zapis-prosba",
+          kind: "audio",
+          skryt: true,
+          pace: "slow",
+          voice: "два голоса",
+          caption: "Послушай разговор",
+          transcript:
+            "Can you help me? — Yes, of course. — Can I have your pen? — " +
+            "Sorry, I can't. I am writing.",
+        },
+
+        // ---- задания ----
+        {
+          id: "z1-chto-umeet",
+          kind: "choice",
+          about: "zapis-chto-umeyu",
+          prompt: "Послушай первую запись. Что человек умеет?",
+          options: [
+            { text: "Водить машину" },
+            { text: "Плавать", correct: true },
+            { text: "И то, и другое" },
+          ],
+          hint: "Слушай, где слово can прозвучало отчётливо, а где проскочило.",
+          why: "I can swim. I can't drive a car. Плавать умеет, водить — нет.",
+        },
+        {
+          id: "z2-kto-umeet-vodit",
+          kind: "short",
+          about: "zapis-chto-umeyu",
+          prompt:
+            "Послушай первую запись. Кто умеет водить машину? Ответь английским словом.",
+          answer: "sister",
+          accept: ["my sister", "his sister", "her sister"],
+          hint: "Про другого человека говорят в последнем предложении.",
+          why: "My sister can drive. Сестра.",
+        },
+        {
+          id: "z3-o-chem-poprosili-snachala",
+          kind: "choice",
+          about: "zapis-prosba",
+          prompt: "Послушай вторую запись. О чём попросили первым делом?",
+          options: [
+            { text: "Дать ручку" },
+            { text: "Помочь", correct: true },
+            { text: "Ничего не просили, спрашивали об умении" },
+          ],
+          hint: "Первая реплика записи и есть просьба.",
+          why:
+            "Can you help me? Это просьба, а не вопрос об умении: спрашивающему нужна " +
+            "помощь, а не сведения.",
+        },
+        {
+          id: "z4-dali-li-ruchku",
+          kind: "choice",
+          about: "zapis-prosba",
+          prompt: "Послушай вторую запись. Дали ли ручку?",
+          options: [
+            { text: "Дали" },
+            { text: "Не дали, она занята", correct: true },
+            { text: "Про ручку не спрашивали" },
+          ],
+          hint: "После отказа человек объясняет причину.",
+          why:
+            "Sorry, I can't. I am writing. Отказ смягчён словом sorry, а причина " +
+            "названа следом.",
+        },
+        {
+          id: "z5-poprosit-vsluh",
+          kind: "speak",
+          prompt:
+            "Попроси вслух о помощи и отдельно попроси ручку. Два коротких вопроса.",
+          phrase: "Can you help me? Can I have your pen?",
+          translation: "Можешь мне помочь? Можно твою ручку?",
+          hint: "Оба начинаются с can, но дальше идут разные слова: you и I.",
+          why:
+            "Can you — просьба сделать. Can I — просьба дать. Перепутаешь их, и " +
+            "собеседник услышит не ту просьбу.",
+        },
+      ],
+    },
   ],
 
   quiz: {
@@ -1251,6 +1519,66 @@ const module: Module = {
       // буквы и точка в конце ответа сверкой и так не учитываются.
 
       // ---- итог 1 ----
+      // ---- чтение и слушание ------------------------------------------
+      // Другой случай, чем в уроках: там набор учителя и спортивный клуб,
+      // здесь объявление о курсах и разговор с просьбой о помощи.
+      {
+        id: "q-obyavlenie-chto-mozhno",
+        kind: "choice",
+        outcome: "понимать по объявлению, что нужно уметь и что там можно",
+        prompt:
+          "Объявление: «ENGLISH CLUB. You can read books here. You can watch films. " +
+          "You can't eat here.» Чего в клубе делать нельзя?",
+        options: [
+          { text: "Читать книги" },
+          { text: "Есть", correct: true },
+          { text: "Смотреть фильмы" },
+        ],
+        why:
+          "You can't eat here. Есть нельзя. Читать и смотреть фильмы — можно.",
+      },
+      {
+        id: "q-obyavlenie-chto-nuzhno-umet",
+        kind: "short",
+        outcome: "понимать по объявлению, что нужно уметь и что там можно",
+        prompt:
+          "Объявление о работе: «WE NEED A DRIVER. You can drive a bus. You can work " +
+          "in the morning.» Что нужно уметь? Ответь английским словом.",
+        answer: "drive",
+        accept: ["to drive", "drive a bus"],
+        why:
+          "You can drive a bus. Первая строка требует умения водить: без него на эту " +
+          "работу не берут.",
+      },
+      {
+        id: "q-na-sluh-umeet-ili-net",
+        kind: "choice",
+        outcome: "слышать разницу между can и can't и понимать просьбу",
+        zvuk: "My brother can play football. He can't swim.",
+        prompt: "Послушай запись. Что брат не умеет?",
+        options: [
+          { text: "Играть в футбол" },
+          { text: "Плавать", correct: true },
+          { text: "Он умеет и то, и другое" },
+        ],
+        why:
+          "He can't swim. Плавать не умеет. В футбол играть умеет: can play football.",
+      },
+      {
+        id: "q-na-sluh-o-chem-prosba",
+        kind: "choice",
+        outcome: "слышать разницу между can и can't и понимать просьбу",
+        zvuk: "Can I have your book? — Yes, of course.",
+        prompt: "Послушай запись. О чём просят?",
+        options: [
+          { text: "Дать книгу", correct: true },
+          { text: "Прочитать книгу вслух" },
+          { text: "Спрашивают, умеет ли собеседник читать" },
+        ],
+        why:
+          "Can I have your book? Can I — просьба дать. Can you было бы просьбой " +
+          "что-то сделать.",
+      },
       {
         id: "q-umenie-vybor",
         kind: "choice",
