@@ -179,6 +179,8 @@ const module: Module = {
     "называть свои привычки через «не»: I don't eat meat",
     "говорить, чего не делают несколько человек: My friends don't live here",
     "рассказывать, что делаешь и чего не делаешь",
+    "понимать по объявлению, что требуется, а что нет",
+    "слышать отрицание с don't и понимать, кого оно касается",
   ],
 
   lessons: [
@@ -1304,6 +1306,270 @@ const module: Module = {
         },
       ],
     },
+
+    // =====================================================================
+    // Урок чтения. Объявление о наборе — текст, где половина смысла в том,
+    // чего НЕ требуется. Отрицание тут не украшение, а суть.
+    // =====================================================================
+    {
+      slug: "chitaem-chto-ne-nuzhno",
+      title: "Читаем, чего не требуется",
+      estimatedMinutes: 13,
+      outcome: "понимать по объявлению, что требуется, а что нет",
+
+      blocks: [
+        {
+          id: "zachem-chitat-otricanie",
+          kind: "explain",
+          text: [
+            "В объявлениях о работе и занятиях половина смысла — в том, чего НЕ надо. " +
+              "Не нужен опыт, не надо приходить в субботу, не требуется машина.",
+            "Отрицание в таком тексте короткое: don't или doesn't. Пропустишь — " +
+              "прочитаешь ровно наоборот.",
+          ],
+        },
+        {
+          id: "obyavlenie-o-rabote",
+          kind: "text",
+          genre: "notice",
+          title: "WE NEED A DRIVER",
+          body: [
+            "You start at eight and finish at four.",
+            "You don't work on Sunday.",
+            "You don't need English.",
+            "Phone: 8 7 0 1 2 3 4",
+          ],
+          glossary: [
+            { term: "need", translation: "нужен, требуется" },
+            { term: "WE NEED", translation: "нам нужен" },
+          ],
+        },
+        {
+          id: "razbor-obyavleniya-o-rabote",
+          kind: "note",
+          tone: "info",
+          text:
+            "Строки читают парами: одна говорит, что есть, другая — чего нет. Отрицание " +
+              "стоит сразу после того, кто действует, и до самого дела: you don't work.",
+        },
+        {
+          id: "pismo-o-privychkah",
+          kind: "text",
+          genre: "email",
+          title: "A message from Alim",
+          body: [
+            "Hi! I work in a cafe. I get up at six, but I don't get up early on Sunday.",
+            "My brother doesn't work in a cafe. He is a student. Alim",
+          ],
+        },
+
+        // ---- задания ----
+        {
+          id: "z1-nuzhen-li-angliyskiy",
+          kind: "choice",
+          about: "obyavlenie-o-rabote",
+          prompt: "Прочитай объявление WE NEED A DRIVER. Нужен ли для этой работы английский?",
+          options: [
+            { text: "Нужен" },
+            { text: "Не нужен", correct: true },
+            { text: "Про английский не сказано" },
+          ],
+          hint: "Найди строку со словом English и посмотри, есть ли перед делом don't.",
+          why: "You don't need English. Английский не требуется.",
+        },
+        {
+          id: "z2-kogda-vyhodnoy",
+          kind: "short",
+          about: "obyavlenie-o-rabote",
+          prompt:
+            "Прочитай объявление WE NEED A DRIVER. В какой день работать не надо? " +
+            "Ответь английским словом.",
+          answer: "Sunday",
+          accept: ["on Sunday", "sunday"],
+          hint: "День стоит в строке с отрицанием.",
+          why: "You don't work on Sunday. В воскресенье.",
+        },
+        {
+          id: "z3-skolko-chasov",
+          kind: "short",
+          about: "obyavlenie-o-rabote",
+          prompt:
+            "Прочитай объявление WE NEED A DRIVER. Во сколько заканчивается рабочий " +
+            "день? Ответь цифрой.",
+          answer: "4",
+          accept: ["four", "четыре", "4 o'clock"],
+          hint: "В первой строке названы два времени: начало и конец.",
+          why: "You start at eight and finish at four. В четыре.",
+        },
+        {
+          id: "z4-kem-rabotaet-brat",
+          kind: "choice",
+          about: "pismo-o-privychkah",
+          prompt: "Прочитай письмо от Алима. Где работает его брат?",
+          options: [
+            { text: "В кафе, как Алим" },
+            { text: "Нигде, он учится", correct: true },
+            { text: "Про брата не сказано" },
+          ],
+          hint: "Про брата сказано двумя предложениями подряд.",
+          why:
+            "My brother doesn't work in a cafe. He is a student. Первое говорит, где он " +
+            "не работает, второе — кто он.",
+        },
+        {
+          id: "z5-vo-skolko-v-voskresene",
+          kind: "choice",
+          about: "pismo-o-privychkah",
+          prompt: "Прочитай письмо от Алима. Во сколько он встаёт в воскресенье?",
+          options: [
+            { text: "В шесть, как всегда" },
+            { text: "Позже шести", correct: true },
+            { text: "В письме этого нет" },
+          ],
+          hint: "Слово but соединяет два предложения, и второе спорит с первым.",
+          why:
+            "I get up at six, but I don't get up early on Sunday. Точного времени " +
+            "нет, но сказано, что рано он в этот день не встаёт.",
+        },
+      ],
+    },
+
+    // =====================================================================
+    // Урок слушания.
+    // =====================================================================
+    {
+      slug: "slushaem-chego-ne-delayut",
+      title: "Слушаем, чего не делают",
+      estimatedMinutes: 13,
+      outcome: "слышать отрицание с don't и понимать, кого оно касается",
+
+      blocks: [
+        {
+          id: "zachem-slushat-dont",
+          kind: "explain",
+          text: [
+            "Don't звучит одним слогом и стоит в середине предложения — там, где ухо " +
+              "уже расслабилось. Именно поэтому его и теряют.",
+            "Держи ухо на месте сразу после первого слова: I … work, he … works. " +
+              "Если там что-то есть, это и есть отрицание.",
+          ],
+        },
+        {
+          id: "dont-i-doesnt-na-sluh",
+          kind: "table",
+          caption: "Есть и нет — нажми и сравни",
+          zvuk: {
+            "I work on Sunday.": "I work on Sunday.",
+            "I don't work on Sunday.": "I don't work on Sunday.",
+            "He works in a shop.": "He works in a shop.",
+            "He doesn't work in a shop.": "He doesn't work in a shop.",
+          },
+          head: ["Делает", "Не делает"],
+          rows: [
+            ["I work on Sunday.", "I don't work on Sunday."],
+            ["He works in a shop.", "He doesn't work in a shop."],
+          ],
+        },
+        {
+          id: "okonchanie-uhodit",
+          kind: "note",
+          tone: "info",
+          text:
+            "Обрати внимание на второе слово: works, но doesn't work. Окончание " +
+              "переезжает на doesn't и с самого дела уходит. На слух это ещё одна " +
+              "примета отрицания.",
+        },
+        {
+          id: "zapis-chego-ne-delayu",
+          kind: "audio",
+          skryt: true,
+          pace: "slow",
+          caption: "Послушай рассказ",
+          transcript:
+            "I work in a shop. I don't work on Sunday. I like football, " +
+            "but I don't play football.",
+        },
+        {
+          id: "zapis-o-sestre-i-brate",
+          kind: "audio",
+          skryt: true,
+          pace: "slow",
+          voice: "два голоса",
+          caption: "Послушай разговор о родных",
+          transcript:
+            "Does your sister work in a hospital? — No, she doesn't. She works in a " +
+            "school. — And your brother? — He doesn't work. He is a student.",
+        },
+
+        // ---- задания ----
+        {
+          id: "z1-rabotaet-li-v-voskresene",
+          kind: "choice",
+          about: "zapis-chego-ne-delayu",
+          prompt: "Послушай первую запись. Работает ли человек в воскресенье?",
+          options: [
+            { text: "Работает" },
+            { text: "Не работает", correct: true },
+            { text: "Про воскресенье не сказано" },
+          ],
+          hint: "Слушай, есть ли что-нибудь между I и work.",
+          why: "I don't work on Sunday. Не работает.",
+        },
+        {
+          id: "z2-igraet-li-v-futbol",
+          kind: "choice",
+          about: "zapis-chego-ne-delayu",
+          prompt: "Послушай первую запись. Что верно про футбол?",
+          options: [
+            { text: "Он его любит, но не играет", correct: true },
+            { text: "Он и любит, и играет" },
+            { text: "Он его не любит" },
+          ],
+          hint: "Про футбол сказано двумя частями, соединёнными but.",
+          why:
+            "I like football, but I don't play football. Первая часть — про то, что " +
+            "любит, вторая — про то, чего не делает.",
+        },
+        {
+          id: "z3-gde-rabotaet-sestra",
+          kind: "short",
+          about: "zapis-o-sestre-i-brate",
+          prompt:
+            "Послушай вторую запись. Где на самом деле работает сестра? Ответь " +
+            "английским словом.",
+          answer: "school",
+          accept: ["a school", "in a school"],
+          hint: "Больницу назвали в вопросе, и ответ на него был отрицательный.",
+          why: "No, she doesn't. She works in a school. В школе.",
+        },
+        {
+          id: "z4-chto-s-bratom",
+          kind: "choice",
+          about: "zapis-o-sestre-i-brate",
+          prompt: "Послушай вторую запись. Что сказано про брата?",
+          options: [
+            { text: "Он работает в школе" },
+            { text: "Он работает в больнице" },
+            { text: "Он не работает, он учится", correct: true },
+          ],
+          hint: "Про брата говорят в самом конце записи.",
+          why: "He doesn't work. He is a student. Не работает, учится.",
+        },
+        {
+          id: "z5-skazat-chego-ne-delaesh",
+          kind: "speak",
+          prompt:
+            "Скажи вслух два предложения о себе: что делаешь и чего не делаешь в " +
+            "воскресенье.",
+          phrase: "I work in a shop. I don't work on Sunday.",
+          translation: "Я работаю в магазине. По воскресеньям я не работаю.",
+          hint: "Don't произноси отчётливо, не проглатывай.",
+          why:
+            "Проглоченное don't переворачивает смысл для собеседника: он услышит, что " +
+            "ты работаешь и в воскресенье.",
+        },
+      ],
+    },
   ],
 
   // =======================================================================
@@ -1315,6 +1581,67 @@ const module: Module = {
     ask: 8,
     passRatio: 0.8,
     questions: [
+      // ---- чтение и слушание ------------------------------------------
+      // Другой случай, чем в уроках: там объявление о водителе и письмо Алима,
+      // здесь объявление о занятиях и разговор о друге. Оба вопроса чтения
+      // содержат сам текст.
+      {
+        id: "q-obyavlenie-chto-ne-nuzhno",
+        kind: "choice",
+        outcome: "понимать по объявлению, что требуется, а что нет",
+        prompt:
+          "Объявление: «ENGLISH LESSONS. We start at six. You don't need a book. " +
+          "We don't work on Saturday.» Что из этого верно?",
+        options: [
+          { text: "Книгу надо купить" },
+          { text: "Занятия бывают и в субботу" },
+          { text: "Книгу приносить не надо", correct: true },
+        ],
+        why:
+          "You don't need a book. Книга не требуется. Про субботу сказано отдельно: " +
+          "We don't work on Saturday.",
+      },
+      {
+        id: "q-obyavlenie-kogda-nachalo",
+        kind: "short",
+        outcome: "понимать по объявлению, что требуется, а что нет",
+        prompt:
+          "То же объявление: «ENGLISH LESSONS. We start at six. You don't need a book. " +
+          "We don't work on Saturday.» Во сколько начало? Ответь цифрой.",
+        answer: "6",
+        accept: ["six", "шесть", "6 o'clock"],
+        why: "We start at six. В шесть.",
+      },
+      {
+        id: "q-na-sluh-rabotaet-li-drug",
+        kind: "choice",
+        outcome: "слышать отрицание с don't и понимать, кого оно касается",
+        zvuk: "My friend doesn't live in Astana. He lives in Almaty.",
+        prompt: "Послушай запись. Где живёт друг?",
+        options: [
+          { text: "В Астане" },
+          { text: "В Алматы", correct: true },
+          { text: "И там, и там" },
+        ],
+        why:
+          "My friend doesn't live in Astana. He lives in Almaty. Первое предложение " +
+          "отрицает, второе называет верное.",
+      },
+      {
+        id: "q-na-sluh-kogo-kasaetsya",
+        kind: "choice",
+        outcome: "слышать отрицание с don't и понимать, кого оно касается",
+        zvuk: "I read books. My sister doesn't read books.",
+        prompt: "Послушай запись. Кто не читает книг?",
+        options: [
+          { text: "Сестра", correct: true },
+          { text: "Говорящий" },
+          { text: "Оба" },
+        ],
+        why:
+          "My sister doesn't read books. Отрицание стоит после слова sister, значит " +
+          "касается её. Про себя человек сказал без отрицания: I read books.",
+      },
       {
         id: "q-dont-dopisat",
         kind: "gap",
