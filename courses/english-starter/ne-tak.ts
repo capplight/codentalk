@@ -93,6 +93,7 @@ const module: Module = {
     "говорить, прав собеседник или нет: You're right, You're wrong",
     "отвечать на вопрос отрицанием и уточнять",
     "вести разговор, в котором возражаешь и поправляешь собеседника",
+    "слышать отрицание и понимать, как на самом деле",
   ],
 
   lessons: [
@@ -1235,6 +1236,148 @@ const module: Module = {
         },
       ],
     },
+
+    // =====================================================================
+    // Урок слушания. Модуль об отрицании, а отрицание на слух и теряется чаще
+    // всего: not сливается с формой be в одно короткое слово.
+    //
+    // Расшифровки спрятаны за кнопку, открытую всегда.
+    // =====================================================================
+    {
+      slug: "slushaem-otricanie",
+      title: "Слушаем отрицание",
+      estimatedMinutes: 13,
+      outcome: "слышать отрицание и понимать, как на самом деле",
+
+      blocks: [
+        {
+          id: "zachem-slushat-otricanie",
+          kind: "explain",
+          text: [
+            "Отрицание переворачивает смысл целиком, а звучит короче всего в предложении. " +
+              "Пропустишь его — поймёшь ровно наоборот.",
+            "Короткая форма сливает два слова в одно: is not становится isn't, и всё " +
+              "отрицание умещается в один слог на конце.",
+          ],
+        },
+        {
+          id: "otricanie-slitno",
+          kind: "table",
+          caption: "Как отрицание звучит — нажми и сравни",
+          zvuk: {
+            "He is a doctor.": "He is a doctor.",
+            "He isn't a doctor.": "He isn't a doctor.",
+            "They are from Turkey.": "They are from Turkey.",
+            "They aren't from Turkey.": "They aren't from Turkey.",
+          },
+          head: ["Есть", "Нет"],
+          rows: [
+            ["He is a doctor.", "He isn't a doctor."],
+            ["They are from Turkey.", "They aren't from Turkey."],
+          ],
+        },
+        {
+          id: "chto-idet-posle",
+          kind: "note",
+          tone: "info",
+          text:
+            "Поправляя, собеседник почти всегда добавляет второе предложение — как на " +
+              "самом деле. Оно и есть ответ на вопрос: если первое расслышать не вышло, " +
+              "второе всё расставит по местам.",
+        },
+        {
+          id: "zapis-popravka",
+          kind: "audio",
+          skryt: true,
+          pace: "slow",
+          voice: "два голоса",
+          caption: "Послушай, как поправляют",
+          transcript:
+            "Is Aigul a teacher? — No, she isn't. She is a doctor. — " +
+            "And is she from Astana? — No, she isn't. She is from Almaty.",
+        },
+        {
+          id: "zapis-tri-otricaniya",
+          kind: "audio",
+          skryt: true,
+          pace: "slow",
+          caption: "Послушай три предложения",
+          transcript: "I am not a student. He is a driver. They aren't in Almaty.",
+        },
+
+        // ---- задания ----
+        {
+          id: "z1-kto-aigul",
+          kind: "short",
+          about: "zapis-popravka",
+          prompt:
+            "Послушай первую запись. Чем на самом деле занята Айгуль? Ответь английским " +
+            "словом.",
+          answer: "doctor",
+          accept: ["a doctor", "she is a doctor"],
+          hint: "После краткого ответа идёт предложение о том, как есть.",
+          why:
+            "No, she isn't. She is a doctor. Первое предложение отрицает, второе " +
+            "называет верное.",
+        },
+        {
+          id: "z2-otkuda-aigul",
+          kind: "choice",
+          about: "zapis-popravka",
+          prompt: "Послушай первую запись. Откуда Айгуль?",
+          options: [
+            { text: "Из Астаны" },
+            { text: "Из Алматы", correct: true },
+            { text: "Об этом не сказано" },
+          ],
+          hint: "В записи названы два города, но один из них с отрицанием.",
+          why:
+            "No, she isn't. She is from Almaty. Про Астану спросили, и ответ был " +
+            "отрицательный.",
+        },
+        {
+          id: "z3-skolko-otricaniy",
+          kind: "choice",
+          about: "zapis-tri-otricaniya",
+          prompt: "Послушай вторую запись. Сколько в ней отрицаний?",
+          options: [
+            { text: "Одно" },
+            { text: "Два", correct: true },
+            { text: "Три" },
+          ],
+          hint: "Слушай, где после формы be звучит not или его короткий хвост.",
+          why:
+            "I am not a student и They aren't in Almaty — отрицания. He is a driver — " +
+            "обычное сообщение.",
+        },
+        {
+          id: "z4-kto-voditel",
+          kind: "choice",
+          about: "zapis-tri-otricaniya",
+          prompt: "Послушай вторую запись. Что сказано про водителя?",
+          options: [
+            { text: "Что он водитель", correct: true },
+            { text: "Что он не водитель" },
+            { text: "Про водителя не говорят" },
+          ],
+          hint: "Это то предложение, где отрицания нет.",
+          why: "He is a driver. Здесь not не звучит, значит это утверждение.",
+        },
+        {
+          id: "z5-popravit-vsluh",
+          kind: "speak",
+          prompt:
+            "Тебя спросили: Are you a doctor? Ты преподаватель. Поправь вслух: сначала " +
+            "краткий ответ, потом как есть.",
+          phrase: "No, I'm not. I'm a teacher.",
+          translation: "Нет. Я преподаватель.",
+          hint: "Два коротких предложения, между ними пауза.",
+          why:
+            "Одного «нет» мало: собеседник узнал, кем ты не работаешь, но не узнал, кем " +
+            "работаешь. Второе предложение и закрывает разговор.",
+        },
+      ],
+    },
   ],
 
   // =======================================================================
@@ -1246,6 +1389,37 @@ const module: Module = {
     ask: 8,
     passRatio: 0.8,
     questions: [
+      // ---- слушание ---------------------------------------------------
+      // Другой случай и другой вид задания, чем в уроке: там поправляли Айгуль
+      // и считали отрицания, здесь пересказ с ошибкой и вопрос о месте.
+      {
+        id: "q-na-sluh-gde-on",
+        kind: "short",
+        outcome: "слышать отрицание и понимать, как на самом деле",
+        zvuk: "Is Alim in the shop? — No, he isn't. He is in the school.",
+        prompt: "Послушай запись. Где Алим на самом деле? Ответь английским словом.",
+        answer: "school",
+        accept: ["the school", "in the school"],
+        why:
+          "No, he isn't. He is in the school. Магазин назвали в вопросе, и ответ на " +
+          "него отрицательный.",
+      },
+      {
+        id: "q-na-sluh-nayti-oshibku",
+        kind: "choice",
+        outcome: "слышать отрицание и понимать, как на самом деле",
+        zvuk: "Dana isn't a nurse. She is a teacher.",
+        prompt:
+          "Послушай запись. Человек пересказал её так: «Dana is a nurse». Что он упустил?",
+        options: [
+          { text: "Отрицание: Дана как раз не медсестра", correct: true },
+          { text: "Ничего не упустил, пересказ верный" },
+          { text: "Имя: в записи говорили не о Дане" },
+        ],
+        why:
+          "Dana isn't a nurse. She is a teacher. Отрицание звучит коротко, и потерять " +
+          "его легко — а смысл от этого переворачивается.",
+      },
       {
         id: "q-gde-not",
         kind: "choice",
