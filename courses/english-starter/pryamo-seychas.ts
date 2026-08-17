@@ -161,6 +161,8 @@ const module: Module = {
     "отрицать происходящее: I'm not working",
     "спрашивать, что происходит: What are you doing?",
     "рассказывать, что происходит вокруг",
+    "различать в тексте, что происходит сейчас, а что бывает всегда",
+    "слышать разницу между «сейчас» и «всегда»",
   ],
 
   lessons: [
@@ -1314,6 +1316,267 @@ const module: Module = {
         },
       ],
     },
+
+    // =====================================================================
+    // Урок чтения. Сообщение с дороги — текст, который весь про «прямо
+    // сейчас»: именно так люди и пишут, когда опаздывают или ждут.
+    // =====================================================================
+    {
+      slug: "chitaem-chto-seychas",
+      title: "Читаем, что происходит сейчас",
+      estimatedMinutes: 13,
+      outcome: "различать в тексте, что происходит сейчас, а что бывает всегда",
+
+      blocks: [
+        {
+          id: "zachem-chitat-o-seychas",
+          kind: "explain",
+          text: [
+            "Короткие сообщения почти всегда про «прямо сейчас»: еду, жду, стою. " +
+              "Поэтому в них так много формы be с окончанием -ing.",
+            "Тот же текст может рассказывать и о привычном. Различить их можно " +
+              "глазами: если перед делом стоит am, is или are — это происходит сейчас.",
+          ],
+        },
+        {
+          id: "soobshchenie-s-dorogi",
+          kind: "text",
+          genre: "message",
+          title: "A message from Dana",
+          body: [
+            "Hi! I am on the bus. I am going to the school now.",
+            "I usually walk, but it is raining today. See you! Dana",
+          ],
+          glossary: [
+            { term: "walk", translation: "ходить пешком" },
+            { term: "today", translation: "сегодня" },
+          ],
+        },
+        {
+          id: "razbor-soobshcheniya-s-dorogi",
+          kind: "note",
+          tone: "info",
+          text:
+            "В сообщении два разных рассказа. «I am going» — про эту минуту, «I usually " +
+              "walk» — про обычные дни. Слово usually и форма без be выдают второе.",
+        },
+        {
+          id: "zapiska-o-komnate",
+          kind: "text",
+          genre: "message",
+          title: "A message from Alim",
+          body: [
+            "I am at home. My sister is reading a book. My brother is watching football.",
+            "They are not working today. Alim",
+          ],
+        },
+
+        // ---- задания ----
+        {
+          id: "z1-gde-dana-seychas",
+          kind: "short",
+          about: "soobshchenie-s-dorogi",
+          prompt:
+            "Прочитай сообщение от Даны. Где она прямо сейчас? Ответь английским словом.",
+          answer: "bus",
+          accept: ["the bus", "on the bus", "a bus"],
+          hint: "Первое предложение отвечает на этот вопрос.",
+          why: "I am on the bus. В автобусе.",
+        },
+        {
+          id: "z2-kak-dana-obychno",
+          kind: "choice",
+          about: "soobshchenie-s-dorogi",
+          prompt: "Прочитай сообщение от Даны. Как она обычно добирается до школы?",
+          options: [
+            { text: "На автобусе" },
+            { text: "Пешком", correct: true },
+            { text: "В сообщении этого нет" },
+          ],
+          hint: "Найди предложение со словом usually.",
+          why:
+            "I usually walk. Обычно она ходит пешком, а сегодня едет на автобусе — " +
+            "и объясняет почему: it is raining.",
+        },
+        {
+          id: "z3-pochemu-segodnya-inache",
+          kind: "short",
+          about: "soobshchenie-s-dorogi",
+          prompt:
+            "Прочитай сообщение от Даны. Почему сегодня иначе? Ответь одним английским " +
+            "словом с окончанием -ing.",
+          answer: "raining",
+          accept: ["it is raining", "is raining"],
+          hint: "Причина стоит после слова but.",
+          why: "It is raining today. Идёт дождь.",
+        },
+        {
+          id: "z4-chto-delaet-sestra",
+          kind: "choice",
+          about: "zapiska-o-komnate",
+          prompt: "Прочитай сообщение от Алима. Что делает его сестра?",
+          options: [
+            { text: "Смотрит футбол" },
+            { text: "Читает", correct: true },
+            { text: "Работает" },
+          ],
+          hint: "В сообщении два человека, и у каждого своё дело.",
+          why:
+            "My sister is reading a book. Футбол смотрит брат: My brother is watching " +
+            "football.",
+        },
+        {
+          id: "z5-rabotayut-li-segodnya",
+          kind: "choice",
+          about: "zapiska-o-komnate",
+          prompt: "Прочитай сообщение от Алима. Работают ли сегодня его брат и сестра?",
+          options: [
+            { text: "Работают" },
+            { text: "Не работают", correct: true },
+            { text: "Работает только брат" },
+          ],
+          hint: "Последнее предложение про обоих сразу.",
+          why:
+            "They are not working today. Форма are not и окончание -ing вместе говорят: " +
+            "сейчас, сегодня — не работают.",
+        },
+      ],
+    },
+
+    // =====================================================================
+    // Урок слушания.
+    // =====================================================================
+    {
+      slug: "slushaem-chto-proishodit",
+      title: "Слушаем, что происходит",
+      estimatedMinutes: 13,
+      outcome: "слышать разницу между «сейчас» и «всегда»",
+
+      blocks: [
+        {
+          id: "zachem-slushat-seychas",
+          kind: "explain",
+          text: [
+            "На слух «сейчас» и «всегда» различает одна короткая вещь: форма be перед " +
+              "делом. I work — про обычное, I'm working — про эту минуту.",
+            "Короткая запись сливает её с местоимением: I'm, he's, they're. Услышать " +
+              "надо именно этот слипшийся хвостик.",
+          ],
+        },
+        {
+          id: "seychas-ili-vsegda-na-sluh",
+          kind: "table",
+          caption: "Всегда и сейчас — нажми и сравни",
+          zvuk: {
+            "I work in a shop.": "I work in a shop.",
+            "I'm working now.": "I'm working now.",
+            "He reads books.": "He reads books.",
+            "He's reading a book.": "He's reading a book.",
+          },
+          head: ["Бывает всегда", "Происходит сейчас"],
+          rows: [
+            ["I work in a shop.", "I'm working now."],
+            ["He reads books.", "He's reading a book."],
+          ],
+        },
+        {
+          id: "slovo-now-pomogaet",
+          kind: "note",
+          tone: "info",
+          text:
+            "Часто выручает слово в конце: now — «сейчас», today — «сегодня». Оно " +
+              "звучит отчётливее, чем слипшийся хвостик, и говорит о том же.",
+        },
+        {
+          id: "zapis-chto-delayu-seychas",
+          kind: "audio",
+          skryt: true,
+          pace: "slow",
+          caption: "Послушай два предложения",
+          transcript: "I work in a hospital. I am not working now. I am reading a book.",
+        },
+        {
+          id: "zapis-razgovor-po-telefonu",
+          kind: "audio",
+          skryt: true,
+          pace: "slow",
+          voice: "два голоса",
+          caption: "Послушай разговор по телефону",
+          transcript:
+            "What are you doing? — I am waiting for the bus. — And your sister? — " +
+            "She is working today.",
+        },
+
+        // ---- задания ----
+        {
+          id: "z1-rabotaet-li-seychas",
+          kind: "choice",
+          about: "zapis-chto-delayu-seychas",
+          prompt: "Послушай первую запись. Работает ли человек прямо сейчас?",
+          options: [
+            { text: "Работает" },
+            { text: "Не работает", correct: true },
+            { text: "Про сейчас не сказано" },
+          ],
+          hint: "Слово now в конце предложения показывает, что речь об этой минуте.",
+          why:
+            "I am not working now. Работает он в больнице вообще, но не в эту минуту.",
+        },
+        {
+          id: "z2-chto-delaet-seychas",
+          kind: "short",
+          about: "zapis-chto-delayu-seychas",
+          prompt:
+            "Послушай первую запись. Что человек делает прямо сейчас? Ответь английским " +
+            "словом с окончанием -ing.",
+          answer: "reading",
+          accept: ["I am reading", "am reading"],
+          hint: "Это последнее предложение записи.",
+          why: "I am reading a book. Читает.",
+        },
+        {
+          id: "z3-chto-delaet-sobesednik",
+          kind: "choice",
+          about: "zapis-razgovor-po-telefonu",
+          prompt: "Послушай вторую запись. Что делает тот, кому позвонили?",
+          options: [
+            { text: "Работает" },
+            { text: "Ждёт автобус", correct: true },
+            { text: "Читает" },
+          ],
+          hint: "Ответ идёт сразу после вопроса.",
+          why: "I am waiting for the bus. Ждёт автобус.",
+        },
+        {
+          id: "z4-chto-s-sestroy",
+          kind: "choice",
+          about: "zapis-razgovor-po-telefonu",
+          prompt: "Послушай вторую запись. Что сказано про сестру?",
+          options: [
+            { text: "Что она сегодня работает", correct: true },
+            { text: "Что она всегда работает" },
+            { text: "Что она сегодня не работает" },
+          ],
+          hint: "Слово today в конце показывает, что речь про этот день.",
+          why:
+            "She is working today. Форма is и окончание -ing вместе со словом today " +
+            "говорят про сегодня, а не про обычные дни.",
+        },
+        {
+          id: "z5-skazat-chto-delaesh",
+          kind: "speak",
+          prompt:
+            "Скажи вслух два предложения о себе: где работаешь или учишься вообще и что " +
+            "делаешь прямо сейчас.",
+          phrase: "I work in a shop. I am reading now.",
+          translation: "Я работаю в магазине. Сейчас я читаю.",
+          hint: "Во втором предложении не проглатывай форму be.",
+          why:
+            "Без формы be собеседник услышит два рассказа об обычном и не поймёт, что " +
+            "второе про эту минуту.",
+        },
+      ],
+    },
   ],
 
   quiz: {
@@ -1329,6 +1592,63 @@ const module: Module = {
       // сверкой и так не учитываются, повторять их незачем.
 
       // ---- итог 1 ----
+      // ---- чтение и слушание ------------------------------------------
+      // Другой случай, чем в уроках: там сообщение с дороги и записка Алима,
+      // здесь сообщение с работы и разговор о матери.
+      {
+        id: "q-soobshchenie-chto-seychas",
+        kind: "choice",
+        outcome: "различать в тексте, что происходит сейчас, а что бывает всегда",
+        prompt:
+          "Сообщение: «I work in a school. I am not working today. I am sitting at home.» " +
+          "Что верно про сегодня?",
+        options: [
+          { text: "Человек сегодня дома", correct: true },
+          { text: "Человек сегодня в школе" },
+          { text: "Про сегодня не сказано" },
+        ],
+        why:
+          "I am not working today. I am sitting at home. Работает он в школе вообще, " +
+          "но сегодня сидит дома.",
+      },
+      {
+        id: "q-soobshchenie-chto-vsegda",
+        kind: "short",
+        outcome: "различать в тексте, что происходит сейчас, а что бывает всегда",
+        prompt:
+          "То же сообщение: «I work in a school. I am not working today.» Где человек " +
+          "работает вообще? Ответь английским словом.",
+        answer: "school",
+        accept: ["a school", "in a school"],
+        why:
+          "I work in a school. Форма без be — про обычное. Про сегодня сказано отдельно.",
+      },
+      {
+        id: "q-na-sluh-seychas-ili-vsegda",
+        kind: "choice",
+        outcome: "слышать разницу между «сейчас» и «всегда»",
+        zvuk: "My mother is cooking now. She usually works in a hospital.",
+        prompt: "Послушай запись. Что мать делает прямо сейчас?",
+        options: [
+          { text: "Работает в больнице" },
+          { text: "Готовит", correct: true },
+          { text: "Про сейчас не сказано" },
+        ],
+        why:
+          "My mother is cooking now. Форма is с окончанием -ing и слово now — про эту " +
+          "минуту. Больница — про обычные дни.",
+      },
+      {
+        id: "q-na-sluh-chto-delayut",
+        kind: "short",
+        outcome: "слышать разницу между «сейчас» и «всегда»",
+        zvuk: "They are waiting for the bus. They are not working today.",
+        prompt:
+          "Послушай запись. Чего люди ждут? Ответь английским словом.",
+        answer: "bus",
+        accept: ["the bus", "a bus"],
+        why: "They are waiting for the bus. Автобуса.",
+      },
       {
         id: "q-seychas-dopisat",
         kind: "gap",
