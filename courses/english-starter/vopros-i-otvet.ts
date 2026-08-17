@@ -103,6 +103,7 @@ const module: Module = {
     "выбирать между кратким и полным ответом",
     "отличать вопрос от сообщения по порядку слов",
     "вести разговор из вопросов и ответов",
+    "отличать на слух вопрос от сообщения и понимать краткий ответ",
   ],
 
   lessons: [
@@ -1144,6 +1145,146 @@ const module: Module = {
         },
       ],
     },
+
+    // =====================================================================
+    // Урок слушания. Модуль весь о вопросах, и на слух вопрос от сообщения
+    // отличает не порядок слов, а интонация — это и есть трудность урока.
+    //
+    // Расшифровки спрятаны за кнопку, открытую всегда.
+    // =====================================================================
+    {
+      slug: "slushaem-vopros-i-otvet",
+      title: "Слушаем вопрос и ответ",
+      estimatedMinutes: 13,
+      outcome: "отличать на слух вопрос от сообщения и понимать краткий ответ",
+
+      blocks: [
+        {
+          id: "zachem-slushat-vopros",
+          kind: "explain",
+          text: [
+            "На письме вопрос виден сразу: знак в конце и переставленные слова. На слух " +
+              "знака нет, а слова летят быстро.",
+            "Выручает голос. У вопроса он идёт вверх к концу предложения, у сообщения " +
+              "падает вниз.",
+          ],
+        },
+        {
+          id: "golos-vverh-i-vniz",
+          kind: "table",
+          caption: "Одни и те же слова, разный голос — нажми и сравни",
+          zvuk: {
+            "You are a student.": "You are a student.",
+            "Are you a student?": "Are you a student?",
+            "He is a doctor.": "He is a doctor.",
+            "Is he a doctor?": "Is he a doctor?",
+          },
+          head: ["Сообщение — голос вниз", "Вопрос — голос вверх"],
+          rows: [
+            ["You are a student.", "Are you a student?"],
+            ["He is a doctor.", "Is he a doctor?"],
+          ],
+        },
+        {
+          id: "kratkiy-otvet-na-sluh",
+          kind: "note",
+          tone: "info",
+          text:
+            "Краткий ответ звучит совсем коротко — два слова, — и на них надо успеть. " +
+              "Зато в них есть всё: Yes или No, а следом та же форма be, что была в " +
+              "вопросе.",
+        },
+        {
+          id: "zapis-vopros-ili-soobshchenie",
+          kind: "audio",
+          skryt: true,
+          pace: "slow",
+          caption: "Послушай три предложения",
+          transcript: "Are you a teacher? She is a nurse. Is he from Turkey?",
+        },
+        {
+          id: "zapis-razgovor-voprosov",
+          kind: "audio",
+          skryt: true,
+          pace: "slow",
+          voice: "два голоса",
+          caption: "Послушай разговор",
+          transcript:
+            "Is Dana a student? — No, she isn't. She is a teacher. — " +
+            "And Alim? Is he a student? — Yes, he is.",
+        },
+
+        // ---- задания ----
+        {
+          id: "z1-skolko-voprosov",
+          kind: "choice",
+          about: "zapis-vopros-ili-soobshchenie",
+          prompt: "Послушай первую запись. Сколько в ней вопросов?",
+          options: [
+            { text: "Один" },
+            { text: "Два", correct: true },
+            { text: "Три" },
+          ],
+          hint: "Считай те предложения, где голос идёт вверх к концу.",
+          why:
+            "Are you a teacher? и Is he from Turkey? — вопросы. She is a nurse — " +
+            "сообщение: голос в конце падает.",
+        },
+        {
+          id: "z2-kakoe-soobshchenie",
+          kind: "short",
+          about: "zapis-vopros-ili-soobshchenie",
+          prompt:
+            "Послушай первую запись. Одно предложение не вопрос. Чем занят человек, " +
+            "о котором в нём говорят? Ответь английским словом.",
+          answer: "nurse",
+          accept: ["a nurse", "she is a nurse"],
+          hint: "Это то предложение, где голос в конце падает.",
+          why: "She is a nurse. Медсестра.",
+        },
+        {
+          id: "z3-dana-student",
+          kind: "choice",
+          about: "zapis-razgovor-voprosov",
+          prompt: "Послушай разговор. Дана студентка?",
+          options: [
+            { text: "Да" },
+            { text: "Нет, она преподаватель", correct: true },
+            { text: "Об этом не спрашивали" },
+          ],
+          hint: "После краткого ответа собеседник добавляет, кто она на самом деле.",
+          why:
+            "No, she isn't. She is a teacher. Краткий ответ отрицает, а следующее " +
+            "предложение называет верное.",
+        },
+        {
+          id: "z4-alim-student",
+          kind: "choice",
+          about: "zapis-razgovor-voprosov",
+          prompt: "Послушай разговор. А Алим студент?",
+          options: [
+            { text: "Да", correct: true },
+            { text: "Нет" },
+            { text: "Про Алима не спрашивали" },
+          ],
+          hint: "Про Алима спрашивают во второй половине записи.",
+          why: "Is he a student? — Yes, he is. Да.",
+        },
+        {
+          id: "z5-sprosit-vsluh-s-golosom",
+          kind: "speak",
+          prompt:
+            "Произнеси вслух два предложения подряд: сначала сообщение, потом вопрос из " +
+            "тех же слов. Разницу сделай голосом.",
+          phrase: "She is a teacher. Is she a teacher?",
+          translation: "Она преподаватель. Она преподаватель?",
+          hint: "В первом голос в конце вниз, во втором — вверх.",
+          why:
+            "Собеседник понимает вопрос по голосу раньше, чем разбирает порядок слов. " +
+            "Без подъёма вопрос слышится как сообщение.",
+        },
+      ],
+    },
   ],
 
   // =======================================================================
@@ -1155,6 +1296,35 @@ const module: Module = {
     ask: 8,
     passRatio: 0.8,
     questions: [
+      // ---- слушание ---------------------------------------------------
+      // Другой случай и другой вид задания, чем в уроке: там три предложения
+      // подряд и разговор о Дане, здесь одна пара и вопрос о стране.
+      {
+        id: "q-na-sluh-vopros-ili-net",
+        kind: "choice",
+        outcome: "отличать на слух вопрос от сообщения и понимать краткий ответ",
+        zvuk: "You are from Turkey.",
+        prompt: "Послушай запись. Это вопрос или сообщение?",
+        options: [
+          { text: "Сообщение", correct: true },
+          { text: "Вопрос" },
+          { text: "По записи не понять" },
+        ],
+        why:
+          "You are from Turkey. Голос в конце падает, и первые два слова стоят в " +
+          "обычном порядке: сначала кто, потом форма be.",
+      },
+      {
+        id: "q-na-sluh-chto-otvetili",
+        kind: "short",
+        outcome: "отличать на слух вопрос от сообщения и понимать краткий ответ",
+        zvuk: "Are they from Kazakhstan? — Yes, they are.",
+        prompt:
+          "Послушай запись. Ответ был «да» или «нет»? Напиши одно английское слово.",
+        answer: "yes",
+        accept: ["Yes", "yes, they are"],
+        why: "Yes, they are. Краткий ответ повторяет ту же форму be, что и вопрос.",
+      },
       {
         id: "q-sdelat-vopros",
         kind: "short",
