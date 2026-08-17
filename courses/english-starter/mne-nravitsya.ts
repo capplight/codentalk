@@ -131,6 +131,8 @@ const module: Module = {
     "просить то, чего хочешь сейчас: I'd like a coffee",
     "говорить о своём желании: I'd like to go home",
     "рассказывать о своих вкусах",
+    "понимать по тексту, что человеку нравится и насколько",
+    "слышать разницу между I like и I'd like",
   ],
 
   lessons: [
@@ -1209,6 +1211,272 @@ const module: Module = {
         },
       ],
     },
+
+    // =====================================================================
+    // Урок чтения. Письмо о вкусах — текст, где половина смысла в том, что
+    // человеку НЕ нравится, а вторая половина в силе: like и really like.
+    // =====================================================================
+    {
+      slug: "chitaem-o-vkusah",
+      title: "Читаем о вкусах",
+      estimatedMinutes: 13,
+      outcome: "понимать по тексту, что человеку нравится и насколько",
+
+      blocks: [
+        {
+          id: "zachem-chitat-o-vkusah",
+          kind: "explain",
+          text: [
+            "Рассказывая о вкусах, человек редко говорит просто «нравится». Он " +
+              "добавляет силу: очень нравится, не очень, совсем не нравится.",
+            "Читая такой текст, смотри не только на like, но и на слова рядом: really " +
+              "усиливает, don't переворачивает.",
+          ],
+        },
+        {
+          id: "pismo-o-vkusah",
+          kind: "text",
+          genre: "email",
+          title: "A message from Dana",
+          body: [
+            "Hi! I really like reading. I read books every evening.",
+            "I like music too, but I don't like football.",
+            "I'd like to go to the cinema on Sunday. Dana",
+          ],
+          glossary: [
+            { term: "music", translation: "музыка" },
+            { term: "cinema", translation: "кинотеатр" },
+          ],
+        },
+        {
+          id: "razbor-pisma-o-vkusah",
+          kind: "note",
+          tone: "info",
+          text:
+            "Последняя строка говорит не о вкусе, а о желании на сейчас: I'd like — " +
+              "«я хотел бы». От I like она отличается одной буквой d, и спутать их легко.",
+        },
+        {
+          id: "zapiska-o-ede",
+          kind: "text",
+          genre: "message",
+          title: "A note from Alim",
+          body: [
+            "I like tea. I don't like coffee.",
+            "I really like apples. I'd like an apple now!",
+          ],
+        },
+
+        // ---- задания ----
+        {
+          id: "z1-chto-nravitsya-bolshe",
+          kind: "choice",
+          about: "pismo-o-vkusah",
+          prompt: "Прочитай письмо от Даны. Что ей нравится больше всего?",
+          options: [
+            { text: "Музыка" },
+            { text: "Чтение", correct: true },
+            { text: "Футбол" },
+          ],
+          hint: "Ищи слово really — оно и усиливает.",
+          why:
+            "I really like reading. Музыку она просто любит, а футбол не любит вовсе.",
+        },
+        {
+          id: "z2-chto-ne-nravitsya",
+          kind: "short",
+          about: "pismo-o-vkusah",
+          prompt:
+            "Прочитай письмо от Даны. Что ей не нравится? Ответь английским словом.",
+          answer: "football",
+          accept: ["the football"],
+          hint: "Найди слово don't и прочитай, что идёт следом.",
+          why:
+          "I don't like football. Отрицание стоит между I и like — оно и переворачивает " +
+          "смысл всего предложения.",
+        },
+        {
+          id: "z3-chto-dana-hochet",
+          kind: "choice",
+          about: "pismo-o-vkusah",
+          prompt: "Прочитай письмо от Даны. Чего она хочет в воскресенье?",
+          options: [
+            { text: "Читать книги" },
+            { text: "Сходить в кино", correct: true },
+            { text: "Слушать музыку" },
+          ],
+          hint: "Последняя строка начинается с I'd like — это про желание, а не про вкус.",
+          why:
+            "I'd like to go to the cinema on Sunday. I'd like — «хотел бы», это о " +
+            "намерении на воскресенье.",
+        },
+        {
+          id: "z4-chto-alim-lyubit",
+          kind: "short",
+          about: "zapiska-o-ede",
+          prompt:
+            "Прочитай записку от Алима. Что он любит больше всего? Ответь английским " +
+            "словом.",
+          answer: "apples",
+          accept: ["apple", "the apples"],
+          hint: "Слово really стоит только в одном предложении.",
+          why: "I really like apples. Яблоки.",
+        },
+        {
+          id: "z5-dve-stroki-pro-yabloki",
+          kind: "choice",
+          about: "zapiska-o-ede",
+          prompt:
+            "Прочитай записку от Алима. Две последние строки обе про яблоки. Чем они " +
+            "отличаются?",
+          options: [
+            { text: "Первая про вкус вообще, вторая про желание сейчас", correct: true },
+            { text: "Первая про желание, вторая про вкус" },
+            { text: "Они говорят одно и то же" },
+          ],
+          hint: "Сравни I really like и I'd like.",
+          why:
+            "I really like apples — вкус, он всегда. I'd like an apple now — желание " +
+            "на эту минуту. Слово now в конце и показывает разницу.",
+        },
+      ],
+    },
+
+    // =====================================================================
+    // Урок слушания.
+    // =====================================================================
+    {
+      slug: "slushaem-o-vkusah",
+      title: "Слушаем о вкусах",
+      estimatedMinutes: 13,
+      outcome: "слышать разницу между I like и I'd like",
+
+      blocks: [
+        {
+          id: "zachem-slushat-o-vkusah",
+          kind: "explain",
+          text: [
+            "I like и I'd like на слух различает один звук, а говорят они о разном: " +
+              "первое о вкусе вообще, второе о желании прямо сейчас.",
+            "Помогает то, что идёт следом. После I'd like почти всегда стоит название " +
+              "вещи с артиклем: a coffee, an apple.",
+          ],
+        },
+        {
+          id: "like-i-would-like",
+          kind: "table",
+          caption: "Вкус и желание — нажми и сравни",
+          zvuk: {
+            "I like coffee.": "I like coffee.",
+            "I'd like a coffee.": "I'd like a coffee.",
+            "I like apples.": "I like apples.",
+            "I'd like an apple.": "I'd like an apple.",
+          },
+          head: ["Вкус вообще", "Желание сейчас"],
+          rows: [
+            ["I like coffee.", "I'd like a coffee."],
+            ["I like apples.", "I'd like an apple."],
+          ],
+        },
+        {
+          id: "artikl-vydayot",
+          kind: "note",
+          tone: "info",
+          text:
+            "Обрати внимание на артикль: I like coffee — без него, I'd like a coffee — " +
+              "с ним. Вкус говорят о напитке вообще, а хотят одну чашку.",
+        },
+        {
+          id: "zapis-o-moih-vkusah",
+          kind: "audio",
+          skryt: true,
+          pace: "slow",
+          caption: "Послушай рассказ о вкусах",
+          transcript:
+            "I really like music. I don't like football. I'd like to read a book now.",
+        },
+        {
+          id: "zapis-zakaz-v-kafe",
+          kind: "audio",
+          skryt: true,
+          pace: "slow",
+          voice: "два голоса",
+          caption: "Послушай разговор",
+          transcript:
+            "Do you like tea? — Yes, I do. I really like tea. — And now? — " +
+            "I'd like a coffee, please.",
+        },
+
+        // ---- задания ----
+        {
+          id: "z1-chto-nravitsya-na-sluh",
+          kind: "choice",
+          about: "zapis-o-moih-vkusah",
+          prompt: "Послушай первую запись. Что человеку нравится?",
+          options: [
+            { text: "Футбол" },
+            { text: "Музыка", correct: true },
+            { text: "И то, и другое" },
+          ],
+          hint: "Слушай, где звучит really, а где don't.",
+          why: "I really like music. I don't like football. Музыка.",
+        },
+        {
+          id: "z2-chego-hochet-seychas",
+          kind: "choice",
+          about: "zapis-o-moih-vkusah",
+          prompt: "Послушай первую запись. Чего человек хочет прямо сейчас?",
+          options: [
+            { text: "Почитать книгу", correct: true },
+            { text: "Послушать музыку" },
+            { text: "Посмотреть футбол" },
+          ],
+          hint: "Последнее предложение начинается не с I like, а с I'd like.",
+          why:
+            "I'd like to read a book now. Слово now в конце и показывает, что это " +
+            "про эту минуту.",
+        },
+        {
+          id: "z3-lyubit-li-chay",
+          kind: "choice",
+          about: "zapis-zakaz-v-kafe",
+          prompt: "Послушай разговор. Любит ли собеседник чай?",
+          options: [
+            { text: "Любит, и очень", correct: true },
+            { text: "Не любит" },
+            { text: "Про чай не спрашивали" },
+          ],
+          hint: "После краткого ответа он усиливает сказанное.",
+          why: "Yes, I do. I really like tea. Really — «очень».",
+        },
+        {
+          id: "z4-chto-zakazali",
+          kind: "short",
+          about: "zapis-zakaz-v-kafe",
+          prompt:
+            "Послушай разговор. Что человек попросил сейчас? Ответь английским словом.",
+          answer: "coffee",
+          accept: ["a coffee", "I'd like a coffee"],
+          hint: "Последняя реплика начинается с I'd like.",
+          why:
+            "I'd like a coffee, please. Чай он любит, но попросил кофе: это разные " +
+            "вещи, и различает их I like против I'd like.",
+        },
+        {
+          id: "z5-skazat-o-vkuse-i-zhelanii",
+          kind: "speak",
+          prompt:
+            "Скажи вслух два предложения: что тебе нравится вообще и чего хочется " +
+            "прямо сейчас.",
+          phrase: "I really like tea. I'd like a coffee now.",
+          translation: "Я очень люблю чай. Сейчас я хотел бы кофе.",
+          hint: "Во втором не проглатывай звук d — от него весь смысл.",
+          why:
+            "Проглоченное d превращает желание во вкус: собеседник услышит «я люблю " +
+            "кофе» и ничего не принесёт.",
+        },
+      ],
+    },
   ],
 
   quiz: {
@@ -1219,6 +1487,67 @@ const module: Module = {
       // пропущенный кусок. Где верных ответов два — принимаются оба.
 
       // ---- итог 1 ----
+      // ---- чтение и слушание ------------------------------------------
+      // Другой случай, чем в уроках: там письмо Даны и записка Алима, здесь
+      // объявление кружка и разговор в магазине.
+      {
+        id: "q-tekst-chto-lyubit-bolshe",
+        kind: "choice",
+        outcome: "понимать по тексту, что человеку нравится и насколько",
+        prompt:
+          "Письмо: «I like tea. I really like water. I don't like coffee.» Что человек " +
+          "любит больше всего?",
+        options: [
+          { text: "Чай" },
+          { text: "Воду", correct: true },
+          { text: "Кофе" },
+        ],
+        why:
+          "I really like water. Слово really усиливает; чай он просто любит, кофе не " +
+          "любит вовсе.",
+      },
+      {
+        id: "q-tekst-vkus-ili-zhelanie",
+        kind: "choice",
+        outcome: "понимать по тексту, что человеку нравится и насколько",
+        prompt:
+          "Записка: «I like apples. I'd like an apple now.» Чем отличаются эти две " +
+          "строки?",
+        options: [
+          { text: "Первая про желание, вторая про вкус" },
+          { text: "Они говорят одно и то же" },
+          { text: "Первая про вкус вообще, вторая про желание сейчас", correct: true },
+        ],
+        why:
+          "I like apples — вкус, он всегда. I'd like an apple now — желание на эту " +
+          "минуту, и артикль с ним говорит об одном яблоке.",
+      },
+      {
+        id: "q-na-sluh-vkus-ili-zakaz",
+        kind: "choice",
+        outcome: "слышать разницу между I like и I'd like",
+        zvuk: "I like tea. I'd like a coffee, please.",
+        prompt: "Послушай запись. Что человек просит принести?",
+        options: [
+          { text: "Чай" },
+          { text: "Кофе", correct: true },
+          { text: "И то, и другое" },
+        ],
+        why:
+          "I'd like a coffee, please. Чай он любит вообще, а просит кофе — это разные " +
+          "предложения и разные обороты.",
+      },
+      {
+        id: "q-na-sluh-chto-ne-nravitsya",
+        kind: "short",
+        outcome: "слышать разницу между I like и I'd like",
+        zvuk: "I really like music. I don't like football.",
+        prompt:
+          "Послушай запись. Что человеку не нравится? Ответь английским словом.",
+        answer: "football",
+        accept: ["the football"],
+        why: "I don't like football. Футбол.",
+      },
       {
         id: "q-like-to-vybor",
         kind: "choice",
