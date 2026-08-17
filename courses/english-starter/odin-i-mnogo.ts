@@ -1227,7 +1227,7 @@ const module: Module = {
           id: "z4-chi-chasy",
           kind: "choice",
           about: "zapiska-o-veshchah",
-          prompt: "Прочитай записку от Даны. Чьи часы лежат в сумке?",
+          prompt: "Прочитай записку от Даны. Чьи это часы?",
           options: [
             { text: "Не Даны", correct: true },
             { text: "Даны" },
@@ -1434,8 +1434,8 @@ const module: Module = {
         outcome: "понимать на слух, об одной вещи говорят или о нескольких",
         zvuk: "Are these your pencils? — No, these are my pens.",
         prompt:
-          "Послушай запись. Что оказалось на столе на самом деле? Ответь английским " +
-          "словом во множественном числе.",
+          "Послушай запись. Что оказалось на самом деле? Ответь английским словом во " +
+          "множественном числе.",
         answer: "pens",
         accept: ["my pens", "pens."],
         why: "No, these are my pens. Спрашивали про карандаши, а это ручки.",

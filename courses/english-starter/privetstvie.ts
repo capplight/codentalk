@@ -173,6 +173,7 @@ const module: Module = {
     "узнавать и писать короткие формы глагола be: I'm, you're, he's",
     "просить повторить сказанное и переспрашивать имя",
     "вести короткий разговор при знакомстве: от приветствия до прощания",
+    "понимать на слух, кто как зовётся и как у него дела",
   ],
 
   lessons: [
@@ -1537,6 +1538,138 @@ const module: Module = {
         },
       ],
     },
+
+    // =====================================================================
+    // Урок слушания. Связного текста в модуле 2 ещё не построить, а разговор
+    // при знакомстве — уже да, и он же самый частый на этой ступени.
+    //
+    // Расшифровки спрятаны за кнопку: пока текст на виду, задание проверяет
+    // чтение. Кнопка открыта всегда.
+    // =====================================================================
+    {
+      slug: "slushaem-znakomstvo",
+      title: "Слушаем знакомство",
+      estimatedMinutes: 13,
+      outcome: "понимать на слух, кто как зовётся и как у него дела",
+
+      blocks: [
+        {
+          id: "zachem-slushat-znakomstvo",
+          kind: "explain",
+          text: [
+            "Разговор при знакомстве идёт быстро, и имя в нём звучит один раз. " +
+              "Пропустишь — придётся переспрашивать.",
+            "Зато порядок реплик всегда один и тот же, и по нему понятно, что прозвучит " +
+              "дальше. Это и помогает слушать.",
+          ],
+        },
+        {
+          id: "poryadok-znakomstva",
+          kind: "table",
+          caption: "Порядок реплик при знакомстве",
+          head: ["Очередь", "Что звучит", "Пример"],
+          rows: [
+            ["1", "приветствие", "Hello!"],
+            ["2", "имя", "I'm Alim."],
+            ["3", "ответное имя", "I'm Dana."],
+            ["4", "вежливый оборот", "Nice to meet you."],
+            ["5", "вопрос о делах", "How are you?"],
+          ],
+        },
+        {
+          id: "zapis-znakomstvo-celikom",
+          kind: "audio",
+          skryt: true,
+          pace: "slow",
+          voice: "два голоса",
+          caption: "Послушай знакомство целиком",
+          transcript:
+            "Good morning! I'm Alim. — Hello! I'm Aigul. Nice to meet you. — " +
+            "Nice to meet you too. How are you? — I'm fine, thank you.",
+        },
+        {
+          id: "zapis-peresprosili-imya",
+          kind: "audio",
+          skryt: true,
+          pace: "slow",
+          voice: "два голоса",
+          caption: "Послушай, как переспрашивают имя",
+          transcript: "Hello! I'm Nurlan. — Sorry? — Nurlan. N-U-R-L-A-N.",
+        },
+        {
+          id: "esli-imya-ne-rasslyshal",
+          kind: "note",
+          tone: "info",
+          text:
+            "Переспросить имя — обычное дело, и делают это одним словом: Sorry? " +
+              "В ответ имя повторяют, а часто ещё и диктуют по буквам.",
+        },
+
+        // ---- задания ----
+        {
+          id: "z1-kak-zovut-vtorogo",
+          kind: "short",
+          about: "zapis-znakomstvo-celikom",
+          prompt:
+            "Послушай первую запись. Как зовут человека, который ответил? Напиши имя.",
+          answer: "Aigul",
+          accept: ["aigul", "AIGUL"],
+          hint: "Второй голос называет своё имя сразу после приветствия.",
+          why: "Hello! I'm Aigul. Айгуль.",
+        },
+        {
+          id: "z2-vremya-dnya",
+          kind: "choice",
+          about: "zapis-znakomstvo-celikom",
+          prompt: "Послушай первую запись. В какое время дня происходит разговор?",
+          options: [
+            { text: "Вечером" },
+            { text: "Утром", correct: true },
+            { text: "По записи этого не понять" },
+          ],
+          hint: "Приветствие в начале называет часть суток.",
+          why: "Good morning! — «доброе утро». Значит разговор утренний.",
+        },
+        {
+          id: "z3-kak-dela-otvet",
+          kind: "choice",
+          about: "zapis-znakomstvo-celikom",
+          prompt: "Послушай первую запись. Что ответили на вопрос о делах?",
+          options: [
+            { text: "Что дела хорошо", correct: true },
+            { text: "Что дела плохо" },
+            { text: "Про дела не спрашивали" },
+          ],
+          hint: "Ответ — последняя реплика записи.",
+          why: "I'm fine, thank you. Fine — «хорошо».",
+        },
+        {
+          id: "z4-zachem-sorry",
+          kind: "choice",
+          about: "zapis-peresprosili-imya",
+          prompt: "Послушай вторую запись. Зачем во второй реплике сказали Sorry?",
+          options: [
+            { text: "Чтобы извиниться за опоздание" },
+            { text: "Чтобы попрощаться" },
+            { text: "Чтобы попросить повторить имя", correct: true },
+          ],
+          hint: "Посмотри, что сделали сразу после этого слова.",
+          why:
+            "Sorry? с вопросительной интонацией — это просьба повторить сказанное. " +
+            "Дальше имя и повторили, и продиктовали по буквам.",
+        },
+        {
+          id: "z5-zapisat-imya-so-sluha",
+          kind: "short",
+          about: "zapis-peresprosili-imya",
+          prompt: "Послушай вторую запись и напиши имя, которое продиктовали по буквам.",
+          answer: "Nurlan",
+          accept: ["nurlan", "NURLAN"],
+          hint: "Буквы звучат в самом конце записи.",
+          why: "N-U-R-L-A-N. Nurlan. Имя пишется с заглавной буквы.",
+        },
+      ],
+    },
   ],
 
   // =======================================================================
@@ -1547,6 +1680,33 @@ const module: Module = {
     ask: 8,
     passRatio: 0.8,
     questions: [
+      // ---- слушание ---------------------------------------------------
+      // Другой случай и другой вид задания, чем в уроке: там знакомство и
+      // переспрос имени, здесь прощание вечером и ответ о делах.
+      {
+        id: "q-na-sluh-kogda-proshchayutsya",
+        kind: "choice",
+        outcome: "понимать на слух, кто как зовётся и как у него дела",
+        zvuk: "Good evening, Dana! — Good evening! Goodbye, see you!",
+        prompt: "Послушай запись. В какое время дня разговор?",
+        options: [
+          { text: "Утром" },
+          { text: "Вечером", correct: true },
+          { text: "Ночью" },
+        ],
+        why: "Good evening — «добрый вечер». Good night говорят на прощание перед сном.",
+      },
+      {
+        id: "q-na-sluh-kak-dela-u-nego",
+        kind: "short",
+        outcome: "понимать на слух, кто как зовётся и как у него дела",
+        zvuk: "How are you, Alim? — I am fine, thanks. And you? — I am OK.",
+        prompt:
+          "Послушай запись. Как зовут человека, у которого спросили о делах? Напиши имя.",
+        answer: "Alim",
+        accept: ["alim", "ALIM"],
+        why: "How are you, Alim? Имя названо прямо в вопросе.",
+      },
       {
         id: "q-mestoimenie-o-nurlane",
         kind: "choice",
