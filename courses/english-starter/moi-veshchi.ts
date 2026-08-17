@@ -125,6 +125,7 @@ const module: Module = {
     "называть родных и друзей",
     "спрашивать и отвечать, чья это вещь",
     "рассказывать о своих вещах и о своей семье",
+    "понимать на слух, у кого что есть и чья это вещь",
   ],
 
   lessons: [
@@ -1186,6 +1187,142 @@ const module: Module = {
         },
       ],
     },
+
+    // =====================================================================
+    // Урок слушания. Модуль о принадлежности, и на слух путается ровно она:
+    // his и her звучат коротко, а меняют владельца целиком.
+    //
+    // Расшифровки спрятаны за кнопку, открытую всегда.
+    // =====================================================================
+    {
+      slug: "slushaem-chya-veshch",
+      title: "Слушаем, чья это вещь",
+      estimatedMinutes: 13,
+      outcome: "понимать на слух, у кого что есть и чья это вещь",
+
+      blocks: [
+        {
+          id: "zachem-slushat-chya",
+          kind: "explain",
+          text: [
+            "His и her звучат коротко и похоже, а разница между ними полная: одно про " +
+              "него, другое про неё.",
+            "Слушать надо начало слова. His начинается с придыхания и короткого гласного, " +
+              "her — с того же придыхания, но гласный в нём длинный.",
+          ],
+        },
+        {
+          id: "chey-i-chya-na-sluh",
+          kind: "table",
+          caption: "Чья вещь — нажми и сравни",
+          zvuk: {
+            "his bag": "his bag",
+            "her bag": "her bag",
+            "our room": "our room",
+            "your room": "your room",
+          },
+          head: ["Про него или нас", "Про неё или вас"],
+          rows: [
+            ["his bag", "her bag"],
+            ["our room", "your room"],
+          ],
+        },
+        {
+          id: "est-i-net-na-sluh",
+          kind: "note",
+          tone: "info",
+          text:
+            "Наличие и отсутствие тоже различает одно короткое место: I've got — есть, " +
+              "I haven't got — нет. Всё различие в слоге haven't, и он безударный.",
+        },
+        {
+          id: "zapis-chya-veshch",
+          kind: "audio",
+          skryt: true,
+          pace: "slow",
+          voice: "два голоса",
+          caption: "Послушай разговор о вещах",
+          transcript:
+            "Is this your phone? — No, it isn't. It is her phone. — And this bag? — " +
+            "It is his bag.",
+        },
+        {
+          id: "zapis-chto-est-u-menya",
+          kind: "audio",
+          skryt: true,
+          pace: "slow",
+          caption: "Послушай, что у человека есть",
+          transcript: "I have got a car. I haven't got a bike. My sister has got a dog.",
+        },
+
+        // ---- задания ----
+        {
+          id: "z1-chey-telefon",
+          kind: "choice",
+          about: "zapis-chya-veshch",
+          prompt: "Послушай первую запись. Чей это телефон?",
+          options: [
+            { text: "Того, кого спросили" },
+            { text: "Её", correct: true },
+            { text: "Его" },
+          ],
+          hint: "Слушай слово перед phone во втором предложении.",
+          why:
+            "No, it isn't. It is her phone. Her — про неё. His было бы про него.",
+        },
+        {
+          id: "z2-chya-sumka",
+          kind: "short",
+          about: "zapis-chya-veshch",
+          prompt:
+            "Послушай первую запись. Чья сумка? Ответь одним английским словом — " +
+            "тем, что стоит перед bag.",
+          answer: "his",
+          accept: ["his bag"],
+          hint: "Это последнее предложение записи.",
+          why: "It is his bag. His — про него.",
+        },
+        {
+          id: "z3-chto-est",
+          kind: "choice",
+          about: "zapis-chto-est-u-menya",
+          prompt: "Послушай вторую запись. Что у человека есть?",
+          options: [
+            { text: "Велосипед" },
+            { text: "Машина", correct: true },
+            { text: "И машина, и велосипед" },
+          ],
+          hint: "В одном предложении звучит haven't — это отрицание.",
+          why:
+            "I have got a car — есть. I haven't got a bike — нет. Слог haven't и " +
+            "переворачивает смысл.",
+        },
+        {
+          id: "z4-chto-u-sestry",
+          kind: "short",
+          about: "zapis-chto-est-u-menya",
+          prompt:
+            "Послушай вторую запись. Кто есть у сестры? Ответь английским словом.",
+          answer: "dog",
+          accept: ["a dog", "she has got a dog"],
+          hint: "Про сестру говорят в последнем предложении.",
+          why: "My sister has got a dog. Собака.",
+        },
+        {
+          id: "z5-sprosit-chya",
+          kind: "speak",
+          prompt:
+            "Спроси вслух, чья это ручка, и сам ответь, что она его — того человека, " +
+            "о котором речь.",
+          phrase: "Is this your pen? No, it is his pen.",
+          translation: "Это твоя ручка? Нет, это его ручка.",
+          hint: "Разницу между his и her делает гласный: в his он короткий.",
+          why:
+            "Собеседник поймёт, о ком речь, только по этому слову: жеста в разговоре по " +
+            "телефону он не увидит.",
+        },
+      ],
+    },
   ],
 
   // =======================================================================
@@ -1196,6 +1333,37 @@ const module: Module = {
     ask: 8,
     passRatio: 0.8,
     questions: [
+      // ---- слушание ---------------------------------------------------
+      // Другой случай и другой вид задания, чем в уроке: там телефон и сумка,
+      // здесь вопрос о наличии и выбор владельца из трёх.
+      {
+        id: "q-na-sluh-est-li-mashina",
+        kind: "choice",
+        outcome: "понимать на слух, у кого что есть и чья это вещь",
+        zvuk: "Have you got a car? — No, I haven't. I have got a bike.",
+        prompt: "Послушай запись. Что есть у человека?",
+        options: [
+          { text: "Велосипед", correct: true },
+          { text: "Машина" },
+          { text: "И машина, и велосипед" },
+        ],
+        why:
+          "No, I haven't. I have got a bike. Машины нет, велосипед есть.",
+      },
+      {
+        id: "q-na-sluh-chya-kniga",
+        kind: "short",
+        outcome: "понимать на слух, у кого что есть и чья это вещь",
+        zvuk: "This is not my book. It is her book.",
+        prompt:
+          "Послушай запись. Чья это книга? Ответь одним английским словом — тем, что " +
+          "стоит перед book.",
+        answer: "her",
+        accept: ["her book"],
+        why:
+          "It is her book. Владелица женщина, и слово перед названием вещи это " +
+          "показывает: гласный в нём длинный.",
+      },
       {
         id: "q-moy-lishnee",
         kind: "choice",
