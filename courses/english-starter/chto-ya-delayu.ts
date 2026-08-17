@@ -208,6 +208,8 @@ const module: Module = {
     "говорить о том, что верно всегда: The shop opens at nine",
     "рассказывать о нескольких людях: we work, they live",
     "рассказывать о своём дне четырьмя предложениями",
+    "понимать по короткому рассказу, чем человек занят и когда",
+    "понимать на слух, кто что делает и во сколько",
   ],
 
   lessons: [
@@ -1441,6 +1443,266 @@ const module: Module = {
         },
       ],
     },
+
+    // =====================================================================
+    // Урок чтения. Настоящее простое время впервые позволяет прочитать не
+    // объявление, а рассказ о человеке — и это уже похоже на заметку.
+    // Опора — `sources`, запись о Совете Европы.
+    // =====================================================================
+    {
+      slug: "chitaem-o-cheloveke",
+      title: "Читаем рассказ о человеке",
+      estimatedMinutes: 13,
+      outcome: "понимать по короткому рассказу, чем человек занят и когда",
+
+      blocks: [
+        {
+          id: "zachem-chitat-o-cheloveke",
+          kind: "explain",
+          text: [
+            "В объявлении и записке каждая строка сама по себе. Рассказ устроен иначе: " +
+              "предложения связаны, и одно продолжает другое.",
+            "Читают такой рассказ ради дел человека: чем занят, когда, где. Всё это " +
+              "стоит в разных предложениях, и собирать их приходится самому.",
+          ],
+        },
+        {
+          id: "rasskaz-o-daniyare",
+          kind: "text",
+          genre: "article",
+          title: "A day of a bus driver",
+          body: [
+            "Daniyar is a bus driver. He lives in Astana with his family.",
+            "He gets up at five o'clock. He starts at six and finishes at three.",
+            "In the evening he watches football or reads a book. He likes his job.",
+          ],
+          glossary: [
+            { term: "starts", translation: "начинает" },
+            { term: "finishes", translation: "заканчивает" },
+            { term: "or", translation: "или" },
+          ],
+        },
+        {
+          id: "razbor-rasskaza",
+          kind: "note",
+          tone: "info",
+          text:
+            "Рассказ о другом человеке весь идёт с окончанием -s: lives, gets, starts, " +
+              "watches. Это и есть примета того, что речь об одном человеке, а не о тебе.",
+        },
+        {
+          id: "pismo-o-svoyom-dne",
+          kind: "text",
+          genre: "email",
+          title: "A message from Aigul",
+          body: [
+            "Hi! I work in a hospital. I get up at six and start at eight.",
+            "I don't work on Sunday. On Sunday I go to the park with my sister. Aigul",
+          ],
+        },
+
+        // ---- задания ----
+        {
+          id: "z1-kem-rabotaet",
+          kind: "short",
+          about: "rasskaz-o-daniyare",
+          prompt:
+            "Прочитай рассказ A day of a bus driver. Кем работает Данияр? Ответь " +
+            "английским словом.",
+          answer: "driver",
+          accept: ["a bus driver", "bus driver", "a driver"],
+          hint: "Занятие названо в первом предложении.",
+          why: "Daniyar is a bus driver. Водитель автобуса.",
+        },
+        {
+          id: "z2-vo-skolko-nachinaet",
+          kind: "short",
+          about: "rasskaz-o-daniyare",
+          prompt:
+            "Прочитай рассказ A day of a bus driver. Во сколько Данияр начинает работу? " +
+            "Ответь цифрой.",
+          answer: "6",
+          accept: ["6 o'clock", "six", "шесть"],
+          hint: "В одном предложении названы сразу два времени: начало и конец.",
+          why:
+            "He starts at six and finishes at three. Шесть — начало, три — конец. " +
+            "Пять часов — это когда он встаёт.",
+        },
+        {
+          id: "z3-chto-vecherom",
+          kind: "choice",
+          about: "rasskaz-o-daniyare",
+          prompt: "Прочитай рассказ A day of a bus driver. Что Данияр делает вечером?",
+          options: [
+            { text: "Только смотрит футбол" },
+            { text: "Смотрит футбол или читает", correct: true },
+            { text: "Работает" },
+          ],
+          hint: "Слово or соединяет два занятия и значит «или».",
+          why:
+            "In the evening he watches football or reads a book. Or — «или»: он " +
+            "делает либо одно, либо другое.",
+        },
+        {
+          id: "z4-kogda-ne-rabotaet",
+          kind: "short",
+          about: "pismo-o-svoyom-dne",
+          prompt:
+            "Прочитай письмо от Айгуль. В какой день она не работает? Ответь английским " +
+            "словом.",
+          answer: "Sunday",
+          accept: ["on Sunday", "sunday"],
+          hint: "Найди предложение со словом don't.",
+          why: "I don't work on Sunday. В воскресенье.",
+        },
+        {
+          id: "z5-chem-otlichayutsya",
+          kind: "choice",
+          about: "pismo-o-svoyom-dne",
+          prompt:
+            "Сравни два текста. Почему у Данияра стоит «works», а у Айгуль «work»?",
+          options: [
+            { text: "Айгуль пишет о себе, а про Данияра рассказывают", correct: true },
+            { text: "Потому что Айгуль женщина" },
+            { text: "Потому что она работает в больнице" },
+          ],
+          hint: "Посмотри, кто в каждом тексте действующее лицо: I или he.",
+          why:
+            "Окончание -s ставят, когда речь об одном другом человеке: he works. " +
+            "Про себя говорят без него: I work. Пол тут ни при чём — про Айгуль " +
+            "тоже сказали бы she works.",
+        },
+      ],
+    },
+
+    // =====================================================================
+    // Урок слушания.
+    // =====================================================================
+    {
+      slug: "slushaem-o-dele",
+      title: "Слушаем про дела",
+      estimatedMinutes: 13,
+      outcome: "понимать на слух, кто что делает и во сколько",
+
+      blocks: [
+        {
+          id: "zachem-slushat-dela",
+          kind: "explain",
+          text: [
+            "Окончание -s на слух почти не слышно: это короткий свист в конце слова. " +
+              "А оно и есть примета того, что речь не о тебе, а о другом человеке.",
+            "Выручает первое слово предложения: I или he. Оно звучит отчётливо, и по " +
+              "нему понятно всё остальное.",
+          ],
+        },
+        {
+          id: "ya-ili-on-na-sluh",
+          kind: "table",
+          caption: "Про себя и про другого — нажми и сравни",
+          zvuk: {
+            "I work in a shop.": "I work in a shop.",
+            "He works in a shop.": "He works in a shop.",
+            "I go to the park.": "I go to the park.",
+            "She goes to the park.": "She goes to the park.",
+          },
+          head: ["Про себя", "Про другого"],
+          rows: [
+            ["I work in a shop.", "He works in a shop."],
+            ["I go to the park.", "She goes to the park."],
+          ],
+        },
+        {
+          id: "vremya-idet-v-konce",
+          kind: "note",
+          tone: "info",
+          text:
+            "Время в рассказе о дне почти всегда идёт после дела: get up at seven, " +
+              "start at eight. Значит после слова at жди число — и лови его.",
+        },
+        {
+          id: "zapis-rasskaz-o-dne",
+          kind: "audio",
+          skryt: true,
+          pace: "slow",
+          caption: "Послушай рассказ о дне",
+          transcript:
+            "I get up at seven. I work in a school. I finish at four. " +
+            "In the evening I read a book.",
+        },
+        {
+          id: "zapis-o-brate",
+          kind: "audio",
+          skryt: true,
+          pace: "slow",
+          voice: "два голоса",
+          caption: "Послушай разговор о брате",
+          transcript:
+            "What does your brother do? — He works in a hospital. He starts at nine. — " +
+            "And you? — I work in a shop.",
+        },
+
+        // ---- задания ----
+        {
+          id: "z1-gde-rabotaet-govoryashchiy",
+          kind: "short",
+          about: "zapis-rasskaz-o-dne",
+          prompt:
+            "Послушай первую запись. Где работает говорящий? Ответь английским словом.",
+          answer: "school",
+          accept: ["a school", "in a school"],
+          hint: "Место работы идёт после слова in.",
+          why: "I work in a school. В школе.",
+        },
+        {
+          id: "z2-vo-skolko-vstayot",
+          kind: "short",
+          about: "zapis-rasskaz-o-dne",
+          prompt: "Послушай первую запись. Во сколько человек встаёт? Ответь цифрой.",
+          answer: "7",
+          accept: ["7 o'clock", "seven", "семь"],
+          hint: "В записи два числа: одно про подъём, другое про конец работы.",
+          why: "I get up at seven. В семь. Четыре — это когда он заканчивает.",
+        },
+        {
+          id: "z3-kto-v-bolnice",
+          kind: "choice",
+          about: "zapis-o-brate",
+          prompt: "Послушай вторую запись. Кто работает в больнице?",
+          options: [
+            { text: "Тот, кто отвечает" },
+            { text: "Его брат", correct: true },
+            { text: "Оба" },
+          ],
+          hint: "Слушай первое слово каждого предложения: he или I.",
+          why:
+            "He works in a hospital. He — про брата. Про себя человек говорит " +
+            "отдельно: I work in a shop.",
+        },
+        {
+          id: "z4-vo-skolko-brat",
+          kind: "short",
+          about: "zapis-o-brate",
+          prompt: "Послушай вторую запись. Во сколько брат начинает? Ответь цифрой.",
+          answer: "9",
+          accept: ["9 o'clock", "nine", "девять"],
+          hint: "Число идёт после слова at.",
+          why: "He starts at nine. В девять.",
+        },
+        {
+          id: "z5-rasskazat-o-dne",
+          kind: "speak",
+          prompt:
+            "Расскажи вслух о своём дне двумя предложениями: во сколько встаёшь и где " +
+            "работаешь или учишься.",
+          phrase: "I get up at seven. I work in a shop.",
+          translation: "Я встаю в семь. Я работаю в магазине.",
+          hint: "Про себя окончание -s не нужно.",
+          why:
+            "Два коротких предложения понимаются с первого раза. Длинное с and " +
+            "собеседник разбирает дольше.",
+        },
+      ],
+    },
   ],
 
   // =======================================================================
@@ -1452,6 +1714,63 @@ const module: Module = {
     ask: 8,
     passRatio: 0.8,
     questions: [
+      // ---- чтение и слушание ------------------------------------------
+      // Другой случай, чем в уроках: там водитель автобуса и письмо Айгуль,
+      // здесь рассказ об учителе и разговор о сестре. Оба вопроса чтения
+      // содержат сам текст: закрыть итог чтения, ничего не прочитав, нельзя.
+      {
+        id: "q-rasskaz-kogda-nachinaet",
+        kind: "short",
+        outcome: "понимать по короткому рассказу, чем человек занят и когда",
+        prompt:
+          "Рассказ: «Aigerim is a teacher. She gets up at six. She starts at eight and " +
+          "finishes at two.» Во сколько она заканчивает? Ответь цифрой.",
+        answer: "2",
+        accept: ["two", "два", "2 o'clock"],
+        why:
+          "She starts at eight and finishes at two. Два — конец, восемь — начало, " +
+          "шесть — подъём.",
+      },
+      {
+        id: "q-rasskaz-chto-verno",
+        kind: "choice",
+        outcome: "понимать по короткому рассказу, чем человек занят и когда",
+        prompt:
+          "Тот же рассказ: «Aigerim is a teacher. She gets up at six. She starts at " +
+          "eight and finishes at two.» Что о ней верно?",
+        options: [
+          { text: "Она встаёт позже, чем начинает работу" },
+          { text: "Она работает меньше дня", correct: true },
+          { text: "Она заканчивает вечером" },
+        ],
+        why:
+          "С восьми до двух — это меньше половины суток. Встаёт она в шесть, то есть " +
+          "раньше начала работы, а два часа — это день, а не вечер.",
+      },
+      {
+        id: "q-na-sluh-kto-chto-delaet",
+        kind: "choice",
+        outcome: "понимать на слух, кто что делает и во сколько",
+        zvuk: "My sister works in a shop. I work in a school.",
+        prompt: "Послушай запись. Кто работает в школе?",
+        options: [
+          { text: "Сестра" },
+          { text: "Говорящий", correct: true },
+          { text: "Оба" },
+        ],
+        why:
+          "I work in a school. Слово I — про себя. Сестра работает в магазине.",
+      },
+      {
+        id: "q-na-sluh-vo-skolko-vstayot",
+        kind: "short",
+        outcome: "понимать на слух, кто что делает и во сколько",
+        zvuk: "My brother gets up at five. He starts at seven.",
+        prompt: "Послушай запись. Во сколько брат встаёт? Ответь цифрой.",
+        answer: "5",
+        accept: ["five", "пять", "5 o'clock"],
+        why: "My brother gets up at five. В пять. Семь — это начало работы.",
+      },
       {
         id: "q-ya-rabotayu",
         kind: "short",
