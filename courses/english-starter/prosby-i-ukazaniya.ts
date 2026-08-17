@@ -163,6 +163,8 @@ const module: Module = {
     "приглашать: Would you like to come?",
     "отвечать, когда предлагают вещь, и когда зовут: Yes, please. Yes, I'd like to.",
     "вести разговор с просьбой целиком",
+    "понимать по объявлению, что делать и чего делать нельзя",
+    "различать на слух указание, запрет и просьбу",
   ],
 
   lessons: [
@@ -1271,6 +1273,270 @@ const module: Module = {
         },
       ],
     },
+
+    // =====================================================================
+    // Урок чтения. Правила в общественном месте — текст, который весь состоит
+    // из указаний и запретов. Именно так они и встречаются в жизни.
+    // =====================================================================
+    {
+      slug: "chitaem-pravila",
+      title: "Читаем правила",
+      estimatedMinutes: 13,
+      outcome: "понимать по объявлению, что делать и чего делать нельзя",
+
+      blocks: [
+        {
+          id: "zachem-chitat-pravila",
+          kind: "explain",
+          text: [
+            "Правила в общественном месте пишут короткими указаниями, без слова «ты». " +
+              "Open the door — «открой дверь», и понятно, что это к тебе.",
+            "Запрет отличается одним словом в начале: Don't. Оно и переворачивает " +
+              "указание в противоположное.",
+          ],
+        },
+        {
+          id: "pravila-v-biblioteke",
+          kind: "text",
+          genre: "notice",
+          title: "LIBRARY",
+          body: [
+            "Please close the door.",
+            "Don't eat here.",
+            "Don't use your phone.",
+            "Open: Monday — Saturday",
+          ],
+          glossary: [
+            { term: "close", translation: "закрывать" },
+            { term: "eat", translation: "есть, кушать" },
+            { term: "use", translation: "пользоваться" },
+          ],
+        },
+        {
+          id: "razbor-pravil",
+          kind: "note",
+          tone: "info",
+          text:
+            "Слово please в первой строке не меняет смысла указания — оно смягчает " +
+              "его. В запретах его не ставят: запрет и так короткий.",
+        },
+        {
+          id: "zapiska-s-prosboy",
+          kind: "text",
+          genre: "message",
+          title: "A message from Aigul",
+          body: [
+            "Hi! Can you help me on Sunday?",
+            "Please come at ten. Don't come at nine, I am busy.",
+            "Thank you! Aigul",
+          ],
+        },
+
+        // ---- задания ----
+        {
+          id: "z1-chto-nelzya-v-biblioteke",
+          kind: "hottext",
+          about: "pravila-v-biblioteke",
+          prompt: "Прочитай объявление LIBRARY. Отметь то, чего там делать нельзя.",
+          parts: [
+            { text: "close the door", selectable: true },
+            { text: "eat here", selectable: true, correct: true },
+            { text: "use your phone", selectable: true, correct: true },
+          ],
+          hint: "Запрет начинается со слова Don't.",
+          why:
+            "Don't eat here. Don't use your phone. А дверь как раз просят закрывать: " +
+            "Please close the door.",
+        },
+        {
+          id: "z2-chto-prosyat-sdelat",
+          kind: "short",
+          about: "pravila-v-biblioteke",
+          prompt:
+            "Прочитай объявление LIBRARY. Что просят сделать? Ответь английским словом " +
+            "из первой строки.",
+          answer: "close",
+          accept: ["close the door"],
+          hint: "Это единственная строка со словом please.",
+          why: "Please close the door. Закрывать дверь.",
+        },
+        {
+          id: "z3-rabotaet-li-v-voskresene",
+          kind: "choice",
+          about: "pravila-v-biblioteke",
+          prompt: "Прочитай объявление LIBRARY. Работает ли библиотека в воскресенье?",
+          options: [
+            { text: "Работает" },
+            { text: "Не работает", correct: true },
+            { text: "Про воскресенье не сказано" },
+          ],
+          hint: "Последняя строка называет промежуток дней через тире.",
+          why:
+            "Open: Monday — Saturday. С понедельника по субботу. Воскресенье в этот " +
+            "промежуток не входит.",
+        },
+        {
+          id: "z4-vo-skolko-prihodit",
+          kind: "short",
+          about: "zapiska-s-prosboy",
+          prompt:
+            "Прочитай записку от Айгуль. Во сколько она просит прийти? Ответь цифрой.",
+          answer: "10",
+          accept: ["ten", "десять", "10 o'clock"],
+          hint: "В записке названы два времени: одно с please, другое с Don't.",
+          why:
+            "Please come at ten. Don't come at nine. Десять — просьба, девять — запрет.",
+        },
+        {
+          id: "z5-pochemu-ne-v-devyat",
+          kind: "choice",
+          about: "zapiska-s-prosboy",
+          prompt: "Прочитай записку от Айгуль. Почему нельзя приходить в девять?",
+          options: [
+            { text: "Она будет занята", correct: true },
+            { text: "Её не будет дома" },
+            { text: "Причина не названа" },
+          ],
+          hint: "Причина стоит в том же предложении, после запятой.",
+          why: "Don't come at nine, I am busy. Она занята.",
+        },
+      ],
+    },
+
+    // =====================================================================
+    // Урок слушания.
+    // =====================================================================
+    {
+      slug: "slushaem-prosby",
+      title: "Слушаем просьбы",
+      estimatedMinutes: 13,
+      outcome: "различать на слух указание, запрет и просьбу",
+
+      blocks: [
+        {
+          id: "zachem-slushat-prosby",
+          kind: "explain",
+          text: [
+            "Указание, запрет и просьба звучат по-разному, и различает их первое слово. " +
+              "Open — указание, Don't open — запрет, Can you open — просьба.",
+            "Значит слушать надо самое начало. Дальше во всех трёх идёт одно и то же " +
+              "дело, и по нему не различишь ничего.",
+          ],
+        },
+        {
+          id: "tri-nachala",
+          kind: "table",
+          caption: "Три начала — нажми и сравни",
+          zvuk: {
+            "Open the door.": "Open the door.",
+            "Don't open the door.": "Don't open the door.",
+            "Can you open the door?": "Can you open the door?",
+          },
+          head: ["Что это", "Как звучит"],
+          rows: [
+            ["указание", "Open the door."],
+            ["запрет", "Don't open the door."],
+            ["просьба", "Can you open the door?"],
+          ],
+        },
+        {
+          id: "prosba-dlinnee",
+          kind: "note",
+          tone: "info",
+          text:
+            "Просьбу узнать легче двух других: она длиннее на два слова и кончается " +
+              "вопросом. Указание и запрет короткие, и различает их только Don't.",
+        },
+        {
+          id: "zapis-ukazaniya-i-zaprety",
+          kind: "audio",
+          skryt: true,
+          pace: "slow",
+          caption: "Послушай три предложения",
+          transcript: "Please close the door. Don't eat here. Can you help me?",
+        },
+        {
+          id: "zapis-razgovor-s-prosboy-o-meste",
+          kind: "audio",
+          skryt: true,
+          pace: "slow",
+          voice: "два голоса",
+          caption: "Послушай разговор",
+          transcript:
+            "Can I sit here? — Yes, of course. — Can I use your pen? — " +
+            "Sorry, I can't. I am writing.",
+        },
+
+        // ---- задания ----
+        {
+          id: "z1-skolko-zapretov",
+          kind: "choice",
+          about: "zapis-ukazaniya-i-zaprety",
+          prompt: "Послушай первую запись. Сколько в ней запретов?",
+          options: [
+            { text: "Один", correct: true },
+            { text: "Два" },
+            { text: "Ни одного" },
+          ],
+          hint: "Запрет начинается с Don't.",
+          why:
+            "Don't eat here — запрет один. Please close the door — указание, Can you " +
+            "help me? — просьба.",
+        },
+        {
+          id: "z2-o-chem-prosyat",
+          kind: "short",
+          about: "zapis-ukazaniya-i-zaprety",
+          prompt:
+            "Послушай первую запись. О чём в ней просят? Ответь английским словом.",
+          answer: "help",
+          accept: ["to help", "help me"],
+          hint: "Просьба — самое длинное предложение, и оно кончается вопросом.",
+          why: "Can you help me? О помощи.",
+        },
+        {
+          id: "z3-mozhno-li-sest",
+          kind: "choice",
+          about: "zapis-razgovor-s-prosboy-o-meste",
+          prompt: "Послушай разговор. Разрешили ли сесть?",
+          options: [
+            { text: "Разрешили", correct: true },
+            { text: "Не разрешили" },
+            { text: "Про место не спрашивали" },
+          ],
+          hint: "Первый ответ идёт сразу после первой просьбы.",
+          why: "Can I sit here? — Yes, of course. Разрешили.",
+        },
+        {
+          id: "z4-pochemu-otkazali",
+          kind: "choice",
+          about: "zapis-razgovor-s-prosboy-o-meste",
+          prompt: "Послушай разговор. Почему не дали ручку?",
+          options: [
+            { text: "Ручки нет" },
+            { text: "Ею сейчас пишут", correct: true },
+            { text: "Причину не назвали" },
+          ],
+          hint: "После отказа человек объясняет причину.",
+          why:
+            "Sorry, I can't. I am writing. Отказ смягчён словом sorry, а причина " +
+            "названа следом.",
+        },
+        {
+          id: "z5-poprosit-i-zapretit",
+          kind: "speak",
+          prompt:
+            "Произнеси вслух три предложения об одном и том же деле: указание, запрет " +
+            "и просьбу.",
+          phrase: "Close the door. Don't close the door. Can you close the door?",
+          translation: "Закрой дверь. Не закрывай дверь. Можешь закрыть дверь?",
+          hint: "Дело во всех трёх одно, меняется только начало.",
+          why:
+            "Собеседник различает их по первому слову. Проглотишь Don't — и запрет " +
+            "услышится указанием, то есть наоборот.",
+        },
+      ],
+    },
   ],
 
   quiz: {
@@ -1281,6 +1547,62 @@ const module: Module = {
       // другой пропущенный кусок.
 
       // ---- итог 1 ----
+      // ---- чтение и слушание ------------------------------------------
+      // Другой случай, чем в уроках: там правила библиотеки и записка Айгуль,
+      // здесь объявление в автобусе и разговор о телефоне.
+      {
+        id: "q-obyavlenie-chto-zapreshcheno",
+        kind: "choice",
+        outcome: "понимать по объявлению, что делать и чего делать нельзя",
+        prompt:
+          "Объявление в автобусе: «Please close the window. Don't eat here. " +
+          "Don't open the door.» Что просят СДЕЛАТЬ?",
+        options: [
+          { text: "Открыть дверь" },
+          { text: "Закрыть окно", correct: true },
+          { text: "Ничего не просят, только запрещают" },
+        ],
+        why:
+          "Please close the window. Это единственная строка без Don't — значит " +
+          "единственное указание, а не запрет.",
+      },
+      {
+        id: "q-obyavlenie-skolko-zapretov",
+        kind: "short",
+        outcome: "понимать по объявлению, что делать и чего делать нельзя",
+        prompt:
+          "То же объявление: «Please close the window. Don't eat here. Don't open the " +
+          "door.» Сколько в нём запретов? Ответь цифрой.",
+        answer: "2",
+        accept: ["два", "две"],
+        why: "Don't eat here и Don't open the door. Два запрета.",
+      },
+      {
+        id: "q-na-sluh-chto-eto-bylo",
+        kind: "choice",
+        outcome: "различать на слух указание, запрет и просьбу",
+        zvuk: "Can you close the window?",
+        prompt: "Послушай запись. Это указание, запрет или просьба?",
+        options: [
+          { text: "Указание" },
+          { text: "Просьба", correct: true },
+          { text: "Запрет" },
+        ],
+        why:
+          "Can you close the window? Начинается с Can you и кончается вопросом — " +
+          "значит просьба. Указание было бы просто Close the window.",
+      },
+      {
+        id: "q-na-sluh-chto-nelzya",
+        kind: "short",
+        outcome: "различать на слух указание, запрет и просьбу",
+        zvuk: "Please sit here. Don't use your phone.",
+        prompt:
+          "Послушай запись. Чем нельзя пользоваться? Ответь английским словом.",
+        answer: "phone",
+        accept: ["your phone", "a phone"],
+        why: "Don't use your phone. Телефоном.",
+      },
       {
         id: "q-ukazanie-vybor",
         kind: "choice",
