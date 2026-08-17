@@ -32,8 +32,8 @@ import type { Module } from "@/lib/content/types";
  *    English Grammar Profile ставит на A2, а программа берёт их по решению 1.
  *    Без вопроса «откуда ты» модуль остаётся рассказом в одну сторону.
  *
- * 6. Звука нет — решение об источнике записей за владельцем
- *    (docs/zadachi-vladeltsa.md, п. 1.4). Места размечены заготовками.
+ * 6. Звук есть: синтез речи Azure, британские голоса — решение владельца
+ *    16 августа 2026 (docs/zadachi-vladeltsa.md, п. 1.4).
  */
 const module: Module = {
   slug: "rasskaz-o-sebe",

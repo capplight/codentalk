@@ -23,8 +23,8 @@ import type { Module } from "@/lib/content/types";
  *    `be`. Повтор намеренный: сначала оборот, потом устройство — тот же
  *    порядок, что в модуле 2.
  *
- * 4. Звука нет — решение об источнике записей за владельцем
- *    (docs/zadachi-vladeltsa.md, п. 1.4).
+ * Звук есть: синтез речи Azure, британские голоса — решение владельца
+ * 16 августа 2026 (docs/zadachi-vladeltsa.md, п. 1.4).
  */
 const module: Module = {
   slug: "ne-tak",

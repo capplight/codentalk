@@ -93,8 +93,8 @@ import type { Module } from "@/lib/content/types";
  * the — модуль 10; вопрос перестановкой и краткий ответ — модуль 4; отрицание с
  * not и короткая форма — модуль 5; слово `some` — модуль 9.
  *
- * Звука нет — решение об источнике записей за владельцем
- * (docs/zadachi-vladeltsa.md, п. 1.4).
+ * Звук есть: синтез речи Azure, британские голоса — решение владельца
+ * 16 августа 2026 (docs/zadachi-vladeltsa.md, п. 1.4).
  */
 const module: Module = {
   slug: "zdes-est",

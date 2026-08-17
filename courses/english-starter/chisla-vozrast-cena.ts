@@ -41,8 +41,8 @@ import type { Module } from "@/lib/content/types";
  * — прилагательных, кроме `old` в обороте про возраст (модуль 11);
  * — дат и времени (модуль 10): числа здесь только как счёт, возраст и цена.
  *
- * Звука нет — решение об источнике записей за владельцем
- * (docs/zadachi-vladeltsa.md, п. 1.4).
+ * Звук есть: синтез речи Azure, британские голоса — решение владельца
+ * 16 августа 2026 (docs/zadachi-vladeltsa.md, п. 1.4).
  */
 const module: Module = {
   slug: "chisla-vozrast-cena",
@@ -127,6 +127,8 @@ const module: Module = {
     "называть числа от двадцати до ста",
     "говорить о количестве, не называя точного числа: some и a lot of",
     "вести короткий разговор о возрасте, количестве и цене",
+    "находить в объявлении цену и количество",
+    "различать на слух похожие числа и понимать цену в разговоре",
   ],
 
   lessons: [
@@ -1337,6 +1339,262 @@ const module: Module = {
         },
       ],
     },
+
+    // =====================================================================
+    // Урок чтения. Здесь впервые появляются цены и время в тексте: описание A1
+    // называет их прямо — «costs, the date and place of the event, departure
+    // times». Опора записана в `sources`.
+    // =====================================================================
+    {
+      slug: "chitaem-cennik",
+      title: "Читаем ценник и объявление",
+      estimatedMinutes: 13,
+      outcome: "находить в объявлении цену и количество",
+
+      blocks: [
+        {
+          id: "zachem-chitat-cennik",
+          kind: "explain",
+          text: [
+            "Ценник и объявление читают ради одного числа. Всё остальное в них — " +
+              "названия вещей, которые ты уже знаешь.",
+            "Числа на письме чаще стоят цифрами, а не словами. Прочитать их вслух ты " +
+              "умеешь: цифра 15 читается fifteen.",
+          ],
+        },
+        {
+          id: "cennik-v-magazine",
+          kind: "text",
+          genre: "notice",
+          title: "SHOP",
+          body: [
+            "A book — 15",
+            "A pen — 3",
+            "Two pencils — 4",
+            "A camera — 90",
+          ],
+        },
+        {
+          id: "razbor-cennika",
+          kind: "note",
+          tone: "info",
+          text:
+            "Число на ценнике — это цена всей строки. «Two pencils — 4» значит, что " +
+              "четыре стоят два карандаша вместе, а не каждый.",
+        },
+        {
+          id: "obyavlenie-o-gruppe",
+          kind: "text",
+          genre: "notice",
+          title: "ENGLISH LESSONS",
+          body: [
+            "Students: 12",
+            "Age: 15 — 20",
+            "One lesson — 60",
+            "Phone: 8 7 1 2 3 4 5",
+          ],
+          glossary: [{ term: "Age", translation: "возраст" }],
+        },
+
+        // ---- задания ----
+        {
+          id: "z1-cena-knigi",
+          kind: "short",
+          about: "cennik-v-magazine",
+          prompt: "Посмотри на ценник SHOP. Сколько стоит книга? Ответь цифрой.",
+          answer: "15",
+          accept: ["fifteen", "пятнадцать"],
+          hint: "Найди строку со словом book.",
+          why: "A book — 15. Пятнадцать.",
+        },
+        {
+          id: "z2-chto-dorozhe",
+          kind: "choice",
+          about: "cennik-v-magazine",
+          prompt: "Посмотри на ценник SHOP. Что стоит дороже всего?",
+          options: [
+            { text: "Камера", correct: true },
+            { text: "Книга" },
+            { text: "Два карандаша" },
+          ],
+          hint: "Сравни четыре числа и выбери самое большое.",
+          why: "A camera — 90. Девяносто больше, чем 15, 4 и 3.",
+        },
+        {
+          id: "z3-skolko-uchenikov",
+          kind: "short",
+          about: "obyavlenie-o-gruppe",
+          prompt:
+            "Посмотри на объявление ENGLISH LESSONS. Сколько в группе учеников? " +
+            "Ответь цифрой.",
+          answer: "12",
+          accept: ["twelve", "двенадцать"],
+          hint: "Строка Students называет число людей, а не цену.",
+          why: "Students: 12. Двенадцать учеников.",
+        },
+        {
+          id: "z4-vozrast-gruppy",
+          kind: "choice",
+          about: "obyavlenie-o-gruppe",
+          prompt:
+            "Посмотри на объявление ENGLISH LESSONS. Возьмут ли в группу человека " +
+            "четырнадцати лет?",
+          options: [
+            { text: "Нет, он младше", correct: true },
+            { text: "Да, возраст подходит" },
+            { text: "Про возраст в объявлении не сказано" },
+          ],
+          hint: "Строка Age называет два числа: от какого возраста и до какого.",
+          why:
+            "Age: 15 — 20. Тире между числами значит «с … до …». Четырнадцать меньше " +
+            "пятнадцати, значит не подходит.",
+        },
+        {
+          id: "z5-nomer-po-cifram",
+          kind: "short",
+          about: "obyavlenie-o-gruppe",
+          prompt:
+            "Посмотри на объявление ENGLISH LESSONS. Какая цифра в телефоне идёт " +
+            "третьей? Ответь цифрой.",
+          answer: "1",
+          accept: ["one", "один"],
+          hint: "Цифры в номере читают по одной: восемь, семь, один…",
+          why: "Phone: 8 7 1 2 3 4 5. Третья цифра — 1, one.",
+        },
+      ],
+    },
+
+    // =====================================================================
+    // Урок слушания.
+    // =====================================================================
+    {
+      slug: "slushaem-chisla",
+      title: "Слушаем числа",
+      estimatedMinutes: 13,
+      outcome: "различать на слух похожие числа и понимать цену в разговоре",
+
+      blocks: [
+        {
+          id: "zachem-slushat-chisla",
+          kind: "explain",
+          text: [
+            "Числа на слух путают чаще всего остального. И путают не любые, а пары " +
+              "вроде fifteen и fifty: у них одинаковое начало.",
+            "Различает их ударение. В fifteen сильнее звучит вторая часть, в fifty — " +
+              "первая. Послушай эту разницу, прежде чем отвечать.",
+          ],
+        },
+        {
+          id: "pary-chisel",
+          kind: "table",
+          caption: "Пары, которые путают — нажми, чтобы услышать",
+          zvuk: {
+            thirteen: "thirteen",
+            thirty: "thirty",
+            fifteen: "fifteen",
+            fifty: "fifty",
+            eighteen: "eighteen",
+            eighty: "eighty",
+          },
+          head: ["Меньшее", "Большее"],
+          rows: [
+            ["thirteen", "thirty"],
+            ["fifteen", "fifty"],
+            ["eighteen", "eighty"],
+          ],
+        },
+        {
+          id: "gde-udarenie",
+          kind: "note",
+          tone: "info",
+          text:
+            "У чисел на -teen ударение падает на конец: /θɜːˈtiːn/. У десятков на -ty " +
+              "оно в начале: /ˈθɜːti/. Конец слова при этом звучит совсем коротко, и " +
+              "поймать его труднее, чем ударение.",
+        },
+        {
+          id: "zapis-cena-v-magazine",
+          kind: "audio",
+          skryt: true,
+          pace: "slow",
+          voice: "два голоса",
+          caption: "Послушай разговор в магазине",
+          transcript:
+            "How much is it? — It is thirty. — And this camera? — Ninety.",
+        },
+        {
+          id: "zapis-vozrast-i-chislo",
+          kind: "audio",
+          skryt: true,
+          pace: "slow",
+          caption: "Послушай, что говорят о группе",
+          transcript: "My sister is thirteen. There are fourteen students.",
+        },
+
+        // ---- задания ----
+        {
+          id: "z1-skolko-stoit-na-sluh",
+          kind: "choice",
+          about: "zapis-cena-v-magazine",
+          prompt: "Послушай разговор. Какова первая названная цена?",
+          options: [
+            { text: "13" },
+            { text: "30", correct: true },
+            { text: "3" },
+          ],
+          hint: "Слушай, где сильнее звучит слово: в начале или в конце.",
+          why:
+            "It is thirty. В thirty ударение на первой части, и конец звучит коротко. " +
+            "У thirteen ударение было бы на конце.",
+        },
+        {
+          id: "z2-cena-kamery",
+          kind: "short",
+          about: "zapis-cena-v-magazine",
+          prompt: "Послушай разговор. Сколько стоит камера? Ответь цифрой.",
+          answer: "90",
+          accept: ["ninety", "девяносто"],
+          hint: "Это последнее слово записи.",
+          why: "Ninety. Девяносто.",
+        },
+        {
+          id: "z3-vozrast-sestry",
+          kind: "short",
+          about: "zapis-vozrast-i-chislo",
+          prompt: "Послушай вторую запись. Сколько лет сестре? Ответь цифрой.",
+          answer: "13",
+          accept: ["thirteen", "тринадцать"],
+          hint: "Ударение здесь падает на конец слова.",
+          why: "My sister is thirteen. Тринадцать, а не тридцать: ударение в конце.",
+        },
+        {
+          id: "z4-skolko-uchenikov-na-sluh",
+          kind: "choice",
+          about: "zapis-vozrast-i-chislo",
+          prompt: "Послушай вторую запись. Сколько в группе учеников?",
+          options: [
+            { text: "40" },
+            { text: "14", correct: true },
+            { text: "4" },
+          ],
+          hint: "Опять слушай, куда падает ударение.",
+          why: "There are fourteen students. Четырнадцать: ударение на конце слова.",
+        },
+        {
+          id: "z5-skazat-paru",
+          kind: "speak",
+          prompt:
+            "Произнеси вслух пару так, чтобы разница была слышна: сначала меньшее " +
+            "число, потом большее.",
+          phrase: "Fifteen. Fifty.",
+          translation: "Пятнадцать. Пятьдесят.",
+          hint: "В первом слове нажми на конец, во втором — на начало.",
+          why:
+            "Fifteen и fifty различает только ударение, и произносить его надо " +
+            "заметно: иначе собеседник услышит не то число.",
+        },
+      ],
+    },
   ],
 
   // =======================================================================
@@ -1347,6 +1605,59 @@ const module: Module = {
     ask: 9,
     passRatio: 0.8,
     questions: [
+      // ---- чтение и слушание ------------------------------------------
+      // Другой случай и другой вид задания, чем в уроках: там ценник магазина
+      // и объявление о занятиях, здесь расписание и счёт в кафе.
+      {
+        id: "q-raspisanie-skolko-stoit",
+        kind: "choice",
+        outcome: "находить в объявлении цену и количество",
+        prompt:
+          "Объявление: «BUS 5. Ticket — 40. Students — 20.» Сколько заплатит ученик?",
+        options: [
+          { text: "20", correct: true },
+          { text: "40" },
+          { text: "5" },
+        ],
+        why:
+          "Students — 20. Для учеников цена отдельная. Сорок — обычный билет, а пять — " +
+          "номер автобуса.",
+      },
+      {
+        id: "q-ispravit-cenu",
+        kind: "short",
+        outcome: "находить в объявлении цену и количество",
+        prompt:
+          "На ценнике стоит «A book — 50», а человек пересказал это как «The book is " +
+          "fifteen». Он назвал не то число. Напиши верное английское слово.",
+        answer: "fifty",
+        why: "A book — 50, то есть fifty. Fifteen — это 15.",
+      },
+      {
+        id: "q-na-sluh-vozrast",
+        kind: "short",
+        outcome: "различать на слух похожие числа и понимать цену в разговоре",
+        zvuk: "How old is your brother? — He is sixteen.",
+        prompt: "Послушай запись. Сколько лет брату? Ответь цифрой.",
+        answer: "16",
+        accept: ["sixteen", "шестнадцать"],
+        why: "He is sixteen. Шестнадцать: ударение падает на конец слова.",
+      },
+      {
+        id: "q-na-sluh-skolko-platit",
+        kind: "choice",
+        outcome: "различать на слух похожие числа и понимать цену в разговоре",
+        zvuk: "Two tickets, please. — It is forty.",
+        prompt: "Послушай запись. Сколько нужно заплатить?",
+        options: [
+          { text: "14" },
+          { text: "4" },
+          { text: "40", correct: true },
+        ],
+        why:
+          "It is forty. Сорок: ударение в начале слова. У fourteen оно было бы на " +
+          "конце.",
+      },
       {
         id: "q-chislo-slovom",
         kind: "short",

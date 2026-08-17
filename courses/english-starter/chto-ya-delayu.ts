@@ -100,8 +100,8 @@ import type { Module } from "@/lib/content/types";
  * 3 прямо на него ссылается); местоимения — модуль 2; `and` — модуль 1;
  * `there is` — модуль 13.
  *
- * Звука нет — решение об источнике записей за владельцем
- * (docs/zadachi-vladeltsa.md, п. 1.4).
+ * Звук есть: синтез речи Azure, британские голоса — решение владельца
+ * 16 августа 2026 (docs/zadachi-vladeltsa.md, п. 1.4).
  */
 const module: Module = {
   slug: "chto-ya-delayu",
