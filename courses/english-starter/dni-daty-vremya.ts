@@ -236,6 +236,8 @@ const module: Module = {
     "ставить at, in или on перед словом о времени",
     "спрашивать о дне и о времени: When и What time",
     "договариваться о встрече: называть день, время и часть суток",
+    "находить в расписании нужный день и время",
+    "понимать на слух, когда назначена встреча",
   ],
 
   lessons: [
@@ -1740,6 +1742,249 @@ const module: Module = {
         },
       ],
     },
+
+    // =====================================================================
+    // Урок чтения. Расписание — самый частый текст со временем, и описание A1
+    // называет его прямо: «departure times». Опора — в `sources`.
+    // =====================================================================
+    {
+      slug: "chitaem-raspisanie",
+      title: "Читаем расписание",
+      estimatedMinutes: 13,
+      outcome: "находить в расписании нужный день и время",
+
+      blocks: [
+        {
+          id: "zachem-chitat-raspisanie",
+          kind: "explain",
+          text: [
+            "Расписание читают не сверху вниз, а по одной строке — той, что нужна " +
+              "сегодня.",
+            "Ищут в нём по двум вещам: день недели и время. Обе ты уже умеешь читать.",
+          ],
+        },
+        {
+          id: "raspisanie-zanyatiy",
+          kind: "text",
+          genre: "notice",
+          title: "ENGLISH LESSONS",
+          body: [
+            "Monday — 10 o'clock",
+            "Wednesday — half past four",
+            "Friday — 6 o'clock in the evening",
+            "Saturday — no lesson",
+          ],
+        },
+        {
+          id: "razbor-raspisaniya",
+          kind: "note",
+          tone: "info",
+          text:
+            "Время в расписании записывают по-разному: цифрой с o'clock, словами про " +
+              "половину, иногда с частью суток. Читаются все три записи одинаково легко, " +
+              "если помнить, что они об одном и том же.",
+        },
+        {
+          id: "zapiska-o-vstreche",
+          kind: "text",
+          genre: "message",
+          title: "A message from Aigul",
+          body: [
+            "Hi! The meeting is on Tuesday at quarter past nine in the morning.",
+            "It is not on Monday. See you! Aigul",
+          ],
+        },
+
+        // ---- задания ----
+        {
+          id: "z1-kogda-v-sredu",
+          kind: "short",
+          about: "raspisanie-zanyatiy",
+          prompt:
+            "Посмотри на расписание ENGLISH LESSONS. Во сколько занятие в среду? " +
+            "Напиши время английскими словами.",
+          answer: "half past four",
+          accept: ["half past 4"],
+          hint: "Найди строку Wednesday и прочитай, что стоит после тире.",
+          why: "Wednesday — half past four. Половина пятого.",
+        },
+        {
+          id: "z2-kogda-net-zanyatiya",
+          kind: "choice",
+          about: "raspisanie-zanyatiy",
+          prompt: "Посмотри на расписание ENGLISH LESSONS. В какой день занятия нет?",
+          options: [
+            { text: "В пятницу" },
+            { text: "В среду" },
+            { text: "В субботу", correct: true },
+          ],
+          hint: "В одной строке вместо времени стоят два слова.",
+          why: "Saturday — no lesson. No lesson — «занятия нет».",
+        },
+        {
+          id: "z3-vechernee-zanyatie",
+          kind: "choice",
+          about: "raspisanie-zanyatiy",
+          prompt: "Посмотри на расписание ENGLISH LESSONS. Какое занятие вечернее?",
+          options: [
+            { text: "В понедельник" },
+            { text: "В пятницу", correct: true },
+            { text: "В среду" },
+          ],
+          hint: "Часть суток названа только в одной строке.",
+          why:
+            "Friday — 6 o'clock in the evening. In the evening — «вечером». В других " +
+            "строках часть суток не названа.",
+        },
+        {
+          id: "z4-den-vstrechi",
+          kind: "short",
+          about: "zapiska-o-vstreche",
+          prompt:
+            "Прочитай записку от Айгуль. В какой день встреча? Ответь английским словом.",
+          answer: "Tuesday",
+          accept: ["on Tuesday"],
+          hint: "В записке названы два дня, но один из них с отрицанием.",
+          why:
+            "The meeting is on Tuesday. Про понедельник сказано отдельно: It is not on " +
+            "Monday.",
+        },
+        {
+          id: "z5-vremya-vstrechi",
+          kind: "choice",
+          about: "zapiska-o-vstreche",
+          prompt: "Прочитай записку от Айгуль. Во сколько встреча?",
+          options: [
+            { text: "В четверть десятого утра", correct: true },
+            { text: "Без четверти девять утра" },
+            { text: "В половине десятого утра" },
+          ],
+          hint: "Quarter past — это четверть ПОСЛЕ названного часа.",
+          why:
+            "At quarter past nine in the morning. Quarter past nine — четверть " +
+            "десятого, то есть девять пятнадцать.",
+        },
+      ],
+    },
+
+    // =====================================================================
+    // Урок слушания.
+    // =====================================================================
+    {
+      slug: "slushaem-vremya",
+      title: "Слушаем время встречи",
+      estimatedMinutes: 13,
+      outcome: "понимать на слух, когда назначена встреча",
+
+      blocks: [
+        {
+          id: "zachem-slushat-vremya",
+          kind: "explain",
+          text: [
+            "О встрече чаще договариваются вслух, и переспросить бывает неловко. " +
+              "Поэтому ловить надо сразу три вещи: день, час и часть суток.",
+            "Они идут в этом порядке почти всегда, и слова между ними можно " +
+              "пропускать мимо ушей.",
+          ],
+        },
+        {
+          id: "poryadok-v-dogovorennosti",
+          kind: "table",
+          caption: "Что за чем звучит в договорённости",
+          head: ["Что ловим", "Какое слово", "Пример"],
+          rows: [
+            ["день", "после on", "on Monday"],
+            ["час", "после at", "at seven"],
+            ["часть суток", "после in или at", "in the evening"],
+          ],
+        },
+        {
+          id: "zapis-dogovorennost",
+          kind: "audio",
+          skryt: true,
+          pace: "slow",
+          voice: "два голоса",
+          caption: "Послушай, как договариваются о встрече",
+          transcript:
+            "When is the lesson? — It is on Thursday. — And what time? — " +
+            "At half past five in the evening.",
+        },
+        {
+          id: "zapis-obyavlenie-o-vremeni",
+          kind: "audio",
+          skryt: true,
+          pace: "slow",
+          caption: "Послушай объявление",
+          transcript:
+            "Good morning. The shop is open at nine o'clock. On Sunday it is not open.",
+        },
+
+        // ---- задания ----
+        {
+          id: "z1-den-uroka-na-sluh",
+          kind: "short",
+          about: "zapis-dogovorennost",
+          prompt:
+            "Послушай первую запись. В какой день занятие? Ответь английским словом.",
+          answer: "Thursday",
+          accept: ["on Thursday"],
+          hint: "День всегда идёт после слова on.",
+          why: "It is on Thursday. Четверг.",
+        },
+        {
+          id: "z2-vremya-uroka-na-sluh",
+          kind: "choice",
+          about: "zapis-dogovorennost",
+          prompt: "Послушай первую запись. Во сколько занятие?",
+          options: [
+            { text: "В половине шестого вечера", correct: true },
+            { text: "В половине пятого вечера" },
+            { text: "В пять вечера" },
+          ],
+          hint: "Half past — это половина ПОСЛЕ названного часа.",
+          why:
+            "At half past five in the evening. Half past five — половина шестого, " +
+            "то есть пять тридцать.",
+        },
+        {
+          id: "z3-chast-sutok-na-sluh",
+          kind: "choice",
+          about: "zapis-dogovorennost",
+          prompt: "Послушай первую запись. Какая часть суток названа?",
+          options: [
+            { text: "Утро" },
+            { text: "День" },
+            { text: "Вечер", correct: true },
+          ],
+          hint: "Часть суток стоит в самом конце ответа.",
+          why: "In the evening — вечером.",
+        },
+        {
+          id: "z4-kogda-otkryt-magazin",
+          kind: "short",
+          about: "zapis-obyavlenie-o-vremeni",
+          prompt:
+            "Послушай объявление. Во сколько открывается магазин? Ответь цифрой.",
+          answer: "9",
+          accept: ["9 o'clock", "nine", "девять"],
+          hint: "Время стоит рядом со словом o'clock.",
+          why: "The shop is open at nine o'clock. В девять.",
+        },
+        {
+          id: "z5-vyhodnoy-den",
+          kind: "choice",
+          about: "zapis-obyavlenie-o-vremeni",
+          prompt: "Послушай объявление. В какой день магазин закрыт?",
+          options: [
+            { text: "В субботу" },
+            { text: "В воскресенье", correct: true },
+            { text: "Про закрытый день не сказано" },
+          ],
+          hint: "Последнее предложение начинается с дня недели.",
+          why: "On Sunday it is not open. В воскресенье не работает.",
+        },
+      ],
+    },
   ],
 
   // =======================================================================
@@ -1754,6 +1999,60 @@ const module: Module = {
     ask: 9,
     passRatio: 0.8,
     questions: [
+      // ---- чтение и слушание ------------------------------------------
+      // Другой случай и другой вид задания, чем в уроках: там расписание
+      // занятий и записка, здесь часы работы и приглашение.
+      {
+        id: "q-chasy-raboty-vyhodnoy",
+        kind: "hottext",
+        outcome: "находить в расписании нужный день и время",
+        prompt:
+          "Объявление: «Monday — 9 o'clock. Tuesday — 9 o'clock. Sunday — no.» " +
+          "Отметь день, когда работы нет.",
+        parts: [
+          { text: "Monday", selectable: true },
+          { text: "Tuesday", selectable: true },
+          { text: "Sunday", selectable: true, correct: true },
+        ],
+        why: "Sunday — no. В воскресенье не работают, в остальные дни открыто в девять.",
+      },
+      {
+        id: "q-ispravit-vremya-v-zapiske",
+        kind: "short",
+        outcome: "находить в расписании нужный день и время",
+        prompt:
+          "В расписании стоит «Friday — quarter past seven», а человек пересказал это " +
+          "как «The lesson is on Friday at quarter to seven». Он перепутал одно слово. " +
+          "Напиши верное английское слово вместо to.",
+        answer: "past",
+        why:
+          "Quarter past seven — четверть восьмого. Quarter to seven было бы без " +
+          "четверти семь, то есть на полчаса раньше.",
+      },
+      {
+        id: "q-na-sluh-den-vstrechi",
+        kind: "choice",
+        outcome: "понимать на слух, когда назначена встреча",
+        zvuk: "The meeting is on Wednesday at ten in the morning.",
+        prompt: "Послушай запись. В какой день встреча?",
+        options: [
+          { text: "В четверг" },
+          { text: "В среду", correct: true },
+          { text: "В понедельник" },
+        ],
+        why: "The meeting is on Wednesday. Среда.",
+      },
+      {
+        id: "q-na-sluh-chast-sutok",
+        kind: "short",
+        outcome: "понимать на слух, когда назначена встреча",
+        zvuk: "See you on Saturday at eight in the evening.",
+        prompt:
+          "Послушай запись. В какую часть суток встреча? Ответь английским словом.",
+        answer: "evening",
+        accept: ["in the evening", "the evening"],
+        why: "At eight in the evening. Вечером.",
+      },
       {
         id: "q-den-posle-vtornika",
         kind: "short",
