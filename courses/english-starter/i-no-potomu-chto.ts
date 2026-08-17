@@ -148,6 +148,8 @@ const module: Module = {
     "называть причину: because",
     "спрашивать о причине: Why do you work here?",
     "рассказывать связно, с причинами",
+    "понимать по рассказу, что с чем связано и почему",
+    "слышать связку и понимать, добавляет она, спорит или даёт выбор",
   ],
 
   lessons: [
@@ -1258,6 +1260,273 @@ const module: Module = {
         },
       ],
     },
+
+    // =====================================================================
+    // Урок чтения. Первый текст, где предложения связаны словами, а не просто
+    // стоят рядом: до этого модуля их нечем было связывать.
+    // =====================================================================
+    {
+      slug: "chitaem-svyaznyy-rasskaz",
+      title: "Читаем связный рассказ",
+      estimatedMinutes: 13,
+      outcome: "понимать по рассказу, что с чем связано и почему",
+
+      blocks: [
+        {
+          id: "zachem-chitat-svyaznoe",
+          kind: "explain",
+          text: [
+            "До сих пор предложения в текстах просто стояли рядом. Теперь их связывают " +
+              "словами, и от этих слов зависит смысл.",
+            "Их четыре, и каждое делает своё: and добавляет, but спорит, or даёт выбор, " +
+              "because называет причину. Читая, смотри на них так же внимательно, как " +
+              "на сами дела.",
+          ],
+        },
+        {
+          id: "rasskaz-o-rabote-i-uchyobe",
+          kind: "text",
+          genre: "article",
+          title: "Dana",
+          body: [
+            "Dana works in a shop and studies English.",
+            "She likes her job, but she doesn't like early mornings.",
+            "She studies English because she wants a good job.",
+            "On Sunday she reads books or goes to the park.",
+          ],
+          glossary: [
+            { term: "early", translation: "ранний, рано" },
+            { term: "wants", translation: "хочет" },
+          ],
+        },
+        {
+          id: "razbor-svyazok",
+          kind: "note",
+          tone: "info",
+          text:
+            "Обрати внимание на but во второй строке. Работа Дане нравится, а ранние " +
+              "утра нет — but и показывает, что второе спорит с первым, а не добавляется " +
+              "к нему.",
+        },
+        {
+          id: "pismo-s-prichinoy",
+          kind: "text",
+          genre: "email",
+          title: "A message from Nurlan",
+          body: [
+            "Hi! I don't work on Monday because I study.",
+            "I like my job, and I like my students.",
+            "Can you help me on Tuesday or on Friday? Nurlan",
+          ],
+        },
+
+        // ---- задания ----
+        {
+          id: "z1-chto-dane-ne-nravitsya",
+          kind: "short",
+          about: "rasskaz-o-rabote-i-uchyobe",
+          prompt:
+            "Прочитай рассказ Dana. Что ей не нравится? Ответь двумя английскими " +
+            "словами из текста.",
+          answer: "early mornings",
+          accept: ["early morning"],
+          hint: "Найди слово but — то, что стоит после него, и есть ответ.",
+          why:
+            "She likes her job, but she doesn't like early mornings. Ранние утра.",
+        },
+        {
+          id: "z2-pochemu-uchit-angliyskiy",
+          kind: "choice",
+          about: "rasskaz-o-rabote-i-uchyobe",
+          prompt: "Прочитай рассказ Dana. Почему она учит английский?",
+          options: [
+            { text: "Потому что работает в магазине" },
+            { text: "Потому что хочет хорошую работу", correct: true },
+            { text: "Причина не названа" },
+          ],
+          hint: "Причина всегда идёт после слова because.",
+          why: "She studies English because she wants a good job.",
+        },
+        {
+          id: "z3-chto-v-voskresene",
+          kind: "choice",
+          about: "rasskaz-o-rabote-i-uchyobe",
+          prompt: "Прочитай рассказ Dana. Что она делает в воскресенье?",
+          options: [
+            { text: "И читает, и гуляет в парке" },
+            { text: "Либо читает, либо гуляет в парке", correct: true },
+            { text: "Работает" },
+          ],
+          hint: "Слово or даёт выбор, а не соединяет два дела.",
+          why:
+            "On Sunday she reads books or goes to the park. Or — «или»: одно из двух, " +
+            "а не оба сразу. Было бы and — оба.",
+        },
+        {
+          id: "z4-pochemu-ne-rabotaet",
+          kind: "short",
+          about: "pismo-s-prichinoy",
+          prompt:
+            "Прочитай письмо от Нурлана. Почему он не работает по понедельникам? " +
+            "Ответь английским словом.",
+          answer: "study",
+          accept: ["I study", "he studies", "studies"],
+          hint: "Причина стоит после because.",
+          why: "I don't work on Monday because I study. Потому что учится.",
+        },
+        {
+          id: "z5-kogda-mozhno-pomoch",
+          kind: "choice",
+          about: "pismo-s-prichinoy",
+          prompt: "Прочитай письмо от Нурлана. В какие дни он просит о помощи?",
+          options: [
+            { text: "В понедельник" },
+            { text: "Во вторник и в пятницу сразу" },
+            { text: "Во вторник или в пятницу — на выбор", correct: true },
+          ],
+          hint: "Между днями стоит or.",
+          why:
+            "Can you help me on Tuesday or on Friday? Or даёт выбор: подойдёт любой " +
+            "из двух дней.",
+        },
+      ],
+    },
+
+    // =====================================================================
+    // Урок слушания.
+    // =====================================================================
+    {
+      slug: "slushaem-svyazki",
+      title: "Слушаем связки",
+      estimatedMinutes: 13,
+      outcome: "слышать связку и понимать, добавляет она, спорит или даёт выбор",
+
+      blocks: [
+        {
+          id: "zachem-slushat-svyazki",
+          kind: "explain",
+          text: [
+            "Связки звучат коротко и стоят в середине, между двумя делами. Пропустишь " +
+              "её — услышишь два отдельных сообщения вместо одного связного.",
+            "И хуже: спутаешь and с but — и решишь, что человеку нравится то, что как " +
+              "раз не нравится.",
+          ],
+        },
+        {
+          id: "chetyre-svyazki-na-sluh",
+          kind: "table",
+          caption: "Четыре связки — нажми и сравни",
+          zvuk: {
+            "I work and I study.": "I work and I study.",
+            "I work but I don't study.": "I work but I don't study.",
+            "Tea or coffee?": "Tea or coffee?",
+            "I study because I want a good job.": "I study because I want a good job.",
+          },
+          head: ["Что делает связка", "Пример"],
+          rows: [
+            ["добавляет", "I work and I study."],
+            ["спорит", "I work but I don't study."],
+            ["даёт выбор", "Tea or coffee?"],
+            ["называет причину", "I study because I want a good job."],
+          ],
+        },
+        {
+          id: "because-slyshno-luchshe",
+          kind: "note",
+          tone: "info",
+          text:
+            "Because слышно лучше остальных: оно длиннее и на нём голос задерживается. " +
+              "And, but и or короткие, и ловить их надо на месте между двумя делами.",
+        },
+        {
+          id: "zapis-rasskaz-so-svyazkami",
+          kind: "audio",
+          skryt: true,
+          pace: "slow",
+          caption: "Послушай рассказ",
+          transcript:
+            "I work in a shop and I study English. I like my job, but I don't like " +
+            "early mornings.",
+        },
+        {
+          id: "zapis-vopros-pochemu",
+          kind: "audio",
+          skryt: true,
+          pace: "slow",
+          voice: "два голоса",
+          caption: "Послушай разговор",
+          transcript:
+            "Why do you study English? — Because I want a good job. — " +
+            "Tea or coffee? — Tea, please.",
+        },
+
+        // ---- задания ----
+        {
+          id: "z1-chto-delaet-govoryashchiy",
+          kind: "choice",
+          about: "zapis-rasskaz-so-svyazkami",
+          prompt: "Послушай первую запись. Что человек делает?",
+          options: [
+            { text: "Только работает" },
+            { text: "И работает, и учится", correct: true },
+            { text: "Только учится" },
+          ],
+          hint: "Первая связка добавляет второе дело к первому.",
+          why: "I work in a shop and I study English. And — «и»: оба дела сразу.",
+        },
+        {
+          id: "z2-chto-ne-nravitsya-na-sluh",
+          kind: "short",
+          about: "zapis-rasskaz-so-svyazkami",
+          prompt:
+            "Послушай первую запись. Что человеку не нравится? Ответь двумя " +
+            "английскими словами.",
+          answer: "early mornings",
+          accept: ["early morning"],
+          hint: "Слушай, что идёт после but.",
+          why:
+            "I like my job, but I don't like early mornings. But показывает, что " +
+            "второе спорит с первым.",
+        },
+        {
+          id: "z3-pochemu-uchit",
+          kind: "choice",
+          about: "zapis-vopros-pochemu",
+          prompt: "Послушай вторую запись. Зачем человек учит английский?",
+          options: [
+            { text: "Ради хорошей работы", correct: true },
+            { text: "Ради поездки" },
+            { text: "Причину он не назвал" },
+          ],
+          hint: "Ответ начинается с самой длинной связки.",
+          why: "Because I want a good job. Because — «потому что».",
+        },
+        {
+          id: "z4-chto-vybrali",
+          kind: "short",
+          about: "zapis-vopros-pochemu",
+          prompt:
+            "Послушай вторую запись. Что человек выбрал? Ответь английским словом.",
+          answer: "tea",
+          accept: ["Tea, please"],
+          hint: "Выбор предлагают связкой or, а ответ идёт следом.",
+          why: "Tea or coffee? — Tea, please. Чай.",
+        },
+        {
+          id: "z5-skazat-so-svyazkami",
+          kind: "speak",
+          prompt:
+            "Скажи вслух два предложения о себе: одно со связкой and, другое со " +
+            "связкой because.",
+          phrase: "I work and I study. I study English because I want a good job.",
+          translation: "Я работаю и учусь. Я учу английский, потому что хочу хорошую работу.",
+          hint: "Связку не проглатывай — на ней держится связь между делами.",
+          why:
+            "Без связки собеседник услышит два отдельных сообщения и не поймёт, как " +
+            "они связаны между собой.",
+        },
+      ],
+    },
   ],
 
   quiz: {
@@ -1271,6 +1540,62 @@ const module: Module = {
       // ответить на вопрос, собрать другой рассказ.
 
       // ---- итог 1 ----
+      // ---- чтение и слушание ------------------------------------------
+      // Другой случай, чем в уроках: там рассказ о Дане и письмо Нурлана,
+      // здесь рассказ об Алиме и разговор о выборе.
+      {
+        id: "q-tekst-chto-ne-nravitsya",
+        kind: "choice",
+        outcome: "понимать по рассказу, что с чем связано и почему",
+        prompt:
+          "Рассказ: «Alim works in a hospital and he likes his job, but he doesn't " +
+          "like night work.» Что ему не нравится?",
+        options: [
+          { text: "Ночная работа", correct: true },
+          { text: "Его работа" },
+          { text: "Больница" },
+        ],
+        why:
+          "…but he doesn't like night work. Слово but показывает, что дальше идёт " +
+          "обратное сказанному до него.",
+      },
+      {
+        id: "q-tekst-pochemu",
+        kind: "short",
+        outcome: "понимать по рассказу, что с чем связано и почему",
+        prompt:
+          "Рассказ: «Aigul studies English because she works with people from other " +
+          "countries.» Какое слово называет причину? Ответь английским словом.",
+        answer: "because",
+        why:
+          "Because she works with people from other countries. Причина всегда идёт " +
+          "после этого слова.",
+      },
+      {
+        id: "q-na-sluh-i-ili-no",
+        kind: "choice",
+        outcome: "слышать связку и понимать, добавляет она, спорит или даёт выбор",
+        zvuk: "I like tea but I don't like coffee.",
+        prompt: "Послушай запись. Что человек любит?",
+        options: [
+          { text: "И чай, и кофе" },
+          { text: "Только кофе" },
+          { text: "Только чай", correct: true },
+        ],
+        why:
+          "I like tea but I don't like coffee. Связка but спорит: чай да, кофе нет. " +
+          "Было бы and — любил бы оба.",
+      },
+      {
+        id: "q-na-sluh-vybor",
+        kind: "short",
+        outcome: "слышать связку и понимать, добавляет она, спорит или даёт выбор",
+        zvuk: "Bread or rice? — Rice, please.",
+        prompt: "Послушай запись. Что выбрали? Ответь английским словом.",
+        answer: "rice",
+        accept: ["Rice, please", "some rice"],
+        why: "Bread or rice? — Rice, please. Связка or предлагала выбор из двух.",
+      },
       {
         id: "q-soedinit-dva-predlozheniya",
         kind: "short",
