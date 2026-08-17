@@ -1150,24 +1150,33 @@ const module: Module = {
           id: "obyavlenie-o-nahodke",
           kind: "text",
           genre: "notice",
+          // Определённого артикля здесь НЕТ, и это не случайность: `the`
+          // разбирается в модуле 10, а до него в курсе не встречается ни разу.
+          // Сначала я поставил «in the shop» — методист поймал и заодно
+          // показал, что на этом счёте держится обоснование урока об артикле.
+          // Место называется так же, как на ценнике модуля 9: без артикля.
           title: "LOST AND FOUND",
           body: [
-            "Keys — in the shop",
-            "A camera — in the bus",
-            "Books and pencils — in the room",
-            "A watch — in the street",
+            "Keys — shop",
+            "A camera — bus",
+            "Books and pencils — room",
+            "A watch — street",
           ],
           glossary: [
             { term: "LOST AND FOUND", translation: "бюро находок: где хранят потерянное" },
           ],
         },
         {
+          // Врезка нарочно НЕ называет те вещи, о которых спрашивают задания:
+          // сначала называла, и задание решалось чтением врезки, а объявление
+          // можно было не открывать.
           id: "razbor-nahodki",
           kind: "note",
           tone: "info",
           text:
-            "Присмотрись к первым словам строк. Keys и Books стоят с окончанием s — " +
-              "их несколько. A camera и A watch стоят с артиклем a — она одна.",
+            "Строка объявления устроена так: сначала вещь, потом тире, потом место.\n" +
+              "Присмотрись к первому слову каждой строки. Если на конце s — вещей " +
+              "несколько. Если перед словом стоит a — она одна.",
         },
         {
           id: "zapiska-o-veshchah",
@@ -1175,7 +1184,7 @@ const module: Module = {
           genre: "message",
           title: "A message from Dana",
           body: [
-            "Hi Alim! My books are in your bag. My pen and my pencil are there too.",
+            "Hi Alim! My books are in your bag. My pen and my pencil are in your bag too.",
             "That watch is not my watch. Sorry! Dana",
           ],
         },
@@ -1204,9 +1213,8 @@ const module: Module = {
             "Прочитай объявление LOST AND FOUND. Где нашли камеру? Ответь английским " +
             "словом из объявления.",
           answer: "bus",
-          accept: ["the bus", "in the bus"],
           hint: "Найди строку со словом camera и прочитай её до конца.",
-          why: "A camera — in the bus. Камеру нашли в автобусе.",
+          why: "A camera — bus. Камеру нашли в автобусе.",
         },
         {
           id: "z3-chto-v-sumke",
@@ -1220,35 +1228,38 @@ const module: Module = {
           ],
           hint: "Второе предложение добавляет к первому ещё две вещи словом too.",
           why:
-            "My books are in your bag. My pen and my pencil are there too. Слово too — " +
-            "«тоже», оно и добавляет ручку с карандашом.",
+            "My books are in your bag. My pen and my pencil are in your bag too. " +
+            "Слово too — «тоже», оно и добавляет ручку с карандашом.",
         },
         {
           id: "z4-chi-chasy",
           kind: "choice",
           about: "zapiska-o-veshchah",
-          prompt: "Прочитай записку от Даны. Чьи это часы?",
+          // Третий вариант убран: он был вторым верным прочтением. Про часы в
+          // записке сказано, но не сказано, ЧЬИ они, — и ученик, выбравший
+          // «не сказано», был прав по-своему. Нашёл методист.
+          prompt: "Прочитай записку от Даны. Что Дана говорит про часы?",
           options: [
-            { text: "Не Даны", correct: true },
-            { text: "Даны" },
-            { text: "В записке про часы не сказано" },
+            { text: "Что они не её", correct: true },
+            { text: "Что они её" },
+            { text: "Что они у Алима в сумке" },
           ],
           hint: "Найди предложение со словом watch и посмотри, есть ли в нём not.",
           why:
-            "That watch is not my watch. Дана говорит, что часы не её. Чьи они — " +
-            "в записке не сказано.",
+            "That watch is not my watch. Дана говорит только одно: часы не её. Чьи " +
+            "они и где лежат — в записке не сказано.",
         },
         {
           id: "z5-sobrat-stroku",
           kind: "order",
           about: "obyavlenie-o-nahodke",
           prompt: "Собери строку объявления о книгах и карандашах.",
-          items: ["in the room", "Books and pencils", "—"],
+          items: ["room", "Books and pencils", "—"],
           answer: [1, 2, 0],
-          hint: "Сначала вещи, потом тире, потом место.",
+          hint: "Порядок строки описан во врезке выше.",
           why:
-            "Books and pencils — in the room. В объявлении сначала называют вещь, потом " +
-            "место через тире.",
+            "Books and pencils — room. В объявлении сначала называют вещь, потом место " +
+            "через тире.",
         },
       ],
     },
@@ -1325,7 +1336,7 @@ const module: Module = {
           prompt:
             "Послушай первую запись. Какая вещь в ней одна? Ответь английским словом.",
           answer: "camera",
-          accept: ["a camera", "the camera"],
+          accept: ["a camera"],
           hint: "Одна вещь идёт с формой is.",
           why: "That is a camera. Форма is и артикль a — оба про одну вещь.",
         },
@@ -1382,36 +1393,37 @@ const module: Module = {
     passRatio: 0.8,
     questions: [
       // ---- чтение и слушание ------------------------------------------
-      // Написаны от другого случая и другим видом задания, чем упражнения
-      // уроков: там объявление о находке и записка, здесь витрина и заказ.
+      // ПЕРЕПИСАНЫ ПОСЛЕ МЕТОДИСТА. Первый вопрос повторял задание урока почти
+      // дословно — тот же набор вещей, тот же вопрос, тот же разбор. Второй
+      // требовал исправить форму слова и никакого объявления не содержал,
+      // хотя помечен итогом чтения: ученик закрывал этот итог, ничего не
+      // прочитав.
       {
-        id: "q-vitrina-chego-mnogo",
-        kind: "hottext",
-        outcome: "находить в коротком объявлении, чего сколько и где это",
-        prompt:
-          "Объявление в витрине: «Books, a camera, pencils, a watch». " +
-          "Отметь то, чего в витрине несколько.",
-        parts: [
-          { text: "Books", selectable: true, correct: true },
-          { text: "a camera", selectable: true },
-          { text: "pencils", selectable: true, correct: true },
-          { text: "a watch", selectable: true },
-        ],
-        why:
-          "Books и pencils стоят с окончанием s — их несколько. A camera и a watch " +
-          "идут с артиклем a, каждая одна.",
-      },
-      {
-        id: "q-ispravit-zapisku",
+        id: "q-zapiska-gde-veshchi",
         kind: "short",
         outcome: "находить в коротком объявлении, чего сколько и где это",
         prompt:
-          "В записке написано «My book are in your bag», но одно слово стоит не в той " +
-          "форме. Напиши его верно.",
-        answer: "books",
+          "Записка: «Hi! My pens are in my room. My bag is in your car. Dana». " +
+          "Где лежит сумка? Ответь английским словом из записки.",
+        answer: "car",
+        accept: ["your car"],
+        why: "My bag is in your car. Сумка в машине, а ручки в комнате.",
+      },
+      {
+        id: "q-zapiska-chego-neskolko",
+        kind: "choice",
+        outcome: "находить в коротком объявлении, чего сколько и где это",
+        prompt:
+          "Та же записка: «My pens are in my room. My bag is in your car». " +
+          "Чего у Даны несколько?",
+        options: [
+          { text: "Сумок" },
+          { text: "Ручек", correct: true },
+          { text: "И сумок, и ручек" },
+        ],
         why:
-          "My books are in your bag. Форма are — про несколько, значит и book должно " +
-          "стоять во множественном числе.",
+          "My pens are — окончание s и форма are, ручек несколько. My bag is — форма " +
+          "is, сумка одна.",
       },
       {
         id: "q-na-sluh-odna-ili-mnogo",

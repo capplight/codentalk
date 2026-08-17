@@ -109,7 +109,7 @@ const module: Module = {
         "other familiar objects and can ask the colour of such objects» — это точное " +
         "описание урока 3 и его итога, слово в слово. ГЛАВНАЯ ОПОРА МОДУЛЯ. Нашёл " +
         "методист: раньше её здесь не было вовсе. " +
-        "с. 63, Sustained monologue, A1: «Can describe simple aspects of their everyday " +
+        "с. 63, Sustained monologue, A1: «Can describe simple aspects of their everyday  ОПОРА ДВУХ УРОКОВ УМЕНИЙ, добавленных позже остальных. Чтение — с. 56, графа A1: «Can recognise familiar names, words/signs and very basic phrases on simple notices in the most common everyday situations» и «Can find and understand simple, important information in advertisements, programmes for special events, leaflets and brochures». Слушание — с. 52, графа A1: «Can pick out concrete information (e.g. places and times) from short recordings on familiar everyday topics, provided they are delivered very slowly and clearly». Обе строки сверены построчно обоими разборами и стоят именно в графе A1: в модуле 12 я такую же цитату приписал A1, а она была из Pre-A1. " +
         "life in a series of simple sentences, using simple words/signs and basic " +
         "phrases» — отсюда описание тремя предложениями в уроке 8. " +
         "ЧЕСТНАЯ ОГОВОРКА, НАЙДЕННАЯ МЕТОДИСТОМ: описание ЧУЖИХ предметов и людей " +
@@ -1509,7 +1509,7 @@ const module: Module = {
           genre: "notice",
           title: "FOR SALE",
           body: [
-            "A bike. It is old but very good.",
+            "A bike. It is old but it is very good.",
             "It is green.",
             "Price: 80.",
             "Phone: 8 7 0 1 2 3 4",
@@ -1523,10 +1523,12 @@ const module: Module = {
           id: "razbor-obyavleniya",
           kind: "note",
           tone: "info",
+          // Врезка нарочно не называет «старый, но хороший» теми же словами,
+          // что верный вариант задания: сначала называла, и задание решалось
+          // чтением врезки. Нашёл методист.
           text:
-            "Слово but связывает два прилагательных, которые не ожидаешь рядом: old " +
-              "but good — «старый, но хороший». Раньше ты соединял их словом and, и " +
-              "тогда они друг другу не противоречат: new and big.",
+            "Слово but соединяет два предложения и значит «но»: второе спорит с " +
+              "первым. Слово and их просто ставит рядом — It is new and it is big.",
         },
         {
           id: "dva-obyavleniya-ryadom",
@@ -1552,8 +1554,8 @@ const module: Module = {
           ],
           hint: "Слово but показывает, что второе прилагательное спорит с первым.",
           why:
-            "It is old but very good. Old — «старый», good — «хороший», а but " +
-            "соединяет их как противоположные.",
+            "It is old but it is very good. Два предложения соединены словом but — «но»: " +
+            "первое говорит, что велосипед старый, второе — что при этом хороший.",
         },
         {
           id: "z2-cvet-velosipeda",
@@ -1623,22 +1625,26 @@ const module: Module = {
         {
           id: "zachem-slushat-opisanie",
           kind: "explain",
+          // Утверждение «описание всегда идёт в таком порядке» снято: наши
+          // источники о порядке описания не говорят ничего, а задание требовало
+          // его соблюдать. Нашёл методист. Осталось то, что видно в самом
+          // уроке: описание разложено на короткие предложения.
           text: [
             "Описание на слух даёт сразу несколько слов подряд, и запомнить все не " +
               "выйдет. Держать в голове надо то, о чём спрашивают.",
-            "Помогает порядок: сначала звучит, что это за вещь, потом какая она, " +
-              "потом цвет.",
+            "Выручает то, что описание разложено на короткие предложения: у каждого " +
+              "своё дело — назвать вещь, назвать какая она, назвать цвет.",
           ],
         },
         {
           id: "poryadok-opisaniya-na-sluh",
           kind: "table",
-          caption: "Что за чем звучит в описании",
-          head: ["Очередь", "Что называют", "Пример"],
+          caption: "Три предложения — три разных дела",
+          head: ["Что делает предложение", "Пример"],
           rows: [
-            ["1", "что это", "This is my bag."],
-            ["2", "какое оно", "It is new and very big."],
-            ["3", "цвет", "It is black."],
+            ["называет вещь", "This is my bag."],
+            ["говорит, какая она", "It is new and very big."],
+            ["называет цвет", "It is black."],
           ],
         },
         {
@@ -1647,7 +1653,7 @@ const module: Module = {
           skryt: true,
           pace: "slow",
           caption: "Послушай описание вещи",
-          transcript: "This is my camera. It is old but very good. It is grey.",
+          transcript: "This is my camera. It is old but it is very good. It is grey.",
         },
         {
           id: "zapis-opisanie-cheloveka",
@@ -1657,7 +1663,7 @@ const module: Module = {
           voice: "два голоса",
           caption: "Послушай, как описывают человека",
           transcript:
-            "Who is Dana? — She is my sister. She is young and very nice. " +
+            "Is Dana your sister? — Yes, she is. She is young and very nice. " +
             "Her favourite colour is red.",
         },
 
@@ -1684,7 +1690,7 @@ const module: Module = {
             { text: "Старая и плохая" },
           ],
           hint: "Слушай слово между двумя прилагательными.",
-          why: "It is old but very good. But — «но»: старая, зато хорошая.",
+          why: "It is old but it is very good. But — «но»: старая, зато хорошая.",
         },
         {
           id: "z3-kto-takaya-dana",
@@ -1719,10 +1725,10 @@ const module: Module = {
             "он, какой у него любимый цвет.",
           phrase: "This is my friend. He is tall and very nice. His favourite colour is blue.",
           translation: "Это мой друг. Он высокий и очень приятный. Его любимый цвет синий.",
-          hint: "Держи тот же порядок, что в таблице.",
+          hint: "Три коротких предложения, между ними пауза.",
           why:
-            "Слушающий разбирает описание легче, когда оно идёт привычным порядком: " +
-            "кто, какой, цвет.",
+            "Три коротких предложения дают полное описание, и каждое делает своё дело. " +
+            "Собирать их в одно длинное не нужно.",
         },
       ],
     },
@@ -1757,17 +1763,22 @@ const module: Module = {
           "чёрная и не новая.",
       },
       {
-        id: "q-ispravit-opisanie",
-        kind: "short",
+        // Было задание «исправь пересказ»: объявления в нём не было вовсе,
+        // хотя итог — про чтение объявления. Нашёл методист.
+        id: "q-obyavlenie-chto-podoydet",
+        kind: "choice",
         outcome: "понимать по описанию, какая вещь и подходит ли она",
         prompt:
-          "В объявлении написано «It is old but very good», а человек пересказал это " +
-          "как «It is old and very good». Одно слово он поменял, и смысл сдвинулся. " +
-          "Напиши верное английское слово.",
-        answer: "but",
+          "Объявление: «Bike 1. It is new and it is very expensive. Bike 2. It is old " +
+          "but it is cheap.» Человеку нужен недорогой велосипед. Какой ему подойдёт?",
+        options: [
+          { text: "Первый" },
+          { text: "Оба" },
+          { text: "Второй", correct: true },
+        ],
         why:
-          "Old but good — «старая, зато хорошая»: but показывает, что второе слово " +
-          "спорит с первым. And просто ставит их рядом.",
+          "Bike 2. It is old but it is cheap. Cheap — «дешёвый». Первый описан как " +
+          "expensive — дорогой.",
       },
       {
         id: "q-na-sluh-kakoy-dom",

@@ -81,6 +81,17 @@ function checkCourse(course: Course): void {
           }
         }
 
+        // Словарик текста для чтения вводит слово ровно так же, как карточка:
+        // объясняет его на месте, в том уроке, где оно понадобилось. Формат
+        // требует этого прямо, а скрипт раньше о словариках не знал и объявлял
+        // такие слова невведёнными.
+        if (b.kind === "text") {
+          for (const item of b.glossary ?? []) {
+            const term = String(item.term).toLowerCase();
+            if (!definedAt.has(term)) definedAt.set(term, { lesson, where });
+          }
+        }
+
         const text = blockText(b);
 
         // Обещание без адреса: ученик остаётся в недопонимании и не знает, где

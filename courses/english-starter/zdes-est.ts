@@ -153,7 +153,7 @@ const module: Module = {
     {
       ref: "Council of Europe, CEFR Companion Volume 2020",
       section:
-        "с. 63, Sustained monologue: describing experience, A1: «Can describe themselves, " +
+        "с. 63, Sustained monologue: describing experience, A1: «Can describe themselves,  ОПОРА ДВУХ УРОКОВ УМЕНИЙ, добавленных позже остальных. Чтение — с. 56, графа A1: «Can recognise familiar names, words/signs and very basic phrases on simple notices in the most common everyday situations» и «Can find and understand simple, important information in advertisements, programmes for special events, leaflets and brochures». Слушание — с. 52, графа A1: «Can pick out concrete information (e.g. places and times) from short recordings on familiar everyday topics, provided they are delivered very slowly and clearly». Обе строки сверены построчно обоими разборами и стоят именно в графе A1: в модуле 12 я такую же цитату приписал A1, а она была из Pre-A1. " +
         "what they do and where they live» — рассказ о своём жилье назван прямо. " +
         "с. 79, Information exchange, A1: «Can ask and answer questions about themselves " +
         "and other people, where they live, people they know, things they have» — вопрос о " +
@@ -1474,36 +1474,44 @@ const module: Module = {
           id: "obyavlenie-o-kvartire",
           kind: "text",
           genre: "notice",
+          // Строки «There is no garden» здесь БЫЛО и убрано. Определитель `no`
+          // перед существительным — A2, в шапке модуля он не объявлен, а урок
+          // «Чего нет» двумя уроками раньше учит прямо обратному: «There isn't
+          // no garden» сказать нельзя. Ученик увидел бы `no garden` как верную
+          // запись через два урока после запрета. Нашёл методист.
           title: "FLAT FOR RENT",
           body: [
             "There are two rooms and a kitchen.",
             "There is a big window in the room.",
             "There is a shop and a bus stop near the house.",
-            "There is no garden.",
+            "There isn't a garden.",
           ],
-          glossary: [
-            { term: "FOR RENT", translation: "сдаётся" },
-            { term: "no garden", translation: "сада нет" },
-          ],
+          glossary: [{ term: "FOR RENT", translation: "сдаётся" }],
         },
         {
+          // Врезка нарочно не называет сад: сначала называла, и задание «чего
+          // при квартире нет» решалось её чтением.
           id: "razbor-obyavleniya-o-zhilye",
           kind: "note",
           tone: "info",
           text:
-            "Отрицание здесь записано короче обычного: There is no garden вместо " +
-              "There isn't a garden. Смысл один и тот же, и в объявлениях встречаются " +
-              "оба вида записи.",
+            "Объявление о жилье отвечает по строкам: что есть внутри, что есть рядом, " +
+              "чего нет вовсе. Последнюю строку читай особенно внимательно — в ней " +
+              "отрицание, и она короткая.",
         },
         {
+          // Слово `cafe` вводится карточкой только в модуле 16, а местоимение
+          // `one` вместо названного существительного — A2 и здесь не
+          // объяснялось. Оба нашёл методист; взяты уже известные слова.
           id: "zapiska-o-rayone",
           kind: "text",
           genre: "message",
           title: "A message from Nurlan",
           body: [
-            "Hi! There is a good cafe near my house. There is a park too.",
-            "There isn't a cinema, but there is one in the city centre. Nurlan",
+            "Hi! There is a good shop near my house. There is a park too.",
+            "There isn't a hospital near my house. It is in the city centre. Nurlan",
           ],
+          glossary: [{ term: "city centre", translation: "центр города" }],
         },
 
         // ---- задания ----
@@ -1528,8 +1536,9 @@ const module: Module = {
             { text: "Сада", correct: true },
             { text: "Окна" },
           ],
-          hint: "Найди строку со словом no.",
-          why: "There is no garden. Сада нет. Кухня и окно в объявлении есть.",
+          hint: "Ищи строку, где после формы be стоит отрицание.",
+          why:
+            "There isn't a garden. Кухня и окно в объявлении названы, а сад — нет.",
         },
         {
           id: "z3-chto-ryadom-s-domom",
@@ -1546,22 +1555,22 @@ const module: Module = {
           hint: "Рядом с домом — это строка со словами near the house.",
           why:
             "There is a shop and a bus stop near the house. Кухня внутри квартиры, а " +
-            "сада нет вовсе.",
+            "сада при доме нет.",
         },
         {
           id: "z4-est-li-kino",
           kind: "choice",
           about: "zapiska-o-rayone",
-          prompt: "Прочитай записку от Нурлана. Есть ли кинотеатр рядом с его домом?",
+          prompt: "Прочитай записку от Нурлана. Есть ли больница рядом с его домом?",
           options: [
             { text: "Есть" },
-            { text: "Рядом нет, но есть в центре города", correct: true },
+            { text: "Рядом нет, она в центре города", correct: true },
             { text: "Нет нигде" },
           ],
-          hint: "Предложение про кинотеатр состоит из двух частей, соединённых but.",
+          hint: "Про больницу сказано двумя предложениями подряд.",
           why:
-            "There isn't a cinema, but there is one in the city centre. Рядом нет, " +
-            "в центре есть.",
+            "There isn't a hospital near my house. It is in the city centre. Первое " +
+            "предложение говорит, чего рядом нет, второе — где оно есть.",
         },
         {
           id: "z5-chto-est-u-nurlana",
@@ -1570,10 +1579,10 @@ const module: Module = {
           prompt:
             "Прочитай записку от Нурлана. Какое место рядом с его домом названо " +
             "хорошим? Ответь английским словом.",
-          answer: "cafe",
-          accept: ["a cafe", "the cafe"],
-          hint: "Прилагательное good стоит только один раз.",
-          why: "There is a good cafe near my house. Кафе.",
+          answer: "shop",
+          accept: ["a shop", "the shop"],
+          hint: "Слово good стоит в записке только один раз.",
+          why: "There is a good shop near my house. Магазин.",
         },
       ],
     },
@@ -1602,11 +1611,14 @@ const module: Module = {
           id: "est-ili-net-na-sluh",
           kind: "table",
           caption: "Есть и нет — что слышно",
+          // Третья строка называла «There is no garden» верной записью, а урок
+          // «Чего нет» двумя уроками раньше запрещает `no` в этом месте. Взята
+          // другая пара, и сад из таблицы убран: он же ответ задания ниже.
           head: ["Есть", "Нет"],
           rows: [
             ["There is a shop.", "There isn't a shop."],
             ["There are two rooms.", "There aren't two rooms."],
-            ["There is a garden.", "There is no garden."],
+            ["There is a park.", "There isn't a park."],
           ],
         },
         {
@@ -1709,29 +1721,37 @@ const module: Module = {
       // Другой случай и другой вид задания, чем в уроках: там квартира и
       // записка о районе, здесь комната в гостинице и вопрос о школе.
       {
+        // ОБА ВОПРОСА ПЕРЕПИСАНЫ ПОСЛЕ МЕТОДИСТА. В первом стоял определитель
+        // `no` перед существительным — это A2, и урок «Чего нет» из этого же
+        // модуля учит обратному. Второй требовал исправить форму глагола и
+        // объявления не содержал вовсе, хотя помечен итогом чтения.
         id: "q-obyavlenie-gostinicy",
         kind: "hottext",
         outcome: "понимать по объявлению, что есть в жилье и рядом с ним",
         prompt:
-          "Объявление: «HOTEL. There is a TV in the room. There is no kitchen. " +
-          "There is a cafe near the hotel.» Отметь то, чего в гостинице нет.",
+          "Объявление: «HOTEL. There is a TV in the room. There isn't a kitchen. " +
+          "There is a shop near the hotel.» Отметь то, чего в гостинице нет.",
         parts: [
           { text: "a TV", selectable: true },
           { text: "a kitchen", selectable: true, correct: true },
-          { text: "a cafe", selectable: true },
+          { text: "a shop", selectable: true },
         ],
         why:
-          "There is no kitchen. Кухни нет. Телевизор в номере есть, кафе есть рядом.",
+          "There isn't a kitchen. Кухни нет. Телевизор в номере есть, магазин есть рядом.",
       },
       {
-        id: "q-ispravit-formu-est",
+        id: "q-obyavlenie-skolko-komnat",
         kind: "short",
         outcome: "понимать по объявлению, что есть в жилье и рядом с ним",
         prompt:
-          "В объявлении написано «There are no rooms», а человек пересказал это как " +
-          "«There is no rooms». Он взял не ту форму. Напиши верную.",
-        answer: "are",
-        why: "There are no rooms. Слово rooms во множественном числе, значит форма are.",
+          "Объявление: «FLAT. There are three rooms. There is a small kitchen. " +
+          "There isn't a bus stop near the house.» Сколько в квартире комнат? " +
+          "Ответь цифрой.",
+        answer: "3",
+        accept: ["three", "три"],
+        why:
+          "There are three rooms. Три. Форма are и окончание s оба говорят, что комнат " +
+          "несколько.",
       },
       {
         id: "q-na-sluh-est-li-shkola",

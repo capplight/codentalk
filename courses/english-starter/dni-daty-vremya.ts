@@ -1768,11 +1768,15 @@ const module: Module = {
           kind: "text",
           genre: "notice",
           title: "ENGLISH LESSONS",
+          // Строки «Saturday — no lesson» здесь нет нарочно: определитель `no`
+          // перед существительным — A2, а урок «Чего нет» из модуля 13 учит
+          // прямо обратному («There isn't no garden» сказать нельзя). Нашёл
+          // методист. Отсутствие дня показано отсутствием строки — и это же
+          // стало умением: найти в расписании то, чего в нём нет.
           body: [
             "Monday — 10 o'clock",
             "Wednesday — half past four",
             "Friday — 6 o'clock in the evening",
-            "Saturday — no lesson",
           ],
         },
         {
@@ -1790,7 +1794,7 @@ const module: Module = {
           genre: "message",
           title: "A message from Aigul",
           body: [
-            "Hi! The meeting is on Tuesday at quarter past nine in the morning.",
+            "Hi! The meeting is on Tuesday at a quarter past nine in the morning.",
             "It is not on Monday. See you! Aigul",
           ],
         },
@@ -1804,7 +1808,7 @@ const module: Module = {
             "Посмотри на расписание ENGLISH LESSONS. Во сколько занятие в среду? " +
             "Напиши время английскими словами.",
           answer: "half past four",
-          accept: ["half past 4"],
+          accept: ["half past 4", "It's half past four.", "it is half past four"],
           hint: "Найди строку Wednesday и прочитай, что стоит после тире.",
           why: "Wednesday — half past four. Половина пятого.",
         },
@@ -1818,8 +1822,11 @@ const module: Module = {
             { text: "В среду" },
             { text: "В субботу", correct: true },
           ],
-          hint: "В одной строке вместо времени стоят два слова.",
-          why: "Saturday — no lesson. No lesson — «занятия нет».",
+          hint: "Прочитай, какие дни в расписании названы, и найди тот, которого нет.",
+          why:
+            "В расписании три строки: Monday, Wednesday, Friday. Субботы среди них нет, " +
+            "значит в субботу занятия не будет. То, чего в объявлении не написали, — " +
+            "тоже ответ.",
         },
         {
           id: "z3-vechernee-zanyatie",
@@ -1861,7 +1868,7 @@ const module: Module = {
           ],
           hint: "Quarter past — это четверть ПОСЛЕ названного часа.",
           why:
-            "At quarter past nine in the morning. Quarter past nine — четверть " +
+            "At a quarter past nine in the morning. Quarter past nine — четверть " +
             "десятого, то есть девять пятнадцать.",
         },
       ],
@@ -1881,21 +1888,25 @@ const module: Module = {
           id: "zachem-slushat-vremya",
           kind: "explain",
           text: [
-            "О встрече чаще договариваются вслух, и переспросить бывает неловко. " +
-              "Поэтому ловить надо сразу три вещи: день, час и часть суток.",
-            "Они идут в этом порядке почти всегда, и слова между ними можно " +
-              "пропускать мимо ушей.",
+            "В договорённости о встрече важны три вещи: день, час и часть суток. " +
+              "Услышать надо все три, а звучат они вперемешку с остальными словами.",
+            "Выручают маленькие слова перед ними — on, at, in. Услышал on — дальше " +
+              "будет день недели. Услышал at — дальше час.",
           ],
         },
         {
+          // Таблица называет СЛОВО-примету, а не порядок: порядок в английском
+          // тут свободный («at seven on Monday» — обычное дело), и обещать его
+          // было бы неправдой. Часть суток в примере другая, чем в записи, —
+          // иначе задание решалось бы по таблице. Оба места нашёл методист.
           id: "poryadok-v-dogovorennosti",
           kind: "table",
-          caption: "Что за чем звучит в договорённости",
-          head: ["Что ловим", "Какое слово", "Пример"],
+          caption: "По какому слову узнать, о чём речь",
+          head: ["Что ловим", "Какое слово перед ним", "Пример"],
           rows: [
-            ["день", "после on", "on Monday"],
-            ["час", "после at", "at seven"],
-            ["часть суток", "после in или at", "in the evening"],
+            ["день", "on", "on Monday"],
+            ["час", "at", "at seven"],
+            ["часть суток", "in или at", "in the morning"],
           ],
         },
         {
@@ -1915,8 +1926,13 @@ const module: Module = {
           skryt: true,
           pace: "slow",
           caption: "Послушай объявление",
+          // Было «The shop is open at nine o'clock», и задание спрашивало,
+          // во сколько магазин ОТКРЫВАЕТСЯ. Это разные вещи: «открыт в девять»
+          // и «открывается в девять», а для второго нужен Present Simple из
+          // модуля 14. Заодно слово `open` вводится только в модуле 12.
+          // Обе беды нашёл методист; запись переписана на время встречи.
           transcript:
-            "Good morning. The shop is open at nine o'clock. On Sunday it is not open.",
+            "Good morning. The meeting is at nine o'clock. On Sunday it is at ten.",
         },
 
         // ---- задания ----
@@ -1960,28 +1976,27 @@ const module: Module = {
           why: "In the evening — вечером.",
         },
         {
-          id: "z4-kogda-otkryt-magazin",
+          id: "z4-vo-skolko-vstrecha",
           kind: "short",
           about: "zapis-obyavlenie-o-vremeni",
-          prompt:
-            "Послушай объявление. Во сколько открывается магазин? Ответь цифрой.",
+          prompt: "Послушай объявление. Во сколько встреча? Ответь цифрой.",
           answer: "9",
           accept: ["9 o'clock", "nine", "девять"],
           hint: "Время стоит рядом со словом o'clock.",
-          why: "The shop is open at nine o'clock. В девять.",
+          why: "The meeting is at nine o'clock. В девять.",
         },
         {
-          id: "z5-vyhodnoy-den",
+          id: "z5-osobyy-den",
           kind: "choice",
           about: "zapis-obyavlenie-o-vremeni",
-          prompt: "Послушай объявление. В какой день магазин закрыт?",
+          prompt: "Послушай объявление. В какой день время другое?",
           options: [
             { text: "В субботу" },
             { text: "В воскресенье", correct: true },
-            { text: "Про закрытый день не сказано" },
+            { text: "Время одинаковое во все дни" },
           ],
           hint: "Последнее предложение начинается с дня недели.",
-          why: "On Sunday it is not open. В воскресенье не работает.",
+          why: "On Sunday it is at ten. В воскресенье встреча на час позже.",
         },
       ],
     },
@@ -2003,31 +2018,36 @@ const module: Module = {
       // Другой случай и другой вид задания, чем в уроках: там расписание
       // занятий и записка, здесь часы работы и приглашение.
       {
-        id: "q-chasy-raboty-vyhodnoy",
+        id: "q-raspisanie-pozdniy-den",
         kind: "hottext",
         outcome: "находить в расписании нужный день и время",
         prompt:
-          "Объявление: «Monday — 9 o'clock. Tuesday — 9 o'clock. Sunday — no.» " +
-          "Отметь день, когда работы нет.",
+          "Расписание: «Monday — 9 o'clock. Tuesday — half past nine. " +
+          "Thursday — 7 o'clock in the evening.» Отметь день, когда занятие вечернее.",
         parts: [
           { text: "Monday", selectable: true },
           { text: "Tuesday", selectable: true },
-          { text: "Sunday", selectable: true, correct: true },
+          { text: "Thursday", selectable: true, correct: true },
         ],
-        why: "Sunday — no. В воскресенье не работают, в остальные дни открыто в девять.",
+        why:
+          "Thursday — 7 o'clock in the evening. Часть суток названа только в этой " +
+          "строке; в остальных время утреннее.",
       },
       {
-        id: "q-ispravit-vremya-v-zapiske",
+        // Было задание «исправь пересказ»: расписания в нём не было вовсе,
+        // хотя итог — про чтение расписания. Нашёл методист: пять таких
+        // вопросов в части закрывали итог чтения, ничего не прочитав.
+        id: "q-raspisanie-vo-skolko",
         kind: "short",
         outcome: "находить в расписании нужный день и время",
         prompt:
-          "В расписании стоит «Friday — quarter past seven», а человек пересказал это " +
-          "как «The lesson is on Friday at quarter to seven». Он перепутал одно слово. " +
-          "Напиши верное английское слово вместо to.",
-        answer: "past",
+          "Расписание: «Monday — 8 o'clock. Friday — a quarter past seven». " +
+          "Во сколько занятие в пятницу? Напиши время английскими словами.",
+        answer: "a quarter past seven",
+        accept: ["quarter past seven"],
         why:
-          "Quarter past seven — четверть восьмого. Quarter to seven было бы без " +
-          "четверти семь, то есть на полчаса раньше.",
+          "Friday — a quarter past seven. Четверть восьмого. Восемь часов — это " +
+          "понедельник.",
       },
       {
         id: "q-na-sluh-den-vstrechi",
