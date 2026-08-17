@@ -136,6 +136,8 @@ const module: Module = {
     "говорить о частоте у другого человека: He always works late",
     "спрашивать о частоте: Do you always work on Monday?",
     "рассказывать о своей неделе, называя частоту",
+    "понимать по тексту, что бывает всегда, а что изредка",
+    "слышать наречие частоты и понимать, насколько часто это бывает",
   ],
 
   lessons: [
@@ -1286,6 +1288,280 @@ const module: Module = {
         },
       ],
     },
+
+    // =====================================================================
+    // Урок чтения. Расписание недели с наречиями частоты: текст, где ответ
+    // зависит не от того, ЧТО делают, а от того, КАК ЧАСТО.
+    // =====================================================================
+    {
+      slug: "chitaem-o-privychkah",
+      title: "Читаем о привычках",
+      estimatedMinutes: 13,
+      outcome: "понимать по тексту, что бывает всегда, а что изредка",
+
+      blocks: [
+        {
+          id: "zachem-chitat-o-privychkah",
+          kind: "explain",
+          text: [
+            "Когда человек рассказывает о своей неделе, важнее всего не сами дела, а " +
+              "как часто они бывают. Одно и то же предложение с always и с sometimes " +
+              "говорит о разном.",
+            "Наречие частоты стоит в одном и том же месте — перед делом. Найти его " +
+              "в тексте легко, если знать, где искать.",
+          ],
+        },
+        {
+          id: "rasskaz-o-nedele",
+          kind: "text",
+          genre: "article",
+          title: "A week of a teacher",
+          body: [
+            "Aigul is a teacher. She always gets up at six.",
+            "She usually works from eight to two. She sometimes works late.",
+            "She never works on Sunday. On Sunday she often goes to the park.",
+          ],
+          glossary: [{ term: "from eight to two", translation: "с восьми до двух" }],
+        },
+        {
+          id: "razbor-privychek",
+          kind: "note",
+          tone: "info",
+          text:
+            "Читая такой текст, держи в голове лесенку: always — всегда, usually — " +
+              "обычно, often — часто, sometimes — иногда, never — никогда. Вопрос почти " +
+              "всегда о том, где на этой лесенке стоит нужное дело.",
+        },
+        {
+          id: "pismo-o-vyhodnyh",
+          kind: "text",
+          genre: "email",
+          title: "A message from Nurlan",
+          body: [
+            "Hi! I usually work on Saturday, but I never work on Sunday.",
+            "On Sunday I always read books. I sometimes watch football. Nurlan",
+          ],
+        },
+
+        // ---- задания ----
+        {
+          id: "z1-kak-chasto-vstayot",
+          kind: "choice",
+          about: "rasskaz-o-nedele",
+          prompt: "Прочитай рассказ A week of a teacher. Как часто Айгуль встаёт в шесть?",
+          options: [
+            { text: "Иногда" },
+            { text: "Всегда", correct: true },
+            { text: "Никогда" },
+          ],
+          hint: "Наречие стоит перед делом: она … gets up.",
+          why: "She always gets up at six. Always — «всегда».",
+        },
+        {
+          id: "z2-rabotaet-li-v-voskresene",
+          kind: "choice",
+          about: "rasskaz-o-nedele",
+          prompt: "Прочитай рассказ A week of a teacher. Работает ли Айгуль по воскресеньям?",
+          options: [
+            { text: "Иногда работает" },
+            { text: "Обычно работает" },
+            { text: "Не работает никогда", correct: true },
+          ],
+          hint: "Найди предложение со словом Sunday и посмотри наречие перед делом.",
+          why:
+            "She never works on Sunday. Never — «никогда». Sometimes works late — это " +
+            "про будни, а не про воскресенье.",
+        },
+        {
+          id: "z3-chto-redzhe",
+          kind: "choice",
+          about: "rasskaz-o-nedele",
+          prompt:
+            "Прочитай рассказ A week of a teacher. Что бывает реже: работа допоздна или " +
+            "прогулка в парке?",
+          options: [
+            { text: "Работа допоздна", correct: true },
+            { text: "Прогулка в парке" },
+            { text: "Одинаково часто" },
+          ],
+          hint: "Сравни два наречия: sometimes и often.",
+          why:
+            "She sometimes works late — иногда. On Sunday she often goes to the park — " +
+            "часто. Often стоит на лесенке выше, чем sometimes.",
+        },
+        {
+          id: "z4-kogda-nurlan-ne-rabotaet",
+          kind: "short",
+          about: "pismo-o-vyhodnyh",
+          prompt:
+            "Прочитай письмо от Нурлана. В какой день он не работает никогда? Ответь " +
+            "английским словом.",
+          answer: "Sunday",
+          accept: ["on Sunday", "sunday"],
+          hint: "В письме названы два дня, и наречия перед делами разные.",
+          why:
+            "I never work on Sunday. По субботам он работает обычно, а по воскресеньям " +
+            "не работает никогда.",
+        },
+        {
+          id: "z5-chto-nurlan-delaet-chashche",
+          kind: "choice",
+          about: "pismo-o-vyhodnyh",
+          prompt:
+            "Прочитай письмо от Нурлана. Что он делает в воскресенье чаще — читает или " +
+            "смотрит футбол?",
+          options: [
+            { text: "Смотрит футбол" },
+            { text: "Читает", correct: true },
+            { text: "Одинаково часто" },
+          ],
+          hint: "Наречие перед каждым делом и даёт ответ.",
+          why:
+            "I always read books — всегда. I sometimes watch football — иногда. Always " +
+            "стоит на лесенке выше всех.",
+        },
+      ],
+    },
+
+    // =====================================================================
+    // Урок слушания.
+    // =====================================================================
+    {
+      slug: "slushaem-kak-chasto",
+      title: "Слушаем, как часто",
+      estimatedMinutes: 13,
+      outcome: "слышать наречие частоты и понимать, насколько часто это бывает",
+
+      blocks: [
+        {
+          id: "zachem-slushat-chastotu",
+          kind: "explain",
+          text: [
+            "Наречие частоты — одно слово в середине предложения, и от него зависит " +
+              "весь смысл. Always и never стоят на одном и том же месте, а говорят " +
+              "противоположное.",
+            "Место это всегда одно: сразу после того, кто действует, и перед самим " +
+              "делом. Значит и слушать надо туда.",
+          ],
+        },
+        {
+          id: "lesenka-chastoty-na-sluh",
+          kind: "table",
+          caption: "Лесенка частоты — нажми и послушай",
+          zvuk: {
+            always: "always",
+            usually: "usually",
+            often: "often",
+            sometimes: "sometimes",
+            never: "never",
+          },
+          head: ["Слово", "Как часто"],
+          rows: [
+            ["always", "всегда"],
+            ["usually", "обычно"],
+            ["often", "часто"],
+            ["sometimes", "иногда"],
+            ["never", "никогда"],
+          ],
+        },
+        {
+          id: "gde-stoit-narechie",
+          kind: "note",
+          tone: "info",
+          text:
+            "Слушай место сразу после I, he или she. Если там прозвучало лишнее слово — " +
+              "это и есть наречие частоты, и оно решает всё.",
+        },
+        {
+          id: "zapis-o-moey-nedele",
+          kind: "audio",
+          skryt: true,
+          pace: "slow",
+          caption: "Послушай рассказ о неделе",
+          transcript:
+            "I always get up at seven. I usually work from nine to five. " +
+            "I never work on Sunday.",
+        },
+        {
+          id: "zapis-vopros-o-chastote",
+          kind: "audio",
+          skryt: true,
+          pace: "slow",
+          voice: "два голоса",
+          caption: "Послушай разговор",
+          transcript:
+            "Do you often go to the park? — No, I sometimes go to the park. " +
+            "My sister always goes there.",
+        },
+
+        // ---- задания ----
+        {
+          id: "z1-kak-chasto-vstayot-na-sluh",
+          kind: "choice",
+          about: "zapis-o-moey-nedele",
+          prompt: "Послушай первую запись. Как часто человек встаёт в семь?",
+          options: [
+            { text: "Обычно" },
+            { text: "Всегда", correct: true },
+            { text: "Иногда" },
+          ],
+          hint: "Слушай слово сразу после I.",
+          why: "I always get up at seven. Always — «всегда».",
+        },
+        {
+          id: "z2-kak-chasto-rabotaet",
+          kind: "short",
+          about: "zapis-o-moey-nedele",
+          prompt:
+            "Послушай первую запись. Какое наречие стоит перед словом work в первый раз? " +
+            "Ответь английским словом.",
+          answer: "usually",
+          hint: "Это второе предложение записи.",
+          why: "I usually work from nine to five. Usually — «обычно».",
+        },
+        {
+          id: "z3-o-chem-sprosili-chastota",
+          kind: "choice",
+          about: "zapis-vopros-o-chastote",
+          prompt: "Послушай вторую запись. О какой частоте спросили?",
+          options: [
+            { text: "Всегда ли" },
+            { text: "Часто ли", correct: true },
+            { text: "Иногда ли" },
+          ],
+          hint: "Наречие стоит в самом вопросе, после слова you.",
+          why: "Do you often go to the park? Often — «часто».",
+        },
+        {
+          id: "z4-kto-hodit-vsegda",
+          kind: "choice",
+          about: "zapis-vopros-o-chastote",
+          prompt: "Послушай вторую запись. Кто ходит в парк всегда?",
+          options: [
+            { text: "Тот, кого спросили" },
+            { text: "Его сестра", correct: true },
+            { text: "Оба" },
+          ],
+          hint: "Последнее предложение записи о другом человеке.",
+          why:
+            "My sister always goes there. Про себя человек ответил иначе: I sometimes " +
+            "go to the park.",
+        },
+        {
+          id: "z5-skazat-o-chastote",
+          kind: "speak",
+          prompt:
+            "Скажи вслух два предложения о себе: что бывает всегда и чего не бывает " +
+            "никогда.",
+          phrase: "I always get up at seven. I never work on Sunday.",
+          translation: "Я всегда встаю в семь. По воскресеньям я никогда не работаю.",
+          hint: "Наречие ставь между собой и делом.",
+          why:
+            "Наречие частоты стоит перед делом. Поставишь его в конец — собеседник " +
+            "поймёт, но фраза прозвучит непривычно.",
+        },
+      ],
+    },
   ],
 
   quiz: {
@@ -1293,6 +1569,61 @@ const module: Module = {
     passRatio: 0.8,
     questions: [
       // ---- итог 1 ----
+      // ---- чтение и слушание ------------------------------------------
+      // Другой случай, чем в уроках: там неделя учителя и письмо Нурлана,
+      // здесь рассказ о студенте и разговор о брате. Оба вопроса чтения
+      // содержат сам текст.
+      {
+        id: "q-tekst-chto-chashche",
+        kind: "choice",
+        outcome: "понимать по тексту, что бывает всегда, а что изредка",
+        prompt:
+          "Рассказ: «Alim is a student. He always goes to school. He sometimes plays " +
+          "football. He never works on Monday.» Что бывает реже всего?",
+        options: [
+          { text: "Он ходит в школу" },
+          { text: "Он играет в футбол" },
+          { text: "Он работает по понедельникам", correct: true },
+        ],
+        why:
+          "He never works on Monday. Never — «никогда», то есть не бывает вовсе. " +
+          "Sometimes — иногда, always — всегда.",
+      },
+      {
+        id: "q-tekst-kak-chasto-futbol",
+        kind: "short",
+        outcome: "понимать по тексту, что бывает всегда, а что изредка",
+        prompt:
+          "Тот же рассказ: «He always goes to school. He sometimes plays football.» " +
+          "Какое наречие стоит перед словом plays? Ответь английским словом.",
+        answer: "sometimes",
+        why: "He sometimes plays football. Sometimes — «иногда».",
+      },
+      {
+        id: "q-na-sluh-kak-chasto-brat",
+        kind: "choice",
+        outcome: "слышать наречие частоты и понимать, насколько часто это бывает",
+        zvuk: "My brother never drinks coffee. He usually drinks tea.",
+        prompt: "Послушай запись. Что брат пьёт обычно?",
+        options: [
+          { text: "Чай", correct: true },
+          { text: "Кофе" },
+          { text: "И то, и другое" },
+        ],
+        why:
+          "He usually drinks tea. Кофе он не пьёт никогда: never drinks coffee.",
+      },
+      {
+        id: "q-na-sluh-narechie",
+        kind: "short",
+        outcome: "слышать наречие частоты и понимать, насколько часто это бывает",
+        zvuk: "I often go to the shop. I never go there on Sunday.",
+        prompt:
+          "Послушай запись. Какое наречие прозвучало в первом предложении? Ответь " +
+          "английским словом.",
+        answer: "often",
+        why: "I often go to the shop. Often — «часто». Во втором предложении — never.",
+      },
       {
         id: "q-vsegda-dopisat",
         kind: "gap",
