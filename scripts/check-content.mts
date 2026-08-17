@@ -622,6 +622,17 @@ function checkMaterial(block: Block, where: string): void {
       if (block.rows.length === 0) fail(where, "таблица без строк");
       const wrong = block.rows.filter((r) => r.length !== block.head.length).length;
       if (wrong > 0) fail(where, `в ${wrong} строках число ячеек не совпадает с числом столбцов`);
+
+      // Звучащая ячейка, которой в таблице нет, — это кнопка, которая никогда
+      // не появится. Опечатка в ключе иначе не видна ничем.
+      if (block.zvuk) {
+        const yacheyki = new Set(block.rows.flat());
+        for (const klyuch of Object.keys(block.zvuk)) {
+          if (!yacheyki.has(klyuch)) {
+            fail(where, `звучащая ячейка «${klyuch}» в таблице не найдена — опечатка в ключе`);
+          }
+        }
+      }
       break;
     }
 

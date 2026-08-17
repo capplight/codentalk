@@ -102,6 +102,20 @@ function sobratOpis(): Zapis[] {
             continue;
           }
 
+          if (block.kind === "table" && block.zvuk) {
+            for (const chto of Object.values(block.zvuk)) {
+              dobavit({
+                rod: "slovo",
+                klyuch: klyuchZvuka(chto, "slow"),
+                text: chto,
+                temp: "slow",
+                dvaGolosa: false,
+                otkuda: `${gde} · таблица ${block.id}`,
+              });
+            }
+            continue;
+          }
+
           if (block.kind === "vocab") {
             for (const item of block.items) {
               dobavit({
@@ -202,6 +216,19 @@ function sPodskazkami(text: string): string {
   return vyhod;
 }
 
+/**
+ * Тире внутри одной реплики — это не смена говорящего, а связка пары:
+ * «G — J. B — V. M — N.». Azure по умолчанию делает на нём паузу длиннее, чем
+ * на точке, и пары слышатся наоборот: «G» отдельно, «J. B» вместе. Нашёл
+ * владелец на слух.
+ *
+ * Лечим коротким явным перерывом. Точку не трогаем: её пауза и так длиннее,
+ * а лишняя разметка заставила бы переозвучить весь курс без нужды.
+ */
+function tireVnutriRepliki(text: string): string {
+  return text.replace(/\s+—\s+/g, '<break time="200ms"/>');
+}
+
 /** Разговор делится по тире на реплики, голоса чередуются. */
 function repliki(text: string, dvaGolosa: boolean): { golos: string; text: string }[] {
   if (!dvaGolosa) return [{ golos: PERVYY, text }];
@@ -213,10 +240,31 @@ function repliki(text: string, dvaGolosa: boolean): { golos: string; text: strin
   return chasti.map((chast, i) => ({ golos: i % 2 === 0 ? PERVYY : VTOROY, text: chast }));
 }
 
+/**
+ * Одиночная латинская буква читается как ИМЯ буквы, а не как слово.
+ *
+ * Без этого `A` звучит как безударный артикль, а `I` — как местоимение. Для
+ * таблицы алфавита это и есть всё её содержание.
+ */
+function odinochnayaBukva(text: string): boolean {
+  return /^[A-Za-z]$/.test(text.trim());
+}
+
 function ssml(z: Zapis): string {
+  if (odinochnayaBukva(z.text)) {
+    const telo = `<say-as interpret-as="characters">${z.text.trim()}</say-as>`;
+    return (
+      `<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-GB">` +
+      `<voice name="${PERVYY}"><prosody rate="-25%">${telo}</prosody></voice></speak>`
+    );
+  }
+  return ssmlObychnyy(z);
+}
+
+function ssmlObychnyy(z: Zapis): string {
   const chasti = repliki(z.text, z.dvaGolosa)
     .map((r) => {
-      const telo = sPodskazkami(ekran(r.text));
+      const telo = tireVnutriRepliki(sPodskazkami(ekran(r.text)));
       const sTempom = z.temp === "slow" ? `<prosody rate="-25%">${telo}</prosody>` : telo;
       return `<voice name="${r.golos}">${sTempom}</voice>`;
     })

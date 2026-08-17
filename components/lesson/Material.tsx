@@ -6,7 +6,7 @@
  * (таблицы, словарь, код) набрано гротеском и моноширинным.
  */
 import type { MaterialBlock } from "@/lib/content/types";
-import { adresBloka, adresSlova } from "@/lib/content/zvuk";
+import { adresBloka, adresSlova, adresYacheyki } from "@/lib/content/zvuk";
 import Rasshifrovka from "./Rasshifrovka";
 import Zvuk from "./Zvuk";
 import s from "./lesson.module.css";
@@ -72,9 +72,20 @@ export default function Material({ block }: { block: MaterialBlock }) {
             <tbody>
               {block.rows.map((row, i) => (
                 <tr key={i}>
-                  {row.map((cell, j) => (
-                    <td key={j}>{cell}</td>
-                  ))}
+                  {row.map((cell, j) => {
+                    /* Ячейка может звучать: у таблицы алфавита это единственный
+                       способ разобрать буквы по одной. Запись целиком остаётся
+                       отдельным блоком — она о порядке, а не о букве. */
+                    const zvuchit = block.zvuk?.[cell];
+                    return (
+                      <td key={j}>
+                        {zvuchit && (
+                          <Zvuk src={adresYacheyki(zvuchit)} chto={zvuchit} />
+                        )}
+                        {cell}
+                      </td>
+                    );
+                  })}
                 </tr>
               ))}
             </tbody>

@@ -74,3 +74,12 @@ export function adresObrazca(fraza: string): string {
 export function adresVoprosa(fraza: string): string {
   return adresZvuka("vopros", klyuchZvuka(fraza, "slow"));
 }
+
+/**
+ * Ячейка таблицы: название буквы, форма глагола, что угодно, что ученик хочет
+ * послушать отдельно. Живёт в той же папке, что и слова словаря: и там, и там
+ * звучит одна короткая единица, и разделять их незачем.
+ */
+export function adresYacheyki(chto: string): string {
+  return adresZvuka("slovo", klyuchZvuka(chto, "slow"));
+}
