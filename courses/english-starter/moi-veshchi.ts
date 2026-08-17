@@ -50,6 +50,18 @@ const module: Module = {
     {
       ref: "Cambridge English, руководство для младших ступеней",
       section:
+        "ОПОРА УРОКА ЧТЕНИЯ. с. 19, состав Pre A1 Starters Reading and Writing — " +
+        "ступень НИЖЕ нашей: часть 2 «Write 'yes'/'no' to show if sentence is correct " +
+        "or not», часть 5 «Answer questions based on a picture story. Write one-word " +
+        "answers to questions». с. 21: «This part tests the candidate's ability to read " +
+        "and comprehend text at sentence level». " +
+        "с. 5, блок Pre A1 «Below 100»: «CAN read and understand some simple sentences, " +
+        "including questions» — вопросы названы прямо, а разговор из них и состоит",
+      license: "свободно распространяется, в уроки не копируется",
+    },
+    {
+      ref: "Cambridge English, руководство для младших ступеней",
+      section:
         "ОПОРА УРОКА СЛУШАНИЯ, добавленного позже остальных. Cambridge English, руководство для младших ступеней, с. 5, блок Pre A1 «Below 100» — ступень НИЖЕ нашей, значит умение посильно. Дословно: «CAN understand some very simple spoken descriptions of everyday objects» и «CAN understand some very short conversations that use familiar questions and answers». Урок слушает, чья вещь и у кого что есть.",
       license: "свободно распространяется, в уроки не копируется",
     },
@@ -131,6 +143,7 @@ const module: Module = {
     "называть родных и друзей",
     "спрашивать и отвечать, чья это вещь",
     "рассказывать о своих вещах и о своей семье",
+    "понимать по разговору, чья вещь и у кого что есть",
     "понимать на слух, у кого что есть и чья это вещь",
   ],
 
@@ -1195,6 +1208,131 @@ const module: Module = {
     },
 
     // =====================================================================
+    // Урок чтения. Второй в курсе после модуля 3; поставлен по разбору
+    // методиста. Читается короткий разговор — вид текста, которого в курсе
+    // ещё не было: не рассказ одного человека, а обмен репликами.
+    // Опора — `sources`, запись о руководстве для младших ступеней.
+    // =====================================================================
+    {
+      slug: "chitaem-razgovor-o-veshchah",
+      title: "Читаем разговор о вещах",
+      estimatedMinutes: 12,
+      outcome: "понимать по разговору, чья вещь и у кого что есть",
+
+      blocks: [
+        {
+          id: "zachem-chitat-razgovor",
+          kind: "explain",
+          text: [
+            "Разговор читается не так, как рассказ. В рассказе говорит один, а тут " +
+              "двое, и каждая реплика отвечает предыдущей.",
+            "Чтобы не запутаться, следи за тире: оно и показывает, что заговорил " +
+              "другой человек.",
+          ],
+        },
+        {
+          id: "razgovor-o-sumke",
+          kind: "text",
+          genre: "message",
+          title: "Whose bag is it?",
+          body: [
+            "— Is this your bag?",
+            "— No, it isn't my bag. It is her bag.",
+            "— And this phone? Is it your phone?",
+            "— Yes, it is. It is my phone.",
+          ],
+          glossary: [{ term: "Whose", translation: "чей, чья" }],
+        },
+        {
+          id: "razbor-razgovora-o-veshchah",
+          kind: "note",
+          tone: "info",
+          text:
+            "Отвечая, собеседник почти всегда добавляет второе предложение — чья вещь " +
+              "на самом деле. Одного «нет» в разговоре мало.",
+        },
+        {
+          id: "razgovor-o-veshchah-doma",
+          kind: "text",
+          genre: "message",
+          title: "At home",
+          body: [
+            "— Have you got a dog?",
+            "— No, I haven't. I have got a cat.",
+            "— And your brother?",
+            "— He has got a dog. It is his dog.",
+          ],
+        },
+
+        // ---- задания ----
+        {
+          id: "z1-chya-sumka-chtenie",
+          kind: "choice",
+          about: "razgovor-o-sumke",
+          prompt: "Прочитай разговор Whose bag is it? Чья сумка?",
+          options: [
+            { text: "Того, кого спросили" },
+            { text: "Её", correct: true },
+            { text: "В разговоре это не выясняется" },
+          ],
+          hint: "После краткого ответа идёт предложение о том, чья она на самом деле.",
+          why: "No, it isn't my bag. It is her bag. Her — про неё.",
+        },
+        {
+          id: "z2-chey-telefon-chtenie",
+          kind: "short",
+          about: "razgovor-o-sumke",
+          prompt:
+            "Прочитай разговор Whose bag is it? Чей телефон? Ответь одним английским " +
+            "словом: my, your или her.",
+          answer: "my",
+          accept: ["my phone", "it is my phone"],
+          hint: "Ответ на второй вопрос стоит в последней реплике.",
+          why: "Yes, it is. It is my phone. Телефон принадлежит тому, кого спросили.",
+        },
+        {
+          id: "z3-est-li-sobaka",
+          kind: "choice",
+          about: "razgovor-o-veshchah-doma",
+          prompt: "Прочитай разговор At home. Есть ли собака у того, кого спросили?",
+          options: [
+            { text: "Есть" },
+            { text: "Нет, у него кошка", correct: true },
+            { text: "В разговоре об этом не сказано" },
+          ],
+          hint: "После краткого ответа названо то, что есть.",
+          why: "No, I haven't. I have got a cat. Собаки нет, есть кошка.",
+        },
+        {
+          id: "z4-u-kogo-sobaka",
+          kind: "short",
+          about: "razgovor-o-veshchah-doma",
+          prompt:
+            "Прочитай разговор At home. У кого есть собака? Ответь английским словом.",
+          answer: "brother",
+          accept: ["his brother", "your brother"],
+          hint: "Про второго человека спрашивают в третьей реплике.",
+          why: "He has got a dog. Речь о брате: про него спросили строкой выше.",
+        },
+        {
+          id: "z5-skolko-govoryashchih",
+          kind: "choice",
+          about: "razgovor-o-veshchah-doma",
+          prompt: "Прочитай разговор At home. Сколько человек в нём говорят?",
+          options: [
+            { text: "Двое", correct: true },
+            { text: "Трое" },
+            { text: "Один" },
+          ],
+          hint: "Считай не реплики, а тех, кто их произносит.",
+          why:
+            "Реплик четыре, а говорящих двое: они отвечают друг другу по очереди. " +
+            "Брат в разговоре не участвует — о нём только рассказывают.",
+        },
+      ],
+    },
+
+    // =====================================================================
     // Урок слушания. Модуль о принадлежности, и на слух путается ровно она:
     // his и her звучат коротко, а меняют владельца целиком.
     //
@@ -1348,6 +1486,30 @@ const module: Module = {
       // ---- слушание ---------------------------------------------------
       // Другой случай и другой вид задания, чем в уроке: там телефон и сумка,
       // здесь вопрос о наличии и выбор владельца из трёх.
+      {
+        id: "q-chtenie-chya-veshch",
+        kind: "choice",
+        outcome: "понимать по разговору, чья вещь и у кого что есть",
+        prompt:
+          "Разговор: «— Is this your key? — No, it isn't. It is his key.» Чей ключ?",
+        options: [
+          { text: "Того, кого спросили" },
+          { text: "Его", correct: true },
+          { text: "В разговоре это не выясняется" },
+        ],
+        why: "It is his key. His — про него, а не про того, кого спросили.",
+      },
+      {
+        id: "q-chtenie-chto-est",
+        kind: "short",
+        outcome: "понимать по разговору, чья вещь и у кого что есть",
+        prompt:
+          "Разговор: «— Have you got a camera? — No, I haven't. I have got a phone.» " +
+          "Что есть у собеседника? Ответь английским словом.",
+        answer: "phone",
+        accept: ["a phone", "I have got a phone"],
+        why: "I have got a phone. Камеры нет, телефон есть.",
+      },
       {
         id: "q-na-sluh-sobrat-otvet-o-veshchi",
         kind: "order",
