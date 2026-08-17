@@ -32,6 +32,12 @@ const module: Module = {
 
   sources: [
     {
+      ref: "Cambridge English, руководство для младших ступеней",
+      section:
+        "ОПОРА УРОКА СЛУШАНИЯ, добавленного позже остальных. Cambridge English, руководство для младших ступеней, с. 5, блок Pre A1 «Below 100» — ступень НИЖЕ нашей, значит умение посильно. Дословно: «CAN understand some very short conversations that use familiar questions and answers». Поправка собеседника — это разговор из вопроса и ответа, где ответ отрицательный.",
+      license: "свободно распространяется, в уроки не копируется",
+    },
+    {
       ref: "English Grammar Profile",
       section:
         "A1, NEGATION negation «FORM: MAIN VERB 'BE'»: «Can form negative statements of main " +
@@ -93,7 +99,7 @@ const module: Module = {
     "говорить, прав собеседник или нет: You're right, You're wrong",
     "отвечать на вопрос отрицанием и уточнять",
     "вести разговор, в котором возражаешь и поправляешь собеседника",
-    "слышать отрицание и понимать, как на самом деле",
+    "слышать отрицание и понимать, что верно вместо отвергнутого",
   ],
 
   lessons: [
@@ -1247,7 +1253,7 @@ const module: Module = {
       slug: "slushaem-otricanie",
       title: "Слушаем отрицание",
       estimatedMinutes: 13,
-      outcome: "слышать отрицание и понимать, как на самом деле",
+      outcome: "слышать отрицание и понимать, что верно вместо отвергнутого",
 
       blocks: [
         {
@@ -1270,7 +1276,7 @@ const module: Module = {
             "They are from Turkey.": "They are from Turkey.",
             "They aren't from Turkey.": "They aren't from Turkey.",
           },
-          head: ["Есть", "Нет"],
+          head: ["Утверждение", "Отрицание"],
           rows: [
             ["He is a doctor.", "He isn't a doctor."],
             ["They are from Turkey.", "They aren't from Turkey."],
@@ -1393,21 +1399,26 @@ const module: Module = {
       // Другой случай и другой вид задания, чем в уроке: там поправляли Айгуль
       // и считали отрицания, здесь пересказ с ошибкой и вопрос о месте.
       {
+        // ПЕРЕПИСАН ПОСЛЕ МЕТОДИСТА. Прежняя запись держалась на трёх словах,
+        // которых курс к пятому модулю не давал: `the` (модуль 10), `shop`
+        // (модуль 6) и `school` (модуль 12). Вдобавок она писала `in the
+        // school`, а владелец решил, что при учреждении предлог `at`. Взяты
+        // города из модуля 3 — там же, где дан предлог `in` о месте.
         id: "q-na-sluh-gde-on",
         kind: "short",
-        outcome: "слышать отрицание и понимать, как на самом деле",
-        zvuk: "Is Alim in the shop? — No, he isn't. He is in the school.",
-        prompt: "Послушай запись. Где Алим на самом деле? Ответь английским словом.",
-        answer: "school",
-        accept: ["the school", "in the school"],
+        outcome: "слышать отрицание и понимать, что верно вместо отвергнутого",
+        zvuk: "Is Alim in Astana? — No, he isn't. He is in Almaty.",
+        prompt: "Послушай запись. Где Алим на самом деле? Напиши название города.",
+        answer: "Almaty",
+        accept: ["almaty", "in Almaty"],
         why:
-          "No, he isn't. He is in the school. Магазин назвали в вопросе, и ответ на " +
+          "No, he isn't. He is in Almaty. Астану назвали в вопросе, и ответ на " +
           "него отрицательный.",
       },
       {
         id: "q-na-sluh-nayti-oshibku",
         kind: "choice",
-        outcome: "слышать отрицание и понимать, как на самом деле",
+        outcome: "слышать отрицание и понимать, что верно вместо отвергнутого",
         zvuk: "Dana isn't a nurse. She is a teacher.",
         prompt:
           "Послушай запись. Человек пересказал её так: «Dana is a nurse». Что он упустил?",

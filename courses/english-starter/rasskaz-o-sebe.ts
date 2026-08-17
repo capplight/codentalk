@@ -41,6 +41,12 @@ const module: Module = {
 
   sources: [
     {
+      ref: "Cambridge English, руководство для младших ступеней",
+      section:
+        "ОПОРА УРОКА СЛУШАНИЯ, добавленного позже остальных. Cambridge English, руководство для младших ступеней, с. 5, блок Pre A1 «Below 100» — ступень НИЖЕ нашей, значит умение посильно. Дословно: «CAN understand some very simple spoken descriptions of people – such as name, gender, age, mood, appearance or what they are doing». Рассказ о себе из четырёх предложений — это описание человека, названное источником прямо.",
+      license: "свободно распространяется, в уроки не копируется",
+    },
+    {
       ref: "Council of Europe, CEFR Companion Volume 2020",
       section:
         "с. 79, Information exchange, A1: «Can ask and answer questions about themselves and " +
@@ -1414,6 +1420,19 @@ const module: Module = {
           hint: "Занятие названо в самом конце записи.",
           why: "I'm a doctor. Врач.",
         },
+        {
+          id: "z6-rasskazat-o-sebe-vsluh",
+          kind: "speak",
+          prompt:
+            "Расскажи вслух о себе тремя предложениями: откуда ты, где сейчас и чем " +
+            "занят.",
+          phrase: "I'm from Kazakhstan. I'm in Almaty. I'm a student.",
+          translation: "Я из Казахстана. Я в Алматы. Я студент.",
+          hint: "Все три начинаются одинаково, разница в том, что идёт после I'm.",
+          why:
+            "Слушающий разбирает рассказ по словам from, in и a. Пропустишь их — " +
+            "и он не поймёт, о чём каждое предложение.",
+        },
       ],
     },
   ],
@@ -1431,15 +1450,17 @@ const module: Module = {
       // Другой случай и другой вид задания, чем в уроке: там рассказ о себе и
       // вопрос «откуда», здесь исправление чужого пересказа и город.
       {
-        id: "q-na-sluh-gorod",
+        id: "q-na-sluh-otkuda-i-kem",
         kind: "short",
         outcome: "понимать на слух, откуда человек и чем он занят",
         zvuk: "I am Nurlan. I am from Kazakhstan. I am in Astana. I am a driver.",
         prompt:
-          "Послушай запись. В каком городе человек сейчас? Напиши название по-английски.",
-        answer: "Astana",
-        accept: ["astana", "ASTANA"],
-        why: "I am in Astana. Слово in говорит, где человек сейчас, а from — откуда он.",
+          "Послушай запись. Чем занят человек? Ответь английским словом.",
+        answer: "driver",
+        accept: ["a driver", "I am a driver"],
+        why:
+          "I am a driver. Водитель. Занятие всегда идёт после I am a, а не после " +
+          "from или in.",
       },
       {
         id: "q-na-sluh-ispravit-pereskaz",

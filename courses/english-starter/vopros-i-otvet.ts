@@ -38,6 +38,12 @@ const module: Module = {
 
   sources: [
     {
+      ref: "Cambridge English, руководство для младших ступеней",
+      section:
+        "ОПОРА УРОКА СЛУШАНИЯ, добавленного позже остальных. Cambridge English, руководство для младших ступеней, с. 5, блок Pre A1 «Below 100» — ступень НИЖЕ нашей, значит умение посильно. Дословно: «CAN understand some very short conversations that use familiar questions and answers» — вопрос и краткий ответ названы вместе. ЧЕГО В ИСТОЧНИКАХ НЕТ: правила «у вопроса голос идёт вверх». Я его написал и снял после методиста. В `cambridge-a2-key-handbook.pdf`, с. 50, intonation определена вообще («the way the voice rises and falls»), про вопросы там ничего; в English Grammar Profile слова intonation нет ни разу. Урок теперь опирается на порядок слов, которому модуль и учит.",
+      license: "свободно распространяется, в уроки не копируется",
+    },
+    {
       ref: "English Grammar Profile",
       section:
         "A1, CLAUSES interrogatives «FORM: AFFIRMATIVE INTERROGATIVE, WITH 'BE'»: «Can form " +
@@ -1165,21 +1171,21 @@ const module: Module = {
           text: [
             "На письме вопрос виден сразу: знак в конце и переставленные слова. На слух " +
               "знака нет, а слова летят быстро.",
-            "Выручает голос. У вопроса он идёт вверх к концу предложения, у сообщения " +
-              "падает вниз.",
+            "Зато перестановка слышна. В сообщении первым звучит тот, о ком речь: You " +
+              "are. В вопросе первой выходит форма be: Are you. Лови первое слово.",
           ],
         },
         {
           id: "golos-vverh-i-vniz",
           kind: "table",
-          caption: "Одни и те же слова, разный голос — нажми и сравни",
+          caption: "Те же слова в другом порядке — нажми и сравни",
           zvuk: {
             "You are a student.": "You are a student.",
             "Are you a student?": "Are you a student?",
             "He is a doctor.": "He is a doctor.",
             "Is he a doctor?": "Is he a doctor?",
           },
-          head: ["Сообщение — голос вниз", "Вопрос — голос вверх"],
+          head: ["Сообщение — первым тот, о ком речь", "Вопрос — первой форма be"],
           rows: [
             ["You are a student.", "Are you a student?"],
             ["He is a doctor.", "Is he a doctor?"],
@@ -1190,9 +1196,9 @@ const module: Module = {
           kind: "note",
           tone: "info",
           text:
-            "Краткий ответ звучит совсем коротко — два слова, — и на них надо успеть. " +
-              "Зато в них есть всё: Yes или No, а следом та же форма be, что была в " +
-              "вопросе.",
+            "Краткий ответ звучит совсем коротко, и на нём надо успеть. Зато в нём есть " +
+              "всё: Yes или No, потом тот, о ком речь, потом та же форма be, что была в " +
+              "вопросе. Yes, I am. No, she isn't.",
         },
         {
           id: "zapis-vopros-ili-soobshchenie",
@@ -1225,10 +1231,10 @@ const module: Module = {
             { text: "Два", correct: true },
             { text: "Три" },
           ],
-          hint: "Считай те предложения, где голос идёт вверх к концу.",
+          hint: "Считай те предложения, где первой звучит форма be.",
           why:
-            "Are you a teacher? и Is he from Turkey? — вопросы. She is a nurse — " +
-            "сообщение: голос в конце падает.",
+            "Are you a teacher? и Is he from Turkey? — вопросы: первой идёт форма be. " +
+            "She is a nurse — сообщение: первой идёт she.",
         },
         {
           id: "z2-kakoe-soobshchenie",
@@ -1239,7 +1245,7 @@ const module: Module = {
             "о котором в нём говорят? Ответь английским словом.",
           answer: "nurse",
           accept: ["a nurse", "she is a nurse"],
-          hint: "Это то предложение, где голос в конце падает.",
+          hint: "Это то предложение, где форма be стоит не первой.",
           why: "She is a nurse. Медсестра.",
         },
         {
@@ -1275,13 +1281,13 @@ const module: Module = {
           kind: "speak",
           prompt:
             "Произнеси вслух два предложения подряд: сначала сообщение, потом вопрос из " +
-            "тех же слов. Разницу сделай голосом.",
+            "тех же слов.",
           phrase: "She is a teacher. Is she a teacher?",
           translation: "Она преподаватель. Она преподаватель?",
-          hint: "В первом голос в конце вниз, во втором — вверх.",
+          hint: "Меняются местами только первые два слова, остальное то же.",
           why:
-            "Собеседник понимает вопрос по голосу раньше, чем разбирает порядок слов. " +
-            "Без подъёма вопрос слышится как сообщение.",
+            "Собеседник понимает, вопрос это или нет, по первому слову. Оставишь " +
+            "порядок сообщения — он и услышит сообщение.",
         },
       ],
     },
@@ -1311,8 +1317,8 @@ const module: Module = {
           { text: "По записи не понять" },
         ],
         why:
-          "You are from Turkey. Голос в конце падает, и первые два слова стоят в " +
-          "обычном порядке: сначала кто, потом форма be.",
+          "You are from Turkey. Первым звучит you, а не форма be, — значит это " +
+          "сообщение. В вопросе было бы Are you from Turkey?",
       },
       {
         id: "q-na-sluh-chto-otvetili",

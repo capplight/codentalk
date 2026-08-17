@@ -48,6 +48,12 @@ const module: Module = {
 
   sources: [
     {
+      ref: "Cambridge English, руководство для младших ступеней",
+      section:
+        "ОПОРА УРОКА СЛУШАНИЯ, добавленного позже остальных. Cambridge English, руководство для младших ступеней, с. 5, блок Pre A1 «Below 100» — ступень НИЖЕ нашей, значит умение посильно. Дословно: «CAN understand some very simple spoken descriptions of everyday objects – such as how many, colour, size or location». Урок слушает названия предметов и то, рядом предмет или поодаль.",
+      license: "свободно распространяется, в уроки не копируется",
+    },
+    {
       ref: "English Grammar Profile",
       section:
         "СВОЕЙ СТУПЕНИ: A1, DETERMINERS demonstratives «FORM: 'THIS' WITH SINGULAR NOUNS»: " +
@@ -1275,7 +1281,7 @@ const module: Module = {
           kind: "explain",
           text: [
             "Названий предметов набралось много, и часть из них похожа на слух. Особенно " +
-              "короткие: pen и pencil начинаются одинаково.",
+              "короткие: book и box начинаются одинаково.",
             "Различать их помогает конец слова. Слушай не начало, а то, чем слово " +
               "кончается.",
           ],
@@ -1284,12 +1290,12 @@ const module: Module = {
           id: "pohozhie-predmety",
           kind: "table",
           caption: "Похожие на слух — нажми и сравни",
-          zvuk: { pen: "pen", pencil: "pencil", book: "book", box: "box", car: "car", cat: "cat" },
+          zvuk: { book: "book", box: "box", car: "car", key: "key", pen: "pen", phone: "phone" },
           head: ["Одно", "Другое", "Чем различаются"],
           rows: [
-            ["pen", "pencil", "второе длиннее на целый слог"],
             ["book", "box", "конец: /k/ и /ks/"],
-            ["car", "cat", "конец: гласный и /t/"],
+            ["car", "key", "гласный в середине: /ɑː/ и /iː/"],
+            ["pen", "phone", "гласный: /e/ и /əʊ/"],
           ],
         },
         {
@@ -1298,8 +1304,8 @@ const module: Module = {
           tone: "info",
           text:
             "Слова this и that тоже похожи, а говорят они о разном: this о том, что " +
-              "рядом, that о том, что подальше. Различает их гласный: в this он такой же " +
-              "короткий, как в it, а в that — более открытый, как в bag.",
+              "рядом, that о том, что подальше. Различает их конец слова: this кончается " +
+              "на /s/, that — на /t/.",
         },
         {
           id: "zapis-chto-eto-razgovor",
@@ -1309,7 +1315,7 @@ const module: Module = {
           voice: "два голоса",
           caption: "Послушай разговор о предметах",
           transcript:
-            "What is this? — It is a pencil. — And what is that? — That is a box.",
+            "What is this? — It is a book. — And what is that? — That is a box.",
         },
         {
           id: "zapis-popravka-o-predmete",
@@ -1318,7 +1324,7 @@ const module: Module = {
           pace: "slow",
           voice: "два голоса",
           caption: "Послушай, как поправляют",
-          transcript: "Is this a car? — No, it isn't. It is a cat!",
+          transcript: "Is this a car? — No, it isn't. It is a key!",
         },
 
         // ---- задания ----
@@ -1329,12 +1335,12 @@ const module: Module = {
           prompt:
             "Послушай первую запись. Какой предмет лежит рядом с собеседниками? " +
             "Ответь английским словом.",
-          answer: "pencil",
-          accept: ["a pencil", "it is a pencil"],
+          answer: "book",
+          accept: ["a book", "it is a book"],
           hint: "Про то, что рядом, спрашивают словом this.",
           why:
-            "What is this? — It is a pencil. Слово this говорит о том, что рядом. " +
-            "Не pen: в записи звучит слово длиннее, на два слога.",
+            "What is this? — It is a book. Слово this говорит о том, что рядом. " +
+            "Не box: у book конец короче, один звук вместо двух.",
         },
         {
           id: "z2-chto-podalshe",
@@ -1344,7 +1350,7 @@ const module: Module = {
           options: [
             { text: "Книга" },
             { text: "Коробка", correct: true },
-            { text: "Карандаш" },
+            { text: "Ключ" },
           ],
           hint: "Про то, что подальше, спрашивают словом that.",
           why:
@@ -1357,11 +1363,11 @@ const module: Module = {
           prompt: "Послушай вторую запись. О чём спросили?",
           options: [
             { text: "Машина ли это", correct: true },
-            { text: "Кошка ли это" },
             { text: "Ключ ли это" },
+            { text: "Книга ли это" },
           ],
-          hint: "Слушай конец слова в вопросе.",
-          why: "Is this a car? Car кончается гласным, а cat — на /t/.",
+          hint: "Слушай гласный в середине слова.",
+          why: "Is this a car? В car гласный /ɑː/, в key — /iː/.",
         },
         {
           id: "z4-chto-okazalos",
@@ -1370,10 +1376,10 @@ const module: Module = {
           prompt:
             "Послушай вторую запись. Что оказалось на самом деле? Ответь английским " +
             "словом.",
-          answer: "cat",
-          accept: ["a cat", "it is a cat"],
-          hint: "После краткого ответа идёт предложение о том, как есть.",
-          why: "No, it isn't. It is a cat! Кошка.",
+          answer: "key",
+          accept: ["a key", "it is a key"],
+          hint: "Верное название стоит в самом конце записи.",
+          why: "No, it isn't. It is a key! Ключ.",
         },
         {
           id: "z5-sprosit-o-dvuh",
@@ -1404,33 +1410,30 @@ const module: Module = {
       // Другой случай и другой вид задания, чем в уроке: там разговор о
       // карандаше и коробке, здесь исправление чужой записи и выбор из пары.
       {
-        id: "q-na-sluh-kniga-ili-korobka",
-        kind: "choice",
+        id: "q-na-sluh-sobrat-otvet",
+        kind: "order",
         outcome: "узнавать на слух названный предмет и понимать, где он",
-        zvuk: "This is a book. That is a box.",
-        prompt: "Послушай запись. Что лежит рядом с говорящим?",
-        options: [
-          { text: "Коробка" },
-          { text: "Книга", correct: true },
-          { text: "И книга, и коробка" },
-        ],
+        zvuk: "What is that? — That is my phone.",
+        prompt: "Послушай запись и собери ответ собеседника из трёх частей.",
+        items: ["my phone", "That", "is"],
+        answer: [1, 2, 0],
         why:
-          "This is a book. Слово this говорит о том, что рядом; коробка названа " +
-          "словом that — она подальше.",
+          "That is my phone. Ответ повторяет то же слово that, что было в вопросе: " +
+          "речь о предмете подальше.",
       },
       {
         id: "q-na-sluh-ispravit-predmet",
         kind: "short",
         outcome: "узнавать на слух названный предмет и понимать, где он",
-        zvuk: "It isn't a pen. It is a pencil.",
+        zvuk: "It isn't a box. It is a book.",
         prompt:
-          "Послушай запись. Человек записал «It is a pen», но ошибся. Напиши верное " +
+          "Послушай запись. Человек записал «It is a box», но ошибся. Напиши верное " +
           "английское слово.",
-        answer: "pencil",
-        accept: ["a pencil"],
+        answer: "book",
+        accept: ["a book"],
         why:
-          "It isn't a pen. It is a pencil. Слова похожи началом, а различает их длина: " +
-          "в pencil два слога.",
+          "It isn't a box. It is a book. Слова похожи началом, а различает их конец: " +
+          "у box он длиннее на один звук.",
       },
       {
         id: "q-sprosit-chto-eto",

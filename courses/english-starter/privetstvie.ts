@@ -59,6 +59,12 @@ const module: Module = {
 
   sources: [
     {
+      ref: "Cambridge English, руководство для младших ступеней",
+      section:
+        "ОПОРА УРОКА СЛУШАНИЯ, добавленного позже остальных. Cambridge English, руководство для младших ступеней, с. 5, блок Pre A1 «Below 100» — ступень НИЖЕ нашей, значит умение посильно. Дословно: «CAN understand some simple spoken questions about self – such as name, age, favourite things or daily routine» и «CAN understand some very short conversations that use familiar questions and answers». Первая строка про имя, вторая про разговор целиком — это и есть содержание урока.",
+      license: "свободно распространяется, в уроки не копируется",
+    },
+    {
       ref: "Council of Europe, CEFR Companion Volume 2020",
       section:
         "Conversation, Pre-A1 и A1 (с. 74) — «greet people, state their name and take leave»; " +
@@ -1668,6 +1674,19 @@ const module: Module = {
           hint: "Буквы звучат в самом конце записи.",
           why: "N-U-R-L-A-N. Nurlan. Имя пишется с заглавной буквы.",
         },
+        {
+          id: "z6-peresprosit-vsluh",
+          kind: "speak",
+          prompt:
+            "Произнеси вслух переспрос и ответ на него: сначала одно слово, потом имя " +
+            "и его буквы.",
+          phrase: "Sorry? Nurlan. N-U-R-L-A-N.",
+          translation: "Извините? Нурлан. Н-У-Р-Л-А-Н.",
+          hint: "После каждой буквы делай короткую остановку.",
+          why:
+            "Так переспрос и закрывают: имя повторяют целиком, а потом диктуют по " +
+            "буквам, чтобы собеседник записал наверняка.",
+        },
       ],
     },
   ],
@@ -1684,28 +1703,30 @@ const module: Module = {
       // Другой случай и другой вид задания, чем в уроке: там знакомство и
       // переспрос имени, здесь прощание вечером и ответ о делах.
       {
-        id: "q-na-sluh-kogda-proshchayutsya",
-        kind: "choice",
-        outcome: "понимать на слух, кто как зовётся и как у него дела",
-        zvuk: "Good evening, Dana! — Good evening! Goodbye, see you!",
-        prompt: "Послушай запись. В какое время дня разговор?",
-        options: [
-          { text: "Утром" },
-          { text: "Вечером", correct: true },
-          { text: "Ночью" },
-        ],
-        why: "Good evening — «добрый вечер». Good night говорят на прощание перед сном.",
-      },
-      {
-        id: "q-na-sluh-kak-dela-u-nego",
+        id: "q-na-sluh-k-komu-obrashchayutsya",
         kind: "short",
         outcome: "понимать на слух, кто как зовётся и как у него дела",
-        zvuk: "How are you, Alim? — I am fine, thanks. And you? — I am OK.",
+        zvuk: "Good evening, Dana! — Hello! I am fine, thank you.",
         prompt:
-          "Послушай запись. Как зовут человека, у которого спросили о делах? Напиши имя.",
-        answer: "Alim",
-        accept: ["alim", "ALIM"],
-        why: "How are you, Alim? Имя названо прямо в вопросе.",
+          "Послушай запись. К кому обращаются в первой реплике? Напиши имя.",
+        answer: "Dana",
+        accept: ["dana", "DANA"],
+        why: "Good evening, Dana! Имя стоит сразу после приветствия.",
+      },
+      {
+        id: "q-na-sluh-skolko-otvetov-o-delah",
+        kind: "choice",
+        outcome: "понимать на слух, кто как зовётся и как у него дела",
+        zvuk: "How are you, Alim? — I am fine, thanks. And you? — I am OK.",
+        prompt: "Послушай запись. Сколько человек рассказали о своих делах?",
+        options: [
+          { text: "Один" },
+          { text: "Двое", correct: true },
+          { text: "Никто" },
+        ],
+        why:
+          "I am fine, thanks — первый. I am OK — второй. Между ними стоит And you?, " +
+          "которым вопрос возвращают собеседнику.",
       },
       {
         id: "q-mestoimenie-o-nurlane",

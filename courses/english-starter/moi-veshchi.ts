@@ -48,6 +48,12 @@ const module: Module = {
 
   sources: [
     {
+      ref: "Cambridge English, руководство для младших ступеней",
+      section:
+        "ОПОРА УРОКА СЛУШАНИЯ, добавленного позже остальных. Cambridge English, руководство для младших ступеней, с. 5, блок Pre A1 «Below 100» — ступень НИЖЕ нашей, значит умение посильно. Дословно: «CAN understand some very simple spoken descriptions of everyday objects» и «CAN understand some very short conversations that use familiar questions and answers». Урок слушает, чья вещь и у кого что есть.",
+      license: "свободно распространяется, в уроки не копируется",
+    },
+    {
       ref: "English Grammar Profile",
       section:
         "A1, DETERMINERS possessives «FORM: WITH NOUNS»: «Can use possessive determiners " +
@@ -1281,8 +1287,8 @@ const module: Module = {
           kind: "short",
           about: "zapis-chya-veshch",
           prompt:
-            "Послушай первую запись. Чья сумка? Ответь одним английским словом — " +
-            "тем, что стоит перед bag.",
+            "Послушай первую запись. Чья сумка? Ответь одним английским словом: his " +
+            "или her.",
           answer: "his",
           accept: ["his bag"],
           hint: "Это последнее предложение записи.",
@@ -1318,10 +1324,10 @@ const module: Module = {
           id: "z5-sprosit-chya",
           kind: "speak",
           prompt:
-            "Спроси вслух, чья это ручка, и сам ответь, что она его — того человека, " +
+            "Спроси вслух, чья это сумка, и сам ответь, что она его — того человека, " +
             "о котором речь.",
-          phrase: "Is this your pen? No, it is his pen.",
-          translation: "Это твоя ручка? Нет, это его ручка.",
+          phrase: "Is this your bag? No, it is his bag.",
+          translation: "Это твоя сумка? Нет, это его сумка.",
           hint: "Разницу между his и her делает гласный: в his он короткий.",
           why:
             "Собеседник поймёт, о ком речь, только по этому слову: жеста в разговоре по " +
@@ -1343,18 +1349,16 @@ const module: Module = {
       // Другой случай и другой вид задания, чем в уроке: там телефон и сумка,
       // здесь вопрос о наличии и выбор владельца из трёх.
       {
-        id: "q-na-sluh-est-li-mashina",
-        kind: "choice",
+        id: "q-na-sluh-sobrat-otvet-o-veshchi",
+        kind: "order",
         outcome: "понимать на слух, у кого что есть и чья это вещь",
-        zvuk: "Have you got a car? — No, I haven't. I have got a bike.",
-        prompt: "Послушай запись. Что есть у человека?",
-        options: [
-          { text: "Велосипед", correct: true },
-          { text: "Машина" },
-          { text: "И машина, и велосипед" },
-        ],
+        zvuk: "Have you got a camera? — No, I haven't got a camera.",
+        prompt: "Послушай запись и собери ответ собеседника из четырёх частей.",
+        items: ["got", "No, I", "a camera", "haven't"],
+        answer: [1, 3, 0, 2],
         why:
-          "No, I haven't. I have got a bike. Машины нет, велосипед есть.",
+          "No, I haven't got a camera. Отрицание стоит сразу после того, о ком речь, " +
+          "и до самого оборота got.",
       },
       {
         id: "q-na-sluh-chya-kniga",
@@ -1362,8 +1366,7 @@ const module: Module = {
         outcome: "понимать на слух, у кого что есть и чья это вещь",
         zvuk: "This is not my book. It is her book.",
         prompt:
-          "Послушай запись. Чья это книга? Ответь одним английским словом — тем, что " +
-          "стоит перед book.",
+          "Послушай запись. Чья это книга? Ответь одним английским словом: his или her.",
         answer: "her",
         accept: ["her book"],
         why:
