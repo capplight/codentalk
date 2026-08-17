@@ -119,6 +119,7 @@ const module: Module = {
     "строить предложение в порядке «кто — глагол — остальное»",
     "спрашивать, откуда собеседник, и отвечать на этот вопрос",
     "рассказывать о себе четырьмя предложениями",
+    "понимать на слух, откуда человек и чем он занят",
   ],
 
   lessons: [
@@ -1282,6 +1283,139 @@ const module: Module = {
         },
       ],
     },
+
+    // =====================================================================
+    // Урок слушания. Первый, где можно слушать не отдельные слова, а связный
+    // рассказ: к третьему модулю четыре предложения о себе уже строятся.
+    //
+    // Расшифровки спрятаны за кнопку, открытую всегда.
+    // =====================================================================
+    {
+      slug: "slushaem-rasskaz-o-sebe",
+      title: "Слушаем рассказ о себе",
+      estimatedMinutes: 13,
+      outcome: "понимать на слух, откуда человек и чем он занят",
+
+      blocks: [
+        {
+          id: "zachem-slushat-rasskaz",
+          kind: "explain",
+          text: [
+            "Когда человек рассказывает о себе, за полминуты звучит четыре разных " +
+              "сведения. Запомнить все сразу трудно.",
+            "Держись за первые слова предложений: они и говорят, о чём сейчас речь. " +
+              "I'm from — про страну, I'm in — про город, I'm a — про занятие.",
+          ],
+        },
+        {
+          id: "za-chto-derzhatsya",
+          kind: "table",
+          caption: "Первые слова, по которым понятно, о чём речь",
+          head: ["Начало", "О чём оно", "Пример"],
+          rows: [
+            ["I'm …", "имя", "I'm Alim."],
+            ["I'm from …", "откуда", "I'm from Kazakhstan."],
+            ["I'm in …", "где сейчас", "I'm in Astana."],
+            ["I'm a …", "занятие", "I'm a student."],
+          ],
+        },
+        {
+          id: "zapis-rasskaz-o-sebe-celikom",
+          kind: "audio",
+          skryt: true,
+          pace: "slow",
+          caption: "Послушай рассказ о себе",
+          transcript:
+            "Hello! I'm Aigerim. I'm from Kazakhstan. I'm in Almaty. I'm a teacher.",
+        },
+        {
+          id: "zapis-vopros-otkuda",
+          kind: "audio",
+          skryt: true,
+          pace: "slow",
+          voice: "два голоса",
+          caption: "Послушай, как спрашивают, откуда человек",
+          transcript:
+            "Where are you from? — I'm from Turkey. And you? — I'm from Kazakhstan. " +
+            "I'm a doctor.",
+        },
+        {
+          id: "odno-i-to-zhe-nachalo",
+          kind: "note",
+          tone: "info",
+          text:
+            "Все четыре предложения начинаются одинаково — с I'm. Слушать надо не его, " +
+              "а то, что идёт следом: from, in, a или сразу имя.",
+        },
+
+        // ---- задания ----
+        {
+          id: "z1-otkuda-aigerim",
+          kind: "short",
+          about: "zapis-rasskaz-o-sebe-celikom",
+          prompt:
+            "Послушай первую запись. Из какой страны человек? Напиши название " +
+            "по-английски.",
+          answer: "Kazakhstan",
+          accept: ["kazakhstan", "KAZAKHSTAN"],
+          hint: "Страна идёт после слов I'm from.",
+          why:
+            "I'm from Kazakhstan. Названия стран пишутся с заглавной буквы.",
+        },
+        {
+          id: "z2-gde-seychas",
+          kind: "choice",
+          about: "zapis-rasskaz-o-sebe-celikom",
+          prompt: "Послушай первую запись. Где человек находится сейчас?",
+          options: [
+            { text: "В Астане" },
+            { text: "В Алматы", correct: true },
+            { text: "Об этом не сказано" },
+          ],
+          hint: "Город идёт после слов I'm in.",
+          why:
+            "I'm in Almaty. From говорит, откуда человек родом, in — где он сейчас. " +
+            "Это разные сведения, и в записи они оба.",
+        },
+        {
+          id: "z3-chem-zanyat",
+          kind: "short",
+          about: "zapis-rasskaz-o-sebe-celikom",
+          prompt:
+            "Послушай первую запись. Чем человек занят? Ответь английским словом.",
+          answer: "teacher",
+          accept: ["a teacher", "I'm a teacher"],
+          hint: "Занятие идёт после I'm a.",
+          why: "I'm a teacher. Преподаватель.",
+        },
+        {
+          id: "z4-otkuda-pervyy",
+          kind: "choice",
+          about: "zapis-vopros-otkuda",
+          prompt: "Послушай вторую запись. Откуда тот, кто ответил первым?",
+          options: [
+            { text: "Из Казахстана" },
+            { text: "Из Турции", correct: true },
+            { text: "Он не ответил" },
+          ],
+          hint: "В записи названы две страны — важно, кто какую назвал.",
+          why:
+            "I'm from Turkey. Казахстан назвал второй собеседник, после слов And you?",
+        },
+        {
+          id: "z5-zanyatie-vtorogo",
+          kind: "short",
+          about: "zapis-vopros-otkuda",
+          prompt:
+            "Послушай вторую запись. Чем занят второй собеседник? Ответь английским " +
+            "словом.",
+          answer: "doctor",
+          accept: ["a doctor", "I'm a doctor"],
+          hint: "Занятие названо в самом конце записи.",
+          why: "I'm a doctor. Врач.",
+        },
+      ],
+    },
   ],
 
   // =======================================================================
@@ -1293,6 +1427,37 @@ const module: Module = {
     ask: 8,
     passRatio: 0.8,
     questions: [
+      // ---- слушание ---------------------------------------------------
+      // Другой случай и другой вид задания, чем в уроке: там рассказ о себе и
+      // вопрос «откуда», здесь исправление чужого пересказа и город.
+      {
+        id: "q-na-sluh-gorod",
+        kind: "short",
+        outcome: "понимать на слух, откуда человек и чем он занят",
+        zvuk: "I am Nurlan. I am from Kazakhstan. I am in Astana. I am a driver.",
+        prompt:
+          "Послушай запись. В каком городе человек сейчас? Напиши название по-английски.",
+        answer: "Astana",
+        accept: ["astana", "ASTANA"],
+        why: "I am in Astana. Слово in говорит, где человек сейчас, а from — откуда он.",
+      },
+      {
+        id: "q-na-sluh-ispravit-pereskaz",
+        kind: "choice",
+        outcome: "понимать на слух, откуда человек и чем он занят",
+        zvuk: "I am Dana. I am from Turkey. I am in Almaty. I am a nurse.",
+        prompt:
+          "Послушай запись. Человек пересказал её так: «Dana is from Almaty». " +
+          "Где он ошибся?",
+        options: [
+          { text: "Дана из Турции, а в Алматы она сейчас", correct: true },
+          { text: "Дана не из Турции и не из Алматы" },
+          { text: "Ошибки нет, пересказ верный" },
+        ],
+        why:
+          "I am from Turkey. I am in Almaty. From — откуда человек, in — где он сейчас. " +
+          "Пересказ перепутал одно с другим.",
+      },
       {
         id: "q-predlog-otkuda",
         kind: "gap",
