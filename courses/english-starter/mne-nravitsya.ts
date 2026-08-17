@@ -84,6 +84,12 @@ const module: Module = {
 
   sources: [
     {
+      ref: "Council of Europe, CEFR Companion Volume 2020",
+      section:
+        "ОПОРА УРОКА ЧТЕНИЯ. с. 54, Overall reading comprehension, графа A1: «Can understand very short, simple texts a single phrase at a time…». с. 55, Reading correspondence, графа A1: «Can understand short, simple messages sent via social media or e-mail». ОПОРА УРОКА СЛУШАНИЯ. Council of Europe, CEFR Companion Volume 2020, с. 48, шкала Overall oral comprehension, графа A1, дословно: «Can follow language which is very slow and carefully articulated, with long pauses for them to assimilate meaning» — отсюда pace: \"slow\" во всех записях. Там же: «Can recognise concrete information (e.g. places and times) on familiar topics encountered in everyday life, provided it is delivered slowly and clearly» — отсюда то, что спрашиваем конкретную вещь, а не смысл целиком. Для записей в два голоса — с. 49, шкала Understanding conversation between other people, графа A1: «Can understand words/signs and short sentences in a simple conversation (e.g. between a customer and a salesperson in a shop), provided people communicate very slowly and very clearly». Там же с. 49, A1: «Can understand some expressions when people are discussing them, family, school, hobbies or surroundings» — hobbies и есть вкусы.",
+      license: "внутреннее использование, публично не называем",
+    },
+    {
       ref: "English Grammar Profile",
       section:
         "A1, VERBS patterns_with to and -ing, «FORM: 'LIKE' + 'TO'-INFINITIVE OR + " +
@@ -1243,18 +1249,18 @@ const module: Module = {
             "I like music too, but I don't like football.",
             "I'd like to go to the cinema on Sunday. Dana",
           ],
-          glossary: [
-            { term: "music", translation: "музыка" },
-            { term: "cinema", translation: "кинотеатр" },
-          ],
+          // Словарика нет: music введено в модуле 14, cinema в модуле 13. Про
+          // cinema модуль уже писал в своих же источниках, что вторая карточка
+          // была ошибкой, — и я поставил её обратно. Нашёл методист.
         },
         {
           id: "razbor-pisma-o-vkusah",
           kind: "note",
           tone: "info",
           text:
-            "Последняя строка говорит не о вкусе, а о желании на сейчас: I'd like — " +
-              "«я хотел бы». От I like она отличается одной буквой d, и спутать их легко.",
+            "Кроме I like в письмах встречается I'd like — «я хотел бы». Отличаются " +
+              "они одной буквой d, а говорят о разном: первое о вкусе вообще, второе о " +
+              "желании на сейчас.",
         },
         {
           id: "zapiska-o-ede",
@@ -1292,8 +1298,8 @@ const module: Module = {
           accept: ["the football"],
           hint: "Найди слово don't и прочитай, что идёт следом.",
           why:
-          "I don't like football. Отрицание стоит между I и like — оно и переворачивает " +
-          "смысл всего предложения.",
+          "I'd like a tea now. Воду он любит вообще, а просит чай: это разные обороты " +
+          "и разные предложения.",
         },
         {
           id: "z3-chto-dana-hochet",
@@ -1393,7 +1399,7 @@ const module: Module = {
           pace: "slow",
           caption: "Послушай рассказ о вкусах",
           transcript:
-            "I really like music. I don't like football. I'd like to read a book now.",
+            "I really like water. I don't like tea. I'd like an apple now.",
         },
         {
           id: "zapis-zakaz-v-kafe",
@@ -1414,12 +1420,12 @@ const module: Module = {
           about: "zapis-o-moih-vkusah",
           prompt: "Послушай первую запись. Что человеку нравится?",
           options: [
-            { text: "Футбол" },
-            { text: "Музыка", correct: true },
+            { text: "Чай" },
+            { text: "Вода", correct: true },
             { text: "И то, и другое" },
           ],
           hint: "Слушай, где звучит really, а где don't.",
-          why: "I really like music. I don't like football. Музыка.",
+          why: "I really like water. I don't like tea. Вода.",
         },
         {
           id: "z2-chego-hochet-seychas",
@@ -1427,14 +1433,14 @@ const module: Module = {
           about: "zapis-o-moih-vkusah",
           prompt: "Послушай первую запись. Чего человек хочет прямо сейчас?",
           options: [
-            { text: "Почитать книгу", correct: true },
-            { text: "Послушать музыку" },
-            { text: "Посмотреть футбол" },
+            { text: "Чаю" },
+            { text: "Воды" },
+            { text: "Яблоко", correct: true },
           ],
           hint: "Последнее предложение начинается не с I like, а с I'd like.",
           why:
-            "I'd like to read a book now. Слово now в конце и показывает, что это " +
-            "про эту минуту.",
+            "I'd like an apple now. Слово now в конце и показывает, что это про эту " +
+            "минуту, а артикль an — что речь об одном яблоке.",
         },
         {
           id: "z3-lyubit-li-chay",
@@ -1507,20 +1513,16 @@ const module: Module = {
           "любит вовсе.",
       },
       {
-        id: "q-tekst-vkus-ili-zhelanie",
-        kind: "choice",
+        id: "q-tekst-skolko-lyubit",
+        kind: "short",
         outcome: "понимать по тексту, что человеку нравится и насколько",
         prompt:
-          "Записка: «I like apples. I'd like an apple now.» Чем отличаются эти две " +
-          "строки?",
-        options: [
-          { text: "Первая про желание, вторая про вкус" },
-          { text: "Они говорят одно и то же" },
-          { text: "Первая про вкус вообще, вторая про желание сейчас", correct: true },
-        ],
+          "Письмо: «I like bread. I really like rice. I don't like meat.» Сколько " +
+          "продуктов человеку нравится? Ответь цифрой.",
+        answer: "2",
+        accept: ["два", "две"],
         why:
-          "I like apples — вкус, он всегда. I'd like an apple now — желание на эту " +
-          "минуту, и артикль с ним говорит об одном яблоке.",
+          "Хлеб и рис — два. Мясо не нравится: перед like стоит don't.",
       },
       {
         id: "q-na-sluh-vkus-ili-zakaz",
@@ -1538,14 +1540,14 @@ const module: Module = {
           "предложения и разные обороты.",
       },
       {
-        id: "q-na-sluh-chto-ne-nravitsya",
+        id: "q-na-sluh-chto-hochet",
         kind: "short",
         outcome: "слышать разницу между I like и I'd like",
-        zvuk: "I really like music. I don't like football.",
+        zvuk: "I like water. I'd like a tea now.",
         prompt:
-          "Послушай запись. Что человеку не нравится? Ответь английским словом.",
-        answer: "football",
-        accept: ["the football"],
+          "Послушай запись. Что человек просит принести? Ответь английским словом.",
+        answer: "tea",
+        accept: ["a tea"],
         why: "I don't like football. Футбол.",
       },
       {

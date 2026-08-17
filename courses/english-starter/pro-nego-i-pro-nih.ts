@@ -60,6 +60,12 @@ const module: Module = {
 
   sources: [
     {
+      ref: "Council of Europe, CEFR Companion Volume 2020",
+      section:
+        "ОПОРА УРОКА ЧТЕНИЯ. с. 54, шкала Overall reading comprehension, графа A1: «Can understand very short, simple texts a single phrase at a time, picking up familiar names, words and basic phrases and rereading as required». Слова «picking up familiar names» описывают этот модуль дословно: имена в письме названы один раз, дальше идут местоимения. с. 55, шкала Reading correspondence, графа A1: «Can understand short, simple messages sent via social media or e-mail (e.g. proposing what to do, when and where to meet)». ОПОРА УРОКА СЛУШАНИЯ. Council of Europe, CEFR Companion Volume 2020, с. 48, шкала Overall oral comprehension, графа A1, дословно: «Can follow language which is very slow and carefully articulated, with long pauses for them to assimilate meaning» — отсюда pace: \"slow\" во всех записях. Там же: «Can recognise concrete information (e.g. places and times) on familiar topics encountered in everyday life, provided it is delivered slowly and clearly» — отсюда то, что спрашиваем конкретную вещь, а не смысл целиком. Для записей в два голоса — с. 49, шкала Understanding conversation between other people, графа A1: «Can understand words/signs and short sentences in a simple conversation (e.g. between a customer and a salesperson in a shop), provided people communicate very slowly and very clearly». Там же с. 49, A1: «Can understand some expressions when people are discussing them, family, school, hobbies or surroundings, provided the delivery is slow and clear» — разговор о родных и знакомых.",
+      license: "внутреннее использование, публично не называем",
+    },
+    {
       ref: "English Grammar Profile",
       section:
         "A1, PRONOUNS subject/object, «FORM: (OBJECT) 'ME', 'YOU', 'HER', 'HIM', " +
@@ -1247,18 +1253,16 @@ const module: Module = {
             "Alim studies English. I help him with his lessons.",
             "I like them very much. Aigul",
           ],
-          glossary: [
-            { term: "every day", translation: "каждый день" },
-            { term: "help", translation: "помогать" },
-          ],
+          // Словарика здесь нет: every day и help введены карточками в модуле 14,
+          // и вторая подача сказала бы ученику, что слова новые. Нашёл методист.
         },
         {
           id: "razbor-pisma-o-lyudyah",
           kind: "note",
           tone: "info",
           text:
-            "Слово them в конце письма — про обоих сразу. Так и делают, когда речь " +
-              "о нескольких людях, названных раньше по именам.",
+            "Слово them говорит о нескольких людях сразу — о тех, кого назвали " +
+              "раньше по именам. Him и her — каждое об одном.",
         },
         {
           id: "zapiska-o-sosede",
@@ -1387,8 +1391,8 @@ const module: Module = {
           kind: "note",
           tone: "info",
           text:
-            "Them слышно лучше двух других: оно длиннее и кончается на согласный. " +
-              "Him и her короче, и различает их гласный — тот же, что в паре his и her.",
+            "Her кончается гласным, а him и them — согласным m. Это и есть первая " +
+              "примета: слышишь m на конце — речь не о женщине.",
         },
         {
           id: "zapis-o-dvuh-lyudyah",
@@ -1397,8 +1401,8 @@ const module: Module = {
           pace: "slow",
           caption: "Послушай рассказ о двух людях",
           transcript:
-            "I have got two friends: Dana and Nurlan. I see her every day. " +
-            "I don't see him on Monday.",
+            "My mother is a nurse. My father is a driver. I help her at home. " +
+            "I don't see him in the morning.",
         },
         {
           id: "zapis-razgovor-o-znakomyh",
@@ -1417,25 +1421,25 @@ const module: Module = {
           id: "z1-kogo-vidit-kazhdyy-den-na-sluh",
           kind: "choice",
           about: "zapis-o-dvuh-lyudyah",
-          prompt: "Послушай первую запись. Кого видят каждый день?",
+          prompt: "Послушай первую запись. Кому помогают дома?",
           options: [
-            { text: "Нурлана" },
-            { text: "Дану", correct: true },
-            { text: "Обоих" },
+            { text: "Отцу" },
+            { text: "Матери", correct: true },
+            { text: "Обоим" },
           ],
-          hint: "Слово her — про женщину, а имён в записи два.",
-          why: "I see her every day. Her указывает на Дану.",
+          hint: "Слово her — про женщину, а людей в записи двое.",
+          why: "I help her at home. Her указывает на мать: она названа первой.",
         },
         {
-          id: "z2-kogo-ne-vidit-na-sluh",
+          id: "z2-kem-rabotaet-otec",
           kind: "short",
           about: "zapis-o-dvuh-lyudyah",
           prompt:
-            "Послушай первую запись. Кого не видят по понедельникам? Напиши имя.",
-          answer: "Nurlan",
-          accept: ["nurlan", "NURLAN"],
-          hint: "Слово him — про мужчину.",
-          why: "I don't see him on Monday. Him указывает на Нурлана.",
+            "Послушай первую запись. Кем работает отец? Ответь английским словом.",
+          answer: "driver",
+          accept: ["a driver"],
+          hint: "Про отца сказано во втором предложении.",
+          why: "My father is a driver. Водитель.",
         },
         {
           id: "z3-znaet-li-aigul",
@@ -1511,16 +1515,19 @@ const module: Module = {
       },
       {
         id: "q-tekst-kogo-znayut",
-        kind: "short",
+        kind: "choice",
         outcome: "понимать в тексте, о ком идёт речь, когда имя не повторяют",
         prompt:
-          "Записка: «Dana is my friend. Her sister works in a shop. I know her sister " +
-          "well.» Кто работает в магазине? Ответь по-русски одним словом.",
-        answer: "сестра",
-        accept: ["сестра Даны", "её сестра"],
+          "Записка: «Dana and Alim are my friends. I see them on Sunday. I know him " +
+          "well.» Кого знают хорошо?",
+        options: [
+          { text: "Дану" },
+          { text: "Алима", correct: true },
+          { text: "Обоих" },
+        ],
         why:
-          "Her sister works in a shop. Слово her здесь стоит перед названием человека " +
-          "и говорит, чья это сестра, — сестра Даны.",
+          "I know him well. Him — про мужчину, то есть про Алима. Them в предыдущем " +
+          "предложении — про обоих сразу.",
       },
       {
         id: "q-na-sluh-o-kom-govoryat",

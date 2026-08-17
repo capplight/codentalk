@@ -106,6 +106,12 @@ const module: Module = {
 
   sources: [
     {
+      ref: "Council of Europe, CEFR Companion Volume 2020",
+      section:
+        "ОПОРА УРОКА ЧТЕНИЯ. с. 54, Overall reading comprehension, графа A1: «Can understand very short, simple texts a single phrase at a time, picking up familiar names, words and basic phrases and rereading as required» — «rereading as required» прямо разрешает то, чему учит урок: возвращаться к союзу и перечитывать строку. с. 55, Reading correspondence, графа A1: «Can understand short, simple messages sent via social media or e-mail». ОПОРА УРОКА СЛУШАНИЯ. Council of Europe, CEFR Companion Volume 2020, с. 48, шкала Overall oral comprehension, графа A1, дословно: «Can follow language which is very slow and carefully articulated, with long pauses for them to assimilate meaning» — отсюда pace: \"slow\" во всех записях. Там же: «Can recognise concrete information (e.g. places and times) on familiar topics encountered in everyday life, provided it is delivered slowly and clearly» — отсюда то, что спрашиваем конкретную вещь, а не смысл целиком. Для записей в два голоса — с. 49, шкала Understanding conversation between other people, графа A1: «Can understand words/signs and short sentences in a simple conversation (e.g. between a customer and a salesperson in a shop), provided people communicate very slowly and very clearly». ",
+      license: "внутреннее использование, публично не называем",
+    },
+    {
       ref: "English Grammar Profile",
       section:
         "A1, CLAUSES coordinated, «FORM: MAIN CLAUSE + MAIN CLAUSE»: «Can combine " +
@@ -1294,19 +1300,16 @@ const module: Module = {
             "She studies English because she wants a good job.",
             "On Sunday she reads books or goes to the park.",
           ],
-          glossary: [
-            { term: "early", translation: "ранний, рано" },
-            { term: "wants", translation: "хочет" },
-          ],
+          // early введено в модуле 17; осталось только wants.
+          glossary: [{ term: "wants", translation: "хочет" }],
         },
         {
           id: "razbor-svyazok",
           kind: "note",
           tone: "info",
           text:
-            "Обрати внимание на but во второй строке. Работа Дане нравится, а ранние " +
-              "утра нет — but и показывает, что второе спорит с первым, а не добавляется " +
-              "к нему.",
+            "Читая, останавливайся на союзе и спрашивай себя: он добавляет или " +
+              "спорит? And добавляет, but спорит. От этого зависит, о чём вся строка.",
         },
         {
           id: "pismo-s-prichinoy",
@@ -1370,7 +1373,13 @@ const module: Module = {
             "Прочитай письмо от Нурлана. Почему он не работает по понедельникам? " +
             "Ответь английским словом.",
           answer: "study",
-          accept: ["I study", "he studies", "studies"],
+          accept: [
+            "I study",
+            "he studies",
+            "studies",
+            "because I study",
+            "because he studies",
+          ],
           hint: "Причина стоит после because.",
           why: "I don't work on Monday because I study. Потому что учится.",
         },
@@ -1437,8 +1446,8 @@ const module: Module = {
           kind: "note",
           tone: "info",
           text:
-            "Because слышно лучше остальных: оно длиннее и на нём голос задерживается. " +
-              "And, but и or короткие, и ловить их надо на месте между двумя делами.",
+            "Because слышно лучше остальных: в нём два слога, а в and, but и or по " +
+              "одному. Эти три короткие, и ловить их надо на месте между двумя делами.",
         },
         {
           id: "zapis-rasskaz-so-svyazkami",
@@ -1447,8 +1456,8 @@ const module: Module = {
           pace: "slow",
           caption: "Послушай рассказ",
           transcript:
-            "I work in a shop and I study English. I like my job, but I don't like " +
-            "early mornings.",
+            "My brother works in a hospital and he studies at home. He likes his job, " +
+            "but he doesn't like night work.",
         },
         {
           id: "zapis-vopros-pochemu",
@@ -1464,30 +1473,32 @@ const module: Module = {
 
         // ---- задания ----
         {
-          id: "z1-chto-delaet-govoryashchiy",
+          id: "z1-chto-delaet-brat",
           kind: "choice",
           about: "zapis-rasskaz-so-svyazkami",
-          prompt: "Послушай первую запись. Что человек делает?",
+          prompt: "Послушай первую запись. Что делает брат?",
           options: [
             { text: "Только работает" },
             { text: "И работает, и учится", correct: true },
             { text: "Только учится" },
           ],
           hint: "Первый союз добавляет второе дело к первому.",
-          why: "I work in a shop and I study English. And — «и»: оба дела сразу.",
+          why:
+            "My brother works in a hospital and he studies at home. And — «и»: оба " +
+            "дела сразу.",
         },
         {
           id: "z2-chto-ne-nravitsya-na-sluh",
           kind: "short",
           about: "zapis-rasskaz-so-svyazkami",
           prompt:
-            "Послушай первую запись. Что человеку не нравится? Ответь двумя " +
-            "английскими словами.",
-          answer: "early mornings",
-          accept: ["early morning"],
+            "Послушай первую запись. Что брату не нравится? Ответь двумя английскими " +
+            "словами.",
+          answer: "night work",
+          accept: ["the night work"],
           hint: "Слушай, что идёт после but.",
           why:
-            "I like my job, but I don't like early mornings. But показывает, что " +
+            "He likes his job, but he doesn't like night work. But показывает, что " +
             "второе спорит с первым.",
         },
         {
@@ -1592,11 +1603,13 @@ const module: Module = {
         id: "q-na-sluh-vybor",
         kind: "short",
         outcome: "слышать союз и понимать, добавляет он, спорит или даёт выбор",
-        zvuk: "Bread or rice? — Rice, please.",
-        prompt: "Послушай запись. Что выбрали? Ответь английским словом.",
-        answer: "rice",
-        accept: ["Rice, please", "some rice"],
-        why: "Bread or rice? — Rice, please. Союз or предлагал выбор из двух.",
+        zvuk: "I don't work on Sunday because I study at home.",
+        prompt:
+          "Послушай запись. Какой союз называет причину? Ответь английским словом.",
+        answer: "because",
+        why:
+          "I don't work on Sunday because I study at home. Причина всегда идёт после " +
+          "этого союза, и он длиннее остальных — в нём два слога.",
       },
       {
         id: "q-soedinit-dva-predlozheniya",

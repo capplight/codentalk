@@ -96,6 +96,12 @@ const module: Module = {
 
   sources: [
     {
+      ref: "Council of Europe, CEFR Companion Volume 2020",
+      section:
+        "ОПОРА УРОКА ЧТЕНИЯ. с. 58, шкала Reading instructions, графа Pre-A1: «Can understand very short, simple, instructions used in familiar everyday contexts (e.g. “No parking”, “No food or drink”), especially if there are illustrations» — это ступень НИЖЕ нашей, и она про знаки. У нас указания полными предложениями, и ближе к ним строка A2 той же шкалы: «Can understand instructions on medicine labels expressed as a simple command (e.g. “Take before meals” or “Do not take if driving”)». Это сходится с тем, что модуль уже объявил в шапке: повелительное наклонение взято сверх ступени. ОПОРА УРОКА СЛУШАНИЯ. Council of Europe, CEFR Companion Volume 2020, с. 48, шкала Overall oral comprehension, графа A1, дословно: «Can follow language which is very slow and carefully articulated, with long pauses for them to assimilate meaning» — отсюда pace: \"slow\" во всех записях. Там же: «Can recognise concrete information (e.g. places and times) on familiar topics encountered in everyday life, provided it is delivered slowly and clearly» — отсюда то, что спрашиваем конкретную вещь, а не смысл целиком. Для записей в два голоса — с. 49, шкала Understanding conversation between other people, графа A1: «Can understand words/signs and short sentences in a simple conversation (e.g. between a customer and a salesperson in a shop), provided people communicate very slowly and very clearly». ",
+      license: "внутреннее использование, публично не называем",
+    },
+    {
       ref: "English Grammar Profile",
       section:
         "A2, CLAUSES imperatives, «FORM: AFFIRMATIVE»: «Can form an affirmative " +
@@ -1306,19 +1312,17 @@ const module: Module = {
             "Don't use your phone.",
             "Open: Monday — Saturday",
           ],
-          glossary: [
-            { term: "close", translation: "закрывать" },
-            { term: "eat", translation: "есть, кушать" },
-            { term: "use", translation: "пользоваться" },
-          ],
+          // close и eat даны в модуле 14, и шапка этого модуля сама их
+          // перечисляет как введённые. Осталось только use.
+          glossary: [{ term: "use", translation: "пользоваться" }],
         },
         {
           id: "razbor-pravil",
           kind: "note",
           tone: "info",
           text:
-            "Слово please в первой строке не меняет смысла указания — оно смягчает " +
-              "его. В запретах его не ставят: запрет и так короткий.",
+            "Слово please не меняет смысла указания — оно смягчает его. Поставить " +
+              "его можно и в запрете: Don't come at nine, please.",
         },
         {
           id: "zapiska-s-prosboy",
@@ -1357,23 +1361,28 @@ const module: Module = {
             "из первой строки.",
           answer: "close",
           accept: ["close the door"],
-          hint: "Это единственная строка со словом please.",
+          hint: "Ищи строку без Don't: там не запрет, а указание.",
           why: "Please close the door. Закрывать дверь.",
         },
         {
-          id: "z3-rabotaet-li-v-voskresene",
+          // Было задание про промежуток дней через тире — оно не проверяло итог
+          // урока («что делать и чего делать нельзя») и опиралось на чтение
+          // тире, которому урок не учит. Нашёл методист.
+          id: "z3-skolko-zapretov-v-pravilah",
           kind: "choice",
           about: "pravila-v-biblioteke",
-          prompt: "Прочитай объявление LIBRARY. Работает ли библиотека в воскресенье?",
+          prompt:
+            "Прочитай объявление LIBRARY. Чего в нём больше — того, что просят сделать, " +
+            "или того, что запрещают?",
           options: [
-            { text: "Работает" },
-            { text: "Не работает", correct: true },
-            { text: "Про воскресенье не сказано" },
+            { text: "Того, что просят сделать" },
+            { text: "Запретов", correct: true },
+            { text: "Поровну" },
           ],
-          hint: "Последняя строка называет промежуток дней через тире.",
+          hint: "Считай строки с Don't и строки без него.",
           why:
-            "Open: Monday — Saturday. С понедельника по субботу. Воскресенье в этот " +
-            "промежуток не входит.",
+            "Запретов два: Don't eat here и Don't use your phone. Просьба одна: " +
+            "Please close the door.",
         },
         {
           id: "z4-vo-skolko-prihodit",
@@ -1444,8 +1453,8 @@ const module: Module = {
           kind: "note",
           tone: "info",
           text:
-            "Просьбу узнать легче двух других: она длиннее на два слова и кончается " +
-              "вопросом. Указание и запрет короткие, и различает их только Don't.",
+            "Все три различает первое слово, и только оно. Просьба начинается с Can " +
+              "you, запрет — с Don't, а указание сразу с дела: Close, Open, Sit.",
         },
         {
           id: "zapis-ukazaniya-i-zaprety",
@@ -1453,7 +1462,7 @@ const module: Module = {
           skryt: true,
           pace: "slow",
           caption: "Послушай три предложения",
-          transcript: "Please close the door. Don't eat here. Can you help me?",
+          transcript: "Please sit here. Don't open the window. Can you come at six?",
         },
         {
           id: "zapis-razgovor-s-prosboy-o-meste",
@@ -1480,19 +1489,19 @@ const module: Module = {
           ],
           hint: "Запрет начинается с Don't.",
           why:
-            "Don't eat here — запрет один. Please close the door — указание, Can you " +
-            "help me? — просьба.",
+            "Don't open the window — запрет один. Please sit here — указание, Can you " +
+            "come at six? — просьба.",
         },
         {
           id: "z2-o-chem-prosyat",
           kind: "short",
           about: "zapis-ukazaniya-i-zaprety",
           prompt:
-            "Послушай первую запись. О чём в ней просят? Ответь английским словом.",
-          answer: "help",
-          accept: ["to help", "help me"],
-          hint: "Просьба — самое длинное предложение, и оно кончается вопросом.",
-          why: "Can you help me? О помощи.",
+            "Послушай первую запись. Во сколько просят прийти? Ответь цифрой.",
+          answer: "6",
+          accept: ["six", "шесть", "6 o'clock"],
+          hint: "Просьба начинается с Can you.",
+          why: "Can you come at six? В шесть.",
         },
         {
           id: "z3-mozhno-li-sest",
@@ -1567,30 +1576,34 @@ const module: Module = {
           "единственное указание, а не запрет.",
       },
       {
-        id: "q-obyavlenie-skolko-zapretov",
-        kind: "short",
+        id: "q-obyavlenie-chto-mozhno",
+        kind: "choice",
         outcome: "понимать по объявлению, что делать и чего делать нельзя",
         prompt:
-          "То же объявление: «Please close the window. Don't eat here. Don't open the " +
-          "door.» Сколько в нём запретов? Ответь цифрой.",
-        answer: "2",
-        accept: ["два", "две"],
-        why: "Don't eat here и Don't open the door. Два запрета.",
+          "Объявление: «Please sit here. Don't open the window.» Человек хочет открыть " +
+          "окно. Можно ли ему это?",
+        options: [
+          { text: "Нельзя", correct: true },
+          { text: "Можно" },
+          { text: "Про окно не сказано" },
+        ],
+        why:
+          "Don't open the window. Строка с Don't и говорит, чего делать нельзя.",
       },
       {
         id: "q-na-sluh-chto-eto-bylo",
         kind: "choice",
         outcome: "различать на слух указание, запрет и просьбу",
-        zvuk: "Can you close the window?",
+        zvuk: "Don't sit here, please.",
         prompt: "Послушай запись. Это указание, запрет или просьба?",
         options: [
           { text: "Указание" },
-          { text: "Просьба", correct: true },
-          { text: "Запрет" },
+          { text: "Запрет", correct: true },
+          { text: "Просьба" },
         ],
         why:
-          "Can you close the window? Начинается с Can you и кончается вопросом — " +
-          "значит просьба. Указание было бы просто Close the window.",
+          "Don't sit here, please. Начинается с Don't — значит запрет, и слово please " +
+          "этого не меняет: оно только смягчает.",
       },
       {
         id: "q-na-sluh-chto-nelzya",

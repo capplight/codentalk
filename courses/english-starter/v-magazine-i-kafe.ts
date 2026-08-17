@@ -85,6 +85,12 @@ const module: Module = {
 
   sources: [
     {
+      ref: "Council of Europe, CEFR Companion Volume 2020",
+      section:
+        "ОПОРА УРОКА ЧТЕНИЯ. с. 56, шкала Reading for orientation, графа A1: «Can find and understand simple, important information in advertisements, programmes for special events, leaflets and brochures (e.g. what is proposed, costs, the date and place of the event, departure times)» — урок держится на цене, и она здесь названа прямо. Там же графа Pre-A1: «Can find information about places, times and prices on posters, flyers and notices». ОГОВОРКА, КОТОРУЮ НЕЛЬЗЯ ОПУСКАТЬ: само слово «меню» у источника стоит на A2 — «Can find specific, predictable information in simple everyday material such as advertisements, prospectuses, menus, reference lists and timetables», с. 56, графа A2 (проверено построчно: метка A2 стоит выше этой строки). Урок опирается на строки A1 и Pre-A1 о ценах, а не на строку про меню, но умолчать об этом нельзя. Нашёл методист. ОПОРА УРОКА СЛУШАНИЯ. Council of Europe, CEFR Companion Volume 2020, с. 48, шкала Overall oral comprehension, графа A1, дословно: «Can follow language which is very slow and carefully articulated, with long pauses for them to assimilate meaning» — отсюда pace: \"slow\" во всех записях. Там же: «Can recognise concrete information (e.g. places and times) on familiar topics encountered in everyday life, provided it is delivered slowly and clearly» — отсюда то, что спрашиваем конкретную вещь, а не смысл целиком. Для записей в два голоса — с. 49, шкала Understanding conversation between other people, графа A1: «Can understand words/signs and short sentences in a simple conversation (e.g. between a customer and a salesperson in a shop), provided people communicate very slowly and very clearly». Разговор в кафе — это ровно скобка источника про покупателя и продавца.",
+      license: "внутреннее использование, публично не называем",
+    },
+    {
       ref: "English Grammar Profile",
       section:
         "A1, DETERMINERS articles, «FORM/USE: NO ARTICLE»: «Can use no article " +
@@ -1273,8 +1279,8 @@ const module: Module = {
           kind: "note",
           tone: "info",
           text:
-            "Строка «Rice and meat» называет два продукта, а цена у неё одна: 90 — " +
-              "это за всё вместе. Так в меню и пишут, когда блюдо из нескольких вещей.",
+            "Если в строке два продукта через and, цена у неё одна — за всё вместе. " +
+              "Так в меню и пишут, когда блюдо составлено из нескольких вещей.",
         },
         {
           id: "zapiska-o-pokupkah",
@@ -1285,7 +1291,7 @@ const module: Module = {
             "Hi! Can you buy some bread and some water?",
             "I haven't got any money now. I'd like a coffee too. Alim",
           ],
-          glossary: [{ term: "buy", translation: "покупать" }],
+          // Слово buy введено в модуле 15; словарик здесь не нужен.
         },
 
         // ---- задания ----

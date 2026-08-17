@@ -98,6 +98,12 @@ const module: Module = {
 
   sources: [
     {
+      ref: "Council of Europe, CEFR Companion Volume 2020",
+      section:
+        "ОПОРА УРОКА ЧТЕНИЯ. с. 54, Overall reading comprehension, графа A1: «Can understand very short, simple texts a single phrase at a time…». с. 55, Reading correspondence, графа A1: «Can understand short, simple messages sent via social media or e-mail (e.g. proposing what to do, when and where to meet)» — письмо о планах на завтра это и есть. ОПОРА УРОКА СЛУШАНИЯ. Council of Europe, CEFR Companion Volume 2020, с. 48, шкала Overall oral comprehension, графа A1, дословно: «Can follow language which is very slow and carefully articulated, with long pauses for them to assimilate meaning» — отсюда pace: \"slow\" во всех записях. Там же: «Can recognise concrete information (e.g. places and times) on familiar topics encountered in everyday life, provided it is delivered slowly and clearly» — отсюда то, что спрашиваем конкретную вещь, а не смысл целиком. Для записей в два голоса — с. 49, шкала Understanding conversation between other people, графа A1: «Can understand words/signs and short sentences in a simple conversation (e.g. between a customer and a salesperson in a shop), provided people communicate very slowly and very clearly». Строка про «places and times» с. 48 держит задания о времени встречи.",
+      license: "внутреннее использование, публично не называем",
+    },
+    {
       ref: "English Grammar Profile",
       section:
         "A1, PAST past simple, «FORM: AFFIRMATIVE»: «Can use the affirmative form " +
@@ -549,7 +555,14 @@ const module: Module = {
             { text: "She came at six.", selectable: true },
           ],
           hint: "У go и come свои формы: went и came.",
-          why: "Верно: I went to work и She came at six.",
+          // Разбор говорил «Верно: I went to work и She came at six» — то есть
+          // называл верными ровно те записи, которые отмечать НЕ надо. Слово
+          // «верно» значило в нём не то же, что в условии, и ученик, сверявший
+          // себя по разбору, решал, что ошибся. Нашёл методист мимоходом.
+          why:
+            "Отметить надо было I goed to work и She comed at six: в них к особому " +
+            "глаголу приделали -ed. Правильные записи — I went to work и She came " +
+            "at six.",
         },
         {
           id: "z4-sopostavit-osobye",
@@ -1282,9 +1295,9 @@ const module: Module = {
           kind: "note",
           tone: "info",
           text:
-            "Обрати внимание на глаголы: worked и went — про вчера, is reading — про " +
-              "сейчас, will work — про завтра. Слово времени в начале строки говорит " +
-              "то же самое, но заметить его легче.",
+            "Время видно по двум местам сразу: по глаголу и по слову в начале " +
+              "строки. Слово заметить легче — yesterday, now, tomorrow не спутаешь ни с " +
+              "чем.",
         },
         {
           id: "pismo-o-planah",
@@ -1344,7 +1357,12 @@ const module: Module = {
             "Прочитай письмо от Айгуль. Почему вчера она была дома? Ответь английским " +
             "словом.",
           answer: "busy",
-          accept: ["I was busy", "she was busy"],
+          accept: [
+            "I was busy",
+            "she was busy",
+            "because I was busy",
+            "because she was busy",
+          ],
           hint: "Причина стоит после because.",
           why: "Yesterday I was at home because I was busy. Была занята.",
         },
@@ -1379,8 +1397,8 @@ const module: Module = {
           id: "zachem-slushat-tri-vremeni",
           kind: "explain",
           text: [
-            "На слух время различить труднее, чем на письме: окончание -ed короткое, " +
-              "will проглатывают до одного звука.",
+            "На слух время различить труднее, чем на письме: окончание -ed короткое " +
+              "и стоит в самом конце слова, где его легко потерять.",
             "Зато слово времени звучит отчётливо и стоит с краю — в начале или в конце. " +
               "Оно и есть самая надёжная примета.",
           ],
@@ -1416,8 +1434,8 @@ const module: Module = {
           pace: "slow",
           caption: "Послушай рассказ",
           transcript:
-            "Yesterday I worked in a school. Now I am reading a book. " +
-            "Tomorrow I will go to the park.",
+            "Yesterday my sister was busy. Now she is cooking. " +
+            "Tomorrow she will come at five.",
         },
         {
           id: "zapis-razgovor-o-planah",
@@ -1437,25 +1455,24 @@ const module: Module = {
           kind: "short",
           about: "zapis-rasskaz-o-treh-dnyah",
           prompt:
-            "Послушай первую запись. Где человек работал вчера? Ответь английским " +
-            "словом.",
-          answer: "school",
-          accept: ["a school", "in a school"],
+            "Послушай первую запись. Какой сестра была вчера? Ответь английским словом.",
+          answer: "busy",
+          accept: ["she was busy"],
           hint: "Первое предложение начинается со слова Yesterday.",
-          why: "Yesterday I worked in a school. В школе.",
+          why: "Yesterday my sister was busy. Занята.",
         },
         {
           id: "z2-chto-budet-zavtra",
           kind: "choice",
           about: "zapis-rasskaz-o-treh-dnyah",
-          prompt: "Послушай первую запись. Что человек будет делать завтра?",
+          prompt: "Послушай первую запись. Что будет завтра?",
           options: [
-            { text: "Работать в школе" },
-            { text: "Читать книгу" },
-            { text: "Пойдёт в парк", correct: true },
+            { text: "Сестра будет занята" },
+            { text: "Сестра будет готовить" },
+            { text: "Сестра придёт в пять", correct: true },
           ],
           hint: "Последнее предложение начинается со слова Tomorrow.",
-          why: "Tomorrow I will go to the park. В парк.",
+          why: "Tomorrow she will come at five. Придёт в пять.",
         },
         {
           id: "z3-skolko-vremen",

@@ -1358,7 +1358,7 @@ const module: Module = {
           genre: "email",
           title: "A message from Alim",
           body: [
-            "Hi! I work in a cafe. I get up at six, but I don't get up early on Sunday.",
+            "Hi! I work in a cafe. I get up at six, but I don't get up at six on Sunday.",
             "My brother doesn't work in a cafe. He is a student. Alim",
           ],
         },
@@ -1423,13 +1423,14 @@ const module: Module = {
           prompt: "Прочитай письмо от Алима. Во сколько он встаёт в воскресенье?",
           options: [
             { text: "В шесть, как всегда" },
-            { text: "Позже шести", correct: true },
-            { text: "В письме этого нет" },
+            { text: "Не в шесть — точное время не названо", correct: true },
+            { text: "В письме про воскресенье нет ни слова" },
           ],
           hint: "Слово but соединяет два предложения, и второе спорит с первым.",
           why:
-            "I get up at six, but I don't get up early on Sunday. Точного времени " +
-            "нет, но сказано, что рано он в этот день не встаёт.",
+            "I get up at six, but I don't get up at six on Sunday. Про будни сказано " +
+            "«в шесть», про воскресенье — «не в шесть». Какое время на самом деле, " +
+            "письмо не называет.",
         },
       ],
     },
