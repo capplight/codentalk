@@ -198,6 +198,8 @@ const module: Module = {
     "говорить, чего нет: There isn't a garden",
     "рассказывать, что есть в городе: cinema, library, market, restaurant",
     "рассказывать о своём жилье четырьмя предложениями",
+    "понимать по объявлению, что есть в жилье и рядом с ним",
+    "понимать на слух, что где-то есть, а чего нет",
   ],
 
   lessons: [
@@ -1447,6 +1449,251 @@ const module: Module = {
         },
       ],
     },
+
+    // =====================================================================
+    // Урок чтения. Описание жилья и города — первый текст, где `there is`
+    // работает по назначению. Опора — в `sources`.
+    // =====================================================================
+    {
+      slug: "chitaem-o-zhilye",
+      title: "Читаем объявление о жилье",
+      estimatedMinutes: 13,
+      outcome: "понимать по объявлению, что есть в жилье и рядом с ним",
+
+      blocks: [
+        {
+          id: "zachem-chitat-o-zhilye",
+          kind: "explain",
+          text: [
+            "Объявление о жилье отвечает на два вопроса: что есть внутри и что есть " +
+              "рядом. Обо всём этом говорят оборотом there is.",
+            "Читают такое объявление, чтобы понять одно — подходит жильё или нет.",
+          ],
+        },
+        {
+          id: "obyavlenie-o-kvartire",
+          kind: "text",
+          genre: "notice",
+          title: "FLAT FOR RENT",
+          body: [
+            "There are two rooms and a kitchen.",
+            "There is a big window in the room.",
+            "There is a shop and a bus stop near the house.",
+            "There is no garden.",
+          ],
+          glossary: [
+            { term: "FOR RENT", translation: "сдаётся" },
+            { term: "no garden", translation: "сада нет" },
+          ],
+        },
+        {
+          id: "razbor-obyavleniya-o-zhilye",
+          kind: "note",
+          tone: "info",
+          text:
+            "Отрицание здесь записано короче обычного: There is no garden вместо " +
+              "There isn't a garden. Смысл один и тот же, и в объявлениях встречаются " +
+              "оба вида записи.",
+        },
+        {
+          id: "zapiska-o-rayone",
+          kind: "text",
+          genre: "message",
+          title: "A message from Nurlan",
+          body: [
+            "Hi! There is a good cafe near my house. There is a park too.",
+            "There isn't a cinema, but there is one in the city centre. Nurlan",
+          ],
+        },
+
+        // ---- задания ----
+        {
+          id: "z1-skolko-komnat",
+          kind: "short",
+          about: "obyavlenie-o-kvartire",
+          prompt:
+            "Прочитай объявление FLAT FOR RENT. Сколько в квартире комнат? Ответь цифрой.",
+          answer: "2",
+          accept: ["two", "две", "два"],
+          hint: "Число стоит в первой строке.",
+          why: "There are two rooms and a kitchen. Две комнаты, а кухня отдельно.",
+        },
+        {
+          id: "z2-chego-net-v-kvartire",
+          kind: "choice",
+          about: "obyavlenie-o-kvartire",
+          prompt: "Прочитай объявление FLAT FOR RENT. Чего при квартире нет?",
+          options: [
+            { text: "Кухни" },
+            { text: "Сада", correct: true },
+            { text: "Окна" },
+          ],
+          hint: "Найди строку со словом no.",
+          why: "There is no garden. Сада нет. Кухня и окно в объявлении есть.",
+        },
+        {
+          id: "z3-chto-ryadom-s-domom",
+          kind: "hottext",
+          about: "obyavlenie-o-kvartire",
+          prompt:
+            "Прочитай объявление FLAT FOR RENT. Отметь то, что есть рядом с домом.",
+          parts: [
+            { text: "a shop", selectable: true, correct: true },
+            { text: "a bus stop", selectable: true, correct: true },
+            { text: "a garden", selectable: true },
+            { text: "a kitchen", selectable: true },
+          ],
+          hint: "Рядом с домом — это строка со словами near the house.",
+          why:
+            "There is a shop and a bus stop near the house. Кухня внутри квартиры, а " +
+            "сада нет вовсе.",
+        },
+        {
+          id: "z4-est-li-kino",
+          kind: "choice",
+          about: "zapiska-o-rayone",
+          prompt: "Прочитай записку от Нурлана. Есть ли кинотеатр рядом с его домом?",
+          options: [
+            { text: "Есть" },
+            { text: "Рядом нет, но есть в центре города", correct: true },
+            { text: "Нет нигде" },
+          ],
+          hint: "Предложение про кинотеатр состоит из двух частей, соединённых but.",
+          why:
+            "There isn't a cinema, but there is one in the city centre. Рядом нет, " +
+            "в центре есть.",
+        },
+        {
+          id: "z5-chto-est-u-nurlana",
+          kind: "short",
+          about: "zapiska-o-rayone",
+          prompt:
+            "Прочитай записку от Нурлана. Какое место рядом с его домом названо " +
+            "хорошим? Ответь английским словом.",
+          answer: "cafe",
+          accept: ["a cafe", "the cafe"],
+          hint: "Прилагательное good стоит только один раз.",
+          why: "There is a good cafe near my house. Кафе.",
+        },
+      ],
+    },
+
+    // =====================================================================
+    // Урок слушания.
+    // =====================================================================
+    {
+      slug: "slushaem-chto-est",
+      title: "Слушаем, что где есть",
+      estimatedMinutes: 13,
+      outcome: "понимать на слух, что где-то есть, а чего нет",
+
+      blocks: [
+        {
+          id: "zachem-slushat-chto-est",
+          kind: "explain",
+          text: [
+            "Когда рассказывают, что где есть, слушать надо не только названия вещей. " +
+              "Половина смысла — в том, есть вещь или её нет.",
+            "Отрицание звучит коротко и легко теряется. Держи ухо на словах isn't, " +
+              "aren't и no.",
+          ],
+        },
+        {
+          id: "est-ili-net-na-sluh",
+          kind: "table",
+          caption: "Есть и нет — что слышно",
+          head: ["Есть", "Нет"],
+          rows: [
+            ["There is a shop.", "There isn't a shop."],
+            ["There are two rooms.", "There aren't two rooms."],
+            ["There is a garden.", "There is no garden."],
+          ],
+        },
+        {
+          id: "zapis-rasskaz-o-dome",
+          kind: "audio",
+          skryt: true,
+          pace: "slow",
+          caption: "Послушай рассказ о доме",
+          transcript:
+            "There are three rooms in my house. There is a big kitchen. " +
+            "There isn't a garden.",
+        },
+        {
+          id: "zapis-vopros-o-gorode",
+          kind: "audio",
+          skryt: true,
+          pace: "slow",
+          voice: "два голоса",
+          caption: "Послушай разговор о городе",
+          transcript:
+            "Is there a cinema in your town? — Yes, there is. — And a museum? — " +
+            "No, there isn't. But there is a good library.",
+        },
+
+        // ---- задания ----
+        {
+          id: "z1-skolko-komnat-na-sluh",
+          kind: "short",
+          about: "zapis-rasskaz-o-dome",
+          prompt: "Послушай первую запись. Сколько в доме комнат? Ответь цифрой.",
+          answer: "3",
+          accept: ["three", "три"],
+          hint: "Число звучит в самом начале.",
+          why: "There are three rooms in my house. Три.",
+        },
+        {
+          id: "z2-chego-net-v-dome",
+          kind: "choice",
+          about: "zapis-rasskaz-o-dome",
+          prompt: "Послушай первую запись. Чего в доме нет?",
+          options: [
+            { text: "Кухни" },
+            { text: "Комнат" },
+            { text: "Сада", correct: true },
+          ],
+          hint: "Отрицание звучит в последнем предложении.",
+          why: "There isn't a garden. Сада нет, а большая кухня есть.",
+        },
+        {
+          id: "z3-est-li-kino-na-sluh",
+          kind: "choice",
+          about: "zapis-vopros-o-gorode",
+          prompt: "Послушай разговор. Есть ли в городе кинотеатр?",
+          options: [
+            { text: "Есть", correct: true },
+            { text: "Нет" },
+            { text: "Об этом не спрашивали" },
+          ],
+          hint: "Короткий ответ идёт сразу после вопроса.",
+          why: "Is there a cinema in your town? — Yes, there is. Есть.",
+        },
+        {
+          id: "z4-chto-est-vmesto-muzeya",
+          kind: "short",
+          about: "zapis-vopros-o-gorode",
+          prompt:
+            "Послушай разговор. Музея в городе нет, а что есть вместо него? Ответь " +
+            "английским словом.",
+          answer: "library",
+          accept: ["a library", "a good library"],
+          hint: "Последнее предложение начинается с But.",
+          why: "But there is a good library. Библиотека.",
+        },
+        {
+          id: "z5-sprosit-vsluh",
+          kind: "speak",
+          prompt:
+            "Спроси вслух, есть ли в городе собеседника парк, и сам ответь, что в твоём " +
+            "городе он есть.",
+          phrase: "Is there a park in your town? Yes, there is a park in my town.",
+          translation: "Есть ли парк в твоём городе? Да, в моём городе есть парк.",
+          hint: "В вопросе is идёт перед there, в ответе — после.",
+          why:
+            "Is there…? — вопрос, There is… — ответ. Меняется только порядок двух слов.",
+        },
+      ],
+    },
   ],
 
   // =======================================================================
@@ -1458,6 +1705,57 @@ const module: Module = {
     ask: 8,
     passRatio: 0.8,
     questions: [
+      // ---- чтение и слушание ------------------------------------------
+      // Другой случай и другой вид задания, чем в уроках: там квартира и
+      // записка о районе, здесь комната в гостинице и вопрос о школе.
+      {
+        id: "q-obyavlenie-gostinicy",
+        kind: "hottext",
+        outcome: "понимать по объявлению, что есть в жилье и рядом с ним",
+        prompt:
+          "Объявление: «HOTEL. There is a TV in the room. There is no kitchen. " +
+          "There is a cafe near the hotel.» Отметь то, чего в гостинице нет.",
+        parts: [
+          { text: "a TV", selectable: true },
+          { text: "a kitchen", selectable: true, correct: true },
+          { text: "a cafe", selectable: true },
+        ],
+        why:
+          "There is no kitchen. Кухни нет. Телевизор в номере есть, кафе есть рядом.",
+      },
+      {
+        id: "q-ispravit-formu-est",
+        kind: "short",
+        outcome: "понимать по объявлению, что есть в жилье и рядом с ним",
+        prompt:
+          "В объявлении написано «There are no rooms», а человек пересказал это как " +
+          "«There is no rooms». Он взял не ту форму. Напиши верную.",
+        answer: "are",
+        why: "There are no rooms. Слово rooms во множественном числе, значит форма are.",
+      },
+      {
+        id: "q-na-sluh-est-li-shkola",
+        kind: "choice",
+        outcome: "понимать на слух, что где-то есть, а чего нет",
+        zvuk: "Is there a school near your house? — No, there isn't. But there is a park.",
+        prompt: "Послушай запись. Что есть рядом с домом?",
+        options: [
+          { text: "Парк", correct: true },
+          { text: "Школа" },
+          { text: "И школа, и парк" },
+        ],
+        why: "No, there isn't. But there is a park. Школы нет, парк есть.",
+      },
+      {
+        id: "q-na-sluh-skolko-okon",
+        kind: "short",
+        outcome: "понимать на слух, что где-то есть, а чего нет",
+        zvuk: "There are four windows in the room. There is no table.",
+        prompt: "Послушай запись. Сколько в комнате окон? Ответь цифрой.",
+        answer: "4",
+        accept: ["four", "четыре"],
+        why: "There are four windows in the room. Четыре.",
+      },
       {
         id: "q-there-is-napisat",
         kind: "short",
