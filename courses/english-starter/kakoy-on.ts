@@ -193,6 +193,8 @@ const module: Module = {
     "описывать человека: tall, young, nice",
     "называть любимое: my favourite colour is blue",
     "описывать предмет и человека тремя предложениями",
+    "понимать по описанию, какая вещь и подходит ли она",
+    "узнавать вещь и человека по описанию на слух",
   ],
 
   lessons: [
@@ -1479,6 +1481,251 @@ const module: Module = {
         },
       ],
     },
+
+    // =====================================================================
+    // Урок чтения. Объявление о продаже — текст, где описание вещи и есть всё
+    // содержание. Опора — в `sources`.
+    // =====================================================================
+    {
+      slug: "chitaem-obyavlenie-o-veshchi",
+      title: "Читаем объявление о вещи",
+      estimatedMinutes: 13,
+      outcome: "понимать по описанию, какая вещь и подходит ли она",
+
+      blocks: [
+        {
+          id: "zachem-chitat-opisanie",
+          kind: "explain",
+          text: [
+            "Объявление о продаже почти целиком состоит из описания: какая вещь, какого " +
+              "цвета, новая или старая.",
+            "Читают его, чтобы решить одно — подходит вещь или нет. Значит искать надо " +
+              "не всё подряд, а то, что для тебя важно.",
+          ],
+        },
+        {
+          id: "obyavlenie-o-velosipede",
+          kind: "text",
+          genre: "notice",
+          title: "FOR SALE",
+          body: [
+            "A bike. It is old but very good.",
+            "It is green.",
+            "Price: 80.",
+            "Phone: 8 7 0 1 2 3 4",
+          ],
+          glossary: [
+            { term: "FOR SALE", translation: "продаётся" },
+            { term: "but", translation: "но" },
+          ],
+        },
+        {
+          id: "razbor-obyavleniya",
+          kind: "note",
+          tone: "info",
+          text:
+            "Слово but связывает два прилагательных, которые не ожидаешь рядом: old " +
+              "but good — «старый, но хороший». Раньше ты соединял их словом and, и " +
+              "тогда они друг другу не противоречат: new and big.",
+        },
+        {
+          id: "dva-obyavleniya-ryadom",
+          kind: "text",
+          genre: "notice",
+          title: "TWO CAMERAS",
+          body: [
+            "Camera 1. It is new and small. It is black. Price: 100.",
+            "Camera 2. It is old and big. It is grey. Price: 40.",
+          ],
+        },
+
+        // ---- задания ----
+        {
+          id: "z1-kakoy-velosiped",
+          kind: "choice",
+          about: "obyavlenie-o-velosipede",
+          prompt: "Прочитай объявление FOR SALE. Какой велосипед продают?",
+          options: [
+            { text: "Новый и дорогой" },
+            { text: "Старый, но хороший", correct: true },
+            { text: "Старый и плохой" },
+          ],
+          hint: "Слово but показывает, что второе прилагательное спорит с первым.",
+          why:
+            "It is old but very good. Old — «старый», good — «хороший», а but " +
+            "соединяет их как противоположные.",
+        },
+        {
+          id: "z2-cvet-velosipeda",
+          kind: "short",
+          about: "obyavlenie-o-velosipede",
+          prompt:
+            "Прочитай объявление FOR SALE. Какого цвета велосипед? Ответь английским " +
+            "словом.",
+          answer: "green",
+          accept: ["it is green"],
+          hint: "Цвет назван отдельным коротким предложением.",
+          why: "It is green. Зелёный.",
+        },
+        {
+          id: "z3-kakaya-kamera-novaya",
+          kind: "choice",
+          about: "dva-obyavleniya-ryadom",
+          prompt: "Прочитай объявление TWO CAMERAS. Какая камера новая?",
+          options: [
+            { text: "Первая", correct: true },
+            { text: "Вторая" },
+            { text: "Обе" },
+          ],
+          hint: "Прочитай второе предложение каждой строки.",
+          why: "Camera 1. It is new and small. Вторая описана как old and big.",
+        },
+        {
+          id: "z4-kamera-podeshevle",
+          kind: "short",
+          about: "dva-obyavleniya-ryadom",
+          prompt:
+            "Прочитай объявление TWO CAMERAS. Сколько стоит та камера, что дешевле? " +
+            "Ответь цифрой.",
+          answer: "40",
+          accept: ["forty", "сорок"],
+          hint: "Сравни два числа после слова Price.",
+          why: "Camera 2. Price: 40. Сорок меньше, чем сто.",
+        },
+        {
+          id: "z5-vybor-kamery",
+          kind: "choice",
+          about: "dva-obyavleniya-ryadom",
+          prompt:
+            "Прочитай объявление TWO CAMERAS. Человеку нужна маленькая камера. " +
+            "Какая ему подходит?",
+          options: [
+            { text: "Вторая" },
+            { text: "Первая", correct: true },
+            { text: "Ни одна" },
+          ],
+          hint: "Маленькая — это small.",
+          why: "Camera 1. It is new and small. Вторая описана как big — большая.",
+        },
+      ],
+    },
+
+    // =====================================================================
+    // Урок слушания.
+    // =====================================================================
+    {
+      slug: "slushaem-opisanie",
+      title: "Слушаем описание",
+      estimatedMinutes: 13,
+      outcome: "узнавать вещь и человека по описанию на слух",
+
+      blocks: [
+        {
+          id: "zachem-slushat-opisanie",
+          kind: "explain",
+          text: [
+            "Описание на слух даёт сразу несколько слов подряд, и запомнить все не " +
+              "выйдет. Держать в голове надо то, о чём спрашивают.",
+            "Помогает порядок: сначала звучит, что это за вещь, потом какая она, " +
+              "потом цвет.",
+          ],
+        },
+        {
+          id: "poryadok-opisaniya-na-sluh",
+          kind: "table",
+          caption: "Что за чем звучит в описании",
+          head: ["Очередь", "Что называют", "Пример"],
+          rows: [
+            ["1", "что это", "This is my bag."],
+            ["2", "какое оно", "It is new and very big."],
+            ["3", "цвет", "It is black."],
+          ],
+        },
+        {
+          id: "zapis-opisanie-veshchi",
+          kind: "audio",
+          skryt: true,
+          pace: "slow",
+          caption: "Послушай описание вещи",
+          transcript: "This is my camera. It is old but very good. It is grey.",
+        },
+        {
+          id: "zapis-opisanie-cheloveka",
+          kind: "audio",
+          skryt: true,
+          pace: "slow",
+          voice: "два голоса",
+          caption: "Послушай, как описывают человека",
+          transcript:
+            "Who is Dana? — She is my sister. She is young and very nice. " +
+            "Her favourite colour is red.",
+        },
+
+        // ---- задания ----
+        {
+          id: "z1-chto-opisyvayut",
+          kind: "short",
+          about: "zapis-opisanie-veshchi",
+          prompt:
+            "Послушай первую запись. Какую вещь описывают? Ответь английским словом.",
+          answer: "camera",
+          accept: ["a camera", "my camera"],
+          hint: "Вещь называют в самом первом предложении.",
+          why: "This is my camera. Камера.",
+        },
+        {
+          id: "z2-kakaya-veshch",
+          kind: "choice",
+          about: "zapis-opisanie-veshchi",
+          prompt: "Послушай первую запись. Какая она?",
+          options: [
+            { text: "Новая и хорошая" },
+            { text: "Старая, но хорошая", correct: true },
+            { text: "Старая и плохая" },
+          ],
+          hint: "Слушай слово между двумя прилагательными.",
+          why: "It is old but very good. But — «но»: старая, зато хорошая.",
+        },
+        {
+          id: "z3-kto-takaya-dana",
+          kind: "choice",
+          about: "zapis-opisanie-cheloveka",
+          prompt: "Послушай вторую запись. Кем приходится Дана говорящему?",
+          options: [
+            { text: "Матерью" },
+            { text: "Подругой" },
+            { text: "Сестрой", correct: true },
+          ],
+          hint: "Ответ идёт сразу после вопроса.",
+          why: "She is my sister. Сестра.",
+        },
+        {
+          id: "z4-lyubimyy-cvet-dany",
+          kind: "short",
+          about: "zapis-opisanie-cheloveka",
+          prompt:
+            "Послушай вторую запись. Какой у Даны любимый цвет? Ответь английским " +
+            "словом.",
+          answer: "red",
+          accept: ["it is red", "her favourite colour is red"],
+          hint: "Цвет назван в последнем предложении.",
+          why: "Her favourite colour is red. Красный.",
+        },
+        {
+          id: "z5-opisat-vsluh",
+          kind: "speak",
+          prompt:
+            "Опиши вслух знакомого человека тремя предложениями: кто он тебе, какой " +
+            "он, какой у него любимый цвет.",
+          phrase: "This is my friend. He is tall and very nice. His favourite colour is blue.",
+          translation: "Это мой друг. Он высокий и очень приятный. Его любимый цвет синий.",
+          hint: "Держи тот же порядок, что в таблице.",
+          why:
+            "Слушающий разбирает описание легче, когда оно идёт привычным порядком: " +
+            "кто, какой, цвет.",
+        },
+      ],
+    },
   ],
 
   // =======================================================================
@@ -1490,6 +1737,61 @@ const module: Module = {
     ask: 8,
     passRatio: 0.8,
     questions: [
+      // ---- чтение и слушание ------------------------------------------
+      // Другой случай и другой вид задания, чем в уроках: там объявление о
+      // продаже и описание сестры, здесь потерянная вещь и выбор из двух.
+      {
+        id: "q-opisanie-poteryannoy-veshchi",
+        kind: "choice",
+        outcome: "понимать по описанию, какая вещь и подходит ли она",
+        prompt:
+          "Объявление: «LOST. A bag. It is small and black. It is not new.» " +
+          "Какую сумку потеряли?",
+        options: [
+          { text: "Маленькую чёрную, не новую", correct: true },
+          { text: "Большую чёрную и новую" },
+          { text: "Маленькую белую и новую" },
+        ],
+        why:
+          "It is small and black. It is not new. Три слова описания: маленькая, " +
+          "чёрная и не новая.",
+      },
+      {
+        id: "q-ispravit-opisanie",
+        kind: "short",
+        outcome: "понимать по описанию, какая вещь и подходит ли она",
+        prompt:
+          "В объявлении написано «It is old but very good», а человек пересказал это " +
+          "как «It is old and very good». Одно слово он поменял, и смысл сдвинулся. " +
+          "Напиши верное английское слово.",
+        answer: "but",
+        why:
+          "Old but good — «старая, зато хорошая»: but показывает, что второе слово " +
+          "спорит с первым. And просто ставит их рядом.",
+      },
+      {
+        id: "q-na-sluh-kakoy-dom",
+        kind: "choice",
+        outcome: "узнавать вещь и человека по описанию на слух",
+        zvuk: "This is my house. It is not big but it is very nice. It is white.",
+        prompt: "Послушай запись. Какой дом описывают?",
+        options: [
+          { text: "Большой и белый" },
+          { text: "Небольшой, но приятный", correct: true },
+          { text: "Большой и старый" },
+        ],
+        why: "It is not big but it is very nice. Не большой, зато очень приятный.",
+      },
+      {
+        id: "q-na-sluh-cvet-doma",
+        kind: "short",
+        outcome: "узнавать вещь и человека по описанию на слух",
+        zvuk: "This is my house. It is not big but it is very nice. It is white.",
+        prompt: "Послушай запись. Какого цвета дом? Ответь английским словом.",
+        answer: "white",
+        accept: ["it is white"],
+        why: "It is white. Белый: цвет назван в последнем предложении.",
+      },
       {
         id: "q-priznak-posle-be",
         kind: "short",
