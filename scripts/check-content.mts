@@ -666,8 +666,18 @@ function checkMaterial(block: Block, where: string): void {
       if (block.body.length === 0) fail(where, "текст пустой");
       if (block.body.some(blank)) fail(where, "пустой абзац в тексте");
       const slov = block.body.join(" ").split(/\s+/).filter(Boolean).length;
-      if (slov < 15) {
-        fail(where, `в тексте ${slov} слов — это не текст, а пример; возьми вид example`);
+      // Порог зависит от вида текста. Объявление, вывеска и меню коротки по
+      // своей природе: описания Совета Европы, с. 56, называют текстом даже
+      // «Parking» и «No smoking». Требовать от них пятнадцати слов значит
+      // запретить самый частый вид чтения на первых ступенях — на этом
+      // проверка и споткнулась о настоящее меню из четырёх строк.
+      const predel = block.genre === "notice" ? 6 : 15;
+      if (slov < predel) {
+        fail(
+          where,
+          `в тексте ${slov} слов, а нужно хотя бы ${predel} — это не текст, а пример; ` +
+            "возьми вид example"
+        );
       }
       // Порог взят с запасом: у Cambridge самый длинный текст экзамена A2 —
       // один «long text» на пять вопросов. Это не ошибка, а повод посмотреть.

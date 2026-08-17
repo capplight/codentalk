@@ -137,6 +137,8 @@ const module: Module = {
     "заказывать в кафе",
     "говорить, что чего-то нет: I haven't got any water",
     "вести разговор о покупке целиком",
+    "находить в меню нужное и понимать, сколько это стоит",
+    "понимать на слух заказ и цену в разговоре",
   ],
 
   lessons: [
@@ -1232,6 +1234,257 @@ const module: Module = {
         },
       ],
     },
+
+    // =====================================================================
+    // Урок чтения. Меню — текст, ради которого чтение на этой ступени и нужно
+    // чаще всего: в чужой стране его читают в первый же день.
+    // =====================================================================
+    {
+      slug: "chitaem-menyu",
+      title: "Читаем меню",
+      estimatedMinutes: 13,
+      outcome: "находить в меню нужное и понимать, сколько это стоит",
+
+      blocks: [
+        {
+          id: "zachem-chitat-menyu",
+          kind: "explain",
+          text: [
+            "Меню читают не подряд, а глазами по столбцам: слева название, справа цена. " +
+              "Внутри столбца строки идут по одной вещи.",
+            "Слова в меню почти все знакомы. Новое чаще всего одно — название блюда, " +
+              "и его можно понять по цене и по соседям.",
+          ],
+        },
+        {
+          id: "menyu-kafe",
+          kind: "text",
+          genre: "notice",
+          title: "CAFE",
+          body: [
+            "Tea — 30",
+            "Coffee — 50",
+            "Bread — 20",
+            "Rice and meat — 90",
+          ],
+        },
+        {
+          id: "razbor-menyu",
+          kind: "note",
+          tone: "info",
+          text:
+            "Строка «Rice and meat» называет два продукта, а цена у неё одна: 90 — " +
+              "это за всё вместе. Так в меню и пишут, когда блюдо из нескольких вещей.",
+        },
+        {
+          id: "zapiska-o-pokupkah",
+          kind: "text",
+          genre: "message",
+          title: "A message from Alim",
+          body: [
+            "Hi! Can you buy some bread and some water?",
+            "I haven't got any money now. I'd like a coffee too. Alim",
+          ],
+          glossary: [{ term: "buy", translation: "покупать" }],
+        },
+
+        // ---- задания ----
+        {
+          id: "z1-skolko-stoit-kofe",
+          kind: "short",
+          about: "menyu-kafe",
+          prompt: "Посмотри на меню CAFE. Сколько стоит кофе? Ответь цифрой.",
+          answer: "50",
+          accept: ["fifty", "пятьдесят"],
+          hint: "Найди строку со словом Coffee.",
+          why: "Coffee — 50. Пятьдесят.",
+        },
+        {
+          id: "z2-chto-deshevle",
+          kind: "choice",
+          about: "menyu-kafe",
+          prompt: "Посмотри на меню CAFE. Что дешевле всего?",
+          options: [
+            { text: "Чай" },
+            { text: "Хлеб", correct: true },
+            { text: "Кофе" },
+          ],
+          hint: "Сравни четыре числа и выбери самое маленькое.",
+          why: "Bread — 20. Двадцать меньше, чем 30, 50 и 90.",
+        },
+        {
+          id: "z3-chto-vhodit-v-blyudo",
+          kind: "choice",
+          about: "menyu-kafe",
+          prompt: "Посмотри на меню CAFE. Что входит в блюдо за 90?",
+          options: [
+            { text: "Только рис" },
+            { text: "Рис и мясо", correct: true },
+            { text: "Рис, мясо и хлеб" },
+          ],
+          hint: "Слово and соединяет две вещи в одной строке.",
+          why:
+            "Rice and meat — 90. Девяносто за всё вместе, а хлеб стоит отдельной " +
+            "строкой.",
+        },
+        {
+          id: "z4-chto-prosyat-kupit",
+          kind: "hottext",
+          about: "zapiska-o-pokupkah",
+          prompt: "Прочитай записку от Алима. Отметь то, что он просит купить.",
+          parts: [
+            { text: "bread", selectable: true, correct: true },
+            { text: "water", selectable: true, correct: true },
+            { text: "coffee", selectable: true },
+          ],
+          hint: "Просьба стоит в первом предложении, до слова money.",
+          why:
+            "Can you buy some bread and some water? Кофе он упоминает отдельно, и " +
+            "не как просьбу купить: I'd like a coffee too.",
+        },
+        {
+          id: "z5-est-li-dengi",
+          kind: "choice",
+          about: "zapiska-o-pokupkah",
+          prompt: "Прочитай записку от Алима. Есть ли у него сейчас деньги?",
+          options: [
+            { text: "Есть" },
+            { text: "Нет", correct: true },
+            { text: "Про деньги не сказано" },
+          ],
+          hint: "Найди предложение со словом any.",
+          why: "I haven't got any money now. Денег нет.",
+        },
+      ],
+    },
+
+    // =====================================================================
+    // Урок слушания.
+    // =====================================================================
+    {
+      slug: "slushaem-zakaz",
+      title: "Слушаем заказ",
+      estimatedMinutes: 13,
+      outcome: "понимать на слух заказ и цену в разговоре",
+
+      blocks: [
+        {
+          id: "zachem-slushat-zakaz",
+          kind: "explain",
+          text: [
+            "Разговор в кафе идёт быстро и по одному образцу. Зная его, можно слушать " +
+              "не всё подряд, а два места: что заказали и сколько это стоит.",
+            "Заказ начинается с I'd like, цена — с It is. Оба оборота короткие и стоят " +
+              "в начале своих реплик.",
+          ],
+        },
+        {
+          id: "obrazec-razgovora-v-kafe",
+          kind: "table",
+          caption: "Из чего состоит разговор в кафе",
+          head: ["Очередь", "Кто говорит", "Что звучит"],
+          rows: [
+            ["1", "продавец", "Can I help you?"],
+            ["2", "покупатель", "I'd like a coffee, please."],
+            ["3", "продавец", "Anything else?"],
+            ["4", "покупатель", "No, thank you."],
+            ["5", "покупатель", "How much is it?"],
+          ],
+        },
+        {
+          id: "some-i-a-na-sluh",
+          kind: "note",
+          tone: "info",
+          text:
+            "В заказе слышно, что именно берут: a coffee — одну чашку, some bread — " +
+              "немного хлеба. Слово перед названием и говорит, считают эту вещь или нет.",
+        },
+        {
+          id: "zapis-zakaz-v-kafe-polnyy",
+          kind: "audio",
+          skryt: true,
+          pace: "slow",
+          voice: "два голоса",
+          caption: "Послушай разговор в кафе",
+          transcript:
+            "Can I help you? — I'd like a tea and some bread, please. — " +
+            "Anything else? — No, thank you. How much is it? — It is fifty.",
+        },
+        {
+          id: "zapis-v-magazine-net",
+          kind: "audio",
+          skryt: true,
+          pace: "slow",
+          voice: "два голоса",
+          caption: "Послушай разговор в магазине",
+          transcript:
+            "Have you got any water? — No, we haven't. — And rice? — " +
+            "Yes, we have. It is twenty.",
+        },
+
+        // ---- задания ----
+        {
+          id: "z1-chto-zakazali-v-kafe",
+          kind: "hottext",
+          about: "zapis-zakaz-v-kafe-polnyy",
+          prompt: "Послушай первую запись. Отметь то, что заказали.",
+          parts: [
+            { text: "tea", selectable: true, correct: true },
+            { text: "bread", selectable: true, correct: true },
+            { text: "coffee", selectable: true },
+          ],
+          hint: "Заказ идёт после слов I'd like.",
+          why:
+            "I'd like a tea and some bread, please. Кофе в этой записи не звучит " +
+            "вовсе.",
+        },
+        {
+          id: "z2-skolko-platit",
+          kind: "short",
+          about: "zapis-zakaz-v-kafe-polnyy",
+          prompt: "Послушай первую запись. Сколько нужно заплатить? Ответь цифрой.",
+          answer: "50",
+          accept: ["fifty", "пятьдесят"],
+          hint: "Цена звучит в самом конце, после It is.",
+          why: "It is fifty. Пятьдесят.",
+        },
+        {
+          id: "z3-est-li-voda",
+          kind: "choice",
+          about: "zapis-v-magazine-net",
+          prompt: "Послушай вторую запись. Есть ли в магазине вода?",
+          options: [
+            { text: "Есть" },
+            { text: "Нет", correct: true },
+            { text: "Про воду не спрашивали" },
+          ],
+          hint: "Первый ответ идёт сразу после первого вопроса.",
+          why: "Have you got any water? — No, we haven't. Воды нет.",
+        },
+        {
+          id: "z4-skolko-stoit-ris",
+          kind: "short",
+          about: "zapis-v-magazine-net",
+          prompt: "Послушай вторую запись. Сколько стоит рис? Ответь цифрой.",
+          answer: "20",
+          accept: ["twenty", "двадцать"],
+          hint: "Цена звучит в последнем предложении.",
+          why: "Yes, we have. It is twenty. Двадцать.",
+        },
+        {
+          id: "z5-sdelat-zakaz-vsluh",
+          kind: "speak",
+          prompt:
+            "Сделай вслух заказ из двух вещей и спроси цену. Два предложения.",
+          phrase: "I'd like a coffee and some bread, please. How much is it?",
+          translation: "Мне кофе и немного хлеба, пожалуйста. Сколько это стоит?",
+          hint: "Перед coffee поставь a, перед bread — some.",
+          why:
+            "Заказ и вопрос о цене идут подряд, и этого хватает на любую покупку. " +
+            "Слово please делает просьбу вежливой.",
+        },
+      ],
+    },
   ],
 
   quiz: {
@@ -1245,6 +1498,59 @@ const module: Module = {
       // подстановка слова в тот же образец.
 
       // ---- итог 1 ----
+      // ---- чтение и слушание ------------------------------------------
+      // Другой случай, чем в уроках: там меню кафе и записка Алима, здесь
+      // ценник магазина и разговор о том, чего нет.
+      {
+        id: "q-menyu-skolko-vsego",
+        kind: "short",
+        outcome: "находить в меню нужное и понимать, сколько это стоит",
+        prompt:
+          "Меню: «Tea — 30. Bread — 20. Rice — 40.» Сколько стоит чай и хлеб вместе? " +
+          "Ответь цифрой.",
+        answer: "50",
+        accept: ["fifty", "пятьдесят"],
+        why: "Tea — 30, Bread — 20. Тридцать и двадцать вместе дают пятьдесят.",
+      },
+      {
+        id: "q-menyu-chto-dorozhe",
+        kind: "choice",
+        outcome: "находить в меню нужное и понимать, сколько это стоит",
+        prompt:
+          "То же меню: «Tea — 30. Bread — 20. Rice — 40.» Что дороже всего?",
+        options: [
+          { text: "Чай" },
+          { text: "Рис", correct: true },
+          { text: "Хлеб" },
+        ],
+        why: "Rice — 40. Сорок больше, чем тридцать и двадцать.",
+      },
+      {
+        id: "q-na-sluh-chego-net",
+        kind: "short",
+        outcome: "понимать на слух заказ и цену в разговоре",
+        zvuk: "Have you got any bread? — No, we haven't. We have got rice.",
+        prompt:
+          "Послушай запись. Что в магазине есть? Ответь английским словом.",
+        answer: "rice",
+        accept: ["some rice"],
+        why: "We have got rice. Хлеба нет, рис есть.",
+      },
+      {
+        id: "q-na-sluh-cena-zakaza",
+        kind: "choice",
+        outcome: "понимать на слух заказ и цену в разговоре",
+        zvuk: "I'd like a coffee, please. — It is thirty.",
+        prompt: "Послушай запись. Сколько стоит заказ?",
+        options: [
+          { text: "13" },
+          { text: "30", correct: true },
+          { text: "3" },
+        ],
+        why:
+          "It is thirty. Тридцать: ударение падает на первую часть слова. У thirteen " +
+          "оно было бы на конце.",
+      },
       {
         id: "q-schitaemoe-v-ryadu",
         kind: "choice",
