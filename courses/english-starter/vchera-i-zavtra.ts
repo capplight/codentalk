@@ -157,6 +157,8 @@ const module: Module = {
     "говорить о завтрашнем дне: I will work",
     "рассказывать о планах: I'll come tomorrow",
     "рассказывать о вчера и о завтра вместе",
+    "различать в тексте, что было, что есть и что будет",
+    "слышать, о вчера, о сейчас или о завтра идёт речь",
   ],
 
   lessons: [
@@ -1240,6 +1242,262 @@ const module: Module = {
         },
       ],
     },
+
+    // =====================================================================
+    // Урок чтения. Последний в курсе, и текст в нём самый длинный: рассказ о
+    // вчера, сейчас и завтра сразу. Читать его — значит держать все три
+    // времени, и это же итог всего курса.
+    // =====================================================================
+    {
+      slug: "chitaem-o-treh-vremenah",
+      title: "Читаем о вчера, сегодня и завтра",
+      estimatedMinutes: 14,
+      outcome: "различать в тексте, что было, что есть и что будет",
+
+      blocks: [
+        {
+          id: "zachem-chitat-o-treh",
+          kind: "explain",
+          text: [
+            "В одном рассказе легко встречаются все три времени: вчера было одно, " +
+              "сегодня другое, завтра третье.",
+            "Различают их по глаголу и по слову времени рядом: yesterday, now, " +
+              "tomorrow. Второе надёжнее — оно длиннее и заметнее.",
+          ],
+        },
+        {
+          id: "rasskaz-o-nedele-daniyara",
+          kind: "text",
+          genre: "article",
+          title: "Daniyar",
+          body: [
+            "Yesterday Daniyar worked in the shop. He finished at six and went home.",
+            "Now he is reading a book. He is at home.",
+            "Tomorrow he will work in the morning. He will finish at two.",
+          ],
+          glossary: [{ term: "went", translation: "пошёл (особая форма от go)" }],
+        },
+        {
+          id: "razbor-treh-vremen",
+          kind: "note",
+          tone: "info",
+          text:
+            "Обрати внимание на глаголы: worked и went — про вчера, is reading — про " +
+              "сейчас, will work — про завтра. Слово времени в начале строки говорит " +
+              "то же самое, но заметить его легче.",
+        },
+        {
+          id: "pismo-o-planah",
+          kind: "text",
+          genre: "email",
+          title: "A message from Aigul",
+          body: [
+            "Hi! Yesterday I was at home because I was busy.",
+            "Tomorrow I will come at ten. I will help you with the books.",
+            "See you! Aigul",
+          ],
+        },
+
+        // ---- задания ----
+        {
+          id: "z1-gde-byl-vchera",
+          kind: "short",
+          about: "rasskaz-o-nedele-daniyara",
+          prompt:
+            "Прочитай рассказ Daniyar. Где он работал вчера? Ответь английским словом.",
+          answer: "shop",
+          accept: ["the shop", "in the shop"],
+          hint: "Первая строка начинается со слова Yesterday.",
+          why: "Yesterday Daniyar worked in the shop. В магазине.",
+        },
+        {
+          id: "z2-chto-delaet-seychas",
+          kind: "choice",
+          about: "rasskaz-o-nedele-daniyara",
+          prompt: "Прочитай рассказ Daniyar. Что он делает сейчас?",
+          options: [
+            { text: "Работает" },
+            { text: "Читает", correct: true },
+            { text: "Идёт домой" },
+          ],
+          hint: "Найди строку со словом Now.",
+          why:
+            "Now he is reading a book. Форма is с окончанием -ing — про эту минуту.",
+        },
+        {
+          id: "z3-vo-skolko-zakonchit-zavtra",
+          kind: "short",
+          about: "rasskaz-o-nedele-daniyara",
+          prompt:
+            "Прочитай рассказ Daniyar. Во сколько он закончит завтра? Ответь цифрой.",
+          answer: "2",
+          accept: ["two", "два", "2 o'clock"],
+          hint: "В рассказе два времени окончания: одно про вчера, другое про завтра.",
+          why:
+            "Tomorrow… He will finish at two. Шесть — это вчера: He finished at six.",
+        },
+        {
+          id: "z4-pochemu-byla-doma",
+          kind: "short",
+          about: "pismo-o-planah",
+          prompt:
+            "Прочитай письмо от Айгуль. Почему вчера она была дома? Ответь английским " +
+            "словом.",
+          answer: "busy",
+          accept: ["I was busy", "she was busy"],
+          hint: "Причина стоит после because.",
+          why: "Yesterday I was at home because I was busy. Была занята.",
+        },
+        {
+          id: "z5-kogda-pridyot",
+          kind: "choice",
+          about: "pismo-o-planah",
+          prompt: "Прочитай письмо от Айгуль. Когда она придёт?",
+          options: [
+            { text: "Вчера в десять" },
+            { text: "Завтра в десять", correct: true },
+            { text: "Сегодня в десять" },
+          ],
+          hint: "Слово времени стоит в начале строки, а глагол идёт с will.",
+          why:
+            "Tomorrow I will come at ten. И слово Tomorrow, и will — оба про будущее.",
+        },
+      ],
+    },
+
+    // =====================================================================
+    // Урок слушания. Последний в курсе.
+    // =====================================================================
+    {
+      slug: "slushaem-tri-vremeni",
+      title: "Слушаем три времени",
+      estimatedMinutes: 14,
+      outcome: "слышать, о вчера, о сейчас или о завтра идёт речь",
+
+      blocks: [
+        {
+          id: "zachem-slushat-tri-vremeni",
+          kind: "explain",
+          text: [
+            "На слух время различить труднее, чем на письме: окончание -ed короткое, " +
+              "will проглатывают до одного звука.",
+            "Зато слово времени звучит отчётливо и стоит с краю — в начале или в конце. " +
+              "Оно и есть самая надёжная примета.",
+          ],
+        },
+        {
+          id: "tri-vremeni-na-sluh",
+          kind: "table",
+          caption: "Три времени — нажми и сравни",
+          zvuk: {
+            "Yesterday I worked at home.": "Yesterday I worked at home.",
+            "Now I am working at home.": "Now I am working at home.",
+            "Tomorrow I will work at home.": "Tomorrow I will work at home.",
+          },
+          head: ["Когда", "Как звучит"],
+          rows: [
+            ["вчера", "Yesterday I worked at home."],
+            ["сейчас", "Now I am working at home."],
+            ["завтра", "Tomorrow I will work at home."],
+          ],
+        },
+        {
+          id: "slovo-vremeni-nadezhnee",
+          kind: "note",
+          tone: "info",
+          text:
+            "Если слово времени не прозвучало, лови глагол: worked кончается лишним " +
+              "звуком, will звучит перед делом, а форма с -ing идёт после am или is.",
+        },
+        {
+          id: "zapis-rasskaz-o-treh-dnyah",
+          kind: "audio",
+          skryt: true,
+          pace: "slow",
+          caption: "Послушай рассказ",
+          transcript:
+            "Yesterday I worked in a school. Now I am reading a book. " +
+            "Tomorrow I will go to the park.",
+        },
+        {
+          id: "zapis-razgovor-o-planah",
+          kind: "audio",
+          skryt: true,
+          pace: "slow",
+          voice: "два голоса",
+          caption: "Послушай разговор",
+          transcript:
+            "Where were you yesterday? — I was at home. — And tomorrow? — " +
+            "Tomorrow I will work.",
+        },
+
+        // ---- задания ----
+        {
+          id: "z1-gde-rabotal-vchera-na-sluh",
+          kind: "short",
+          about: "zapis-rasskaz-o-treh-dnyah",
+          prompt:
+            "Послушай первую запись. Где человек работал вчера? Ответь английским " +
+            "словом.",
+          answer: "school",
+          accept: ["a school", "in a school"],
+          hint: "Первое предложение начинается со слова Yesterday.",
+          why: "Yesterday I worked in a school. В школе.",
+        },
+        {
+          id: "z2-chto-budet-zavtra",
+          kind: "choice",
+          about: "zapis-rasskaz-o-treh-dnyah",
+          prompt: "Послушай первую запись. Что человек будет делать завтра?",
+          options: [
+            { text: "Работать в школе" },
+            { text: "Читать книгу" },
+            { text: "Пойдёт в парк", correct: true },
+          ],
+          hint: "Последнее предложение начинается со слова Tomorrow.",
+          why: "Tomorrow I will go to the park. В парк.",
+        },
+        {
+          id: "z3-skolko-vremen",
+          kind: "choice",
+          about: "zapis-rasskaz-o-treh-dnyah",
+          prompt: "Послушай первую запись. Сколько разных времён в ней звучит?",
+          options: [
+            { text: "Два" },
+            { text: "Три", correct: true },
+            { text: "Одно" },
+          ],
+          hint: "Считай слова времени: их слышно лучше, чем окончания.",
+          why:
+            "Yesterday — вчера, Now — сейчас, Tomorrow — завтра. Три предложения, три " +
+            "времени.",
+        },
+        {
+          id: "z4-gde-byl-vchera-na-sluh",
+          kind: "short",
+          about: "zapis-razgovor-o-planah",
+          prompt:
+            "Послушай вторую запись. Где человек был вчера? Ответь английским словом.",
+          answer: "home",
+          accept: ["at home", "I was at home"],
+          hint: "Ответ идёт сразу после первого вопроса.",
+          why: "I was at home. Дома.",
+        },
+        {
+          id: "z5-rasskazat-o-treh-vremenah",
+          kind: "speak",
+          prompt:
+            "Расскажи вслух о себе тремя предложениями: что было вчера, что сейчас и " +
+            "что будет завтра.",
+          phrase: "Yesterday I worked. Now I am reading. Tomorrow I will work.",
+          translation: "Вчера я работал. Сейчас я читаю. Завтра я буду работать.",
+          hint: "Слово времени ставь первым — с него слушающему легче.",
+          why:
+            "Это весь курс в трёх предложениях. Если они идут одно за другим сами, " +
+            "ступень пройдена.",
+        },
+      ],
+    },
   ],
 
   quiz: {
@@ -1253,6 +1511,66 @@ const module: Module = {
       // прошлое от будущего по смыслу, а не по образцу задания.
 
       // ---- итог 1 ----
+      // ---- чтение и слушание ------------------------------------------
+      // Другой случай, чем в уроках: там рассказ о Данияре и письмо Айгуль,
+      // здесь записка о поездке и разговор о выходном.
+      {
+        id: "q-tekst-kogda-eto-bylo",
+        kind: "choice",
+        outcome: "различать в тексте, что было, что есть и что будет",
+        prompt:
+          "Записка: «Yesterday I was in Almaty. Now I am in Astana. Tomorrow I will " +
+          "go home.» Где человек сейчас?",
+        options: [
+          { text: "В Астане", correct: true },
+          { text: "В Алматы" },
+          { text: "Дома" },
+        ],
+        why:
+          "Now I am in Astana. Алматы — это вчера, дом — завтра. Слово времени в " +
+          "начале каждой строки и говорит, о чём она.",
+      },
+      {
+        id: "q-tekst-chto-budet",
+        kind: "short",
+        outcome: "различать в тексте, что было, что есть и что будет",
+        prompt:
+          "Та же записка: «Yesterday I was in Almaty. Now I am in Astana. Tomorrow I " +
+          "will go home.» Какое слово показывает, что речь о будущем? Ответь " +
+          "английским словом.",
+        answer: "tomorrow",
+        accept: ["will", "Tomorrow"],
+        why:
+          "Tomorrow I will go home. О будущем говорят два знака сразу: слово tomorrow " +
+          "и will перед делом.",
+      },
+      {
+        id: "q-na-sluh-kogda-rabotal",
+        kind: "choice",
+        outcome: "слышать, о вчера, о сейчас или о завтра идёт речь",
+        zvuk: "Yesterday I worked in a shop. Tomorrow I will work in a school.",
+        prompt: "Послушай запись. Где человек будет работать завтра?",
+        options: [
+          { text: "В магазине" },
+          { text: "Нигде" },
+          { text: "В школе", correct: true },
+        ],
+        why:
+          "Tomorrow I will work in a school. Магазин был вчера: Yesterday I worked " +
+          "in a shop.",
+      },
+      {
+        id: "q-na-sluh-chto-seychas",
+        kind: "short",
+        outcome: "слышать, о вчера, о сейчас или о завтра идёт речь",
+        zvuk: "Yesterday I was busy. Now I am reading a book.",
+        prompt:
+          "Послушай запись. Что человек делает сейчас? Ответь английским словом с " +
+          "окончанием -ing.",
+        answer: "reading",
+        accept: ["I am reading", "am reading"],
+        why: "Now I am reading a book. Читает.",
+      },
       {
         id: "q-perevesti-v-proshedshee",
         kind: "short",
