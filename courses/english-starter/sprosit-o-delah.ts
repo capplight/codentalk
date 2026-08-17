@@ -195,6 +195,8 @@ const module: Module = {
     "спрашивать, где, когда и кто: Where do you work? Who is your teacher?",
     "спрашивать о нескольких людях: Do they live here?",
     "вести короткий разговор о делах: спросить и ответить",
+    "понимать вопросы анкеты и находить ответ на них в чужом бланке",
+    "понимать на слух вопрос с do и короткий ответ на него",
   ],
 
   lessons: [
@@ -1364,6 +1366,266 @@ const module: Module = {
         },
       ],
     },
+
+    // =====================================================================
+    // Урок чтения. Анкета с вопросами — текст, который целиком состоит из
+    // вопросов, и это редкий случай: обычно ученик их только задаёт.
+    // =====================================================================
+    {
+      slug: "chitaem-anketu",
+      title: "Читаем анкету",
+      estimatedMinutes: 13,
+      outcome: "понимать вопросы анкеты и находить ответ на них в чужом бланке",
+
+      blocks: [
+        {
+          id: "zachem-chitat-anketu",
+          kind: "explain",
+          text: [
+            "Анкету читают дважды: сначала вопросы, потом чужие ответы. Первое нужно, " +
+              "чтобы понять, о чём спрашивают, второе — чтобы найти нужное.",
+            "Вопросы в анкете короткие и почти все начинаются одинаково — с Do you или " +
+              "Where do you. Дальше идёт само дело.",
+          ],
+        },
+        {
+          id: "anketa-s-voprosami",
+          kind: "text",
+          genre: "notice",
+          title: "STUDENT FORM",
+          body: [
+            "1. What is your name?",
+            "2. Where do you live?",
+            "3. Do you work?",
+            "4. What do you study?",
+          ],
+        },
+        {
+          id: "razbor-ankety",
+          kind: "note",
+          tone: "info",
+          text:
+            "Первый вопрос начинается с What is — он про имя, а не про дело. Остальные " +
+              "три идут с do, и после него всегда стоит тот, кто действует: do you.",
+        },
+        {
+          id: "zapolnennaya-anketa",
+          kind: "text",
+          genre: "notice",
+          title: "STUDENT FORM — Aigerim",
+          body: [
+            "1. Aigerim",
+            "2. Almaty",
+            "3. Yes, I do. I work in a shop.",
+            "4. English",
+          ],
+        },
+
+        // ---- задания ----
+        {
+          id: "z1-o-chem-vtoroy-vopros",
+          kind: "choice",
+          about: "anketa-s-voprosami",
+          prompt: "Прочитай анкету STUDENT FORM. О чём спрашивает второй вопрос?",
+          options: [
+            { text: "Об имени" },
+            { text: "О месте, где человек живёт", correct: true },
+            { text: "О работе" },
+          ],
+          hint: "Вопрос начинается с вопросительного слова — оно и говорит, о чём речь.",
+          why: "Where do you live? Where — «где».",
+        },
+        {
+          id: "z2-gde-zhivyot-aigerim",
+          kind: "short",
+          about: "zapolnennaya-anketa",
+          prompt:
+            "Прочитай заполненную анкету. Где живёт Айгерим? Ответь английским словом.",
+          answer: "Almaty",
+          accept: ["almaty", "in Almaty"],
+          hint: "Ответы стоят под теми же номерами, что и вопросы.",
+          why:
+            "Второй вопрос — Where do you live?, и под номером 2 стоит Almaty. Номера " +
+            "и связывают вопрос с ответом.",
+        },
+        {
+          id: "z3-rabotaet-li",
+          kind: "choice",
+          about: "zapolnennaya-anketa",
+          prompt: "Прочитай заполненную анкету. Работает ли Айгерим?",
+          options: [
+            { text: "Работает, в магазине", correct: true },
+            { text: "Не работает" },
+            { text: "Про работу она не ответила" },
+          ],
+          hint: "Под номером 3 стоит короткий ответ и одна подробность.",
+          why:
+            "Yes, I do. I work in a shop. Короткий ответ говорит «да», а следующее " +
+            "предложение добавляет где.",
+        },
+        {
+          id: "z4-chto-izuchaet",
+          kind: "short",
+          about: "zapolnennaya-anketa",
+          prompt:
+            "Прочитай заполненную анкету. Что изучает Айгерим? Ответь английским словом.",
+          answer: "English",
+          accept: ["english"],
+          hint: "Найди номер вопроса про учёбу и посмотри тот же номер в ответах.",
+          why: "Четвёртый вопрос — What do you study?, и под номером 4 стоит English.",
+        },
+        {
+          id: "z5-kakoy-vopros-bez-do",
+          kind: "hottext",
+          about: "anketa-s-voprosami",
+          prompt:
+            "Прочитай анкету STUDENT FORM. Отметь вопрос, в котором нет слова do.",
+          parts: [
+            { text: "What is your name?", selectable: true, correct: true },
+            { text: "Where do you live?", selectable: true },
+            { text: "Do you work?", selectable: true },
+            { text: "What do you study?", selectable: true },
+          ],
+          hint: "Этот вопрос спрашивает не о деле, а о том, кто человек такой.",
+          why:
+            "What is your name? Здесь работает форма be, а не do: вопрос об имени, " +
+            "а не о деле.",
+        },
+      ],
+    },
+
+    // =====================================================================
+    // Урок слушания.
+    // =====================================================================
+    {
+      slug: "slushaem-vopros-o-delah",
+      title: "Слушаем вопросы о делах",
+      estimatedMinutes: 13,
+      outcome: "понимать на слух вопрос с do и короткий ответ на него",
+
+      blocks: [
+        {
+          id: "zachem-slushat-vopros-do",
+          kind: "explain",
+          text: [
+            "Вопрос с do слышно по первому слову: оно и открывает предложение. Дальше " +
+              "идёт тот, кто действует, и само дело.",
+            "Труднее с ответом. Он короткий — два слова, — и его легко принять за начало " +
+              "нового предложения.",
+          ],
+        },
+        {
+          id: "vopros-i-otvet-na-sluh",
+          kind: "table",
+          caption: "Вопрос и ответ — нажми и сравни",
+          zvuk: {
+            "Do you work here?": "Do you work here?",
+            "Yes, I do.": "Yes, I do.",
+            "Does he work here?": "Does he work here?",
+            "No, he doesn't.": "No, he doesn't.",
+          },
+          head: ["Вопрос", "Короткий ответ"],
+          rows: [
+            ["Do you work here?", "Yes, I do."],
+            ["Does he work here?", "No, he doesn't."],
+          ],
+        },
+        {
+          id: "otvet-povtoryaet-vopros",
+          kind: "note",
+          tone: "info",
+          text:
+            "Короткий ответ повторяет то же слово, что было в вопросе: спросили do — " +
+              "ответят do, спросили does — ответят does. Если расслышать вопрос не " +
+              "вышло, ответ подскажет, о ком он был.",
+        },
+        {
+          id: "zapis-razgovor-o-rabote",
+          kind: "audio",
+          skryt: true,
+          pace: "slow",
+          voice: "два голоса",
+          caption: "Послушай разговор",
+          transcript:
+            "Do you work here? — Yes, I do. — And does your brother work here? — " +
+            "No, he doesn't. He works in a school.",
+        },
+        {
+          id: "zapis-vopros-gde-i-chto",
+          kind: "audio",
+          skryt: true,
+          pace: "slow",
+          voice: "два голоса",
+          caption: "Послушай второй разговор",
+          transcript:
+            "Where do you live? — I live in Astana. — And what do you study? — " +
+            "I study English.",
+        },
+
+        // ---- задания ----
+        {
+          id: "z1-rabotaet-li-sobesednik",
+          kind: "choice",
+          about: "zapis-razgovor-o-rabote",
+          prompt: "Послушай первую запись. Работает ли здесь тот, кого спросили?",
+          options: [
+            { text: "Работает", correct: true },
+            { text: "Не работает" },
+            { text: "Про него не спрашивали" },
+          ],
+          hint: "Первый короткий ответ идёт сразу после первого вопроса.",
+          why: "Do you work here? — Yes, I do. Да, работает.",
+        },
+        {
+          id: "z2-gde-rabotaet-brat",
+          kind: "short",
+          about: "zapis-razgovor-o-rabote",
+          prompt:
+            "Послушай первую запись. Где работает брат? Ответь английским словом.",
+          answer: "school",
+          accept: ["a school", "in a school"],
+          hint: "После короткого ответа идёт предложение о том, как есть.",
+          why: "No, he doesn't. He works in a school. В школе.",
+        },
+        {
+          id: "z3-gde-zhivyot",
+          kind: "short",
+          about: "zapis-vopros-gde-i-chto",
+          prompt:
+            "Послушай вторую запись. Где живёт собеседник? Ответь английским словом.",
+          answer: "Astana",
+          accept: ["astana", "in Astana"],
+          hint: "Ответ идёт сразу после вопроса со словом where.",
+          why: "Where do you live? — I live in Astana. В Астане.",
+        },
+        {
+          id: "z4-chto-izuchaet-na-sluh",
+          kind: "choice",
+          about: "zapis-vopros-gde-i-chto",
+          prompt: "Послушай вторую запись. Что изучает собеседник?",
+          options: [
+            { text: "Английский", correct: true },
+            { text: "Про учёбу не спрашивали" },
+            { text: "Он не учится" },
+          ],
+          hint: "Второй вопрос начинается со слова what.",
+          why: "And what do you study? — I study English. Английский.",
+        },
+        {
+          id: "z5-sprosit-i-otvetit",
+          kind: "speak",
+          prompt:
+            "Произнеси вслух вопрос и короткий ответ на него: спроси, работает ли " +
+            "собеседник здесь, и ответь за него «да».",
+          phrase: "Do you work here? Yes, I do.",
+          translation: "Ты работаешь здесь? Да.",
+          hint: "В ответе повтори то же слово, что стояло в начале вопроса.",
+          why:
+            "Короткий ответ и вопрос держатся на одном слове. Ответишь Yes, I am — " +
+            "собеседник услышит ответ на другой вопрос.",
+        },
+      ],
+    },
   ],
 
   quiz: {
@@ -1371,6 +1633,66 @@ const module: Module = {
     passRatio: 0.8,
     questions: [
       // ---- итог 1 ----
+      // ---- чтение и слушание ------------------------------------------
+      // Другой случай, чем в уроках: там анкета ученика и разговор о брате,
+      // здесь анкета работника и вопрос о сестре.
+      {
+        id: "q-anketa-o-chem-vopros",
+        kind: "choice",
+        outcome: "понимать вопросы анкеты и находить ответ на них в чужом бланке",
+        prompt:
+          "Анкета: «1. Where do you work? 2. What do you do? 3. Do you work on Sunday?» " +
+          "Какой вопрос требует ответа «да» или «нет»?",
+        options: [
+          { text: "Первый" },
+          { text: "Второй" },
+          { text: "Третий", correct: true },
+        ],
+        why:
+          "Do you work on Sunday? Вопрос начинается с do и вопросительного слова не " +
+          "содержит, значит ответ короткий. Первые два начинаются с where и what — " +
+          "на них отвечают словами.",
+      },
+      {
+        id: "q-anketa-nayti-otvet",
+        kind: "short",
+        outcome: "понимать вопросы анкеты и находить ответ на них в чужом бланке",
+        prompt:
+          "Анкета: «1. Where do you live? 2. What do you study?» Ответы: «1. Astana " +
+          "2. English». Что изучает человек? Ответь английским словом.",
+        answer: "English",
+        accept: ["english"],
+        why:
+          "Второй вопрос — What do you study?, и под номером 2 стоит English. Astana " +
+          "отвечает на первый вопрос, про место.",
+      },
+      {
+        id: "q-na-sluh-otvet-na-vopros",
+        kind: "choice",
+        outcome: "понимать на слух вопрос с do и короткий ответ на него",
+        zvuk: "Does your sister live in Almaty? — No, she doesn't. She lives in Astana.",
+        prompt: "Послушай запись. Где живёт сестра?",
+        options: [
+          { text: "В Астане", correct: true },
+          { text: "В Алматы" },
+          { text: "Про сестру не спрашивали" },
+        ],
+        why:
+          "No, she doesn't. She lives in Astana. Алматы назвали в вопросе, и ответ на " +
+          "него отрицательный.",
+      },
+      {
+        id: "q-na-sluh-o-chem-sprosili",
+        kind: "short",
+        outcome: "понимать на слух вопрос с do и короткий ответ на него",
+        zvuk: "What do you study? — I study English.",
+        prompt:
+          "Послушай запись. О чём спросили — о месте, о деле или об учёбе? Ответь " +
+          "одним русским словом.",
+        answer: "об учёбе",
+        accept: ["учёба", "учеба", "об учебе", "учёбе", "учебе"],
+        why: "What do you study? Study — «изучать», значит вопрос об учёбе.",
+      },
       {
         id: "q-do-you-dopisat",
         kind: "gap",
