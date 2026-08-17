@@ -678,7 +678,9 @@ function checkMaterial(block: Block, where: string): void {
         const at = `${where}, слово словарика ${i + 1}`;
         if (blank(item.term)) fail(at, "нет самого слова");
         if (blank(item.translation)) fail(at, "нет перевода");
-        if (!block.body.some((p) => p.includes(item.term))) {
+        // Заголовок — часть текста: «LOST AND FOUND» стоит именно в нём, и
+        // объяснять его надо, а искать только в теле было ошибкой проверки.
+        if (![...block.body, block.title ?? ""].some((p) => p.includes(item.term))) {
           warn(at, `«${item.term}» объяснено, но в тексте не встречается — проверить`);
         }
       });

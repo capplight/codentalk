@@ -42,8 +42,12 @@ import type { Module } from "@/lib/content/types";
  * — `there are` (модуль 13);
  * — настоящего простого времени (модуль 14).
  *
- * Звука нет — решение об источнике записей за владельцем
- * (docs/zadachi-vladeltsa.md, п. 1.4).
+ * Звук есть: синтез речи Azure, британские голоса (решение владельца 16 августа).
+ *
+ * ДВА УРОКА УМЕНИЙ ДОБАВЛЕНЫ ПОЗЖЕ ОСТАЛЬНЫХ — чтение и слушание. Модуль 8
+ * первый, где связный текст вообще можно построить: до него не из чего.
+ * Числа появляются только в модуле 9, поэтому в объявлении о находке нет ни
+ * одного числа — количество показано окончанием s и артиклем a.
  */
 const module: Module = {
   slug: "odin-i-mnogo",
@@ -102,7 +106,21 @@ const module: Module = {
         "and other people, where they live, people they know, things they have» — «things» " +
         "во множественном числе. Отдельного описания «умеет ставить множественное число» " +
         "в книге нет ни на одной ступени: это устройство языка, а описания перечисляют " +
-        "умения общения",
+        "умения общения. " +
+        "ОПОРА ДВУХ УРОКОВ УМЕНИЙ, с. 56, графа A1: «Can recognise familiar names, " +
+        "words/signs and very basic phrases on simple notices in the most common everyday " +
+        "situations» — это объявление о находке. " +
+        "с. 55, Reading correspondence, графа A1: «Can understand short, simple messages " +
+        "on postcards» — это записка от Даны. Проверено построчно обоими разборами: " +
+        "строка стоит именно в графе A1, а не в соседней. " +
+        "ОПОРА УРОКА СЛУШАНИЯ, с. 52, шкала понимания записей, графа A1, дословно: " +
+        "«Can pick out concrete information (e.g. places and times) from short recordings " +
+        "on familiar everyday topics, provided they are delivered very slowly and " +
+        "clearly». Отсюда и медленный темп, и то, что спрашиваем конкретную вещь, а не " +
+        "смысл целиком. " +
+        "ОСТОРОЖНО: сначала я поставил здесь «с. 45» и неточную цитату по памяти. " +
+        "Страница 52, и проверять номер надо всегда — `kontrol` ищет цитату, но номера " +
+        "страницы не сверяет вовсе",
       license: "внутреннее использование, публично не называем",
     },
     {
@@ -135,6 +153,8 @@ const module: Module = {
     "показывать на несколько предметов: these и those",
     "строить вопрос и отрицание, когда предметов несколько",
     "рассказывать о своих вещах и близких во множественном числе",
+    "находить в коротком объявлении, чего сколько и где это",
+    "понимать на слух, об одной вещи говорят или о нескольких",
   ],
 
   lessons: [
@@ -1104,6 +1124,253 @@ const module: Module = {
         },
       ],
     },
+
+    // =====================================================================
+    // Урок чтения. Первый в курсе: раньше восьмого модуля связного текста не
+    // построить — не из чего. Опора — `sources`, запись о Совете Европы.
+    // =====================================================================
+    {
+      slug: "chitaem-spisok-veshchey",
+      title: "Читаем список вещей",
+      estimatedMinutes: 12,
+      outcome: "находить в коротком объявлении, чего сколько и где это",
+
+      blocks: [
+        {
+          id: "zachem-chitat-spisok",
+          kind: "explain",
+          text: [
+            "Списки вещей встречаются чаще, чем кажется: объявление о находке, записка " +
+              "от родных, ценник в витрине.",
+            "Читать их подряд не нужно. Ищи в списке одну строку — ту, где стоит нужная " +
+              "вещь, — и читай её до конца.",
+          ],
+        },
+        {
+          id: "obyavlenie-o-nahodke",
+          kind: "text",
+          genre: "notice",
+          title: "LOST AND FOUND",
+          body: [
+            "Keys — in the shop",
+            "A camera — in the bus",
+            "Books and pencils — in the room",
+            "A watch — in the street",
+          ],
+          glossary: [
+            { term: "LOST AND FOUND", translation: "бюро находок: где хранят потерянное" },
+          ],
+        },
+        {
+          id: "razbor-nahodki",
+          kind: "note",
+          tone: "info",
+          text:
+            "Присмотрись к первым словам строк. Keys и Books стоят с окончанием s — " +
+              "их несколько. A camera и A watch стоят с артиклем a — она одна.",
+        },
+        {
+          id: "zapiska-o-veshchah",
+          kind: "text",
+          genre: "message",
+          title: "A message from Dana",
+          body: [
+            "Hi Alim! My books are in your bag. My pen and my pencil are there too.",
+            "That watch is not my watch. Sorry! Dana",
+          ],
+        },
+
+        // ---- задания ----
+        {
+          id: "z1-chego-neskolko",
+          kind: "choice",
+          about: "obyavlenie-o-nahodke",
+          prompt: "Прочитай объявление LOST AND FOUND. Каких вещей нашли несколько?",
+          options: [
+            { text: "Ключи и книги", correct: true },
+            { text: "Камеру и часы" },
+            { text: "Часы и ключи" },
+          ],
+          hint: "Несколько — это окончание s на конце слова.",
+          why:
+            "Keys и Books стоят с окончанием s, значит их больше одного. A camera и " +
+            "A watch стоят с артиклем a — каждая одна.",
+        },
+        {
+          id: "z2-gde-kamera",
+          kind: "short",
+          about: "obyavlenie-o-nahodke",
+          prompt:
+            "Прочитай объявление LOST AND FOUND. Где нашли камеру? Ответь английским " +
+            "словом из объявления.",
+          answer: "bus",
+          accept: ["the bus", "in the bus"],
+          hint: "Найди строку со словом camera и прочитай её до конца.",
+          why: "A camera — in the bus. Камеру нашли в автобусе.",
+        },
+        {
+          id: "z3-chto-v-sumke",
+          kind: "choice",
+          about: "zapiska-o-veshchah",
+          prompt: "Прочитай записку от Даны. Что лежит в сумке у Алима?",
+          options: [
+            { text: "Книги, ручка и карандаш Даны", correct: true },
+            { text: "Часы Даны" },
+            { text: "Только книги Даны" },
+          ],
+          hint: "Второе предложение добавляет к первому ещё две вещи словом too.",
+          why:
+            "My books are in your bag. My pen and my pencil are there too. Слово too — " +
+            "«тоже», оно и добавляет ручку с карандашом.",
+        },
+        {
+          id: "z4-chi-chasy",
+          kind: "choice",
+          about: "zapiska-o-veshchah",
+          prompt: "Прочитай записку от Даны. Чьи часы лежат в сумке?",
+          options: [
+            { text: "Не Даны", correct: true },
+            { text: "Даны" },
+            { text: "В записке про часы не сказано" },
+          ],
+          hint: "Найди предложение со словом watch и посмотри, есть ли в нём not.",
+          why:
+            "That watch is not my watch. Дана говорит, что часы не её. Чьи они — " +
+            "в записке не сказано.",
+        },
+        {
+          id: "z5-sobrat-stroku",
+          kind: "order",
+          about: "obyavlenie-o-nahodke",
+          prompt: "Собери строку объявления о книгах и карандашах.",
+          items: ["in the room", "Books and pencils", "—"],
+          answer: [1, 2, 0],
+          hint: "Сначала вещи, потом тире, потом место.",
+          why:
+            "Books and pencils — in the room. В объявлении сначала называют вещь, потом " +
+            "место через тире.",
+        },
+      ],
+    },
+
+    // =====================================================================
+    // Урок слушания.
+    // =====================================================================
+    {
+      slug: "slushaem-o-veshchah",
+      title: "Слушаем про вещи",
+      estimatedMinutes: 12,
+      outcome: "понимать на слух, об одной вещи говорят или о нескольких",
+
+      blocks: [
+        {
+          id: "zachem-slushat-veshchi",
+          kind: "explain",
+          text: [
+            "На слух окончание s короткое и почти незаметное. Но именно оно отличает " +
+              "одну вещь от нескольких.",
+            "Помогает второе место, где слышна разница: форма be. Is — про одну вещь, " +
+              "are — про несколько, и звучат они совсем по-разному.",
+          ],
+        },
+        {
+          id: "dva-mesta-na-sluh",
+          kind: "table",
+          caption: "Два места, где слышно число",
+          head: ["Про одну", "Про несколько"],
+          rows: [
+            ["This is a book.", "These are books."],
+            ["It is my key.", "They are my keys."],
+            ["That is a box.", "Those are boxes."],
+          ],
+        },
+        {
+          id: "zapis-odna-ili-neskolko",
+          kind: "audio",
+          skryt: true,
+          pace: "slow",
+          caption: "Послушай три предложения",
+          transcript: "These are my books. That is a camera. Those are boxes.",
+        },
+        {
+          id: "zapis-razgovor-o-veshchah",
+          kind: "audio",
+          skryt: true,
+          pace: "slow",
+          voice: "два голоса",
+          caption: "Послушай разговор",
+          transcript:
+            "Are these your pencils? — No, they are not my pencils. " +
+            "My pencils are in my bag. — And this pen? — Yes, it is my pen.",
+        },
+
+        // ---- задания ----
+        {
+          id: "z1-skolko-knig",
+          kind: "choice",
+          about: "zapis-odna-ili-neskolko",
+          prompt: "Послушай первую запись. О книгах говорят как об одной вещи или о нескольких?",
+          options: [
+            { text: "О нескольких", correct: true },
+            { text: "Об одной" },
+            { text: "Про книги в записи не говорят" },
+          ],
+          hint: "Слушай форму be перед словом books.",
+          why: "These are my books. Форма are и слово these — оба про несколько.",
+        },
+        {
+          id: "z2-chto-odno",
+          kind: "short",
+          about: "zapis-odna-ili-neskolko",
+          prompt:
+            "Послушай первую запись. Какая вещь в ней одна? Ответь английским словом.",
+          answer: "camera",
+          accept: ["a camera", "the camera"],
+          hint: "Одна вещь идёт с формой is.",
+          why: "That is a camera. Форма is и артикль a — оба про одну вещь.",
+        },
+        {
+          id: "z3-chi-karandashi",
+          kind: "choice",
+          about: "zapis-razgovor-o-veshchah",
+          prompt: "Послушай разговор. Чьи карандаши лежат перед собеседниками?",
+          options: [
+            { text: "Не того, кого спросили", correct: true },
+            { text: "Того, кого спросили" },
+            { text: "В разговоре это не выясняется" },
+          ],
+          hint: "Слушай ответ на первый вопрос: в нём есть not.",
+          why:
+            "No, they are not my pencils. My pencils are in my bag. Свои карандаши " +
+            "у него в сумке, значит эти чужие.",
+        },
+        {
+          id: "z4-pro-ruchku",
+          kind: "choice",
+          about: "zapis-razgovor-o-veshchah",
+          prompt: "Послушай разговор. Что ответили про ручку?",
+          options: [
+            { text: "Что она не его" },
+            { text: "Что она его", correct: true },
+            { text: "Про ручку не спрашивали" },
+          ],
+          hint: "Последний ответ короткий и начинается с Yes.",
+          why: "Yes, it is my pen. Форма it is — про одну вещь.",
+        },
+        {
+          id: "z5-skazat-vsluh",
+          kind: "speak",
+          prompt:
+            "Скажи вслух про свои вещи так, чтобы было ясно: их несколько. Начни с These.",
+          phrase: "These are my books.",
+          translation: "Это мои книги.",
+          hint: "Форма are и окончание s должны прозвучать оба.",
+          why:
+            "These are my books. Слушающий понимает число по форме are, даже если " +
+            "окончание s расслышал не полностью.",
+        },
+      ],
+    },
   ],
 
   // =======================================================================
@@ -1114,6 +1381,65 @@ const module: Module = {
     ask: 8,
     passRatio: 0.8,
     questions: [
+      // ---- чтение и слушание ------------------------------------------
+      // Написаны от другого случая и другим видом задания, чем упражнения
+      // уроков: там объявление о находке и записка, здесь витрина и заказ.
+      {
+        id: "q-vitrina-chego-mnogo",
+        kind: "hottext",
+        outcome: "находить в коротком объявлении, чего сколько и где это",
+        prompt:
+          "Объявление в витрине: «Books, a camera, pencils, a watch». " +
+          "Отметь то, чего в витрине несколько.",
+        parts: [
+          { text: "Books", selectable: true, correct: true },
+          { text: "a camera", selectable: true },
+          { text: "pencils", selectable: true, correct: true },
+          { text: "a watch", selectable: true },
+        ],
+        why:
+          "Books и pencils стоят с окончанием s — их несколько. A camera и a watch " +
+          "идут с артиклем a, каждая одна.",
+      },
+      {
+        id: "q-ispravit-zapisku",
+        kind: "short",
+        outcome: "находить в коротком объявлении, чего сколько и где это",
+        prompt:
+          "В записке написано «My book are in your bag», но одно слово стоит не в той " +
+          "форме. Напиши его верно.",
+        answer: "books",
+        why:
+          "My books are in your bag. Форма are — про несколько, значит и book должно " +
+          "стоять во множественном числе.",
+      },
+      {
+        id: "q-na-sluh-odna-ili-mnogo",
+        kind: "choice",
+        outcome: "понимать на слух, об одной вещи говорят или о нескольких",
+        zvuk: "This is my bag. Those are my keys.",
+        prompt: "Послушай запись. О чём говорят как о нескольких вещах?",
+        options: [
+          { text: "О ключах", correct: true },
+          { text: "О сумке" },
+          { text: "И о сумке, и о ключах" },
+        ],
+        why:
+          "This is my bag — форма is, вещь одна. Those are my keys — форма are, " +
+          "вещей несколько.",
+      },
+      {
+        id: "q-na-sluh-chto-nazvali",
+        kind: "short",
+        outcome: "понимать на слух, об одной вещи говорят или о нескольких",
+        zvuk: "Are these your pencils? — No, these are my pens.",
+        prompt:
+          "Послушай запись. Что оказалось на столе на самом деле? Ответь английским " +
+          "словом во множественном числе.",
+        answer: "pens",
+        accept: ["my pens", "pens."],
+        why: "No, these are my pens. Спрашивали про карандаши, а это ручки.",
+      },
       {
         id: "q-okonchanie-mnozh",
         kind: "short",
