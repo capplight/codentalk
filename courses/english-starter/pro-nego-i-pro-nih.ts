@@ -110,6 +110,8 @@ const module: Module = {
     "соединять глагол с предлогом: I listen to him",
     "спрашивать о человеке: Do you know her?",
     "рассказывать, не повторяя имён",
+    "понимать в тексте, о ком идёт речь, когда имя не повторяют",
+    "понимать на слух, о ком говорят, когда имя не повторяют",
   ],
 
   lessons: [
@@ -1212,6 +1214,270 @@ const module: Module = {
         },
       ],
     },
+
+    // =====================================================================
+    // Урок чтения. Письмо о людях — текст, где имена названы один раз, а
+    // дальше идут местоимения. Держать в голове, кто есть кто, и есть умение.
+    // =====================================================================
+    {
+      slug: "chitaem-pismo-o-lyudyah",
+      title: "Читаем письмо о людях",
+      estimatedMinutes: 13,
+      outcome: "понимать в тексте, о ком идёт речь, когда имя не повторяют",
+
+      blocks: [
+        {
+          id: "zachem-chitat-o-lyudyah",
+          kind: "explain",
+          text: [
+            "В письме о людях имя называют один раз, а дальше говорят him, her, them. " +
+              "Читатель должен сам помнить, кто за каким словом стоит.",
+            "Приём простой: дойдя до местоимения, вернись глазами назад и найди " +
+              "ближайшее имя. Оно почти всегда и есть ответ.",
+          ],
+        },
+        {
+          id: "pismo-o-druzyah",
+          kind: "text",
+          genre: "email",
+          title: "A message from Aigul",
+          body: [
+            "Hi! I have got two friends: Dana and Alim.",
+            "Dana works in a shop. I see her every day.",
+            "Alim studies English. I help him with his lessons.",
+            "I like them very much. Aigul",
+          ],
+          glossary: [
+            { term: "every day", translation: "каждый день" },
+            { term: "help", translation: "помогать" },
+          ],
+        },
+        {
+          id: "razbor-pisma-o-lyudyah",
+          kind: "note",
+          tone: "info",
+          text:
+            "Слово them в конце письма — про обоих сразу. Так и делают, когда речь " +
+              "о нескольких людях, названных раньше по именам.",
+        },
+        {
+          id: "zapiska-o-sosede",
+          kind: "text",
+          genre: "message",
+          title: "A note",
+          body: [
+            "Nurlan is my brother. He works in a hospital.",
+            "I don't see him on Monday. He is busy.",
+            "His wife is a teacher. I know her well.",
+          ],
+          glossary: [
+            { term: "wife", translation: "жена" },
+            { term: "well", translation: "хорошо" },
+          ],
+        },
+
+        // ---- задания ----
+        {
+          id: "z1-kogo-vidit-kazhdyy-den",
+          kind: "choice",
+          about: "pismo-o-druzyah",
+          prompt: "Прочитай письмо от Айгуль. Кого она видит каждый день?",
+          options: [
+            { text: "Алима" },
+            { text: "Дану", correct: true },
+            { text: "Обоих" },
+          ],
+          hint: "Найди слово her и вернись глазами к ближайшему имени.",
+          why:
+            "Dana works in a shop. I see her every day. Слово her стоит сразу после " +
+            "предложения о Дане.",
+        },
+        {
+          id: "z2-komu-pomogaet",
+          kind: "short",
+          about: "pismo-o-druzyah",
+          prompt:
+            "Прочитай письмо от Айгуль. Кому она помогает с занятиями? Напиши имя.",
+          answer: "Alim",
+          accept: ["alim", "ALIM"],
+          hint: "Слово him указывает на мужчину, названного строкой выше.",
+          why: "Alim studies English. I help him with his lessons. Алиму.",
+        },
+        {
+          id: "z3-o-kom-them",
+          kind: "choice",
+          about: "pismo-o-druzyah",
+          prompt: "Прочитай письмо от Айгуль. О ком она говорит them в последней строке?",
+          options: [
+            { text: "Только о Дане" },
+            { text: "Только об Алиме" },
+            { text: "О Дане и Алиме вместе", correct: true },
+          ],
+          hint: "Them — слово о нескольких людях сразу.",
+          why:
+            "I like them very much. В письме названы двое, и them собирает обоих.",
+        },
+        {
+          id: "z4-kogo-ne-vidit-v-ponedelnik",
+          kind: "short",
+          about: "zapiska-o-sosede",
+          prompt:
+            "Прочитай записку A note. Кого не видят по понедельникам? Напиши имя.",
+          answer: "Nurlan",
+          accept: ["nurlan", "NURLAN"],
+          hint: "Слово him указывает назад, на ближайшее мужское имя.",
+          why: "Nurlan is my brother… I don't see him on Monday. Нурлана.",
+        },
+        {
+          id: "z5-kto-takaya-ona",
+          kind: "choice",
+          about: "zapiska-o-sosede",
+          prompt: "Прочитай записку A note. Кого пишущий хорошо знает?",
+          options: [
+            { text: "Жену брата", correct: true },
+            { text: "Брата" },
+            { text: "Обоих одинаково" },
+          ],
+          hint: "Слово her в последней строке указывает на женщину, названную рядом.",
+          why:
+            "His wife is a teacher. I know her well. Her — про жену, о ней и сказано " +
+            "«хорошо знаю».",
+        },
+      ],
+    },
+
+    // =====================================================================
+    // Урок слушания.
+    // =====================================================================
+    {
+      slug: "slushaem-o-lyudyah",
+      title: "Слушаем, о ком речь",
+      estimatedMinutes: 13,
+      outcome: "понимать на слух, о ком говорят, когда имя не повторяют",
+
+      blocks: [
+        {
+          id: "zachem-slushat-o-lyudyah",
+          kind: "explain",
+          text: [
+            "В разговоре имена звучат один раз, в самом начале. Дальше идут him, her и " +
+              "them, и вернуться назад уже нельзя.",
+            "Значит запомнить надо сразу: кто мужчина, кто женщина, сколько всего " +
+              "людей. Остальное потом разберётся по этим трём словам.",
+          ],
+        },
+        {
+          id: "him-her-them-na-sluh",
+          kind: "table",
+          caption: "Три слова о людях — нажми и сравни",
+          zvuk: {
+            "I know him.": "I know him.",
+            "I know her.": "I know her.",
+            "I know them.": "I know them.",
+          },
+          head: ["Слово", "О ком", "Пример"],
+          rows: [
+            ["him", "о мужчине", "I know him."],
+            ["her", "о женщине", "I know her."],
+            ["them", "о нескольких", "I know them."],
+          ],
+        },
+        {
+          id: "them-slyshno-luchshe",
+          kind: "note",
+          tone: "info",
+          text:
+            "Them слышно лучше двух других: оно длиннее и кончается на согласный. " +
+              "Him и her короче, и различает их гласный — тот же, что в паре his и her.",
+        },
+        {
+          id: "zapis-o-dvuh-lyudyah",
+          kind: "audio",
+          skryt: true,
+          pace: "slow",
+          caption: "Послушай рассказ о двух людях",
+          transcript:
+            "I have got two friends: Dana and Nurlan. I see her every day. " +
+            "I don't see him on Monday.",
+        },
+        {
+          id: "zapis-razgovor-o-znakomyh",
+          kind: "audio",
+          skryt: true,
+          pace: "slow",
+          voice: "два голоса",
+          caption: "Послушай разговор",
+          transcript:
+            "Do you know Aigul? — Yes, I know her well. — And her brother? — " +
+            "No, I don't know him.",
+        },
+
+        // ---- задания ----
+        {
+          id: "z1-kogo-vidit-kazhdyy-den-na-sluh",
+          kind: "choice",
+          about: "zapis-o-dvuh-lyudyah",
+          prompt: "Послушай первую запись. Кого видят каждый день?",
+          options: [
+            { text: "Нурлана" },
+            { text: "Дану", correct: true },
+            { text: "Обоих" },
+          ],
+          hint: "Слово her — про женщину, а имён в записи два.",
+          why: "I see her every day. Her указывает на Дану.",
+        },
+        {
+          id: "z2-kogo-ne-vidit-na-sluh",
+          kind: "short",
+          about: "zapis-o-dvuh-lyudyah",
+          prompt:
+            "Послушай первую запись. Кого не видят по понедельникам? Напиши имя.",
+          answer: "Nurlan",
+          accept: ["nurlan", "NURLAN"],
+          hint: "Слово him — про мужчину.",
+          why: "I don't see him on Monday. Him указывает на Нурлана.",
+        },
+        {
+          id: "z3-znaet-li-aigul",
+          kind: "choice",
+          about: "zapis-razgovor-o-znakomyh",
+          prompt: "Послушай разговор. Кого собеседник знает хорошо?",
+          options: [
+            { text: "Айгуль", correct: true },
+            { text: "Её брата" },
+            { text: "Обоих" },
+          ],
+          hint: "Слушай, после какого имени идёт her.",
+          why: "Yes, I know her well. Her — про Айгуль, о ней и спросили первой.",
+        },
+        {
+          id: "z4-znaet-li-brata",
+          kind: "choice",
+          about: "zapis-razgovor-o-znakomyh",
+          prompt: "Послушай разговор. Знает ли собеседник брата Айгуль?",
+          options: [
+            { text: "Знает" },
+            { text: "Не знает", correct: true },
+            { text: "Про брата не спрашивали" },
+          ],
+          hint: "Последний ответ начинается с No.",
+          why: "No, I don't know him. Him — про брата.",
+        },
+        {
+          id: "z5-rasskazat-o-dvuh",
+          kind: "speak",
+          prompt:
+            "Расскажи вслух о двух знакомых: назови имена, а потом говори him и her, " +
+            "не повторяя имён.",
+          phrase: "I have got two friends: Dana and Alim. I see her every day. I know him well.",
+          translation: "У меня двое друзей: Дана и Алим. Я вижу её каждый день. Его я хорошо знаю.",
+          hint: "Имена назови один раз, в самом начале.",
+          why:
+            "Слушающий держит в голове, кто мужчина, а кто женщина, и дальше разбирает " +
+            "рассказ по словам him и her. Повторять имена не нужно.",
+        },
+      ],
+    },
   ],
 
   quiz: {
@@ -1225,6 +1491,61 @@ const module: Module = {
       // буквы и точка в конце ответа сверкой и так не учитываются.
 
       // ---- итог 1 ----
+      // ---- чтение и слушание ------------------------------------------
+      // Другой случай, чем в уроках: там письмо Айгуль и записка о брате,
+      // здесь письмо о родителях и разговор о соседях. Оба вопроса чтения
+      // содержат сам текст.
+      {
+        id: "q-tekst-o-kom-rech",
+        kind: "choice",
+        outcome: "понимать в тексте, о ком идёт речь, когда имя не повторяют",
+        prompt:
+          "Письмо: «My mother is a doctor. My father is a driver. I see him at home " +
+          "every day.» Кого видят дома каждый день?",
+        options: [
+          { text: "Отца", correct: true },
+          { text: "Мать" },
+          { text: "Обоих" },
+        ],
+        why: "I see him at home every day. Him — про мужчину, то есть про отца.",
+      },
+      {
+        id: "q-tekst-kogo-znayut",
+        kind: "short",
+        outcome: "понимать в тексте, о ком идёт речь, когда имя не повторяют",
+        prompt:
+          "Записка: «Dana is my friend. Her sister works in a shop. I know her sister " +
+          "well.» Кто работает в магазине? Ответь по-русски одним словом.",
+        answer: "сестра",
+        accept: ["сестра Даны", "её сестра"],
+        why:
+          "Her sister works in a shop. Слово her здесь стоит перед названием человека " +
+          "и говорит, чья это сестра, — сестра Даны.",
+      },
+      {
+        id: "q-na-sluh-o-kom-govoryat",
+        kind: "choice",
+        outcome: "понимать на слух, о ком говорят, когда имя не повторяют",
+        zvuk: "Alim and Aigul are my friends. I work with him. I don't know her well.",
+        prompt: "Послушай запись. С кем говорящий работает?",
+        options: [
+          { text: "С Айгуль" },
+          { text: "С обоими" },
+          { text: "С Алимом", correct: true },
+        ],
+        why: "I work with him. Him — про мужчину, то есть про Алима.",
+      },
+      {
+        id: "q-na-sluh-kogo-znayut-ploho",
+        kind: "short",
+        outcome: "понимать на слух, о ком говорят, когда имя не повторяют",
+        zvuk: "Alim and Aigul are my friends. I work with him. I don't know her well.",
+        prompt:
+          "Послушай запись. Кого говорящий знает плохо? Напиши имя.",
+        answer: "Aigul",
+        accept: ["aigul", "AIGUL"],
+        why: "I don't know her well. Her — про женщину, то есть про Айгуль.",
+      },
       {
         id: "q-vmesto-imeni-vybor",
         kind: "choice",
