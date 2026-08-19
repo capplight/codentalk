@@ -32,6 +32,15 @@ const module: Module = {
 
   sources: [
     {
+      ref: "Council of Europe, CEFR Companion Volume 2020 — опора урока чтения",
+      section:
+        "УРОК ЧТЕНИЯ «Читаем объявление с поправкой». с. 56, шкала Reading for orientation, графа A1, дословно: «Can recognise familiar names, words/signs and very basic phrases on simple notices in the most common everyday situations». Объявление на двери — это simple notice из этой строки, а имена и названия занятий в нём — те самые familiar names and words. " +
+        "Там же, с. 55, шкала Overall reading comprehension, графа A1: «Can understand very short, simple texts a single phrase at a time… and rereading as required» — приписка без первой строки не читается, и возвращаться к ней приходится обязательно. " +
+        "ЧЕГО В ИСТОЧНИКЕ НЕТ: он не описывает объявление с припиской как отдельный вид текста. Вид взят из жизни, а не из источника; источником подтверждено только то, что объявления на этой ступени читают. " +
+        "Номера страниц взяты разборщиком PDF (npm run pdf --find).",
+      license: "внутреннее использование, публично не называем",
+    },
+    {
       ref: "Cambridge English, руководство для младших ступеней",
       section:
         "ОПОРА УРОКА СЛУШАНИЯ, добавленного позже остальных. Cambridge English, руководство для младших ступеней, с. 5, блок Pre A1 «Below 100» — ступень НИЖЕ нашей, значит умение посильно. Дословно: «CAN understand some very short conversations that use familiar questions and answers». Поправка собеседника — это разговор из вопроса и ответа, где ответ отрицательный.",
@@ -100,6 +109,7 @@ const module: Module = {
     "отвечать на вопрос отрицанием и уточнять",
     "вести разговор, в котором возражаешь и поправляешь собеседника",
     "слышать отрицание и понимать, что верно вместо отвергнутого",
+    "брать из объявления поправку, а не отменённые ею сведения",
   ],
 
   lessons: [
@@ -1377,6 +1387,135 @@ const module: Module = {
         },
       ],
     },
+
+    // =====================================================================
+    // Урок чтения. Жанр другой, чем в четвёртом модуле: там разговор, здесь
+    // объявление. И задача другая: в объявлении рядом стоят прежние сведения
+    // и поправка к ним, и взять надо вторые — хотя первые напечатаны выше и
+    // заметнее.
+    //
+    // Новых английских слов урок не вводит. Опора — в `sources`.
+    // =====================================================================
+    {
+      slug: "chitaem-obyavlenie-s-popravkoy",
+      title: "Читаем объявление с поправкой",
+      estimatedMinutes: 12,
+      outcome: "брать из объявления поправку, а не отменённые ею сведения",
+
+      blocks: [
+        {
+          id: "zachem-chitat-popravku",
+          kind: "explain",
+          text: [
+            "Объявление редко переписывают заново. Внизу приписывают поправку, а прежнее " +
+              "оставляют как было.",
+            "Читать такое объявление сверху вниз мало: наверху стоит отменённое. Верное " +
+              "приходится искать в приписке.",
+          ],
+        },
+        {
+          id: "obyavlenie-o-prepodavatele",
+          kind: "text",
+          genre: "notice",
+          title: "ENGLISH",
+          body: [
+            "Teacher: Dana Karimova",
+            "Sorry! Dana isn't your teacher.",
+            "Your teacher is Aigul Nurlanova.",
+          ],
+        },
+        {
+          id: "gde-stoit-vernoe",
+          kind: "note",
+          tone: "mistake",
+          text:
+            "Имя Dana стоит в объявлении первым и крупно — и именно оно неверно. Строка " +
+            "с isn't его отменяет, а верное имя стоит последним. Так устроена любая " +
+            "приписка: сначала что не так, потом как есть.",
+        },
+        {
+          id: "obyavlenie-o-rabote",
+          kind: "text",
+          genre: "notice",
+          title: "JOB",
+          body: [
+            "Nurlan Abenov: doctor",
+            "Sorry! Nurlan isn't a doctor.",
+            "He's a nurse.",
+          ],
+        },
+        {
+          id: "pochemu-staroe-ne-styorto",
+          kind: "note",
+          tone: "info",
+          text:
+            "Прежнюю строку не стирают нарочно: без неё непонятно, что именно " +
+            "исправлено. Поправка держится за отменённое и в одиночку не читается.",
+        },
+
+        // ---- задания ----
+        {
+          id: "z1-kto-prepodavatel",
+          kind: "short",
+          about: "obyavlenie-o-prepodavatele",
+          prompt: "Кто ведёт занятия по английскому? Напиши имя.",
+          answer: "Aigul",
+          accept: ["aigul", "Aigul Nurlanova", "Nurlanova"],
+          hint: "Первое имя в объявлении отменено строкой с isn't.",
+          why:
+            "Aigul Nurlanova. Dana названа в первой строке, но вторая говорит: Dana " +
+            "isn't your teacher.",
+        },
+        {
+          id: "z2-kem-rabotaet-nurlan",
+          kind: "choice",
+          about: "obyavlenie-o-rabote",
+          prompt: "Кем работает Nurlan Abenov?",
+          options: [
+            { text: "Врачом" },
+            { text: "Медбратом", correct: true },
+            { text: "В объявлении сказано и то и другое" },
+          ],
+          hint: "Слово doctor в объявлении отменено.",
+          why:
+            "He's a nurse. Первая строка устарела, и приписка её отменяет: Nurlan isn't " +
+            "a doctor.",
+        },
+        {
+          id: "z3-otmetit-vernoe",
+          kind: "hottext",
+          prompt: "Отметь строки, которые говорят, как есть на самом деле.",
+          parts: [
+            { text: "Teacher: Dana Karimova", selectable: true },
+            { text: " · " },
+            { text: "Your teacher is Aigul Nurlanova.", selectable: true, correct: true },
+            { text: " · " },
+            { text: "Nurlan Abenov: doctor", selectable: true },
+            { text: " · " },
+            { text: "He's a nurse.", selectable: true, correct: true },
+          ],
+          hint: "Верное стоит после строки с isn't, а не до неё.",
+          why:
+            "Две строки из четырёх верны, и обе стоят последними. Первые две — то, что " +
+            "было напечатано раньше и отменено приписками.",
+        },
+        {
+          id: "z4-zachem-staraya-stroka",
+          kind: "choice",
+          prompt:
+            "Зачем в объявлении оставили имя Dana, если занятия ведёт не она?",
+          options: [
+            { text: "Чтобы было видно, что именно исправлено", correct: true },
+            { text: "Чтобы ученики шли к обеим" },
+            { text: "По ошибке" },
+          ],
+          hint: "Прочитай приписку без первой строки: понятно ли, о чём она?",
+          why:
+            "Приписка держится за отменённое. Без первой строки «Dana isn't your " +
+            "teacher» непонятно, при чём тут Dana вообще.",
+        },
+      ],
+    },
   ],
 
   // =======================================================================
@@ -1696,6 +1835,29 @@ const module: Module = {
           "I am not a nurse. I am a doctor. And you",
         ],
         why: "I'm not a nurse. I'm a doctor. And you? Три шага, и очередь у собеседника.",
+      },
+
+      // ---- чтение -----------------------------------------------------
+      // Угол другой, чем в уроке. Там приписка отменяет прежнее и называет
+      // верное; здесь приписка отменяет, но верного НЕ называет — и правильный
+      // ответ в том, что из объявления его не узнать.
+      {
+        id: "q-popravka-bez-vernogo",
+        kind: "choice",
+        outcome: "брать из объявления поправку, а не отменённые ею сведения",
+        prompt:
+          "Объявление: «Teacher: Alim Sadykov» / «Sorry! Alim isn't your teacher.» " +
+          "Кто ведёт занятия?",
+        options: [
+          { text: "Alim Sadykov" },
+          { text: "Из объявления этого не узнать", correct: true },
+          { text: "Занятий не будет" },
+        ],
+        hint: "Приписка говорит, кто НЕ ведёт. А кто ведёт — сказано ли где-нибудь?",
+        why:
+          "Приписка отменила первую строку и на этом кончилась. Верного имени в " +
+          "объявлении нет вовсе — и решить, что занятия отменены, тоже нельзя: об этом " +
+          "не сказано ни слова.",
       },
     ],
   },
