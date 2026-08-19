@@ -84,6 +84,16 @@ const module: Module = {
 
   sources: [
     {
+      ref: "Council of Europe, CEFR Companion Volume 2020 — опора урока письма",
+      section:
+        "УРОК ПИСЬМА «Пишем сообщение о вкусах». с. 83, шкала Correspondence, графа A1, дословно: «Can compose messages and online postings as a series of very short sentences about hobbies and likes/dislikes, using simple words and formulaic expressions, with reference to a dictionary». Вкусы и нелюбовь названы источником прямо, и «a series of very short sentences» — это ровно три коротких строки урока. " +
+        "Там же, с. 66, шкала Overall written production, графа A1: «Can give information about matters of personal relevance (e.g. likes and dislikes, family, pets)» — likes and dislikes названы и здесь. " +
+        "ОГОВОРКА О СОСЕДНЕЙ ГРАФЕ: с. 68, шкала Reports and essays, графы A1 и Pre-A1 — «No descriptors available». " +
+        "ПОРОГ В ДВЕНАДЦАТЬ СЛОВ — НАШ: столько выходит в трёх коротких строках, которых требует условие. Взят по условию, а не по образцу (в нём 15 слов). " +
+        "Номера страниц взяты разборщиком PDF (npm run pdf --find).",
+      license: "внутреннее использование, публично не называем",
+    },
+    {
       ref: "Council of Europe, CEFR Companion Volume 2020",
       section:
         "ОПОРА УРОКА ЧТЕНИЯ. с. 54, Overall reading comprehension, графа A1: «Can understand very short, simple texts a single phrase at a time…». с. 55, Reading correspondence, графа A1: «Can understand short, simple messages sent via social media or e-mail». ОПОРА УРОКА СЛУШАНИЯ. Council of Europe, CEFR Companion Volume 2020, с. 48, шкала Overall oral comprehension, графа A1, дословно: «Can follow language which is very slow and carefully articulated, with long pauses for them to assimilate meaning» — отсюда pace: \"slow\" во всех записях. Там же: «Can recognise concrete information (e.g. places and times) on familiar topics encountered in everyday life, provided it is delivered slowly and clearly» — отсюда то, что спрашиваем конкретную вещь, а не смысл целиком. Для записей в два голоса — с. 49, шкала Understanding conversation between other people, графа A1: «Can understand words/signs and short sentences in a simple conversation (e.g. between a customer and a salesperson in a shop), provided people communicate very slowly and very clearly». Там же с. 49, A1: «Can understand some expressions when people are discussing them, family, school, hobbies or surroundings» — hobbies и есть вкусы.",
@@ -139,6 +149,7 @@ const module: Module = {
     "рассказывать о своих вкусах",
     "понимать по тексту, что человеку нравится и насколько",
     "слышать разницу между I like и I'd like",
+    "различать на письме I like и I'd like и ставить to там, где оно нужно",
   ],
 
   lessons: [
@@ -1468,6 +1479,121 @@ const module: Module = {
         },
       ],
     },
+
+    // =====================================================================
+    // Урок письма. Жанр назван источником прямо: сообщение о том, что
+    // нравится и что не нравится. Опора — в `sources`.
+    //
+    // Итог назван по той половине, которую проверяет работа: письмо машина
+    // не оценивает.
+    // =====================================================================
+    {
+      slug: "pishem-o-vkusah",
+      title: "Пишем сообщение о вкусах",
+      estimatedMinutes: 12,
+      outcome: "различать на письме I like и I'd like и ставить to там, где оно нужно",
+
+      blocks: [
+        {
+          id: "zachem-pisat-o-vkusah",
+          kind: "explain",
+          text: [
+            "О вкусах пишут, когда знакомятся: в анкете на сайте, в первом сообщении, в " +
+              "рассказе о себе для чужой страны.",
+            "Пишут о двух вещах сразу — что нравится и что нет. Одно без другого " +
+              "говорит о человеке мало.",
+          ],
+        },
+        {
+          id: "obrazec-o-vkusah",
+          kind: "example",
+          caption: "Сообщение из трёх строк",
+          text:
+            "I like reading and music.\nI don't like waiting.\n" +
+            "I'd like to see this film.",
+          zvuchat: [
+            "I like reading and music.",
+            "I don't like waiting.",
+            "I'd like to see this film.",
+          ],
+          explain:
+            "Первые две строки о вкусе — он не меняется. Третья о желании прямо сейчас, " +
+            "и записана она иначе: I'd like, а после него to и занятие.",
+        },
+        {
+          id: "d-na-pisme",
+          kind: "note",
+          tone: "mistake",
+          text:
+            "На письме вкус и желание различает одна буква с апострофом. «I like a " +
+            "coffee» — о вкусе, «I'd like a coffee» — просьба принести. Потеряешь 'd — " +
+            "получится не то, что хотел сказать.",
+        },
+        {
+          id: "to-posle-would-like",
+          kind: "note",
+          tone: "info",
+          text:
+            "Перед занятием после I'd like ставят to: I'd like to see, I'd like to go. " +
+            "Перед вещью его нет: I'd like a coffee. У I like наоборот — годятся оба " +
+            "способа: I like to read и I like reading.",
+        },
+
+        // ---- задания ----
+        {
+          id: "z1-vkus-ili-zhelanie",
+          kind: "choice",
+          prompt:
+            "Человек написал: «I'd like a tea, please.» О чём это предложение?",
+          options: [
+            { text: "О том, что он любит чай" },
+            { text: "О том, что он просит чай сейчас", correct: true },
+            { text: "О том, что он не любит чай" },
+          ],
+          hint: "Смотри на 'd перед like и на слово please в конце.",
+          why:
+            "I'd like a tea — просьба принести чай. О вкусе было бы I like tea, без 'd " +
+            "и без please.",
+        },
+        {
+          id: "z2-dopisat-to",
+          kind: "gap",
+          prompt: "Допиши недостающее слово: человек хочет пойти домой.",
+          before: "I'd like ",
+          after: " go home.",
+          answer: "to",
+          hint: "После I'd like перед занятием стоит короткое слово.",
+          why:
+            "I'd like to go home. Перед занятием после I'd like ставят to. Перед вещью " +
+            "его не ставят: I'd like a coffee.",
+        },
+        {
+          // Порог в двенадцать слов — наш: столько выходит в трёх коротких
+          // строках, которых требует условие. Взят по условию, а не по образцу.
+          id: "z3-napisat-o-vkusah",
+          kind: "essay",
+          prompt:
+            "Напиши о себе три строки: что тебе нравится, что не нравится и что хотелось " +
+            "бы сделать.",
+          minWords: 12,
+          sample:
+            "I like music and sport. I don't like cooking. I'd like to see this film.",
+          checklist: [
+            "В первой строке стоит I like.",
+            "Во второй — I don't like.",
+            "В третьей — I'd like, и после него to перед занятием.",
+            "Каждое предложение кончается точкой.",
+          ],
+          hint:
+            "Возьми три строки образца и подставь своё: I like … . I don't like … . " +
+            "I'd like to … .",
+          why:
+            "Сравни свой ответ с образцом по четырём пунктам выше. Вкусы у каждого свои. " +
+            "Важно другое: 'd отличает желание от вкуса, а to стоит только перед " +
+            "занятием.",
+        },
+      ],
+    },
   ],
 
   quiz: {
@@ -1847,6 +1973,28 @@ const module: Module = {
         answer: "sport",
         hint: "Слово favourite стоит перед названием.",
         why: "My favourite sport is swimming. Слово favourite идёт перед названием.",
+      },
+
+      // ---- письмо -----------------------------------------------------
+      // Угол другой, чем в уроке. Там разбирают одну запись и дописывают to;
+      // здесь две строки стоят рядом, обе верны по-английски, и надо решить,
+      // какая из них просьба, а какая рассказ о вкусе.
+      {
+        id: "q-kakaya-stroka-prosba",
+        kind: "choice",
+        outcome: "различать на письме I like и I'd like и ставить to там, где оно нужно",
+        prompt:
+          "Две строки: «I like coffee.» и «I'd like a coffee.» В какой из них просят " +
+          "принести кофе?",
+        options: [
+          { text: "В первой" },
+          { text: "Во второй", correct: true },
+          { text: "В обеих" },
+        ],
+        hint: "Обе строки верны. Разницу делает одна буква с апострофом.",
+        why:
+          "I'd like a coffee — просьба. I like coffee говорит о вкусе вообще, и " +
+          "принести по нему ничего не попросят.",
       },
     ],
   },

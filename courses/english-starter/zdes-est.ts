@@ -151,6 +151,16 @@ const module: Module = {
       license: "внутреннее использование, публично не называем",
     },
     {
+      ref: "Council of Europe, CEFR Companion Volume 2020 — опора урока письма",
+      section:
+        "УРОК ПИСЬМА «Пишем о своём жилье». с. 67, шкала Creative writing, графа A1, дословно: «Can describe in very simple language what a room looks like». Описание комнаты названо источником прямо — это и есть предмет урока. " +
+        "Там же, с. 66, шкала Overall written production, графа A1: «Can produce simple isolated phrases and sentences» — четыре отдельных предложения о жилье это и есть. " +
+        "ОГОВОРКА О СОСЕДНЕЙ ГРАФЕ: с. 68, шкала Reports and essays, графы A1 и Pre-A1 — «No descriptors available». Рассуждения на ступени нет. " +
+        "ПОРОГ В ДВЕНАДЦАТЬ СЛОВ — НАШ, а не из источника: столько выходит в четырёх коротких предложениях, которых требует условие. Порог нарочно взят ниже образца (в нём 23 слова), чтобы не отсекать короткий верный ответ. " +
+        "Номера страниц взяты разборщиком PDF (npm run pdf --find).",
+      license: "внутреннее использование, публично не называем",
+    },
+    {
       ref: "Council of Europe, CEFR Companion Volume 2020",
       section:
         "с. 63, Sustained monologue: describing experience, A1: «Can describe themselves,  ОПОРА ДВУХ УРОКОВ УМЕНИЙ, добавленных позже остальных. Чтение — с. 56, графа A1: «Can recognise familiar names, words/signs and very basic phrases on simple notices in the most common everyday situations» и «Can find and understand simple, important information in advertisements, programmes for special events, leaflets and brochures». Слушание — с. 52, графа A1: «Can pick out concrete information (e.g. places and times) from short recordings on familiar everyday topics, provided they are delivered very slowly and clearly». Обе строки сверены построчно обоими разборами и стоят именно в графе A1: в модуле 12 я такую же цитату приписал A1, а она была из Pre-A1. " +
@@ -200,6 +210,7 @@ const module: Module = {
     "рассказывать о своём жилье четырьмя предложениями",
     "понимать по объявлению, что есть в жилье и рядом с ним",
     "понимать на слух, что где-то есть, а чего нет",
+    "находить в описании жилья потерянное there и лишнее число",
   ],
 
   lessons: [
@@ -1696,6 +1707,127 @@ const module: Module = {
         },
       ],
     },
+
+    // =====================================================================
+    // Урок письма. Опора — в `sources`: описание комнаты названо источником
+    // дословно, шкала Creative writing.
+    //
+    // Итог назван по той половине, которую проверяет работа: письмо машина не
+    // оценивает. То же решение, что в модулях 3 и 11.
+    // =====================================================================
+    {
+      slug: "pishem-o-zhilye",
+      title: "Пишем о своём жилье",
+      estimatedMinutes: 12,
+      outcome: "находить в описании жилья потерянное there и лишнее число",
+
+      blocks: [
+        {
+          id: "zachem-pisat-o-zhilye",
+          kind: "explain",
+          text: [
+            "Описание жилья пишут, когда сдают комнату, ищут соседа или зовут в гости " +
+              "человека, который у тебя не был.",
+            "Читающий ищет в нём одно: что там есть. Поэтому каждое предложение " +
+              "начинается с There is или There are, и искать не приходится.",
+          ],
+        },
+        {
+          id: "obrazec-o-zhilye",
+          kind: "example",
+          caption: "Четыре строки о жилье",
+          text:
+            "I live in a flat.\nThere are two rooms and a kitchen.\n" +
+            "There is a TV in the big room.\nThere is a park near the house.",
+          zvuchat: [
+            "I live in a flat.",
+            "There are two rooms and a kitchen.",
+            "There is a TV in the big room.",
+            "There is a park near the house.",
+          ],
+          explain:
+            "Первая строка говорит, где живёшь. Вторая — сколько комнат. Третья — что " +
+            "стоит внутри. Четвёртая — что рядом с домом. Дальше первой читающий обычно " +
+            "и не идёт, если жильё ему не подходит.",
+        },
+        {
+          id: "chto-teryayut-o-zhilye",
+          kind: "note",
+          tone: "mistake",
+          text:
+            "Теряют слово there. «Are two rooms» и «Is a TV in the room» по-английски не " +
+            "читаются: перед формой be должно стоять there. Оно и говорит, что речь о " +
+            "наличии, а не о том, каковы эти комнаты.",
+        },
+        {
+          id: "chislo-i-forma",
+          kind: "note",
+          tone: "info",
+          text:
+            "Форму выбирает то, что идёт следом. Одна вещь — There is a kitchen. " +
+            "Несколько — There are two rooms. Число при этом можно и не называть: There " +
+            "are some rooms.",
+        },
+
+        // ---- задания ----
+        {
+          id: "z1-chto-poteryano-v-zhilye",
+          kind: "choice",
+          prompt:
+            "Человек написал: «I live in a house. Are three rooms. There is a garden.» " +
+            "Что потеряно во втором предложении?",
+          options: [
+            { text: "Слово there", correct: true },
+            { text: "Форма be" },
+            { text: "Число" },
+          ],
+          hint: "Сравни второе предложение с третьим: чем они отличаются в начале?",
+          why:
+            "There are three rooms. Форма be на месте — are стоит. Число названо. Не " +
+            "хватает слова there перед ней.",
+        },
+        {
+          id: "z2-ispravit-formu",
+          kind: "short",
+          prompt: "Исправь и запиши предложение целиком: «There is two rooms.»",
+          answer: "There are two rooms.",
+          exact: true,
+          accept: ["There are two rooms"],
+          hint: "Форму выбирает то, что идёт следом: комнат две.",
+          why:
+            "There are two rooms. Комнат несколько, значит are. Слово there при этом не " +
+            "меняется никогда.",
+        },
+        {
+          // Порог в двенадцать слов — наш. Четыре строки условия дают ровно
+          // столько: «I live in a flat» (5) плюс три коротких предложения. Так,
+          // чтобы верный ответ порог не отсекал — на этом я уже споткнулся в
+          // модуле 3, и нашёл методист.
+          id: "z3-napisat-o-zhilye",
+          kind: "essay",
+          prompt:
+            "Напиши о своём жилье четыре предложения: где живёшь, сколько комнат, что " +
+            "стоит внутри, что есть рядом с домом.",
+          minWords: 12,
+          sample:
+            "I live in a flat. There are three rooms. There is a table in the kitchen. " +
+            "There is a shop near the house.",
+          checklist: [
+            "В трёх последних предложениях есть there.",
+            "После there стоит is, если вещь одна, и are, если их несколько.",
+            "Перед названием вещи стоит a или an.",
+            "Каждое предложение кончается точкой.",
+          ],
+          hint:
+            "Возьми четыре строки образца и подставь своё: I live in … . There are … . " +
+            "There is … . There is … .",
+          why:
+            "Сравни свой ответ с образцом по четырём пунктам выше. Жильё и вещи у " +
+            "каждого свои. Важно другое: слово there стоит в каждом предложении о " +
+            "наличии, а форму после него выбирает число.",
+        },
+      ],
+    },
   ],
 
   // =======================================================================
@@ -2044,6 +2176,27 @@ const module: Module = {
         why:
           "I live in a house. Первый шаг называет само жильё, и без него остальные " +
           "предложения непонятны.",
+      },
+
+      // ---- письмо -----------------------------------------------------
+      // Угол другой, чем в уроке. Там ищут потерянное there; здесь there на
+      // месте, а не сходится форма с числом — и надо заметить, что виновата
+      // не первая половина строки, а вторая.
+      {
+        id: "q-forma-ne-po-chislu",
+        kind: "choice",
+        outcome: "находить в описании жилья потерянное there и лишнее число",
+        prompt:
+          "Человек написал: «There is two rooms in my flat.» Что здесь не так?",
+        options: [
+          { text: "Потеряно слово there" },
+          { text: "Форма не сходится с числом", correct: true },
+          { text: "Всё верно" },
+        ],
+        hint: "Слово there на месте. Посмотри, что идёт после is.",
+        why:
+          "There are two rooms. Комнат две, значит нужна форма are. Слово there тут ни " +
+          "при чём — оно стоит верно.",
       },
     ],
   },

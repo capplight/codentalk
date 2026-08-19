@@ -98,6 +98,17 @@ const module: Module = {
 
   sources: [
     {
+      ref: "Council of Europe, CEFR Companion Volume 2020 — опора урока письма",
+      section:
+        "УРОК ПИСЬМА «Пишем открытку», последний на ступени. с. 83, шкала Correspondence, графа A1, дословно: «Can compose a short, simple postcard». Открытка названа источником одним словом — это готовый жанр для этой ступени. " +
+        "Там же, с. 66, шкала Overall written production, графа A1: «Can produce simple isolated phrases and sentences» — три отдельных предложения открытки это и есть. " +
+        "ПОЧЕМУ ОТКРЫТКА ПОСЛЕДНЯЯ: в ней сходятся все три времени курса, и слово времени при каждом своё. Раньше двадцать пятого модуля такого текста не собрать. " +
+        "ОГОВОРКА О СОСЕДНЕЙ ГРАФЕ: с. 68, шкала Reports and essays, графы A1 и Pre-A1 — «No descriptors available». " +
+        "ПОРОГ В ДВЕНАДЦАТЬ СЛОВ — НАШ: столько выходит в трёх коротких строках, которых требует условие. Взят по условию, а не по образцу (в нём 18 слов). " +
+        "Номера страниц взяты разборщиком PDF (npm run pdf --find).",
+      license: "внутреннее использование, публично не называем",
+    },
+    {
       ref: "Council of Europe, CEFR Companion Volume 2020",
       section:
         "ОПОРА УРОКА ЧТЕНИЯ. с. 54, Overall reading comprehension, графа A1: «Can understand very short, simple texts a single phrase at a time…». с. 55, Reading correspondence, графа A1: «Can understand short, simple messages sent via social media or e-mail (e.g. proposing what to do, when and where to meet)» — письмо о планах на завтра это и есть. ОПОРА УРОКА СЛУШАНИЯ. Council of Europe, CEFR Companion Volume 2020, с. 48, шкала Overall oral comprehension, графа A1, дословно: «Can follow language which is very slow and carefully articulated, with long pauses for them to assimilate meaning» — отсюда pace: \"slow\" во всех записях. Там же: «Can recognise concrete information (e.g. places and times) on familiar topics encountered in everyday life, provided it is delivered slowly and clearly» — отсюда то, что спрашиваем конкретную вещь, а не смысл целиком. Для записей в два голоса — с. 49, шкала Understanding conversation between other people, графа A1: «Can understand words/signs and short sentences in a simple conversation (e.g. between a customer and a salesperson in a shop), provided people communicate very slowly and very clearly». Строка про «places and times» с. 48 держит задания о времени встречи.",
@@ -165,6 +176,7 @@ const module: Module = {
     "рассказывать о вчера и о завтра вместе",
     "различать в тексте, что было, что есть и что будет",
     "слышать, о вчера, о сейчас или о завтра идёт речь",
+    "проверять в открытке, что время глагола сходится со словом времени",
   ],
 
   lessons: [
@@ -1503,6 +1515,128 @@ const module: Module = {
         },
       ],
     },
+
+    // =====================================================================
+    // Последний урок письма ступени. Открытка названа источником дословно —
+    // шкала Correspondence. Опора в `sources`.
+    //
+    // Открытка выбрана нарочно последней: в ней сходятся все три времени
+    // курса — что было, что происходит и что будет.
+    //
+    // Итог назван по той половине, которую проверяет работа: письмо машина
+    // не оценивает.
+    // =====================================================================
+    {
+      slug: "pishem-otkrytku",
+      title: "Пишем открытку",
+      estimatedMinutes: 12,
+      outcome: "проверять в открытке, что время глагола сходится со словом времени",
+
+      blocks: [
+        {
+          id: "zachem-pisat-otkrytku",
+          kind: "explain",
+          text: [
+            "Открытку пишут из поездки: места мало, а сказать надо о трёх вещах — где " +
+              "был, что делаешь сейчас и когда вернёшься.",
+            "Поэтому в ней три коротких предложения и три разных времени. Их и надо " +
+              "различать: слово времени в каждом своё.",
+          ],
+        },
+        {
+          id: "obrazec-otkrytki",
+          kind: "example",
+          caption: "Открытка из трёх строк",
+          text:
+            "Hello from Rome!\nYesterday I saw the Colosseum.\n" +
+            "Now I am reading in a cafe.\nI will come home on Friday.",
+          zvuchat: [
+            "Hello from Rome!",
+            "Yesterday I saw the Colosseum.",
+            "Now I am reading in a cafe.",
+            "I will come home on Friday.",
+          ],
+          explain:
+            "Первая строка называет, откуда открытка. Дальше три времени по порядку: " +
+            "вчера, сейчас, завтра. Слово времени стоит в начале строки — так читающий " +
+            "сразу видит, о чём речь.",
+          // Colosseum — имя собственное, ступенью не меряется. Решение
+          // владельца 15 августа: названия мест берутся по смыслу.
+        },
+        {
+          id: "slovo-vremeni-i-glagol",
+          kind: "note",
+          tone: "mistake",
+          text:
+            "Слово времени и глагол должны сходиться. «Yesterday I will come» и " +
+            "«Tomorrow I worked» по-английски не читаются: слово говорит одно, а глагол " +
+            "другое. Проверяй открытку парами — слово времени и глагол при нём.",
+        },
+        {
+          id: "otkuda-otkrytka",
+          kind: "note",
+          tone: "info",
+          text:
+            "Первая строка открытки короткая и без глагола: Hello from Rome. Так пишут " +
+            "потому, что название места здесь важнее всего остального.",
+        },
+
+        // ---- задания ----
+        {
+          id: "z1-slovo-i-vremya",
+          kind: "choice",
+          prompt:
+            "В открытке написано: «Tomorrow I worked in the garden.» Что здесь не так?",
+          options: [
+            { text: "Слово времени говорит о завтра, а глагол о вчера", correct: true },
+            { text: "Потеряна форма be" },
+            { text: "Всё верно" },
+          ],
+          hint: "Прочитай слово времени и глагол подряд: об одном ли они дне?",
+          why:
+            "Tomorrow I will work. Слово tomorrow о будущем, а worked — о прошлом. " +
+            "Сойтись они не могут.",
+        },
+        {
+          id: "z2-ispravit-vremya",
+          kind: "short",
+          prompt: "Исправь и запиши предложение целиком: «Yesterday I will see my friend.»",
+          answer: "Yesterday I saw my friend.",
+          exact: true,
+          accept: ["Yesterday I saw my friend"],
+          hint: "Слово yesterday оставь, а глагол поставь в прошедшее время.",
+          why:
+            "Yesterday I saw my friend. У глагола see прошедшее время особое — saw, а не " +
+            "seed.",
+        },
+        {
+          // Порог в двенадцать слов — наш: столько выходит в трёх коротких
+          // строках, которых требует условие. Взят по условию, а не по образцу.
+          id: "z3-napisat-otkrytku",
+          kind: "essay",
+          prompt:
+            "Напиши открытку тремя строками: что было вчера, что происходит сейчас и " +
+            "когда вернёшься.",
+          minWords: 12,
+          sample:
+            "Yesterday I saw a market. Now I am reading in a cafe. " +
+            "I will come home on Sunday.",
+          checklist: [
+            "В первой строке стоит yesterday, и глагол при нём в прошедшем времени.",
+            "Во второй — now, и глагол при нём с am и окончанием -ing.",
+            "В третьей — will перед глаголом.",
+            "Каждое предложение кончается точкой.",
+          ],
+          hint:
+            "Возьми три строки образца и подставь своё: Yesterday I … . Now I am … . " +
+            "I will … .",
+          why:
+            "Сравни свой ответ с образцом по четырём пунктам выше. Поездка и дела у " +
+            "каждого свои. Важно другое: слово времени и глагол при нём должны говорить " +
+            "об одном дне.",
+        },
+      ],
+    },
   ],
 
   quiz: {
@@ -1920,6 +2054,28 @@ const module: Module = {
         why:
           "I was at work yesterday. I will be at home tomorrow. Годится и короткая " +
           "запись I'll be at home tomorrow.",
+      },
+
+      // ---- письмо -----------------------------------------------------
+      // Угол другой, чем в уроке. Там слово времени и глагол спорят открыто —
+      // «Tomorrow I worked»; здесь все три строки открытки верны поодиночке,
+      // и не сходится порядок: сначала будущее, потом прошлое.
+      {
+        id: "q-poryadok-vremyon-v-otkrytke",
+        kind: "choice",
+        outcome: "проверять в открытке, что время глагола сходится со словом времени",
+        prompt:
+          "Открытка: «I will come home on Sunday. Yesterday I saw a market. Now I am " +
+          "reading.» Что здесь не так?",
+        options: [
+          { text: "Время глагола не сходится со словом времени" },
+          { text: "Строки идут не по порядку: сначала завтра, потом вчера", correct: true },
+          { text: "Всё верно" },
+        ],
+        hint: "Проверь каждую строку отдельно, а потом посмотри на их порядок.",
+        why:
+          "Каждая строка сама по себе верна: слово времени и глагол в ней сходятся. " +
+          "Сбит порядок — открытку читают от вчера к завтра, и так её и пишут.",
       },
     ],
   },
