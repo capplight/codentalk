@@ -451,6 +451,75 @@ function otvetZadaniya(task: any): string {
 const CHASTOTA_PREDELA = 4;
 const DLINA_PREDELA = 4;
 
+/**
+ * Верный ответ задания напечатан во врезке ВЫШЕ него, в том же уроке.
+ *
+ * ЗАЧЕМ. Это самая частая ошибка приёмки 19 августа: во всех пяти уроках письма
+ * первое задание отвечалось не разбором языка, а взглядом на два абзаца вверх.
+ * Врезка называла ошибку и тут же давала верную запись, а задание спрашивало
+ * ровно её. Методист нашёл это дважды подряд — и второй раз потому, что правка
+ * ПЕРЕНЕСЛА совпадение с неверного варианта на верный.
+ *
+ * Смотрим только назад по уроку: врезка ПОСЛЕ задания — это разбор, и повтор в
+ * ней законен. И только дословное совпадение от трёх слов: короткие обороты
+ * вроде «I'm a student» ходят по курсу законно.
+ *
+ * Это сведения, а не ошибка. Иногда повтор нужен — задание на узнавание строки
+ * из врезки бывает и осмысленным. Решает методист.
+ */
+const DLINA_UTECHKI = 4;
+
+function checkOtvetNeStoitVyshe(lesson: any, where: string): void {
+  const bylo: string[] = [];
+  const utechki: string[] = [];
+
+  const dlinnee = (s: string): boolean =>
+    s.trim().split(/\s+/).filter(Boolean).length >= DLINA_UTECHKI;
+
+  for (const block of lesson.blocks) {
+    // Копим ТОЛЬКО врезки. Текст для чтения, пример и таблица — предмет
+    // задания, и повтор из них законен: задание на то и дано, чтобы в них
+    // смотреть. Утечка бывает из врезки, которая назвала ошибку и тут же
+    // дала верную запись.
+    if (!isTask(block)) {
+      if (block.kind === "note") bylo.push(...sobratMaterial({ blocks: [block] }));
+      continue;
+    }
+
+    // Задание, привязанное к тексту или записи, читает их по условию —
+    // совпадение с ними не утечка. И задание на отметку частей: в нём
+    // разобранные строки стоят по самому его устройству.
+    if ((block as any).about || block.kind === "hottext") continue;
+
+    const material = slova(bylo.join(" . "));
+    if (!material) continue;
+
+    // Что считается верным ответом: строка `answer`, а у выбора — текст
+    // верного варианта. Подсказка и разбор не в счёт: их читают после.
+    const otvety: string[] = [];
+    const b = block as any;
+    if (typeof b.answer === "string") otvety.push(b.answer);
+    for (const o of b.options ?? []) if (o.correct) otvety.push(o.text);
+    for (const p of b.parts ?? []) if (p.correct) otvety.push(p.text);
+
+    for (const otvet of otvety) {
+      if (!dlinnee(otvet)) continue;
+      if (material.includes(slova(otvet))) {
+        utechki.push(`${block.id}: «${otvet.trim()}»`);
+      }
+    }
+  }
+
+  if (utechki.length > 0) {
+    warn(
+      where,
+      `верный ответ напечатан выше по уроку (${utechki.length} шт.):\n      ` +
+        utechki.join("\n      ") +
+        "\n      Ученик найдёт его глазами, не разбирая язык. Решает методист"
+    );
+  }
+}
+
 function checkOtvetNePropechatan(mod: Module, where: string): void {
   const kuski: string[] = [];
   for (const lesson of mod.lessons) kuski.push(...sobratMaterial(lesson));
@@ -906,6 +975,7 @@ function checkModule(mod: Module, where: string): void {
     if (lessonSlugs.has(lesson.slug)) fail(where, `имя урока «${lesson.slug}» повторяется`);
     lessonSlugs.add(lesson.slug);
     checkLesson(lesson, `${where} → ${lesson.slug}`);
+    checkOtvetNeStoitVyshe(lesson, `${where} → ${lesson.slug}`);
   }
 
   checkRabotaNePovtoryaetUroki(mod, where);
@@ -1014,6 +1084,70 @@ function checkQuiz(quiz: Quiz, quizWhere: string, rules: QuizRules): void {
 
 // ---------------------------------------------------------------------------
 
+/**
+ * Имя урока уникально во ВСЁМ курсе, а не только внутри модуля.
+ *
+ * ЗАЧЕМ. Адрес урока — `/learn/[курс]/[урок]`, модуль в нём не участвует. Два
+ * урока с одним именем в разных модулях — это столкновение адресов: второй
+ * недостижим. Проверка внутри модуля этого не видела.
+ *
+ * Нашлось не догадкой: 19 августа урок чтения модуля 6 получил то же имя
+ * `chitaem-spisok-veshchey`, что урок модуля 8, и заодно тот же id блока и тот
+ * же предмет. Поймал методист, глазами. Дальше ловит эта строка.
+ */
+function checkImenaUrokovPoKursu(course: Course): void {
+  const gde = new Map<string, string>();
+  for (const mod of course.modules) {
+    for (const lesson of mod.lessons) {
+      const bylo = gde.get(lesson.slug);
+      if (bylo) {
+        fail(
+          course.slug,
+          `имя урока «${lesson.slug}» повторяется: ${bylo} и ${mod.slug}. ` +
+            "Адрес урока модуля не знает, и второй урок станет недостижим"
+        );
+      } else {
+        gde.set(lesson.slug, mod.slug);
+      }
+    }
+  }
+
+  // Проверку «имя блока повторяется в разных модулях» пробовали и сняли:
+  // на курсе она дала 109 совпадений, почти все законные — `slovar-1`,
+  // `zachem-…` и прочие имена, которые повторяются по устройству формата.
+  // Скрипт, который кричит на правильное, хуже, чем никакого.
+
+}
+
+/**
+ * Опора в `sources` называет урок, которого в модуле нет.
+ *
+ * ЗАЧЕМ. Записи опоры начинаются словами вида «УРОК ПИСЬМА «Пишем о своём
+ * жилье»». Урок переименовали или переписали — опора осталась описывать
+ * прежний, и следующему проверяющему сверять не с чем.
+ *
+ * Так и случилось 19 августа: три урока письма получили новый жанр и новые
+ * названия, а их опоры продолжали говорить о старых — вплоть до числа строк в
+ * образце и счёта слов. Поймал методист.
+ */
+function checkSourcesNazyvayutSushchestvuyushchie(course: Course): void {
+  const nazvanie = /УРОК [А-ЯЁ]+ «([^»]+)»/gu;
+  for (const mod of course.modules) {
+    const est = new Set(mod.lessons.map((l) => l.title));
+    for (const istochnik of mod.sources ?? []) {
+      for (const m of istochnik.section.matchAll(nazvanie)) {
+        if (!est.has(m[1])) {
+          fail(
+            `${course.slug} → ${mod.slug}`,
+            `опора называет урок «${m[1]}», а такого урока в модуле нет — ` +
+              "урок переименовали, а опору не поправили"
+          );
+        }
+      }
+    }
+  }
+}
+
 function checkCourse(course: Course): void {
   const where = course.slug;
   if (course.modules.length === 0) fail(where, "в курсе нет модулей");
@@ -1024,6 +1158,9 @@ function checkCourse(course: Course): void {
     slugs.add(mod.slug);
     checkModule(mod, `${where} → ${mod.slug}`);
   }
+
+  checkImenaUrokovPoKursu(course);
+  checkSourcesNazyvayutSushchestvuyushchie(course);
 
   /*
    * Части курса обязаны покрывать все модули и ровно по разу.
