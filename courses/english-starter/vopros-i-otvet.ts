@@ -38,6 +38,15 @@ const module: Module = {
 
   sources: [
     {
+      ref: "Council of Europe, CEFR Companion Volume 2020 — опора урока чтения",
+      section:
+        "УРОК ЧТЕНИЯ «Читаем разговор с вопросами». с. 55, шкала Overall reading comprehension, графа A1, дословно: «Can understand very short, simple texts a single phrase at a time, picking up familiar names, words and basic phrases and rereading as required». Строка «a single phrase at a time» и «rereading as required» описывают то, что урок требует прямо: читать по строке и возвращаться назад, потому что верное стоит не в вопросе, а в ответе. " +
+        "Там же, с. 55, шкала Reading correspondence, графа A1: «Can understand short, simple messages sent via social media or e-mail» — разговор из восьми строк это и есть короткое сообщение. " +
+        "ЧЕГО В ИСТОЧНИКЕ НЕТ: он не говорит, что в вопросе стоит догадка, а в ответе — как есть. Это устройство самого языка, разобранное в уроках модуля, а не утверждение об обиходе. " +
+        "Номера страниц взяты разборщиком PDF (npm run pdf --find).",
+      license: "внутреннее использование, публично не называем",
+    },
+    {
       ref: "Cambridge English, руководство для младших ступеней",
       section:
         "ОПОРА УРОКА СЛУШАНИЯ, добавленного позже остальных. Cambridge English, руководство для младших ступеней, с. 5, блок Pre A1 «Below 100» — ступень НИЖЕ нашей, значит умение посильно. Дословно: «CAN understand some very short conversations that use familiar questions and answers» — вопрос и краткий ответ названы вместе. ЧЕГО В ИСТОЧНИКАХ НЕТ: правила «у вопроса голос идёт вверх». Я его написал и снял после методиста. В `cambridge-a2-key-handbook.pdf`, с. 50, intonation определена вообще («the way the voice rises and falls»), про вопросы там ничего; в English Grammar Profile слова intonation нет ни разу. Урок теперь опирается на порядок слов, которому модуль и учит.",
@@ -110,6 +119,7 @@ const module: Module = {
     "отличать вопрос от сообщения по порядку слов",
     "вести разговор из вопросов и ответов",
     "отличать на слух вопрос от сообщения и понимать краткий ответ",
+    "отличать в разговоре догадку спрашивающего от того, как есть",
   ],
 
   lessons: [
@@ -1293,6 +1303,131 @@ const module: Module = {
         },
       ],
     },
+
+    // =====================================================================
+    // Урок чтения. Разговор из догадок и поправок: половина сказанного здесь
+    // НЕВЕРНА, и понять текст — значит отличить догадку спрашивающего от
+    // того, как есть на самом деле. Новых английских слов урок не вводит.
+    //
+    // Опора — в `sources`.
+    // =====================================================================
+    {
+      slug: "chitaem-vopros-i-otvet",
+      title: "Читаем разговор с вопросами",
+      estimatedMinutes: 12,
+      outcome: "отличать в разговоре догадку спрашивающего от того, как есть",
+
+      blocks: [
+        {
+          id: "zachem-chitat-vopros-i-otvet",
+          kind: "explain",
+          text: [
+            "В разговоре из вопросов половина сказанного — догадки. Спрашивающий думает " +
+              "одно, а на деле выходит другое.",
+            "Читать такой разговор по вопросам нельзя: в вопросе стоит предположение. " +
+              "Смотреть надо на ответ — там сказано, как есть.",
+          ],
+        },
+        {
+          id: "razgovor-s-dogadkami",
+          kind: "text",
+          genre: "message",
+          title: "Is this Dana?",
+          body: [
+            "— Is this Dana?",
+            "— No, it isn't. It's Aigul.",
+            "— Is she a teacher?",
+            "— No, she isn't. She's a doctor.",
+            "— Is she from Astana?",
+            "— Yes, she is.",
+            "— And you? Are you a doctor too?",
+            "— No, I'm not. I'm a student.",
+          ],
+        },
+        {
+          id: "gde-iskat-vernoe",
+          kind: "note",
+          tone: "mistake",
+          text:
+            "Прочитав «Is she a teacher?», легко решить, что она преподаватель. Но это " +
+            "догадка спрашивающего, и следующая строка её отменяет: No, she isn't. She's " +
+            "a doctor. Верное стоит после «нет», а не в вопросе.",
+        },
+        {
+          id: "gde-dogadka-verna",
+          kind: "note",
+          tone: "info",
+          text:
+            "Одна догадка из трёх здесь верна — про город. Ответ «Yes, she is» ничего не " +
+            "добавляет, и это значит: спрашивающий угадал, а сведения надо брать из его " +
+            "же вопроса.",
+        },
+
+        // ---- задания ----
+        {
+          id: "z1-kem-rabotaet",
+          kind: "choice",
+          about: "razgovor-s-dogadkami",
+          prompt: "Кем работает Aigul?",
+          options: [
+            { text: "Преподавателем" },
+            { text: "Врачом", correct: true },
+            { text: "Она студентка" },
+          ],
+          hint: "Про занятие спросили один раз, и ответ начался с «нет».",
+          why:
+            "She's a doctor. «Is she a teacher?» — это догадка, и она не подтвердилась: " +
+            "верное занятие названо после No, she isn't.",
+        },
+        {
+          id: "z2-otkuda-aigul",
+          kind: "short",
+          about: "razgovor-s-dogadkami",
+          prompt: "Из какого города Aigul? Напиши название по-английски.",
+          answer: "Astana",
+          exact: true,
+          accept: ["Astana.", "She's from Astana."],
+          hint: "Здесь ответ короткий — значит смотри, о чём спрашивали.",
+          why:
+            "Astana. Ответ «Yes, she is» города не называет: он подтверждает то, что " +
+            "стоит в вопросе.",
+        },
+        {
+          id: "z3-kto-student",
+          kind: "choice",
+          about: "razgovor-s-dogadkami",
+          prompt: "Кто из двоих собеседников студент?",
+          options: [
+            { text: "Тот, кто задаёт вопросы" },
+            { text: "Тот, кто отвечает", correct: true },
+            { text: "Aigul" },
+          ],
+          hint: "Последняя строка — ответ, а не вопрос.",
+          why:
+            "Отвечающий: «I'm a student». Aigul в разговоре не участвует, о ней говорят " +
+            "в третьем лице — she.",
+        },
+        {
+          id: "z4-otmetit-popravki",
+          kind: "hottext",
+          about: "razgovor-s-dogadkami",
+          prompt: "Отметь ответы, которыми собеседника поправили.",
+          parts: [
+            { text: "No, it isn't. It's Aigul.", selectable: true, correct: true },
+            { text: " · " },
+            { text: "No, she isn't. She's a doctor.", selectable: true, correct: true },
+            { text: " · " },
+            { text: "Yes, she is.", selectable: true },
+            { text: " · " },
+            { text: "No, I'm not. I'm a student.", selectable: true, correct: true },
+          ],
+          hint: "Поправка говорит и что не так, и как есть.",
+          why:
+            "Три ответа из четырёх поправляют: за «нет» в каждом идёт верное. «Yes, she " +
+            "is» ничего не поправляет — там догадка подтвердилась.",
+        },
+      ],
+    },
   ],
 
   // =======================================================================
@@ -1534,6 +1669,27 @@ const module: Module = {
         exact: true,
         accept: ["He is in Rome", "He's in Rome.", "He's in Rome"],
         why: "He is in Rome. Первые два слова вернулись на места, знак стал точкой.",
+      },
+
+      // ---- чтение -----------------------------------------------------
+      // Угол другой, чем в уроке. Там разбирают разговор, где поправляют три
+      // раза из четырёх; здесь одна пара строк, и догадка в ней ПОДТВЕРДИЛАСЬ —
+      // значит сведения приходится брать из самого вопроса.
+      {
+        id: "q-otkuda-brat-vernoe",
+        kind: "choice",
+        outcome: "отличать в разговоре догадку спрашивающего от того, как есть",
+        prompt:
+          "Разговор: «— Is Nurlan a driver?» / «— Yes, he is.» Кем работает Nurlan?",
+        options: [
+          { text: "По ответу этого не понять" },
+          { text: "Водителем", correct: true },
+          { text: "Ответ занятия не называет, значит он не водитель" },
+        ],
+        hint: "Короткое «да» подтверждает то, что стоит в вопросе.",
+        why:
+          "Водителем. «Yes, he is» подтверждает догадку целиком, поэтому занятие берут " +
+          "из вопроса. Если бы догадка не подтвердилась, за «нет» стояло бы верное.",
       },
     ],
   },
