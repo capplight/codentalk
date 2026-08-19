@@ -624,11 +624,11 @@ function checkMaterial(block: Block, where: string): void {
 
       // Звучащая строка, которой в примере нет, — это кнопка, которая никогда
       // не появится. Опечатка в ключе иначе не видна ничем.
-      if (block.zvuk) {
+      {
         const stroki = new Set(
           (block.text ?? "").split("\n").map((s) => s.trim()).filter(Boolean)
         );
-        for (const klyuch of Object.keys(block.zvuk)) {
+        for (const klyuch of Object.keys(zvuchashchee(block))) {
           if (!stroki.has(klyuch)) {
             fail(where, `звучащая строка примера «${klyuch}» в тексте не найдена`);
           }
@@ -654,9 +654,9 @@ function checkMaterial(block: Block, where: string): void {
 
       // Звучащая ячейка, которой в таблице нет, — это кнопка, которая никогда
       // не появится. Опечатка в ключе иначе не видна ничем.
-      if (block.zvuk) {
+      {
         const yacheyki = new Set(block.rows.flat());
-        for (const klyuch of Object.keys(block.zvuk)) {
+        for (const klyuch of Object.keys(zvuchashchee(block))) {
           if (!yacheyki.has(klyuch)) {
             fail(where, `звучащая ячейка «${klyuch}» в таблице не найдена — опечатка в ключе`);
           }
