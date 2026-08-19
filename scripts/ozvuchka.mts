@@ -408,19 +408,32 @@ function pauza(ms: number): Promise<void> {
 
 async function sintez(telo: string): Promise<Buffer> {
   for (let popytka = 1; popytka <= POPYTOK; popytka += 1) {
-    const otvet = await fetch(
-      `https://${REGION}.tts.speech.microsoft.com/cognitiveservices/v1`,
-      {
-        method: "POST",
-        headers: {
-          "Ocp-Apim-Subscription-Key": KEY as string,
-          "Content-Type": "application/ssml+xml",
-          "X-Microsoft-OutputFormat": "audio-24khz-48kbitrate-mono-mp3",
-          "User-Agent": "codentalk",
+    // Обрыв соединения — не отказ Azure, а сеть. Ловится отдельно: без этого
+    // одна сорвавшаяся связь роняла весь прогон, а прогон идёт больше часа.
+    // Так и случилось 19 августа на 368-й записи из 769.
+    let otvet: Response;
+    try {
+      otvet = await fetch(
+        `https://${REGION}.tts.speech.microsoft.com/cognitiveservices/v1`,
+        {
+          method: "POST",
+          headers: {
+            "Ocp-Apim-Subscription-Key": KEY as string,
+            "Content-Type": "application/ssml+xml",
+            "X-Microsoft-OutputFormat": "audio-24khz-48kbitrate-mono-mp3",
+            "User-Agent": "codentalk",
+          },
+          body: telo,
         },
-        body: telo,
-      },
-    );
+      );
+    } catch (beda) {
+      if (popytka === POPYTOK) throw beda;
+      const zhdat = PAUZA_MS * 2 ** popytka;
+      const chto = beda instanceof Error ? beda.message : String(beda);
+      console.log(`    связь оборвалась (${chto}); ждём ${Math.round(zhdat / 1000)} с`);
+      await pauza(zhdat);
+      continue;
+    }
 
     if (otvet.ok) return Buffer.from(await otvet.arrayBuffer());
 
