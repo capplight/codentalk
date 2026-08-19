@@ -87,9 +87,9 @@ const module: Module = {
       ref: "Council of Europe, CEFR Companion Volume 2020 — опора урока письма",
       section:
         "УРОК ПИСЬМА «Пишем сообщение о вкусах». с. 83, шкала Correspondence, графа A1, дословно: «Can compose messages and online postings as a series of very short sentences about hobbies and likes/dislikes, using simple words and formulaic expressions, with reference to a dictionary». Вкусы и нелюбовь названы источником прямо, и «a series of very short sentences» — это ровно три коротких строки урока. " +
-        "Там же, с. 66, шкала Overall written production, графа A1: «Can give information about matters of personal relevance (e.g. likes and dislikes, family, pets)» — likes and dislikes названы и здесь. " +
+        "Там же, с. 66, шкала Overall written production, графа A1: «Can give information about matters of personal relevance (e.g. likes and dislikes, family, pets) using simple words/signs and basic expressions» — likes and dislikes названы и здесь. " +
         "ОГОВОРКА О СОСЕДНЕЙ ГРАФЕ: с. 68, шкала Reports and essays, графы A1 и Pre-A1 — «No descriptors available». " +
-        "ПОРОГ В ДВЕНАДЦАТЬ СЛОВ — НАШ: столько выходит в трёх коротких строках, которых требует условие. Взят по условию, а не по образцу (в нём 15 слов). " +
+        "ПОРОГ В ОДИННАДЦАТЬ СЛОВ — НАШ: столько выходит в самом коротком верном ответе («I like music. I don't like fish. I'd like to eat.»). Прежние двенадцать упрекали за него — нашёл методист. " +
         "Номера страниц взяты разборщиком PDF (npm run pdf --find).",
       license: "внутреннее использование, публично не называем",
     },
@@ -1544,19 +1544,20 @@ const module: Module = {
 
         // ---- задания ----
         {
+          // Прежде задание брало ту же пару, что врезка выше, и ответ читался
+          // оттуда. Теперь строк три, и проверить надо каждую. Нашёл методист.
           id: "z1-vkus-ili-zhelanie",
           kind: "choice",
-          prompt:
-            "Человек написал: «I'd like a tea, please.» О чём это предложение?",
+          prompt: "В какой строке человек что-то просит, а не рассказывает о вкусе?",
           options: [
-            { text: "О том, что он любит чай" },
-            { text: "О том, что он просит чай сейчас", correct: true },
-            { text: "О том, что он не любит чай" },
+            { text: "I like music." },
+            { text: "I like to read in the evening." },
+            { text: "I'd like a tea.", correct: true },
           ],
-          hint: "Смотри на 'd перед like и на слово please в конце.",
+          hint: "Разницу делает одна буква с апострофом. Найди строку, где она есть.",
           why:
-            "I'd like a tea — просьба принести чай. О вкусе было бы I like tea, без 'd " +
-            "и без please.",
+            "I'd like a tea — просьба. Две другие строки о вкусе: в них стоит I like, " +
+            "без 'd.",
         },
         {
           id: "z2-dopisat-to",
@@ -1571,14 +1572,14 @@ const module: Module = {
             "его не ставят: I'd like a coffee.",
         },
         {
-          // Порог в двенадцать слов — наш: столько выходит в трёх коротких
-          // строках, которых требует условие. Взят по условию, а не по образцу.
+          // Порог в одиннадцать слов — наш: столько выходит в самом коротком
+          // верном ответе. Прежние двенадцать упрекали за него.
           id: "z3-napisat-o-vkusah",
           kind: "essay",
           prompt:
             "Напиши о себе три строки: что тебе нравится, что не нравится и что хотелось " +
             "бы сделать.",
-          minWords: 12,
+          minWords: 11,
           sample:
             "I like music and sport. I don't like cooking. I'd like to see this film.",
           checklist: [
@@ -1984,25 +1985,25 @@ const module: Module = {
       },
 
       // ---- письмо -----------------------------------------------------
-      // Угол другой, чем в уроке. Там разбирают одну запись и дописывают to;
-      // здесь две строки стоят рядом, обе верны по-английски, и надо решить,
-      // какая из них просьба, а какая рассказ о вкусе.
+      // Угол обратный уроку. В уроке дана запись и спрашивают, что она значит;
+      // здесь дан смысл и спрашивают, какую запись выбрать. Прежний вопрос брал
+      // ту же пару и то же слово, что задание урока, — нашёл методист.
       {
-        id: "q-kakaya-stroka-prosba",
+        id: "q-ot-smysla-k-zapisi",
         kind: "choice",
         outcome: "различать на письме I like и I'd like и ставить to там, где оно нужно",
         prompt:
-          "Две строки: «I like coffee.» и «I'd like a coffee.» В какой из них просят " +
-          "принести кофе?",
+          "Ты рассказываешь, что вообще любишь чай, а не просишь принести его сейчас. " +
+          "Какую строку написать?",
         options: [
-          { text: "В первой" },
-          { text: "Во второй", correct: true },
-          { text: "В обеих" },
+          { text: "I'd like a tea." },
+          { text: "I like tea.", correct: true },
+          { text: "I'd like to tea." },
         ],
-        hint: "Обе строки верны. Разницу делает одна буква с апострофом.",
+        hint: "Рассказ о вкусе идёт без 'd.",
         why:
-          "I'd like a coffee — просьба. I like coffee говорит о вкусе вообще, и " +
-          "принести по нему ничего не попросят.",
+          "I like tea. Запись с 'd — просьба принести. Третья строка не читается вовсе: " +
+          "после to ставят занятие, а tea — вещь.",
       },
     ],
   },
