@@ -59,6 +59,15 @@ const module: Module = {
 
   sources: [
     {
+      ref: "Council of Europe, CEFR Companion Volume 2020 — опора урока чтения",
+      section:
+        "УРОК ЧТЕНИЯ «Читаем переписку». с. 55, шкала Reading correspondence, графа A1, дословно: «Can understand short, simple messages sent via social media or e-mail (e.g. proposing what to do, when and where to meet)». Переписка названа источником как жанр чтения этой ступени. " +
+        "Там же, с. 55, шкала Overall reading comprehension, графа A1: «Can understand very short, simple texts a single phrase at a time, picking up familiar names, words and basic phrases and rereading as required» — «a single phrase at a time» и есть чтение по строкам, а перечитывание урок прямо предлагает при счёте очерёдности. " +
+        "ЧЕГО В ИСТОЧНИКЕ НЕТ: он не говорит, как в переписке помечают говорящего. Тире перед репликой — наша разметка, принятая во всех текстах курса, и урок объясняет её сам. " +
+        "Номера страниц взяты разборщиком PDF (npm run pdf --find).",
+      license: "внутреннее использование, публично не называем",
+    },
+    {
       ref: "Cambridge English, руководство для младших ступеней",
       section:
         "ОПОРА УРОКА СЛУШАНИЯ, добавленного позже остальных. Cambridge English, руководство для младших ступеней, с. 5, блок Pre A1 «Below 100» — ступень НИЖЕ нашей, значит умение посильно. Дословно: «CAN understand some simple spoken questions about self – such as name, age, favourite things or daily routine» и «CAN understand some very short conversations that use familiar questions and answers». Первая строка про имя, вторая про разговор целиком — это и есть содержание урока.",
@@ -180,6 +189,7 @@ const module: Module = {
     "просить повторить сказанное и переспрашивать имя",
     "вести короткий разговор при знакомстве: от приветствия до прощания",
     "понимать на слух, кто как зовётся и как у него дела",
+    "понимать по переписке, кто что сказал и кто не расслышал",
   ],
 
   lessons: [
@@ -1716,6 +1726,129 @@ const module: Module = {
         },
       ],
     },
+
+    // =====================================================================
+    // Урок чтения. Переписка — жанр, названный источником для этой ступени
+    // прямо. Новых английских слов урок не вводит: всё сказанное разобрано в
+    // уроках модуля.
+    //
+    // Читается здесь не смысл фразы — он знаком, — а ОЧЕРЁДНОСТЬ: кто что
+    // сказал. Без этого переписку не понять, а по одной реплике этому не
+    // научишься. Опора — в `sources`.
+    // =====================================================================
+    {
+      slug: "chitaem-perepisku",
+      title: "Читаем переписку",
+      estimatedMinutes: 12,
+      outcome: "понимать по переписке, кто что сказал и кто не расслышал",
+
+      blocks: [
+        {
+          id: "zachem-chitat-perepisku",
+          kind: "explain",
+          text: [
+            "В переписке имена пишут не перед каждой строкой. Кто говорит, видно по " +
+              "очереди: строки идут по одной от каждого собеседника.",
+            "Начинает первый, отвечает второй, дальше снова первый. Собьёшься со счёта — " +
+              "и решишь, что человек сам себе отвечает.",
+          ],
+        },
+        {
+          id: "perepiska-znakomstvo",
+          kind: "text",
+          genre: "message",
+          title: "Good evening!",
+          body: [
+            "— Good evening! I'm Aigerim.",
+            "— Hi, Aigerim! I'm Nurlan. Nice to meet you.",
+            "— Nice to meet you too. How are you?",
+            "— I'm fine, thanks. And you?",
+            "— I'm OK, thank you.",
+            "— Sorry? Again, please.",
+            "— I'm OK, thank you!",
+          ],
+        },
+        {
+          id: "kak-schitat-ocherednost",
+          kind: "note",
+          tone: "info",
+          text:
+            "Первую строку написала Aigerim — она назвала себя первой. Значит вторая " +
+            "строка Нурлана, третья снова её, и так до конца. Считать приходится от " +
+            "начала: имени в середине переписки уже не будет.",
+        },
+        {
+          id: "peresprosili-v-perepiske",
+          kind: "note",
+          tone: "info",
+          text:
+            "Две последние строки почти одинаковы. Это не ошибка и не повтор от " +
+            "рассеянности: одну строку не разобрали, попросили повторить — и её " +
+            "повторили.",
+        },
+
+        // ---- задания ----
+        {
+          id: "z1-kto-nachal",
+          kind: "short",
+          about: "perepiska-znakomstvo",
+          prompt: "Кто написал первым? Напиши имя.",
+          answer: "Aigerim",
+          accept: ["aigerim"],
+          hint: "В первой строке человек называет себя.",
+          why: "Aigerim. Она поздоровалась и сразу назвала своё имя.",
+        },
+        {
+          id: "z2-kto-ne-rasslyshal",
+          kind: "choice",
+          about: "perepiska-znakomstvo",
+          prompt: "Кто не расслышал ответ и попросил повторить?",
+          options: [
+            { text: "Aigerim" },
+            { text: "Nurlan", correct: true },
+            { text: "По переписке этого не понять" },
+          ],
+          hint: "Считай строки от первой: они идут по очереди.",
+          why:
+            "Nurlan. Строки идут по очереди, и «Sorry? Again, please.» приходится на " +
+            "него: до неё Aigerim ответила, как у неё дела.",
+        },
+        {
+          id: "z3-chto-sdelali-posle-sorry",
+          kind: "choice",
+          about: "perepiska-znakomstvo",
+          prompt: "Что сделал собеседник после слова Sorry?",
+          options: [
+            { text: "Попрощался" },
+            { text: "Спросил имя ещё раз" },
+            { text: "Повторил свой ответ", correct: true },
+          ],
+          hint: "Сравни последнюю строку с той, что стоит через одну выше.",
+          why:
+            "Повторил: «I'm OK, thank you» прозвучало дважды. Переспрос просит именно " +
+            "повторения, а не нового ответа.",
+        },
+        {
+          id: "z4-otmetit-privetstviya",
+          kind: "hottext",
+          about: "perepiska-znakomstvo",
+          prompt: "Отметь в списке приветствия.",
+          parts: [
+            { text: "Good evening", selectable: true, correct: true },
+            { text: " · " },
+            { text: "Hi", selectable: true, correct: true },
+            { text: " · " },
+            { text: "Nice to meet you", selectable: true },
+            { text: " · " },
+            { text: "Thank you", selectable: true },
+          ],
+          hint: "Приветствием разговор открывают, а не отвечают на сказанное.",
+          why:
+            "Good evening и Hi. «Nice to meet you» говорят после того, как назвали имя, " +
+            "а «thank you» — это благодарность.",
+        },
+      ],
+    },
   ],
 
   // =======================================================================
@@ -2008,6 +2141,28 @@ const module: Module = {
         why:
           "Please ставят в конце просьбы. Ответом на благодарность оно быть не может — " +
           "для этого есть you're welcome.",
+      },
+
+      // ---- чтение -----------------------------------------------------
+      // Угол другой, чем в уроке. Там очерёдность считают от первой строки и
+      // ищут, кто переспросил; здесь переписка обрывается, и надо решить, чья
+      // очередь говорить дальше.
+      {
+        id: "q-chya-ochered",
+        kind: "choice",
+        outcome: "понимать по переписке, кто что сказал и кто не расслышал",
+        prompt:
+          "Переписка: «— Hello! I'm Dana.» / «— Hi, Dana! I'm Alim.» / «— Nice to meet " +
+          "you.» Чья очередь писать следующей строкой?",
+        options: [
+          { text: "Alim", correct: true },
+          { text: "Dana" },
+          { text: "Любого из двоих" },
+        ],
+        hint: "Строки идут по очереди: первая, третья и пятая — одного человека.",
+        why:
+          "Alim. Первую и третью строки написала Dana, вторую — Alim. Значит четвёртая " +
+          "снова его.",
       },
     ],
   },
