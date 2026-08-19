@@ -9,7 +9,8 @@ import type { Module } from "@/lib/content/types";
  *
  * ЧТО ЗДЕСЬ НЕ ТАК, И ЭТО ИЗВЕСТНО:
  *
- * 1. Уроков восемь — столько, сколько отводит программа. Модуль написан целиком.
+ * 1. Уроков десять: восемь по программе плюс урок слушания и урок чтения,
+ *    добавленные позже. Модуль написан целиком.
  *
  * 2. Половина замысла ждёт звука. Источник разносит умения по колонкам: буквы на
  *    этой ступени СЛУШАЮТ и ПИШУТ. Слушание пока невозможно — записей нет, и
@@ -48,7 +49,7 @@ const module: Module = {
     {
       ref: "Council of Europe, CEFR Companion Volume 2020 — опора урока чтения",
       section:
-        "ПЕРВЫЙ УРОК ЧТЕНИЯ В КУРСЕ («Читаем список и бланк»). с. 55, шкала Overall reading comprehension, графа A1, дословно: «Can understand very short, simple texts a single phrase at a time, picking up familiar names, words and basic phrases and rereading as required». Список имён и бланк — это и есть «very short, simple texts», а «picking up familiar names» называет то, чем ученик здесь занят, дословно. " +
+        "ПЕРВЫЙ УРОК ЧТЕНИЯ В КУРСЕ («Читаем список и бланк»). с. 54, шкала Overall reading comprehension, графа A1, дословно: «Can understand very short, simple texts a single phrase at a time, picking up familiar names, words and basic phrases and rereading as required». Список имён и бланк — это и есть «very short, simple texts», а «picking up familiar names» называет то, чем ученик здесь занят, дословно. " +
         "Там же, с. 56, шкала Reading for orientation, графа A1: «Can recognise familiar names, words/signs and very basic phrases on simple notices in the most common everyday situations» — список группы и бланк гостиницы это «simple notices». " +
         "ПОЧЕМУ УРОК ЧТЕНИЯ СТОИТ УЖЕ В ПЕРВОМ МОДУЛЕ: обе строки требуют узнавать имена, а не понимать слова. Английских слов урок не вводит ни одного, кроме GROUP в словарике текста: подписи бланка разобраны в седьмом уроке этого же модуля, а имена ступенью не меряются. " +
         "Номера страниц взяты разборщиком PDF (npm run pdf --find), а не выведены из разметки текстового разбора: однажды такой вывод разошёлся с настоящим на единицу.",
@@ -1645,8 +1646,8 @@ const module: Module = {
     // Читать здесь пока нечего, кроме имён, — и это ровно то, что называет
     // источник: «picking up familiar names». Английских слов урок не требует
     // ни одного: список состоит из имён, а подписи бланка разобраны в седьмом
-    // уроке этого же модуля. Единственное новое слово — group — дано
-    // словариком текста.
+    // уроке этого же модуля. Новых слов два — GROUP и HOTEL, — и оба даны
+    // словариками текстов.
     //
     // Опора — в `sources`.
     // =====================================================================
@@ -1672,7 +1673,9 @@ const module: Module = {
           kind: "text",
           genre: "notice",
           title: "GROUP A",
-          body: ["Aigul Nurlanova", "Alim Sadykov", "Dana Karimova", "Nurlan Abenov"],
+          // Фамилии сверены с уроком 7: там Dana Nurlanova. Урок, который учит
+          // сверять список с бланком, обязан сходиться сам с собой. Нашёл методист.
+          body: ["Aigul Abenova", "Alim Sadykov", "Dana Nurlanova", "Nurlan Karimov"],
           glossary: [{ term: "GROUP", translation: "группа" }],
         },
         {
@@ -1689,7 +1692,7 @@ const module: Module = {
           kind: "text",
           genre: "notice",
           title: "HOTEL",
-          body: ["First name: Dana", "Surname: Karimova", "Country: Kazakhstan"],
+          body: ["First name: Dana", "Surname: Nurlanova", "Country: Kazakhstan"],
           glossary: [{ term: "HOTEL", translation: "гостиница" }],
         },
         {
@@ -1716,20 +1719,26 @@ const module: Module = {
           why: "Alim Sadykov. Фамилия стоит второй, и начинается она с /es/.",
         },
         {
+          // Прежде задание выписывало все четыре имени из списка, и заглядывать
+          // в список было незачем. Теперь среди частей есть имя, которого в
+          // списке нет, — без сверки его не отличить. Нашёл методист.
           id: "z2-otmetit-na-a",
           kind: "hottext",
           about: "spisok-gruppy",
-          prompt: "Отметь имена, которые начинаются с буквы A.",
+          prompt: "Отметь имена, которые есть в списке и начинаются с буквы A.",
           parts: [
             { text: "Aigul", selectable: true, correct: true },
+            { text: " · " },
+            { text: "Aida", selectable: true },
+            { text: " · " },
             { text: "Alim", selectable: true, correct: true },
-            { text: "Dana", selectable: true },
+            { text: " · " },
             { text: "Nurlan", selectable: true },
           ],
-          hint: "Имя стоит в строке первым.",
+          hint: "Проверь по списку каждое имя: есть оно там или нет.",
           why:
-            "Aigul и Alim. У Nurlan первая буква N, у Dana — D. Фамилия Abenov тоже " +
-            "начинается с A, но спрашивали про имена.",
+            "Aigul и Alim. Aida начинается с A, но в списке её нет. У Nurlan первая " +
+            "буква N.",
         },
         {
           id: "z3-kto-v-blanke",
@@ -1738,12 +1747,12 @@ const module: Module = {
           prompt:
             "В бланке записан один человек из списка. Запиши его фамилию так, как она " +
             "стоит в бланке.",
-          answer: "Karimova",
+          answer: "Nurlanova",
           exact: true,
-          accept: ["Karimova."],
+          accept: ["Nurlanova."],
           hint: "Фамилия стоит в строке, подписанной surname.",
           why:
-            "Karimova. В списке эта строка выглядит иначе — Dana Karimova, — потому что " +
+            "Nurlanova. В списке эта строка выглядит иначе — Dana Nurlanova, — потому что " +
             "там имя и фамилия стоят рядом, без подписей.",
         },
         {

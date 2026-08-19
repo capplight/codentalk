@@ -40,7 +40,7 @@ const module: Module = {
     {
       ref: "Council of Europe, CEFR Companion Volume 2020 — опора урока чтения",
       section:
-        "УРОК ЧТЕНИЯ «Читаем разговор с вопросами». с. 55, шкала Overall reading comprehension, графа A1, дословно: «Can understand very short, simple texts a single phrase at a time, picking up familiar names, words and basic phrases and rereading as required». Строка «a single phrase at a time» и «rereading as required» описывают то, что урок требует прямо: читать по строке и возвращаться назад, потому что верное стоит не в вопросе, а в ответе. " +
+        "УРОК ЧТЕНИЯ «Читаем разговор с вопросами». с. 54, шкала Overall reading comprehension, графа A1, дословно: «Can understand very short, simple texts a single phrase at a time, picking up familiar names, words and basic phrases and rereading as required». Строка «a single phrase at a time» и «rereading as required» описывают то, что урок требует прямо: читать по строке и возвращаться назад, потому что верное стоит не в вопросе, а в ответе. " +
         "Там же, с. 55, шкала Reading correspondence, графа A1: «Can understand short, simple messages sent via social media or e-mail» — разговор из восьми строк это и есть короткое сообщение. " +
         "ЧЕГО В ИСТОЧНИКЕ НЕТ: он не говорит, что в вопросе стоит догадка, а в ответе — как есть. Это устройство самого языка, разобранное в уроках модуля, а не утверждение об обиходе. " +
         "Номера страниц взяты разборщиком PDF (npm run pdf --find).",
@@ -1332,10 +1332,10 @@ const module: Module = {
           id: "razgovor-s-dogadkami",
           kind: "text",
           genre: "message",
-          title: "Is this Dana?",
+          title: "Is she Dana?",
           body: [
-            "— Is this Dana?",
-            "— No, it isn't. It's Aigul.",
+            "— Is she Dana?",
+            "— No, she isn't. She's Aigul.",
             "— Is she a teacher?",
             "— No, she isn't. She's a doctor.",
             "— Is she from Astana?",
@@ -1408,23 +1408,30 @@ const module: Module = {
             "в третьем лице — she.",
         },
         {
-          id: "z4-otmetit-popravki",
+          // Прежде задание просило отметить поправки — а врезка выше называла
+          // единственный ответ, который поправкой не был, прямым текстом.
+          // Ученик закрывал задание, не читая разговор. Нашёл методист.
+          // Теперь отмечают занятия, и найти их можно только в тексте.
+          id: "z4-otmetit-zanyatiya",
           kind: "hottext",
           about: "razgovor-s-dogadkami",
-          prompt: "Отметь ответы, которыми собеседника поправили.",
+          prompt: "Отметь занятия, которые названы в разговоре.",
           parts: [
-            { text: "No, it isn't. It's Aigul.", selectable: true, correct: true },
+            { text: "a teacher", selectable: true, correct: true },
             { text: " · " },
-            { text: "No, she isn't. She's a doctor.", selectable: true, correct: true },
+            { text: "a nurse", selectable: true },
             { text: " · " },
-            { text: "Yes, she is.", selectable: true },
+            { text: "a doctor", selectable: true, correct: true },
             { text: " · " },
-            { text: "No, I'm not. I'm a student.", selectable: true, correct: true },
+            { text: "a driver", selectable: true },
+            { text: " · " },
+            { text: "a student", selectable: true, correct: true },
           ],
-          hint: "Поправка говорит и что не так, и как есть.",
+          hint: "Занятие называют и в вопросе, и в ответе. Считаются оба места.",
           why:
-            "Три ответа из четырёх поправляют: за «нет» в каждом идёт верное. «Yes, she " +
-            "is» ничего не поправляет — там догадка подтвердилась.",
+            "A teacher, a doctor и a student. Teacher стоит в догадке, doctor — в " +
+            "поправке к ней, student — в последнем ответе. Nurse и driver в разговоре " +
+            "не звучат вовсе.",
         },
       ],
     },
@@ -1677,19 +1684,19 @@ const module: Module = {
       // значит сведения приходится брать из самого вопроса.
       {
         id: "q-otkuda-brat-vernoe",
-        kind: "choice",
+        kind: "short",
         outcome: "отличать в разговоре догадку спрашивающего от того, как есть",
         prompt:
-          "Разговор: «— Is Nurlan a driver?» / «— Yes, he is.» Кем работает Nurlan?",
-        options: [
-          { text: "По ответу этого не понять" },
-          { text: "Водителем", correct: true },
-          { text: "Ответ занятия не называет, значит он не водитель" },
-        ],
-        hint: "Короткое «да» подтверждает то, что стоит в вопросе.",
+          "Разговор: «— Is Nurlan a driver?» / «— Yes, he is.» Запиши по-английски " +
+          "целиком, кем работает Nurlan. Начни с He's.",
+        answer: "He's a driver.",
+        exact: true,
+        accept: ["He's a driver", "He is a driver.", "He is a driver"],
+        hint: "Короткое «да» подтверждает то, что стоит в вопросе, и занятие берут оттуда.",
         why:
-          "Водителем. «Yes, he is» подтверждает догадку целиком, поэтому занятие берут " +
-          "из вопроса. Если бы догадка не подтвердилась, за «нет» стояло бы верное.",
+          "He's a driver. «Yes, he is» подтверждает догадку целиком и своего занятия не " +
+          "называет — значит его берут из вопроса. Если бы догадка не подтвердилась, за " +
+          "«нет» стояло бы верное.",
       },
     ],
   },

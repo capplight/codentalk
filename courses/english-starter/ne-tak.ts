@@ -35,7 +35,7 @@ const module: Module = {
       ref: "Council of Europe, CEFR Companion Volume 2020 — опора урока чтения",
       section:
         "УРОК ЧТЕНИЯ «Читаем объявление с поправкой». с. 56, шкала Reading for orientation, графа A1, дословно: «Can recognise familiar names, words/signs and very basic phrases on simple notices in the most common everyday situations». Объявление на двери — это simple notice из этой строки, а имена и названия занятий в нём — те самые familiar names and words. " +
-        "Там же, с. 55, шкала Overall reading comprehension, графа A1: «Can understand very short, simple texts a single phrase at a time… and rereading as required» — приписка без первой строки не читается, и возвращаться к ней приходится обязательно. " +
+        "Там же, с. 54, шкала Overall reading comprehension, графа A1: «Can understand very short, simple texts a single phrase at a time… and rereading as required» — приписка без первой строки не читается, и возвращаться к ней приходится обязательно. " +
         "ЧЕГО В ИСТОЧНИКЕ НЕТ: он не описывает объявление с припиской как отдельный вид текста. Вид взят из жизни, а не из источника; источником подтверждено только то, что объявления на этой ступени читают. " +
         "Номера страниц взяты разборщиком PDF (npm run pdf --find).",
       license: "внутреннее использование, публично не называем",
@@ -1444,14 +1444,10 @@ const module: Module = {
             "He's a nurse.",
           ],
         },
-        {
-          id: "pochemu-staroe-ne-styorto",
-          kind: "note",
-          tone: "info",
-          text:
-            "Прежнюю строку не стирают нарочно: без неё непонятно, что именно " +
-            "исправлено. Поправка держится за отменённое и в одиночку не читается.",
-        },
+        // Здесь стояла врезка о том, зачем прежнюю строку не стирают. Она
+        // слово в слово печатала ответ задания z4, и задание проверяло память
+        // о формулировке, а не чтение. Нашёл методист: разбор задания говорит
+        // то же самое, но уже после ответа.
 
         // ---- задания ----
         {
@@ -1485,19 +1481,21 @@ const module: Module = {
           id: "z3-otmetit-vernoe",
           kind: "hottext",
           prompt: "Отметь строки, которые говорят, как есть на самом деле.",
+          // Порядок перемешан нарочно: прежде обе верные строки стояли
+          // последними, и задание решалось счётом, а не чтением. Нашёл методист.
           parts: [
+            { text: "He's a nurse.", selectable: true, correct: true },
+            { text: " · " },
             { text: "Teacher: Dana Karimova", selectable: true },
             { text: " · " },
             { text: "Your teacher is Aigul Nurlanova.", selectable: true, correct: true },
             { text: " · " },
             { text: "Nurlan Abenov: doctor", selectable: true },
-            { text: " · " },
-            { text: "He's a nurse.", selectable: true, correct: true },
           ],
-          hint: "Верное стоит после строки с isn't, а не до неё.",
+          hint: "Проверь каждую строку по своему объявлению: отменена она или нет.",
           why:
-            "Две строки из четырёх верны, и обе стоят последними. Первые две — то, что " +
-            "было напечатано раньше и отменено приписками.",
+            "Верны «He's a nurse» и «Your teacher is Aigul Nurlanova» — обе стоят в " +
+            "приписках. Две другие строки напечатаны раньше и отменены.",
         },
         {
           id: "z4-zachem-staraya-stroka",
