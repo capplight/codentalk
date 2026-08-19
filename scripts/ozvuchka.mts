@@ -410,8 +410,11 @@ async function sintez(telo: string): Promise<Buffer> {
   for (let popytka = 1; popytka <= POPYTOK; popytka += 1) {
     // Обрыв соединения — не отказ Azure, а сеть. Ловится отдельно: без этого
     // одна сорвавшаяся связь роняла весь прогон, а прогон идёт больше часа.
-    // Так и случилось 19 августа на 368-й записи из 769.
+    // Так и случилось 19 августа дважды: сперва оборвалось соединение, потом
+    // чтение тела ответа. Поэтому в попытку входит И запрос, И чтение звука:
+    // первая правка вернула наружу вторую беду.
     let otvet: Response;
+    let zvuk: Buffer | null = null;
     try {
       otvet = await fetch(
         `https://${REGION}.tts.speech.microsoft.com/cognitiveservices/v1`,
@@ -426,6 +429,7 @@ async function sintez(telo: string): Promise<Buffer> {
           body: telo,
         },
       );
+      if (otvet.ok) zvuk = Buffer.from(await otvet.arrayBuffer());
     } catch (beda) {
       if (popytka === POPYTOK) throw beda;
       const zhdat = PAUZA_MS * 2 ** popytka;
@@ -435,7 +439,7 @@ async function sintez(telo: string): Promise<Buffer> {
       continue;
     }
 
-    if (otvet.ok) return Buffer.from(await otvet.arrayBuffer());
+    if (zvuk) return zvuk;
 
     // 429 — уперлись в предел бесплатной доли, ждём и пробуем снова.
     if (otvet.status === 429 || otvet.status >= 500) {
