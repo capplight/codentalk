@@ -65,7 +65,7 @@ const module: Module = {
     {
       ref: "Council of Europe, CEFR Companion Volume 2020 — опора задания на письмо",
       section:
-        "ПЕРВЫЙ УРОК ПИСЬМА В КУРСЕ («Пишем о себе»). с. 67, шкала Overall written production, графа A1, дословно: «Can give information about matters of personal relevance (e.g. likes and dislikes, family, pets) using simple words/signs and basic expressions» и «Can produce simple isolated phrases and sentences». Четыре отдельных предложения о себе — это и есть «simple isolated phrases and sentences» о «matters of personal relevance». " +
+        "ПЕРВЫЙ УРОК ПИСЬМА В КУРСЕ («Пишем о себе»). с. 66, шкала Overall written production, графа A1, дословно: «Can give information about matters of personal relevance (e.g. likes and dislikes, family, pets) using simple words/signs and basic expressions» и «Can produce simple isolated phrases and sentences». Четыре отдельных предложения о себе — это и есть «simple isolated phrases and sentences» о «matters of personal relevance». " +
         "ОГОВОРКА О СОСЕДНЕЙ ГРАФЕ: там же, с. 68, шкала Reports and essays, графы A1 и Pre-A1 — «No descriptors available». Эссе на этой ступени источник не предполагает вовсе, первые описания начинаются с A2. Поэтому письмо здесь — отдельные предложения о себе, а не рассуждение. " +
         "ПОРОГ В ДВЕНАДЦАТЬ СЛОВ — НАШ, а не из источника: четыре коротких предложения короче не выходят. Счёт слов Cambridge даёт только с A2 Key («25 words or more»), на нашей ступени его нет.",
       license: "внутреннее использование, публично не называем",
