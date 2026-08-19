@@ -611,11 +611,32 @@ function checkMaterial(block: Block, where: string): void {
       });
       break;
 
-    case "example":
+    case "example": {
       if (blank(block.code) && blank(block.text)) fail(where, "в примере нет ни кода, ни текста");
+
+      // Звучащая строка, которой в примере нет, — это кнопка, которая никогда
+      // не появится. Опечатка в ключе иначе не видна ничем.
+      if (block.zvuk) {
+        const stroki = new Set(
+          (block.text ?? "").split("\n").map((s) => s.trim()).filter(Boolean)
+        );
+        for (const klyuch of Object.keys(block.zvuk)) {
+          if (!stroki.has(klyuch)) {
+            fail(where, `звучащая строка примера «${klyuch}» в тексте не найдена`);
+          }
+        }
+      }
+
+      // Разговор звучит целиком и по репликам делится по строкам. Без текста
+      // делить нечего.
+      if (block.razgovor && blank(block.text)) {
+        fail(where, "пример помечен разговором, но текста в нём нет");
+      }
+
       if (blank(block.explain)) fail(where, "пример без разбора — это картинка, а не пример");
       checkProse(block.explain, where, "разбор примера");
       break;
+    }
 
     case "table": {
       if (block.head.length === 0) fail(where, "у таблицы нет заголовков столбцов");

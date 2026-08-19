@@ -83,3 +83,13 @@ export function adresVoprosa(fraza: string): string {
 export function adresYacheyki(chto: string): string {
   return adresZvuka("slovo", klyuchZvuka(chto, "slow"));
 }
+
+/**
+ * Разговор из примера: звучит целиком, одной записью, на два голоса.
+ *
+ * Отдельно от `adresYacheyki`, потому что ключ учитывает признак двух голосов:
+ * один и тот же текст, прочитанный одним голосом и двумя, — это разные записи.
+ */
+export function adresRazgovora(text: string): string {
+  return adresZvuka("blok", klyuchZvuka(text, "slow", true));
+}

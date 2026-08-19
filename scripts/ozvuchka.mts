@@ -102,6 +102,32 @@ function sobratOpis(): Zapis[] {
             continue;
           }
 
+          if (block.kind === "example") {
+            // Разговор — одной записью на два голоса; остальное дробится по
+            // строкам примера. Решение владельца от 19 августа.
+            if (block.razgovor && block.text) {
+              dobavit({
+                rod: "blok",
+                klyuch: klyuchZvuka(block.text, "slow", true),
+                text: block.text,
+                temp: "slow",
+                dvaGolosa: true,
+                otkuda: `${gde} · пример ${block.id}`,
+              });
+            }
+            for (const chto of Object.values(block.zvuk ?? {})) {
+              dobavit({
+                rod: "slovo",
+                klyuch: klyuchZvuka(chto, "slow"),
+                text: chto,
+                temp: "slow",
+                dvaGolosa: false,
+                otkuda: `${gde} · пример ${block.id}`,
+              });
+            }
+            continue;
+          }
+
           if (block.kind === "table" && block.zvuk) {
             for (const chto of Object.values(block.zvuk)) {
               dobavit({
@@ -229,6 +255,29 @@ function tireVnutriRepliki(text: string): string {
   return text.replace(/\s+—\s+/g, '<break time="200ms"/>');
 }
 
+/**
+ * Знаки препинания — явными перерывами.
+ *
+ * Azure сам расставляет паузы по знакам, и расставляет их неверно для учебной
+ * записи: на запятой держит дольше, чем на точке, а перечисление «tea, sea,
+ * eat» сливается в одно слово. Владелец услышал это первым.
+ *
+ * Ставим перерывы сами и в правильном порядке: точка и вопрос дольше всего,
+ * запятая заметно короче. Знак при этом остаётся в тексте — он нужен разбору
+ * интонации, — а перерыв идёт следом.
+ */
+const PAUZA_TOCHKA = 700;
+const PAUZA_ZAPYATAYA = 300;
+
+function znakiPrepinaniya(text: string): string {
+  return text
+    // Точка, вопрос и восклицание в конце предложения. Точку внутри записи
+    // вида «D-A-N-A.» это не трогает: там перед знаком стоит буква и дефис,
+    // а не конец слова с пробелом следом.
+    .replace(/([.!?])(\s+)/g, `$1<break time="${PAUZA_TOCHKA}ms"/>`)
+    .replace(/,(\s+)/g, `,<break time="${PAUZA_ZAPYATAYA}ms"/>`);
+}
+
 /** Разговор делится по тире на реплики, голоса чередуются. */
 function repliki(text: string, dvaGolosa: boolean): { golos: string; text: string }[] {
   if (!dvaGolosa) return [{ golos: PERVYY, text }];
@@ -250,7 +299,31 @@ function odinochnayaBukva(text: string): boolean {
   return /^[A-Za-z]$/.test(text.trim());
 }
 
+/**
+ * Значение звука, записанное в косых чертах, — это транскрипция, а не текст.
+ *
+ * Нужно там, где произнести надо ЗВУК, а не буквы: сочетание `ea` синтез сам
+ * прочтёт как две буквы, а услышать ученик должен /iː/. Пишем `ea: "/iː/"`, и
+ * скрипт отдаёт синтезу разметку `<phoneme>`.
+ *
+ * Условность общая: она понадобится всюду, где звук объясняется отдельно от
+ * слова.
+ */
+function transkripciya(text: string): string | null {
+  const m = text.trim().match(/^\/(.+)\/$/);
+  return m ? m[1] : null;
+}
+
 function ssml(z: Zapis): string {
+  const mfa = transkripciya(z.text);
+  if (mfa) {
+    const telo = `<phoneme alphabet="ipa" ph="${mfa}">${mfa}</phoneme>`;
+    return (
+      `<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-GB">` +
+      `<voice name="${PERVYY}"><prosody rate="-25%">${telo}</prosody></voice></speak>`
+    );
+  }
+
   if (odinochnayaBukva(z.text)) {
     const telo = `<say-as interpret-as="characters">${z.text.trim()}</say-as>`;
     return (
@@ -264,7 +337,7 @@ function ssml(z: Zapis): string {
 function ssmlObychnyy(z: Zapis): string {
   const chasti = repliki(z.text, z.dvaGolosa)
     .map((r) => {
-      const telo = tireVnutriRepliki(sPodskazkami(ekran(r.text)));
+      const telo = znakiPrepinaniya(tireVnutriRepliki(sPodskazkami(ekran(r.text))));
       const sTempom = z.temp === "slow" ? `<prosody rate="-25%">${telo}</prosody>` : telo;
       return `<voice name="${r.golos}">${sTempom}</voice>`;
     })

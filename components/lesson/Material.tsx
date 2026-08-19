@@ -6,7 +6,12 @@
  * (таблицы, словарь, код) набрано гротеском и моноширинным.
  */
 import type { MaterialBlock } from "@/lib/content/types";
-import { adresBloka, adresSlova, adresYacheyki } from "@/lib/content/zvuk";
+import {
+  adresBloka,
+  adresRazgovora,
+  adresSlova,
+  adresYacheyki,
+} from "@/lib/content/zvuk";
 import Rasshifrovka from "./Rasshifrovka";
 import Zvuk from "./Zvuk";
 import s from "./lesson.module.css";
@@ -17,12 +22,18 @@ import s from "./lesson.module.css";
  * Пустая строка внутри примера отделяет один список от другого — она остаётся
  * промежутком, а не превращается в пустой абзац.
  */
-function lines(text: string) {
+function lines(text: string, zvuk?: Record<string, string>) {
   return text.split("\n").map((line, i) =>
     line.trim() === "" ? (
       <span key={i} className={s.exampleGap} aria-hidden="true" />
     ) : (
       <span key={i} className={s.exampleLine}>
+        {/* Звук стоит у самой строки, а не отдельным блоком под примером:
+            ученик слышит ровно то, на что смотрит. Решение владельца от
+            19 августа. */}
+        {zvuk?.[line.trim()] && (
+          <Zvuk src={adresYacheyki(zvuk[line.trim()])} chto={zvuk[line.trim()]} />
+        )}
         {line}
       </span>
     )
@@ -43,14 +54,23 @@ export default function Material({ block }: { block: MaterialBlock }) {
     case "example":
       return (
         <div className={s.example}>
-          {block.caption && <span className={s.exampleCaption}>{block.caption}</span>}
+          {block.caption && (
+            <span className={s.exampleCaption}>
+              {/* Разговор звучит целиком и на два голоса: он должен звучать
+                  разговором, а не одним длинным предложением. */}
+              {block.razgovor && block.text && (
+                <Zvuk src={adresRazgovora(block.text)} chto={block.caption} vid="stroka" />
+              )}
+              {block.caption}
+            </span>
+          )}
           {block.code && <pre className={s.code}>{block.code}</pre>}
           {/* Перевод строки в примере — это новая реплика разговора или новая
               строка списка. Раньше пример уходил в обычный абзац, и весь
               разговор слипался в одну строку: «— What's your name? — Alim. —
               How do you spell that?». Владелец назвал это скороговоркой, и был
               прав: читать такое нельзя. */}
-          {block.text && <div className={s.exampleText}>{lines(block.text)}</div>}
+          {block.text && <div className={s.exampleText}>{lines(block.text, block.zvuk)}</div>}
           <p className={s.exampleExplain}>{block.explain}</p>
         </div>
       );

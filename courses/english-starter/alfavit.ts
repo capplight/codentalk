@@ -354,6 +354,7 @@ const module: Module = {
           id: "kak-diktuyut",
           kind: "example",
           caption: "Как выглядит разговор по буквам",
+          razgovor: true,
           text:
             "— What's your name?\n— Alim.\n— How do you spell that?\n— A-L-I-M.",
           explain:
@@ -531,11 +532,23 @@ const module: Module = {
             "Эта пара встретится в модуле ещё не раз.",
         },
         {
-          id: "zapis-par",
-          kind: "audio",
-          pace: "slow",
-          caption: "Послушай пары с близкими названиями",
-          transcript: "G — J. B — V. M — N.",
+          // Было отдельной записью «G — J. B — V. M — N.» — три пары подряд,
+          // одним файлом, ни к чему не привязанные. Владелец услышал кашу.
+          // Теперь каждая пара звучит своей кнопкой, и стоит она у той строки,
+          // на которую ученик смотрит.
+          id: "primer-par",
+          kind: "example",
+          caption: "Пары, которые путают",
+          text: "G — J\nB — V\nM — N",
+          zvuk: {
+            "G — J": "G. J.",
+            "B — V": "B. V.",
+            "M — N": "M. N.",
+          },
+          explain:
+            "В каждой паре названия близки, но не одинаковы. G и J начинаются " +
+            "одинаково, а кончаются по-разному. B и V наоборот: конец один, начало " +
+            "разное. M и N различает только последний звук.",
         },
 
         // ---- задания ----
@@ -646,6 +659,12 @@ const module: Module = {
           caption: "Сравни",
           text:
             "My name is Alim. I am from Kazakhstan.\nI speak Kazakh, Russian and English.",
+          zvuk: {
+            "My name is Alim. I am from Kazakhstan.":
+              "My name is Alim. I am from Kazakhstan.",
+            "I speak Kazakh, Russian and English.":
+              "I speak Kazakh, Russian and English.",
+          },
           explain:
             "Alim — имя, Kazakhstan — страна, Kazakh, Russian, English — языки. Все с " +
             "заглавной. По-русски с заглавной здесь писались бы только имя и название страны.",
@@ -776,6 +795,9 @@ const module: Module = {
           id: "primer-dialoga",
           kind: "example",
           caption: "У стойки в гостинице",
+          // Разговор звучит целиком и на два голоса: он должен звучать
+          // разговором, а не одним длинным предложением.
+          razgovor: true,
           text:
             "— What's your name?\n— Dana.\n— How do you spell that?\n— D-A-N-A.",
           explain:
@@ -896,6 +918,16 @@ const module: Module = {
           text:
             "Имена:\nAlim\nDana\nKarim\nNurlan\nZarina\n\n" +
             "Слова на одну и ту же букву:\nschool\nsome\nspell",
+          zvuk: {
+            Alim: "Alim",
+            Dana: "Dana",
+            Karim: "Karim",
+            Nurlan: "Nurlan",
+            Zarina: "Zarina",
+            school: "school",
+            some: "some",
+            spell: "spell",
+          },
           explain:
             "В первом списке имена стоят по первой букве: A, D, K, N, Z — в том же порядке, " +
             "что и в алфавите. Во втором все слова начинаются на s, и первая буква ничего не " +
@@ -1021,6 +1053,7 @@ const module: Module = {
           id: "razgovor-o-imeni",
           kind: "example",
           caption: "Как это звучит",
+          razgovor: true,
           text:
             "— What's your name?\n— Aigul.\n— How do you spell your name?\n— A-I-G-U-L.",
           explain:
@@ -1284,6 +1317,21 @@ const module: Module = {
           id: "tablica-sochetaniy",
           kind: "table",
           caption: "Пять частых сочетаний",
+          // Звучат и само сочетание, и слова — решение владельца от 19 августа.
+          // Сочетание само по себе синтез прочесть не может, поэтому вместо
+          // букв ему даётся звук: ea → /iː/. Слова строкой, одной записью.
+          zvuk: {
+            ea: "/iː/",
+            ck: "/k/",
+            ight: "/aɪt/",
+            ou: "/aʊ/",
+            "er в конце слова": "/ə/",
+            "tea, sea, eat": "tea, sea, eat",
+            "black, clock": "black, clock",
+            "night, light": "night, light",
+            "house, out": "house, out",
+            "teacher, sister, water": "teacher, sister, water",
+          },
           head: ["Сочетание", "Звучит как", "Слова"],
           rows: [
             ["ea", "/iː/", "tea, sea, eat"],
@@ -1318,14 +1366,6 @@ const module: Module = {
             "будем говорить по-британски.\n\nВажно, что er стоит именно в конце и без " +
             "ударения. В коротком слове her ударение падает как раз на него, и звучит оно " +
             "иначе: /hɜː/.",
-        },
-        {
-          id: "zapis-sochetaniy",
-          kind: "audio",
-          pace: "slow",
-          caption: "Послушай слова из таблицы",
-          transcript:
-            "Tea. Sea. Eat. Black. Clock. Night. Light. House. Out. Teacher. Sister. Water.",
         },
         {
           id: "slovar-sochetaniy",

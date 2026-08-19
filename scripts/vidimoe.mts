@@ -32,7 +32,7 @@ const NEVIDIMYE = new Set([
   // Появились вместе с чтением и слушанием. `about` — имя блока, `genre` —
   // вид текста, `skryt` — прятать ли расшифровку. Ни одно из них ученик не
   // читает: это разметка, а не текст.
-  "about", "genre", "skryt",
+  "about", "genre", "skryt", "razgovor",
 ]);
 
 /** Слепой разбор: все строки блока, кроме заведомо невидимых полей. */
@@ -65,6 +65,8 @@ function kuskiBloka(b: any, gde: string): Kusok[] {
       dobavit("подпись примера", b.caption);
       dobavit("пример", b.code ?? b.text);
       dobavit("разбор примера", b.explain);
+      // Звук у строки примера ученик слышит, значит его тоже надо проверять.
+      for (const chto of Object.values(b.zvuk ?? {})) dobavit("звук строки примера", chto);
       break;
     case "table":
       dobavit("подпись таблицы", b.caption);
@@ -73,6 +75,7 @@ function kuskiBloka(b: any, gde: string): Kusok[] {
       // поэтому склейка ничего не прячет.
       dobavit("заголовки таблицы", (b.head ?? []).join(" | "));
       (b.rows ?? []).forEach((r: string[]) => dobavit("строка таблицы", r.join(" | ")));
+      for (const chto of Object.values(b.zvuk ?? {})) dobavit("звук ячейки", chto);
       break;
     case "note":
       dobavit(b.tone === "mistake" ? "врезка об ошибке" : "врезка", b.text);
