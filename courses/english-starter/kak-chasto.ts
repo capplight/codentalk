@@ -165,6 +165,9 @@ const module: Module = {
           id: "tablica-vsegda-inogda",
           kind: "table",
           caption: "Всегда и иногда",
+          zvuchat: ["I always work on Monday.", "I sometimes work on Monday.",
+            "I work on Monday.",
+          ],
           head: ["Английский", "Перевод", "Как часто"],
           rows: [
             ["I always work on Monday.", "По понедельникам я всегда работаю.", "каждый раз"],
@@ -211,18 +214,15 @@ const module: Module = {
           id: "primer-vsegda",
           kind: "example",
           caption: "Три предложения подряд",
+          zvuchat: ["I always get up at seven.", "I sometimes read in the evening.",
+            "I always work in the morning.",
+          ],
           text: "I always get up at seven.\nI sometimes read in the evening.\nI always work in the morning.",
           explain:
             "В каждом предложении наречие стоит на одном и том же месте: после I и до " +
             "глагола. Дальше идёт всё остальное — at seven, in the evening, in the morning.",
         },
-        {
-          id: "zapis-vsegda",
-          kind: "audio",
-          pace: "slow",
-          caption: "Послушай, где стоит наречие",
-          transcript: "I always work on Monday. I sometimes work on Monday.",
-        },
+        // Запись убрана: все три предложения звучат в таблице выше.
         {
           id: "slovar-vsegda",
           kind: "vocab",
@@ -324,6 +324,10 @@ const module: Module = {
           id: "tablica-chetyre",
           kind: "table",
           caption: "Четыре наречия по убыванию",
+          zvuchat: ["always", "I always work on Monday.", "usually",
+            "I usually get up at seven.", "often", "I often read in the evening.", "sometimes",
+            "I sometimes go to the gym.",
+          ],
           head: ["Слово", "Перевод", "Пример"],
           rows: [
             ["always", "всегда", "I always work on Monday."],
@@ -354,20 +358,16 @@ const module: Module = {
           id: "primer-obychno",
           kind: "example",
           caption: "День одного человека",
+          zvuchat: ["I usually get up at seven.", "I often read in the morning.",
+            "I sometimes go to the gym in the evening.",
+          ],
           text:
             "I usually get up at seven.\nI often read in the morning.\nI sometimes go to the gym in the evening.",
           explain:
             "Три предложения — три разные частоты. Место наречия во всех трёх одно, " +
             "меняется только слово.",
         },
-        {
-          id: "zapis-obychno",
-          kind: "audio",
-          pace: "slow",
-          caption: "Послушай четыре наречия",
-          transcript:
-            "I always work on Monday. I usually get up at seven. I often read in the evening. I sometimes go to the gym.",
-        },
+        // Запись убрана: каждое наречие и пример к нему звучат в таблице выше.
         {
           id: "slovar-obychno",
           kind: "vocab",
@@ -471,6 +471,9 @@ const module: Module = {
           id: "tablica-never",
           kind: "table",
           caption: "Два способа сказать «не пью»",
+          zvuchat: ["I don't drink coffee.", "I never drink coffee.",
+            "I sometimes drink coffee.",
+          ],
           head: ["Английский", "Перевод", "Что сказано"],
           rows: [
             ["I don't drink coffee.", "Я не пью кофе.", "не пью"],
@@ -499,18 +502,15 @@ const module: Module = {
           id: "primer-never",
           kind: "example",
           caption: "Что не бывает никогда",
+          zvuchat: ["I never drink coffee.", "I never work on Sunday.",
+            "I never go to bed late.",
+          ],
           text: "I never drink coffee.\nI never work on Sunday.\nI never go to bed late.",
           explain:
             "Во всех трёх предложениях нет ни don't, ни not. Never делает всю работу " +
             "само и стоит на обычном месте наречия.",
         },
-        {
-          id: "zapis-never",
-          kind: "audio",
-          pace: "slow",
-          caption: "Послушай два способа",
-          transcript: "I don't drink coffee. I never drink coffee.",
-        },
+        // Запись убрана: все три предложения звучат в таблице выше.
         {
           id: "slovar-never",
           kind: "vocab",
@@ -607,6 +607,10 @@ const module: Module = {
           id: "tablica-s-be",
           kind: "table",
           caption: "Два порядка рядом",
+          // Столбец с русской подписью отдельных кнопок не получает: он объясняет,
+          // где стоит наречие, а слышно это в самих предложениях.
+          zvuchat: ["I always work.", "I am always busy.", "He is never late.",
+          ],
           head: ["Слово после того, о ком речь", "Порядок", "Пример"],
           rows: [
             ["действие", "наречие перед глаголом", "I always work."],
@@ -637,19 +641,16 @@ const module: Module = {
           id: "primer-s-be",
           kind: "example",
           caption: "Четыре предложения подряд",
+          zvuchat: ["I am always busy on Monday.", "I always work on Monday.",
+            "She is never late.", "She never comes late.",
+          ],
           text:
             "I am always busy on Monday.\nI always work on Monday.\nShe is never late.\nShe never comes late.",
           explain:
             "Первое и третье — с формой be, наречие после неё. Второе и четвёртое — с " +
             "глаголом-действием, наречие перед ним. Смысл близкий, а порядок разный.",
         },
-        {
-          id: "zapis-s-be",
-          kind: "audio",
-          pace: "slow",
-          caption: "Послушай оба порядка",
-          transcript: "I am always busy. I always work. She is never late. She never comes late.",
-        },
+        // Запись убрана: оба порядка звучат в таблице выше и в примере под ней.
         {
           // В этом блоке стояли weekend и park, и оба — повторы: weekend введён
           // в модуле 16, park в модуле 12. Вместо них карточка, которой урок
@@ -762,6 +763,9 @@ const module: Module = {
           id: "tablica-otricanie-narechie",
           kind: "table",
           caption: "Отрицание с наречием и без",
+          zvuchat: ["I don't work on Sunday.", "I don't usually work on Sunday.",
+            "I don't often work on Sunday.",
+          ],
           head: ["Английский", "Перевод"],
           rows: [
             ["I don't work on Sunday.", "По воскресеньям я не работаю."],
@@ -790,19 +794,16 @@ const module: Module = {
           id: "primer-v-otricanii",
           kind: "example",
           caption: "Три отрицания с наречием",
+          zvuchat: ["I don't usually work on Sunday.", "I don't often go to the gym.",
+            "I don't usually drink coffee in the evening.",
+          ],
           text:
             "I don't usually work on Sunday.\nI don't often go to the gym.\nI don't usually drink coffee in the evening.",
           explain:
             "Во всех трёх сначала идёт don't, потом наречие, потом глагол. Всё остальное — " +
             "в конце.",
         },
-        {
-          id: "zapis-v-otricanii",
-          kind: "audio",
-          pace: "slow",
-          caption: "Послушай отрицание с наречием",
-          transcript: "I don't usually work on Sunday. I don't often go to the gym.",
-        },
+        // Запись убрана: все три отрицания звучат в таблице выше.
         // Словаря у урока больше нет: film и music оказались повторами (модули 16
         // и 14), а других новых слов урок не даёт — он весь о месте наречия при
         // отрицании. Ставить слово ради карточки нельзя: словарь — это новые
@@ -896,6 +897,9 @@ const module: Module = {
           id: "tablica-o-drugom",
           kind: "table",
           caption: "О себе и о нём",
+          zvuchat: ["I always work.", "He always works.", "I never drink coffee.",
+            "She never drinks coffee.", "I am always busy.", "He is always busy.",
+          ],
           head: ["О себе", "О нём", "Что изменилось"],
           rows: [
             ["I always work.", "He always works.", "окончание у глагола"],
@@ -926,20 +930,16 @@ const module: Module = {
           id: "primer-o-drugom",
           kind: "example",
           caption: "Рассказ о брате",
+          zvuchat: ["My brother always works late.", "He usually gets up at six.",
+            "He never drinks coffee.", "He is often busy at the weekend.",
+          ],
           text:
             "My brother always works late.\nHe usually gets up at six.\nHe never drinks coffee.\nHe is often busy at the weekend.",
           explain:
             "В первых трёх предложениях глагол с окончанием, наречие перед ним. В " +
             "четвёртом форма be, и наречие идёт после неё.",
         },
-        {
-          id: "zapis-o-drugom",
-          kind: "audio",
-          pace: "slow",
-          caption: "Послушай рассказ о брате",
-          transcript:
-            "My brother always works late. He usually gets up at six. He never drinks coffee.",
-        },
+        // Запись убрана: обе половины каждой пары звучат в таблице выше.
         // Словаря у урока больше нет: единственным словом было together, а оно
         // введено в модуле 16. Новых слов в уроке нет вовсе — он про порядок
         // слов, наречие с окончанием -s у глагола. Проверено по всем словам
@@ -1035,6 +1035,9 @@ const module: Module = {
           id: "tablica-v-voprose",
           kind: "table",
           caption: "Вопрос с наречием и без",
+          zvuchat: ["Do you work on Monday?", "Do you always work on Monday?",
+            "Does he usually get up early?",
+          ],
           head: ["Английский", "Перевод"],
           rows: [
             ["Do you work on Monday?", "Ты работаешь по понедельникам?"],
@@ -1063,19 +1066,14 @@ const module: Module = {
           id: "primer-v-voprose",
           kind: "example",
           caption: "Расспросить о привычках",
+          razgovor: true,
           text:
             "— Do you always work on Monday?\n— Yes, I do.\n— Does your brother usually get up early?\n— No, he doesn't.",
           explain:
             "В обоих вопросах наречие стоит перед глаголом. Ответы короткие, а наречие в " +
             "них не повторяется.",
         },
-        {
-          id: "zapis-v-voprose",
-          kind: "audio",
-          pace: "slow",
-          caption: "Послушай вопрос с наречием",
-          transcript: "Do you always work on Monday? Does he usually get up early?",
-        },
+        // Запись убрана: все три вопроса звучат в таблице выше, а разговор — целиком.
         {
           id: "slovar-v-voprose",
           kind: "vocab",
@@ -1175,6 +1173,9 @@ const module: Module = {
           id: "shagi-rasskaza",
           kind: "table",
           caption: "Из чего складывается рассказ",
+          zvuchat: ["I always work on Monday.", "I usually get up at seven.",
+            "I sometimes go to the gym.", "I never drink coffee.",
+          ],
           head: ["Что сказать", "Пример"],
           rows: [
             ["что бывает каждый раз", "I always work on Monday."],
@@ -1204,20 +1205,17 @@ const module: Module = {
           id: "primer-nedelya",
           kind: "example",
           caption: "Рассказ о своей неделе",
+          zvuchat: ["I usually get up at seven.", "I always work on Monday.",
+            "I sometimes go to the gym in the evening.", "I never work at the weekend.",
+            "I am always busy on Friday.",
+          ],
           text:
             "I usually get up at seven.\nI always work on Monday.\nI sometimes go to the gym in the evening.\nI never work at the weekend.\nI am always busy on Friday.",
           explain:
             "Пять предложений и четыре разные частоты. В последнем стоит форма be, " +
             "поэтому наречие идёт после неё.",
         },
-        {
-          id: "zapis-nedelya",
-          kind: "audio",
-          pace: "slow",
-          caption: "Послушай рассказ целиком",
-          transcript:
-            "I usually get up at seven. I always work on Monday. I sometimes go to the gym in the evening. I never work at the weekend.",
-        },
+        // Запись убрана: рассказ выше звучит построчно, а шаги — в таблице.
 
         // ---- задания ----
         {
@@ -1448,13 +1446,8 @@ const module: Module = {
           id: "lesenka-chastoty-na-sluh",
           kind: "table",
           caption: "Лесенка частоты — нажми и послушай",
-          zvuk: {
-            always: "always",
-            usually: "usually",
-            often: "often",
-            sometimes: "sometimes",
-            never: "never",
-          },
+          zvuchat: ["always", "usually", "often", "sometimes", "never",
+          ],
           head: ["Слово", "Как часто"],
           rows: [
             ["always", "всегда"],

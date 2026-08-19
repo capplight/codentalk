@@ -213,6 +213,9 @@ const module: Module = {
           id: "tablica-treh-predlogov",
           kind: "table",
           caption: "Три места",
+          zvuchat: ["in", "The key is in the bag.", "on", "The book is on the table.", "under",
+            "The bag is under the chair.",
+          ],
           head: ["Предлог", "Где именно", "Пример"],
           rows: [
             ["in", "внутри", "The key is in the bag."],
@@ -254,6 +257,7 @@ const module: Module = {
           id: "primer-gde",
           kind: "example",
           caption: "Ищем ключи",
+          razgovor: true,
           text:
             "— Where is my key?\n— It's in your bag.\n— And my phone?\n" +
             "— It's on the table.",
@@ -261,14 +265,7 @@ const module: Module = {
             "Where is…? — «где». Отвечают через it и предлог: It's in your bag. Сам вопрос " +
             "разберём в уроке «Где это: вопрос», пока запомни его целиком.",
         },
-        {
-          id: "zapis-treh-predlogov",
-          kind: "audio",
-          pace: "slow",
-          caption: "Послушай три предлога",
-          transcript:
-            "The key is in the bag. The book is on the table. The bag is under the chair.",
-        },
+        // Запись убрана: все три предложения звучат в таблице выше.
         {
           id: "slovar-treh-predlogov",
           kind: "vocab",
@@ -368,6 +365,10 @@ const module: Module = {
           id: "tablica-ryadom",
           kind: "table",
           caption: "Ещё три предлога",
+          zvuchat: ["near", "The shop is near the station.", "behind",
+            "The car is behind the house.", "between",
+            "The shop is between the park and the school.",
+          ],
           head: ["Предлог", "Где именно", "Пример"],
           rows: [
             ["near", "недалеко, поблизости", "The shop is near the station."],
@@ -396,6 +397,9 @@ const module: Module = {
           id: "primer-ryadom",
           kind: "example",
           caption: "Где что стоит",
+          zvuchat: ["The station is near my house.", "The park is behind the school.",
+            "The shop is between the park and the station.",
+          ],
           text:
             "The station is near my house.\nThe park is behind the school.\n" +
             "The shop is between the park and the station.",
@@ -403,15 +407,7 @@ const module: Module = {
             "Все три предложения устроены одинаково: предмет, форма be, предлог, второе " +
             "место. В последнем мест два, и между ними and.",
         },
-        {
-          id: "zapis-ryadom",
-          kind: "audio",
-          pace: "slow",
-          caption: "Послушай три предлога",
-          transcript:
-            "The shop is near the station. The car is behind the house. " +
-            "The shop is between the park and the school.",
-        },
+        // Запись убрана: все три предложения звучат в таблице выше и в примере под ней.
         {
           id: "slovar-ryadom",
           kind: "vocab",
@@ -515,6 +511,8 @@ const module: Module = {
           id: "tablica-zdes-tam",
           kind: "table",
           caption: "Здесь и там",
+          zvuchat: ["here", "My house is here.", "there", "The shop is there.",
+          ],
           head: ["Слово", "Перевод", "Пример"],
           rows: [
             ["here", "здесь, тут", "My house is here."],
@@ -543,20 +541,14 @@ const module: Module = {
           id: "primer-zdes",
           kind: "example",
           caption: "У входа",
+          razgovor: true,
           text:
             "— Where is the shop?\n— It's there.\n— And your car?\n— It's here.",
           explain:
             "Отвечают целым предложением: It's there, а не просто There. Показать рукой " +
             "при этом можно, но слово о месте всё равно ставят в конец.",
         },
-        {
-          id: "zapis-zdes",
-          kind: "audio",
-          pace: "slow",
-          caption: "Послушай here и there",
-          transcript:
-            "My house is here. The shop is there. Where is the shop? It's there.",
-        },
+        // Запись убрана: обе строки звучат в таблице выше, а вопрос — в разговоре.
         {
           id: "slovar-zdes",
           kind: "vocab",
@@ -655,6 +647,10 @@ const module: Module = {
           id: "tablica-next-to",
           kind: "table",
           caption: "Ещё три предлога",
+          zvuchat: ["next to", "The chair is next to the table.", "in front of",
+            "The car is in front of the house.", "opposite",
+            "The shop is opposite the station.",
+          ],
           head: ["Оборот", "Где именно", "Пример"],
           rows: [
             ["next to", "вплотную, сбоку", "The chair is next to the table."],
@@ -682,6 +678,9 @@ const module: Module = {
           id: "primer-next-to",
           kind: "example",
           caption: "Комната и улица",
+          zvuchat: ["The chair is next to the table.", "The car is in front of the house.",
+            "The shop is opposite the station.",
+          ],
           text:
             "The chair is next to the table.\nThe car is in front of the house.\n" +
             "The shop is opposite the station.",
@@ -689,15 +688,7 @@ const module: Module = {
             "Три предлога — три разных положения. Next to — вплотную, in front of — перед " +
             "входом, opposite — с другой стороны улицы.",
         },
-        {
-          id: "zapis-next-to",
-          kind: "audio",
-          pace: "slow",
-          caption: "Послушай три предлога",
-          transcript:
-            "The chair is next to the table. The car is in front of the house. " +
-            "The shop is opposite the station.",
-        },
+        // Запись убрана: все три предложения звучат в таблице выше и в примере под ней.
         {
           id: "slovar-next-to",
           kind: "vocab",
@@ -800,6 +791,10 @@ const module: Module = {
           id: "tablica-voprosov-gde",
           kind: "table",
           caption: "Вопрос и ответ",
+          zvuchat: ["Where is my key?", "It's in your bag.", "Where is the shop?",
+            "It's opposite the station.", "Where are my keys?", "They're on the table.",
+            "Where are you?", "I'm at the door.",
+          ],
           head: ["Вопрос", "Перевод", "Ответ"],
           rows: [
             ["Where is my key?", "Где мой ключ?", "It's in your bag."],
@@ -830,6 +825,7 @@ const module: Module = {
           id: "primer-voprosa-gde",
           kind: "example",
           caption: "Дома",
+          razgovor: true,
           text:
             "— Where are my keys?\n— They're on the table.\n— And my phone?\n" +
             "— It's in your bag.",
@@ -837,14 +833,7 @@ const module: Module = {
             "В первом ответе стоит they're — ключей несколько. Во втором it's — телефон " +
             "один. Слово о предмете выбирает и форму be, и местоимение в ответе.",
         },
-        {
-          id: "zapis-voprosa-gde",
-          kind: "audio",
-          pace: "slow",
-          caption: "Послушай вопрос и ответ",
-          transcript:
-            "Where is my key? It's in your bag. Where are my keys? They're on the table.",
-        },
+        // Запись убрана: и вопросы, и ответы звучат в таблице выше.
         {
           id: "slovar-voprosa-gde",
           kind: "vocab",
@@ -942,6 +931,10 @@ const module: Module = {
           id: "tablica-mest",
           kind: "table",
           caption: "Восемь мест",
+          // Звучит слово, а не транскрипция рядом с ним: транскрипцию читают глазами.
+          zvuchat: ["shop", "station", "hospital", "park", "school", "hotel", "bus stop",
+            "street",
+          ],
           head: ["Место", "По-русски", "Как читается"],
           rows: [
             ["shop", "магазин", "/ʃɒp/"],
@@ -994,6 +987,9 @@ const module: Module = {
           id: "primer-goroda",
           kind: "example",
           caption: "Что где в городе",
+          zvuchat: ["The hotel is opposite the station.",
+            "The bus stop is in front of the hotel.", "The park is behind the school.",
+          ],
           text:
             "The hotel is opposite the station.\nThe bus stop is in front of the hotel.\n" +
             "The park is behind the school.",
@@ -1002,14 +998,7 @@ const module: Module = {
             "как любые другие предметы: перед ними стоит the. Дальше всё как раньше — " +
             "форма be, предлог, второе место.",
         },
-        {
-          id: "zapis-goroda",
-          kind: "audio",
-          pace: "slow",
-          caption: "Послушай восемь мест",
-          transcript:
-            "Shop. Station. Hospital. Park. School. Hotel. Bus stop. Street.",
-        },
+        // Запись убрана: каждое место звучит в таблице выше.
         {
           id: "slovar-goroda",
           kind: "vocab",
@@ -1114,6 +1103,8 @@ const module: Module = {
           id: "tablica-ukazaniy",
           kind: "table",
           caption: "Четыре указания",
+          zvuchat: ["Go straight.", "Turn left.", "Turn right.", "Go to the station.",
+          ],
           head: ["Указание", "Перевод", "Когда"],
           rows: [
             ["Go straight.", "Иди прямо.", "дорога не поворачивает"],
@@ -1150,6 +1141,7 @@ const module: Module = {
           id: "primer-dorogi",
           kind: "example",
           caption: "На улице",
+          razgovor: true,
           text:
             "— Where is the hospital?\n— Go straight. Turn left. It's opposite the park.\n" +
             "— Thank you!",
@@ -1157,14 +1149,7 @@ const module: Module = {
             "Дорогу объясняют по шагам: сначала куда идти, потом где повернуть, потом где " +
             "искать. Последнее предложение уже знакомое — предмет, форма be, предлог.",
         },
-        {
-          id: "zapis-dorogi",
-          kind: "audio",
-          pace: "slow",
-          caption: "Послушай указания",
-          transcript:
-            "Go straight. Turn left. Turn right. Go to the station. It's opposite the park.",
-        },
+        // Запись убрана: все указания звучат в таблице выше, а разговор — целиком.
         {
           id: "slovar-dorogi",
           kind: "vocab",
@@ -1271,6 +1256,8 @@ const module: Module = {
           id: "shagi-dorogi",
           kind: "table",
           caption: "Ответ по шагам",
+          zvuchat: ["Go straight.", "Turn left.", "It's opposite the park.",
+          ],
           head: ["Шаг", "Что говорят", "Пример"],
           rows: [
             ["1", "куда идти", "Go straight."],
@@ -1282,6 +1269,7 @@ const module: Module = {
           id: "polnyy-razgovor-dorogi",
           kind: "example",
           caption: "Разговор целиком",
+          razgovor: true,
           text:
             "— Excuse me! Where is the hotel?\n— Go straight. Turn right.\n" +
             "— And then?\n— It's next to the bus stop.\n— Thank you!\n— You're welcome.",
@@ -1308,16 +1296,7 @@ const module: Module = {
             "человек идёт, не зная, что искать. Назови место в конце: It's opposite the " +
             "park.",
         },
-        {
-          id: "zapis-obyasneniya",
-          kind: "audio",
-          pace: "slow",
-          voice: "два голоса",
-          caption: "Послушай разговор целиком",
-          transcript:
-            "Excuse me! Where is the hotel? — Go straight. Turn right. — And then? " +
-            "— It's next to the bus stop. — Thank you! — You're welcome.",
-        },
+        // Запись убрана: разговор выше звучит целиком и на два голоса.
         {
           id: "slovar-obyasneniya",
           kind: "vocab",

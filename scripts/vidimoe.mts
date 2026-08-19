@@ -13,6 +13,7 @@
  * выкинула бы часть текста из проверки, и никто бы не заметил.
  */
 import { isTask, type Block, type Lesson, type Module } from "../lib/content/types.ts";
+import { zvuchashchee } from "../lib/content/zvuk.ts";
 
 export interface Kusok {
   /** Урок и блок, чтобы замечание можно было найти. */
@@ -33,6 +34,9 @@ const NEVIDIMYE = new Set([
   // вид текста, `skryt` — прятать ли расшифровку. Ни одно из них ученик не
   // читает: это разметка, а не текст.
   "about", "genre", "skryt", "razgovor",
+  // `zvuchat` — список строк, которые звучат сами собой. Подробный разбор
+  // берёт их через `zvuchashchee`, и слепому они не нужны.
+  "zvuchat",
 ]);
 
 /** Слепой разбор: все строки блока, кроме заведомо невидимых полей. */
@@ -66,7 +70,7 @@ function kuskiBloka(b: any, gde: string): Kusok[] {
       dobavit("пример", b.code ?? b.text);
       dobavit("разбор примера", b.explain);
       // Звук у строки примера ученик слышит, значит его тоже надо проверять.
-      for (const chto of Object.values(b.zvuk ?? {})) dobavit("звук строки примера", chto);
+      for (const chto of Object.values(zvuchashchee(b))) dobavit("звук строки примера", chto);
       break;
     case "table":
       dobavit("подпись таблицы", b.caption);
@@ -75,7 +79,7 @@ function kuskiBloka(b: any, gde: string): Kusok[] {
       // поэтому склейка ничего не прячет.
       dobavit("заголовки таблицы", (b.head ?? []).join(" | "));
       (b.rows ?? []).forEach((r: string[]) => dobavit("строка таблицы", r.join(" | ")));
-      for (const chto of Object.values(b.zvuk ?? {})) dobavit("звук ячейки", chto);
+      for (const chto of Object.values(zvuchashchee(b))) dobavit("звук ячейки", chto);
       break;
     case "note":
       dobavit(b.tone === "mistake" ? "врезка об ошибке" : "врезка", b.text);

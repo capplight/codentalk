@@ -224,6 +224,9 @@ const module: Module = {
           id: "tablica-priznakov",
           kind: "table",
           caption: "Прилагательное после формы be",
+          zvuchat: ["The house is big.", "big", "The book is new.", "new", "My car is old.",
+            "old", "The water is cold.", "cold",
+          ],
           head: ["Предложение", "Перевод", "Какое слово"],
           rows: [
             ["The house is big.", "Дом большой.", "big"],
@@ -245,6 +248,18 @@ const module: Module = {
           id: "slova-priznakov",
           kind: "table",
           caption: "Шесть пар слов",
+          // Во втором столбце рядом с английским словом стоит перевод — звучит
+          // только английская половина.
+          zvuchat: ["big", "new", "long", "hot", "good", "expensive",
+          ],
+          zvuk: {
+            "small — маленький": "small",
+            "old — старый": "old",
+            "short — короткий": "short",
+            "cold — холодный": "cold",
+            "bad — плохой": "bad",
+            "cheap — дешёвый": "cheap",
+          },
           head: ["Слово", "Перевод", "Пара к нему"],
           rows: [
             ["big", "большой", "small — маленький"],
@@ -259,6 +274,7 @@ const module: Module = {
           id: "primer-priznaka",
           kind: "example",
           caption: "Два предмета подряд",
+          razgovor: true,
           text:
             "— What's this?\n— It's a book. It's new.\n— And that?\n— It's a car. It's old.",
           explain:
@@ -266,14 +282,7 @@ const module: Module = {
             "Во фразе It's new слово it показывает на ту же книгу, которую только что " +
             "назвали.",
         },
-        {
-          id: "zapis-priznakov",
-          kind: "audio",
-          pace: "slow",
-          caption: "Послушай слова парами",
-          transcript:
-            "Big. Small. New. Old. Long. Short. Hot. Cold. Good. Bad. Expensive. Cheap.",
-        },
+        // Запись убрана: каждое слово звучит в таблице выше.
         {
           id: "slovar-priznakov",
           kind: "vocab",
@@ -383,6 +392,9 @@ const module: Module = {
           id: "tablica-pered",
           kind: "table",
           caption: "Два способа сказать одно",
+          zvuchat: ["The house is big.", "a big house", "The book is new.", "a new book",
+            "The car is old.", "an old car", "The room is small.", "a small room",
+          ],
           head: ["После be", "Перед названием"],
           rows: [
             ["The house is big.", "a big house"],
@@ -430,20 +442,14 @@ const module: Module = {
           id: "primer-pered",
           kind: "example",
           caption: "В разговоре",
+          razgovor: true,
           text:
             "— What's this?\n— It's a new book.\n— And that?\n— It's an old car.",
           explain:
             "Прилагательное встало внутрь ответа: It's a new book вместо It's a book. It's new. " +
             "Одно предложение вместо двух.",
         },
-        {
-          id: "zapis-pered",
-          kind: "audio",
-          pace: "slow",
-          caption: "Послушай слова перед названием",
-          transcript:
-            "A big house. A new book. An old car. A small room. Big houses. New books.",
-        },
+        // Запись убрана: все обороты звучат в таблице выше.
 
         // ---- задания ----
         {
@@ -550,6 +556,11 @@ const module: Module = {
           id: "tablica-cvetov",
           kind: "table",
           caption: "Десять цветов",
+          // Звучит слово, а не транскрипция рядом с ним: транскрипцию читают
+          // глазами.
+          zvuchat: ["red", "blue", "green", "yellow", "black", "white", "brown", "orange",
+            "pink", "grey",
+          ],
           head: ["Цвет", "По-русски", "Как читается"],
           rows: [
             ["red", "красный", "/red/"],
@@ -568,6 +579,7 @@ const module: Module = {
           id: "vopros-o-cvete",
           kind: "example",
           caption: "Как спрашивают о цвете",
+          razgovor: true,
           text:
             "— What colour is your car?\n— It's blue.\n— And your bag?\n— It's black.",
           explain:
@@ -591,15 +603,7 @@ const module: Module = {
             "Серый цвет пишут двумя способами: grey и gray. Первый британский, второй " +
             "американский. Мы пишем grey — через e, как в слове they.",
         },
-        {
-          id: "zapis-cvetov",
-          kind: "audio",
-          pace: "slow",
-          caption: "Послушай десять цветов",
-          transcript:
-            "Red. Blue. Green. Yellow. Black. White. Brown. Orange. Pink. Grey. " +
-            "What colour is your car?",
-        },
+        // Запись убрана: каждый цвет звучит в таблице выше, а вопрос — в разговоре.
         {
           id: "slovar-cvetov",
           kind: "vocab",
@@ -719,6 +723,10 @@ const module: Module = {
           id: "tablica-very",
           kind: "table",
           caption: "С very и без него",
+          zvuchat: ["The house is big.", "The house is very big.", "The tea is hot.",
+            "The tea is very hot.", "a good day", "a very good day", "an old car",
+            "a very old car",
+          ],
           head: ["Без very", "С very", "Перевод"],
           rows: [
             ["The house is big.", "The house is very big.", "Дом очень большой."],
@@ -749,6 +757,7 @@ const module: Module = {
           id: "primer-very",
           kind: "example",
           caption: "В разговоре",
+          razgovor: true,
           text:
             "— Is your room big?\n— No, it isn't. It's very small.\n— And the house?\n" +
             "— It's a very big house.",
@@ -757,15 +766,7 @@ const module: Module = {
             "названием предмета — a very big house. Порядок во втором случае такой: " +
             "артикль, very, прилагательное, название.",
         },
-        {
-          id: "zapis-very",
-          kind: "audio",
-          pace: "slow",
-          caption: "Послушай very в предложениях",
-          transcript:
-            "The house is very big. The tea is very hot. It's a very good day. " +
-            "It's a very old car.",
-        },
+        // Запись убрана: пары «с very и без него» звучат в таблице выше.
         {
           id: "slovar-very",
           kind: "vocab",
@@ -867,6 +868,10 @@ const module: Module = {
           id: "tablica-dvuh",
           kind: "table",
           caption: "Одно слово и два",
+          zvuchat: ["The house is big.", "The house is big and new.", "The room is clean.",
+            "The room is clean and small.", "The car is very old.",
+            "The car is very old and cheap.",
+          ],
           head: ["Один", "Два", "Перевод"],
           rows: [
             ["The house is big.", "The house is big and new.", "Дом большой и новый."],
@@ -895,6 +900,7 @@ const module: Module = {
           id: "primer-dvuh",
           kind: "example",
           caption: "Описание в две строки",
+          razgovor: true,
           // Здесь стоял оборот What's your room like? Методист показал, что он
           // A2 сразу по трём строкам источника и нигде не был объявлен. Заменён
           // на вопрос из модуля 4, который ученик уже строит сам.
@@ -906,14 +912,7 @@ const module: Module = {
             "знакомый, из модуля «Вопрос и краткий ответ». Новое только and между " +
             "двумя словами.",
         },
-        {
-          id: "zapis-dvuh",
-          kind: "audio",
-          pace: "slow",
-          caption: "Послушай пары слов",
-          transcript:
-            "The house is big and new. The room is clean and small. It's very big and beautiful.",
-        },
+        // Запись убрана: все три предложения звучат в таблице выше.
 
         // ---- задания ----
         {
@@ -1015,6 +1014,9 @@ const module: Module = {
           id: "tablica-o-cheloveke",
           kind: "table",
           caption: "Четыре новых слова",
+          zvuchat: ["tall", "She is tall.", "young", "He is young.", "nice",
+            "She's a nice woman.", "interesting", "He's an interesting man.",
+          ],
           head: ["Слово", "Перевод", "Пример"],
           rows: [
             ["tall", "высокий", "She is tall."],
@@ -1044,6 +1046,7 @@ const module: Module = {
           id: "primer-o-cheloveke",
           kind: "example",
           caption: "Двое в разговоре",
+          razgovor: true,
           // Здесь стояли Who's that? и What's she like? Слово who в курсе не
           // вводилось ни разу, а оба оборота стоят на A2. Нашёл методист.
           text:
@@ -1053,15 +1056,7 @@ const module: Module = {
             "О человеке спрашивают так же, как о предмете: Is she young? И отвечают так же — " +
             "краткое «да», а за ним два прилагательных через and.",
         },
-        {
-          id: "zapis-o-cheloveke",
-          kind: "audio",
-          pace: "slow",
-          caption: "Послушай описание человека",
-          transcript:
-            "She is tall. He is young. She's a nice woman. He's an interesting man. " +
-            "She's young and very nice.",
-        },
+        // Запись убрана: все четыре слова и примеры к ним звучат в таблице выше.
         {
           id: "slovar-o-cheloveke",
           kind: "vocab",
@@ -1175,6 +1170,9 @@ const module: Module = {
           id: "tablica-lyubimogo",
           kind: "table",
           caption: "Что бывает любимым",
+          zvuchat: ["My favourite colour is blue.", "My favourite day is Saturday.",
+            "His favourite month is May.", "Her favourite book is new.",
+          ],
           head: ["Английский", "Перевод"],
           rows: [
             ["My favourite colour is blue.", "Мой любимый цвет — синий."],
@@ -1204,6 +1202,7 @@ const module: Module = {
           id: "primer-lyubimogo",
           kind: "example",
           caption: "Разговор о любимом",
+          razgovor: true,
           text:
             "— What's your favourite colour?\n— It's green. And yours?\n" +
             "— My favourite colour is blue.",
@@ -1211,15 +1210,7 @@ const module: Module = {
             "Вопрос строится как все вопросы с be: сначала вопросительное слово, потом " +
             "форма be. Ответить можно коротко — It's green — или целым предложением.",
         },
-        {
-          id: "zapis-lyubimogo",
-          kind: "audio",
-          pace: "slow",
-          caption: "Послушай разговор о любимом",
-          transcript:
-            "What's your favourite colour? It's green. My favourite colour is blue. " +
-            "My favourite day is Saturday.",
-        },
+        // Запись убрана: разговор выше звучит целиком, а строки — в таблице.
         {
           id: "slovar-lyubimogo",
           kind: "vocab",
@@ -1326,6 +1317,8 @@ const module: Module = {
           id: "shagi-opisaniya",
           kind: "table",
           caption: "Описание по шагам",
+          zvuchat: ["It's a car.", "It's very old.", "It's grey.",
+          ],
           head: ["Шаг", "Что называют", "Пример"],
           rows: [
             ["1", "что это", "It's a car."],
@@ -1354,6 +1347,9 @@ const module: Module = {
           id: "opisanie-cheloveka",
           kind: "example",
           caption: "Описание человека",
+          zvuchat: ["This is Alim. He's my teacher.", "He's young and very nice.",
+            "His favourite colour is blue.",
+          ],
           text:
             "This is Alim. He's my teacher.\nHe's young and very nice.\n" +
             "His favourite colour is blue.",
@@ -1365,6 +1361,9 @@ const module: Module = {
           id: "opisanie-predmeta",
           kind: "example",
           caption: "Описание предмета",
+          zvuchat: ["This is my bag. It's new.", "It's black and very big.",
+            "It's an expensive bag.",
+          ],
           text:
             "This is my bag. It's new.\nIt's black and very big.\n" +
             "It's an expensive bag.",
@@ -1372,16 +1371,7 @@ const module: Module = {
             "В первой строке два коротких предложения: что это и какое оно. Во второй — два " +
             "прилагательных через and. В третьей прилагательное стоит перед названием: an expensive bag.",
         },
-        {
-          id: "zapis-opisaniya",
-          kind: "audio",
-          pace: "slow",
-          voice: "два голоса",
-          caption: "Послушай оба описания",
-          transcript:
-            "This is Alim. He's my teacher. He's young and very nice. His favourite colour " +
-            "is blue. This is my bag. It's new. It's black and very big.",
-        },
+        // Запись убрана: оба описания выше звучат построчно.
 
         // ---- задания ----
         {
@@ -1640,6 +1630,10 @@ const module: Module = {
           id: "poryadok-opisaniya-na-sluh",
           kind: "table",
           caption: "Три предложения — три разных дела",
+          // Урок слушания: обе записи ниже остаются, они и есть его предмет. Кнопки
+          // у примеров добавлены вдобавок.
+          zvuchat: ["This is my bag.", "It is new and very big.", "It is black.",
+          ],
           head: ["Что делает предложение", "Пример"],
           rows: [
             ["называет вещь", "This is my bag."],

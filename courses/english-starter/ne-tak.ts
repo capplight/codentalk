@@ -127,6 +127,12 @@ const module: Module = {
           id: "tablica-otricaniya",
           kind: "table",
           caption: "Утверждение и отрицание",
+          // Соседние кнопки нарочно: not в середине предложения короткое, и
+          // услышать его вернее всего сравнением двух строк.
+          zvuchat: ["I am a student.", "I am not a student.", "She is from Turkey.",
+            "She is not from Turkey.", "He is in Astana.", "He is not in Astana.",
+            "They are Dana and Aigul.", "They are not Dana and Aigul.",
+          ],
           head: ["Как есть", "Как не есть", "Перевод"],
           rows: [
             ["I am a student.", "I am not a student.", "Я не студент."],
@@ -157,20 +163,15 @@ const module: Module = {
           id: "primer-popravki",
           kind: "example",
           caption: "Зачем это нужно в разговоре",
+          razgovor: true,
           text: "— Is she a nurse?\n— No, she is not a nurse. She is a doctor.",
           explain:
             "Краткого «нет» часто мало: собеседник узнал только то, чего нет. Полное " +
             "отрицание позволяет сказать, что именно не так, а следующим предложением — " +
             "как на самом деле.",
         },
-        {
-          id: "zapis-otricaniya",
-          kind: "audio",
-          pace: "slow",
-          caption: "Послушай утверждение и отрицание рядом",
-          transcript:
-            "I am a student. I am not a student. She is from Turkey. She is not from Turkey.",
-        },
+        // Запись убрана: те же четыре предложения звучат в таблице выше, каждое
+        // своей кнопкой.
         {
           id: "slovar-otricaniya",
           kind: "vocab",
@@ -284,6 +285,10 @@ const module: Module = {
           id: "tablica-korotkih-otricaniy",
           kind: "table",
           caption: "Полная запись и короткая",
+          zvuchat: ["I am not", "I'm not", "you are not", "you aren't", "he is not", "he isn't",
+            "she is not", "she isn't", "it is not", "it isn't", "we are not", "we aren't",
+            "they are not", "they aren't",
+          ],
           head: ["Полная", "Короткая", "Что выпало"],
           rows: [
             ["I am not", "I'm not", "a в am — слипается местоимение с глаголом"],
@@ -314,11 +319,17 @@ const module: Module = {
             "берём первую — ту, где слипается глагол с not.",
         },
         {
-          id: "zapis-korotkih-otricaniy",
-          kind: "audio",
-          pace: "slow",
-          caption: "Послушай короткие формы",
-          transcript: "I'm not a student. She isn't from Turkey. They aren't in Astana.",
+          // Была отдельная запись трёх предложений разом. Стала примером: строку
+          // видно и слышно в одном месте.
+          id: "korotkie-otricaniya-v-predlozheniyah",
+          kind: "example",
+          caption: "Короткое отрицание в предложении",
+          text: "I'm not a student.\nShe isn't from Turkey.\nThey aren't in Astana.",
+          zvuchat: ["I'm not a student.", "She isn't from Turkey.", "They aren't in Astana.",
+          ],
+          explain:
+            "Короткая запись читается одним словом, а не двумя. Послушай строки по одной " +
+            "и повтори вслух: так короткая форма и запоминается.",
         },
 
         // ---- задания ----
@@ -421,6 +432,10 @@ const module: Module = {
           id: "tablica-no-not",
           kind: "table",
           caption: "Где какое слово",
+          // Звучат и сами слова, и примеры: урок о разнице между no и not, и
+          // услышать её надо на самих словах, а не только увидеть в таблице.
+          zvuchat: ["no", "not", "No, I'm not.", "I am not a student.",
+          ],
           head: ["Слово", "Работа", "Где стоит", "Пример"],
           rows: [
             ["no", "ответ «нет»", "в начале, перед запятой", "No, I'm not."],
@@ -444,13 +459,7 @@ const module: Module = {
             "«I am no a student» — на месте not оказалось no. Внутри предложения после " +
             "формы be стоит только not. И наоборот: ответ начинается с No, а не с Not.",
         },
-        {
-          id: "zapis-no-not",
-          kind: "audio",
-          pace: "slow",
-          caption: "Послушай оба слова в одном ответе",
-          transcript: "Are you a student? — No, I'm not. I am not a student. I am a teacher.",
-        },
+        // Запись убрана: оба слова и оба примера звучат в таблице выше.
         {
           id: "slovar-no-not",
           kind: "vocab",
@@ -547,6 +556,10 @@ const module: Module = {
           id: "tablica-popravok",
           kind: "table",
           caption: "Два шага поправки",
+          zvuchat: ["You are a doctor.", "I'm not a doctor.", "I'm a nurse.",
+            "She is from Turkey.", "She isn't from Turkey.", "She's from Spain.",
+            "He is in Rome.", "He isn't in Rome.", "He's in Almaty.",
+          ],
           head: ["Что сказал собеседник", "Шаг 1: не так", "Шаг 2: как есть"],
           rows: [
             ["You are a doctor.", "I'm not a doctor.", "I'm a nurse."],
@@ -580,20 +593,14 @@ const module: Module = {
           id: "primer-popravki-v-razgovore",
           kind: "example",
           caption: "Поправка в разговоре",
+          razgovor: true,
           text:
             "— Hello! Are you Dana?\n— Sorry, I'm not Dana. I'm Aigul.\n— Sorry! Nice to meet you, Aigul.",
           explain:
             "Собеседник обознался. Ответ строится теми же двумя шагами: сначала что не " +
             "так — I'm not Dana, потом как есть — I'm Aigul.",
         },
-        {
-          id: "zapis-popravki",
-          kind: "audio",
-          pace: "slow",
-          voice: "два голоса",
-          caption: "Послушай поправку",
-          transcript: "Are you Dana? — Sorry, I'm not Dana. I'm Aigul.",
-        },
+        // Запись убрана: разговор выше звучит целиком и на два голоса.
         {
           id: "slovar-popravki",
           kind: "vocab",
@@ -709,6 +716,9 @@ const module: Module = {
           id: "tablica-o-predmetah",
           kind: "table",
           caption: "О предмете, о месте, о положении дел",
+          zvuchat: ["It isn't a city.", "He isn't in Rome.", "She isn't from Spain.",
+            "It isn't OK.",
+          ],
           head: ["О чём", "Отрицание", "Перевод"],
           rows: [
             ["о предмете", "It isn't a city.", "Это не город."],
@@ -734,13 +744,7 @@ const module: Module = {
             "Предлог из отрицания не выпадает: «He isn't Rome» — потерялось in. Not " +
             "добавляется, а всё остальное предложение остаётся как было: He isn't in Rome.",
         },
-        {
-          id: "zapis-o-predmetah",
-          kind: "audio",
-          pace: "slow",
-          caption: "Послушай четыре отрицания",
-          transcript: "It isn't a city. He isn't in Rome. She isn't from Spain. It isn't OK.",
-        },
+        // Запись убрана: все четыре отрицания звучат в таблице выше.
 
         // ---- задания ----
         {
@@ -848,6 +852,8 @@ const module: Module = {
           id: "tablica-prav",
           kind: "table",
           caption: "Отозваться на сказанное",
+          zvuchat: ["You're right.", "You're wrong.", "You aren't right.", "Yes, I am.",
+          ],
           head: ["Фраза", "Перевод", "Когда"],
           rows: [
             ["You're right.", "Ты прав.", "собеседник угадал"],
@@ -876,13 +882,7 @@ const module: Module = {
             "Здесь оно то же, только стоит после формы be. You are right — «ты прав», " +
             "дословно «ты правильный в том, что сказал».",
         },
-        {
-          id: "zapis-prav",
-          kind: "audio",
-          pace: "slow",
-          caption: "Послушай отклики",
-          transcript: "You're right. You're wrong. You aren't right. Are you Dana?",
-        },
+        // Запись убрана: все четыре отклика звучат в таблице выше.
 
         // ---- задания ----
         {
@@ -974,6 +974,8 @@ const module: Module = {
           id: "tablica-treh-dlin",
           kind: "table",
           caption: "Три длины ответа",
+          zvuchat: ["No, I'm not.", "No, I'm not a student.", "No, I'm not. I'm a teacher.",
+          ],
           head: ["Длина", "Ответ", "Что узнал собеседник"],
           rows: [
             ["короткий", "No, I'm not.", "только что не так"],
@@ -1001,20 +1003,14 @@ const module: Module = {
           id: "primer-obmena",
           kind: "example",
           caption: "Полный обмен",
+          razgovor: true,
           text:
             "— Are you from Astana?\n— No, I'm not. I'm from Almaty. And you?\n— I'm from Astana.",
           explain:
             "Ответ из двух предложений и встречный вопрос — разговор идёт дальше сам. " +
             "Оборот And you? знаком по модулю про приветствие.",
         },
-        {
-          id: "zapis-obmena",
-          kind: "audio",
-          pace: "slow",
-          voice: "два голоса",
-          caption: "Послушай обмен",
-          transcript: "Are you from Astana? — No, I'm not. I'm from Almaty. And you? — I'm from Astana.",
-        },
+        // Запись убрана: обмен выше звучит целиком и на два голоса.
 
         // ---- задания ----
         {
@@ -1106,6 +1102,7 @@ const module: Module = {
           id: "polnyy-razgovor-vozrazheniya",
           kind: "example",
           caption: "Разговор целиком",
+          razgovor: true,
           text:
             "— Hello! Are you Dana?\n— Sorry, I'm not Dana. I'm Aigul.\n" +
             "— Sorry! Are you a student, Aigul?\n— No, I'm not. I'm a teacher. And you?\n" +
@@ -1118,6 +1115,13 @@ const module: Module = {
           id: "tablica-shagov-vozrazheniya",
           kind: "table",
           caption: "Из чего складывается такой разговор",
+          // Смягчение звучит с точкой, а не с запятой: в ячейке стоит начало
+          // предложения, а произносится оно отдельным словом.
+          zvuchat: ["Are you Dana?", "I'm not Dana.", "I'm Aigul.", "And you?",
+          ],
+          zvuk: {
+            "Sorry,": "Sorry."
+          },
           head: ["Шаг", "Пример"],
           rows: [
             ["догадка собеседника", "Are you Dana?"],
@@ -1143,16 +1147,8 @@ const module: Module = {
             "Разговор останавливается там, где после отрицания не сказано, как есть: " +
             "собеседнику нечего продолжать. Поправляется это одним коротким предложением.",
         },
-        {
-          id: "zapis-razgovora-vozrazheniya",
-          kind: "audio",
-          pace: "slow",
-          voice: "два голоса",
-          caption: "Послушай разговор целиком",
-          transcript:
-            "Hello! Are you Dana? — Sorry, I'm not Dana. I'm Aigul. — Sorry! Are you a " +
-            "student, Aigul? — No, I'm not. I'm a teacher. And you? — I'm a student.",
-        },
+        // Запись убрана: разговор выше звучит целиком и на два голоса, а шаги —
+        // по одному в таблице.
 
         // ---- задания ----
         {
@@ -1270,12 +1266,9 @@ const module: Module = {
           id: "otricanie-slitno",
           kind: "table",
           caption: "Как отрицание звучит — нажми и сравни",
-          zvuk: {
-            "He is a doctor.": "He is a doctor.",
-            "He isn't a doctor.": "He isn't a doctor.",
-            "They are from Turkey.": "They are from Turkey.",
-            "They aren't from Turkey.": "They aren't from Turkey.",
-          },
+          zvuchat: ["He is a doctor.", "He isn't a doctor.", "They are from Turkey.",
+            "They aren't from Turkey.",
+          ],
           head: ["Утверждение", "Отрицание"],
           rows: [
             ["He is a doctor.", "He isn't a doctor."],

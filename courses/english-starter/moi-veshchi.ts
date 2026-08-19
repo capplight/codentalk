@@ -170,6 +170,8 @@ const module: Module = {
           id: "tablica-moy-tvoy",
           kind: "table",
           caption: "Чья вещь",
+          zvuchat: ["my", "your", "It's my bag.", "It's your key.",
+          ],
           head: ["Слово", "Перевод", "Пример", "Перевод примера"],
           rows: [
             ["my", "мой, моя", "It's my bag.", "Это моя сумка."],
@@ -203,13 +205,8 @@ const module: Module = {
             "Оборот my name из первого модуля, про алфавит, устроен так же: my перед " +
             "названием. Тогда его брали целиком, теперь видно, как он собран.",
         },
-        {
-          id: "zapis-moy-tvoy",
-          kind: "audio",
-          pace: "slow",
-          caption: "Послушай пары",
-          transcript: "My bag. Your bag. My key. Your key. It's my phone. It's your phone.",
-        },
+        // Запись пар убрана: my и your стоят в таблице выше соседними строками,
+        // и сравнить их можно двумя кнопками подряд.
         {
           id: "slovar-moy-tvoy",
           kind: "vocab",
@@ -306,6 +303,9 @@ const module: Module = {
           id: "tablica-pyati",
           kind: "table",
           caption: "Пять слов о принадлежности",
+          zvuchat: ["my", "your", "his", "her", "our", "my bag", "your key", "his phone",
+            "her book", "our room",
+          ],
           head: ["Слово", "Перевод", "Пример"],
           rows: [
             ["my", "мой", "my bag"],
@@ -332,13 +332,8 @@ const module: Module = {
             "His идёт от he, her — от she. Если помнишь, кто из них мужчина, а кто женщина, " +
             "то и здесь не ошибёшься: his — о нём, her — о ней.",
         },
-        {
-          id: "zapis-pyati",
-          kind: "audio",
-          pace: "slow",
-          caption: "Послушай пять слов",
-          transcript: "My bag. Your key. His phone. Her book. Our room.",
-        },
+        // Запись пяти слов подряд убрана: каждое звучит в таблице выше — и само
+        // по себе, и вместе с вещью.
         {
           id: "slovar-pyati",
           kind: "vocab",
@@ -440,6 +435,10 @@ const module: Module = {
           id: "tablica-have-got",
           kind: "table",
           caption: "У кого что есть",
+          zvuchat: ["I have got a car.", "I've got a car.", "You have got a bike.",
+            "You've got a bike.", "He has got a dog.", "He's got a dog.", "She has got a cat.",
+            "She's got a cat.", "We have got a room.", "We've got a room.",
+          ],
           head: ["Полная запись", "Короткая", "Перевод"],
           rows: [
             ["I have got a car.", "I've got a car.", "У меня есть машина."],
@@ -465,13 +464,8 @@ const module: Module = {
             "Порядок в предложении прежний: сначала тот, о ком речь, потом глагол, потом " +
             "остальное. Просто глагол теперь из двух слов: have got.",
         },
-        {
-          id: "zapis-have-got",
-          kind: "audio",
-          pace: "slow",
-          caption: "Послушай, у кого что есть",
-          transcript: "I've got a car. You've got a bike. He's got a dog. She's got a cat.",
-        },
+        // Запись убрана: в таблице выше звучат обе записи каждой строки —
+        // полная и короткая.
         {
           id: "slovar-have-got",
           kind: "vocab",
@@ -575,6 +569,10 @@ const module: Module = {
           id: "tablica-otricaniya-have",
           kind: "table",
           caption: "Чего нет",
+          zvuchat: ["I have not got a car.", "I haven't got a car.", "You have not got a bike.",
+            "You haven't got a bike.", "He has not got a dog.", "He hasn't got a dog.",
+            "She has not got a cat.", "She hasn't got a cat.",
+          ],
           head: ["Полная запись", "Короткая", "Перевод"],
           rows: [
             ["I have not got a car.", "I haven't got a car.", "У меня нет машины."],
@@ -599,13 +597,7 @@ const module: Module = {
             "Артикль остаётся и в отрицании: I haven't got a car. По-русски «у меня нет " +
             "машины» обходится без него, по-английски — нет.",
         },
-        {
-          id: "zapis-otricaniya-have",
-          kind: "audio",
-          pace: "slow",
-          caption: "Послушай отрицания",
-          transcript: "I haven't got a car. He hasn't got a dog. She hasn't got a cat.",
-        },
+        // Запись убрана: в таблице выше звучат обе записи каждой строки.
 
         // ---- задания ----
         {
@@ -694,6 +686,10 @@ const module: Module = {
           id: "tablica-voprosa-have",
           kind: "table",
           caption: "Вопрос и краткие ответы",
+          zvuchat: ["Have you got a pen?", "Has he got a dog?", "Has she got a bike?",
+            "Yes, I have.", "No, I haven't.", "Yes, he has.", "No, he hasn't.", "Yes, she has.",
+            "No, she hasn't.",
+          ],
           head: ["Вопрос", "Да", "Нет"],
           rows: [
             ["Have you got a pen?", "Yes, I have.", "No, I haven't."],
@@ -722,6 +718,7 @@ const module: Module = {
           id: "primer-prosby",
           kind: "example",
           caption: "Зачем это нужно",
+          razgovor: true,
           text: "— Have you got a pen?\n— Yes, I have.\n— Thank you!",
           explain:
             // Было «Этим вопросом просят одолжить вещь» — утверждение о том, как
@@ -730,13 +727,8 @@ const module: Module = {
             "В этом разговоре ручку просят на время: сначала вопрос, есть ли она, потом " +
             "короткий ответ и слово благодарности из модуля про приветствие.",
         },
-        {
-          id: "zapis-voprosa-have",
-          kind: "audio",
-          pace: "slow",
-          caption: "Послушай вопрос и ответы",
-          transcript: "Have you got a pen? — Yes, I have. Has he got a dog? — No, he hasn't.",
-        },
+        // Запись убрана: разговор выше звучит целиком и на два голоса, а вопрос
+        // и оба ответа — по отдельности в таблице.
 
         // ---- задания ----
         {
@@ -836,6 +828,8 @@ const module: Module = {
           id: "tablica-rodnyh",
           kind: "table",
           caption: "Шесть слов о родных",
+          zvuchat: ["family", "mother", "father", "sister", "brother", "friend",
+          ],
           head: ["Слово", "Перевод", "Произношение"],
           rows: [
             ["family", "семья", "/ˈfæmɪli/"],
@@ -864,13 +858,8 @@ const module: Module = {
             "Friend — и «друг», и «подруга»: слово о роде не говорит. Кто именно, показывает " +
             "he или she рядом: He's my friend. She's my friend.",
         },
-        {
-          id: "zapis-rodnyh",
-          kind: "audio",
-          pace: "slow",
-          caption: "Послушай шесть слов",
-          transcript: "Family. Mother. Father. Sister. Brother. Friend.",
-        },
+        // Запись шести слов подряд убрана: каждое звучит в таблице выше, рядом
+        // со своей транскрипцией — там, где на него и смотрят.
         {
           id: "slovar-rodnyh",
           kind: "vocab",
@@ -976,6 +965,10 @@ const module: Module = {
           id: "tablica-chya",
           kind: "table",
           caption: "Вопрос о владельце",
+          zvuchat: ["Is this your bag?", "Is this his pencil?", "Is that our room?",
+            "Yes, it is.", "No, it isn't. It's her bag.", "No, it isn't. It's my pencil.",
+            "No, it isn't. It's your room.",
+          ],
           head: ["Вопрос", "Да", "Нет — и как на самом деле"],
           rows: [
             ["Is this your bag?", "Yes, it is.", "No, it isn't. It's her bag."],
@@ -999,14 +992,8 @@ const module: Module = {
             "Отвечая о своей вещи, меняешь слово: спросили your — отвечаешь my. Так же, как " +
             "с местоимениями: спросили про you — отвечаешь про I.",
         },
-        {
-          id: "zapis-chya",
-          kind: "audio",
-          pace: "slow",
-          voice: "два голоса",
-          caption: "Послушай разговор о находке",
-          transcript: "Is this your bag? — No, it isn't. It's her bag.",
-        },
+        // Запись убрана: и вопрос, и ответ с поправкой звучат первой строкой
+        // таблицы выше.
 
         // ---- задания ----
         {
@@ -1097,6 +1084,10 @@ const module: Module = {
           text:
             "I'm Dana. I've got a sister. Her name is Aliya. I haven't got a brother. " +
             "My sister is a student. I've got a cat.",
+          zvuchat: [
+            "I'm Dana. I've got a sister. Her name is Aliya. I haven't got a brother. " +
+              "My sister is a student. I've got a cat.",
+          ],
           explain:
             "Второе и третье предложения соединяют слово о принадлежности с оборотом из " +
             "модуля про приветствие: her name — «её имя». Слово her здесь о сестре, о " +
@@ -1106,6 +1097,8 @@ const module: Module = {
           id: "tablica-oborotov",
           kind: "table",
           caption: "Три оборота рассказа",
+          zvuchat: ["I've got a sister.", "I haven't got a brother.", "It's my camera.",
+          ],
           head: ["Оборот", "О чём", "Пример"],
           rows: [
             ["I've got…", "что есть", "I've got a sister."],
@@ -1121,15 +1114,8 @@ const module: Module = {
             "В длинном рассказе теряются два коротких слова: got и a. «I've a sister» — нет " +
             "got, «I've got sister» — нет a. В обоих случаях не хватает одного слова.",
         },
-        {
-          id: "zapis-rasskaza-o-veshchah",
-          kind: "audio",
-          pace: "slow",
-          caption: "Послушай рассказ целиком",
-          transcript:
-            "I'm Dana. I've got a sister. Her name is Aliya. I haven't got a brother. " +
-            "My sister is a student. I've got a cat.",
-        },
+        // Запись убрана: она слово в слово повторяла рассказ выше, а теперь сам
+        // рассказ и звучит.
 
         // ---- задания ----
         {
@@ -1362,12 +1348,8 @@ const module: Module = {
           id: "chey-i-chya-na-sluh",
           kind: "table",
           caption: "Его и её — нажми и сравни",
-          zvuk: {
-            "his bag": "his bag",
-            "her bag": "her bag",
-            "his room": "his room",
-            "her room": "her room",
-          },
+          zvuchat: ["his bag", "her bag", "his room", "her room",
+          ],
           head: ["Про него", "Про неё"],
           rows: [
             ["his bag", "her bag"],

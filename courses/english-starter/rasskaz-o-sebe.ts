@@ -170,6 +170,9 @@ const module: Module = {
           id: "tablica-from",
           kind: "table",
           caption: "Один и тот же образец для всех",
+          zvuchat: ["I'm from Kazakhstan.", "I'm from Almaty.", "He's from Turkey.",
+            "She's from Astana.",
+          ],
           head: ["Фраза", "Перевод"],
           rows: [
             ["I'm from Kazakhstan.", "Я из Казахстана."],
@@ -195,13 +198,8 @@ const module: Module = {
             "«I from Kazakhstan» — без глагола, и по-английски так не говорят. Форма be " +
             "нужна и здесь: I am from Kazakhstan или коротко I'm from Kazakhstan.",
         },
-        {
-          id: "zapis-from",
-          kind: "audio",
-          pace: "slow",
-          caption: "Послушай, как это звучит",
-          transcript: "I'm from Kazakhstan. He's from Turkey. She's from Astana.",
-        },
+        // Запись трёх фраз подряд убрана: те же фразы звучат в таблице выше,
+        // каждая у своей строки.
         {
           id: "slovar-from",
           kind: "vocab",
@@ -296,6 +294,11 @@ const module: Module = {
           id: "tablica-stran",
           kind: "table",
           caption: "Страна и её столица",
+          // Названия читаются не так, как пишутся по-русски: Turkey не «Турция»,
+          // Rome не «Рим». Услышать надо каждое отдельно.
+          zvuchat: ["Kazakhstan", "Turkey", "Spain", "Italy", "France", "Astana", "Ankara",
+            "Madrid", "Rome", "Paris",
+          ],
           head: ["По-английски", "По-русски", "Столица"],
           rows: [
             ["Kazakhstan", "Казахстан", "Astana"],
@@ -323,13 +326,8 @@ const module: Module = {
             "городов — такие же имена, как имена людей, и пишутся с заглавной буквы: " +
             "Kazakhstan, Almaty.",
         },
-        {
-          id: "zapis-stran",
-          kind: "audio",
-          pace: "slow",
-          caption: "Послушай названия",
-          transcript: "Kazakhstan. Turkey. Spain. Italy. France. Astana. Almaty.",
-        },
+        // Запись всех названий подряд убрана: каждое звучит в таблице выше, у
+        // своей строки, а Almaty — в таблице первого урока модуля.
         {
           id: "slovar-stran",
           kind: "vocab",
@@ -471,6 +469,12 @@ const module: Module = {
           id: "tablica-a-an",
           kind: "table",
           caption: "Когда a, когда an",
+          // Звучат только примеры. Сама буква `a` отдельной кнопки не получает:
+          // произнесённая в одиночку, она звучит названием буквы /eɪ/, а
+          // артикль в речи безударен — ученик услышал бы не то, чему учит урок.
+          zvuchat: ["a doctor, a teacher, a city, a nurse",
+            "an artist, an actor, an apple, an egg",
+          ],
           head: ["Форма", "Перед чем", "Примеры"],
           rows: [
             ["a", "согласный звук", "a doctor, a teacher, a city, a nurse"],
@@ -506,11 +510,19 @@ const module: Module = {
             "подходит.",
         },
         {
-          id: "zapis-artiklya",
-          kind: "audio",
-          pace: "slow",
-          caption: "Послушай пары",
-          transcript: "A doctor. An artist. A teacher. An actor. A city. An apple.",
+          // Была отдельная запись шести слов подряд. Стала примером: пара
+          // звучит одной кнопкой, и разницу между a и an слышно в сравнении, а
+          // не в общем потоке.
+          id: "pary-a-i-an",
+          kind: "example",
+          caption: "Пары: слева a, справа an",
+          text: "a doctor — an artist\na teacher — an actor\na city — an apple",
+          zvuchat: ["a doctor — an artist", "a teacher — an actor", "a city — an apple",
+          ],
+          explain:
+            "В каждой паре слева слово на согласный звук, справа — на гласный. Послушай " +
+            "пару целиком: перед гласным появляется n, и два слова связываются в одно " +
+            "звучание.",
         },
         {
           id: "slovar-artiklya",
@@ -627,6 +639,12 @@ const module: Module = {
           id: "tablica-zanyatiy",
           kind: "table",
           caption: "Занятия и как о них сказать",
+          // Звучат оба английских столбца: само слово и оно же в предложении.
+          // Артикль слышен только во втором.
+          zvuchat: ["student", "teacher", "doctor", "driver", "nurse", "artist",
+            "I'm a student.", "She's a teacher.", "He's a doctor.", "He's a driver.",
+            "She's a nurse.", "She's an artist.",
+          ],
           head: ["Слово", "Перевод", "Фраза"],
           rows: [
             ["student", "ученик, студент", "I'm a student."],
@@ -661,17 +679,14 @@ const module: Module = {
           kind: "example",
           caption: "Три предложения о себе",
           text: "Hello! I'm Dana. I'm from Almaty. I'm a student.",
+          zvuchat: ["Hello! I'm Dana. I'm from Almaty. I'm a student.",
+          ],
           explain:
             "Каждое предложение построено по одному образцу: кто — форма be — остальное. " +
             "Меняется только конец: имя, откуда, чем занят.",
         },
-        {
-          id: "zapis-zanyatiy",
-          kind: "audio",
-          pace: "slow",
-          caption: "Послушай названия занятий",
-          transcript: "A student. A teacher. A doctor. A driver. A nurse. An artist.",
-        },
+        // Запись шести названий подряд убрана: каждое звучит в таблице выше —
+        // и само по себе, и в предложении.
         {
           id: "slovar-zanyatiy",
           kind: "vocab",
@@ -779,6 +794,11 @@ const module: Module = {
           id: "tablica-from-in",
           kind: "table",
           caption: "From и in рядом",
+          // Соседние строки звучат по отдельности нарочно: разницу между from
+          // и in слышно, когда две записи включают подряд.
+          zvuchat: ["I'm from Almaty.", "I'm in Astana.", "She's from Turkey.",
+            "She's in Ankara.",
+          ],
           head: ["Фраза", "Перевод", "О чём"],
           rows: [
             ["I'm from Almaty.", "Я из Алматы.", "откуда родом"],
@@ -803,13 +823,8 @@ const module: Module = {
             "«I'm in Almaty» и «I'm from Almaty» — разные сообщения. Первое: сейчас " +
             "нахожусь в Алматы. Второе: родом оттуда. Одно слово меняет смысл целиком.",
         },
-        {
-          id: "zapis-in",
-          kind: "audio",
-          pace: "slow",
-          caption: "Послушай пару предложений",
-          transcript: "I'm from Almaty. I'm in Astana. She's from Turkey. She's in Ankara.",
-        },
+        // Запись четырёх предложений подряд убрана: те же четыре звучат в
+        // таблице выше, каждое отдельно.
         {
           id: "slovar-in",
           kind: "vocab",
@@ -948,11 +963,21 @@ const module: Module = {
             "пишутся со строчной, в английском с заглавной.",
         },
         {
-          id: "zapis-poryadka",
-          kind: "audio",
-          pace: "slow",
-          caption: "Послушай четыре предложения",
-          transcript: "I am a student. She is from Turkey. He is in Astana. You are a teacher.",
+          // Была отдельная запись четырёх предложений разом. Стала примером:
+          // ученик видит строку и слушает её же. Таблица выше звука не получает
+          // нарочно — в её ячейках лежат куски предложения, а не предложение, и
+          // читать вслух «am» отдельно не значит ничего.
+          id: "chetyre-po-obrazcu",
+          kind: "example",
+          caption: "Те же четыре предложения подряд",
+          text:
+            "I am a student.\nShe is from Turkey.\nHe is in Astana.\nYou are a teacher.",
+          zvuchat: ["I am a student.", "She is from Turkey.", "He is in Astana.",
+            "You are a teacher.",
+          ],
+          explain:
+            "Порядок в каждом одинаков: кто, глагол, остальное. Послушай строки по одной " +
+            "и повтори вслух — так порядок запоминается не только глазами.",
         },
 
         // ---- задания ----
@@ -1044,6 +1069,9 @@ const module: Module = {
           id: "tablica-voprosov",
           kind: "table",
           caption: "Вопрос и ответ",
+          zvuchat: ["Where are you from?", "Where is he from?", "And you?",
+            "I'm from Kazakhstan.", "He's from Turkey.", "I'm from Almaty.",
+          ],
           head: ["Вопрос", "Перевод", "Ответ"],
           rows: [
             ["Where are you from?", "Откуда ты?", "I'm from Kazakhstan."],
@@ -1064,19 +1092,15 @@ const module: Module = {
           id: "razgovor-s-voprosom",
           kind: "example",
           caption: "Как это выглядит в разговоре",
+          razgovor: true,
           text:
             "— Hello! I'm Dana. Where are you from?\n— I'm from Turkey. And you?\n— I'm from Kazakhstan.",
           explain:
             "And you? возвращает вопрос собеседнику — тот же приём, что и в модуле про " +
             "приветствие. Повторять весь вопрос не нужно.",
         },
-        {
-          id: "zapis-voprosa",
-          kind: "audio",
-          pace: "slow",
-          caption: "Послушай вопрос и ответ",
-          transcript: "Where are you from? — I'm from Turkey. And you? — I'm from Kazakhstan.",
-        },
+        // Запись вопроса и ответа убрана: разговор выше звучит целиком и на два
+        // голоса, а вопрос отдельно — в таблице.
         {
           id: "slovar-voprosa",
           kind: "vocab",
@@ -1187,6 +1211,8 @@ const module: Module = {
           id: "chetyre-predlozheniya",
           kind: "table",
           caption: "Четыре предложения о себе",
+          zvuchat: ["I'm Dana.", "I'm from Almaty.", "I'm in Astana.", "I'm a student.",
+          ],
           head: ["О чём", "Пример", "Перевод"],
           rows: [
             ["имя", "I'm Dana.", "Я Дана."],
@@ -1200,6 +1226,8 @@ const module: Module = {
           kind: "example",
           caption: "Тот же рассказ подряд",
           text: "Hello! I'm Dana. I'm from Almaty. I'm in Astana. I'm a student. Nice to meet you.",
+          zvuchat: ["Hello! I'm Dana. I'm from Almaty. I'm in Astana. I'm a student. Nice to meet you.",
+          ],
           explain:
             "Первое и последнее предложения знакомы по модулю «Приветствие». Между ними " +
             "четыре предложения о себе, и каждое начинается одинаково: I'm.",
@@ -1222,14 +1250,8 @@ const module: Module = {
             "артикль a перед занятием. «I from Almaty», «I'm student» — обе ошибки из этого " +
             "модуля, и обе исправляются одним словом.",
         },
-        {
-          id: "zapis-rasskaza",
-          kind: "audio",
-          pace: "slow",
-          caption: "Послушай рассказ целиком",
-          transcript:
-            "Hello! I'm Dana. I'm from Almaty. I'm in Astana. I'm a student. Nice to meet you.",
-        },
+        // Запись рассказа убрана: она слово в слово повторяла пример выше, а
+        // теперь пример звучит сам.
 
         // ---- задания ----
         {
@@ -1466,6 +1488,11 @@ const module: Module = {
           id: "za-chto-derzhatsya",
           kind: "table",
           caption: "Первые слова, по которым понятно, о чём речь",
+          // Урок слушания: обе записи ниже остаются, они и есть его предмет.
+          // А образцы звучат вдобавок — прежде чем ловить начало на слух в
+          // потоке, полезно услышать его отдельно.
+          zvuchat: ["I'm Alim.", "I'm from Kazakhstan.", "I'm in Astana.", "I'm a student.",
+          ],
           head: ["Начало", "О чём оно", "Пример"],
           rows: [
             ["I'm …", "имя", "I'm Alim."],

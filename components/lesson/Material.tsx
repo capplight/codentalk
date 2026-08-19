@@ -11,6 +11,7 @@ import {
   adresRazgovora,
   adresSlova,
   adresYacheyki,
+  zvuchashchee,
 } from "@/lib/content/zvuk";
 import Rasshifrovka from "./Rasshifrovka";
 import Zvuk from "./Zvuk";
@@ -70,12 +71,15 @@ export default function Material({ block }: { block: MaterialBlock }) {
               разговор слипался в одну строку: «— What's your name? — Alim. —
               How do you spell that?». Владелец назвал это скороговоркой, и был
               прав: читать такое нельзя. */}
-          {block.text && <div className={s.exampleText}>{lines(block.text, block.zvuk)}</div>}
+          {block.text && (
+            <div className={s.exampleText}>{lines(block.text, zvuchashchee(block))}</div>
+          )}
           <p className={s.exampleExplain}>{block.explain}</p>
         </div>
       );
 
-    case "table":
+    case "table": {
+      const zvuki = zvuchashchee(block);
       return (
         <div className={s.tableWrap}>
           <table className={s.table}>
@@ -96,7 +100,7 @@ export default function Material({ block }: { block: MaterialBlock }) {
                     /* Ячейка может звучать: у таблицы алфавита это единственный
                        способ разобрать буквы по одной. Запись целиком остаётся
                        отдельным блоком — она о порядке, а не о букве. */
-                    const zvuchit = block.zvuk?.[cell];
+                    const zvuchit = zvuki[cell];
                     return (
                       <td key={j}>
                         {zvuchit && (
@@ -112,6 +116,7 @@ export default function Material({ block }: { block: MaterialBlock }) {
           </table>
         </div>
       );
+    }
 
     case "note":
       return (

@@ -182,6 +182,11 @@ const module: Module = {
           id: "tablica-s",
           kind: "table",
           caption: "Один и несколько",
+          // Соседние кнопки: окончание s на конце слова короткое, и услышать
+          // его вернее всего, включив пару подряд.
+          zvuchat: ["a book", "books", "a key", "keys", "a car", "cars", "a pen", "pens",
+            "a friend", "friends",
+          ],
           head: ["Один", "Несколько", "Перевод"],
           rows: [
             ["a book", "books", "книга — книги"],
@@ -211,13 +216,7 @@ const module: Module = {
             "countries. Это правило разбирается в модуле «Что я делаю», в уроке «Когда " +
             "одной s мало».",
         },
-        {
-          id: "zapis-s",
-          kind: "audio",
-          pace: "slow",
-          caption: "Послушай пары",
-          transcript: "A book — books. A key — keys. A car — cars. A friend — friends.",
-        },
+        // Запись убрана: каждая пара звучит в таблице выше двумя кнопками.
         {
           id: "slovar-s",
           kind: "vocab",
@@ -306,6 +305,11 @@ const module: Module = {
           id: "tablica-es",
           kind: "table",
           caption: "Когда es",
+          // Урок о том, что прибавляется целый слог. Пара кнопок это и
+          // показывает: boxes длиннее box на слух, а не только на письме.
+          zvuchat: ["a box", "boxes", "a bus", "buses", "a watch", "watches", "a dish",
+            "dishes",
+          ],
           head: ["Один", "Несколько", "Почему es"],
           rows: [
             ["a box", "boxes", "оканчивается на x"],
@@ -340,13 +344,7 @@ const module: Module = {
             { term: "dish", translation: "тарелка, блюдо", example: "It's a dish.", hint: "/dɪʃ/" },
           ],
         },
-        {
-          id: "zapis-es",
-          kind: "audio",
-          pace: "slow",
-          caption: "Послушай, как прибавляется слог",
-          transcript: "A box — boxes. A bus — buses. A watch — watches.",
-        },
+        // Запись убрана: каждая пара звучит в таблице выше двумя кнопками.
 
         // ---- задания ----
         {
@@ -426,6 +424,9 @@ const module: Module = {
           id: "tablica-bez-a",
           kind: "table",
           caption: "Что происходит с артиклем",
+          zvuchat: ["It's a book.", "They're books.", "It's a car.", "They're cars.",
+            "It's my book.", "They're my books.",
+          ],
           head: ["Один", "Несколько", "Что изменилось"],
           rows: [
             ["It's a book.", "They're books.", "a ушло, прибавилась s"],
@@ -449,13 +450,7 @@ const module: Module = {
             "«A books» заметить легко: артикль стоит перед словом с окончанием s. Одно из " +
             "двух лишнее, и лишнее всегда a.",
         },
-        {
-          id: "zapis-bez-a",
-          kind: "audio",
-          pace: "slow",
-          caption: "Послушай пары",
-          transcript: "It's a book. They're books. It's my key. They're my keys.",
-        },
+        // Запись убрана: оба предложения каждой строки звучат в таблице выше.
 
         // ---- задания ----
         {
@@ -536,6 +531,9 @@ const module: Module = {
           id: "tablica-is-are",
           kind: "table",
           caption: "Один и несколько",
+          zvuchat: ["It is a book.", "They are books.", "It's a key.", "They're keys.",
+            "This is my bag.", "These are my bags.", "Is it a car?", "Are they cars?",
+          ],
           head: ["Один", "Несколько"],
           rows: [
             ["It is a book.", "They are books."],
@@ -560,13 +558,7 @@ const module: Module = {
             "«It is books» — форма be осталась от одного предмета, а название уже во " +
             "множественном. Меняются оба сразу: They are books.",
         },
-        {
-          id: "zapis-is-are",
-          kind: "audio",
-          pace: "slow",
-          caption: "Послушай пары",
-          transcript: "It is a book. They are books. It's a key. They're keys.",
-        },
+        // Запись убрана: оба предложения каждой строки звучат в таблице выше.
 
         // ---- задания ----
         {
@@ -655,6 +647,11 @@ const module: Module = {
           id: "tablica-osobyh",
           kind: "table",
           caption: "Четыре слова, которые надо запомнить",
+          // Здесь звук важнее, чем в других таблицах модуля: man и men на
+          // письме различает одна буква, а не окончание.
+          zvuchat: ["a man", "men", "a woman", "women", "a child", "children", "a person",
+            "people",
+          ],
           head: ["Один", "Несколько", "Перевод"],
           rows: [
             ["a man", "men", "мужчина — мужчины"],
@@ -679,13 +676,7 @@ const module: Module = {
             "«Mans», «childs», «womans» — здесь общее правило не работает. У этих слов форма " +
             "своя, и буква s к ней не прибавляется.",
         },
-        {
-          id: "zapis-osobyh",
-          kind: "audio",
-          pace: "slow",
-          caption: "Послушай пары",
-          transcript: "A man — men. A woman — women. A child — children. People.",
-        },
+        // Запись убрана: каждая пара звучит в таблице выше двумя кнопками.
         {
           id: "slovar-osobyh",
           kind: "vocab",
@@ -775,6 +766,9 @@ const module: Module = {
           id: "tablica-these-those",
           kind: "table",
           caption: "Один и несколько, рядом и подальше",
+          zvuchat: ["this book", "these books", "that car", "those cars", "What is this?",
+            "What are these?", "What is that?", "What are those?",
+          ],
           head: ["", "Один", "Несколько"],
           rows: [
             ["рядом", "this book", "these books"],
@@ -799,13 +793,7 @@ const module: Module = {
             "«These book» — изменение сделано наполовину. Если ставишь these, то и название " +
             "должно стоять во множественном: these books. Оба знака идут вместе.",
         },
-        {
-          id: "zapis-these-those",
-          kind: "audio",
-          pace: "slow",
-          caption: "Послушай пары",
-          transcript: "This book — these books. That car — those cars. What are these?",
-        },
+        // Запись убрана: каждая пара звучит в таблице выше.
 
         // ---- задания ----
         {
@@ -888,6 +876,9 @@ const module: Module = {
           id: "tablica-vopros-mnozh",
           kind: "table",
           caption: "Три предложения об одном и о нескольких",
+          zvuchat: ["It's a book.", "They're books.", "Is it a book?", "Are they books?",
+            "It isn't a book.", "They aren't books.", "Yes, it is.", "Yes, they are.",
+          ],
           head: ["", "Один", "Несколько"],
           rows: [
             ["сообщение", "It's a book.", "They're books."],
@@ -913,13 +904,7 @@ const module: Module = {
             "Форма aren't знакома по модулю про отрицание — там она шла с you, we и they. " +
             "Теперь they может означать предметы, и форма остаётся той же.",
         },
-        {
-          id: "zapis-vopros-mnozh",
-          kind: "audio",
-          pace: "slow",
-          caption: "Послушай три предложения",
-          transcript: "They're books. Are they books? They aren't books. Yes, they are.",
-        },
+        // Запись убрана: все четыре строки звучат в таблице выше.
 
         // ---- задания ----
         {
@@ -1018,6 +1003,10 @@ const module: Module = {
           text:
             "I'm Alim. I've got sisters. These are my books. Those aren't my books. " +
             "My friends are students.",
+          zvuchat: [
+            "I'm Alim. I've got sisters. These are my books. Those aren't my books. " +
+              "My friends are students.",
+          ],
           explain:
             "Сколько именно сестёр, здесь не сказано: числа идут в следующем модуле. " +
             "Книги рядом — These are my books, книги подальше — Those aren't my books. " +
@@ -1028,6 +1017,9 @@ const module: Module = {
           id: "tablica-oborotov-mnozh",
           kind: "table",
           caption: "Обороты рассказа",
+          zvuchat: ["I've got a friend.", "I've got friends.", "It's my book.",
+            "These are my books.", "He is a student.", "They are students.",
+          ],
           head: ["Оборот", "Один", "Несколько"],
           rows: [
             ["что есть", "I've got a friend.", "I've got friends."],
@@ -1044,15 +1036,7 @@ const module: Module = {
             "форму are. «They are book» и «They is books» — как раз такие случаи, и оба " +
             "заметны сразу.",
         },
-        {
-          id: "zapis-rasskaza-mnozh",
-          kind: "audio",
-          pace: "slow",
-          caption: "Послушай рассказ целиком",
-          transcript:
-            "I'm Alim. I've got sisters. These are my books. Those aren't my books. " +
-            "My friends are students.",
-        },
+        // Запись убрана: она слово в слово повторяла рассказ выше, а теперь сам рассказ и звучит.
 
         // ---- задания ----
         {
@@ -1288,6 +1272,12 @@ const module: Module = {
           id: "dva-mesta-na-sluh",
           kind: "table",
           caption: "Два места, где слышно число",
+          // Урок слушания: обе записи ниже остаются, они и есть его предмет.
+          // Кнопки у образцов добавлены вдобавок — прежде чем ловить число на
+          // слух в потоке, полезно услышать пару отдельно.
+          zvuchat: ["This is a book.", "These are books.", "It is my key.", "They are my keys.",
+            "That is a box.", "Those are boxes.",
+          ],
           head: ["Про одну", "Про несколько"],
           rows: [
             ["This is a book.", "These are books."],

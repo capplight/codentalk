@@ -142,6 +142,8 @@ const module: Module = {
           id: "tablica-nego-i-neyo",
           kind: "table",
           caption: "Два первых слова",
+          zvuchat: ["him", "I know him.", "her", "I know her.",
+          ],
           head: ["О ком речь", "Слово вместо имени", "Пример"],
           rows: [
             ["о нём", "him", "I know him."],
@@ -169,18 +171,15 @@ const module: Module = {
           id: "primer-vmesto-imeni",
           kind: "example",
           caption: "Два человека, два слова",
+          zvuchat: ["Alim works in a shop.", "I know him.", "Dana is a teacher.",
+            "I see her every day.",
+          ],
           text: "Alim works in a shop.\nI know him.\nDana is a teacher.\nI see her every day.",
           explain:
             "В первой паре имя Alim во втором предложении заменено на him. Во второй " +
             "паре имя Dana заменено на her. Оба слова стоят после глагола.",
         },
-        {
-          id: "zapis-vmesto-imeni",
-          kind: "audio",
-          pace: "slow",
-          caption: "Послушай две пары",
-          transcript: "Alim works in a shop. I know him. Dana is a teacher. I see her.",
-        },
+        // Запись убрана: оба слова и примеры к ним звучат в таблице выше.
         {
           id: "slovar-vmesto-imeni",
           kind: "vocab",
@@ -277,6 +276,12 @@ const module: Module = {
           id: "tablica-shest-par",
           kind: "table",
           caption: "Шесть пар",
+          // Слово I отдельной кнопки не получает: одиночная латинская буква звучит
+          // названием буквы, а не местоимением. Оно слышно в предложениях.
+          zvuchat: ["me", "She knows me.", "you", "I know you.", "he", "him", "I know him.",
+            "she", "her", "I know her.", "we", "us", "They know us.", "they", "them",
+            "I know them.",
+          ],
           head: ["Перед глаголом", "После глагола", "Пример"],
           rows: [
             ["I", "me", "She knows me."],
@@ -308,18 +313,14 @@ const module: Module = {
           id: "primer-shesti",
           kind: "example",
           caption: "Все шесть в деле",
+          zvuchat: ["She knows me.", "I know you.", "We know them.", "They know us.",
+          ],
           text: "She knows me.\nI know you.\nWe know them.\nThey know us.",
           explain:
             "В каждом предложении первое слово — то, что стоит перед глаголом, а " +
             "второе — то, что после него. Перепутать их местами нельзя.",
         },
-        {
-          id: "zapis-shesti",
-          kind: "audio",
-          pace: "slow",
-          caption: "Послушай четыре предложения",
-          transcript: "She knows me. I know you. We know them. They know us.",
-        },
+        // Запись убрана: все шесть пар звучат в таблице выше.
         {
           id: "slovar-shesti",
           kind: "vocab",
@@ -421,6 +422,8 @@ const module: Module = {
           id: "tablica-her-dvazhdy",
           kind: "table",
           caption: "Одно слово, два места",
+          zvuchat: ["her book", "I know her.",
+          ],
           head: ["Английский", "Перевод", "Где стоит"],
           rows: [
             ["her book", "её книга", "перед вещью"],
@@ -448,18 +451,14 @@ const module: Module = {
           id: "primer-her-i-him",
           kind: "example",
           caption: "Четыре записи рядом",
+          zvuchat: ["This is her book.", "I know her.", "This is his book.", "I know him.",
+          ],
           text: "This is her book.\nI know her.\nThis is his book.\nI know him.",
           explain:
             "Слева от книги стоят her и his. После глагола — her и him. У женского " +
             "рода слово одно, у мужского — два разных.",
         },
-        {
-          id: "zapis-her-i-him",
-          kind: "audio",
-          pace: "slow",
-          caption: "Послушай четыре записи",
-          transcript: "This is her book. I know her. This is his book. I know him.",
-        },
+        // Запись убрана: все четыре записи звучат в примере выше.
         {
           id: "kak-zapomnit-his-him",
           kind: "note",
@@ -557,6 +556,8 @@ const module: Module = {
           id: "tablica-it",
           kind: "table",
           caption: "It на двух местах",
+          zvuchat: ["It is my bike.", "I like it.", "I can see it.",
+          ],
           head: ["Английский", "Перевод"],
           rows: [
             ["It is my bike.", "Это мой велосипед."],
@@ -586,18 +587,14 @@ const module: Module = {
           id: "primer-it",
           kind: "example",
           caption: "Вещь названа один раз",
+          zvuchat: ["This is my bike. I like it.", "This is her book. I can see it.",
+          ],
           text: "This is my bike. I like it.\nThis is her book. I can see it.",
           explain:
             "В обеих парах вещь названа в первом предложении, а во втором заменена " +
             "на it. Слово it стоит после глагола, как him и her.",
         },
-        {
-          id: "zapis-it",
-          kind: "audio",
-          pace: "slow",
-          caption: "Послушай две пары",
-          transcript: "This is my bike. I like it. This is her book. I can see it.",
-        },
+        // Запись убрана: все три предложения звучат в таблице выше.
         {
           id: "it-uzhe-znakomo",
           kind: "note",
@@ -695,6 +692,8 @@ const module: Module = {
           id: "tablica-posle-predloga",
           kind: "table",
           caption: "Слово после предлога",
+          zvuchat: ["This is for me.", "This book is for her.", "I work with them.",
+          ],
           head: ["Английский", "Перевод"],
           rows: [
             ["This is for me.", "Это для меня."],
@@ -724,18 +723,14 @@ const module: Module = {
           id: "primer-posle-predloga",
           kind: "example",
           caption: "Три предлога подряд",
+          zvuchat: ["This is for me.", "I work with him.", "This book is for them.",
+          ],
           text: "This is for me.\nI work with him.\nThis book is for them.",
           explain:
             "После for и with стоят me, him и them — те же слова, что после глагола. " +
             "Предлог их не меняет.",
         },
-        {
-          id: "zapis-posle-predloga",
-          kind: "audio",
-          pace: "slow",
-          caption: "Послушай три предложения",
-          transcript: "This is for me. I work with him. This book is for them.",
-        },
+        // Запись убрана: все три предложения звучат в таблице выше.
         {
           id: "slovar-predlogov",
           kind: "vocab",
@@ -834,6 +829,9 @@ const module: Module = {
           id: "tablica-glagol-s-predlogom",
           kind: "table",
           caption: "Глагол вместе с предлогом",
+          zvuchat: ["I listen to music.", "I listen to him.", "I look at the picture.",
+            "I look at them.",
+          ],
           head: ["Английский", "Перевод"],
           rows: [
             ["I listen to music.", "Я слушаю музыку."],
@@ -864,18 +862,15 @@ const module: Module = {
           id: "primer-glagola-s-predlogom",
           kind: "example",
           caption: "Два глагола со своими предлогами",
+          zvuchat: ["I listen to her.", "She is listening to me.", "I look at them.",
+            "They are looking at us.",
+          ],
           text: "I listen to her.\nShe is listening to me.\nI look at them.\nThey are looking at us.",
           explain:
             "Предлог остаётся на месте и в рассказе о происходящем: listening to me, " +
             "looking at us. Меняется только форма глагола.",
         },
-        {
-          id: "zapis-glagola-s-predlogom",
-          kind: "audio",
-          pace: "slow",
-          caption: "Послушай четыре предложения",
-          transcript: "I listen to her. She is listening to me. I look at them. They are looking at us.",
-        },
+        // Запись убрана: оба глагола со своими предлогами звучат в таблице выше.
         {
           id: "slovar-slushat-smotret",
           kind: "vocab",
@@ -970,6 +965,8 @@ const module: Module = {
           id: "tablica-vopros-o-cheloveke",
           kind: "table",
           caption: "Вопросы о людях",
+          zvuchat: ["Do you know her?", "Can you see him?", "Do they know us?",
+          ],
           head: ["Английский", "Перевод"],
           rows: [
             ["Do you know her?", "Ты её знаешь?"],
@@ -998,6 +995,7 @@ const module: Module = {
           id: "primer-voprosa-o-cheloveke",
           kind: "example",
           caption: "Разговор о знакомых",
+          razgovor: true,
           // Слово ask стояло в словаре урока и не работало нигде: ни в объяснении,
           // ни в задании. Теперь оно живёт в этом разговоре. Нашёл методист.
           text:
@@ -1007,13 +1005,7 @@ const module: Module = {
             "Имя названо в первом вопросе, а дальше идёт her — четыре раза подряд. В " +
             "ответах повторяется только do или can.",
         },
-        {
-          id: "zapis-voprosa-o-cheloveke",
-          kind: "audio",
-          pace: "slow",
-          caption: "Послушай два вопроса и два ответа",
-          transcript: "Do you know Dana? Yes, I do. Can you call her? Yes, I can.",
-        },
+        // Запись убрана: все три вопроса звучат в таблице выше, а разговор — целиком.
         {
           id: "slovar-voprosa-o-cheloveke",
           kind: "vocab",
@@ -1104,6 +1096,8 @@ const module: Module = {
           id: "tablica-chem-zamenyat",
           kind: "table",
           caption: "Чем заменять названное",
+          zvuchat: ["Dana", "her", "Alim", "him", "my friends", "them", "my bike", "it",
+          ],
           head: ["Названо в первый раз", "Дальше"],
           rows: [
             ["Dana", "her"],
@@ -1133,22 +1127,22 @@ const module: Module = {
           id: "primer-rasskaza-bez-povtorov",
           kind: "example",
           caption: "Рассказ о подруге",
+          zvuchat: ["Dana is my friend.", "I see her every day.", "She has got a bike.",
+            "I like it.",
+          ],
           text: "Dana is my friend.\nI see her every day.\nShe has got a bike.\nI like it.",
           explain:
             "Имя Dana названо один раз. Дальше идут her и she — о ней, и it — о " +
             "велосипеде, названном в третьем предложении.",
         },
-        {
-          id: "zapis-rasskaza-bez-povtorov",
-          kind: "audio",
-          pace: "slow",
-          caption: "Послушай рассказ целиком",
-          transcript: "Dana is my friend. I see her every day. She has got a bike. I like it.",
-        },
+        // Запись убрана: оба рассказа выше звучат построчно.
         {
           id: "primer-s-povtorami-i-bez",
           kind: "example",
           caption: "Одно и то же дважды",
+          zvuchat: ["Dana is my friend. I see Dana every day.",
+            "Dana is my friend. I see her every day.",
+          ],
           text: "Dana is my friend. I see Dana every day.\nDana is my friend. I see her every day.",
           explain:
             "В первой записи имя звучит дважды подряд и цепляет слух. Во второй оно " +
@@ -1374,11 +1368,8 @@ const module: Module = {
           id: "him-her-them-na-sluh",
           kind: "table",
           caption: "Три слова о людях — нажми и сравни",
-          zvuk: {
-            "I know him.": "I know him.",
-            "I know her.": "I know her.",
-            "I know them.": "I know them.",
-          },
+          zvuchat: ["I know him.", "I know her.", "I know them.",
+          ],
           head: ["Слово", "О ком", "Пример"],
           rows: [
             ["him", "о мужчине", "I know him."],

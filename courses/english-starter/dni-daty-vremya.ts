@@ -264,6 +264,9 @@ const module: Module = {
           id: "tablica-dney",
           kind: "table",
           caption: "Семь дней",
+          zvuchat: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday",
+            "Sunday",
+          ],
           head: ["По-английски", "По-русски", "Как читается"],
           rows: [
             ["Monday", "понедельник", "/ˈmʌndeɪ/"],
@@ -299,6 +302,7 @@ const module: Module = {
           id: "primer-dney",
           kind: "example",
           caption: "Как это звучит",
+          razgovor: true,
           text:
             "— Are you free on Monday?\n— No, I'm not. I'm free on Tuesday.\n" +
             "— Tuesday is OK.",
@@ -306,14 +310,7 @@ const module: Module = {
             "Слово on ставят перед днём недели: on Monday, on Tuesday. Почему именно on, " +
             "разберём в уроке «At, in, on: какой предлог когда». Пока запомни пару целиком.",
         },
-        {
-          id: "zapis-dney",
-          kind: "audio",
-          pace: "slow",
-          caption: "Послушай семь дней подряд",
-          transcript:
-            "Monday. Tuesday. Wednesday. Thursday. Friday. Saturday. Sunday.",
-        },
+        // Запись убрана: каждый день звучит в таблице выше, а разговор — целиком.
         {
           id: "slovar-dney",
           kind: "vocab",
@@ -424,6 +421,9 @@ const module: Module = {
           id: "tablica-mesyacev",
           kind: "table",
           caption: "Двенадцать месяцев",
+          zvuchat: ["January", "February", "March", "April", "May", "June", "July", "August",
+            "September", "October", "November", "December",
+          ],
           head: ["По-английски", "По-русски", "Как читается"],
           rows: [
             ["January", "январь", "/ˈdʒænjʊəri/"],
@@ -452,6 +452,12 @@ const module: Module = {
           id: "kak-zapisat-datu",
           kind: "example",
           caption: "Как записывают дату",
+          // Звучит только последняя строка. Две первые не озвучены нарочно: дата
+          // цифрой читается порядковым числительным («the twelfth of March»), а
+          // порядковых курс на этой ступени не даёт — запись сказала бы ученику
+          // слово, которого в уроке не было.
+          zvuchat: ["My birthday is in May.",
+          ],
           text:
             "Date of birth: 12 March 2001\nDate: 5 May\nMy birthday is in May.",
           explain:
@@ -471,15 +477,7 @@ const module: Module = {
             "нужны особые формы чисел, вроде «пятое» вместо «пять». Этому наш курс не " +
             "учит. Пока называй месяц целиком: My birthday is in May.",
         },
-        {
-          id: "zapis-mesyacev",
-          kind: "audio",
-          pace: "slow",
-          caption: "Послушай двенадцать месяцев",
-          transcript:
-            "January. February. March. April. May. June. July. August. September. October. " +
-            "November. December.",
-        },
+        // Запись убрана: каждый месяц звучит в таблице выше.
         {
           id: "slovar-mesyacev",
           kind: "vocab",
@@ -598,6 +596,9 @@ const module: Module = {
           id: "tablica-chasov",
           kind: "table",
           caption: "Целые часы",
+          zvuchat: ["It's seven o'clock.", "It's nine o'clock.", "It's twelve o'clock.",
+            "It's one o'clock.",
+          ],
           head: ["На часах", "По-английски", "По-русски"],
           rows: [
             ["7:00", "It's seven o'clock.", "Семь часов."],
@@ -627,20 +628,14 @@ const module: Module = {
           id: "primer-chasa",
           kind: "example",
           caption: "Как спрашивают время",
+          razgovor: true,
           text: "— What time is it?\n— It's eight o'clock.\n— Thank you.",
           explain:
             "What time is it? — «сколько времени». Отвечают через it: здесь оно ни на какой предмет не показывает, а просто открывает ответ о времени. Как в модуле про " +
             "предметы: It's eight o'clock. Сам вопрос разберём в уроке «Когда и во сколько», пока " +
             "запомни его целиком.",
         },
-        {
-          id: "zapis-chasov",
-          kind: "audio",
-          pace: "slow",
-          caption: "Послушай целые часы",
-          transcript:
-            "It's seven o'clock. It's nine o'clock. It's twelve o'clock. What time is it?",
-        },
+        // Запись убрана: все четыре часа звучат в таблице выше, а вопрос — в разговоре.
         {
           id: "slovar-chasov",
           kind: "vocab",
@@ -757,6 +752,9 @@ const module: Module = {
           id: "tablica-polovin",
           kind: "table",
           caption: "Половина, четверть и минуты",
+          zvuchat: ["half past seven", "a quarter past seven", "a quarter to eight",
+            "twenty past seven", "twenty to eight",
+          ],
           head: ["На часах", "По-английски", "Дословно"],
           rows: [
             ["7:30", "half past seven", "половина после семи"],
@@ -792,6 +790,7 @@ const module: Module = {
           id: "primer-polovin",
           kind: "example",
           caption: "Разговор на остановке",
+          razgovor: true,
           text:
             "— What time is it?\n— It's half past six.\n— And your bus?\n" +
             "— At a quarter to seven.",
@@ -801,15 +800,7 @@ const module: Module = {
             "And your bus? — «А твой автобус?». Так возвращают вопрос собеседнику, как " +
             "And you? в модуле «Вопрос и краткий ответ».",
         },
-        {
-          id: "zapis-polovin",
-          kind: "audio",
-          pace: "slow",
-          caption: "Послушай половину и четверть",
-          transcript:
-            "Half past seven. A quarter past seven. A quarter to eight. Twenty past seven. " +
-            "Twenty to eight.",
-        },
+        // Запись убрана: все пять оборотов звучат в таблице выше.
         {
           id: "slovar-polovin",
           kind: "vocab",
@@ -932,6 +923,9 @@ const module: Module = {
           id: "tablica-a-the",
           kind: "table",
           caption: "Первый раз и дальше",
+          zvuchat: ["I've got a meeting.", "The meeting is on Monday.", "I've got a lesson.",
+            "The lesson is on Friday.",
+          ],
           head: ["Называешь впервые", "Говоришь об этом же", "Перевод второго"],
           rows: [
             ["I've got a meeting.", "The meeting is on Monday.", "Встреча в понедельник."],
@@ -958,6 +952,8 @@ const module: Module = {
           id: "otkuda-yasno",
           kind: "table",
           caption: "Откуда собеседник знает, о чём речь",
+          zvuchat: ["The meeting is on Monday.", "The lesson is on Friday.",
+          ],
           head: ["Предложение", "Почему the"],
           rows: [
             ["The meeting is on Monday.", "о встрече вы уже говорили"],
@@ -989,6 +985,7 @@ const module: Module = {
           id: "primer-a-the",
           kind: "example",
           caption: "Разговор о встрече",
+          razgovor: true,
           text:
             "— I've got a meeting.\n— Is the meeting on Monday?\n— No, it isn't. " +
             "It's on Friday.",
@@ -997,15 +994,7 @@ const module: Module = {
             "спрашивает уже о ней же, поэтому the meeting. Вопрос построен перестановкой, " +
             "как в модуле «Вопрос и краткий ответ».",
         },
-        {
-          id: "zapis-a-the",
-          kind: "audio",
-          pace: "slow",
-          caption: "Послушай a и the рядом",
-          transcript:
-            "I've got a meeting. The meeting is on Monday. I've got a lesson. " +
-            "The lesson is on Friday.",
-        },
+        // Запись убрана: обе пары звучат в таблице выше, а разговор — целиком.
         {
           id: "slovar-a-the",
           kind: "vocab",
@@ -1111,6 +1100,10 @@ const module: Module = {
           id: "tablica-sutok",
           kind: "table",
           caption: "Четыре части суток",
+          zvuchat: ["in the morning", "in the afternoon", "in the evening", "at night",
+            "at seven in the morning", "at three in the afternoon", "at eight in the evening",
+            "at two at night",
+          ],
           head: ["Оборот", "Когда", "Пример"],
           // Границы намеренно нестрогие: разбивку суток по часам ни один
           // источник не задаёт, а прежняя таблица оставляла два часа ночи
@@ -1145,6 +1138,7 @@ const module: Module = {
           id: "primer-sutok",
           kind: "example",
           caption: "Когда именно",
+          razgovor: true,
           text:
             "— The meeting is at seven.\n— At seven in the morning?\n" +
             "— No, at seven in the evening.",
@@ -1152,15 +1146,7 @@ const module: Module = {
             "Часть суток ставят после времени: at seven in the morning. Так и " +
             "переспрашивают, если непонятно: сначала время, потом часть суток.",
         },
-        {
-          id: "zapis-sutok",
-          kind: "audio",
-          pace: "slow",
-          caption: "Послушай четыре оборота",
-          transcript:
-            "In the morning. In the afternoon. In the evening. At night. " +
-            "The meeting is at seven in the evening.",
-        },
+        // Запись убрана: все четыре оборота звучат в таблице выше.
         {
           id: "slovar-sutok",
           kind: "vocab",
@@ -1267,6 +1253,15 @@ const module: Module = {
           id: "tablica-predlogov",
           kind: "table",
           caption: "Три предлога",
+          // Сам предлог отдельной кнопки не получает: в речи он безударен, и
+          // услышать его надо в паре со словом, к которому он идёт.
+          //
+          // Строка «on Monday, on 5 May» не звучит вовсе. Дата цифрой читается
+          // порядковым числительным («the fifth of May»), а порядковых курс на
+          // этой ступени не даёт: запись сказала бы ученику слово, которого в
+          // уроке не было. Предлог on слышен в строке дней недели.
+          zvuchat: ["at seven o'clock, at half past six", "in May, in 2026, in the morning",
+          ],
           head: ["Предлог", "С чем", "Пример"],
           rows: [
             ["at", "точное время", "at seven o'clock, at half past six"],
@@ -1288,6 +1283,9 @@ const module: Module = {
           id: "lestnica-predlogov",
           kind: "example",
           caption: "Одно событие, три предлога",
+          zvuchat: ["The meeting is at seven.", "The meeting is on Friday.",
+            "The meeting is in May.",
+          ],
           text:
             "The meeting is at seven.\nThe meeting is on Friday.\n" +
             "The meeting is in May.",
@@ -1313,14 +1311,7 @@ const module: Module = {
             "Поэтому подобрать предлог по переводу нельзя — его выбирают по слову, " +
             "которое стоит после.",
         },
-        {
-          id: "zapis-predlogov",
-          kind: "audio",
-          pace: "slow",
-          caption: "Послушай три предлога подряд",
-          transcript:
-            "At seven o'clock. On Monday. In May. At night. In the morning.",
-        },
+        // Запись убрана: примеры звучат в таблице выше и в примере под ней.
         {
           id: "slovar-predlogov",
           kind: "vocab",
@@ -1438,6 +1429,10 @@ const module: Module = {
           id: "tablica-voprosov-o-vremeni",
           kind: "table",
           caption: "Два вопроса и что на них отвечают",
+          zvuchat: ["When is the meeting?", "What time is the meeting?",
+            "When is your birthday?", "What time is it?", "On Friday.", "At seven o'clock.",
+            "In May.", "It's half past six.",
+          ],
           head: ["Вопрос", "Перевод", "Ответ"],
           rows: [
             ["When is the meeting?", "Когда встреча?", "On Friday."],
@@ -1469,6 +1464,7 @@ const module: Module = {
           id: "primer-dvuh-voprosov",
           kind: "example",
           caption: "Оба вопроса подряд",
+          razgovor: true,
           text:
             "— When is the lesson?\n— On Wednesday.\n— And what time?\n" +
             "— At a quarter past four.",
@@ -1477,14 +1473,7 @@ const module: Module = {
             "повторяют: «And what time?» — этого достаточно, потому что речь всё ещё об " +
             "уроке.",
         },
-        {
-          id: "zapis-voprosov-o-vremeni",
-          kind: "audio",
-          pace: "slow",
-          caption: "Послушай два вопроса и ответы",
-          transcript:
-            "When is the lesson? On Wednesday. What time is the lesson? At a quarter past four.",
-        },
+        // Запись убрана: оба вопроса и оба ответа звучат в таблице выше.
         {
           id: "slovar-voprosov-o-vremeni",
           kind: "vocab",
@@ -1594,6 +1583,14 @@ const module: Module = {
           id: "shagi-ugovora",
           kind: "table",
           caption: "Как договариваются о встрече",
+          // Косая черта во втором шаге — наша разметка выбора, вслух она не идёт:
+          // звучат оба ответа подряд.
+          zvuchat: ["Are you free on Friday?", "What time?", "At six.", "In the evening.",
+            "OK. See you on Friday!",
+          ],
+          zvuk: {
+            "Yes, I am. / No, I'm not.": "Yes, I am. No, I'm not.",
+          },
           head: ["Шаг", "Что говорят", "Пример"],
           rows: [
             ["1", "спросить, свободен ли собеседник", "Are you free on Friday?"],
@@ -1608,6 +1605,7 @@ const module: Module = {
           id: "polnyy-ugovor",
           kind: "example",
           caption: "Разговор целиком",
+          razgovor: true,
           text:
             "— Hello! Are you free on Friday?\n— Yes, I am. What time?\n" +
             "— At six.\n— In the morning?\n— No, in the evening.\n" +
@@ -1645,16 +1643,7 @@ const module: Module = {
             { term: "good", translation: "хорошо (отклик на сказанное)", example: "Good. See you!", hint: "/gʊd/" },
           ],
         },
-        {
-          id: "zapis-ugovora",
-          kind: "audio",
-          pace: "slow",
-          voice: "два голоса",
-          caption: "Послушай разговор целиком",
-          transcript:
-            "Are you free on Friday? — Yes, I am. What time? — At six. — In the morning? " +
-            "— No, in the evening. — OK. See you on Friday!",
-        },
+        // Запись убрана: разговор выше звучит целиком и на два голоса.
 
         // ---- задания ----
         {
@@ -1902,6 +1891,12 @@ const module: Module = {
           id: "poryadok-v-dogovorennosti",
           kind: "table",
           caption: "По какому слову узнать, о чём речь",
+          // Урок слушания: обе записи ниже остаются, они и есть его предмет. Кнопки
+          // у примеров добавлены вдобавок. Сами предлоги отдельных кнопок не
+          // получают: в речи они безударны, и услышать их надо со словом, к
+          // которому они идут.
+          zvuchat: ["on Monday", "at seven", "in the morning",
+          ],
           head: ["Что ловим", "Какое слово перед ним", "Пример"],
           rows: [
             ["день", "on", "on Monday"],

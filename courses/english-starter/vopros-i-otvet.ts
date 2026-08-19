@@ -136,6 +136,12 @@ const module: Module = {
           id: "tablica-perestanovki",
           kind: "table",
           caption: "Сообщение и вопрос",
+          // Сообщение и вопрос звучат отдельными кнопками: слова в них те же, а
+          // голос идёт по-разному, и это слышно только в сравнении.
+          zvuchat: ["You are a student.", "Are you a student?", "She is from Turkey.",
+            "Is she from Turkey?", "He is in Astana.", "Is he in Astana?", "It is a city.",
+            "Is it a city?",
+          ],
           head: ["Сообщение", "Вопрос", "Перевод вопроса"],
           rows: [
             ["You are a student.", "Are you a student?", "Ты студент?"],
@@ -166,17 +172,18 @@ const module: Module = {
           kind: "example",
           caption: "Ещё два примера",
           text: "I am a doctor. → Am I a doctor?\nWe are in Almaty. → Are we in Almaty?",
+          // Стрелка не звучит: она наша разметка, а не слово. Строка читается
+          // как пара — сообщение, потом вопрос.
+          zvuk: {
+            "I am a doctor. → Am I a doctor?": "I am a doctor. Am I a doctor?",
+            "We are in Almaty. → Are we in Almaty?": "We are in Almaty. Are we in Almaty?",
+          },
           explain:
             "Правило одно для всех: что стоит первым, уходит на второе место, а глагол " +
             "выходит вперёд. Больше в предложении ничего не меняется.",
         },
-        {
-          id: "zapis-voprosov",
-          kind: "audio",
-          pace: "slow",
-          caption: "Послушай сообщение и вопрос рядом",
-          transcript: "You are a student. Are you a student? She is from Turkey. Is she from Turkey?",
-        },
+        // Запись убрана: те же четыре предложения звучат в таблице выше, каждое
+        // своей кнопкой, — а сравнить сообщение с вопросом так даже проще.
 
         // ---- задания ----
         {
@@ -268,6 +275,10 @@ const module: Module = {
           id: "tablica-otvetov-da",
           kind: "table",
           caption: "Вопрос и короткий ответ",
+          zvuchat: ["Are you a student?", "Is she from Turkey?", "Is he a doctor?",
+            "Are they in Astana?", "Yes, I am.", "Yes, she is.", "Yes, he is.",
+            "Yes, they are.",
+          ],
           head: ["Вопрос", "Ответ", "Перевод ответа"],
           rows: [
             ["Are you a student?", "Yes, I am.", "Да."],
@@ -294,13 +305,7 @@ const module: Module = {
             "Yes, I am. Об этом уже шла речь в модуле про приветствие: после короткой " +
             "формы всегда идут другие слова, а здесь после неё ничего нет.",
         },
-        {
-          id: "zapis-otvetov-da",
-          kind: "audio",
-          pace: "slow",
-          caption: "Послушай вопросы и ответы",
-          transcript: "Are you a student? — Yes, I am. Is she from Turkey? — Yes, she is.",
-        },
+        // Запись убрана: и вопрос, и ответ звучат в таблице выше по отдельности.
         {
           id: "slovar-otvetov",
           kind: "vocab",
@@ -401,6 +406,13 @@ const module: Module = {
           id: "tablica-otvetov-net",
           kind: "table",
           caption: "Вопрос и короткий ответ «нет»",
+          // Звучат обе записи ответа, короткая и полная: на слух они разной
+          // длины, и в разговоре встречаются обе.
+          zvuchat: ["Are you a student?", "Is she from Turkey?", "Is he a doctor?",
+            "Are they in Astana?", "No, I'm not.", "No, she isn't.", "No, he isn't.",
+            "No, they aren't.", "No, I am not.", "No, she is not.", "No, he is not.",
+            "No, they are not.",
+          ],
           head: ["Вопрос", "Ответ", "Полная запись"],
           rows: [
             ["Are you a student?", "No, I'm not.", "No, I am not."],
@@ -427,13 +439,7 @@ const module: Module = {
             "английском нет вовсе, поэтому слипается не глагол с not, а I с am. У остальных " +
             "наоборот: she isn't, they aren't.",
         },
-        {
-          id: "zapis-otvetov-net",
-          kind: "audio",
-          pace: "slow",
-          caption: "Послушай ответы «нет»",
-          transcript: "No, I'm not. No, she isn't. No, he isn't. No, they aren't.",
-        },
+        // Запись четырёх ответов подряд убрана: каждый звучит в таблице выше.
         {
           id: "slovar-net",
           kind: "vocab",
@@ -531,6 +537,14 @@ const module: Module = {
           id: "tablica-vseh-voprosov",
           kind: "table",
           caption: "Все семь вопросов",
+          // Начало вопроса звучит без продолжения: в ячейке стоит именно
+          // начало, и озвучивается ровно то, что напечатано.
+          zvuchat: ["Am I…?", "Are you…?", "Is he…?", "Is she…?", "Is it…?", "Are we…?",
+            "Are they…?", "Yes, you are.", "Yes, I am.", "Yes, he is.", "Yes, she is.",
+            "Yes, it is.", "Yes, we are.", "Yes, they are.", "No, you aren't.", "No, I'm not.",
+            "No, he isn't.", "No, she isn't.", "No, it isn't.", "No, we aren't.",
+            "No, they aren't.",
+          ],
           head: ["Кто", "Вопрос", "Ответ «да»", "Ответ «нет»"],
           rows: [
             ["I", "Am I…?", "Yes, you are.", "No, you aren't."],
@@ -559,13 +573,8 @@ const module: Module = {
             "Are you…? — про I. Остальные пять отвечают тем же местоимением, каким " +
             "спрашивали.",
         },
-        {
-          id: "zapis-vseh",
-          kind: "audio",
-          pace: "slow",
-          caption: "Послушай вопросы со всеми местоимениями",
-          transcript: "Am I…? Are you…? Is he…? Is she…? Is it…? Are we…? Are they…?",
-        },
+        // Запись всех семи начал подряд убрана: каждое звучит в таблице выше, у
+        // своей строки, — а вместе с ним и оба ответа.
 
         // ---- задания ----
         {
@@ -663,6 +672,12 @@ const module: Module = {
           id: "tablica-o-drugom",
           kind: "table",
           caption: "О себе и о другом",
+          // He и she на слух различает один звук в начале. Кнопки стоят рядом
+          // нарочно: включив две подряд, эту разницу и слышно.
+          zvuchat: ["I'm from Almaty.", "Is he from Almaty?", "Is she from Almaty?",
+            "I'm a student.", "Is he a student?", "Is she a student?", "I'm in Astana.",
+            "Is he in Astana?", "Is she in Astana?",
+          ],
           head: ["О себе", "Вопрос о нём", "Вопрос о ней"],
           rows: [
             ["I'm from Almaty.", "Is he from Almaty?", "Is she from Almaty?"],
@@ -683,20 +698,14 @@ const module: Module = {
           id: "razgovor-o-tretem",
           kind: "example",
           caption: "Разговор о третьем",
+          razgovor: true,
           text:
             "— Is she from Turkey?\n— No, she isn't. She's from Spain.\n— Is she a teacher?\n— Yes, she is.",
           explain:
             "После краткого «нет» часто добавляют, как на самом деле: No, she isn't. She's " +
             "from Spain. Так разговор не обрывается на отрицании.",
         },
-        {
-          id: "zapis-o-drugom",
-          kind: "audio",
-          pace: "slow",
-          caption: "Послушай разговор о третьем человеке",
-          transcript:
-            "Is she from Turkey? — No, she isn't. She's from Spain. Is she a teacher? — Yes, she is.",
-        },
+        // Запись убрана: разговор выше звучит целиком и на два голоса.
 
         // ---- задания ----
         {
@@ -785,6 +794,10 @@ const module: Module = {
           id: "tablica-polnyy-kratkiy",
           kind: "table",
           caption: "Один вопрос — два ответа",
+          zvuchat: ["Are you a student?", "Is he a doctor?", "Is she in Rome?", "Yes, I am.",
+            "No, he isn't.", "Yes, she is.", "Yes, I am. I'm from Almaty.",
+            "No, he isn't. He's a driver.", "Yes, she is. She's a teacher.",
+          ],
           head: ["Вопрос", "Коротко", "С добавлением"],
           rows: [
             ["Are you a student?", "Yes, I am.", "Yes, I am. I'm from Almaty."],
@@ -809,14 +822,8 @@ const module: Module = {
             "После отрицательного ответа особенно полезно добавить, как на самом деле: " +
             "No, he isn't. He's a driver. Иначе собеседник узнал только то, чего нет.",
         },
-        {
-          id: "zapis-vyborov",
-          kind: "audio",
-          pace: "slow",
-          caption: "Послушай короткий и полный ответ",
-          transcript:
-            "Are you a student? — Yes, I am. Are you a student? — Yes, I am. I'm from Almaty.",
-        },
+        // Запись убрана: и вопрос, и оба ответа звучат в таблице выше — включив
+        // соседние кнопки, короткий и полный ответ и сравнивают.
 
         // ---- задания ----
         {
@@ -908,6 +915,13 @@ const module: Module = {
           id: "tablica-otlichiy",
           kind: "table",
           caption: "Чем отличаются",
+          // В ячейке знака в конце нет нарочно — о нём говорит соседний
+          // столбец. Произносится строка со знаком: без него у вопроса не
+          // будет вопросительного голоса, а урок как раз о нём.
+          zvuk: {
+            "She is a nurse": "She is a nurse.",
+            "Is she a nurse": "Is she a nurse?",
+          },
           head: ["", "Первым стоит", "Пример", "В конце"],
           rows: [
             ["Сообщение", "тот, о ком речь", "She is a nurse", "точка"],
@@ -932,13 +946,9 @@ const module: Module = {
             "местах, а знак поменяли. По-английски вопрос строится перестановкой, а не " +
             "знаком: Are you a student?",
         },
-        {
-          id: "zapis-otlichiy",
-          kind: "audio",
-          pace: "slow",
-          caption: "Послушай пару: сообщение и вопрос",
-          transcript: "She is a nurse. Is she a nurse? He is from Spain. Is he from Spain?",
-        },
+        // Запись убрана: пара «сообщение — вопрос» звучит в таблице выше двумя
+        // соседними кнопками, а вторая такая же пара разбирается в уроке
+        // слушания этого же модуля.
 
         // ---- задания ----
         {
@@ -1030,6 +1040,7 @@ const module: Module = {
           id: "polnyy-razgovor-voprosov",
           kind: "example",
           caption: "Разговор целиком",
+          razgovor: true,
           text:
             "— Hello! I'm Dana. Are you a student?\n— No, I'm not. I'm a teacher. And you?\n" +
             "— Yes, I am. Are you from Astana?\n— No, I'm not. I'm from Almaty.\n— Nice to meet you!",
@@ -1041,6 +1052,8 @@ const module: Module = {
           id: "tablica-shagov-razgovora",
           kind: "table",
           caption: "Из чего складывается такой разговор",
+          zvuchat: ["Are you a student?", "No, I'm not.", "I'm a teacher.", "And you?",
+          ],
           head: ["Шаг", "Пример"],
           rows: [
             ["спросить", "Are you a student?"],
@@ -1058,16 +1071,8 @@ const module: Module = {
             "только то, чего нет. Добавь одно предложение о том, как на самом деле, и " +
             "разговор продолжится сам.",
         },
-        {
-          id: "zapis-razgovora-voprosov",
-          kind: "audio",
-          pace: "slow",
-          voice: "два голоса",
-          caption: "Послушай разговор целиком",
-          transcript:
-            "Hello! I'm Dana. Are you a student? — No, I'm not. I'm a teacher. And you? — " +
-            "Yes, I am. Are you from Astana? — No, I'm not. I'm from Almaty.",
-        },
+        // Запись убрана: разговор выше звучит целиком и на два голоса, а шаги
+        // разговора — по одному в таблице.
 
         // ---- задания ----
         {
@@ -1179,12 +1184,9 @@ const module: Module = {
           id: "golos-vverh-i-vniz",
           kind: "table",
           caption: "Те же слова в другом порядке — нажми и сравни",
-          zvuk: {
-            "You are a student.": "You are a student.",
-            "Are you a student?": "Are you a student?",
-            "He is a doctor.": "He is a doctor.",
-            "Is he a doctor?": "Is he a doctor?",
-          },
+          zvuchat: ["You are a student.", "Are you a student?", "He is a doctor.",
+            "Is he a doctor?",
+          ],
           head: ["Сообщение — первым тот, о ком речь", "Вопрос — первой форма be"],
           rows: [
             ["You are a student.", "Are you a student?"],

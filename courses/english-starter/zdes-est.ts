@@ -228,6 +228,9 @@ const module: Module = {
           id: "tablica-there-is",
           kind: "table",
           caption: "Что где есть",
+          zvuchat: ["There is a shop near the station.", "There is a park behind the school.",
+            "There is a bus stop opposite the hotel.", "There is a picture on the wall.",
+          ],
           head: ["Английский", "Перевод"],
           rows: [
             ["There is a shop near the station.", "Рядом со станцией есть магазин."],
@@ -271,6 +274,7 @@ const module: Module = {
           id: "primer-there-is",
           kind: "example",
           caption: "Разговор о районе",
+          razgovor: true,
           text:
             "— Where is your flat?\n— It's near the station.\n— Is it a good flat?\n" +
             "— Yes, it is. There is a park behind the house.",
@@ -278,15 +282,7 @@ const module: Module = {
             "В первых строках знакомые вопросы из прежних модулей. Новое только последнее " +
             "предложение: оно не говорит, где парк, а сообщает, что парк вообще есть.",
         },
-        {
-          id: "zapis-there-is",
-          kind: "audio",
-          pace: "slow",
-          caption: "Послушай четыре предложения",
-          transcript:
-            "There is a shop near the station. There is a park behind the school. " +
-            "There is a bus stop opposite the hotel. There is a picture on the wall.",
-        },
+        // Запись убрана: все четыре предложения звучат в таблице выше.
         {
           id: "slovar-there-is",
           kind: "vocab",
@@ -391,6 +387,10 @@ const module: Module = {
           id: "tablica-there-are",
           kind: "table",
           caption: "Один и несколько",
+          zvuchat: ["There is a room.", "There are two rooms.", "There is a shop.",
+            "There are three shops.", "There is a tree.", "There are four trees.",
+            "There is a chair.", "There are five chairs.",
+          ],
           head: ["Один", "Несколько", "Перевод второго столбца"],
           rows: [
             ["There is a room.", "There are two rooms.", "Есть две комнаты."],
@@ -420,6 +420,7 @@ const module: Module = {
           id: "primer-there-are",
           kind: "example",
           caption: "Разговор о квартире",
+          razgovor: true,
           text:
             "— Is your flat big?\n— No, it isn't. There are two rooms.\n— And a garden?\n" +
             "— Yes, there is a garden behind the house.",
@@ -427,15 +428,7 @@ const module: Module = {
             "Во второй строке о комнатах говорят there are — их две. В четвёртой сад один, " +
             "и потому there is.",
         },
-        {
-          id: "zapis-there-are",
-          kind: "audio",
-          pace: "slow",
-          caption: "Послушай пары",
-          transcript:
-            "There is a room. There are two rooms. There is a shop. There are three shops. " +
-            "There is a tree. There are four trees.",
-        },
+        // Запись убрана: обе половины каждой пары звучат в таблице выше.
         {
           id: "slovar-there-are",
           kind: "vocab",
@@ -537,6 +530,9 @@ const module: Module = {
           id: "tablica-komnat",
           kind: "table",
           caption: "Комнаты",
+          // Звучит слово, а не транскрипция рядом с ним: транскрипцию читают глазами.
+          zvuchat: ["room", "bedroom", "bathroom", "kitchen",
+          ],
           head: ["Слово", "Перевод", "Как читается"],
           rows: [
             ["room", "комната", "/ruːm/"],
@@ -558,6 +554,11 @@ const module: Module = {
           id: "tablica-veshchey",
           kind: "table",
           caption: "Что стоит в комнате",
+          zvuchat: ["bed", "There is a bed in the bedroom.", "table",
+            "There is a table in the kitchen.", "chair", "There are two chairs.", "TV",
+            "There is a TV in the room.", "picture", "There is a picture on the wall.",
+            "window", "There are two windows.",
+          ],
           head: ["Слово", "Перевод", "Пример"],
           rows: [
             ["bed", "кровать", "There is a bed in the bedroom."],
@@ -580,6 +581,9 @@ const module: Module = {
           id: "primer-komnat",
           kind: "example",
           caption: "Квартира по комнатам",
+          zvuchat: ["There are two rooms in my flat.",
+            "There is a bed and a table in the bedroom.", "There is a TV on the table.",
+          ],
           text:
             "There are two rooms in my flat.\nThere is a bed and a table in the bedroom.\n" +
             "There is a TV on the table.",
@@ -587,15 +591,7 @@ const module: Module = {
             "Три предложения об одной квартире. В первом комнат несколько — there are. Во " +
             "втором два предмета соединены словом and, но форма be одна: is.",
         },
-        {
-          id: "zapis-komnat",
-          kind: "audio",
-          pace: "slow",
-          caption: "Послушай комнаты и вещи",
-          transcript:
-            "Room. Bedroom. Bathroom. Kitchen. Bed. Table. Chair. TV. There are two rooms " +
-            "in my flat.",
-        },
+        // Запись убрана: каждое слово звучит в таблицах выше.
         {
           id: "slovar-komnat",
           kind: "vocab",
@@ -705,6 +701,9 @@ const module: Module = {
           id: "tablica-some",
           kind: "table",
           caption: "С числом и без числа",
+          zvuchat: ["There are three books.", "There are some books.", "There are two shops.",
+            "There are some shops.", "There are five people.", "There are some people.",
+          ],
           head: ["Число названо", "Число не названо", "Перевод второго столбца"],
           rows: [
             ["There are three books.", "There are some books.", "Есть несколько книг."],
@@ -734,6 +733,7 @@ const module: Module = {
           id: "primer-some",
           kind: "example",
           caption: "Разговор о комнате",
+          razgovor: true,
           text:
             "— Is the room big?\n— Yes, it is. There is a table and some chairs.\n" +
             "— And a TV?\n— Yes, there is a TV on the table.",
@@ -741,15 +741,7 @@ const module: Module = {
             "Во второй строке стол один — перед ним a, стульев несколько — перед ними some. " +
             "Форма be одна на оба предмета, и выбирают её по первому: стол один, значит is.",
         },
-        {
-          id: "zapis-some",
-          kind: "audio",
-          pace: "slow",
-          caption: "Послушай some в предложениях",
-          transcript:
-            "There are some books on the table. There are some shops near the station. " +
-            "There is a table and some chairs.",
-        },
+        // Запись убрана: обе половины каждой пары звучат в таблице выше.
         {
           id: "slovar-some",
           kind: "vocab",
@@ -850,6 +842,11 @@ const module: Module = {
           id: "tablica-voprosa",
           kind: "table",
           caption: "Сообщение и вопрос",
+          zvuchat: ["There is a shop near here.", "Is there a shop near here?",
+            "There is a bathroom in the flat.", "Is there a bathroom in the flat?",
+            "There are two rooms.", "Are there two rooms?", "There are some books.",
+            "Are there any books?",
+          ],
           head: ["Сообщение", "Вопрос"],
           rows: [
             ["There is a shop near here.", "Is there a shop near here?"],
@@ -883,6 +880,9 @@ const module: Module = {
           id: "tablica-otvetov-there",
           kind: "table",
           caption: "Краткие ответы",
+          zvuchat: ["Is there a shop?", "Yes, there is.", "No, there isn't.",
+            "Are there two rooms?", "Yes, there are.", "No, there aren't.",
+          ],
           head: ["Вопрос", "Да", "Нет"],
           rows: [
             ["Is there a shop?", "Yes, there is.", "No, there isn't."],
@@ -903,6 +903,7 @@ const module: Module = {
           id: "primer-voprosa-there",
           kind: "example",
           caption: "Разговор на улице",
+          razgovor: true,
           text:
             "— Excuse me. Is there a shop near here?\n— Yes, there is. It's opposite the " +
             "park.\n— Thank you.",
@@ -910,16 +911,7 @@ const module: Module = {
             "Сначала спрашивают, есть ли магазин, и только потом — где он. Слова Excuse me " +
             "и Thank you знакомы по прежним модулям.",
         },
-        {
-          id: "zapis-voprosa-there",
-          kind: "audio",
-          pace: "slow",
-          voice: "два голоса",
-          caption: "Послушай вопросы и ответы",
-          transcript:
-            "Is there a shop near here? Yes, there is. Are there two rooms? Yes, there are. " +
-            "Is there a garden? No, there isn't.",
-        },
+        // Запись убрана: и сообщения, и вопросы, и краткие ответы звучат в таблицах выше.
         {
           id: "slovar-voprosa-there",
           kind: "vocab",
@@ -1030,6 +1022,9 @@ const module: Module = {
           id: "tablica-otricaniya-there",
           kind: "table",
           caption: "Есть и нет",
+          zvuchat: ["There is a garden.", "There isn't a garden.", "There is a TV.",
+            "There isn't a TV.", "There are some shops.", "There aren't any shops.",
+          ],
           head: ["Есть", "Нет", "Перевод отрицания"],
           rows: [
             ["There is a garden.", "There isn't a garden.", "Сада нет."],
@@ -1070,6 +1065,7 @@ const module: Module = {
           id: "primer-otricaniya-there",
           kind: "example",
           caption: "Разговор о квартире",
+          razgovor: true,
           text:
             "— Is there a garden?\n— No, there isn't. There is a park near the house.\n" +
             "— And a bathroom?\n— Yes, there is.",
@@ -1077,15 +1073,7 @@ const module: Module = {
             "Ответ идёт в два шага, как в модуле «Не так»: сначала чего нет, потом что " +
             "есть вместо этого.",
         },
-        {
-          id: "zapis-otricaniya-there",
-          kind: "audio",
-          pace: "slow",
-          caption: "Послушай отрицания",
-          transcript:
-            "There isn't a garden. There isn't a TV. There aren't any shops. " +
-            "No, there isn't.",
-        },
+        // Запись убрана: обе половины каждой пары звучат в таблице выше.
         {
           id: "slovar-otricaniya-there",
           kind: "vocab",
@@ -1187,6 +1175,9 @@ const module: Module = {
           id: "tablica-mest-goroda",
           kind: "table",
           caption: "Четыре новых места",
+          // Звучит слово, а не транскрипция рядом с ним.
+          zvuchat: ["cinema", "library", "market", "restaurant",
+          ],
           head: ["Слово", "Перевод", "Как читается"],
           rows: [
             ["cinema", "кинотеатр", "/ˈsɪnəmə/"],
@@ -1215,6 +1206,10 @@ const module: Module = {
           id: "primer-goroda-there",
           kind: "example",
           caption: "Рассказ о городе",
+          zvuchat: ["There is a cinema in my street.",
+            "There are two markets near the station.",
+            "There isn't a library, but there is a school.",
+          ],
           text:
             "There is a cinema in my street.\nThere are two markets near the station.\n" +
             "There isn't a library, but there is a school.",
@@ -1222,15 +1217,7 @@ const module: Module = {
             "Три предложения об одном городе. В третьем сначала сказано, чего нет, потом — " +
             "что есть. Соединяет две части слово but — «но».",
         },
-        {
-          id: "zapis-goroda-there",
-          kind: "audio",
-          pace: "slow",
-          caption: "Послушай четыре места",
-          transcript:
-            "Cinema. Library. Market. Restaurant. There is a cinema in my street. " +
-            "There are two markets near the station.",
-        },
+        // Запись убрана: каждое место звучит в таблице выше, а рассказ — построчно.
         {
           id: "slovar-goroda-there",
           kind: "vocab",
@@ -1329,6 +1316,9 @@ const module: Module = {
           id: "shagi-rasskaza-zhilyo",
           kind: "table",
           caption: "Рассказ по шагам",
+          zvuchat: ["I live in a flat.", "There are two rooms.", "There is a bed and a table.",
+            "There is a park near the house.",
+          ],
           head: ["Шаг", "О чём", "Пример"],
           rows: [
             ["1", "где живёшь", "I live in a flat."],
@@ -1359,6 +1349,9 @@ const module: Module = {
           id: "primer-rasskaza-zhilyo",
           kind: "example",
           caption: "Рассказ целиком",
+          zvuchat: ["I live in a flat.", "There are two rooms and a kitchen.",
+            "There is a TV in the big room.", "There is a market near the house.",
+          ],
           text:
             "I live in a flat.\nThere are two rooms and a kitchen.\n" +
             "There is a TV in the big room.\nThere is a market near the house.",
@@ -1366,15 +1359,7 @@ const module: Module = {
             "Четыре предложения, и три из них построены одним оборотом. Во втором комнат " +
             "несколько, поэтому are; в третьем и четвёртом предмет один, поэтому is.",
         },
-        {
-          id: "zapis-rasskaza-zhilyo",
-          kind: "audio",
-          pace: "slow",
-          caption: "Послушай рассказ целиком",
-          transcript:
-            "I live in a flat. There are two rooms and a kitchen. There is a TV in the big " +
-            "room. There is a market near the house.",
-        },
+        // Запись убрана: рассказ выше звучит построчно, а шаги — в таблице.
 
         // ---- задания ----
         {
@@ -1611,6 +1596,11 @@ const module: Module = {
           id: "est-ili-net-na-sluh",
           kind: "table",
           caption: "Есть и нет — что слышно",
+          // Урок слушания: обе записи ниже остаются, они и есть его предмет. Кнопки
+          // у пар добавлены вдобавок — отрицание здесь и различает пару.
+          zvuchat: ["There is a shop.", "There isn't a shop.", "There are two rooms.",
+            "There aren't two rooms.", "There is a park.", "There isn't a park.",
+          ],
           // Третья строка называла «There is no garden» верной записью, а урок
           // «Чего нет» двумя уроками раньше запрещает `no` в этом месте. Взята
           // другая пара, и сад из таблицы убран: он же ответ задания ниже.

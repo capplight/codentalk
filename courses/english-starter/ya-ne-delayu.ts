@@ -208,6 +208,10 @@ const module: Module = {
           id: "tablica-dont",
           kind: "table",
           caption: "Делаю и не делаю",
+          zvuchat: ["I work on Sunday.", "I don't work on Sunday.", "I drink coffee.",
+            "I don't drink coffee.", "I play football.", "I don't play football.",
+            "I know Dana.", "I don't know Dana.",
+          ],
           head: ["Делаю", "Не делаю", "Перевод отрицания"],
           rows: [
             ["I work on Sunday.", "I don't work on Sunday.", "По воскресеньям я не работаю."],
@@ -237,6 +241,7 @@ const module: Module = {
           id: "primer-dont",
           kind: "example",
           caption: "Разговор о воскресенье",
+          razgovor: true,
           text:
             "— Do you work on Sunday?\n— No. I don't work on Sunday. I read books.",
           explain:
@@ -244,15 +249,7 @@ const module: Module = {
             "делах». Важен ответ: сначала что не так, потом как на самом деле — так же, " +
             "как в модуле «Не так».",
         },
-        {
-          id: "zapis-dont",
-          kind: "audio",
-          pace: "slow",
-          caption: "Послушай пары",
-          transcript:
-            "I work on Sunday. I don't work on Sunday. I drink coffee. I don't drink " +
-            "coffee. I know Dana. I don't know Dana.",
-        },
+        // Запись убрана: обе половины каждой пары звучат в таблице выше.
         {
           id: "slovar-dont",
           kind: "vocab",
@@ -353,6 +350,10 @@ const module: Module = {
           id: "tablica-doesnt",
           kind: "table",
           caption: "Я и он",
+          zvuchat: ["I don't work.", "He doesn't work.", "I don't drive.", "She doesn't drive.",
+            "I don't like coffee.", "He doesn't like coffee.", "I don't know Dana.",
+            "She doesn't know Dana.",
+          ],
           head: ["Я", "Он или она", "Перевод второго столбца"],
           rows: [
             ["I don't work.", "He doesn't work.", "Он не работает."],
@@ -374,6 +375,10 @@ const module: Module = {
           id: "gde-stoit-s",
           kind: "table",
           caption: "Где стоит окончание",
+          zvuchat: ["He works.", "He doesn't work.", "She goes to work.",
+            "She doesn't go to work.", "The shop opens at nine.",
+            "The shop doesn't open at nine.",
+          ],
           head: ["Утверждение", "Отрицание"],
           rows: [
             ["He works.", "He doesn't work."],
@@ -385,6 +390,9 @@ const module: Module = {
           id: "primer-doesnt",
           kind: "example",
           caption: "Рассказ о брате",
+          zvuchat: ["My brother works in a shop.", "He doesn't work on Sunday.",
+            "He doesn't drive, he walks.",
+          ],
           text:
             "My brother works in a shop.\nHe doesn't work on Sunday.\n" +
             "He doesn't drive, he walks.",
@@ -393,15 +401,7 @@ const module: Module = {
             "третьей окончание стоит у doesn't, а сам глагол без него. В конце третьей " +
             "строки снова утверждение — he walks, и окончание опять у глагола.",
         },
-        {
-          id: "zapis-doesnt",
-          kind: "audio",
-          pace: "slow",
-          caption: "Послушай пары",
-          transcript:
-            "I don't work. He doesn't work. I don't drive. She doesn't drive. He works. " +
-            "He doesn't work.",
-        },
+        // Запись убрана: обе половины каждой пары звучат в таблицах выше.
         {
           id: "slovar-doesnt",
           kind: "vocab",
@@ -505,6 +505,9 @@ const module: Module = {
           id: "tablica-polnoy",
           kind: "table",
           caption: "Полная и короткая",
+          zvuchat: ["do not", "don't", "I don't work on Sunday.", "does not", "doesn't",
+            "He doesn't work on Sunday.",
+          ],
           head: ["Полная", "Короткая", "Пример"],
           rows: [
             ["do not", "don't", "I don't work on Sunday."],
@@ -531,6 +534,8 @@ const module: Module = {
           id: "primer-polnoy",
           kind: "example",
           caption: "Объявление и разговор",
+          zvuchat: ["The shop does not open on Sunday.", "— Sorry, we don't open on Sunday.",
+          ],
           text:
             "The shop does not open on Sunday.\n\n— Sorry, we don't open on Sunday.",
           explain:
@@ -546,14 +551,7 @@ const module: Module = {
             { term: "does not", translation: "не (полная запись об одном)", example: "He does not work.", hint: "/dʌz nɒt/" },
           ],
         },
-        {
-          id: "zapis-polnoy",
-          kind: "audio",
-          pace: "slow",
-          caption: "Послушай обе записи",
-          transcript:
-            "I do not work. I don't work. He does not work. He doesn't work.",
-        },
+        // Запись убрана: обе записи отрицания звучат в таблице выше.
 
         // ---- задания ----
         {
@@ -629,6 +627,9 @@ const module: Module = {
           id: "tablica-razlicheniya",
           kind: "table",
           caption: "Два отрицания",
+          zvuchat: ["I'm not a doctor.", "The shop isn't big.", "I don't work.",
+            "He doesn't work.",
+          ],
           head: ["Что в предложении", "Отрицание", "Пример"],
           rows: [
             ["форма be", "not после неё", "I'm not a doctor."],
@@ -659,6 +660,7 @@ const module: Module = {
           id: "primer-razlicheniya",
           kind: "example",
           caption: "Разговор о работе",
+          razgovor: true,
           text:
             "— Are you a doctor?\n— No, I'm not a doctor. I don't work in a hospital.\n" +
             "— And your brother?\n— He isn't a doctor. He doesn't work in a hospital.",
@@ -666,15 +668,7 @@ const module: Module = {
             "В каждом ответе два предложения: одно с формой be, другое с глаголом. " +
             "Отрицание в них разное, и путать их нельзя.",
         },
-        {
-          id: "zapis-razlicheniya",
-          kind: "audio",
-          pace: "slow",
-          caption: "Послушай оба отрицания рядом",
-          transcript:
-            "I'm not a doctor. I don't work in a hospital. He isn't a doctor. He doesn't " +
-            "work in a hospital.",
-        },
+        // Запись убрана: все четыре предложения звучат в таблице выше.
 
         // ---- задания ----
         {
@@ -769,6 +763,9 @@ const module: Module = {
           id: "tablica-popravok",
           kind: "table",
           caption: "Два шага",
+          zvuchat: ["I don't drink coffee.", "I drink tea.", "I don't eat meat.", "I eat fish.",
+            "He doesn't drive.", "He walks.", "She doesn't work on Sunday.", "She reads books.",
+          ],
           head: ["Шаг 1: что не так", "Шаг 2: как на самом деле"],
           rows: [
             ["I don't drink coffee.", "I drink tea."],
@@ -799,6 +796,7 @@ const module: Module = {
           id: "primer-popravki",
           kind: "example",
           caption: "Поправка в разговоре",
+          razgovor: true,
           text:
             "— You drink coffee.\n— No, I don't drink coffee. I drink tea.\n" +
             "— And your brother?\n— He doesn't drink tea. He drinks water.",
@@ -806,16 +804,7 @@ const module: Module = {
             "Оба ответа устроены одинаково: сначала что не так, потом как на самом деле. В " +
             "последней строке окончание вернулось к drinks.",
         },
-        {
-          id: "zapis-popravki",
-          kind: "audio",
-          pace: "slow",
-          voice: "два голоса",
-          caption: "Послушай поправки",
-          transcript:
-            "I don't drink coffee. I drink tea. I don't eat meat. I eat fish. He doesn't " +
-            "drive. He walks.",
-        },
+        // Запись убрана: оба шага каждой поправки звучат в таблице выше.
         {
           id: "slovar-popravki",
           kind: "vocab",
@@ -911,6 +900,10 @@ const module: Module = {
           id: "tablica-chego-ne",
           kind: "table",
           caption: "Чего не делают",
+          // Звучит предложение, а не транскрипция рядом с ним.
+          zvuchat: ["I don't eat meat.", "I don't drink coffee.", "I don't drive.",
+            "I don't sing.", "I don't swim.", "I don't sleep in the day.",
+          ],
           head: ["Английский", "Перевод", "Как читается новое слово"],
           rows: [
             ["I don't eat meat.", "Я не ем мясо.", "/miːt/"],
@@ -942,6 +935,7 @@ const module: Module = {
           id: "primer-chego-ne",
           kind: "example",
           caption: "В гостях",
+          razgovor: true,
           text:
             "— Tea or coffee?\n— Tea, please. I don't drink coffee.\n— And meat?\n" +
             "— I don't eat meat. I eat fish.",
@@ -949,15 +943,7 @@ const module: Module = {
             "Ответить коротким предложением с don't проще, чем объяснять. Слово please " +
             "знакомо по модулю «Приветствие».",
         },
-        {
-          id: "zapis-chego-ne",
-          kind: "audio",
-          pace: "slow",
-          caption: "Послушай пять предложений",
-          transcript:
-            "I don't eat meat. I don't drink coffee. I don't drive. I don't sing. " +
-            "I don't swim.",
-        },
+        // Запись убрана: все шесть предложений звучат в таблице выше.
         {
           id: "slovar-chego-ne",
           kind: "vocab",
@@ -1059,6 +1045,11 @@ const module: Module = {
           id: "tablica-oni-ne",
           kind: "table",
           caption: "Кто и какое отрицание",
+          // Столбец с местоимениями отдельных кнопок не получает: урок здесь о том,
+          // какое отрицание к ним идёт, — оно и звучит.
+          zvuchat: ["don't", "They don't live here.", "doesn't", "He doesn't live here.",
+            "Dana doesn't live here.", "My friends don't live here.",
+          ],
           head: ["Кто", "Отрицание", "Пример"],
           rows: [
             ["I, you, we, they", "don't", "They don't live here."],
@@ -1080,6 +1071,9 @@ const module: Module = {
           id: "primer-oni-ne",
           kind: "example",
           caption: "О друзьях",
+          zvuchat: ["My friends don't live in Astana. They live in Almaty.",
+            "They don't work on Sunday.",
+          ],
           text:
             "My friends don't live in Astana. They live in Almaty.\n" +
             "They don't work on Sunday.",
@@ -1095,15 +1089,7 @@ const module: Module = {
             { term: "parents", translation: "родители", example: "My parents don't drive.", hint: "/ˈpeərənts/" },
           ],
         },
-        {
-          id: "zapis-oni-ne",
-          kind: "audio",
-          pace: "slow",
-          caption: "Послушай все формы",
-          transcript:
-            "I don't work. You don't work. He doesn't work. She doesn't work. We don't " +
-            "work. They don't work.",
-        },
+        // Запись убрана: оба отрицания и примеры к ним звучат в таблице выше.
 
         // ---- задания ----
         {
@@ -1190,6 +1176,9 @@ const module: Module = {
           id: "shagi-oba",
           kind: "table",
           caption: "Рассказ по шагам",
+          zvuchat: ["I get up at nine on Sunday.", "I don't work.", "I read books.",
+            "I don't watch football.",
+          ],
           head: ["Шаг", "О чём", "Пример"],
           rows: [
             ["1", "что делаешь", "I get up at nine on Sunday."],
@@ -1210,6 +1199,9 @@ const module: Module = {
           id: "primer-oba",
           kind: "example",
           caption: "Воскресенье целиком",
+          zvuchat: ["I get up at nine on Sunday.", "I don't work.", "I cook and read books.",
+            "I don't watch football.",
+          ],
           text:
             "I get up at nine on Sunday.\nI don't work.\nI cook and read books.\n" +
             "I don't watch football.",
@@ -1221,6 +1213,9 @@ const module: Module = {
           id: "primer-oba-o-brate",
           kind: "example",
           caption: "Тот же рассказ, но о брате",
+          zvuchat: ["He gets up at nine on Sunday.", "He doesn't work.",
+            "He cooks and reads books.", "He doesn't watch football.",
+          ],
           text:
             "He gets up at nine on Sunday.\nHe doesn't work.\nHe cooks and reads books.\n" +
             "He doesn't watch football.",
@@ -1228,17 +1223,7 @@ const module: Module = {
             "В утверждениях окончание стоит у глаголов: gets, cooks, reads. В отрицаниях " +
             "оно перешло к doesn't.",
         },
-        {
-          id: "zapis-oba",
-          kind: "audio",
-          pace: "slow",
-          voice: "два голоса",
-          caption: "Послушай оба рассказа",
-          transcript:
-            "I get up at nine on Sunday. I don't work. I cook and read books. I don't " +
-            "watch football. He gets up at nine on Sunday. He doesn't work. He cooks and " +
-            "reads books. He doesn't watch football.",
-        },
+        // Запись убрана: оба рассказа выше звучат построчно.
 
         // ---- задания ----
         {
@@ -1459,12 +1444,9 @@ const module: Module = {
           id: "dont-i-doesnt-na-sluh",
           kind: "table",
           caption: "Есть и нет — нажми и сравни",
-          zvuk: {
-            "I work on Sunday.": "I work on Sunday.",
-            "I don't work on Sunday.": "I don't work on Sunday.",
-            "He works in a shop.": "He works in a shop.",
-            "He doesn't work in a shop.": "He doesn't work in a shop.",
-          },
+          zvuchat: ["I work on Sunday.", "I don't work on Sunday.", "He works in a shop.",
+            "He doesn't work in a shop.",
+          ],
           head: ["Делает", "Не делает"],
           rows: [
             ["I work on Sunday.", "I don't work on Sunday."],

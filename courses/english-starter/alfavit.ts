@@ -491,6 +491,14 @@ const module: Module = {
           id: "dvoyniki",
           kind: "table",
           caption: "Выглядят как русские, но это другие буквы",
+          // Звучат оба столбца, которые ученик сверяет: название буквы и слово
+          // с ней. Без слова буква остаётся значком — услышать надо, что H в
+          // hotel не даёт «н».
+          zvuchat: ["book", "clock", "hotel", "pen", "box", "yes",
+          ],
+          zvuk: {
+            "B b": "B", "C c": "C", "H h": "H", "P p": "P", "X x": "X", "Y y": "Y"
+          },
           head: ["Буква", "Название", "Выглядит как русская", "Пример"],
           rows: [
             ["B b", "/biː/", "В в", "book"],
@@ -515,6 +523,14 @@ const module: Module = {
           id: "semyi-nazvaniy",
           kind: "table",
           caption: "Названия собраны из немногих звуков",
+          // Одна запись на семью, а не на букву: слышно должно быть общее
+          // окончание, а оно слышно только подряд.
+          zvuk: {
+            "B /biː/, C /siː/, D /diː/, E /iː/, G /dʒiː/, P /piː/, T /tiː/, V /viː/":
+              "B. C. D. E. G. P. T. V.",
+            "A /eɪ/, H /eɪtʃ/, J /dʒeɪ/, K /keɪ/": "A. H. J. K.",
+            "F /ef/, L /el/, M /em/, N /en/, S /es/, X /eks/": "F. L. M. N. S. X.",
+          },
           head: ["Что общего", "Буквы"],
           rows: [
             ["оканчиваются на /iː/", "B /biː/, C /siː/, D /diː/, E /iː/, G /dʒiː/, P /piː/, T /tiː/, V /viː/"],
@@ -659,12 +675,9 @@ const module: Module = {
           caption: "Сравни",
           text:
             "My name is Alim. I am from Kazakhstan.\nI speak Kazakh, Russian and English.",
-          zvuk: {
-            "My name is Alim. I am from Kazakhstan.":
-              "My name is Alim. I am from Kazakhstan.",
-            "I speak Kazakh, Russian and English.":
-              "I speak Kazakh, Russian and English.",
-          },
+          zvuchat: ["My name is Alim. I am from Kazakhstan.",
+            "I speak Kazakh, Russian and English.",
+          ],
           explain:
             "Alim — имя, Kazakhstan — страна, Kazakh, Russian, English — языки. Все с " +
             "заглавной. По-русски с заглавной здесь писались бы только имя и название страны.",
@@ -918,16 +931,8 @@ const module: Module = {
           text:
             "Имена:\nAlim\nDana\nKarim\nNurlan\nZarina\n\n" +
             "Слова на одну и ту же букву:\nschool\nsome\nspell",
-          zvuk: {
-            Alim: "Alim",
-            Dana: "Dana",
-            Karim: "Karim",
-            Nurlan: "Nurlan",
-            Zarina: "Zarina",
-            school: "school",
-            some: "some",
-            spell: "spell",
-          },
+          zvuchat: ["Alim", "Dana", "Karim", "Nurlan", "Zarina", "school", "some", "spell",
+          ],
           explain:
             "В первом списке имена стоят по первой букве: A, D, K, N, Z — в том же порядке, " +
             "что и в алфавите. Во втором все слова начинаются на s, и первая буква ничего не " +
@@ -1042,6 +1047,10 @@ const module: Module = {
           id: "primery-imyon",
           kind: "table",
           caption: "Имя, его запись латиницей и диктовка",
+          // Два столбца звучат по-разному: имя целиком и оно же по буквам.
+          // Разница между ними и есть предмет урока.
+          zvuchat: ["Dana", "Alim", "Nurlan", "D-A-N-A", "A-L-I-M", "N-U-R-L-A-N",
+          ],
           head: ["Имя", "Латиницей", "Как продиктовать"],
           rows: [
             ["Дана", "Dana", "D-A-N-A"],
@@ -1061,13 +1070,10 @@ const module: Module = {
             "именно об имени: How do you spell your name? В ответ буквы называют по одной. " +
             "Заглавная в начале при этом не проговаривается — её ставят на письме.",
         },
-        {
-          id: "zapis-imeni",
-          kind: "audio",
-          pace: "slow",
-          caption: "Послушай, как диктуют имя",
-          transcript: "My name is Aigul. A-I-G-U-L. Aigul.",
-        },
+        // Здесь стояла отдельная запись «My name is Aigul. A-I-G-U-L. Aigul.».
+        // Она убрана: разговор выше звучит целиком, а таблица — имя и его
+        // диктовку по отдельности. Ученик слышит то, на что смотрит, и второй
+        // звук внизу урока только терялся.
 
         // ---- задания ----
         {
@@ -1150,6 +1156,11 @@ const module: Module = {
           id: "tablica-poley",
           kind: "table",
           caption: "Что обычно спрашивают",
+          // Подпись поля и есть то, что надо узнать глазами и на слух: у стойки
+          // её произносят вслух, а в бланке она напечатана.
+          zvuchat: ["First name", "Surname", "Country", "Address", "Dana", "Nurlanova",
+            "Kazakhstan", "12 Abay Street",
+          ],
           head: ["Поле", "Что писать", "Пример"],
           rows: [
             ["First name", "личное имя", "Dana"],
@@ -1187,12 +1198,22 @@ const module: Module = {
             "теперь оно понадобилось в деле.",
         },
         {
-          id: "zapis-blanka",
-          kind: "audio",
-          pace: "slow",
-          caption: "Послушай, как эти данные диктуют у стойки",
-          transcript:
-            "First name: Dana. D-A-N-A. Surname: Nurlanova. N-U-R-L-A-N-O-V-A. Country: Kazakhstan.",
+          // Была отдельная запись всей строки разом. Стала примером, где звучит
+          // каждое поле по отдельности: у стойки их и называют по одному, а
+          // одна длинная запись не даёт переслушать нужное.
+          id: "kak-diktuyut-u-stoyki",
+          kind: "example",
+          caption: "Как эти данные диктуют у стойки",
+          text:
+            "First name: Dana. D-A-N-A.\n" +
+            "Surname: Nurlanova. N-U-R-L-A-N-O-V-A.\n" +
+            "Country: Kazakhstan.",
+          zvuchat: ["First name: Dana. D-A-N-A.", "Surname: Nurlanova. N-U-R-L-A-N-O-V-A.",
+            "Country: Kazakhstan.",
+          ],
+          explain:
+            "Каждое поле называют, а потом диктуют по буквам. Имя и фамилию диктуют всегда: " +
+            "на слух их не запишут верно. Название страны диктовать не нужно — его знают.",
         },
         {
           id: "slovar-blanka",
@@ -1320,17 +1341,15 @@ const module: Module = {
           // Звучат и само сочетание, и слова — решение владельца от 19 августа.
           // Сочетание само по себе синтез прочесть не может, поэтому вместо
           // букв ему даётся звук: ea → /iː/. Слова строкой, одной записью.
+          zvuchat: ["tea, sea, eat", "black, clock", "night, light", "house, out",
+            "teacher, sister, water",
+          ],
           zvuk: {
             ea: "/iː/",
             ck: "/k/",
             ight: "/aɪt/",
             ou: "/aʊ/",
-            "er в конце слова": "/ə/",
-            "tea, sea, eat": "tea, sea, eat",
-            "black, clock": "black, clock",
-            "night, light": "night, light",
-            "house, out": "house, out",
-            "teacher, sister, water": "teacher, sister, water",
+            "er в конце слова": "/ə/"
           },
           head: ["Сочетание", "Звучит как", "Слова"],
           rows: [
@@ -1503,7 +1522,8 @@ const module: Module = {
           id: "trudnye-na-sluh",
           kind: "table",
           caption: "Названия, которые путают на слух — нажми, чтобы услышать",
-          zvuk: { G: "G", J: "J", B: "B", V: "V", M: "M", N: "N", S: "S", F: "F" },
+          zvuchat: ["G", "J", "B", "V", "M", "N", "S", "F",
+          ],
           // Пара A и R отсюда убрана: таблица о тех, что ПУТАЮТ, а у этих двух
           // общего нет вовсе — и строка сама себе противоречила. Нашёл
           // редактор. Взята настоящая пара того же ряда.

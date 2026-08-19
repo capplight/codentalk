@@ -164,6 +164,8 @@ const module: Module = {
           id: "tablica-like-to",
           kind: "table",
           caption: "Нравится вещь и нравится занятие",
+          zvuchat: ["I like music.", "I like to read.", "I like to walk.",
+          ],
           head: ["Английский", "Перевод"],
           rows: [
             ["I like music.", "Мне нравится музыка."],
@@ -192,18 +194,14 @@ const module: Module = {
           id: "primer-like-to",
           kind: "example",
           caption: "Три занятия",
+          zvuchat: ["I like to read.", "I like to cook.", "My sister likes to swim.",
+          ],
           text: "I like to read.\nI like to cook.\nMy sister likes to swim.",
           explain:
             "В третьем предложении у like стоит -s, потому что речь о сестре. А глагол " +
             "после to остаётся без окончания всегда.",
         },
-        {
-          id: "zapis-like-to",
-          kind: "audio",
-          pace: "slow",
-          caption: "Послушай три предложения",
-          transcript: "I like to read. I like to cook. My sister likes to swim.",
-        },
+        // Запись убрана: все три предложения звучат в таблице выше.
         {
           id: "slovar-like-to",
           kind: "vocab",
@@ -299,6 +297,9 @@ const module: Module = {
           id: "tablica-dva-sposoba",
           kind: "table",
           caption: "Две формы, одно значение",
+          zvuchat: ["I like to read.", "I like reading.", "I like to swim.", "I like swimming.",
+            "I like to cook.", "I like cooking.",
+          ],
           head: ["Форма с to", "Форма с -ing", "Перевод"],
           rows: [
             ["I like to read.", "I like reading.", "Мне нравится читать."],
@@ -328,18 +329,14 @@ const module: Module = {
           id: "primer-dva-sposoba",
           kind: "example",
           caption: "Одно и то же дважды",
+          zvuchat: ["I like reading. I like to read.", "I am reading now.",
+          ],
           text: "I like reading. I like to read.\nI am reading now.",
           explain:
             "Первые два предложения значат одно: мне нравится читать. Третье — о том, " +
             "что идёт сейчас, и в нём стоит форма be.",
         },
-        {
-          id: "zapis-dva-sposoba",
-          kind: "audio",
-          pace: "slow",
-          caption: "Послушай три предложения",
-          transcript: "I like reading. I like to read. I am reading now.",
-        },
+        // Запись убрана: обе формы каждой пары звучат в таблице выше.
         {
           id: "slovar-vtoroy-sposob",
           kind: "vocab",
@@ -434,6 +431,8 @@ const module: Module = {
           id: "tablica-ne-nravitsya",
           kind: "table",
           caption: "Нравится и не нравится",
+          zvuchat: ["I like waiting.", "I don't like waiting.", "She doesn't like waiting.",
+          ],
           head: ["Английский", "Перевод"],
           rows: [
             ["I like waiting.", "Мне нравится ждать."],
@@ -462,18 +461,15 @@ const module: Module = {
           id: "primer-ne-nravitsya",
           kind: "example",
           caption: "Что человеку не нравится",
+          zvuchat: ["I don't like waiting.", "I don't like to wait.",
+            "My brother doesn't like cooking.",
+          ],
           text: "I don't like waiting.\nI don't like to wait.\nMy brother doesn't like cooking.",
           explain:
             "Первые два предложения значат одно: отрицание не отменяет ни одного из " +
             "двух форм. В третьем стоит doesn't, потому что речь о брате.",
         },
-        {
-          id: "zapis-ne-nravitsya",
-          kind: "audio",
-          pace: "slow",
-          caption: "Послушай три предложения",
-          transcript: "I don't like waiting. I don't like to wait. My brother doesn't like cooking.",
-        },
+        // Запись убрана: все три предложения звучат в таблице выше.
         // Словаря у урока больше нет: единственным словом было cinema, а оно
         // введено в модуле 13. Новых слов урок не даёт — он весь о грамматике.
 
@@ -564,6 +560,10 @@ const module: Module = {
           id: "tablica-usileniya",
           kind: "table",
           caption: "Два места для усиления",
+          // Столбец с русской подписью отдельных кнопок не получает: он говорит, где
+          // стоит усиление, а слышно это в самих предложениях.
+          zvuchat: ["I like it.", "I really like it.", "I like it very much.",
+          ],
           head: ["Английский", "Перевод", "Где стоит слово"],
           rows: [
             ["I like it.", "Мне это нравится.", "—"],
@@ -592,18 +592,14 @@ const module: Module = {
           id: "primer-usileniya",
           kind: "example",
           caption: "Обычно и с усилением",
+          zvuchat: ["I like music.", "I really like music.", "I like music very much.",
+          ],
           text: "I like music.\nI really like music.\nI like music very much.",
           explain:
             "Вторая и третья строки значат одно и то же. Разница только в том, где " +
             "стоит усиление: really — перед глаголом, very much — в конце.",
         },
-        {
-          id: "zapis-usileniya",
-          kind: "audio",
-          pace: "slow",
-          caption: "Послушай три предложения",
-          transcript: "I like music. I really like music. I like music very much.",
-        },
+        // Запись убрана: все три предложения звучат в таблице выше и в примере под ней.
         {
           id: "love-eto-tozhe-usilenie",
           kind: "note",
@@ -699,6 +695,8 @@ const module: Module = {
           id: "tablica-vopros-o-vkusah",
           kind: "table",
           caption: "Три вопроса о вкусах",
+          zvuchat: ["Do you like coffee?", "Do you like swimming?", "What do you like?",
+          ],
           head: ["Английский", "Перевод"],
           rows: [
             ["Do you like coffee?", "Тебе нравится кофе?"],
@@ -727,18 +725,13 @@ const module: Module = {
           id: "primer-voprosa-o-vkusah",
           kind: "example",
           caption: "Разговор о вкусах",
+          razgovor: true,
           text: "— Do you like coffee?\n— No, I don't. I like tea.\n— What do you like doing?\n— I like reading.",
           explain:
             "В первом вопросе после like стоит название вещи. В третьем — вопрос о " +
             "занятии, и там же форма с -ing: doing и reading с окончанием.",
         },
-        {
-          id: "zapis-voprosa-o-vkusah",
-          kind: "audio",
-          pace: "slow",
-          caption: "Послушай разговор",
-          transcript: "Do you like coffee? No, I don't. I like tea.",
-        },
+        // Запись убрана: все три вопроса звучат в таблице выше, а разговор — целиком.
         // Словаря у урока больше нет: единственным словом было favourite, а оно
         // введено в модуле 11.
 
@@ -825,6 +818,8 @@ const module: Module = {
           id: "tablica-like-i-would-like",
           kind: "table",
           caption: "Вкус и желание",
+          zvuchat: ["I like coffee.", "I'd like a coffee.", "I'd like a tea, please.",
+          ],
           head: ["Английский", "Перевод", "О чём речь"],
           rows: [
             ["I like coffee.", "Мне нравится кофе.", "о вкусе вообще"],
@@ -853,18 +848,13 @@ const module: Module = {
           id: "primer-would-like",
           kind: "example",
           caption: "В кафе",
+          razgovor: true,
           text: "— I'd like a coffee, please.\n— And you?\n— I'd like a tea.",
           explain:
             "В обоих ответах стоит I'd like и название того, чего хочет человек. " +
             "Слово please делает просьбу мягче и ставится в конце.",
         },
-        {
-          id: "zapis-would-like",
-          kind: "audio",
-          pace: "slow",
-          caption: "Послушай два заказа",
-          transcript: "I'd like a coffee, please. I'd like a tea.",
-        },
+        // Запись убрана: все строки звучат в таблице выше, а разговор в кафе — целиком.
         {
           id: "slovar-would-like",
           kind: "vocab",
@@ -961,6 +951,8 @@ const module: Module = {
           id: "tablica-would-like-to",
           kind: "table",
           caption: "Хочу вещь и хочу занятие",
+          zvuchat: ["I'd like a coffee.", "I'd like to go home.", "I'd like to see this film.",
+          ],
           head: ["Английский", "Перевод"],
           rows: [
             ["I'd like a coffee.", "Я хочу кофе."],
@@ -990,18 +982,15 @@ const module: Module = {
           id: "primer-would-like-to",
           kind: "example",
           caption: "Три желания",
+          zvuchat: ["I'd like to go home.", "I'd like to see this film.",
+            "My sister would like to swim.",
+          ],
           text: "I'd like to go home.\nI'd like to see this film.\nMy sister would like to swim.",
           explain:
             "В третьем предложении оборот стоит полностью: would like. Он одинаков " +
             "для всех, и окончание -s к нему не приходит.",
         },
-        {
-          id: "zapis-would-like-to",
-          kind: "audio",
-          pace: "slow",
-          caption: "Послушай три желания",
-          transcript: "I'd like to go home. I'd like to see this film. My sister would like to swim.",
-        },
+        // Запись убрана: все три желания звучат в таблице выше и в примере под ней.
         {
           id: "vopros-vstretitsya-dalshe",
           kind: "note",
@@ -1098,6 +1087,9 @@ const module: Module = {
           id: "tablica-iz-chego-rasskaz",
           kind: "table",
           caption: "Из чего складывается рассказ",
+          zvuchat: ["I like reading.", "I really like sport.", "I don't like waiting.",
+            "I'd like to see this film.",
+          ],
           head: ["Что сказать", "Как это выглядит"],
           rows: [
             ["что нравится", "I like reading."],
@@ -1127,20 +1119,16 @@ const module: Module = {
           id: "primer-rasskaza-o-vkusah",
           kind: "example",
           caption: "Рассказ целиком",
+          zvuchat: ["I like reading, and I really like sport.", "I don't like waiting.",
+            "My favourite food is bread.",
+          ],
           text:
             "I like reading, and I really like sport.\nI don't like waiting.\nMy favourite food is bread.",
           explain:
             "Первое предложение соединяет два вкуса словом and. Второе говорит " +
             "обратное. Третье называет любимое — через favourite.",
         },
-        {
-          id: "zapis-rasskaza-o-vkusah",
-          kind: "audio",
-          pace: "slow",
-          caption: "Послушай рассказ целиком",
-          transcript:
-            "I like reading, and I really like sport. I don't like waiting. My favourite food is bread.",
-        },
+        // Запись убрана: рассказ выше звучит построчно, а его части — в таблице.
         {
           id: "favourite-eto-lyubimyy",
           kind: "note",
@@ -1372,12 +1360,9 @@ const module: Module = {
           id: "like-i-would-like",
           kind: "table",
           caption: "Вкус и желание — нажми и сравни",
-          zvuk: {
-            "I like coffee.": "I like coffee.",
-            "I'd like a coffee.": "I'd like a coffee.",
-            "I like apples.": "I like apples.",
-            "I'd like an apple.": "I'd like an apple.",
-          },
+          zvuchat: ["I like coffee.", "I'd like a coffee.", "I like apples.",
+            "I'd like an apple.",
+          ],
           head: ["Вкус вообще", "Желание сейчас"],
           rows: [
             ["I like coffee.", "I'd like a coffee."],

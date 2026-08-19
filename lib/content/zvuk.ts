@@ -93,3 +93,25 @@ export function adresYacheyki(chto: string): string {
 export function adresRazgovora(text: string): string {
   return adresZvuka("blok", klyuchZvuka(text, "slow", true));
 }
+
+/**
+ * Что звучит у примера или таблицы — одним списком «строка → что произнести».
+ *
+ * Записей две, потому что случая два. `zvuchat` — обычный: произносится ровно
+ * то, что напечатано. `zvuk` — расхождение: в ячейке «A a», а произнести надо
+ * название буквы один раз.
+ *
+ * Собирать их вместе должны одинаково страница урока, скрипт озвучки и
+ * проверки. Разойдись они — и ученик получит кнопку без файла, а проверка
+ * этого не увидит.
+ */
+export function zvuchashchee(
+  block: { zvuk?: Record<string, string>; zvuchat?: string[] }
+): Record<string, string> {
+  const out: Record<string, string> = {};
+  for (const s of block.zvuchat ?? []) out[s] = s;
+  // `zvuk` идёт вторым: где обе записи назвали одну строку, побеждает та,
+  // которая говорит, ЧТО произнести.
+  for (const [k, v] of Object.entries(block.zvuk ?? {})) out[k] = v;
+  return out;
+}

@@ -180,6 +180,10 @@ const module: Module = {
           id: "tablica-and",
           kind: "table",
           caption: "Порознь и вместе",
+          zvuchat: ["I work. I study.", "I work, and I study.", "I like tea. I like coffee.",
+            "I like tea, and I like coffee.", "She is a teacher. He is a doctor.",
+            "She is a teacher, and he is a doctor.",
+          ],
           head: ["Порознь", "Вместе"],
           rows: [
             ["I work. I study.", "I work, and I study."],
@@ -209,18 +213,15 @@ const module: Module = {
           id: "primer-and",
           kind: "example",
           caption: "Три соединённых предложения",
+          zvuchat: ["I work, and I study.", "She can swim, and she can drive.",
+            "I like music, and I like sport.",
+          ],
           text: "I work, and I study.\nShe can swim, and she can drive.\nI like music, and I like sport.",
           explain:
             "В каждом предложении слово and стоит посередине, а по бокам от него — " +
             "две полные мысли. Ни одна из них не меняется.",
         },
-        {
-          id: "zapis-and",
-          kind: "audio",
-          pace: "slow",
-          caption: "Послушай три предложения",
-          transcript: "I work, and I study. She can swim, and she can drive. I like music, and I like sport.",
-        },
+        // Запись убрана: обе половины каждой пары звучат в таблице выше.
         {
           id: "and-uzhe-vstrechalos",
           kind: "note",
@@ -315,6 +316,8 @@ const module: Module = {
           id: "tablica-perechisleniya",
           kind: "table",
           caption: "Как строится перечисление",
+          zvuchat: ["tea and coffee", "tea, coffee and water", "tea, coffee, water and milk",
+          ],
           head: ["Сколько вещей", "Как это выглядит"],
           rows: [
             ["две", "tea and coffee"],
@@ -343,18 +346,15 @@ const module: Module = {
           id: "primer-perechisleniya",
           kind: "example",
           caption: "Список покупок",
+          zvuchat: ["I'd like some bread, some water and some rice.",
+            "I like tea, coffee and milk.",
+          ],
           text: "I'd like some bread, some water and some rice.\nI like tea, coffee and milk.",
           explain:
             "В каждом перечислении одна запятая и одно and — перед последней вещью. " +
             "Слово some повторяется перед каждой вещью.",
         },
-        {
-          id: "zapis-perechisleniya",
-          kind: "audio",
-          pace: "slow",
-          caption: "Послушай два перечисления",
-          transcript: "I'd like some bread, some water and some rice. I like tea, coffee and milk.",
-        },
+        // Запись убрана: все перечисления звучат в таблице выше.
         {
           id: "slovar-perechisleniya",
           kind: "vocab",
@@ -448,6 +448,9 @@ const module: Module = {
           id: "tablica-and-i-but",
           kind: "table",
           caption: "Когда and, а когда but",
+          zvuchat: ["I work, and I study.", "I work, but I don't study.",
+            "I like tea, but I don't like coffee.",
+          ],
           head: ["Английский", "Перевод", "Что делает"],
           rows: [
             ["I work, and I study.", "Я работаю и учусь.", "добавляет"],
@@ -476,19 +479,16 @@ const module: Module = {
           id: "primer-but",
           kind: "example",
           caption: "Три противопоставления",
+          zvuchat: ["I work, but I don't study.", "She can drive, but she can't swim.",
+            "I like tea, but I don't like coffee.",
+          ],
           text:
             "I work, but I don't study.\nShe can drive, but she can't swim.\nI like tea, but I don't like coffee.",
           explain:
             "Во всех трёх вторая часть — отрицание. Это самый частый случай для but, " +
             "но не единственный.",
         },
-        {
-          id: "zapis-but",
-          kind: "audio",
-          pace: "slow",
-          caption: "Послушай три предложения",
-          transcript: "I work, but I don't study. She can drive, but she can't swim. I like tea, but I don't like coffee.",
-        },
+        // Запись убрана: и and, и but звучат в таблице выше.
         {
           id: "but-uzhe-vstrechalos",
           kind: "note",
@@ -588,6 +588,9 @@ const module: Module = {
           id: "tablica-treh-soyuzov",
           kind: "table",
           caption: "Три слова рядом",
+          zvuchat: ["and", "tea and coffee", "but", "I like tea, but I don't like coffee.",
+            "or", "tea or coffee",
+          ],
           head: ["Слово", "Что делает", "Пример"],
           rows: [
             ["and", "добавляет", "tea and coffee"],
@@ -617,18 +620,14 @@ const module: Module = {
           id: "primer-or",
           kind: "example",
           caption: "Выбор",
+          zvuchat: ["tea or coffee", "tea, coffee or water", "I work on Monday or on Tuesday.",
+          ],
           text: "tea or coffee\ntea, coffee or water\nI work on Monday or on Tuesday.",
           explain:
             "В первых двух строках выбирают напиток, в третьей — день. Всюду or " +
             "стоит перед последним из вариантов.",
         },
-        {
-          id: "zapis-or",
-          kind: "audio",
-          pace: "slow",
-          caption: "Послушай три записи",
-          transcript: "tea or coffee, tea, coffee or water, I work on Monday or on Tuesday.",
-        },
+        // Запись убрана: все три союза и примеры к ним звучат в таблице выше.
         {
           id: "vopros-s-or-pozzhe",
           kind: "note",
@@ -724,6 +723,10 @@ const module: Module = {
           id: "tablica-koroche",
           kind: "table",
           caption: "Длинно и коротко",
+          zvuchat: ["I work, and I study.", "I work and study.",
+            "She likes music, and she likes films.", "She likes music and films.",
+            "I can swim, and I can drive.", "I can swim and drive.",
+          ],
           head: ["Длинно", "Коротко"],
           rows: [
             ["I work, and I study.", "I work and study."],
@@ -754,19 +757,15 @@ const module: Module = {
           id: "primer-koroche",
           kind: "example",
           caption: "Одно и то же дважды",
+          zvuchat: ["I work, and I study.", "I work and study.", "I work, and she studies.",
+          ],
           text: "I work, and I study.\nI work and study.\nI work, and she studies.",
           explain:
             "Первые две строки значат одно. Третью сокращать нельзя: во второй части " +
             "другой человек — she, и это слово не убрать, иначе непонятно, кто " +
             "учится.",
         },
-        {
-          id: "zapis-koroche",
-          kind: "audio",
-          pace: "slow",
-          caption: "Послушай длинную и короткую запись",
-          transcript: "I work, and I study. I work and study.",
-        },
+        // Запись убрана: обе половины каждой пары звучат в таблице выше.
         {
           id: "koroche-i-v-perechislenii",
           kind: "note",
@@ -860,6 +859,9 @@ const module: Module = {
           id: "tablica-because",
           kind: "table",
           caption: "Главное и причина",
+          zvuchat: ["I like this shop because it is near.", "I can't come because I work.",
+            "I like her because she is friendly.",
+          ],
           head: ["Английский", "Перевод"],
           rows: [
             ["I like this shop because it is near.", "Мне нравится этот магазин, потому что он рядом."],
@@ -889,19 +891,16 @@ const module: Module = {
           id: "primer-because",
           kind: "example",
           caption: "Три причины",
+          zvuchat: ["I like this shop because it is near.", "I can't come because I work.",
+            "She is happy because she has got a bike.",
+          ],
           text:
             "I like this shop because it is near.\nI can't come because I work.\nShe is happy because she has got a bike.",
           explain:
             "В каждом предложении две части. Первая — что происходит, вторая — " +
             "почему. Обе полные, у обеих свой глагол.",
         },
-        {
-          id: "zapis-because",
-          kind: "audio",
-          pace: "slow",
-          caption: "Послушай три причины",
-          transcript: "I like this shop because it is near. I can't come because I work.",
-        },
+        // Запись убрана: все три причины звучат в таблице выше.
         {
           id: "slovar-because",
           kind: "vocab",
@@ -999,6 +998,10 @@ const module: Module = {
           id: "tablica-why",
           kind: "table",
           caption: "Вопрос и ответ",
+          zvuchat: ["Why do you work here?", "Because I like this shop.",
+            "Why does she live here?", "Because she works in this shop.", "Why are you happy?",
+            "Because I have got a bike.",
+          ],
           head: ["Вопрос", "Ответ"],
           rows: [
             ["Why do you work here?", "Because I like this shop."],
@@ -1030,19 +1033,14 @@ const module: Module = {
           id: "primer-why",
           kind: "example",
           caption: "Разговор о причинах",
+          razgovor: true,
           text:
             "— Why do you work here?\n— Because I like this shop.\n— Why does Dana work here?\n— Because she likes this shop too.",
           explain:
             "В первом вопросе после why стоит do, во втором — does: речь о Dana. В " +
             "ответах because стоит первым — так отвечают коротко.",
         },
-        {
-          id: "zapis-why",
-          kind: "audio",
-          pace: "slow",
-          caption: "Послушай вопрос и ответ",
-          transcript: "Why do you work here? Because I like this shop.",
-        },
+        // Запись убрана: и вопросы, и ответы звучат в таблице выше, а разговор — целиком.
         {
           id: "slovar-why",
           kind: "vocab",
@@ -1139,6 +1137,11 @@ const module: Module = {
           id: "tablica-spisok-i-rasskaz",
           kind: "table",
           caption: "Список и рассказ",
+          zvuchat: ["I work. I study.", "I work, and I study.",
+            "I like my work. I don't like early mornings.",
+            "I like my work, but I don't like early mornings.", "I study. I want a good job.",
+            "I study because I want a good job.",
+          ],
           head: ["Список", "Рассказ"],
           rows: [
             ["I work. I study.", "I work, and I study."],
@@ -1170,20 +1173,17 @@ const module: Module = {
           id: "primer-svyaznogo-rasskaza",
           kind: "example",
           caption: "Рассказ целиком",
+          zvuchat: ["I work in a shop, and I study at a university.",
+            "I like my work, but I don't like early mornings.",
+            "I study because I want a good job.",
+          ],
           text:
             "I work in a shop, and I study at a university.\nI like my work, but I don't like early mornings.\nI study because I want a good job.",
           explain:
             "Первое предложение добавляет, второе возражает, третье объясняет. Три " +
             "слова — и рассказ держится вместе.",
         },
-        {
-          id: "zapis-svyaznogo-rasskaza",
-          kind: "audio",
-          pace: "slow",
-          caption: "Послушай рассказ целиком",
-          transcript:
-            "I work in a shop, and I study at a university. I like my work, but I don't like early mornings.",
-        },
+        // Запись убрана: рассказ выше звучит построчно.
         {
           id: "svyazi-i-v-razgovore",
           kind: "note",
@@ -1427,12 +1427,9 @@ const module: Module = {
           id: "chetyre-svyazki-na-sluh",
           kind: "table",
           caption: "Четыре союза — нажми и сравни",
-          zvuk: {
-            "I work and I study.": "I work and I study.",
-            "I work but I don't study.": "I work but I don't study.",
-            "Tea or coffee?": "Tea or coffee?",
-            "I study because I want a good job.": "I study because I want a good job.",
-          },
+          zvuchat: ["I work and I study.", "I work but I don't study.", "Tea or coffee?",
+            "I study because I want a good job.",
+          ],
           head: ["Что делает союз", "Пример"],
           rows: [
             ["добавляет", "I work and I study."],

@@ -201,6 +201,11 @@ const module: Module = {
           id: "tablica-seychas",
           kind: "table",
           caption: "Вообще и прямо сейчас",
+          // Третья строка не звучит нарочно: там показано, как сказать НЕЛЬЗЯ.
+          // Услышанная неверная фраза запоминается наравне с верной, и кнопки у неё
+          // быть не должно.
+          zvuchat: ["I work in a shop.", "I am working now.",
+          ],
           head: ["Английский", "Перевод", "О чём"],
           rows: [
             ["I work in a shop.", "Я работаю в магазине.", "о работе вообще"],
@@ -222,18 +227,14 @@ const module: Module = {
           id: "primer-seychas",
           kind: "example",
           caption: "Что происходит в эту минуту",
+          zvuchat: ["I am working now.", "I am reading a book.", "I am waiting.",
+          ],
           text: "I am working now.\nI am reading a book.\nI am waiting.",
           explain:
             "Во всех трёх после I стоит am, а глагол оканчивается на -ing. Слово now " +
             "можно и не говорить: сама запись уже сообщает, что дело идёт сейчас.",
         },
-        {
-          id: "zapis-seychas",
-          kind: "audio",
-          pace: "slow",
-          caption: "Послушай две записи подряд",
-          transcript: "I work in a shop. I am working now.",
-        },
+        // Запись убрана: обе верные строки звучат в таблице выше.
         {
           id: "slovar-seychas",
           kind: "vocab",
@@ -341,6 +342,10 @@ const module: Module = {
           id: "tablica-formy-be-seychas",
           kind: "table",
           caption: "Форма be по тому, о ком речь",
+          // Столбцы «кто» и «форма» отдельных кнопок не получают: форма be здесь
+          // безударна, и слышна она только в предложении. Оно и звучит.
+          zvuchat: ["I am working.", "He is working.", "They are working.",
+          ],
           head: ["О ком", "Форма be", "Пример"],
           rows: [
             ["I", "am", "I am working."],
@@ -371,18 +376,14 @@ const module: Module = {
           id: "primer-o-drugom-seychas",
           kind: "example",
           caption: "Что делают другие",
+          zvuchat: ["He is working now.", "She is reading.", "My brother is waiting.",
+          ],
           text: "He is working now.\nShe is reading.\nMy brother is waiting.",
           explain:
             "Во всех трёх стоит is, потому что речь об одном другом человеке. Глагол " +
             "везде с окончанием -ing и без -s.",
         },
-        {
-          id: "zapis-o-drugom-seychas",
-          kind: "audio",
-          pace: "slow",
-          caption: "Послушай о себе и о нём",
-          transcript: "I am working. He is working. She is reading.",
-        },
+        // Запись убрана: все три предложения звучат в примере выше.
         {
           id: "slovar-o-drugom-seychas",
           kind: "vocab",
@@ -484,6 +485,8 @@ const module: Module = {
           id: "tablica-ing",
           kind: "table",
           caption: "Три случая",
+          zvuchat: ["work — working", "make — making", "sit — sitting",
+          ],
           head: ["Какой глагол", "Что происходит", "Пример"],
           rows: [
             ["обычный", "окончание приписывается", "work — working"],
@@ -518,18 +521,14 @@ const module: Module = {
           id: "primer-ing",
           kind: "example",
           caption: "Три глагола рядом",
+          zvuchat: ["work — working", "make — making", "sit — sitting",
+          ],
           text: "work — working\nmake — making\nsit — sitting",
           explain:
             "У work окончание приписано без изменений. У make ушла буква e. У sit " +
             "удвоилась t.",
         },
-        {
-          id: "zapis-ing",
-          kind: "audio",
-          pace: "slow",
-          caption: "Послушай три глагола с окончанием",
-          transcript: "working, making, sitting",
-        },
+        // Запись убрана: каждая пара звучит в таблице выше и в примере под ней.
         {
           id: "slovar-ing",
           kind: "vocab",
@@ -636,6 +635,9 @@ const module: Module = {
           id: "tablica-razlicheniya-seychas",
           kind: "table",
           caption: "Два способа рядом",
+          zvuchat: ["I work on Monday.", "I am working now.", "He reads books.",
+            "He is reading a book.",
+          ],
           head: ["Английский", "Перевод", "Когда так говорят"],
           rows: [
             ["I work on Monday.", "По понедельникам я работаю.", "так заведено"],
@@ -666,6 +668,9 @@ const module: Module = {
           id: "primer-razlicheniya-seychas",
           kind: "example",
           caption: "Один человек, две записи",
+          zvuchat: ["I work in a shop.", "But now I am sitting at home.",
+            "My sister sings well.", "She is singing now.",
+          ],
           text:
             "I work in a shop.\nBut now I am sitting at home.\nMy sister sings well.\nShe is singing now.",
           explain:
@@ -673,13 +678,7 @@ const module: Module = {
             "что идёт в эту минуту. Разницу задаёт сама запись, а слова now и but эту " +
             "разницу только подчёркивают.",
         },
-        {
-          id: "zapis-razlicheniya-seychas",
-          kind: "audio",
-          pace: "slow",
-          caption: "Послушай две записи подряд",
-          transcript: "I work in a shop. But now I am sitting at home.",
-        },
+        // Запись убрана: обе половины каждой пары звучат в таблице выше.
         {
           id: "slovar-razlicheniya",
           kind: "vocab",
@@ -798,6 +797,10 @@ const module: Module = {
           id: "tablica-neskolko-seychas",
           kind: "table",
           caption: "Все три формы вместе",
+          // Как и в таблице второго урока: звучит предложение целиком, а не форма
+          // отдельно.
+          zvuchat: ["I am waiting.", "She is waiting.", "We are waiting.",
+          ],
           head: ["О ком", "Форма be", "Пример"],
           rows: [
             ["I", "am", "I am waiting."],
@@ -827,18 +830,14 @@ const module: Module = {
           id: "primer-neskolko-seychas",
           kind: "example",
           caption: "Что делают несколько человек",
+          zvuchat: ["We are waiting.", "They are working now.", "My friends are sitting here.",
+          ],
           text: "We are waiting.\nThey are working now.\nMy friends are sitting here.",
           explain:
             "Во всех трёх стоит are, потому что речь о нескольких. Глагол с окончанием " +
             "-ing и без всяких добавок.",
         },
-        {
-          id: "zapis-neskolko-seychas",
-          kind: "audio",
-          pace: "slow",
-          caption: "Послушай об одном и о нескольких",
-          transcript: "She is waiting. They are waiting. My friends are working.",
-        },
+        // Запись убрана: все три формы звучат в таблице выше.
 
         // ---- задания ----
         {
@@ -926,6 +925,8 @@ const module: Module = {
           id: "tablica-otricanie-seychas",
           kind: "table",
           caption: "Утверждение и отрицание",
+          zvuchat: ["I am working.", "I am not working.", "He is not waiting.",
+          ],
           head: ["Английский", "Перевод"],
           rows: [
             ["I am working.", "Я работаю сейчас."],
@@ -954,18 +955,14 @@ const module: Module = {
           id: "primer-otricaniya-seychas",
           kind: "example",
           caption: "Чего сейчас не происходит",
+          zvuchat: ["I am not working now.", "She isn't reading.", "They aren't waiting.",
+          ],
           text: "I am not working now.\nShe isn't reading.\nThey aren't waiting.",
           explain:
             "Во всех трёх not стоит сразу после формы be. В двух последних форма и not " +
             "слились в короткую запись.",
         },
-        {
-          id: "zapis-otricaniya-seychas",
-          kind: "audio",
-          pace: "slow",
-          caption: "Послушай отрицание",
-          transcript: "I am not working now. She isn't reading.",
-        },
+        // Запись убрана: и утверждение, и отрицание звучат в таблице выше.
 
         // ---- задания ----
         {
@@ -1063,6 +1060,8 @@ const module: Module = {
           id: "tablica-voprosa-seychas",
           kind: "table",
           caption: "Два вида вопроса",
+          zvuchat: ["Are you working?", "Is he waiting?", "What are you doing?",
+          ],
           head: ["Английский", "Перевод"],
           rows: [
             ["Are you working?", "Ты сейчас работаешь?"],
@@ -1094,19 +1093,14 @@ const module: Module = {
           id: "primer-voprosa-seychas",
           kind: "example",
           caption: "Разговор по телефону",
+          razgovor: true,
           text:
             "— Are you working?\n— No, I'm not. I am sitting at home.\n— What are you doing?\n— I am reading a book.",
           explain:
             "Сначала вопрос на да или нет, потом короткий ответ, потом вопрос с " +
             "вопросительным словом и ответ целым предложением.",
         },
-        {
-          id: "zapis-voprosa-seychas",
-          kind: "audio",
-          pace: "slow",
-          caption: "Послушай два вопроса",
-          transcript: "Are you working? What are you doing?",
-        },
+        // Запись убрана: оба вида вопроса звучат в таблице выше, а разговор — целиком.
         {
           id: "slovar-voprosa-seychas",
           kind: "vocab",
@@ -1195,6 +1189,9 @@ const module: Module = {
           id: "shagi-rasskaza-seychas",
           kind: "table",
           caption: "Из чего складывается рассказ",
+          zvuchat: ["I am sitting at home.", "My sister is reading.", "My friends are waiting.",
+            "It is raining.",
+          ],
           head: ["Что сказать", "Пример"],
           rows: [
             ["что делаешь ты", "I am sitting at home."],
@@ -1224,20 +1221,16 @@ const module: Module = {
           id: "primer-rasskaza-seychas",
           kind: "example",
           caption: "Что происходит прямо сейчас",
+          zvuchat: ["I am sitting at home.", "I am reading a book.", "My sister is singing.",
+            "My friends are waiting outside.", "It is raining.",
+          ],
           text:
             "I am sitting at home.\nI am reading a book.\nMy sister is singing.\nMy friends are waiting outside.\nIt is raining.",
           explain:
             "Пять предложений и три разные формы be. Окончание -ing во всех пяти одно и " +
             "то же.",
         },
-        {
-          id: "zapis-rasskaza-seychas",
-          kind: "audio",
-          pace: "slow",
-          caption: "Послушай рассказ целиком",
-          transcript:
-            "I am sitting at home. My sister is singing. My friends are waiting. It is raining.",
-        },
+        // Запись убрана: рассказ выше звучит построчно, а шаги — в таблице.
 
         {
           id: "slovar-vokrug",
@@ -1467,12 +1460,9 @@ const module: Module = {
           id: "seychas-ili-vsegda-na-sluh",
           kind: "table",
           caption: "Всегда и сейчас — нажми и сравни",
-          zvuk: {
-            "I work in a shop.": "I work in a shop.",
-            "I'm working now.": "I'm working now.",
-            "He reads books.": "He reads books.",
-            "He's reading a book.": "He's reading a book.",
-          },
+          zvuchat: ["I work in a shop.", "I'm working now.", "He reads books.",
+            "He's reading a book.",
+          ],
           head: ["Бывает всегда", "Происходит сейчас"],
           rows: [
             ["I work in a shop.", "I'm working now."],

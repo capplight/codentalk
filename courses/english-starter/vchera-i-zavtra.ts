@@ -191,6 +191,8 @@ const module: Module = {
           id: "tablica-proshedshego",
           kind: "table",
           caption: "Сегодня и вчера",
+          zvuchat: ["I work every day.", "I worked yesterday.", "She played football.",
+          ],
           head: ["Английский", "Перевод"],
           rows: [
             ["I work every day.", "Я работаю каждый день."],
@@ -220,18 +222,14 @@ const module: Module = {
           id: "primer-proshedshego",
           kind: "example",
           caption: "Вчерашний день",
+          zvuchat: ["I worked yesterday.", "She played football.", "We watched a film.",
+          ],
           text: "I worked yesterday.\nShe played football.\nWe watched a film.",
           explain:
             "Во всех трёх у глагола окончание -ed, и оно одинаково для I, she и we. " +
             "Слово yesterday показывает, что дело было вчера.",
         },
-        {
-          id: "zapis-proshedshego",
-          kind: "audio",
-          pace: "slow",
-          caption: "Послушай три предложения",
-          transcript: "I worked yesterday. She played football. We watched a film.",
-        },
+        // Запись убрана: и настоящее, и прошедшее звучат в таблице выше.
         {
           id: "slovar-proshedshego",
           kind: "vocab",
@@ -329,6 +327,8 @@ const module: Module = {
           id: "tablica-ed",
           kind: "table",
           caption: "Три случая",
+          zvuchat: ["work — worked", "like — liked", "study — studied",
+          ],
           head: ["Какой глагол", "Что происходит", "Пример"],
           rows: [
             ["обычный", "приделывается -ed", "work — worked"],
@@ -359,18 +359,14 @@ const module: Module = {
           id: "primer-ed",
           kind: "example",
           caption: "Три глагола рядом",
+          zvuchat: ["work — worked", "like — liked", "study — studied",
+          ],
           text: "work — worked\nlike — liked\nstudy — studied",
           explain:
             "У work окончание приделано целиком. У like добавилась только d. У study " +
             "буква y стала i.",
         },
-        {
-          id: "zapis-ed",
-          kind: "audio",
-          pace: "slow",
-          caption: "Послушай три формы",
-          transcript: "worked, liked, studied",
-        },
+        // Запись убрана: каждая пара звучит в таблице выше и в примере под ней.
         {
           id: "slovar-ed",
           kind: "vocab",
@@ -465,6 +461,10 @@ const module: Module = {
           id: "tablica-osobyh",
           kind: "table",
           caption: "Шесть глаголов, которые надо знать",
+          zvuchat: ["go", "went", "I went to work.", "have", "had", "I had a good day.", "come",
+            "came", "She came at six.", "see", "saw", "I saw my friend.", "get", "got",
+            "I got a book.", "do", "did", "I did my work.",
+          ],
           head: ["Настоящее", "Прошедшее", "Пример"],
           rows: [
             ["go", "went", "I went to work."],
@@ -497,18 +497,14 @@ const module: Module = {
           id: "primer-osobyh",
           kind: "example",
           caption: "Вчерашний день целиком",
+          zvuchat: ["I went to work.", "I saw my friend.", "I had a good day.",
+          ],
           text: "I went to work.\nI saw my friend.\nI had a good day.",
           explain:
             "Ни в одном из трёх нет окончания -ed. Форма взята из таблицы целиком, " +
             "как отдельное слово.",
         },
-        {
-          id: "zapis-osobyh",
-          kind: "audio",
-          pace: "slow",
-          caption: "Послушай три предложения",
-          transcript: "I went to work. I saw my friend. I had a good day.",
-        },
+        // Запись убрана: обе формы каждого глагола и пример к нему звучат в таблице выше.
         {
           id: "uchit-parami",
           kind: "note",
@@ -607,6 +603,10 @@ const module: Module = {
           id: "tablica-was-were",
           kind: "table",
           caption: "Было три формы, стало две",
+          // Столбец с местоимениями отдельных кнопок не получает: урок здесь о том,
+          // что три формы настоящего сходятся в две прошедшего, — звучат сами формы.
+          zvuchat: ["am", "was", "is", "are", "were",
+          ],
           head: ["О ком", "Сейчас", "В прошлом"],
           rows: [
             ["I", "am", "was"],
@@ -635,18 +635,14 @@ const module: Module = {
           id: "primer-was",
           kind: "example",
           caption: "Где кто был",
+          zvuchat: ["I was at home.", "She was at work.", "They were at school.",
+          ],
           text: "I was at home.\nShe was at work.\nThey were at school.",
           explain:
             "В первых двух стоит was — речь об одном человеке. В третьем were, " +
             "потому что людей несколько.",
         },
-        {
-          id: "zapis-was",
-          kind: "audio",
-          pace: "slow",
-          caption: "Послушай три предложения",
-          transcript: "I was at home. She was at work. They were at school.",
-        },
+        // Запись убрана: обе формы звучат в таблице выше, а предложения — в примере под ней.
         {
           id: "was-i-o-kakom",
           kind: "note",
@@ -739,6 +735,8 @@ const module: Module = {
           id: "tablica-kogda",
           kind: "table",
           caption: "Когда это было",
+          zvuchat: ["yesterday", "last week", "last Friday", "last year",
+          ],
           head: ["Английский", "Перевод"],
           rows: [
             ["yesterday", "вчера"],
@@ -769,18 +767,15 @@ const module: Module = {
           id: "primer-kogda",
           kind: "example",
           caption: "Когда что было",
+          zvuchat: ["I worked yesterday.", "She came last week.",
+            "We were at home last Friday.",
+          ],
           text: "I worked yesterday.\nShe came last week.\nWe were at home last Friday.",
           explain:
             "Во всех трёх оборот времени стоит в конце. Глагол при этом в прошедшей " +
             "форме: worked, came, were.",
         },
-        {
-          id: "zapis-kogda",
-          kind: "audio",
-          pace: "slow",
-          caption: "Послушай три предложения",
-          transcript: "I worked yesterday. She came last week. We were at home last Friday.",
-        },
+        // Запись убрана: все четыре слова времени звучат в таблице выше.
         {
           id: "dni-nedeli-uzhe-est",
           kind: "note",
@@ -874,6 +869,8 @@ const module: Module = {
           id: "tablica-will",
           kind: "table",
           caption: "Вчера, сегодня, завтра",
+          zvuchat: ["I worked yesterday.", "I work every day.", "I will work tomorrow.",
+          ],
           head: ["Английский", "Перевод"],
           rows: [
             ["I worked yesterday.", "Я работал вчера."],
@@ -902,18 +899,14 @@ const module: Module = {
           id: "primer-will",
           kind: "example",
           caption: "Завтрашний день",
+          zvuchat: ["I will work tomorrow.", "She will come at six.", "We will be at home.",
+          ],
           text: "I will work tomorrow.\nShe will come at six.\nWe will be at home.",
           explain:
             "Во всех трёх will стоит перед глаголом, а глагол — без окончания. В " +
             "третьем после will идёт be: она тоже не меняется.",
         },
-        {
-          id: "zapis-will",
-          kind: "audio",
-          pace: "slow",
-          caption: "Послушай три предложения",
-          transcript: "I will work tomorrow. She will come at six. We will be at home.",
-        },
+        // Запись убрана: все три времени звучат в таблице выше.
         {
           id: "slovar-will",
           kind: "vocab",
@@ -1006,6 +999,9 @@ const module: Module = {
           id: "tablica-korotkoy-zapisi",
           kind: "table",
           caption: "Полная и короткая запись",
+          zvuchat: ["I will come tomorrow.", "I'll come tomorrow.", "She will be at home.",
+            "She'll be at home.", "We will work on Monday.", "We'll work on Monday.",
+          ],
           head: ["Полностью", "Коротко"],
           rows: [
             ["I will come tomorrow.", "I'll come tomorrow."],
@@ -1034,18 +1030,13 @@ const module: Module = {
           id: "primer-planov",
           kind: "example",
           caption: "Разговор о планах",
+          razgovor: true,
           text: "— Would you like to come to my party?\n— Yes, I'd like to. I'll come at six.",
           explain:
             "Сначала приглашение из модуля «Просьбы и указания», потом согласие и " +
             "план: I'll come at six.",
         },
-        {
-          id: "zapis-planov",
-          kind: "audio",
-          pace: "slow",
-          caption: "Послушай короткую запись",
-          transcript: "I'll come at six. She'll be at home. We'll work on Monday.",
-        },
+        // Запись убрана: обе записи звучат в таблице выше, а разговор — целиком.
         {
           id: "apostrof-uzhe-znakom",
           kind: "note",
@@ -1138,6 +1129,9 @@ const module: Module = {
           id: "tablica-treh-vremen",
           kind: "table",
           caption: "Четыре времени рядом",
+          zvuchat: ["I worked yesterday.", "I work every day.", "I am working now.",
+            "I will work tomorrow.",
+          ],
           head: ["Когда", "Как это выглядит"],
           rows: [
             ["вчера", "I worked yesterday."],
@@ -1167,20 +1161,16 @@ const module: Module = {
           id: "primer-vmeste",
           kind: "example",
           caption: "Рассказ о трёх днях",
+          zvuchat: ["I worked yesterday.", "I am reading a book now.",
+            "I will come to your party tomorrow.",
+          ],
           text:
             "I worked yesterday.\nI am reading a book now.\nI will come to your party tomorrow.",
           explain:
             "Три предложения — три времени. В первом окончание -ed, во втором форма " +
             "be и -ing, в третьем will.",
         },
-        {
-          id: "zapis-vmeste",
-          kind: "audio",
-          pace: "slow",
-          caption: "Послушай рассказ целиком",
-          transcript:
-            "I worked yesterday. I am reading a book now. I will come to your party tomorrow.",
-        },
+        // Запись убрана: все четыре времени звучат в таблице выше, а рассказ — построчно.
         {
           id: "kurs-zakonchen",
           kind: "note",
@@ -1407,11 +1397,9 @@ const module: Module = {
           id: "tri-vremeni-na-sluh",
           kind: "table",
           caption: "Три времени — нажми и сравни",
-          zvuk: {
-            "Yesterday I worked at home.": "Yesterday I worked at home.",
-            "Now I am working at home.": "Now I am working at home.",
-            "Tomorrow I will work at home.": "Tomorrow I will work at home.",
-          },
+          zvuchat: ["Yesterday I worked at home.", "Now I am working at home.",
+            "Tomorrow I will work at home.",
+          ],
           head: ["Когда", "Как звучит"],
           rows: [
             ["вчера", "Yesterday I worked at home."],

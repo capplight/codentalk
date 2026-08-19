@@ -154,6 +154,10 @@ const module: Module = {
           id: "tablica-do-desyati",
           kind: "table",
           caption: "Первый десяток",
+          // Звучит слово, а не цифра: цифру ученик и так узнаёт глазами.
+          zvuchat: ["one", "two", "three", "four", "five", "six", "seven", "eight", "nine",
+            "ten",
+          ],
           head: ["Цифра", "Слово", "Произношение"],
           rows: [
             ["1", "one", "/wʌn/"],
@@ -196,13 +200,7 @@ const module: Module = {
             "После числа больше одного название предмета стоит во множественном: two books, " +
             "five keys. Артикль при этом не нужен — число само говорит, сколько их.",
         },
-        {
-          id: "zapis-do-desyati",
-          kind: "audio",
-          pace: "slow",
-          caption: "Послушай первый десяток",
-          transcript: "One. Two. Three. Four. Five. Six. Seven. Eight. Nine. Ten.",
-        },
+        // Запись убрана: всё, что в ней звучало, есть в таблице выше отдельными кнопками.
         {
           id: "slovar-do-desyati",
           kind: "vocab",
@@ -305,6 +303,9 @@ const module: Module = {
           id: "tablica-vtoroy-desyatok",
           kind: "table",
           caption: "Второй десяток",
+          zvuchat: ["eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen",
+            "seventeen", "eighteen", "nineteen", "twenty",
+          ],
           head: ["Цифра", "Слово", "Из чего собрано"],
           rows: [
             ["11", "eleven", "запомнить"],
@@ -337,14 +338,7 @@ const module: Module = {
             "разница между fourteen (14) и forty (40) — и заметь, что four при этом теряет " +
             "букву u. Десятки разбираются в отдельном уроке этого же модуля.",
         },
-        {
-          id: "zapis-vtoroy-desyatok",
-          kind: "audio",
-          pace: "slow",
-          caption: "Послушай второй десяток",
-          transcript:
-            "Eleven. Twelve. Thirteen. Fourteen. Fifteen. Sixteen. Seventeen. Eighteen. Nineteen. Twenty.",
-        },
+        // Запись убрана: всё, что в ней звучало, есть в таблице выше отдельными кнопками.
 
         // ---- задания ----
         {
@@ -428,6 +422,9 @@ const module: Module = {
           id: "tablica-vozrasta",
           kind: "table",
           caption: "Возраст",
+          zvuchat: ["How old are you?", "How old is he?", "How old is she?", "I'm twenty.",
+            "He's ten.", "She's nineteen.",
+          ],
           head: ["Вопрос", "Ответ", "Перевод ответа"],
           rows: [
             ["How old are you?", "I'm twenty.", "Мне двадцать."],
@@ -460,13 +457,7 @@ const module: Module = {
             "про алфавит. Слово old значит «старый», но переводить вопрос дословно не " +
             "нужно — он означает «сколько тебе лет».",
         },
-        {
-          id: "zapis-vozrasta",
-          kind: "audio",
-          pace: "slow",
-          caption: "Послушай вопрос и ответ",
-          transcript: "How old are you? — I'm twenty. How old is he? — He's ten.",
-        },
+        // Запись убрана: всё, что в ней звучало, есть в таблице выше отдельными кнопками.
         {
           id: "slovar-vozrasta",
           kind: "vocab",
@@ -572,6 +563,9 @@ const module: Module = {
           id: "tablica-how-many",
           kind: "table",
           caption: "Вопрос о количестве",
+          zvuchat: ["How many books?", "How many people?", "How many friends?", "Three.",
+            "Ten.", "Five.",
+          ],
           head: ["Вопрос", "Перевод", "Ответ"],
           rows: [
             ["How many books?", "Сколько книг?", "Three."],
@@ -595,13 +589,7 @@ const module: Module = {
             "«How many book?» — название осталось в единственном. После many всегда " +
             "множественное: How many books?",
         },
-        {
-          id: "zapis-how-many",
-          kind: "audio",
-          pace: "slow",
-          caption: "Послушай вопрос и ответ",
-          transcript: "How many books? — Three. How many people? — Ten.",
-        },
+        // Запись убрана: всё, что в ней звучало, есть в таблице выше отдельными кнопками.
         {
           id: "slovar-how-many",
           kind: "vocab",
@@ -697,6 +685,8 @@ const module: Module = {
           id: "tablica-how-much",
           kind: "table",
           caption: "Вопрос о цене",
+          zvuchat: ["How much is it?", "How much are they?", "How many books?",
+          ],
           head: ["Вопрос", "Перевод", "О чём"],
           rows: [
             ["How much is it?", "Сколько это стоит?", "об одном предмете"],
@@ -721,13 +711,7 @@ const module: Module = {
             "Цену спрашивают через be: How much is it? Глагола «стоить» здесь нет вовсе — " +
             "и это удобно, потому что be ты уже знаешь.",
         },
-        {
-          id: "zapis-how-much",
-          kind: "audio",
-          pace: "slow",
-          caption: "Послушай вопрос о цене",
-          transcript: "How much is it? — Ten. How much are they? — Twenty.",
-        },
+        // Запись убрана: всё, что в ней звучало, есть в таблице выше отдельными кнопками.
         {
           id: "slovar-how-much",
           kind: "vocab",
@@ -822,6 +806,10 @@ const module: Module = {
           id: "tablica-nomerov",
           kind: "table",
           caption: "Как диктуют номер",
+          // Тире внутри строки — не смена говорящего, а пауза между цифрами:
+          // так номер и диктуют, по одной.
+          zvuchat: ["one — two", "four — zero — five", "seven — seven",
+          ],
           head: ["Номер", "Как читают", "Где встречается"],
           rows: [
             ["12", "one — two", "часть длинного номера"],
@@ -848,13 +836,7 @@ const module: Module = {
             "легко описаться, в «12» нет. В заданиях цифра засчитывается везде, где не " +
             "сказано «словом».",
         },
-        {
-          id: "zapis-nomerov",
-          kind: "audio",
-          pace: "slow",
-          caption: "Послушай, как диктуют номер",
-          transcript: "Four — zero — five. Seven — seven. One — two.",
-        },
+        // Запись убрана: всё, что в ней звучало, есть в таблице выше отдельными кнопками.
         {
           id: "slovar-nomerov",
           kind: "vocab",
@@ -950,6 +932,9 @@ const module: Module = {
           id: "tablica-desyatkov",
           kind: "table",
           caption: "Восемь десятков",
+          zvuchat: ["twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty",
+            "ninety",
+          ],
           head: ["Число", "Слово", "Из чего"],
           rows: [
             ["20", "twenty", "запомнить"],
@@ -966,6 +951,8 @@ const module: Module = {
           id: "sostavnye-chisla",
           kind: "table",
           caption: "Между десятками — через дефис",
+          zvuchat: ["twenty-one", "thirty-five", "forty-eight", "ninety-nine", "a hundred",
+          ],
           head: ["Число", "Слово"],
           rows: [
             ["21", "twenty-one"],
@@ -1000,14 +987,7 @@ const module: Module = {
             "Три десятка меняют начало: three → thirty, five → fifty, four → forty (буква u " +
             "выпадает). Те же изменения были у thirteen и fifteen — правило одно.",
         },
-        {
-          id: "zapis-desyatkov",
-          kind: "audio",
-          pace: "slow",
-          caption: "Послушай десятки",
-          transcript:
-            "Twenty. Thirty. Forty. Fifty. Sixty. Seventy. Eighty. Ninety. A hundred. Twenty-one. Thirty-five.",
-        },
+        // Запись убрана: всё, что в ней звучало, есть в таблице выше отдельными кнопками.
         {
           id: "slovar-desyatkov",
           kind: "vocab",
@@ -1110,6 +1090,10 @@ const module: Module = {
           id: "tablica-some",
           kind: "table",
           caption: "Количество без точного числа",
+          // Оборот `a` отдельной кнопки не получает: в одиночку он звучит
+          // названием буквы, а не артиклем. Звучит пример со словом.
+          zvuchat: ["some", "a lot of", "some books", "a lot of friends", "a book",
+          ],
           head: ["Оборот", "Перевод", "Пример"],
           rows: [
             ["some", "несколько, немного", "some books"],
@@ -1133,13 +1117,7 @@ const module: Module = {
             "A lot of — три слова, и они не разделяются: «a lot friends» и «lot of friends» " +
             "неверны. Оборот учится целиком.",
         },
-        {
-          id: "zapis-some",
-          kind: "audio",
-          pace: "slow",
-          caption: "Послушай обороты",
-          transcript: "Some books. A lot of friends. Some people. A lot of cars.",
-        },
+        // Запись убрана: всё, что в ней звучало, есть в таблице выше отдельными кнопками.
         {
           id: "slovar-some",
           kind: "vocab",
@@ -1232,6 +1210,7 @@ const module: Module = {
           id: "polnyy-razgovor-chisla",
           kind: "example",
           caption: "Разговор целиком",
+          razgovor: true,
           text:
             "— Hello! How old are you?\n— I'm nineteen. And you?\n— I'm twenty.\n" +
             "— How many books have you got?\n— A lot of books. How much is it?\n— Ten tenge.",
@@ -1243,6 +1222,9 @@ const module: Module = {
           id: "tablica-treh-voprosov",
           kind: "table",
           caption: "Три вопроса с how",
+          zvuchat: ["How old are you?", "How many books?", "How much is it?", "I'm twenty.",
+            "Three.", "Ten.",
+          ],
           head: ["Вопрос", "О чём", "Ответ"],
           rows: [
             ["How old are you?", "возраст", "I'm twenty."],
@@ -1258,16 +1240,7 @@ const module: Module = {
             "Все три вопроса начинаются с how, и различает их второе слово. Проверяй себя " +
             "по нему: old — о возрасте, many — о штуках, much — о деньгах.",
         },
-        {
-          id: "zapis-razgovora-chisla",
-          kind: "audio",
-          pace: "slow",
-          voice: "два голоса",
-          caption: "Послушай разговор целиком",
-          transcript:
-            "How old are you? — I'm nineteen. And you? — I'm twenty. How many books have you got? " +
-            "— A lot of books.",
-        },
+        // Запись убрана: разговор выше звучит целиком и на два голоса.
 
         // ---- задания ----
         {
@@ -1509,14 +1482,8 @@ const module: Module = {
           id: "pary-chisel",
           kind: "table",
           caption: "Пары, которые путают — нажми, чтобы услышать",
-          zvuk: {
-            thirteen: "thirteen",
-            thirty: "thirty",
-            fifteen: "fifteen",
-            fifty: "fifty",
-            eighteen: "eighteen",
-            eighty: "eighty",
-          },
+          zvuchat: ["thirteen", "thirty", "fifteen", "fifty", "eighteen", "eighty",
+          ],
           head: ["Меньшее", "Большее"],
           rows: [
             ["thirteen", "thirty"],

@@ -21,7 +21,15 @@ import {
   type TaskBlock,
 } from "../lib/content/types.ts";
 import { checkPositionBalance } from "../lib/domain/testing.ts";
-import { adresBloka, adresObrazca, adresSlova, adresVoprosa } from "../lib/content/zvuk.ts";
+import {
+  adresBloka,
+  adresObrazca,
+  adresRazgovora,
+  adresSlova,
+  adresVoprosa,
+  adresYacheyki,
+  zvuchashchee,
+} from "../lib/content/zvuk.ts";
 import { resheno } from "../courses/resheno.ts";
 import { courses } from "../courses/index.ts";
 import { existsSync } from "node:fs";
@@ -1422,6 +1430,45 @@ function checkZvuk(course: Course): void {
           continue;
         }
 
+        // `zvuk` со совпадающими ключом и значением — это `zvuchat`, написанный
+        // длинно. Не ошибка, но повод поправить: длинная запись повторяет
+        // каждую фразу дважды, и расхождение между двумя половинами не видно
+        // глазами.
+        if (block.kind === "example" || block.kind === "table") {
+          const lishnie = Object.entries(block.zvuk ?? {}).filter(([k, v]) => k === v);
+          if (lishnie.length > 0) {
+            warn(
+              `${course.slug} → ${lesson.slug} → ${block.id}`,
+              `в zvuk есть строки, которые звучат сами собой (${lishnie.length} шт.) — ` +
+                "им место в zvuchat"
+            );
+          }
+        }
+
+        // Звук у примера: разговор целиком и строки по одной. Без этой проверки
+        // забытая переозвучка примера не видна ничем — кнопка на странице есть,
+        // а нажатие даёт тишину.
+        if (block.kind === "example") {
+          if (block.razgovor && block.text && !est(adresRazgovora(block.text))) {
+            netu.push(`${lesson.slug} · пример ${block.id}: разговор целиком`);
+          }
+          for (const chto of Object.values(zvuchashchee(block))) {
+            if (!est(adresYacheyki(chto))) {
+              netu.push(`${lesson.slug} · пример ${block.id}: строка «${chto.slice(0, 40)}»`);
+            }
+          }
+          continue;
+        }
+
+        if (block.kind === "table") {
+          for (const chto of Object.values(zvuchashchee(block))) {
+            if (!est(adresYacheyki(chto))) {
+              netu.push(`${lesson.slug} · таблица ${block.id}: ячейка «${chto.slice(0, 40)}»`);
+            }
+          }
+          continue;
+        }
+
         if (block.kind === "vocab") {
           for (const item of block.items) {
             if (!est(adresSlova(item.term))) netu.push(`${lesson.slug} · слово «${item.term}»`);
@@ -1464,11 +1511,48 @@ function checkZvuk(course: Course): void {
   }
 }
 
+/**
+ * Примеры и таблицы, у которых звука нет вовсе.
+ *
+ * ЗАЧЕМ. Решение владельца от 19 августа: звук стоит там, где ученик читает.
+ * Проверка выше следит, чтобы обещанная запись существовала, — но молчит о
+ * примере, которому звук просто забыли дать. Ступень Beginner переведена вся,
+ * и без этого счётчика следующая начнётся с того же долга.
+ *
+ * Это не ошибка: у таблицы из русских подписей или из кусков предложения звука
+ * и не должно быть. Поэтому — сведения, а решает методист.
+ */
+function checkGdeNetZvuka(course: Course): void {
+  if (course.track !== "english") return;
+
+  const nemye: string[] = [];
+  for (const mod of course.modules) {
+    for (const lesson of mod.lessons) {
+      for (const block of lesson.blocks) {
+        if (block.kind !== "example" && block.kind !== "table") continue;
+        if (block.kind === "example" && block.razgovor) continue;
+        if (Object.keys(zvuchashchee(block)).length > 0) continue;
+        nemye.push(`${mod.slug} → ${lesson.slug} → ${block.id}`);
+      }
+    }
+  }
+
+  if (nemye.length > 0) {
+    warn(
+      course.slug,
+      `без звука вовсе (${nemye.length} шт.) — проверить, так ли задумано:\n      ` +
+        nemye.slice(0, 20).join("\n      ") +
+        (nemye.length > 20 ? `\n      … и ещё ${nemye.length - 20}` : "")
+    );
+  }
+}
+
 for (const course of courses) {
   checkCourse(course);
   checkTermsOrder(course);
   checkSlovoNeVvoditsyaDvazhdy(course);
   checkZvuk(course);
+  checkGdeNetZvuka(course);
 }
 
 // ---------------------------------------------------------------------------

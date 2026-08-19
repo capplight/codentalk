@@ -34,7 +34,7 @@ config({ quiet: true });
 
 const { courses } = await import("../courses/index.ts");
 const { isTask } = await import("../lib/content/types.ts");
-const { klyuchZvuka } = await import("../lib/content/zvuk.ts");
+const { klyuchZvuka, zvuchashchee } = await import("../lib/content/zvuk.ts");
 const { PROIZNOSHENIE } = await import("../lib/content/proiznoshenie.ts");
 
 type TempZvuka = "normal" | "slow";
@@ -115,7 +115,7 @@ function sobratOpis(): Zapis[] {
                 otkuda: `${gde} · пример ${block.id}`,
               });
             }
-            for (const chto of Object.values(block.zvuk ?? {})) {
+            for (const chto of Object.values(zvuchashchee(block))) {
               dobavit({
                 rod: "slovo",
                 klyuch: klyuchZvuka(chto, "slow"),
@@ -128,8 +128,8 @@ function sobratOpis(): Zapis[] {
             continue;
           }
 
-          if (block.kind === "table" && block.zvuk) {
-            for (const chto of Object.values(block.zvuk)) {
+          if (block.kind === "table") {
+            for (const chto of Object.values(zvuchashchee(block))) {
               dobavit({
                 rod: "slovo",
                 klyuch: klyuchZvuka(chto, "slow"),
@@ -284,6 +284,10 @@ function repliki(text: string, dvaGolosa: boolean): { golos: string; text: strin
   const chasti = text
     .split(/\s+—\s+/)
     .map((s) => s.trim())
+    // Первая реплика записана с тире в начале строки, и разделитель его не
+    // съедает: перед ним нет пробела. Убираем сами — знак говорящего звучать
+    // не должен.
+    .map((s) => s.replace(/^—\s*/, ""))
     .filter(Boolean);
   if (chasti.length < 2) return [{ golos: PERVYY, text }];
   return chasti.map((chast, i) => ({ golos: i % 2 === 0 ? PERVYY : VTOROY, text: chast }));
@@ -297,6 +301,29 @@ function repliki(text: string, dvaGolosa: boolean): { golos: string; text: strin
  */
 function odinochnayaBukva(text: string): boolean {
   return /^[A-Za-z]$/.test(text.trim());
+}
+
+/**
+ * Несколько букв подряд через точку — тоже названия букв, а не слова.
+ *
+ * Понадобилось у семей названий: строка «A /eɪ/, H /eɪtʃ/, J /dʒeɪ/, K /keɪ/»
+ * должна звучать как «A. H. J. K.», и без разметки синтез прочтёт первую букву
+ * безударным артиклем, а `I` — местоимением. Та же беда, что у одиночной
+ * буквы, только в ряду.
+ *
+ * Пауза между буквами — как на точке: их сравнивают по одной, а не слушают
+ * скороговоркой.
+ */
+function ryadBukv(text: string): boolean {
+  return /^([A-Za-z]\.\s*)+$/.test(text.trim());
+}
+
+/**
+ * Диктовка через дефис — `D-A-N-A`. Тоже буквы, но перерыв между ними короче:
+ * это одно слово по буквам, а не сравнение разных букв.
+ */
+function diktovka(text: string): boolean {
+  return /^[A-Za-z](-[A-Za-z])+$/.test(text.trim());
 }
 
 /**
@@ -326,6 +353,22 @@ function ssml(z: Zapis): string {
 
   if (odinochnayaBukva(z.text)) {
     const telo = `<say-as interpret-as="characters">${z.text.trim()}</say-as>`;
+    return (
+      `<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-GB">` +
+      `<voice name="${PERVYY}"><prosody rate="-25%">${telo}</prosody></voice></speak>`
+    );
+  }
+
+  if (ryadBukv(z.text) || diktovka(z.text)) {
+    const razdelitel = diktovka(z.text) ? "-" : ".";
+    const pereryv = diktovka(z.text) ? 250 : PAUZA_TOCHKA;
+    const telo = z.text
+      .trim()
+      .split(razdelitel)
+      .map((s) => s.trim())
+      .filter(Boolean)
+      .map((b) => `<say-as interpret-as="characters">${b}</say-as>`)
+      .join(`<break time="${pereryv}ms"/>`);
     return (
       `<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-GB">` +
       `<voice name="${PERVYY}"><prosody rate="-25%">${telo}</prosody></voice></speak>`

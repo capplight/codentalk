@@ -195,6 +195,8 @@ const module: Module = {
           id: "tablica-ukazaniy",
           kind: "table",
           caption: "Указание и обычное предложение",
+          zvuchat: ["You open the door.", "Open the door.", "Come here.", "Wait, please.",
+          ],
           head: ["Английский", "Перевод"],
           rows: [
             ["You open the door.", "Ты открываешь дверь."],
@@ -225,18 +227,14 @@ const module: Module = {
           id: "primer-ukazaniy",
           kind: "example",
           caption: "Четыре указания",
+          zvuchat: ["Open the door.", "Close the window.", "Come here.", "Sit here.",
+          ],
           text: "Open the door.\nClose the window.\nCome here.\nSit here.",
           explain:
             "Все четыре начинаются прямо с глагола. После него идёт то, к чему " +
             "указание относится: дверь, окно, место.",
         },
-        {
-          id: "zapis-ukazaniy",
-          kind: "audio",
-          pace: "slow",
-          caption: "Послушай четыре указания",
-          transcript: "Open the door. Close the window. Come here. Sit here.",
-        },
+        // Запись убрана: все указания звучат в таблице выше и в примере под ней.
         {
           id: "slovar-ukazaniy",
           kind: "vocab",
@@ -333,6 +331,8 @@ const module: Module = {
           id: "tablica-zapreta",
           kind: "table",
           caption: "Указание и запрет",
+          zvuchat: ["Open the door.", "Don't open the door.", "Don't wait.",
+          ],
           head: ["Английский", "Перевод"],
           rows: [
             ["Open the door.", "Открой дверь."],
@@ -361,18 +361,14 @@ const module: Module = {
           id: "primer-zapreta",
           kind: "example",
           caption: "Три запрета",
+          zvuchat: ["Don't open the window.", "Don't wait here.", "Don't come tomorrow.",
+          ],
           text: "Don't open the window.\nDon't wait here.\nDon't come tomorrow.",
           explain:
             "Во всех трёх don't стоит первым, а глагол — сразу за ним и без " +
             "окончания.",
         },
-        {
-          id: "zapis-zapreta",
-          kind: "audio",
-          pace: "slow",
-          caption: "Послушай три запрета",
-          transcript: "Don't open the window. Don't wait here. Don't come tomorrow.",
-        },
+        // Запись убрана: и указание, и запрет звучат в таблице выше.
         {
           id: "please-i-v-zaprete",
           kind: "note",
@@ -469,6 +465,8 @@ const module: Module = {
           id: "tablica-mesto-please",
           kind: "table",
           caption: "Два места для please",
+          zvuchat: ["Open the door, please.", "Please open the door.", "Don't wait, please.",
+          ],
           head: ["Английский", "Перевод", "Где стоит"],
           rows: [
             ["Open the door, please.", "Открой дверь, пожалуйста.", "в конце"],
@@ -497,18 +495,14 @@ const module: Module = {
           id: "primer-please",
           kind: "example",
           caption: "Одно указание тремя способами",
+          zvuchat: ["Open the door.", "Open the door, please.", "Please open the door.",
+          ],
           text: "Open the door.\nOpen the door, please.\nPlease open the door.",
           explain:
             "Первое — голое указание. Второе и третье значат одно и то же: разница " +
             "только в том, где стоит please.",
         },
-        {
-          id: "zapis-please",
-          kind: "audio",
-          pace: "slow",
-          caption: "Послушай три записи",
-          transcript: "Open the door. Open the door, please. Please open the door.",
-        },
+        // Запись убрана: оба места для please звучат в таблице выше.
         {
           id: "please-i-v-prosbe",
           kind: "note",
@@ -601,6 +595,8 @@ const module: Module = {
           id: "tablica-ukazanie-i-prosba",
           kind: "table",
           caption: "Указание и просьба",
+          zvuchat: ["Open the door.", "Can you open the door?", "Can you help, please?",
+          ],
           head: ["Английский", "Перевод", "Что это"],
           rows: [
             ["Open the door.", "Открой дверь.", "указание"],
@@ -629,18 +625,14 @@ const module: Module = {
           id: "primer-prosby-s-can",
           kind: "example",
           caption: "Три просьбы",
+          zvuchat: ["Can you help, please?", "Can you open the door?", "Can you come tomorrow?",
+          ],
           text: "Can you help, please?\nCan you open the door?\nCan you come tomorrow?",
           explain:
             "Во всех трёх can стоит первым, глагол — без окончания. Слово please " +
             "ставят в конце.",
         },
-        {
-          id: "zapis-prosby-s-can",
-          kind: "audio",
-          pace: "slow",
-          caption: "Послушай три просьбы",
-          transcript: "Can you help, please? Can you open the door? Can you come tomorrow?",
-        },
+        // Запись убрана: все просьбы звучат в таблице выше и в примере под ней.
         {
           id: "otvet-na-prosbu",
           kind: "note",
@@ -734,6 +726,8 @@ const module: Module = {
           id: "tablica-can-i-can-you",
           kind: "table",
           caption: "Кто выполняет действие",
+          zvuchat: ["Can you open the door?", "Can I open the door?", "Can I sit here?",
+          ],
           head: ["Английский", "Перевод", "Кто делает"],
           rows: [
             ["Can you open the door?", "Ты не откроешь дверь?", "собеседник"],
@@ -762,18 +756,13 @@ const module: Module = {
           id: "primer-razresheniya",
           kind: "example",
           caption: "Разговор в кафе",
+          razgovor: true,
           text: "— Can I sit here?\n— Yes, of course.\n— Can I open the window?\n— Sorry, I'm cold.",
           explain:
             "В обоих вопросах после can стоит I: разрешения просит тот, кто " +
             "спрашивает. Ответ бывает и отказом.",
         },
-        {
-          id: "zapis-razresheniya",
-          kind: "audio",
-          pace: "slow",
-          caption: "Послушай два вопроса",
-          transcript: "Can I sit here? Can I open the window?",
-        },
+        // Запись убрана: оба вопроса звучат в таблице выше, а разговор — целиком.
         {
           id: "can-i-help-you-tozhe-syuda",
           kind: "note",
@@ -877,6 +866,9 @@ const module: Module = {
           id: "tablica-priglasheniy",
           kind: "table",
           caption: "Приглашение и предложение вещи",
+          zvuchat: ["Would you like to come?", "Would you like to come to my party?",
+            "Would you like a coffee?",
+          ],
           head: ["Английский", "Перевод"],
           rows: [
             ["Would you like to come?", "Не хочешь прийти?"],
@@ -906,18 +898,13 @@ const module: Module = {
           id: "primer-priglasheniya",
           kind: "example",
           caption: "Приглашение на вечеринку",
+          razgovor: true,
           text: "— Would you like to come to my party?\n— Yes, I'd like to. Thanks!",
           explain:
             "Вопрос начинается с would. В ответе тот же оборот, только утверждением: " +
             "I'd like to.",
         },
-        {
-          id: "zapis-priglasheniya",
-          kind: "audio",
-          pace: "slow",
-          caption: "Послушай приглашение и ответ",
-          transcript: "Would you like to come to my party? Yes, I'd like to. Thanks!",
-        },
+        // Запись убрана: все приглашения звучат в таблице выше, а разговор — целиком.
         {
           id: "priglashenie-uzhe-vstrechalos",
           kind: "note",
@@ -1013,6 +1000,10 @@ const module: Module = {
           id: "tablica-otvetov",
           kind: "table",
           caption: "Что отвечать",
+          zvuchat: ["Would you like a tea?", "Yes, please.", "No, thank you.",
+            "Would you like to come?", "Yes, I'd like to.", "Sorry, I can't.", "Can you help?",
+            "Yes, of course.",
+          ],
           head: ["Вопрос", "Согласие", "Отказ"],
           rows: [
             ["Would you like a tea?", "Yes, please.", "No, thank you."],
@@ -1045,19 +1036,14 @@ const module: Module = {
           id: "primer-otvetov",
           kind: "example",
           caption: "Два коротких разговора",
+          razgovor: true,
           text:
             "— Would you like a coffee?\n— Yes, please.\n\n— Would you like to come tomorrow?\n— Sorry, I can't.",
           explain:
             "В первом разговоре предлагают вещь — ответ Yes, please. Во втором зовут " +
             "прийти, и отказ идёт со словом sorry.",
         },
-        {
-          id: "zapis-otvetov",
-          kind: "audio",
-          pace: "slow",
-          caption: "Послушай два ответа",
-          transcript: "Yes, please. No, thank you.",
-        },
+        // Запись убрана: все ответы звучат в таблице выше, а разговоры — целиком.
         {
           id: "thanks-koroche",
           kind: "note",
@@ -1156,6 +1142,9 @@ const module: Module = {
           id: "tablica-iz-chego-razgovor",
           kind: "table",
           caption: "Из чего складывается разговор",
+          zvuchat: ["Can I sit here?", "Can you help, please?", "Would you like a coffee?",
+            "Yes, please.", "Thanks!",
+          ],
           head: ["Что нужно", "Как это выглядит"],
           rows: [
             ["спросить разрешения", "Can I sit here?"],
@@ -1186,19 +1175,14 @@ const module: Module = {
           id: "primer-razgovora-s-prosboy",
           kind: "example",
           caption: "Разговор в кафе",
+          razgovor: true,
           text:
             "— Can I sit here?\n— Yes, of course.\n— Would you like a coffee?\n— Yes, please. Thanks!",
           explain:
             "Первый вопрос — разрешение себе. Второй — предложение собеседнику. " +
             "Ответы короткие, и в конце стоит благодарность.",
         },
-        {
-          id: "zapis-razgovora-s-prosboy",
-          kind: "audio",
-          pace: "slow",
-          caption: "Послушай разговор целиком",
-          transcript: "Can I sit here? Yes, of course. Would you like a coffee? Yes, please. Thanks!",
-        },
+        // Запись убрана: разговор выше звучит целиком и на два голоса.
         {
           id: "sorry-tozhe-nuzhen",
           kind: "note",
@@ -1436,11 +1420,8 @@ const module: Module = {
           id: "tri-nachala",
           kind: "table",
           caption: "Три начала — нажми и сравни",
-          zvuk: {
-            "Open the door.": "Open the door.",
-            "Don't open the door.": "Don't open the door.",
-            "Can you open the door?": "Can you open the door?",
-          },
+          zvuchat: ["Open the door.", "Don't open the door.", "Can you open the door?",
+          ],
           head: ["Что это", "Как звучит"],
           rows: [
             ["указание", "Open the door."],

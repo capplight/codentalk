@@ -171,6 +171,9 @@ const module: Module = {
           id: "tablica-schitayut-i-net",
           kind: "table",
           caption: "Что считают, а что нет",
+          zvuchat: ["a book — two books", "water", "a shop — two shops", "bread",
+            "a friend — two friends", "money",
+          ],
           head: ["Считают", "Не считают"],
           rows: [
             ["a book — two books", "water"],
@@ -201,18 +204,14 @@ const module: Module = {
           id: "primer-neschitaemyh",
           kind: "example",
           caption: "Пять слов, которые не считают",
+          zvuchat: ["water", "bread", "money", "rice", "meat",
+          ],
           text: "water\nbread\nmoney\nrice\nmeat",
           explain:
             "Все пять — вещества и вещи без счёта. Ни к одному из них не приделывают " +
             "-s и не ставят перед ними a.",
         },
-        {
-          id: "zapis-neschitaemyh",
-          kind: "audio",
-          pace: "slow",
-          caption: "Послушай пять слов",
-          transcript: "water, bread, money, rice, meat",
-        },
+        // Запись убрана: каждое слово звучит в таблице выше и в примере под ней.
         {
           id: "slovar-neschitaemyh",
           kind: "vocab",
@@ -308,6 +307,10 @@ const module: Module = {
           id: "tablica-dva-zapreta",
           kind: "table",
           caption: "Как надо и как не надо",
+          // Столбец «как не надо» не звучит нарочно: там показаны записи, которых в
+          // английском нет. Услышанная неверная фраза запоминается наравне с верной.
+          zvuchat: ["water", "bread", "money", "I like rice.",
+          ],
           head: ["Верно", "Так не говорят"],
           rows: [
             ["water", "a water"],
@@ -338,18 +341,14 @@ const module: Module = {
           id: "primer-dvuh-zapretov",
           kind: "example",
           caption: "Два ряда рядом",
+          zvuchat: ["a book — two books", "water — water", "bread — bread",
+          ],
           text: "a book — two books\nwater — water\nbread — bread",
           explain:
             "В первом ряду слово меняется: появляется a, появляется -s. Во втором и " +
             "третьем слово одно и то же в любом случае.",
         },
-        {
-          id: "zapis-dvuh-zapretov",
-          kind: "audio",
-          pace: "slow",
-          caption: "Послушай, как это звучит",
-          transcript: "a book, two books, water, bread",
-        },
+        // Запись убрана: верные записи звучат в таблице выше и в примере под ней.
         // Словаря у урока больше нет: слова shop и price введены раньше — shop в
         // модулях 6 и 12, price в модуле 9. Урок весь об отмене артикля и -s.
 
@@ -446,6 +445,8 @@ const module: Module = {
           id: "tablica-some",
           kind: "table",
           caption: "Some с двумя видами слов",
+          zvuchat: ["some books", "some water", "some bread",
+          ],
           head: ["Английский", "Перевод"],
           rows: [
             ["some books", "несколько книг"],
@@ -474,18 +475,14 @@ const module: Module = {
           id: "primer-some",
           kind: "example",
           caption: "В магазине",
+          zvuchat: ["I'd like some bread.", "I'd like some water.", "I'd like some rice.",
+          ],
           text: "I'd like some bread.\nI'd like some water.\nI'd like some rice.",
           explain:
             "Во всех трёх стоит оборот I'd like из модуля «Мне нравится», а после " +
             "него — some и слово без всяких добавок.",
         },
-        {
-          id: "zapis-some",
-          kind: "audio",
-          pace: "slow",
-          caption: "Послушай три просьбы",
-          transcript: "I'd like some bread. I'd like some water. I'd like some rice.",
-        },
+        // Запись убрана: все обороты звучат в таблице выше и в примере под ней.
         {
           id: "any-v-voprose",
           kind: "note",
@@ -577,6 +574,8 @@ const module: Module = {
           id: "tablica-how-much-i-many",
           kind: "table",
           caption: "Два вопроса о количестве",
+          zvuchat: ["How much bread?", "How many books?", "How much is it?",
+          ],
           head: ["Английский", "Перевод", "О чём спрашивают"],
           rows: [
             ["How much bread?", "Сколько хлеба?", "то, что не считают"],
@@ -605,18 +604,13 @@ const module: Module = {
           id: "primer-how-much",
           kind: "example",
           caption: "В магазине",
+          razgovor: true,
           text: "— How much bread?\n— Some bread, please.\n— How many books?\n— Two books, please.",
           explain:
             "В первом вопросе слово bread не считают — стоит much. Во втором книги " +
             "считают — стоит many.",
         },
-        {
-          id: "zapis-how-much",
-          kind: "audio",
-          pace: "slow",
-          caption: "Послушай два вопроса",
-          transcript: "How much bread? How many books?",
-        },
+        // Запись убрана: оба вопроса звучат в таблице выше, а разговор — целиком.
         {
           id: "how-much-eto-i-cena",
           kind: "note",
@@ -708,6 +702,8 @@ const module: Module = {
           id: "tablica-shagov-pokupki",
           kind: "table",
           caption: "Три шага покупки",
+          zvuchat: ["I'd like some bread, please.", "How much is it?", "Thanks!",
+          ],
           head: ["Шаг", "Как это выглядит"],
           rows: [
             ["попросить", "I'd like some bread, please."],
@@ -736,21 +732,14 @@ const module: Module = {
           id: "primer-pokupki",
           kind: "example",
           caption: "Разговор в магазине",
+          razgovor: true,
           text:
             "— Can I help you?\n— I'd like some bread, please.\n— Anything else?\n— No, thank you. How much is it?",
           explain:
             "Покупатель просит хлеб, отказывается от добавки и спрашивает цену. " +
             "Все три шага уложились в две реплики.",
         },
-        {
-          id: "zapis-pokupki",
-          kind: "audio",
-          pace: "slow",
-          caption: "Послушай разговор в магазине",
-          transcript:
-            "Can I help you? I'd like some bread, please. Anything else? No, thank " +
-            "you. How much is it?",
-        },
+        // Запись убрана: все три шага звучат в таблице выше, а разговор — целиком.
         {
           id: "can-i-have-tozhe-goditsya",
           kind: "note",
@@ -851,6 +840,8 @@ const module: Module = {
           id: "tablica-zakaza",
           kind: "table",
           caption: "Что говорят в кафе",
+          zvuchat: ["I'd like a coffee, please.", "Can I have a cake?", "Anything else?",
+          ],
           head: ["Английский", "Перевод"],
           rows: [
             ["I'd like a coffee, please.", "Мне кофе, пожалуйста."],
@@ -879,20 +870,13 @@ const module: Module = {
           id: "primer-zakaza",
           kind: "example",
           caption: "Разговор в кафе",
+          razgovor: true,
           text:
             "— Can I help you?\n— I'd like a coffee and a cake, please.\n— Anything else?\n— No, thanks.",
           explain:
             "Два заказа соединены словом and. Отказ от добавки — коротким No, thanks.",
         },
-        {
-          id: "zapis-zakaza",
-          kind: "audio",
-          pace: "slow",
-          caption: "Послушай заказ",
-          transcript:
-            "Can I help you? I'd like a coffee and a cake, please. Anything else? " +
-            "No, thanks.",
-        },
+        // Запись убрана: все реплики звучат в таблице выше, а разговор — целиком.
         {
           id: "voda-v-kafe",
           kind: "note",
@@ -988,6 +972,9 @@ const module: Module = {
           id: "tablica-est-i-net",
           kind: "table",
           caption: "Есть и нет",
+          zvuchat: ["I have got some water.", "I haven't got any water.",
+            "There isn't any bread.",
+          ],
           head: ["Английский", "Перевод"],
           rows: [
             ["I have got some water.", "У меня есть немного воды."],
@@ -1017,18 +1004,15 @@ const module: Module = {
           id: "primer-chego-to-net",
           kind: "example",
           caption: "Дома пусто",
+          zvuchat: ["I haven't got any bread.", "I haven't got any money.",
+            "There isn't any water.",
+          ],
           text: "I haven't got any bread.\nI haven't got any money.\nThere isn't any water.",
           explain:
             "Во всех трёх стоит any, и слово после него — без всяких добавок: ни a, " +
             "ни -s.",
         },
-        {
-          id: "zapis-chego-to-net",
-          kind: "audio",
-          pace: "slow",
-          caption: "Послушай три предложения",
-          transcript: "I haven't got any bread. I haven't got any money. There isn't any water.",
-        },
+        // Запись убрана: и «есть», и «нет» звучат в таблице выше.
         {
           id: "any-i-v-voprose",
           kind: "note",
@@ -1121,6 +1105,9 @@ const module: Module = {
           id: "tablica-iz-chego-razgovor-o-pokupke",
           kind: "table",
           caption: "Из чего складывается разговор",
+          zvuchat: ["Can I help you?", "I'd like some bread, please.", "How much bread?",
+            "Two, please. How much is it?",
+          ],
           head: ["Кто говорит", "Что говорит"],
           rows: [
             ["продавец", "Can I help you?"],
@@ -1151,21 +1138,14 @@ const module: Module = {
           id: "primer-razgovora-o-pokupke",
           kind: "example",
           caption: "Разговор целиком",
+          razgovor: true,
           text:
             "— Can I help you?\n— I'd like some bread and some water, please.\n— Anything else?\n— No, thank you. How much is it?\n— Five hundred tenge.\n— Thanks!",
           explain:
             "Два товара соединены словом and. Дальше отказ от добавки, вопрос о цене " +
             "и благодарность. Разговор закончен.",
         },
-        {
-          id: "zapis-razgovora-o-pokupke",
-          kind: "audio",
-          pace: "slow",
-          caption: "Послушай разговор целиком",
-          transcript:
-            "Can I help you? I'd like some bread and some water, please. Anything " +
-            "else? No, thank you. How much is it? Five hundred tenge. Thanks!",
-        },
+        // Запись убрана: разговор выше звучит целиком и на два голоса.
         {
           id: "tenge-i-cena",
           kind: "note",
@@ -1388,6 +1368,11 @@ const module: Module = {
           id: "obrazec-razgovora-v-kafe",
           kind: "table",
           caption: "Из чего состоит разговор в кафе",
+          // Урок слушания: обе записи ниже остаются, они и есть его предмет. Кнопки
+          // у реплик добавлены вдобавок.
+          zvuchat: ["Can I help you?", "I'd like a coffee, please.", "Anything else?",
+            "No, thank you.", "How much is it?",
+          ],
           head: ["Очередь", "Кто говорит", "Что звучит"],
           rows: [
             ["1", "продавец", "Can I help you?"],

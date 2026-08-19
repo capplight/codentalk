@@ -245,6 +245,11 @@ const module: Module = {
           id: "tablica-glagolov",
           kind: "table",
           caption: "Пять дел",
+          // Звучит предложение, а не транскрипция рядом с ним: транскрипцию читают
+          // глазами.
+          zvuchat: ["I work.", "I live in Astana.", "I study English.", "I read books.",
+            "I play football.",
+          ],
           head: ["Английский", "Перевод", "Как читается"],
           rows: [
             ["I work.", "Я работаю.", "/wɜːk/"],
@@ -280,6 +285,7 @@ const module: Module = {
           id: "primer-o-sebe",
           kind: "example",
           caption: "Разговор о делах",
+          razgovor: true,
           text:
             "— Are you a student?\n— No, I'm not. I work in a shop.\n— And your English?\n" +
             "— I study English every day.",
@@ -288,14 +294,7 @@ const module: Module = {
               "глаголом. " +
               "Оборот every day значит «каждый день» и стоит в конце.",
         },
-        {
-          id: "zapis-glagolov",
-          kind: "audio",
-          pace: "slow",
-          caption: "Послушай пять дел",
-          transcript:
-            "I work. I live in Astana. I study English. I read books. I play football.",
-        },
+        // Запись убрана: все пять предложений звучат в таблице выше.
         {
           id: "slovar-glagolov",
           kind: "vocab",
@@ -410,6 +409,9 @@ const module: Module = {
           id: "tablica-s",
           kind: "table",
           caption: "Я и он",
+          zvuchat: ["I work.", "He works.", "I live in Astana.", "She lives in Astana.",
+            "I read books.", "He reads books.", "I play football.", "She plays football.",
+          ],
           head: ["Я", "Он или она", "Перевод второго столбца"],
           rows: [
             ["I work.", "He works.", "Он работает."],
@@ -441,6 +443,9 @@ const module: Module = {
           id: "primer-o-brate",
           kind: "example",
           caption: "Рассказ о брате",
+          zvuchat: ["This is my brother. He lives in Almaty.", "He works in a hospital.",
+            "He plays football every day.",
+          ],
           text:
             "This is my brother. He lives in Almaty.\nHe works in a hospital.\n" +
             "He plays football every day.",
@@ -448,14 +453,7 @@ const module: Module = {
             "Три предложения об одном человеке, и в каждом у глагола стоит -s. Первое " +
             "предложение — с формой be, потому что в нём называют, кто это.",
         },
-        {
-          id: "zapis-s",
-          kind: "audio",
-          pace: "slow",
-          caption: "Послушай пары",
-          transcript:
-            "I work. He works. I live. She lives. I read. He reads. I play. She plays.",
-        },
+        // Запись убрана: обе половины каждой пары звучат в таблице выше.
         {
           id: "slovar-s",
           kind: "vocab",
@@ -564,6 +562,9 @@ const module: Module = {
           id: "tablica-es",
           kind: "table",
           caption: "Где нужно -es",
+          zvuchat: ["go", "he goes", "watch", "she watches", "finish", "he finishes", "work",
+            "he works",
+          ],
           head: ["Глагол", "Он или она", "Как читается"],
           rows: [
             ["go", "he goes", "/gəʊz/"],
@@ -617,6 +618,9 @@ const module: Module = {
           id: "primer-es",
           kind: "example",
           caption: "День брата",
+          zvuchat: ["My brother goes to work at eight.", "He finishes at five.",
+            "He watches football in the evening.",
+          ],
           text:
             "My brother goes to work at eight.\nHe finishes at five.\n" +
             "He watches football in the evening.",
@@ -624,14 +628,7 @@ const module: Module = {
             "Три глагола с окончанием es. Время названо предлогом at, а часть суток — " +
             "оборотом in the evening из модуля «Дни, даты, время».",
         },
-        {
-          id: "zapis-es",
-          kind: "audio",
-          pace: "slow",
-          caption: "Послушай окончания",
-          transcript:
-            "He goes. She watches. He finishes. He works. He reads.",
-        },
+        // Запись убрана: каждая форма звучит в таблице выше.
         {
           id: "slovar-es",
           kind: "vocab",
@@ -740,6 +737,9 @@ const module: Module = {
           id: "tablica-dnya",
           kind: "table",
           caption: "День по часам",
+          zvuchat: ["I get up at seven.", "I eat breakfast at eight.", "I start work at nine.",
+            "I finish at six.", "I watch football in the evening.", "He gets up at seven.",
+          ],
           head: ["Время", "Английский", "Перевод"],
           rows: [
             ["7:00", "I get up at seven.", "Я встаю в семь."],
@@ -773,6 +773,9 @@ const module: Module = {
           id: "primer-dnya",
           kind: "example",
           caption: "Обычный день",
+          zvuchat: ["I get up at seven.", "I go to work at eight.", "I eat lunch at one.",
+            "I read in the evening.",
+          ],
           text:
             "I get up at seven.\nI go to work at eight.\nI eat lunch at one.\n" +
             "I read in the evening.",
@@ -780,15 +783,7 @@ const module: Module = {
             "Четыре предложения по порядку часов. В каждом сначала действие, потом время: " +
             "время в таких предложениях идёт в конец.",
         },
-        {
-          id: "zapis-dnya",
-          kind: "audio",
-          pace: "slow",
-          caption: "Послушай распорядок",
-          transcript:
-            "I get up at seven. I go to work at eight. I eat lunch at one. I read in the " +
-            "evening.",
-        },
+        // Запись убрана: весь распорядок звучит в таблице выше и в примере под ней.
         {
           id: "slovar-dnya",
           kind: "vocab",
@@ -891,6 +886,8 @@ const module: Module = {
           id: "tablica-like",
           kind: "table",
           caption: "Что кому нравится",
+          zvuchat: ["I like music.", "I like football.", "She likes coffee.", "He likes books.",
+          ],
           head: ["Английский", "Перевод"],
           rows: [
             ["I like music.", "Я люблю музыку."],
@@ -921,20 +918,14 @@ const module: Module = {
           id: "primer-like",
           kind: "example",
           caption: "Разговор о том, что нравится",
+          razgovor: true,
           text:
             "— I like football. And you?\n— I like music.\n— My brother likes football too.",
           explain:
             "В третьей строке речь о брате — одном человеке, поэтому likes с окончанием. " +
             "Слово too значит «тоже» и стоит в конце.",
         },
-        {
-          id: "zapis-like",
-          kind: "audio",
-          pace: "slow",
-          caption: "Послушай, что кому нравится",
-          transcript:
-            "I like music. I like football. She likes coffee. He likes books.",
-        },
+        // Запись убрана: все четыре предложения звучат в таблице выше.
         {
           id: "slovar-like",
           kind: "vocab",
@@ -1034,6 +1025,9 @@ const module: Module = {
           id: "tablica-obshchego",
           kind: "table",
           caption: "То, что верно всегда",
+          zvuchat: ["The shop opens at nine.", "The shop closes at nine in the evening.",
+            "The bus goes to the station.", "School starts in September.",
+          ],
           head: ["Английский", "Перевод"],
           rows: [
             ["The shop opens at nine.", "Магазин открывается в девять."],
@@ -1064,6 +1058,9 @@ const module: Module = {
           id: "primer-obshchego",
           kind: "example",
           caption: "Расписание",
+          zvuchat: ["The shop opens at nine.", "The bus goes to the station every day.",
+            "My brother works there.",
+          ],
           text:
             "The shop opens at nine.\nThe bus goes to the station every day.\n" +
             "My brother works there.",
@@ -1071,15 +1068,7 @@ const module: Module = {
             "Первые два предложения — о том, что верно всегда. Третье о человеке, и глагол " +
             "в нём устроен так же: works с окончанием.",
         },
-        {
-          id: "zapis-obshchego",
-          kind: "audio",
-          pace: "slow",
-          caption: "Послушай расписание",
-          transcript:
-            "The shop opens at nine. The shop closes at nine in the evening. The bus goes " +
-            "to the station.",
-        },
+        // Запись убрана: всё расписание звучит в таблице выше.
         {
           id: "slovar-obshchego",
           kind: "vocab",
@@ -1178,6 +1167,12 @@ const module: Module = {
           id: "tablica-vseh-lic",
           kind: "table",
           caption: "Кто и какая форма глагола",
+          // Столбец с местоимениями отдельных кнопок не получает: местоимения
+          // звучали в модуле про приветствие, а урок здесь о форме глагола. Она и
+          // звучит — сама по себе и в предложении.
+          zvuchat: ["work", "I work in a shop.", "You work in a shop.", "works",
+            "He works in a shop.", "We work in a shop.", "They work in a shop.",
+          ],
           head: ["Кто", "Глагол", "Пример"],
           rows: [
             ["I", "work", "I work in a shop."],
@@ -1209,6 +1204,9 @@ const module: Module = {
           id: "primer-my-oni",
           kind: "example",
           caption: "О семье и друзьях",
+          zvuchat: ["We live in Astana.", "My friends live in Almaty.",
+            "They work in a hospital and play football every day.",
+          ],
           text:
             "We live in Astana.\nMy friends live in Almaty.\n" +
             "They work in a hospital and play football every day.",
@@ -1216,14 +1214,7 @@ const module: Module = {
             "В третьей строке два действия подряд, соединённые словом and. Оба глагола стоят " +
             "без окончания, потому что речь о нескольких людях.",
         },
-        {
-          id: "zapis-my-oni",
-          kind: "audio",
-          pace: "slow",
-          caption: "Послушай все формы",
-          transcript:
-            "I work. You work. He works. She works. We work. They work.",
-        },
+        // Запись убрана: форма глагола звучит в таблице выше со всеми лицами.
         {
           id: "slovar-my-oni",
           kind: "vocab",
@@ -1324,6 +1315,9 @@ const module: Module = {
           id: "shagi-rasskaza-o-dne",
           kind: "table",
           caption: "Рассказ по шагам",
+          zvuchat: ["I get up at seven.", "I work in a shop.", "I finish at six.",
+            "I watch football in the evening.",
+          ],
           head: ["Шаг", "О чём", "Пример"],
           rows: [
             ["1", "во сколько встаёшь", "I get up at seven."],
@@ -1344,6 +1338,9 @@ const module: Module = {
           id: "primer-rasskaza-o-dne",
           kind: "example",
           caption: "День целиком",
+          zvuchat: ["I get up at seven.", "I study English at school.", "I finish at three.",
+            "I play football in the evening.",
+          ],
           text:
             "I get up at seven.\nI study English at school.\nI finish at three.\n" +
             "I play football in the evening.",
@@ -1355,6 +1352,9 @@ const module: Module = {
           id: "primer-o-brate-celikom",
           kind: "example",
           caption: "И то же самое о брате",
+          zvuchat: ["He gets up at seven.", "He studies English at school.",
+            "He finishes at three.", "He plays football in the evening.",
+          ],
           text:
             "He gets up at seven.\nHe studies English at school.\nHe finishes at three.\n" +
             "He plays football in the evening.",
@@ -1362,16 +1362,7 @@ const module: Module = {
             "Тот же рассказ, только о брате: в каждом глаголе появилось окончание. " +
             "У studies и finishes оно длиннее, и у studies буква y уступила место i.",
         },
-        {
-          id: "zapis-rasskaza-o-dne",
-          kind: "audio",
-          pace: "slow",
-          voice: "два голоса",
-          caption: "Послушай оба рассказа",
-          transcript:
-            "I get up at seven. I study English at school. I finish at three. I play " +
-            "football in the evening. He gets up at seven. He studies English at school.",
-        },
+        // Запись убрана: оба рассказа выше звучат построчно.
 
         // ---- задания ----
         {
@@ -1599,12 +1590,9 @@ const module: Module = {
           id: "ya-ili-on-na-sluh",
           kind: "table",
           caption: "Про себя и про другого — нажми и сравни",
-          zvuk: {
-            "I work in a shop.": "I work in a shop.",
-            "He works in a shop.": "He works in a shop.",
-            "I go to the park.": "I go to the park.",
-            "She goes to the park.": "She goes to the park.",
-          },
+          zvuchat: ["I work in a shop.", "He works in a shop.", "I go to the park.",
+            "She goes to the park.",
+          ],
           head: ["Про себя", "Про другого"],
           rows: [
             ["I work in a shop.", "He works in a shop."],

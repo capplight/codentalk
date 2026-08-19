@@ -186,6 +186,13 @@ const module: Module = {
           id: "tablica-what",
           kind: "table",
           caption: "Вопрос и ответ",
+          // Пометка «короче» — наша, вслух она не идёт: звучит сама фраза.
+          zvuchat: ["What is this?", "What is that?", "It's a book.", "It's a pen.",
+            "It's a key.",
+          ],
+          zvuk: {
+            "What's this? (короче)": "What's this?"
+          },
           head: ["Вопрос", "Перевод", "Ответ"],
           rows: [
             ["What is this?", "Что это?", "It's a book."],
@@ -219,13 +226,7 @@ const module: Module = {
             "всегда: там, где выпала буква i. Такой же оборот уже встречался в вопросе " +
             "What's your name?",
         },
-        {
-          id: "zapis-what",
-          kind: "audio",
-          pace: "slow",
-          caption: "Послушай вопрос и ответ",
-          transcript: "What is this? — It's a book. What's this? — It's a pen.",
-        },
+        // Запись убрана: и вопросы, и ответы звучат в таблице выше.
         {
           id: "slovar-what",
           kind: "vocab",
@@ -336,6 +337,9 @@ const module: Module = {
           id: "tablica-this-that",
           kind: "table",
           caption: "Рядом и подальше",
+          zvuchat: ["this", "that", "this book", "that car", "What is this?", "What is that?",
+            "This book is a map.", "That car is a taxi.",
+          ],
           head: ["Слово", "Когда", "Пример", "Перевод"],
           rows: [
             ["this", "предмет рядом", "What is this?", "Что это?"],
@@ -363,13 +367,7 @@ const module: Module = {
             "that car. Но когда this стоит само по себе, как подлежащее, артикль a на своём " +
             "месте: This is a book.",
         },
-        {
-          id: "zapis-this-that",
-          kind: "audio",
-          pace: "slow",
-          caption: "Послушай оба слова",
-          transcript: "What is this? — It's a pen. What is that? — It's a car.",
-        },
+        // Запись убрана: оба слова и оба вопроса звучат в таблице выше.
         {
           id: "slovar-this-that",
           kind: "vocab",
@@ -473,6 +471,11 @@ const module: Module = {
           id: "tablica-predmetov",
           kind: "table",
           caption: "Шесть предметов",
+          // Слово звучит там, где ученик впервые видит его написание рядом с
+          // транскрипцией. Та же кнопка есть и у словарной карточки ниже —
+          // запись одна и та же, а читают слово в двух местах.
+          zvuchat: ["bag", "key", "phone", "pen", "book", "box",
+          ],
           head: ["Слово", "Перевод", "Произношение"],
           rows: [
             ["bag", "сумка", "/bæg/"],
@@ -501,13 +504,8 @@ const module: Module = {
             "Русская Х тут ни при чём, хотя буква выглядит так же — об этом был отдельный " +
             "урок в первом модуле.",
         },
-        {
-          id: "zapis-predmetov",
-          kind: "audio",
-          pace: "slow",
-          caption: "Послушай шесть слов",
-          transcript: "A bag. A key. A phone. A pen. A book. A box.",
-        },
+        // Запись шести слов подряд убрана: каждое звучит в таблице выше и в
+        // словарной карточке.
         {
           id: "slovar-predmetov",
           kind: "vocab",
@@ -609,6 +607,8 @@ const module: Module = {
           id: "tablica-komnaty",
           kind: "table",
           caption: "Шесть слов о комнате",
+          zvuchat: ["room", "table", "chair", "door", "window", "picture",
+          ],
           head: ["Слово", "Перевод", "Произношение"],
           rows: [
             ["room", "комната", "/ruːm/"],
@@ -636,13 +636,7 @@ const module: Module = {
             "Table звучит /ˈteɪbl/ — в конце нет гласного, хотя буква e написана. Она здесь " +
             "не читается: слово оканчивается на согласный /l/, как и apple из модуля про рассказ о себе.",
         },
-        {
-          id: "zapis-komnaty",
-          kind: "audio",
-          pace: "slow",
-          caption: "Послушай шесть слов",
-          transcript: "A room. A table. A chair. A door. A window. A picture.",
-        },
+        // Запись шести слов подряд убрана: каждое звучит в таблице выше.
         {
           id: "slovar-komnaty",
           kind: "vocab",
@@ -748,6 +742,8 @@ const module: Module = {
           id: "tablica-ulicy",
           kind: "table",
           caption: "Шесть слов о дороге",
+          zvuchat: ["car", "bus", "shop", "ticket", "money", "map",
+          ],
           head: ["Слово", "Перевод", "Произношение"],
           rows: [
             ["car", "машина", "/kɑː/"],
@@ -774,13 +770,7 @@ const module: Module = {
             "Сочетание sh в начале shop звучит как /ʃ/ — русское «ш». Ещё одно сочетание, " +
             "где две буквы читаются вместе.",
         },
-        {
-          id: "zapis-ulicy",
-          kind: "audio",
-          pace: "slow",
-          caption: "Послушай шесть слов",
-          transcript: "A car. A bus. A shop. A ticket. Money. A map.",
-        },
+        // Запись шести слов подряд убрана: каждое звучит в таблице выше.
         {
           id: "slovar-ulicy",
           kind: "vocab",
@@ -885,6 +875,10 @@ const module: Module = {
           id: "tablica-popravok-o-predmete",
           kind: "table",
           caption: "Два шага о предмете",
+          zvuchat: ["Is this a pen?", "It isn't a pen.", "It's a key.", "Is that a bus?",
+            "It isn't a bus.", "It's a car.", "Is this a book?", "It isn't a book.",
+            "It's a map.",
+          ],
           head: ["Догадка", "Не так", "Как есть"],
           rows: [
             ["Is this a pen?", "It isn't a pen.", "It's a key."],
@@ -909,13 +903,7 @@ const module: Module = {
             "Артикль нужен и в отрицании, и в утверждении: It isn't a pen. It's a key. " +
             "Пропуск в любом из двух предложений — ошибка.",
         },
-        {
-          id: "zapis-popravki-o-predmete",
-          kind: "audio",
-          pace: "slow",
-          caption: "Послушай поправку",
-          transcript: "Is this a pen? — No, it isn't. It isn't a pen. It's a key.",
-        },
+        // Запись убрана: догадка и оба шага поправки звучат в таблице выше.
 
         // ---- задания ----
         {
@@ -1008,6 +996,11 @@ const module: Module = {
           id: "tablica-voprosov-o-predmete",
           kind: "table",
           caption: "Вопрос и два ответа",
+          // Ответы во всех трёх строках одни и те же, поэтому и запись у них
+          // одна: ключ здесь — сама ячейка, а не строка.
+          zvuchat: ["Is this a key?", "Is that a bus?", "Is this a map?", "Yes, it is.",
+            "No, it isn't.",
+          ],
           head: ["Вопрос", "Да", "Нет"],
           rows: [
             ["Is this a key?", "Yes, it is.", "No, it isn't."],
@@ -1033,11 +1026,18 @@ const module: Module = {
             "«нет». Первое слово вопроса подсказывает, какой ответ нужен.",
         },
         {
-          id: "zapis-voprosov-o-predmete",
-          kind: "audio",
-          pace: "slow",
-          caption: "Послушай оба вопроса подряд",
-          transcript: "What is this? — It's a key. Is this a key? — Yes, it is.",
+          // Была отдельная запись. Стала примером — он стоит сразу за врезкой о
+          // двух вопросах и показывает ровно то, о чём она: два вопроса подряд
+          // и два разных ответа.
+          id: "dva-voprosa-v-razgovore",
+          kind: "example",
+          caption: "Два вопроса подряд",
+          razgovor: true,
+          text: "— What is this?\n— It's a key.\n— Is this a key?\n— Yes, it is.",
+          explain:
+            "Первый вопрос спрашивает название, и в ответ его называют. Второй проверяет " +
+            "догадку, и в ответ говорят «да». Слова в вопросах почти одни и те же — решает " +
+            "первое.",
         },
 
         // ---- задания ----
@@ -1140,6 +1140,7 @@ const module: Module = {
           id: "polnyy-razgovor-o-predmetah",
           kind: "example",
           caption: "Разговор целиком",
+          razgovor: true,
           text:
             "— What's this?\n— It's a ticket.\n— Is that a ticket too?\n— No, it isn't. It's a map.\n" +
             "— Sorry! And what is that?\n— It's money.",
@@ -1151,6 +1152,9 @@ const module: Module = {
           id: "tablica-shagov-o-predmetah",
           kind: "table",
           caption: "Из чего складывается такой разговор",
+          zvuchat: ["What's this?", "It's a ticket.", "Is that a ticket?", "No, it isn't.",
+            "It's a map.",
+          ],
           head: ["Шаг", "Пример"],
           rows: [
             ["спросить название", "What's this?"],
@@ -1169,16 +1173,8 @@ const module: Module = {
             "key?». Проверяй себя так: между It's и названием предмета всегда стоит одно " +
             "короткое слово. Из знакомых тебе слов исключение одно: money.",
         },
-        {
-          id: "zapis-razgovora-o-predmetah",
-          kind: "audio",
-          pace: "slow",
-          voice: "два голоса",
-          caption: "Послушай разговор целиком",
-          transcript:
-            "What's this? — It's a ticket. Is that a ticket too? — No, it isn't. It's a map. " +
-            "— Sorry! And what is that? — It's money.",
-        },
+        // Запись убрана: разговор выше звучит целиком и на два голоса, а шаги —
+        // по одному в таблице.
 
         // ---- задания ----
         {
@@ -1290,7 +1286,8 @@ const module: Module = {
           id: "pohozhie-predmety",
           kind: "table",
           caption: "Похожие на слух — нажми и сравни",
-          zvuk: { book: "book", box: "box", car: "car", key: "key", pen: "pen", phone: "phone" },
+          zvuchat: ["book", "box", "car", "key", "pen", "phone",
+          ],
           head: ["Одно", "Другое", "Чем различаются"],
           rows: [
             ["book", "box", "конец: /k/ и /ks/"],

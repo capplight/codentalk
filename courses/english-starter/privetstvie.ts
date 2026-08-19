@@ -224,6 +224,11 @@ const module: Module = {
           id: "tablica-vremeni",
           kind: "table",
           caption: "Приветствия по времени дня",
+          zvuk: {
+            "Good morning": "Good morning.",
+            "Good afternoon": "Good afternoon.",
+            "Good evening": "Good evening.",
+          },
           head: ["Английский", "Когда", "Как читается"],
           rows: [
             ["Good morning", "с утра до полудня", "/ˌgʊd ˈmɔːnɪŋ/"],
@@ -251,16 +256,10 @@ const module: Module = {
               "нужно словами good evening.",
           ],
         },
-        {
-          // Заготовка: место под запись размечено, звука ещё нет. Слушание идёт
-          // с первого урока не для полноты набора — описания ступени требуют
-          // речи «very slowly and clearly», а ухо привыкает только временем.
-          id: "zapis-privetstviya",
-          kind: "audio",
-          pace: "slow",
-          caption: "Послушай и повтори",
-          transcript: "Hello. Hi. Good morning. Good afternoon. Good evening. Good night. Goodbye.",
-        },
+        // Здесь стояла запись всех семи приветствий подряд. Убрана: таблица
+        // выше звучит по строкам, а словарь урока — по словам, и каждое из
+        // семи слышно там, где ученик его читает. Одна длинная запись под
+        // уроком только терялась.
         {
           id: "slovar-1",
           kind: "vocab",
@@ -404,6 +403,11 @@ const module: Module = {
           kind: "example",
           caption: "Как это выглядит",
           text: "I am Alim. — Я Алим.\nI am Dana. — Я Дана.",
+          // Звучит только английская часть строки: перевод стоит рядом глазами.
+          zvuk: {
+            "I am Alim. — Я Алим.": "I am Alim.",
+            "I am Dana. — Я Дана.": "I am Dana.",
+          },
           explain:
             "Порядок слов один и тот же: сначала I, потом am, потом имя. Имя пишется " +
             "с заглавной буквы — как и в русском.",
@@ -454,6 +458,7 @@ const module: Module = {
           id: "primer-dialog",
           kind: "example",
           caption: "Разговор целиком",
+          razgovor: true,
           text:
             "— Hello! What's your name?\n— I'm Dana. And you?\n— I'm Alim. Nice to meet you.\n— Nice to meet you too.",
           explain:
@@ -604,6 +609,7 @@ const module: Module = {
           id: "primer-obmen",
           kind: "example",
           caption: "Как это звучит целиком",
+          razgovor: true,
           text: "— Good morning! How are you?\n— I'm fine, thank you. And you?\n— I'm fine too, thanks.",
           explain:
             "Обмен укладывается в три коротких реплики и почти не меняется. Выучи его " +
@@ -622,6 +628,8 @@ const module: Module = {
           id: "tablica-otvetov",
           kind: "table",
           caption: "Ответы на How are you?",
+          zvuchat: ["I'm fine, thank you.", "I'm OK, thanks.", "Fine, thanks.",
+          ],
           head: ["Английский", "По-русски", "Как читается"],
           rows: [
             ["I'm fine, thank you.", "Хорошо, спасибо.", "/aɪm ˈfaɪn ˈθæŋk juː/"],
@@ -814,6 +822,13 @@ const module: Module = {
           id: "tablica-mestoimeniy",
           kind: "table",
           caption: "Семь местоимений-подлежащих",
+          // Звучат оба английских столбца: само местоимение и оно же в
+          // предложении. По отдельности they и there на слух путают, а в
+          // предложении слышно, где слово стоит.
+          zvuchat: ["I", "you", "he", "she", "it", "we", "they", "I'm Alim.", "You're Dana.",
+            "He's Nurlan.", "She's Aigul.", "It's OK.", "We're Alim and Dana.",
+            "They're Dana and Aigul.",
+          ],
           head: ["Местоимение", "Перевод", "О ком", "Пример"],
           rows: [
             ["I", "я", "о себе", "I'm Alim."],
@@ -853,13 +868,8 @@ const module: Module = {
             "he — нет: стол это it.\n\nОдно исключение. Когда называют, кто пришёл или кто " +
             "звонит, о человеке тоже говорят it: It's Dana.",
         },
-        {
-          id: "zapis-mestoimeniy",
-          kind: "audio",
-          pace: "slow",
-          caption: "Послушай местоимения по одному",
-          transcript: "I. You. He. She. It. We. They.",
-        },
+        // Запись всех семи местоимений подряд убрана: таблица выше звучит
+        // по ячейкам, и каждое слышно у своей строки.
         {
           id: "slovar-mestoimeniy",
           kind: "vocab",
@@ -969,6 +979,10 @@ const module: Module = {
           id: "tablica-be",
           kind: "table",
           caption: "Три формы и кому какая",
+          // Звучит предложение целиком, а не форма отдельно: am, is и are
+          // безударны, и услышать их можно только в строке.
+          zvuchat: ["I am Alim.", "She is fine.", "They are Dana and Aigul.",
+          ],
           head: ["Подлежащее", "Форма", "Пример", "Перевод"],
           rows: [
             ["I", "am", "I am Alim.", "Я Алим."],
@@ -997,19 +1011,15 @@ const module: Module = {
           id: "primer-razgovora-be",
           kind: "example",
           caption: "Три формы в одном разговоре",
+          razgovor: true,
           text: "— How are you?\n— I am fine, thank you. Dana and Aigul are fine too.",
           explain:
             "Are — потому что you. Am — потому что I. Are во второй раз — потому что Dana " +
             "and Aigul это те же «они», they. Форму выбирает подлежащее, то есть слово " +
             "перед глаголом, а не смысл сказанного.",
         },
-        {
-          id: "zapis-be",
-          kind: "audio",
-          pace: "slow",
-          caption: "Послушай три формы в предложениях",
-          transcript: "I am Alim. She is fine. They are Dana and Aigul. How are you?",
-        },
+        // Запись трёх предложений подряд убрана: те же три предложения звучат
+        // в таблице по строкам, а четвёртое — в разговоре выше.
         {
           id: "slovar-be",
           kind: "vocab",
@@ -1117,6 +1127,11 @@ const module: Module = {
           id: "tablica-korotkih",
           kind: "table",
           caption: "Полная форма и короткая",
+          // Звучат обе формы, и обе рядом: разницу между «you are» и «you're»
+          // видно глазами, а услышать её можно только сравнив.
+          zvuchat: ["I am", "I'm", "you are", "you're", "he is", "he's", "she is", "she's",
+            "it is", "it's", "we are", "we're", "they are", "they're",
+          ],
           head: ["Полная", "Короткая", "Что выпало"],
           rows: [
             ["I am", "I'm", "a в am"],
@@ -1145,11 +1160,20 @@ const module: Module = {
             "ею предложение нельзя — она держится за то, что стоит следом.",
         },
         {
-          id: "zapis-korotkih",
-          kind: "audio",
-          pace: "slow",
-          caption: "Послушай короткие формы",
-          transcript: "I'm Alim. You're Dana. He's Nurlan. She's Aigul. It's OK. We're fine.",
+          // Была отдельная запись всех шести предложений разом. Стала примером:
+          // ученик видит строку и слушает её же. Одна длинная запись под уроком
+          // не давала переслушать нужную форму.
+          id: "korotkie-v-predlozheniyah",
+          kind: "example",
+          caption: "Короткая форма в предложении",
+          text:
+            "I'm Alim.\nYou're Dana.\nHe's Nurlan.\nShe's Aigul.\nIt's OK.\nWe're fine.",
+          zvuchat: ["I'm Alim.", "You're Dana.", "He's Nurlan.", "She's Aigul.", "It's OK.",
+            "We're fine.",
+          ],
+          explain:
+            "В речи короткая форма звучит одним словом, а не двумя: I'm — это /aɪm/. " +
+            "Послушай строки по одной и повтори за записью.",
         },
 
         // ---- задания ----
@@ -1250,6 +1274,10 @@ const module: Module = {
           id: "tablica-peresprosa",
           kind: "table",
           caption: "Чем переспрашивают",
+          // Интонацию переспроса не покажешь знаком вопроса: у Sorry? голос
+          // идёт вверх, и это слышно только в записи.
+          zvuchat: ["Sorry?", "Again, please.", "How do you spell that?",
+          ],
           head: ["Фраза", "Перевод", "Когда"],
           rows: [
             ["Sorry?", "Простите?", "не слышно совсем"],
@@ -1279,19 +1307,15 @@ const module: Module = {
           id: "razgovor-s-peresprosom",
           kind: "example",
           caption: "Как это выглядит в разговоре",
+          razgovor: true,
           text:
             "— Hello! I'm Aigerim.\n— Sorry?\n— Aigerim. A-I-G-E-R-I-M.\n— Nice to meet you, Aigerim.",
           explain:
             "Переспрос не обрывает разговор, а спасает его. В ответ имя называют ещё раз и " +
             "сразу диктуют по буквам — так же, как в первом модуле.",
         },
-        {
-          id: "zapis-peresprosa",
-          kind: "audio",
-          pace: "slow",
-          caption: "Послушай переспрос в разговоре",
-          transcript: "Hello! I'm Aigerim. — Sorry? — Aigerim. A-I-G-E-R-I-M.",
-        },
+        // Запись переспроса убрана: разговор выше звучит целиком и на два
+        // голоса — то же самое, только у той строки, которую ученик читает.
         {
           id: "slovar-peresprosa",
           kind: "vocab",
@@ -1410,6 +1434,11 @@ const module: Module = {
           id: "poryadok-razgovora",
           kind: "table",
           caption: "Один разговор по шагам",
+          // Каждый шаг звучит отдельно: разговор собирают по одной реплике, и
+          // услышать нужно ту, на которой сбиваешься.
+          zvuchat: ["Good morning!", "What's your name?", "I'm Dana.", "Nice to meet you.",
+            "How are you?", "I'm fine, thank you. And you?", "Goodbye!",
+          ],
           head: ["Шаг", "Что говорят", "Пример"],
           rows: [
             ["1", "приветствие", "Good morning!"],
@@ -1425,6 +1454,7 @@ const module: Module = {
           id: "polnyy-razgovor",
           kind: "example",
           caption: "Тот же порядок целиком",
+          razgovor: true,
           text:
             "— Good morning! What's your name?\n— I'm Dana. And you?\n— I'm Alim. Nice to meet you.\n" +
             "— Nice to meet you too. How are you?\n— I'm fine, thank you. And you?\n— Fine, thanks. Goodbye!\n— Bye!",
@@ -1451,16 +1481,8 @@ const module: Module = {
             "продолжать разговор придётся собеседнику. Добавь And you? — и очередь " +
             "переходит к нему.",
         },
-        {
-          id: "zapis-razgovora",
-          kind: "audio",
-          pace: "slow",
-          voice: "два голоса",
-          caption: "Послушай разговор целиком",
-          transcript:
-            "Good morning! What's your name? — I'm Dana. And you? — I'm Alim. Nice to meet you. " +
-            "— Nice to meet you too. How are you? — I'm fine, thank you. And you? — Fine, thanks. Goodbye!",
-        },
+        // Запись разговора убрана: тот же разговор звучит у примера выше —
+        // целиком, одной кнопкой и на два голоса.
 
         // ---- задания ----
         {
@@ -1573,6 +1595,11 @@ const module: Module = {
           id: "poryadok-znakomstva",
           kind: "table",
           caption: "Порядок реплик при знакомстве",
+          // Урок слушания, поэтому обе записи ниже остаются: они и есть предмет
+          // урока. А у образца каждого шага кнопка добавлена — прежде чем
+          // слушать разговор целиком, полезно услышать шаги по одному.
+          zvuchat: ["Hello!", "I'm Alim.", "I'm Dana.", "Nice to meet you.", "How are you?",
+          ],
           head: ["Очередь", "Что звучит", "Пример"],
           rows: [
             ["1", "приветствие", "Hello!"],

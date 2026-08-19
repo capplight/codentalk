@@ -223,6 +223,10 @@ const module: Module = {
           id: "tablica-do",
           kind: "table",
           caption: "Сказать и спросить",
+          zvuchat: ["You work on Sunday.", "Do you work on Sunday?", "You live here.",
+            "Do you live here?", "You drink coffee.", "Do you drink coffee?", "You know Dana.",
+            "Do you know Dana?",
+          ],
           head: ["Сказать", "Спросить", "Перевод вопроса"],
           rows: [
             ["You work on Sunday.", "Do you work on Sunday?", "Ты работаешь по воскресеньям?"],
@@ -254,6 +258,7 @@ const module: Module = {
           id: "primer-voprosa",
           kind: "example",
           caption: "Разговор на новой работе",
+          razgovor: true,
           text:
             "— Do you work on Sunday?\n— No. I don't work on Sunday.\n— Do you live here?\n" +
             "— Yes. I live near the office.",
@@ -261,15 +266,7 @@ const module: Module = {
             "Оба вопроса устроены одинаково: Do, потом you, потом глагол. Ответы ты уже " +
             "умеешь строить с модуля «Я не делаю».",
         },
-        {
-          id: "zapis-voprosa",
-          kind: "audio",
-          pace: "slow",
-          caption: "Послушай пары: сказать и спросить",
-          transcript:
-            "You work on Sunday. Do you work on Sunday? You live here. Do you live here? " +
-            "You drink coffee. Do you drink coffee?",
-        },
+        // Запись убрана: обе половины каждой пары звучат в таблице выше.
         {
           id: "slovar-voprosa",
           kind: "vocab",
@@ -367,6 +364,9 @@ const module: Module = {
           id: "tablica-korotkogo",
           kind: "table",
           caption: "Вопрос и два ответа",
+          zvuchat: ["Do you work on Sunday?", "Yes, I do.", "No, I don't.", "Do you live here?",
+            "Do you drink coffee?",
+          ],
           head: ["Вопрос", "Да", "Нет"],
           rows: [
             ["Do you work on Sunday?", "Yes, I do.", "No, I don't."],
@@ -395,6 +395,7 @@ const module: Module = {
           id: "primer-korotkogo",
           kind: "example",
           caption: "Три вопроса подряд",
+          razgovor: true,
           text:
             "— Do you live in Almaty?\n— Yes, I do.\n— Do you work in an office?\n" +
             "— No, I don't. I work at a school.",
@@ -402,15 +403,7 @@ const module: Module = {
             "После короткого «нет» добавляют, как на самом деле. Тот же порядок был " +
             "в модуле «Я не делаю».",
         },
-        {
-          id: "zapis-korotkogo",
-          kind: "audio",
-          pace: "slow",
-          caption: "Послушай вопрос и оба ответа",
-          transcript:
-            "Do you work on Sunday? Yes, I do. No, I don't. Do you live here? Yes, I do. " +
-            "No, I don't.",
-        },
+        // Запись убрана: и вопросы, и оба ответа звучат в таблице выше.
         {
           id: "slovar-korotkogo",
           kind: "vocab",
@@ -513,6 +506,9 @@ const module: Module = {
           id: "tablica-does",
           kind: "table",
           caption: "О себе и о другом",
+          zvuchat: ["Do you work here?", "Does he work here?", "Do you live in Almaty?",
+            "Does she live in Almaty?", "Do you study English?", "Does Alim study English?",
+          ],
           head: ["О собеседнике", "Об одном другом", "Перевод"],
           rows: [
             ["Do you work here?", "Does he work here?", "Он здесь работает?"],
@@ -542,6 +538,7 @@ const module: Module = {
           id: "primer-does",
           kind: "example",
           caption: "Разговор о брате",
+          razgovor: true,
           text:
             "— Does your brother work here?\n— No, he doesn't. He works at a company.\n" +
             "— Does he like his job?\n— Yes, he does.",
@@ -549,15 +546,7 @@ const module: Module = {
             "Короткий ответ устроен как в прошлом уроке, только вместо do стоит does: " +
             "Yes, he does. No, he doesn't.",
         },
-        {
-          id: "zapis-does",
-          kind: "audio",
-          pace: "slow",
-          caption: "Послушай пары: о собеседнике и о другом",
-          transcript:
-            "Do you work here? Does he work here? Do you live in Almaty? Does she live in " +
-            "Almaty? Yes, he does. No, she doesn't.",
-        },
+        // Запись убрана: обе половины каждой пары звучат в таблице выше.
         {
           id: "slovar-does",
           kind: "vocab",
@@ -660,6 +649,11 @@ const module: Module = {
           id: "tablica-razlicheniya",
           kind: "table",
           caption: "Два вида вопроса",
+          // Столбец «чем открывается вопрос» отдельных кнопок не получает: Do и
+          // Does слышны в самих вопросах, а «форма be» — это русская подпись.
+          zvuchat: ["Are you a doctor?", "Do you work here?", "Is she a student?",
+            "Does she study here?",
+          ],
           head: ["Вопрос", "О чём спрашивает", "Что стоит первым"],
           rows: [
             ["Are you a doctor?", "кто он", "форма be"],
@@ -690,6 +684,7 @@ const module: Module = {
           id: "primer-razlicheniya",
           kind: "example",
           caption: "Знакомство",
+          razgovor: true,
           text:
             "— Are you a teacher?\n— Yes, I am.\n— Do you work at a school?\n" +
             "— No, I don't. I work at a college.",
@@ -697,14 +692,7 @@ const module: Module = {
             "Первый вопрос о том, кто человек, второй — о том, что он делает. И ответы " +
             "разные: на первый Yes, I am, на второй No, I don't.",
         },
-        {
-          id: "zapis-razlicheniya",
-          kind: "audio",
-          pace: "slow",
-          caption: "Послушай пары вопросов",
-          transcript:
-            "Are you a doctor? Do you work here? Is she a student? Does she study here?",
-        },
+        // Запись убрана: все четыре вопроса звучат в таблице выше.
         {
           id: "slovar-razlicheniya",
           kind: "vocab",
@@ -810,6 +798,9 @@ const module: Module = {
           id: "tablica-what",
           kind: "table",
           caption: "Да или нет — и что именно",
+          zvuchat: ["Do you study English?", "What do you study?", "Do you read books?",
+            "What do you read?", "Do you eat fish?", "What do you eat?",
+          ],
           head: ["Только да или нет", "Что именно", "Перевод"],
           rows: [
             ["Do you study English?", "What do you study?", "Что ты учишь?"],
@@ -839,6 +830,7 @@ const module: Module = {
           id: "primer-what",
           kind: "example",
           caption: "Разговор о занятиях",
+          razgovor: true,
           text:
             "— What do you study?\n— I study English.\n— And what does your sister study?\n" +
             "— She studies music.",
@@ -846,14 +838,7 @@ const module: Module = {
             "На такой вопрос отвечают не да и не нет, а полным предложением. И заметь: в " +
             "ответе окончание вернулось к глаголу — She studies music, — потому что в ответе нет does.",
         },
-        {
-          id: "zapis-what",
-          kind: "audio",
-          pace: "slow",
-          caption: "Послушай вопросы со словом what",
-          transcript:
-            "What do you study? What do you read? What does he study? What do you do?",
-        },
+        // Запись убрана: обе половины каждой пары звучат в таблице выше.
         {
           id: "slovar-what",
           kind: "vocab",
@@ -952,6 +937,9 @@ const module: Module = {
           id: "tablica-slov-voprosa",
           kind: "table",
           caption: "Вопросительные слова перед Do",
+          zvuchat: ["what", "What do you study?", "where", "Where do you work?",
+            "Where does she work?", "when", "When do you start?", "who", "Who is your teacher?",
+          ],
           head: ["Слово", "О чём", "Пример"],
           rows: [
             ["what", "что", "What do you study?"],
@@ -975,6 +963,7 @@ const module: Module = {
           id: "primer-who",
           kind: "example",
           caption: "Спросить о человеке",
+          razgovor: true,
           text: "— Who is your teacher?\n— Dana is my teacher.\n— Who is that?\n— That's Alim.",
           explain:
             "В обоих вопросах после who стоит форма be. Отвечают именем, а не да или нет.",
@@ -991,6 +980,7 @@ const module: Module = {
           id: "primer-gde-kogda",
           kind: "example",
           caption: "Расспросить о работе",
+          razgovor: true,
           text:
             "— Where do you work?\n— I work at a school.\n— When do you start?\n" +
             "— I start at nine.\n— Who is your teacher?\n— Dana is my teacher.",
@@ -998,14 +988,7 @@ const module: Module = {
             "Первые два вопроса устроены одинаково: слово, Do, you, глагол. Третий — с " +
             "формой be, потому что дальше идёт не действие, а человек.",
         },
-        {
-          id: "zapis-gde-kogda",
-          kind: "audio",
-          pace: "slow",
-          caption: "Послушай четыре вопросительных слова",
-          transcript:
-            "What do you study? Where do you work? When do you start? Who is your teacher?",
-        },
+        // Запись убрана: каждое вопросительное слово и пример к нему звучат в таблице выше.
         {
           id: "slovar-gde-kogda",
           kind: "vocab",
@@ -1107,6 +1090,9 @@ const module: Module = {
           id: "tablica-o-neskolkih",
           kind: "table",
           caption: "Один и несколько",
+          zvuchat: ["Does he live here?", "Do they live here?", "Does she work in a shop?",
+            "Do they work in a shop?", "Does your brother study?", "Do your friends study?",
+          ],
           head: ["Об одном", "О нескольких", "Перевод"],
           rows: [
             ["Does he live here?", "Do they live here?", "Они здесь живут?"],
@@ -1136,21 +1122,14 @@ const module: Module = {
           id: "primer-o-neskolkih",
           kind: "example",
           caption: "Разговор о соседях",
+          razgovor: true,
           text:
             "— Do your friends live in this city?\n— Yes, they do.\n" +
             "— Do they work together?\n— No, they don't.",
           explain:
             "Короткий ответ о нескольких устроен так же: Yes, they do. No, they don't.",
         },
-        {
-          id: "zapis-o-neskolkih",
-          kind: "audio",
-          pace: "slow",
-          caption: "Послушай пары: об одном и о нескольких",
-          transcript:
-            "Does he live here? Do they live here? Does she work in a shop? Do they work " +
-            "in a shop? Yes, they do. No, they don't.",
-        },
+        // Запись убрана: обе половины каждой пары звучат в таблице выше.
         {
           id: "slovar-o-neskolkih",
           kind: "vocab",
@@ -1246,6 +1225,9 @@ const module: Module = {
           id: "shagi-razgovora",
           kind: "table",
           caption: "Из чего складывается разговор",
+          zvuchat: ["Do you work here?", "Yes, I do.", "Where do you work?",
+            "I work at a school.",
+          ],
           head: ["Шаг", "Пример"],
           rows: [
             ["задать вопрос, на который отвечают да или нет", "Do you work here?"],
@@ -1258,6 +1240,7 @@ const module: Module = {
           id: "primer-razgovora",
           kind: "example",
           caption: "Разговор целиком",
+          razgovor: true,
           text:
             "— Do you work in this city?\n— Yes, I do.\n— Where do you work?\n" +
             "— I work at a school. And you?\n— I don't work. I study at a university.",
@@ -1269,6 +1252,7 @@ const module: Module = {
           id: "primer-razgovora-o-tretem",
           kind: "example",
           caption: "Разговор о третьем человеке",
+          razgovor: true,
           text:
             "— Does your sister live in Almaty?\n— No, she doesn't. She lives in Astana.\n" +
             "— What does she do?\n— She's a doctor.",
@@ -1284,15 +1268,7 @@ const module: Module = {
             "Короткий способ вернуть вопрос собеседнику — And you?\n\nЭто значит «а ты?» " +
             "Повторять весь вопрос не нужно.",
         },
-        {
-          id: "zapis-razgovora",
-          kind: "audio",
-          pace: "slow",
-          caption: "Послушай разговор целиком",
-          transcript:
-            "Do you work in this city? Yes, I do. Where do you work? I work at a school. " +
-            "And you? I don't work. I study at a university.",
-        },
+        // Запись убрана: оба разговора выше звучат целиком и на два голоса.
         {
           id: "slovar-razgovora",
           kind: "vocab",
@@ -1518,12 +1494,8 @@ const module: Module = {
           id: "vopros-i-otvet-na-sluh",
           kind: "table",
           caption: "Вопрос и ответ — нажми и сравни",
-          zvuk: {
-            "Do you work here?": "Do you work here?",
-            "Yes, I do.": "Yes, I do.",
-            "Does he work here?": "Does he work here?",
-            "No, he doesn't.": "No, he doesn't.",
-          },
+          zvuchat: ["Do you work here?", "Yes, I do.", "Does he work here?", "No, he doesn't.",
+          ],
           head: ["Вопрос", "Короткий ответ"],
           rows: [
             ["Do you work here?", "Yes, I do."],

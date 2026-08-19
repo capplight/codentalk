@@ -181,6 +181,8 @@ const module: Module = {
           id: "tablica-umeniya",
           kind: "table",
           caption: "Три умения",
+          zvuchat: ["I can swim.", "I can cook.", "I can drive.",
+          ],
           head: ["Английский", "Перевод"],
           rows: [
             ["I can swim.", "Я умею плавать."],
@@ -209,18 +211,14 @@ const module: Module = {
           id: "primer-umeniya",
           kind: "example",
           caption: "Что человек умеет",
+          zvuchat: ["I can swim.", "I can ride a bike.", "I can speak English.",
+          ],
           text: "I can swim.\nI can ride a bike.\nI can speak English.",
           explain:
             "Во всех трёх can стоит перед глаголом, а глагол — без окончания. " +
             "После глагола идёт всё остальное: a bike, English.",
         },
-        {
-          id: "zapis-umeniya",
-          kind: "audio",
-          pace: "slow",
-          caption: "Послушай три умения",
-          transcript: "I can swim. I can ride a bike. I can speak English.",
-        },
+        // Запись убрана: все три умения звучат в таблице выше.
         {
           id: "slovar-umeniya",
           kind: "vocab",
@@ -321,6 +319,10 @@ const module: Module = {
           id: "tablica-can-po-licam",
           kind: "table",
           caption: "Can у всех одинаковое",
+          // Столбец с местоимениями отдельных кнопок не получает: урок здесь о том,
+          // что can у всех одинаковое, — это и слышно в предложениях.
+          zvuchat: ["I can swim.", "She can swim.", "They can swim.",
+          ],
           head: ["О ком", "Пример"],
           rows: [
             ["I", "I can swim."],
@@ -350,18 +352,15 @@ const module: Module = {
           id: "primer-o-drugom-umenie",
           kind: "example",
           caption: "Что умеют другие",
+          zvuchat: ["She can drive.", "My brother can play football.",
+            "They can speak English.",
+          ],
           text: "She can drive.\nMy brother can play football.\nThey can speak English.",
           explain:
             "Во всех трёх can стоит без окончания, и глагол после него — тоже. " +
             "Меняется только то, о ком речь.",
         },
-        {
-          id: "zapis-o-drugom-umenie",
-          kind: "audio",
-          pace: "slow",
-          caption: "Послушай о себе и о других",
-          transcript: "I can drive. She can drive. They can drive.",
-        },
+        // Запись убрана: все предложения звучат в таблице выше и в примере под ней.
         {
           id: "slovar-o-drugom-umenie",
           kind: "vocab",
@@ -456,6 +455,8 @@ const module: Module = {
           id: "tablica-otricanie-umeniya",
           kind: "table",
           caption: "Умею и не умею",
+          zvuchat: ["I can swim.", "I can't swim.", "She can't drive.",
+          ],
           head: ["Английский", "Перевод"],
           rows: [
             ["I can swim.", "Я умею плавать."],
@@ -487,18 +488,14 @@ const module: Module = {
           id: "primer-otricaniya-umeniya",
           kind: "example",
           caption: "Чего человек не умеет",
+          zvuchat: ["I can't drive.", "My brother can't cook.", "They can't speak English.",
+          ],
           text: "I can't drive.\nMy brother can't cook.\nThey can't speak English.",
           explain:
             "Во всех трёх стоит can't, а глагол после него — без окончания, как и в " +
             "утверждении.",
         },
-        {
-          id: "zapis-can-i-cant",
-          kind: "audio",
-          pace: "slow",
-          caption: "Послушай can и can't подряд",
-          transcript: "I can swim. I can't swim.",
-        },
+        // Запись убрана: и can, и can't звучат в таблице выше.
         {
           id: "glasnyy-v-cant",
           kind: "note",
@@ -594,6 +591,8 @@ const module: Module = {
           id: "tablica-vopros-umenie",
           kind: "table",
           caption: "Утверждение и вопрос",
+          zvuchat: ["You can swim.", "Can you swim?", "Can your brother drive?",
+          ],
           head: ["Английский", "Перевод"],
           rows: [
             ["You can swim.", "Ты умеешь плавать."],
@@ -622,18 +621,13 @@ const module: Module = {
           id: "primer-voprosa-umenie",
           kind: "example",
           caption: "Короткий разговор",
+          razgovor: true,
           text: "— Can you swim?\n— Yes, I can.\n— Can you drive?\n— No, I can't.",
           explain:
             "В обоих вопросах can стоит первым. В ответах повторяется только can — " +
             "с yes или с no.",
         },
-        {
-          id: "zapis-voprosa-umenie",
-          kind: "audio",
-          pace: "slow",
-          caption: "Послушай вопрос и два ответа",
-          transcript: "Can you swim? Yes, I can. No, I can't.",
-        },
+        // Запись убрана: вопрос звучит в таблице выше, а разговор — целиком.
         {
           id: "slovar-voprosa-umenie",
           kind: "vocab",
@@ -726,6 +720,8 @@ const module: Module = {
           id: "tablica-chto-umeesh",
           kind: "table",
           caption: "Вопрос с вопросительным словом",
+          zvuchat: ["What can you do?", "What can your sister do?", "What can your friends do?",
+          ],
           head: ["Английский", "Перевод"],
           rows: [
             ["What can you do?", "Что ты умеешь?"],
@@ -754,18 +750,13 @@ const module: Module = {
           id: "primer-chto-umeesh",
           kind: "example",
           caption: "Разговор при знакомстве",
+          razgovor: true,
           text: "— What can you do?\n— I can swim.\n— What can your sister do?\n— She can drive.",
           explain:
             "В обоих вопросах can стоит вторым, сразу после What. Дальше идёт тот, о " +
             "ком речь, и только потом глагол.",
         },
-        {
-          id: "zapis-chto-umeesh",
-          kind: "audio",
-          pace: "slow",
-          caption: "Послушай два вопроса",
-          transcript: "What can you do? What can your sister do?",
-        },
+        // Запись убрана: все три вопроса звучат в таблице выше, а разговор — целиком.
         {
           id: "otvet-odnim-can",
           kind: "note",
@@ -860,6 +851,8 @@ const module: Module = {
           id: "tablica-umenie-i-vozmozhnost",
           kind: "table",
           caption: "Одно слово, два случая",
+          zvuchat: ["I can swim.", "You can buy milk here.", "You can't buy bread here.",
+          ],
           head: ["Английский", "Перевод", "О чём речь"],
           rows: [
             ["I can swim.", "Я умею плавать.", "умение человека"],
@@ -890,18 +883,15 @@ const module: Module = {
           id: "primer-vozmozhnosti",
           kind: "example",
           caption: "Где что купить",
+          zvuchat: ["The shop is next to the school.", "You can buy milk there.",
+            "You can't buy bread there.",
+          ],
           text: "The shop is next to the school.\nYou can buy milk there.\nYou can't buy bread there.",
           explain:
             "Первое предложение говорит, где магазин. Второе и третье — что там " +
             "можно и чего нельзя. Про умение здесь нет ни слова.",
         },
-        {
-          id: "zapis-vozmozhnosti",
-          kind: "audio",
-          pace: "slow",
-          caption: "Послушай про магазин",
-          transcript: "You can buy milk here. You can't buy bread here.",
-        },
+        // Запись убрана: все строки звучат в таблице выше и в примере под ней.
         {
           id: "slovar-vozmozhnosti",
           kind: "vocab",
@@ -1000,6 +990,8 @@ const module: Module = {
           id: "tablica-prosby",
           kind: "table",
           caption: "Просьба и предложение помощи",
+          zvuchat: ["Can you help?", "Can I help you?", "Can I have your pen?",
+          ],
           head: ["Английский", "Перевод"],
           rows: [
             ["Can you help?", "Ты не поможешь?"],
@@ -1028,6 +1020,7 @@ const module: Module = {
           id: "primer-prosby",
           kind: "example",
           caption: "Два коротких разговора",
+          razgovor: true,
           text:
             "— Can you help, please?\n— Yes, I can.\n\n— Can I help you?\n— No, thank you.",
           explain:
@@ -1036,13 +1029,7 @@ const module: Module = {
             "В первом разговоре помощи просят, во втором её предлагают. Отвечают так " +
             "же коротко, как на любой вопрос с can.",
         },
-        {
-          id: "zapis-prosby",
-          kind: "audio",
-          pace: "slow",
-          caption: "Послушай просьбу и предложение помощи",
-          transcript: "Can you help, please? Can I help you?",
-        },
+        // Запись убрана: все три просьбы звучат в таблице выше, а разговоры — целиком.
         {
           id: "slovar-prosby",
           kind: "vocab",
@@ -1140,6 +1127,9 @@ const module: Module = {
           id: "tablica-chetyre-formy",
           kind: "table",
           caption: "Всё про can на одной странице",
+          zvuchat: ["I can swim.", "I can't drive.", "Can you swim?",
+            "Yes, I can. No, I can't.",
+          ],
           head: ["Что нужно", "Как это выглядит"],
           rows: [
             ["сказать, что умеешь", "I can swim."],
@@ -1161,20 +1151,15 @@ const module: Module = {
           id: "primer-rasskaza-umeniya",
           kind: "example",
           caption: "Рассказ целиком",
+          zvuchat: ["I can swim.", "I can't drive.", "My sister can drive.",
+          ],
           text:
             "I can swim.\nI can't drive.\nMy sister can drive.",
           explain:
             "Первое предложение о том, что умеешь, второе — об обратном, третье — о " +
             "другом человеке. Соединять их в одно длинное пока не нужно.",
         },
-        {
-          id: "zapis-rasskaza-umeniya",
-          kind: "audio",
-          pace: "slow",
-          caption: "Послушай рассказ целиком",
-          transcript:
-            "I can swim. I can't drive. My sister can drive.",
-        },
+        // Запись убрана: рассказ выше звучит построчно.
         {
           id: "ne-tolko-pro-sebya",
           kind: "note",
@@ -1397,12 +1382,8 @@ const module: Module = {
           id: "can-i-cant-na-sluh",
           kind: "table",
           caption: "Умею и не умею — нажми и сравни",
-          zvuk: {
-            "I can swim.": "I can swim.",
-            "I can't swim.": "I can't swim.",
-            "He can drive.": "He can drive.",
-            "He can't drive.": "He can't drive.",
-          },
+          zvuchat: ["I can swim.", "I can't swim.", "He can drive.", "He can't drive.",
+          ],
           head: ["Умеет", "Не умеет"],
           rows: [
             ["I can swim.", "I can't swim."],
