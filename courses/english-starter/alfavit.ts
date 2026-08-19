@@ -46,6 +46,15 @@ const module: Module = {
 
   sources: [
     {
+      ref: "Council of Europe, CEFR Companion Volume 2020 — опора урока чтения",
+      section:
+        "ПЕРВЫЙ УРОК ЧТЕНИЯ В КУРСЕ («Читаем список и бланк»). с. 55, шкала Overall reading comprehension, графа A1, дословно: «Can understand very short, simple texts a single phrase at a time, picking up familiar names, words and basic phrases and rereading as required». Список имён и бланк — это и есть «very short, simple texts», а «picking up familiar names» называет то, чем ученик здесь занят, дословно. " +
+        "Там же, с. 56, шкала Reading for orientation, графа A1: «Can recognise familiar names, words/signs and very basic phrases on simple notices in the most common everyday situations» — список группы и бланк гостиницы это «simple notices». " +
+        "ПОЧЕМУ УРОК ЧТЕНИЯ СТОИТ УЖЕ В ПЕРВОМ МОДУЛЕ: обе строки требуют узнавать имена, а не понимать слова. Английских слов урок не вводит ни одного, кроме GROUP в словарике текста: подписи бланка разобраны в седьмом уроке этого же модуля, а имена ступенью не меряются. " +
+        "Номера страниц взяты разборщиком PDF (npm run pdf --find), а не выведены из разметки текстового разбора: однажды такой вывод разошёлся с настоящим на единицу.",
+      license: "внутреннее использование, публично не называем",
+    },
+    {
       ref: "Cambridge English, Pre A1 Starters — Can Do summary",
       section:
         "с. 9: «CAN understand letters of the English alphabet when heard» (слушание) и " +
@@ -239,6 +248,7 @@ const module: Module = {
     "заполнять простой бланк: имя, фамилия, страна, адрес",
     "узнавать частые буквосочетания и не читать их по названиям букв",
     "записывать со слуха слово, продиктованное по буквам",
+    "находить нужное имя в списке и в заполненном бланке",
   ],
 
   lessons: [
@@ -1628,6 +1638,131 @@ const module: Module = {
         },
       ],
     },
+
+    // =====================================================================
+    // ПЕРВЫЙ УРОК ЧТЕНИЯ В КУРСЕ.
+    //
+    // Читать здесь пока нечего, кроме имён, — и это ровно то, что называет
+    // источник: «picking up familiar names». Английских слов урок не требует
+    // ни одного: список состоит из имён, а подписи бланка разобраны в седьмом
+    // уроке этого же модуля. Единственное новое слово — group — дано
+    // словариком текста.
+    //
+    // Опора — в `sources`.
+    // =====================================================================
+    {
+      slug: "chitaem-spisok-i-blank",
+      title: "Читаем список и бланк",
+      estimatedMinutes: 12,
+      outcome: "находить нужное имя в списке и в заполненном бланке",
+
+      blocks: [
+        {
+          id: "zachem-chitat-spisok",
+          kind: "explain",
+          text: [
+            "Первое, что приходится читать по-английски, — не книга, а список: кто в " +
+              "группе, кто заселён, кто записан на приём.",
+            "Читать такой список подряд не нужно. Ищи знакомое: первую букву имени, " +
+              "длину фамилии, знакомое сочетание букв.",
+          ],
+        },
+        {
+          id: "spisok-gruppy",
+          kind: "text",
+          genre: "notice",
+          title: "GROUP A",
+          body: ["Aigul Nurlanova", "Alim Sadykov", "Dana Karimova", "Nurlan Abenov"],
+          glossary: [{ term: "GROUP", translation: "группа" }],
+        },
+        {
+          id: "kak-ustroen-spisok",
+          kind: "note",
+          tone: "info",
+          text:
+            "В каждой строке сначала имя, потом фамилия — тот же порядок, что в бланке: " +
+            "first name, потом surname. В русских списках привычнее обратный порядок, и " +
+            "на этом легко ошибиться.",
+        },
+        {
+          id: "blank-gostinicy",
+          kind: "text",
+          genre: "notice",
+          title: "HOTEL",
+          body: ["First name: Dana", "Surname: Karimova", "Country: Kazakhstan"],
+          glossary: [{ term: "HOTEL", translation: "гостиница" }],
+        },
+        {
+          id: "sverit-dva-teksta",
+          kind: "note",
+          tone: "info",
+          text:
+            "Один и тот же человек записан дважды: строкой в списке и полями в бланке. " +
+            "Сверять их приходится часто — в гостинице, на приёме, у стойки регистрации.",
+        },
+
+        // ---- задания ----
+        {
+          id: "z1-chya-familiya",
+          kind: "choice",
+          about: "spisok-gruppy",
+          prompt: "Посмотри в список. Чья фамилия начинается с буквы S?",
+          options: [
+            { text: "Alim", correct: true },
+            { text: "Aigul" },
+            { text: "Dana" },
+          ],
+          hint: "Смотри на второе слово каждой строки, а не на первое.",
+          why: "Alim Sadykov. Фамилия стоит второй, и начинается она с /es/.",
+        },
+        {
+          id: "z2-otmetit-na-a",
+          kind: "hottext",
+          about: "spisok-gruppy",
+          prompt: "Отметь имена, которые начинаются с буквы A.",
+          parts: [
+            { text: "Aigul", selectable: true, correct: true },
+            { text: "Alim", selectable: true, correct: true },
+            { text: "Dana", selectable: true },
+            { text: "Nurlan", selectable: true },
+          ],
+          hint: "Имя стоит в строке первым.",
+          why:
+            "Aigul и Alim. У Nurlan первая буква N, у Dana — D. Фамилия Abenov тоже " +
+            "начинается с A, но спрашивали про имена.",
+        },
+        {
+          id: "z3-kto-v-blanke",
+          kind: "short",
+          about: "blank-gostinicy",
+          prompt:
+            "В бланке записан один человек из списка. Запиши его фамилию так, как она " +
+            "стоит в бланке.",
+          answer: "Karimova",
+          exact: true,
+          accept: ["Karimova."],
+          hint: "Фамилия стоит в строке, подписанной surname.",
+          why:
+            "Karimova. В списке эта строка выглядит иначе — Dana Karimova, — потому что " +
+            "там имя и фамилия стоят рядом, без подписей.",
+        },
+        {
+          id: "z4-gde-imya",
+          kind: "choice",
+          about: "blank-gostinicy",
+          prompt: "В какой строке бланка стоит имя, а не фамилия?",
+          options: [
+            { text: "First name: Dana", correct: true },
+            { text: "Surname: Karimova" },
+            { text: "Country: Kazakhstan" },
+          ],
+          hint: "Подпись поля называет, что в нём писать.",
+          why:
+            "First name — личное имя. Surname — фамилия, Country — страна. Подписи и " +
+            "различают строки: без них порядок пришлось бы угадывать.",
+        },
+      ],
+    },
   ],
 
   // =======================================================================
@@ -1899,6 +2034,28 @@ const module: Module = {
         exact: true,
         why:
           "Kazakhstan — страна, поэтому с заглавной. Названия стран в английском всегда пишутся с заглавной.",
+      },
+
+      // ---- чтение -----------------------------------------------------
+      // Угол другой, чем в уроке. Там ищут фамилию по первой букве и имя по
+      // подписи поля; здесь список и бланк расходятся, и надо заметить, что
+      // это разные люди. Список нарочно другой.
+      {
+        id: "q-spisok-i-blank-raznye",
+        kind: "choice",
+        outcome: "находить нужное имя в списке и в заполненном бланке",
+        prompt:
+          "В списке две строки: «Aidos Ospanov» и «Aida Ospanova». В бланке записано: " +
+          "«First name: Aida». Кто из списка заселён?",
+        options: [
+          { text: "Aidos Ospanov" },
+          { text: "Aida Ospanova", correct: true },
+          { text: "По бланку этого не понять" },
+        ],
+        hint: "Сравнивай с полем first name — там стоит имя, а не фамилия.",
+        why:
+          "Aida Ospanova. Имена различаются двумя буквами на конце, фамилии — одной. " +
+          "Читать приходится до конца слова, а не по первым буквам.",
       },
     ],
   },
