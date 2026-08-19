@@ -1546,20 +1546,21 @@ const module: Module = {
         {
           id: "obrazec-otkrytki",
           kind: "example",
-          caption: "Открытка из четырёх строк",
+          caption: "Открытка из пяти строк",
           text:
             "Hello from Rome!\nYesterday I saw the Colosseum.\n" +
-            "Now I am reading in a cafe.\nI will come home on Friday.",
+            "Now I am reading in a cafe.\nI will come home on Friday.\nSee you soon!",
           zvuchat: [
             "Hello from Rome!",
             "Yesterday I saw the Colosseum.",
             "Now I am reading in a cafe.",
             "I will come home on Friday.",
+            "See you soon!",
           ],
           explain:
-            "Первая строка называет, откуда открытка. Дальше три времени по порядку: " +
-            "вчера, сейчас, завтра. Слово времени стоит в начале строки — так читающий " +
-            "сразу видит, о чём речь.",
+            "Открытку открывает место, а закрывает прощание. Этих двух строк в устном " +
+            "рассказе о трёх днях не было, и они-то и делают открытку открыткой. Между " +
+            "ними три времени по порядку: вчера, сейчас, завтра.",
           // Colosseum — имя собственное, ступенью не меряется. Решение
           // владельца 15 августа: названия мест берутся по смыслу.
         },
@@ -1622,21 +1623,22 @@ const module: Module = {
           id: "z3-napisat-otkrytku",
           kind: "essay",
           prompt:
-            "Напиши открытку четырьмя строками: откуда она, что было вчера, что " +
-            "происходит сейчас и когда вернёшься.",
+            "Напиши открытку пятью строками: откуда она, что было вчера, что происходит " +
+            "сейчас, когда вернёшься и прощание.",
           minWords: 12,
           sample:
-            "Hello from Rome! Yesterday I saw a market. Now I am reading in a cafe. " +
-            "I will come home on Sunday.",
+            "Hello from Astana! Yesterday I saw a big park. Now I am eating in a cafe. " +
+            "I will come home on Sunday. See you soon!",
           checklist: [
             "В первой строке стоит yesterday, и глагол при нём в прошедшем времени.",
             "Во второй — now, и глагол при нём с am и окончанием -ing.",
             "В третьей — will перед глаголом.",
-            "Первая строка называет место и глагола не требует: Hello from … !",
+            "Первая строка называет место, последняя прощается: Hello from … ! и " +
+              "See you soon! Глагола в них нет.",
           ],
           hint:
-            "Возьми четыре строки образца и подставь своё: Hello from … ! Yesterday I … . " +
-            "Now I am … . I will … .",
+            "Возьми пять строк образца и подставь своё: Hello from … ! Yesterday I … . " +
+            "Now I am … . I will … . See you soon!",
           why:
             "Сравни свой ответ с образцом по четырём пунктам выше. Поездка и дела у " +
             "каждого свои. Важно другое: слово времени и глагол при нём должны говорить " +
