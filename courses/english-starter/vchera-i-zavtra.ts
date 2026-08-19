@@ -101,10 +101,10 @@ const module: Module = {
       ref: "Council of Europe, CEFR Companion Volume 2020 — опора урока письма",
       section:
         "УРОК ПИСЬМА «Пишем открытку», последний на ступени. с. 83, шкала Correspondence, графа A1, дословно: «Can compose a short, simple postcard». Открытка названа источником одним словом — это готовый жанр для этой ступени. " +
-        "Там же, с. 66, шкала Overall written production, графа A1: «Can produce simple isolated phrases and sentences» — три отдельных предложения открытки это и есть. " +
-        "ПОЧЕМУ ОТКРЫТКА ПОСЛЕДНЯЯ: в ней сходятся все три времени курса, и слово времени при каждом своё. Раньше двадцать пятого модуля такого текста не собрать. " +
+        "Там же, с. 66, шкала Overall written production, графа A1: «Can produce simple isolated phrases and sentences» — отдельные строки открытки это и есть. " +
+        "ПОЧЕМУ ОТКРЫТКА ПОСЛЕДНЯЯ: в ней сходятся все три времени курса, и слово времени при каждом своё. Раньше двадцать пятого модуля такого текста не собрать. ОГОВОРКА: открытки среди текстов курса для чтения нет — ученик встречает этот вид впервые здесь, в образце урока. Строки «Hello from …!» и «See you!» собраны из слов, данных курсом (модуль 3 — from, модуль 2 — see you), но сам вид текста источником для чтения не подготовлен. Нашёл методист. " +
         "ОГОВОРКА О СОСЕДНЕЙ ГРАФЕ: с. 68, шкала Reports and essays, графы A1 и Pre-A1 — «No descriptors available». " +
-        "ПОРОГ В ДВЕНАДЦАТЬ СЛОВ — НАШ: столько выходит в трёх коротких строках, которых требует условие. Взят по условию, а не по образцу (в нём 18 слов). " +
+        "ПОРОГ В ДВЕНАДЦАТЬ СЛОВ — НАШ: столько выходит в коротком варианте пятистрочной открытки. Взят по условию, а не по образцовому ответу (в нём 24 слова), чтобы не отсекать верный короткий. " +
         "Номера страниц взяты разборщиком PDF (npm run pdf --find).",
       license: "внутреннее использование, публично не называем",
     },
@@ -1549,13 +1549,13 @@ const module: Module = {
           caption: "Открытка из пяти строк",
           text:
             "Hello from Rome!\nYesterday I saw the Colosseum.\n" +
-            "Now I am reading in a cafe.\nI will come home on Friday.\nSee you soon!",
+            "Now I am reading in a cafe.\nI will come home on Friday.\nSee you!",
           zvuchat: [
             "Hello from Rome!",
             "Yesterday I saw the Colosseum.",
             "Now I am reading in a cafe.",
             "I will come home on Friday.",
-            "See you soon!",
+            "See you!",
           ],
           explain:
             "Открытку открывает место, а закрывает прощание. Этих двух строк в устном " +
@@ -1578,8 +1578,8 @@ const module: Module = {
           kind: "note",
           tone: "info",
           text:
-            "Первая строка открытки короткая и без глагола: Hello from Rome. Так пишут " +
-            "потому, что название места здесь важнее всего остального.",
+            "Первая строка открытки короткая и без глагола: Hello from Rome. Так же " +
+            "устроена и последняя: See you! Глагол в них не нужен.",
         },
 
         // ---- задания ----
@@ -1628,17 +1628,20 @@ const module: Module = {
           minWords: 12,
           sample:
             "Hello from Astana! Yesterday I saw a big park. Now I am eating in a cafe. " +
-            "I will come home on Sunday. See you soon!",
+            "I will come home on Sunday. See you!",
+          // Пункты названы словами, а не номерами строк. Прежде первый и
+          // четвёртый спорили: оба говорили о «первой строке» разное — остаток
+          // трёхстрочной редакции. Нашёл методист.
           checklist: [
-            "В первой строке стоит yesterday, и глагол при нём в прошедшем времени.",
-            "Во второй — now, и глагол при нём с am и окончанием -ing.",
-            "В третьей — will перед глаголом.",
-            "Первая строка называет место, последняя прощается: Hello from … ! и " +
-              "See you soon! Глагола в них нет.",
+            "Открытка начинается местом и кончается прощанием: Hello from … ! и " +
+              "See you! Глагола в них нет.",
+            "В строке про вчера стоит yesterday, и глагол при нём в прошедшем времени.",
+            "В строке про сейчас стоит now, и глагол при нём с am и окончанием -ing.",
+            "В строке про завтра стоит will перед глаголом.",
           ],
           hint:
             "Возьми пять строк образца и подставь своё: Hello from … ! Yesterday I … . " +
-            "Now I am … . I will … . See you soon!",
+            "Now I am … . I will … . See you!",
           why:
             "Сравни свой ответ с образцом по четырём пунктам выше. Поездка и дела у " +
             "каждого свои. Важно другое: слово времени и глагол при нём должны говорить " +
@@ -2079,17 +2082,20 @@ const module: Module = {
         kind: "hottext",
         outcome: "проверять в открытке, что время глагола сходится со словом времени",
         prompt: "Отметь строку открытки, где слово времени и глагол говорят о разном.",
+        // «Now I will read a book» отсюда убрано: так по-английски говорят —
+        // now значит и «теперь, дальше». Объявлять это ошибкой значило бы
+        // наказывать за верный ответ. Нашёл методист.
         parts: [
           { text: "Yesterday I saw a market.", selectable: true },
           { text: " · " },
-          { text: "Now I will read a book.", selectable: true, correct: true },
+          { text: "Tomorrow I was at home.", selectable: true, correct: true },
           { text: " · " },
           { text: "I will come home on Sunday.", selectable: true },
         ],
         hint: "Читай в каждой строке два слова подряд: слово времени и глагол при нём.",
         why:
-          "Now I am reading a book. Слово now о том, что идёт сейчас, а will — о " +
-          "будущем. Две другие строки сходятся: yesterday с saw, on Sunday с will come.",
+          "Tomorrow I will be at home. Слово tomorrow о будущем, а was — о прошлом. " +
+          "Две другие строки сходятся: yesterday с saw, on Sunday с will come.",
       },
     ],
   },

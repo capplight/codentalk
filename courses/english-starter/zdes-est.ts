@@ -153,10 +153,10 @@ const module: Module = {
     {
       ref: "Council of Europe, CEFR Companion Volume 2020 — опора урока письма",
       section:
-        "УРОК ПИСЬМА «Пишем о своём жилье». с. 67, шкала Creative writing, графа A1, дословно: «Can describe in very simple language what a room looks like». Описание комнаты названо источником прямо — это и есть предмет урока. " +
-        "Там же, с. 66, шкала Overall written production, графа A1: «Can produce simple isolated phrases and sentences» — четыре отдельных предложения о жилье это и есть. " +
+        "УРОК ПИСЬМА «Пишем объявление о сдаче». с. 67, шкала Creative writing, графа A1, дословно: «Can describe in very simple language what a room looks like». Описание жилья названо источником прямо; объявление о сдаче — тот его вид, который разобран в уроке чтения этого же модуля. " +
+        "Там же, с. 66, шкала Overall written production, графа A1: «Can produce simple isolated phrases and sentences» — заголовок и три отдельных предложения это и есть. " +
         "ОГОВОРКА О СОСЕДНЕЙ ГРАФЕ: с. 68, шкала Reports and essays, графы A1 и Pre-A1 — «No descriptors available». Рассуждения на ступени нет. " +
-        "ПОРОГ В ДВЕНАДЦАТЬ СЛОВ — НАШ, а не из источника: столько выходит в четырёх коротких предложениях, которых требует условие. Порог нарочно взят ниже образца (в нём 23 слова), чтобы не отсекать короткий верный ответ. " +
+        "ПОРОГ В ДВЕНАДЦАТЬ СЛОВ — НАШ, а не из источника: столько выходит в коротком объявлении из заголовка и трёх строк. Порог нарочно взят ниже образцового ответа (в нём 18 слов), чтобы не отсекать верный короткий. " +
         "Номера страниц взяты разборщиком PDF (npm run pdf --find).",
       license: "внутреннее использование, публично не называем",
     },
@@ -1728,9 +1728,8 @@ const module: Module = {
           text: [
             "Объявление о сдаче разобрано в этом модуле, в уроке чтения. Теперь " +
               "напишешь своё.",
-            "Читающий ищет в нём одно: подходит ему жильё или нет. Поэтому каждое " +
-              "предложение начинается с There is или There are, а последнее говорит, " +
-              "чего в жилье нет, — из-за него объявление чаще всего и закрывают.",
+            "Каждое предложение начинается с There is или There are, а последнее " +
+              "говорит, чего в жилье нет.",
           ],
         },
         {
@@ -1752,7 +1751,8 @@ const module: Module = {
           explain:
             "Заголовок говорит, что жильё сдают, — он знаком по уроку чтения. Дальше " +
             "строки по одной: сколько комнат, что рядом с домом и чего в нём нет. " +
-            "Последняя строка важнее прочих: ради неё объявление и дочитывают.",
+            "Последняя строка — единственная с отрицанием, и она же новая: в устном " +
+            "рассказе о жилье её не было.",
         },
         {
           id: "chto-teryayut-o-zhilye",
@@ -1781,15 +1781,17 @@ const module: Module = {
           id: "z1-najti-bez-poteri",
           kind: "choice",
           prompt: "В какой строке ничего не потеряно?",
+          // Верная строка нарочно не та, что стоит во врезке выше («There is a
+          // kitchen»): иначе ученик находит её глазами. Нашёл методист.
           options: [
             { text: "Is a garden near the house." },
-            { text: "There is a kitchen.", correct: true },
+            { text: "There is a window in the room.", correct: true },
             { text: "Are some books on the table." },
           ],
           hint: "Перед формой be должно стоять короткое слово. Найди строку, где оно есть.",
           why:
-            "There is a kitchen. В двух других строках потеряно there: верно было бы " +
-            "There is a garden near the house и There are some books on the table.",
+            "There is a window in the room. В двух других строках потеряно there: верно " +
+            "было бы There is a garden near the house и There are some books on the table.",
         },
         {
           id: "z2-ispravit-formu",
@@ -1818,9 +1820,12 @@ const module: Module = {
           // near the house. There isn't a garden.» — шестнадцать; двенадцать
           // оставлено с запасом на объявление покороче).
           minWords: 12,
+          // Образцовый ответ нарочно не тот, что в уроке чтения: там две комнаты,
+          // магазин у дома и нет сада. Совпадение осталось от прежней правки —
+          // нашёл методист.
           sample:
-            "FLAT FOR RENT. There are two rooms. There is a shop near the house. " +
-            "There isn't a garden.",
+            "HOUSE FOR RENT. There are four rooms. There is a cinema near the house. " +
+            "There isn't a bath.",
           checklist: [
             "Есть заголовок: FLAT FOR RENT или HOUSE FOR RENT.",
             "В каждом предложении есть there.",
@@ -2205,8 +2210,8 @@ const module: Module = {
         ],
         hint: "Слово there на месте. Посмотри, что идёт сразу после are.",
         why:
-          "There is a kitchen and there are some books. Кухня одна, и перед ней нужна " +
-          "форма is. Одной формой два разных числа не покрыть.",
+          "There is a kitchen and some books. Форму выбирает то, что идёт сразу за " +
+          "there, — а там кухня, и она одна.",
       },
     ],
   },
