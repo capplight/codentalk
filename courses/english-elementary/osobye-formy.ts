@@ -80,10 +80,12 @@ import type { Module } from "@/lib/content/types";
  *    Все A1 по Oxford 3000. Список дописан 20 августа по разбору методиста:
  *    первая редакция объявила шесть слов из одиннадцати.
  *
- *    ВОПРОС ВЛАДЕЛЬЦУ, А НЕ РЕШЕНИЕ. Чтение `ate`: в `ipa-en-uk.txt` этой формы
- *    нет вовсе, `wikipron-en-uk.tsv` даёт две записи — `e ɪ t` и `ɛ t`. Взято
- *    /eɪt/, но британская норма курса склоняет к /et/, и выбор за владельцем как
- *    преподавателем. До его слова стоит /eɪt/.
+ *    РЕШЕНИЕ ВЛАДЕЛЬЦА от 21 августа 2026. Чтение `ate`: в `ipa-en-uk.txt` этой
+ *    формы нет вовсе, `wikipron-en-uk.tsv` даёт две записи — `e ɪ t` и `ɛ t`.
+ *    Владелец как преподаватель выбрал /eɪt/. Вопрос закрыт.
+ *
+ *    ТАМ ЖЕ ЗАКРЫТ ВОПРОС ПО `abroad`: расхождение источников владелец видел и
+ *    слово одобрил. Оставлено по помете Oxford 3000.
  *
  *    РЕШЕНИЯ ПРЕПОДАВАТЕЛЯ, которых в источниках нет: `colleague`
  *    переведён «сослуживец, коллега» двумя словами, потому что первое понятнее,
@@ -105,7 +107,7 @@ import type { Module } from "@/lib/content/types";
  */
 const module: Module = {
   slug: "osobye-formy",
-  title: "Особые формы",
+  title: "Неправильные глаголы",
 
   sources: [
     {
@@ -248,7 +250,7 @@ const module: Module = {
           id: "forma-odna-na-vseh",
           kind: "explain",
           text: [
-            "Особая форма одна на всех: I went, he went, they went.",
+            "Форма для прошлого одна на всех: I went, he went, they went.",
             "По лицам она не меняется — как и форма с окончанием -ed.",
             "Вместо местоимения может стоять имя, и форма та же: my sister went, my parents came.",
           ],
@@ -495,7 +497,7 @@ const module: Module = {
           accept: ["I met my colleague yesterday.", "Yesterday I met my colleague"],
           hint: "Встреча по уговору — это meet, а не see.",
           why:
-            "Yesterday I met my colleague. Особая форма met, а оборот времени стоит " +
+            "Yesterday I met my colleague. Форма met, а оборот времени стоит " +
             "в начале или в конце.",
         },
       ],
@@ -753,7 +755,7 @@ const module: Module = {
           ],
           hint: "Одна запись приставляет окончание, другая оставляет форму настоящего.",
           why:
-            "I ate fish yesterday. Особая форма ate; eated не бывает, а eat со словом " +
+            "I ate fish yesterday. Форма ate; eated не бывает, а eat со словом " +
             "yesterday спорит сам с собой.",
         },
         {
@@ -771,7 +773,7 @@ const module: Module = {
           ],
           hint: "У двух форм из четырёх на конце стоит окончание -ed.",
           why:
-            "Особые формы — bought и wrote. Формы cooked и cleaned получились " +
+            "Формы неправильных глаголов — bought и wrote. Формы cooked и cleaned получились " +
             "прибавлением -ed: эти глаголы правильные.",
         },
         {
@@ -791,7 +793,7 @@ const module: Module = {
           accept: ["I wrote in my diary in the evening.", "In the evening I wrote in my diary"],
           hint: "Оборот времени поставь в начало, как в примере урока.",
           why:
-            "In the evening I wrote in my diary. Особая форма wrote, а оборот времени " +
+            "In the evening I wrote in my diary. Форма wrote, а оборот времени " +
             "вынесен в начало.",
         },
       ],
@@ -1075,7 +1077,7 @@ const module: Module = {
           id: "zachem-slushat-poezdku",
           kind: "explain",
           text: [
-            "Особую форму на слух узнать труднее, чем окончание: она не похожа на свой глагол.",
+            "Неправильный глагол на слух узнать труднее, чем окончание: его форма не похожа на сам глагол.",
             "Ниже запись: человек рассказывает о поездке.",
             "Слушай целиком, потом отвечай. Расшифровка спрятана под кнопкой.",
             "Открой её после ответов.",
