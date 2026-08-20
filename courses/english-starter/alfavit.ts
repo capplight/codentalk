@@ -1941,7 +1941,7 @@ const module: Module = {
         id: "q-vopros-spell",
         kind: "short",
         outcome: "узнавать букву по названию и записывать слово, продиктованное по буквам",
-        prompt: "Ты не расслышал, как пишется слово. Запиши вопрос целиком.",
+        prompt: "Слово прозвучало неразборчиво. Запиши вопрос о том, как оно пишется, целиком.",
         answer: "How do you spell that?",
         accept: ["How do you spell that", "How do you spell it?", "How do you spell it"],
         why: "How do you spell that? Это и есть просьба продиктовать слово по буквам.",
