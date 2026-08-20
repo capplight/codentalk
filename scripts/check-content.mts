@@ -1512,6 +1512,49 @@ function checkCourse(course: Course): void {
         zapomnit(question, `${mod.slug} → работа → ${question.id}`);
       }
     }
+    /*
+     * И работы частей — они написаны раньше экзамена и тоже перед глазами.
+     * Дописано 20 августа вместе с вопросами экзамена об умениях: до этого
+     * экзамен сверялся с уроками и работами модулей, а части не видел.
+     */
+    for (const part of course.parts ?? []) {
+      for (const question of (part.quiz?.questions ?? []) as any[]) {
+        zapomnit(question, `часть ${part.slug} → ${question.id}`);
+      }
+    }
+
+    /*
+     * Экзамен обязан спрашивать об уроках умений.
+     *
+     * Настоящая дыра, найденная 20 августа: экзамен написан 15-го, уроки
+     * чтения, слушания и письма — 19-го, и до правки экзамен не спрашивал о них
+     * НИ ОДНИМ вопросом из пятидесяти. Пятьдесят шесть уроков — четверть курса —
+     * не проверялись вовсе, а проверка молчала: охват считался по модулям, а
+     * модули были затронуты.
+     */
+    const itogiUmeniyKursa = new Set(
+      course.modules.flatMap((m) =>
+        m.lessons
+          .filter((l) => /^(chitaem|slushaem|pishem|govorim)-/.test(l.slug))
+          .map((l) => l.outcome)
+      )
+    );
+    if (itogiUmeniyKursa.size > 0) {
+      const proUmeniya = course.exam.questions.filter((q) =>
+        itogiUmeniyKursa.has(q.outcome)
+      ).length;
+      if (proUmeniya === 0) {
+        fail(
+          `${where} → экзамен`,
+          `ни один вопрос не спрашивает об уроках умений, а их в курсе ${itogiUmeniyKursa.size}`
+        );
+      } else if (proUmeniya < 5) {
+        warn(
+          `${where} → экзамен`,
+          `об уроках умений спрашивают ${proUmeniya} вопроса, а самих уроков ${itogiUmeniyKursa.size}`
+        );
+      }
+    }
 
     const zerkalo: string[] = [];
     const pereklichki: string[] = [];

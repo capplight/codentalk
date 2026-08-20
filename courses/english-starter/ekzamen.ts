@@ -3,8 +3,9 @@ import type { Quiz } from "@/lib/content/types";
 /**
  * Итоговый экзамен ступени «Английский с нуля».
  *
- * ЧТО ОН РЕШАЕТ. Пройден ли уровень. На нём держится сертификат, поэтому порог
- * выше, чем у работы модуля: 75 против 70.
+ * ЧТО ОН РЕШАЕТ. Пройден ли уровень. На нём держится сертификат. Порог тот же,
+ * что у работы модуля и у работы части, — 80 баллов из 100; ниже него быть не
+ * может, за этим следит проверка.
  *
  * ЧЕМ ОТЛИЧАЕТСЯ ОТ ВСЕГО ОСТАЛЬНОГО. Работа модуля спрашивает сразу после
  * материала, работа части — спустя шесть модулей, экзамен — спустя весь курс.
@@ -12,7 +13,8 @@ import type { Quiz } from "@/lib/content/types";
  * требует ПРОИЗВЕСТИ ответ. Узнавание среди трёх кнопок через два месяца после
  * урока не показывает ничего.
  *
- * СКОЛЬКО ВОПРОСОВ. В банке пятьдесят — по два на каждый модуль курса.
+ * СКОЛЬКО ВОПРОСОВ. В банке шестьдесят два: по два на каждый модуль курса и
+ * двенадцать об уроках умений — чтении, слушании и письме.
  * Показывается тридцать: столько же по объёму, сколько экзамены Cambridge на
  * этих ступенях, и это проверка, а не второе прохождение курса.
  *
@@ -576,6 +578,190 @@ export const ekzamenEnglishStarter: Quiz = {
       answer: "I will work at home tomorrow.",
       accept: ["I'll work at home tomorrow.", "I will work at home tomorrow"],
       why: "I will work at home tomorrow. После will глагол стоит голым, без окончаний.",
+    },
+
+    // ===== Умения: чтение, слушание, письмо =====
+    //
+    // Дописано 20 августа. Экзамен написан 15-го, уроки чтения, слушания и
+    // письма — 19-го, и до этой правки экзамен не спрашивал о них ни одним
+    // вопросом из пятидесяти: пятьдесят шесть уроков, четверть курса, не
+    // проверялись вовсе.
+    //
+    // Ответ на вопрос со слуха — одно слово, число или выбор. Так требует
+    // руководство Cambridge A2 Key (с. 29): «should only write ONE word, or a
+    // number, or a date, or a time», и так устроены все вопросы на слух в
+    // курсе.
+    {
+      id: "ex-sluh-diktovka",
+      kind: "short",
+      outcome: "записывать со слуха слово, продиктованное по буквам",
+      zvuk: "M-A-P. Map.",
+      prompt: "Послушай запись. Какое слово продиктовали по буквам? Запиши его.",
+      answer: "map",
+      accept: ["Map"],
+      why: "map. Названия букв идут по одной, а слово целиком звучит последним.",
+    },
+    {
+      id: "ex-sluh-cena",
+      kind: "short",
+      outcome: "различать на слух похожие числа и понимать цену в разговоре",
+      zvuk: "How much is it? — It's fifteen.",
+      prompt: "Послушай разговор. Сколько это стоит? Ответь цифрой.",
+      answer: "15",
+      accept: ["fifteen", "Fifteen"],
+      why:
+        "15. Fifteen и fifty на слух похожи, различает их ударение: в fifteen оно " +
+        "на втором слоге.",
+    },
+    {
+      id: "ex-sluh-kak-chasto",
+      kind: "choice",
+      outcome: "слышать наречие частоты и понимать, насколько часто это бывает",
+      zvuk: "I usually work on Saturday. I never work on Sunday.",
+      prompt: "Послушай запись. Как часто человек работает в субботу?",
+      options: [
+        { text: "Никогда" },
+        { text: "Обычно", correct: true },
+        { text: "Каждый день" },
+      ],
+      why:
+        "Обычно. Слово usually стоит перед делом и говорит «чаще всего, но не " +
+        "всегда». Never в записи сказано про воскресенье.",
+    },
+    {
+      id: "ex-sluh-zakaz",
+      kind: "short",
+      outcome: "понимать на слух заказ и цену в разговоре",
+      zvuk: "Two teas, please. — That's fifty.",
+      prompt: "Послушай разговор в кафе. Сколько платит покупатель? Ответь цифрой.",
+      answer: "50",
+      accept: ["fifty", "Fifty"],
+      why: "50. Цену называет продавец, и она идёт после оборота That's.",
+    },
+    {
+      id: "ex-sluh-tri-vremeni",
+      kind: "choice",
+      outcome: "слышать, о вчера, о сейчас или о завтра идёт речь",
+      zvuk: "Yesterday I was at home. Tomorrow I will be at work.",
+      prompt: "Послушай запись. Где человек будет завтра?",
+      options: [
+        { text: "На работе", correct: true },
+        { text: "Дома" },
+        { text: "Об этом не сказано" },
+      ],
+      why:
+        "На работе. Слово tomorrow и глагол will идут вместе, а дом назван рядом со " +
+        "словом yesterday.",
+    },
+    {
+      id: "ex-chtenie-spisok",
+      kind: "short",
+      outcome: "находить нужное имя в списке и в заполненном бланке",
+      prompt:
+        "Прочитай список и бланк. Запиши фамилию человека, который записан в бланке.\n" +
+        "GROUP B\n" +
+        "Aida Nurlanova\n" +
+        "Karim Abenov\n" +
+        "Dana Sadykova\n" +
+        "HOTEL\n" +
+        "First name: Karim\n" +
+        "Country: Kazakhstan",
+      answer: "Abenov",
+      accept: ["abenov"],
+      why:
+        "Abenov. В бланке стоит только имя, фамилию приходится искать в списке — " +
+        "и порядок там тот же: сначала имя, потом фамилия.",
+    },
+    {
+      id: "ex-chtenie-raspisanie",
+      kind: "short",
+      outcome: "находить в расписании нужный день и время",
+      prompt:
+        "Прочитай расписание. Во сколько занятие в среду? Ответь цифрой.\n" +
+        "ENGLISH\n" +
+        "Monday — 10\n" +
+        "Wednesday — 4\n" +
+        "Friday — 6",
+      answer: "4",
+      accept: ["four", "Four"],
+      why: "4. В расписании три дня, и нужный день назван в вопросе — Wednesday.",
+    },
+    {
+      id: "ex-chtenie-o-zhilye",
+      kind: "choice",
+      outcome: "понимать по объявлению, что есть в жилье и рядом с ним",
+      prompt:
+        "Прочитай объявление. Что есть рядом с домом?\n" +
+        "HOUSE FOR RENT\n" +
+        "There are two bedrooms and a kitchen.\n" +
+        "There isn't a garden.\n" +
+        "There is a park near the house.",
+      options: [
+        { text: "Сад" },
+        { text: "Кухня" },
+        { text: "Парк", correct: true },
+      ],
+      why:
+        "Парк. Слова near the house стоят только в одной строке. Сада нет вовсе, а " +
+        "кухня внутри дома, а не рядом с ним.",
+    },
+    {
+      id: "ex-chtenie-o-umeniyah",
+      kind: "short",
+      outcome: "понимать по объявлению, что нужно уметь и что там можно",
+      prompt:
+        "Прочитай объявление и напиши английским словом, что нужно уметь для этой " +
+        "работы.\n" +
+        "WE NEED A DRIVER\n" +
+        "You can drive.\n" +
+        "You can't work at night.",
+      answer: "drive",
+      accept: ["to drive", "Drive"],
+      why:
+        "drive. Строка с can говорит об умении, а строка с can't — не о неумении, а " +
+        "о том, что ночью работать нельзя.",
+    },
+    {
+      id: "ex-chtenie-menyu",
+      kind: "short",
+      outcome: "находить в меню нужное и понимать, сколько это стоит",
+      prompt:
+        "Человек заказал хлеб и воду. Прочитай меню и напиши цифрой, сколько он " +
+        "заплатит.\n" +
+        "CAFE\n" +
+        "Bread — 20\n" +
+        "Water — 10\n" +
+        "Coffee — 45",
+      answer: "30",
+      why: "30. У хлеба и воды свои строки: 20 и 10. Цена заказа — это они вместе.",
+    },
+    {
+      id: "ex-pismo-o-sebe",
+      kind: "short",
+      outcome:
+        "находить в записи о себе потерянные слова: форму be, артикль, заглавную букву",
+      prompt: "В записи о себе написали: «I'm Karim. I driver.» Перепиши второе предложение верно.",
+      answer: "I'm a driver.",
+      exact: true,
+      accept: ["I am a driver.", "I'm a driver", "I am a driver"],
+      why:
+        "I'm a driver. Потеряно две вещи сразу: форма be и артикль перед занятием.",
+    },
+    {
+      id: "ex-pismo-otkrytka",
+      kind: "short",
+      outcome: "проверять в открытке, что время глагола сходится со словом времени",
+      prompt: "В открытке написали: «Tomorrow I worked in the garden.» Перепиши строку верно.",
+      answer: "Tomorrow I will work in the garden.",
+      exact: true,
+      accept: [
+        "Tomorrow I will work in the garden",
+        "Tomorrow I'll work in the garden.",
+        "Tomorrow I'll work in the garden",
+      ],
+      why:
+        "Tomorrow I will work in the garden. Слово времени говорит о завтра, значит и " +
+        "глагол берёт will.",
     },
   ],
 };
