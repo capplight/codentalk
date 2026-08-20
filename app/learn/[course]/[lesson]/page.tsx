@@ -4,6 +4,7 @@ import { auth } from "@/auth";
 import { prisma } from "@/lib/db";
 import { findLesson } from "@/courses";
 import { isTask } from "@/lib/content/types";
+import { razvernutVozvraty } from "@/lib/content/vozvrat";
 import Material from "@/components/lesson/Material";
 import TaskCard from "@/components/lesson/TaskCard";
 import ConfusionButton from "@/components/lesson/ConfusionButton";
@@ -38,7 +39,14 @@ export default async function LessonPage({ params }: Params) {
   const place = findLesson(courseSlug, lessonSlug);
   if (!place) notFound();
 
-  const { course, module, lesson, number, total, previous, next } = place;
+  const { course, module, number, total, previous, next } = place;
+
+  /*
+   * Возвращения — задания из пройденных модулей — лежат в уроке ссылкой, а не
+   * копией, и разворачиваются здесь, перед показом. Данные курса при этом
+   * остаются со ссылкой: скрипты проверок смотрят именно её.
+   */
+  const lesson = razvernutVozvraty(course, place.lesson);
 
   const session = await auth();
   const userId = session?.user?.id;

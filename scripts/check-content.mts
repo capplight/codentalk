@@ -30,6 +30,7 @@ import {
   adresYacheyki,
   zvuchashchee,
 } from "../lib/content/zvuk.ts";
+import { nayti } from "../lib/content/vozvrat.ts";
 import { resheno } from "../courses/resheno.ts";
 import { courses } from "../courses/index.ts";
 import { existsSync } from "node:fs";
@@ -961,6 +962,62 @@ function checkPrivyazka(lesson: Lesson, where: string): void {
   }
 }
 
+/**
+ * ВОЗВРАЩЕНИЕ: задание из пройденного модуля, взятое ссылкой.
+ *
+ * Проверка нужна ровно потому, что ссылка дешевле копии: сломанную копию видно
+ * глазами, а сломанную ссылку — нет. Урок с ней просто не покажет задания, и
+ * ученик не узнает, что его обманули.
+ *
+ * Испытано нарочно испорченным содержанием: ссылка вперёд, ссылка на себя,
+ * ссылка на блок материала, повтор одной ссылки в уроке.
+ */
+function checkVozvrat(course: Course, mod: Module, lesson: Lesson, where: string): void {
+  if (!lesson.vozvrat?.length) return;
+
+  const nomerModulya = course.modules.findIndex((m) => m.slug === mod.slug);
+  const vidennye = new Set<string>();
+
+  for (const ssylka of lesson.vozvrat) {
+    const klyuch = `${ssylka.iz}/${ssylka.zadanie}`;
+    if (vidennye.has(klyuch)) {
+      fail(where, `возвращение «${klyuch}» стоит в уроке дважды`);
+      continue;
+    }
+    vidennye.add(klyuch);
+
+    const otkuda = course.modules.findIndex((m) => m.slug === ssylka.iz);
+    if (otkuda === -1) {
+      fail(where, `возвращение ссылается на модуль «${ssylka.iz}», которого в курсе нет`);
+      continue;
+    }
+    if (otkuda === nomerModulya) {
+      fail(where, `возвращение «${klyuch}» ссылается на свой же модуль — это не возвращение`);
+      continue;
+    }
+    if (otkuda > nomerModulya) {
+      fail(
+        where,
+        `возвращение «${klyuch}» ссылается ВПЕРЁД, на модуль ${otkuda + 1}: ` +
+          `ученик его ещё не проходил`
+      );
+      continue;
+    }
+
+    const naydeno = nayti(course, ssylka);
+    if (!naydeno) {
+      const modul = course.modules[otkuda];
+      const estBlok = modul.lessons.some((l) => l.blocks.some((b) => b.id === ssylka.zadanie));
+      fail(
+        where,
+        estBlok
+          ? `возвращение «${klyuch}» ссылается на блок материала, а не на задание`
+          : `возвращение «${klyuch}»: задания с таким именем в модуле нет`
+      );
+    }
+  }
+}
+
 function checkLesson(lesson: Lesson, where: string): void {
   if (blank(lesson.outcome)) {
     fail(where, "нет итога урока — нечего проверять проверочной работой");
@@ -1017,7 +1074,7 @@ function checkLesson(lesson: Lesson, where: string): void {
 // Модуль
 // ---------------------------------------------------------------------------
 
-function checkModule(mod: Module, where: string): void {
+function checkModule(course: Course, mod: Module, where: string): void {
   if (mod.sources.length === 0) {
     fail(where, "не заполнены источники: содержание не сочиняется самостоятельно");
   }
@@ -1060,6 +1117,7 @@ function checkModule(mod: Module, where: string): void {
     lessonSlugs.add(lesson.slug);
     checkLesson(lesson, `${where} → ${lesson.slug}`);
     checkOtvetNeStoitVyshe(lesson, `${where} → ${lesson.slug}`);
+    checkVozvrat(course, mod, lesson, `${where} → ${lesson.slug}`);
   }
 
   checkRabotaNePovtoryaetUroki(mod, where);
@@ -1240,7 +1298,7 @@ function checkCourse(course: Course): void {
   for (const mod of course.modules) {
     if (slugs.has(mod.slug)) fail(where, `имя модуля «${mod.slug}» повторяется`);
     slugs.add(mod.slug);
-    checkModule(mod, `${where} → ${mod.slug}`);
+    checkModule(course, mod, `${where} → ${mod.slug}`);
   }
 
   checkImenaUrokovPoKursu(course);
