@@ -13,8 +13,10 @@ import type { Quiz } from "@/lib/content/types";
  * требует ПРОИЗВЕСТИ ответ. Узнавание среди трёх кнопок через два месяца после
  * урока не показывает ничего.
  *
- * СКОЛЬКО ВОПРОСОВ. В банке шестьдесят два: по два на каждый модуль курса и
- * двенадцать об уроках умений — чтении, слушании и письме.
+ * СКОЛЬКО ВОПРОСОВ. В банке шестьдесят четыре: по два на каждый модуль курса и
+ * четырнадцать об уроках умений — чтении, слушании и письме. Четырнадцать — не
+ * круглое число, а мера: уроков умений в курсе 56 из 258, то есть около
+ * четверти, и столько же примерно приходится на них в попытке.
  * Показывается тридцать: столько же по объёму, сколько экзамены Cambridge на
  * этих ступенях, и это проверка, а не второе прохождение курса.
  *
@@ -595,11 +597,15 @@ export const ekzamenEnglishStarter: Quiz = {
       id: "ex-sluh-diktovka",
       kind: "short",
       outcome: "записывать со слуха слово, продиктованное по буквам",
-      zvuk: "M-A-P. Map.",
+      // Слово выбрано так, чтобы написание из звука не выводилось: в night три
+      // звука и пять букв. У map оно выводилось, и буквы можно было не слушать.
+      zvuk: "N-I-G-H-T. Night.",
       prompt: "Послушай запись. Какое слово продиктовали по буквам? Запиши его.",
-      answer: "map",
-      accept: ["Map"],
-      why: "map. Названия букв идут по одной, а слово целиком звучит последним.",
+      answer: "night",
+      accept: ["Night"],
+      why:
+        "night. Звуков в слове три, а букв пять: на слух его не запишешь, только по " +
+        "названиям букв.",
     },
     {
       id: "ex-sluh-cena",
@@ -617,7 +623,7 @@ export const ekzamenEnglishStarter: Quiz = {
       id: "ex-sluh-kak-chasto",
       kind: "choice",
       outcome: "слышать наречие частоты и понимать, насколько часто это бывает",
-      zvuk: "I usually work on Saturday. I never work on Sunday.",
+      zvuk: "I usually work on Saturday. I never work in the evening.",
       prompt: "Послушай запись. Как часто человек работает в субботу?",
       options: [
         { text: "Никогда" },
@@ -626,17 +632,19 @@ export const ekzamenEnglishStarter: Quiz = {
       ],
       why:
         "Обычно. Слово usually стоит перед глаголом и говорит «чаще всего, но не " +
-        "всегда». Never в записи сказано про воскресенье.",
+        "всегда». Never в записи сказано про вечер.",
     },
     {
       id: "ex-sluh-zakaz",
       kind: "short",
       outcome: "понимать на слух заказ и цену в разговоре",
-      zvuk: "Two teas, please. — That's fifty.",
-      prompt: "Послушай разговор в кафе. Сколько платит покупатель? Ответь цифрой.",
-      answer: "50",
-      accept: ["fifty", "Fifty"],
-      why: "50. Цену называет продавец, и она идёт после оборота That's.",
+      zvuk: "I'd like a tea and some rice, please. — It is seventy.",
+      prompt: "Послушай разговор в кафе. Что заказали, кроме чая? Ответь английским словом.",
+      answer: "rice",
+      accept: ["Rice", "some rice"],
+      why:
+        "rice. Заказ начинается с I'd like, и названо в нём два: чай и рис. Цену " +
+        "называет уже продавец.",
     },
     {
       id: "ex-sluh-tri-vremeni",
@@ -667,7 +675,6 @@ export const ekzamenEnglishStarter: Quiz = {
         "First name: Karim\n" +
         "Country: Kazakhstan",
       answer: "Abenov",
-      accept: ["abenov"],
       why:
         "Abenov. В бланке стоит только имя, фамилию приходится искать в списке — " +
         "и порядок там тот же: сначала имя, потом фамилия.",
@@ -677,63 +684,68 @@ export const ekzamenEnglishStarter: Quiz = {
       kind: "short",
       outcome: "находить в расписании нужный день и время",
       prompt:
-        "Прочитай расписание. Во сколько занятие в среду? Ответь цифрой.\n" +
-        "ENGLISH\n" +
-        "Monday — 10\n" +
-        "Wednesday — 4\n" +
-        "Friday — 6",
-      answer: "4",
-      accept: ["four", "Four"],
-      why: "4. В расписании три дня, и нужный день назван в вопросе — Wednesday.",
+        "Прочитай расписание. Во сколько занятие во вторник? Напиши время английскими " +
+        "словами.\n" +
+        "SWIMMING\n" +
+        "Tuesday — half past six\n" +
+        "Thursday — ten o'clock\n" +
+        "Saturday — a quarter past five",
+      answer: "half past six",
+      accept: ["Half past six", "at half past six"],
+      why:
+        "half past six. Половина седьмого. Время в расписании записано словами, и " +
+        "каждый день со своим.",
     },
     {
       id: "ex-chtenie-o-zhilye",
-      kind: "choice",
+      kind: "short",
       outcome: "понимать по объявлению, что есть в жилье и рядом с ним",
       prompt:
-        "Прочитай объявление. Что есть рядом с домом?\n" +
-        "HOUSE FOR RENT\n" +
-        "There are two bedrooms and a kitchen.\n" +
-        "There isn't a garden.\n" +
-        "There is a park near the house.",
-      options: [
-        { text: "Сад" },
-        { text: "Кухня" },
-        { text: "Парк", correct: true },
-      ],
+        "Прочитай объявление и напиши английским словом, чего в квартире нет.\n" +
+        "FLAT FOR RENT\n" +
+        "There are three rooms and a kitchen.\n" +
+        "There isn't a bathroom.\n" +
+        "There is a market near the flat.",
+      answer: "bathroom",
+      accept: ["a bathroom", "Bathroom"],
       why:
-        "Парк. Слова near the house стоят только в одной строке. Сада нет вовсе, а " +
-        "кухня внутри дома, а не рядом с ним.",
+        "bathroom. Строка с isn't в таком объявлении одна, и говорит она о том, чего " +
+        "в жилье нет.",
     },
     {
       id: "ex-chtenie-o-umeniyah",
       kind: "short",
       outcome: "понимать по объявлению, что нужно уметь и что там можно",
+      // Спрашивается вторая половина итога — «что там можно», — и ответ не
+      // написан в объявлении: день закрытия выводится из строки Open.
       prompt:
-        "Прочитай объявление и напиши английским словом, что нужно уметь для этой " +
-        "работы.\n" +
-        "WE NEED A DRIVER\n" +
-        "You can drive.\n" +
-        "You can't work at night.",
-      answer: "drive",
-      accept: ["to drive", "Drive"],
+        "Прочитай объявление. В какой день в музей прийти нельзя? Ответь английским " +
+        "словом.\n" +
+        "MUSEUM\n" +
+        "You can look at the pictures here.\n" +
+        "You can't eat or drink here.\n" +
+        "Open: Tuesday — Sunday",
+      answer: "Monday",
+      accept: ["monday", "on Monday"],
       why:
-        "drive. Строка с can говорит об умении, а строка с can't — не о неумении, а " +
-        "о том, что ночью работать нельзя.",
+        "Monday. Тире между днями значит «с … по …»: музей открыт со вторника по " +
+        "воскресенье, а понедельник в этот ряд не входит.",
     },
     {
-      id: "ex-chtenie-menyu",
+      id: "ex-chtenie-soobshchenie-o-vkusah",
       kind: "short",
-      outcome: "находить в меню нужное и понимать, сколько это стоит",
+      outcome: "понимать по тексту, что человеку нравится и насколько",
       prompt:
-        "Человек заказал хлеб и воду. Прочитай меню и напиши цифрой, сколько он " +
-        "заплатит.\n" +
-        "CAFE\n" +
-        "Bread — 20\n" +
-        "Water — 10\n" +
-        "Coffee — 45",
-      answer: "30",
-      why: "30. У хлеба и воды свои строки: 20 и 10. Заказ — это обе строки сразу, значит 20 плюс 10.",
+        "Прочитай сообщение. Что Кариму нравится больше — музыка или книги? Ответь " +
+        "английским словом.\n" +
+        "A message from Karim\n" +
+        "Hi! I like music very much. I like books too.\n" +
+        "I don't like football. Karim",
+      answer: "music",
+      accept: ["Music"],
+      why:
+        "music. Слова very much говорят не о том, что нравится, а насколько: книги " +
+        "просто нравятся, музыка — очень.",
     },
     {
       id: "ex-pismo-o-sebe",
@@ -751,17 +763,50 @@ export const ekzamenEnglishStarter: Quiz = {
       id: "ex-pismo-otkrytka",
       kind: "short",
       outcome: "проверять в открытке, что время глагола сходится со словом времени",
-      prompt: "В открытке написали: «Tomorrow I worked in the garden.» Перепиши строку верно.",
-      answer: "Tomorrow I will work in the garden.",
+      prompt:
+        "В открытке написали: «Tomorrow I cooked at home.» Перепиши строку верно. " +
+        "Слово времени оставь как есть.",
+      answer: "Tomorrow I will cook at home.",
       exact: true,
       accept: [
-        "Tomorrow I will work in the garden",
-        "Tomorrow I'll work in the garden.",
-        "Tomorrow I'll work in the garden",
+        "Tomorrow I will cook at home",
+        "Tomorrow I'll cook at home.",
+        "Tomorrow I'll cook at home",
       ],
       why:
-        "Tomorrow I will work in the garden. Слово времени говорит о завтра, значит и " +
-        "глагол берёт will.",
+        "Tomorrow I will cook at home. Слово времени говорит о завтра, значит и глагол " +
+        "берёт will.",
+    },
+    {
+      id: "ex-chtenie-pismo-o-lyudyah",
+      kind: "short",
+      outcome: "понимать в тексте, о ком идёт речь, когда имя не повторяют",
+      prompt:
+        "Прочитай письмо. Кем работает жена брата? Ответь английским словом.\n" +
+        "A message from Aigul\n" +
+        "Hi! My brother is a doctor. He works in a hospital.\n" +
+        "His wife is a teacher. I see her every day.\n" +
+        "Aigul",
+      answer: "teacher",
+      accept: ["a teacher", "Teacher"],
+      why:
+        "teacher. Имён в письме два, а людей трое: брат, его жена и сама Айгуль. " +
+        "О жене говорят слова his wife и her, имени у неё нет.",
+    },
+    {
+      id: "ex-sluh-seychas-ili-vsegda",
+      kind: "choice",
+      outcome: "слышать разницу между «сейчас» и «всегда»",
+      zvuk: "My brother works in a shop. Now he is playing football.",
+      prompt: "Послушай запись. Что брат делает сейчас?",
+      options: [
+        { text: "Работает в магазине" },
+        { text: "Смотрит телевизор" },
+        { text: "Играет в футбол", correct: true },
+      ],
+      why:
+        "Играет в футбол. Работа в магазине — это то, что бывает всегда, а слово now " +
+        "и окончание -ing говорят о том, что идёт в эту минуту.",
     },
   ],
 };
