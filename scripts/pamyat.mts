@@ -15,13 +15,30 @@
  * читает и пишет каждый день. Снимок нужен, чтобы память пережила переезд, и
  * его надо обновлять перед переездом, иначе увезёшь вчерашнее.
  */
-import { existsSync } from "node:fs";
+import { existsSync, readdirSync } from "node:fs";
 import { mkdir, readdir, readFile, writeFile } from "node:fs/promises";
 import { homedir } from "node:os";
 import { basename, join } from "node:path";
 
-const KLYUCH_PROEKTA = "e--My-Project-codentalk-kz";
-const PAMYAT = join(homedir(), ".claude", "projects", KLYUCH_PROEKTA, "memory");
+/**
+ * Папка памяти зависит от того, где лежит проект: агент называет её по полному
+ * пути, заменяя всё, кроме букв и цифр, на дефис. Поэтому ключ не зашиваем —
+ * переезд на другой диск менял бы его, и память ушла бы в пустоту. Если такая
+ * папка уже есть, но буква диска записана в другом регистре, берём готовую.
+ */
+function klyuchProekta(): string {
+  const vychislennyy = process.cwd().replace(/[^a-zA-Z0-9]/g, "-");
+  const baza = join(homedir(), ".claude", "projects");
+  if (!existsSync(baza)) return vychislennyy;
+  // Готовая папка важнее вычисленного имени: буква диска может отличаться
+  // регистром, и на Windows проверка существования этого не заметит.
+  const gotovaya = readdirSync(baza).find(
+    (imya) => imya.toLowerCase() === vychislennyy.toLowerCase()
+  );
+  return gotovaya ?? vychislennyy;
+}
+
+const PAMYAT = join(homedir(), ".claude", "projects", klyuchProekta(), "memory");
 const SNIMOK = join(process.cwd(), "docs", "pamyat");
 
 const vernut = process.argv.includes("--vernut");
