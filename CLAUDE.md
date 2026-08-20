@@ -952,9 +952,14 @@ CLI отвергает его: он сначала грузит пользова
 
 ## Где мы остановились
 
-**Свежая записка — [docs/zapiska-elementary-nachalo.md](docs/zapiska-elementary-nachalo.md)**:
-переезд на новый компьютер, два написанных модуля ступени Elementary, движок
-возвращения, открытые вопросы к владельцу. Начинай с неё.
+**Свежая записка — [docs/zapiska-elementary-chetyre-modulya.md](docs/zapiska-elementary-chetyre-modulya.md)**:
+четыре выложенных модуля ступени Elementary, решения владельца о словаре и о
+числе кругов проверки, новые инструменты (`slovo`, `sosedi`), три разбора ошибок
+и записанные долги. Начинай с неё.
+
+Записка предыдущего дня —
+[docs/zapiska-elementary-nachalo.md](docs/zapiska-elementary-nachalo.md):
+переезд на новый компьютер, первые два модуля, движок возвращения.
 
 Записка предыдущего дня —
 [docs/handover-20-avgusta.md](docs/handover-20-avgusta.md): что сделано, какие
