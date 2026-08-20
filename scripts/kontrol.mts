@@ -797,6 +797,115 @@ async function proveritStupen(mod: Module, course: Course, gde: string): Promise
 }
 
 // ---------------------------------------------------------------------------
+// Новизна словаря: сколько слов ступень даёт впервые
+//
+// Решение владельца от 20 августа 2026: слов в уроках должно быть больше, и
+// ученик второй ступени не должен топтаться на словах первой. Поводом был счёт:
+// в двух первых модулях Elementary из 81 карточки только три несли слово,
+// которого нет на A1. Ошибкой это не считалось ни одной проверкой — все слова
+// ступени не превышали, а что они ниже неё, не спрашивал никто.
+//
+// Мерим двумя источниками сразу, потому что поодиночке не годится ни один.
+// Oxford 3000 отвечает «какая у слова ступень», но бытовой половины экзамена не
+// знает вовсе. Словник A2 Key отвечает «входит ли слово в требования экзамена»,
+// но по ступеням не размечен и держит внутри восемьсот пятьдесят слов уровня A1.
+// ---------------------------------------------------------------------------
+
+/** Сколько словарных карточек ждём от модуля и сколько из них новых. */
+const NORMA_KARTOCHEK = 30;
+const NORMA_NOVYH = 15;
+
+let slovnikA2: Set<string> | null = null;
+
+async function zagruzitA2Key(): Promise<Set<string> | null> {
+  if (slovnikA2) return slovnikA2;
+  const seno = await tekst("cambridge-vocab-a2-key.pdf");
+  if (!seno) return null;
+
+  // Разбирать построчно: `privesti` схлопывает переводы строк, а весь словник
+  // на них и держится — одна запись в строке. Поэтому нормализуем каждую строку
+  // по отдельности, а не файл целиком.
+  const naydeno = new Set<string>();
+  for (const syraya of seno.split("\n")) {
+    const stroka = syraya.replace(/[\u2018\u2019\u02bc]/g, "'").trim().toLowerCase();
+    // Запись словника: слово, потом часть речи в скобках — `earn (v)`,
+    // `east (n, adj & adv)`. Строки примеров начинаются с маркера списка и сюда
+    // не попадают, пояснения о разновидности языка стоят после части речи.
+    const m = stroka.match(
+      /^([a-z][a-z' -]*?) \((n|v|adj|adv|prep|pron|det|conj|exclam|modal|number|abbr)\b/
+    );
+    if (m) naydeno.add(m[1].trim());
+  }
+  slovnikA2 = naydeno;
+  return slovnikA2;
+}
+
+async function proveritNoviznu(mod: Module, course: Course, gde: string): Promise<void> {
+  const pometa = (course.level ?? "").match(/\b([abc][12])\b/i)?.[1].toLowerCase() ?? "a1";
+  // На первой ступени спрашивать не о чем: там всё новое по определению.
+  if (STUPENI.indexOf(pometa) < 1) return;
+
+  const slovar = await zagruzitSlovnik();
+  const a2key = await zagruzitA2Key();
+  if (!slovar || !a2key) {
+    skazat("ВОПРОС", gde, "словника нет — новизна словаря не сверена", "npm run sources");
+    return;
+  }
+
+  const vse = new Set<string>();
+  const novye: string[] = [];
+  const staryye: string[] = [];
+
+  for (const les of mod.lessons) {
+    for (const b of les.blocks as Block[]) {
+      if ((b as any).kind !== "vocab") continue;
+      for (const item of (b as any).items ?? []) {
+        const slovo = privesti(String(item.term)).replace(/[^a-z' ]/g, "").trim();
+        if (!slovo || vse.has(slovo)) continue;
+        vse.add(slovo);
+
+        const nayden = osnovy(slovo).map((o) => slovar.get(o)).filter(Boolean) as string[];
+        const nizshaya = nayden.sort((a, b) => STUPENI.indexOf(a) - STUPENI.indexOf(b))[0];
+
+        // Новым считаем слово, которому Oxford ставит ступень выше первой, либо
+        // слово, которого Oxford не знает, но которое требует экзамен ступени.
+        // Второе — не поблажка: словник A2 Key и есть перечень требований, а
+        // `noisy` или `backpack` в Oxford 3000 просто не попали.
+        if (nizshaya) {
+          if (STUPENI.indexOf(nizshaya) >= 1) novye.push(slovo);
+          else staryye.push(slovo);
+        } else if (a2key.has(slovo) || osnovy(slovo).some((o) => a2key.has(o))) {
+          novye.push(slovo);
+        }
+      }
+    }
+  }
+
+  if (!vse.size) return;
+
+  // Перечни слов живут ТОЛЬКО в сведениях, и это не удобство, а необходимость.
+  // `resheno.ts` гасит замечание по вхождению строки, а разобранным там записано
+  // и слово `like`. Стоило перечислить старые слова внутри вопроса — и вопрос по
+  // модулю 2 замолчал целиком: в перечне было `like`. Проверено опытом.
+  skazat("СВЕДЕНИЯ", gde,
+    `словарь модуля: ${vse.size} карточек, из них новых для ступени ${novye.length}` +
+    (novye.length ? `\n   новые: ${novye.join(", ")}` : "") +
+    (staryye.length ? `\n   с прошлой ступени: ${staryye.join(", ")}` : ""));
+
+  if (vse.size < NORMA_KARTOCHEK) {
+    skazat("ВОПРОС", gde,
+      `карточек ${vse.size}, норма ступени — не меньше ${NORMA_KARTOCHEK}`,
+      "добавь слова в уроки: решение владельца от 20 августа — слов должно быть больше");
+  }
+  if (novye.length < NORMA_NOVYH) {
+    skazat("ВОПРОС", gde,
+      `новых для ступени слов ${novye.length} из ${vse.size}, норма — не меньше ` +
+      `${NORMA_NOVYH}; остальные ученик видел на прошлой ступени (перечень в сведениях)`,
+      "бери слова из словника A2 Key, которых нет в Oxford 3000 с пометой A1");
+  }
+}
+
+// ---------------------------------------------------------------------------
 // Ход проверки
 // ---------------------------------------------------------------------------
 
@@ -820,6 +929,7 @@ for (const course of courses) {
     }
     await proveritCitaty(mod, gde);
     await proveritStupen(mod, course, gde);
+    await proveritNoviznu(mod, course, gde);
     tablicaZadaniy(mod, gde);
   }
 }
