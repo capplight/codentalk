@@ -5,7 +5,7 @@ import type { Module } from "@/lib/content/types";
  *
  * Программа: docs/programma-english-elementary.md, модуль 4 — «отрицать
  * сделанное»; грамматика: Past Simple, отрицание с `didn't`; возврат глагола к
- * простой форме.
+ * словарной форме.
  *
  * ЧТО ПРОВЕРЕНО ДО НАПИСАНИЯ.
  *
@@ -23,7 +23,7 @@ import type { Module } from "@/lib/content/types";
  * 3. Cambridge, руководство для младших ступеней, список «что нового на A1
  *    Movers»: там же, где «Past simple regular and irregular forms», стоит
  *    пример «We didn't see the pirate at the party» — отрицание с неправильным
- *    глаголом в простой форме.
+ *    глаголом в словарной форме.
  *
  * 4. Описания Совета Европы, с. 67, шкала Creative writing, графа A2: «Can give
  *    very short, basic descriptions of events, past activities and personal
@@ -31,7 +31,7 @@ import type { Module } from "@/lib/content/types";
  *
  * ГЛАВНАЯ ТРУДНОСТЬ МОДУЛЯ, И ЕЙ ОТДАН ЦЕЛЫЙ УРОК.
  *
- * После `didn't` глагол возвращается к простой форме: не `I didn't went`, а `I
+ * После `didn't` глагол возвращается к словарной форме: не `I didn't went`, а `I
  * didn't go`. Для правильных глаголов это заметно мало — `worked` и `work`
  * похожи. Для неправильных заметно сразу: ученик три урока учил `went`, `saw`,
  * `bought`, а теперь их надо снять. Поэтому урок 2 занят только этим, и все его
@@ -71,7 +71,7 @@ import type { Module } from "@/lib/content/types";
  *   `didn't` они дают двойное отрицание, которого в английском не бывает.
  *
  * ВОЗВРАЩЕНИЕ. Три задания из пройденного: два в уроке 2 (там они и работают —
- * простая форма берётся из модуля 3) и одно в уроке 6. Берутся ссылкой
+ * словарная форма берётся из модуля 3) и одно в уроке 6. Берутся ссылкой
  * (`vozvrat`), устройство — docs/format-uroka.md.
  */
 const module: Module = {
@@ -96,7 +96,7 @@ const module: Module = {
       section:
         "список «что нового на A1 Movers»: рядом с «Past simple regular and " +
         "irregular forms» стоит пример «We didn't see the pirate at the party» — " +
-        "отрицание с неправильным глаголом в простой форме, то есть ровно урок 2",
+        "отрицание с неправильным глаголом в словарной форме, то есть ровно урок 2",
       license: "внутреннее использование, публично не называем",
     },
     {
@@ -311,7 +311,7 @@ const module: Module = {
     // =====================================================================
     {
       slug: "vernut-slovarnuyu-formu",
-      title: "После didn't глагол простой: I didn't go",
+      title: "После didn't глагол в словарной форме: I didn't go",
       estimatedMinutes: 15,
       outcome: "возвращать глагол к словарной форме после didn't: I didn't go, а не I didn't went",
       vozvrat: [
@@ -381,7 +381,7 @@ const module: Module = {
           text:
             "I didn't go to the dentist.\nI didn't take the medicine.\nThe pain was strong.",
           explain:
-            "В первых двух строках после didn't стоят простые формы go и take, хотя о " +
+            "В первых двух строках после didn't стоят словарные формы go и take, хотя о " +
             "прошлом. В третьей строке отрицания нет, и там обычное was.",
         },
         {
@@ -420,7 +420,7 @@ const module: Module = {
           hint: "В одной записи прошедшее время названо дважды, в другой отрицание построено не тем словом.",
           why:
             "I didn't take the medicine. Слово didn't уже сказало о прошлом, и глагол " +
-            "после него простой.",
+            "после него стоит в словарной форме.",
         },
         {
           id: "z3-otmetit-lishnyuyu-formu",
@@ -461,7 +461,7 @@ const module: Module = {
             "Yesterday I didn't rest.",
             "I didn't rest yesterday.",
           ],
-          hint: "Глагол have после didn't остаётся простым.",
+          hint: "Глагол have после didn't стоит в словарной форме.",
           why:
             "Yesterday I didn't have a rest. После didn't стоит have, а не had: о " +
             "прошлом сказано один раз.",
@@ -483,7 +483,7 @@ const module: Module = {
           text: [
             "У отрицания две записи: полная did not и краткая didn't.",
             "Значат они одно и то же, различается только вид записи.",
-            "Обе встречаются: в примерах источника стоят и did not, и didn't.",
+            "Обе записи верны, и встретиться тебе может любая.",
           ],
         },
         {
@@ -503,7 +503,7 @@ const module: Module = {
           text: [
             "В краткой записи вместо буквы o стоит апостроф: did not → didn't.",
             "Он показывает, что буква пропущена, и без него слово написано неверно.",
-            "Глагол после обеих записей одинаковый, простой.",
+            "Глагол после обеих записей одинаковый — в словарной форме.",
           ],
         },
         {
@@ -540,6 +540,15 @@ const module: Module = {
             { term: "assistant", translation: "помощник", example: "The assistant was on holiday.", hint: "/əˈsɪstənt/" },
             { term: "tablet", translation: "планшет", example: "My tablet didn't work.", hint: "/ˈtæblət/" },
           ],
+        },
+        {
+          id: "tablet-ne-tabletka",
+          kind: "note",
+          tone: "info",
+          text:
+            "Русское слово «таблетка» звучит похоже на tablet, но значит другое.\n\n" +
+            "tablet — это устройство, на котором читают и смотрят фильмы. Лекарство " +
+            "называется medicine.",
         },
 
         // ---- задания ----
@@ -710,7 +719,7 @@ const module: Module = {
           hint: "Одна запись взяла отрицание настоящего времени, другая оставила окончание у глагола.",
           why:
             "He didn't wait at the gate. Отрицание прошедшего одно на всех, а глагол " +
-            "после него простой.",
+            "после него стоит в словарной форме.",
         },
         {
           id: "z3-otmetit-vernye-lica",
@@ -854,7 +863,7 @@ const module: Module = {
           hint: "Одна запись отрицает дело не тем словом, другая оставляет глаголу окончание.",
           why:
             "I worked, but I didn't finish. Дело отрицают через didn't, а глагол после " +
-            "него простой.",
+            "него стоит в словарной форме.",
         },
         {
           id: "z3-otmetit-vtorye-chasti",
@@ -944,7 +953,7 @@ const module: Module = {
           tone: "mistake",
           text:
             "«First I didn't cleaned the room» — так не говорят.\n\nСлово порядка " +
-            "отрицанию не мешает, но глагол после didn't всё равно остаётся простым.",
+            "отрицанию не мешает, но глагол после didn't всё равно стоит в словарной форме.",
         },
         {
           id: "primer-dnya-s-otricaniem",
@@ -1343,7 +1352,8 @@ const module: Module = {
         ],
         why:
           "She didn't come to the corner. Слово doesn't отрицает настоящее время, а " +
-          "речь о прошлом: там отрицание одно на все лица, и глагол после него стоит в словарной форме.",
+          "речь о прошлом. В прошедшем отрицание одно на все лица, и глагол после " +
+          "него стоит в словарной форме.",
       },
       {
         id: "q-lica-peredat",
@@ -1388,9 +1398,9 @@ const module: Module = {
         kind: "short",
         outcome: "рассказывать о дне, называя и сделанное, и несделанное",
         prompt:
-          "В рассказе о вчерашнем дне строка сбилась на настоящее время: «I didn't " +
-          "have cash, and I don't have it now.» Запиши её так, чтобы вся она была о " +
-          "вчерашнем дне: оставь только первую половину.",
+          "Этот рассказ о вчерашнем дне. Одна строка сбилась на настоящее время. " +
+          "Вот она: «I didn't have cash, and I don't have it now.» Оставь только " +
+          "первую половину и запиши её.",
         answer: "I didn't have cash.",
         accept: ["I didn't have cash"],
         why:
