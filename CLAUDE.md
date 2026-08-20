@@ -725,10 +725,26 @@ npm run yazyk -- english-starter   механические проверки р�
 npm run --silent tekst -- english-starter модуль > m.md   текст урока для чтения
 npm run md                  второй разбор PDF (markitdown), нужен один раз
 npm run pdf -- materials/файл.pdf --find "что искать"     поиск по источнику
+npm run pamyat              снимок памяти агента в docs/pamyat (перед переездом)
 npm run db:up               локальная база в Docker
 npm run db:migrate          накатить миграции
 npx next start -p 3010      проверка собранного сайта
 ```
+
+## Переезд на другой компьютер
+
+Порядок и то, чего переносить нельзя, —
+[docs/perenos-na-drugoy-kompyuter.md](docs/perenos-na-drugoy-kompyuter.md).
+
+Два правила оттуда действуют всегда:
+
+1. **`.env.local` в репозиторий не кладём никогда.** Он открыт всем. Настройки
+   забираются из Vercel командой `vercel env pull`, а ключ синтеза речи — из
+   личного кабинета Azure.
+2. **Память агента живёт вне репозитория**, и потому её снимок лежит в
+   `docs/pamyat/`. Команда — `npm run pamyat` (снять) и `npm run pamyat --
+   --vernut` (вернуть). Снимай перед переездом: иначе новая машина получит
+   вчерашнее знание.
 
 ## Работа с репозиторием
 
