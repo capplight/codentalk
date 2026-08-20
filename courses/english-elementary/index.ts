@@ -1,5 +1,6 @@
 import type { Course } from "@/lib/content/types";
 import etoBylo from "./eto-bylo";
+import vcheraYaRabotal from "./vchera-ya-rabotal";
 
 /**
  * Английский · Elementary — ступень до A2.
@@ -27,7 +28,7 @@ const course: Course = {
   level: "до A2",
   tagline: "Для тех, кто говорит о себе в настоящем времени и хочет рассказать о прошлом",
   access: "premium",
-  modules: [etoBylo],
+  modules: [etoBylo, vcheraYaRabotal],
 };
 
 export default course;
