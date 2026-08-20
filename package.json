@@ -27,7 +27,8 @@
     "obrazec": "tsx scripts/obrazec-sertifikata.mts",
     "sources": "bash scripts/download-sources.sh",
     "zapas": "tsx scripts/zapas.mts",
-    "pamyat": "tsx scripts/pamyat.mts"
+    "pamyat": "tsx scripts/pamyat.mts",
+    "slovo": "tsx scripts/slovo.mts"
   },
   "dependencies": {
     "@auth/prisma-adapter": "^2.11.3",

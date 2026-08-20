@@ -819,12 +819,20 @@ let slovnikA2: Set<string> | null = null;
 
 async function zagruzitA2Key(): Promise<Set<string> | null> {
   if (slovnikA2) return slovnikA2;
-  const seno = await tekst("cambridge-vocab-a2-key.pdf");
-  if (!seno) return null;
 
-  // Разбирать построчно: `privesti` схлопывает переводы строк, а весь словник
-  // на них и держится — одна запись в строке. Поэтому нормализуем каждую строку
-  // по отдельности, а не файл целиком.
+  // Тут нельзя брать текст через `tekst()`, и это проверено опытом: он гонит
+  // файл через `privesti`, а тот схлопывает все переносы строк в пробелы. Весь
+  // словник держится ровно на них — одна запись в строке, — и первая редакция
+  // разбирала НОЛЬ слов вместо тысячи шестисот. Молча: пустое множество никакой
+  // ошибкой не выглядит, а проверка после этого мерила одним источником вместо
+  // двух. Поэтому зовём `tekst()` только затем, чтобы разбор PDF лёг рядом
+  // файлом, а читаем этот файл сами и построчно.
+  await tekst("cambridge-vocab-a2-key.pdf");
+  const ryadom = join(KESH, "cambridge-vocab-a2-key.txt");
+  if (!existsSync(ryadom)) return null;
+  const seno = readFileSync(ryadom, "utf8");
+
+  // Нормализуем каждую строку по отдельности, а не файл целиком.
   const naydeno = new Set<string>();
   for (const syraya of seno.split("\n")) {
     const stroka = syraya.replace(/[\u2018\u2019\u02bc]/g, "'").trim().toLowerCase();
@@ -836,6 +844,17 @@ async function zagruzitA2Key(): Promise<Set<string> | null> {
     );
     if (m) naydeno.add(m[1].trim());
   }
+
+  // Сторож против того же молчания в другом обличье: разборщик PDF меняется,
+  // строение файла может поехать, и разбор снова даст пустоту. Словник A2 Key
+  // содержит около тысячи шестисот слов; если разобралось меньше пятисот, дело
+  // не в словнике, а в нас.
+  if (naydeno.size < 500) {
+    skazat("ОШИБКА", "materials/cambridge-vocab-a2-key.pdf",
+      `из словника A2 Key разобралось ${naydeno.size} слов вместо примерно 1600`,
+      "разбор PDF испортился — проверь materials/.text/cambridge-vocab-a2-key.txt");
+  }
+
   slovnikA2 = naydeno;
   return slovnikA2;
 }
@@ -864,8 +883,17 @@ async function proveritNoviznu(mod: Module, course: Course, gde: string): Promis
         if (!slovo || vse.has(slovo)) continue;
         vse.add(slovo);
 
-        const nayden = osnovy(slovo).map((o) => slovar.get(o)).filter(Boolean) as string[];
-        const nizshaya = nayden.sort((a, b) => STUPENI.indexOf(a) - STUPENI.indexOf(b))[0];
+        // Само слово важнее его основы, и это НЕ то же правило, что у проверки
+        // превышения ступени. Там низшая ступень среди основ выбрана нарочно:
+        // ошибка в сторону тишины лучше, чем снятое из курса верное слово.
+        // Здесь та же поблажка врёт в другую сторону — объявляет новое слово
+        // старым. Усечение `est` превратило `forest` в `for`, `offer` в `off`,
+        // `pleased` в `please`, и три слова ступени ушли в «уже видел».
+        // Поэтому: если словник знает саму карточку — берём её ступень, и
+        // только если не знает, спрашиваем основы.
+        const svoya = slovar.get(slovo);
+        const poOsnovam = osnovy(slovo).map((o) => slovar.get(o)).filter(Boolean) as string[];
+        const nizshaya = svoya ?? poOsnovam.sort((a, b) => STUPENI.indexOf(a) - STUPENI.indexOf(b))[0];
 
         // Новым считаем слово, которому Oxford ставит ступень выше первой, либо
         // слово, которого Oxford не знает, но которое требует экзамен ступени.

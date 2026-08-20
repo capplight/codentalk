@@ -178,8 +178,11 @@ const module: Module = {
         "interesting, favourite, very. " +
         "БРИТАНСКОЕ НАПИСАНИЕ: colour, а не color; grey, а не gray; favourite, а не " +
         "favorite. Oxford 3000 даёт именно эти формы. " +
-        "ЧЕГО НЕ ВЗЯЛ: friendly (A2), lovely (B1), pretty (A2) — хотя пример источника в " +
-        "English Grammar Profile построен на friendly",
+        "ЧЕГО НЕ ВЗЯЛ: friendly (A2), lovely (A2), pretty (A2) — хотя пример источника в " +
+        "English Grammar Profile построен на friendly. " +
+        "Помета у lovely поправлена 20 августа: стояло B1, а Oxford 3000 даёт A2, и " +
+        "словник A2 Key это слово содержит. Ошибка вскрылась, когда слово взяли в " +
+        "модуль 1 ступени Elementary и вышло два решения по одному слову",
       license: "внутреннее использование",
     },
     {

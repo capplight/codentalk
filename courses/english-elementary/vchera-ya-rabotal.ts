@@ -14,7 +14,7 @@ import type { Module } from "@/lib/content/types";
  *    источника: «I forgot to tell you some details about tomorrow evening».
  *    Ступенью ниже та же форма стоит с оговоркой «limited range of regular and
  *    irregular verbs» (A1) — то есть на нашей ступени круг глаголов растёт, и
- *    модуль берёт двадцать пять правильных.
+ *    модуль берёт сорок два правильных.
  *
  * 2. English Grammar Profile, A1, PAST past simple, «USE: EVERYDAY EVENTS AND
  *    STATES» — «Can use the past simple to talk about everyday events or
@@ -57,7 +57,38 @@ import type { Module } from "@/lib/content/types";
  * — НЕПРАВИЛЬНЫХ ГЛАГОЛОВ (`go — went`). Им отдан модуль 3 целиком. В текстах
  *   и записях этого модуля их нет ни одного — проверено сверкой по словам.
  * — УДВОЕНИЯ СОГЛАСНОГО (`stop — stopped`). Глаголов такого вида в словаре
- *   модуля нет, а правило без применения — лишнее.
+ *   модуля нет, а правило без применения — лишнее. ПОЧЕМУ их нет, сказать
+ *   важнее, чем что их нет: удвоение требует одного гласного перед одним
+ *   конечным согласным под ударением. У наших `pack` и `camp` на конце два
+ *   согласных, у `cycle` — `e`, у `boil` и `sail` перед `l` стоит диграф.
+ *   Британское удвоение держится и на `-l` (`travel — travelled`), и это
+ *   слово есть в словнике ступени: возьмёт его следующий — утверждение шапки
+ *   сломается молча. Найдено методистом 20 августа.
+ *
+ * РЕШЕНИЯ ПРЕПОДАВАТЕЛЯ, КОТОРЫХ В ИСТОЧНИКАХ НЕТ И БЫТЬ НЕ МОЖЕТ.
+ *
+ * Словник A2 Key даёт эти слова одной строкой с частью речи и без единого
+ * примера — «boil (v)», «camp (v)», «pack (v)», «sail (v)», «snack (n)». Oxford
+ * 3000 даёт только ступень. Значит всякое сужение перевода — наше решение, и
+ * оно записано здесь, чтобы следующий проверяющий не гадал, намерение это или
+ * недосмотр. Раздел дописан 20 августа по третьему разбору методиста: в модуле
+ * 1 такой раздел был, в этом не было ни строки.
+ *
+ * — `offer` «предлагать (угощение, помощь)» и `suggest` «предлагать (мысль,
+ *   план)» разведены пометами: одним переводом ученик не выбрал бы, какое брать.
+ * — `pass` сужен до «проходить мимо»: второе значение примером не показано.
+ *   У словника примеры есть, но другие — «You pass the station on the left»
+ *   и «to pass a driving test».
+ * — `tidy` «наводить порядок», а не «прибирать»: рядом стоит `clean` «убирать»,
+ *   и по-русски это было бы одно слово.
+ * — `snack` «лёгкая еда», а не «перекус»: второе разговорное.
+ * — `boil` «кипятить», без «варить»: второе спорит с `cook` в том же модуле.
+ * — `pack` «собирать вещи», а не «укладывать»: иначе в примере выходит
+ *   «я уложил вещи мою сумку».
+ * — `camp` «ночевать в палатке», а не «жить»: `live` в этом же модуле переведён
+ *   словом «жить».
+ * — `sail` «плавать под парусом»: вид глагола выровнен с соседними `cycle` и
+ *   `camp`.
  *
  * ВОЗВРАЩЕНИЕ. Со второго модуля раскладка требует задания из пройденного
  * (docs/programma-english-elementary.md, «Где они появляются»). Здесь их три:
@@ -148,14 +179,33 @@ const module: Module = {
     {
       ref: "Oxford 3000",
       section:
-        "глаголы модуля, все A1: work, play, watch, cook, clean, help, listen, " +
+        "глаголы модуля с пометой A1: work, play, watch, cook, clean, help, listen, " +
         "study, like, want, need, start, finish, open, close, walk, talk, ask, " +
         "answer, wait, live, visit, call, stay, dance. Слова обстановки: yesterday " +
         "A1, morning A1, evening A1, day A1, letter A1, room A1, dinner A1, music A1, " +
-        "homework A1, garden A1, friend A1. Сверх A1 и в пределах ступени: invite A2 — " +
-        "взято в урок 3 нарочно: на нём видно, что чтение окончания решает звук, а не " +
-        "буква",
+        "homework A1, garden A1, friend A1, desk A1; подпорки в примерах карточек " +
+        "book, tea, money, door, car, water, bag, park — тоже A1. " +
+        "Сверх A1 и в пределах ступени: invite A2, borrow A2, offer A2, enter A2, " +
+        "shout A2, celebrate A2, save A2, worry A2, tidy A2, push A2, pass A2, " +
+        "fix A2, suggest A2, boil A2, pack A2, cycle A2, sail A2, camp A2. " +
+        "У слова pass взята помета pass v. A2, а не pass n. B1. " +
+        "Слово invite взято в урок 3 нарочно: на нём видно, что чтение окончания " +
+        "решает звук, а не буква",
       license: "внутреннее использование",
+    },
+    {
+      ref: "Cambridge English, A2 Key vocabulary list",
+      section:
+        "опора слова snack, которого в Oxford 3000 нет вовсе: стоит и в алфавитном " +
+        "перечне словника, и в тематическом списке Food. " +
+        "ОГОВОРКА: словник называет требования экзамена A2 Key, а не ступень слова, " +
+        "и другого подтверждения для snack в materials/ не нашлось. " +
+        "Опора добавлена 20 августа по разбору методиста. Тем же разбором из модуля " +
+        "убраны два слова: supper — потому что утверждение «поздний ужин» источниками " +
+        "не подтверждается (в тематическом списке Food этого слова нет вовсе), и " +
+        "weekly — потому что Oxford 5000 ставит его на B2, а сверка шла по Oxford " +
+        "3000, где слова нет, и потому молчала",
+      license: "внутреннее использование, публично не называем",
     },
   ],
 
@@ -175,7 +225,7 @@ const module: Module = {
     {
       slug: "delo-v-proshlom",
       title: "Вчера я работал: I worked",
-      estimatedMinutes: 13,
+      estimatedMinutes: 15,
       outcome: "рассказывать о законченном деле: I worked yesterday",
 
       blocks: [
@@ -226,11 +276,11 @@ const module: Module = {
         {
           id: "primer-vchera",
           kind: "example",
-          caption: "Вчерашний день Данияра",
-          zvuchat: ["I worked in the morning.", "I cooked dinner.", "We watched a film."],
-          text: "I worked in the morning.\nI cooked dinner.\nWe watched a film.",
+          caption: "Дела вчерашнего дня",
+          zvuchat: ["I worked in the morning.", "I cooked dinner.", "We watched a film.", "She offered tea.", "He entered the room."],
+          text: "I worked in the morning.\nI cooked dinner.\nWe watched a film.\nShe offered tea.\nHe entered the room.",
           explain:
-            "Три дела подряд, и у каждого глагола окончание -ed. Слово in the morning " +
+            "Пять дел подряд, и у каждого глагола окончание -ed. Слово in the morning " +
             "говорит, когда это было.",
         },
         {
@@ -246,6 +296,10 @@ const module: Module = {
             { term: "clean", translation: "убирать, чистить", example: "She cleaned the room.", hint: "/kliːn/" },
             { term: "room", translation: "комната", example: "She cleaned the room.", hint: "/ruːm/" },
             { term: "morning", translation: "утро", example: "I worked in the morning.", hint: "/ˈmɔːnɪŋ/" },
+            { term: "borrow", translation: "брать на время", example: "I borrowed a book.", hint: "/ˈbɒrəʊ/" },
+            { term: "offer", translation: "предлагать (угощение, помощь)", example: "She offered tea.", hint: "/ˈɒfə/" },
+            { term: "enter", translation: "входить", example: "He entered the room.", hint: "/ˈentə/" },
+            { term: "shout", translation: "кричать", example: "My brother shouted in the morning.", hint: "/ʃaʊt/" },
           ],
         },
 
@@ -315,7 +369,7 @@ const module: Module = {
     {
       slug: "kak-pishetsya-ed",
       title: "Как пишется -ed",
-      estimatedMinutes: 13,
+      estimatedMinutes: 15,
       outcome: "писать окончание -ed без ошибок: like — liked, study — studied",
 
       blocks: [
@@ -360,12 +414,13 @@ const module: Module = {
         {
           id: "primer-napisaniya",
           kind: "example",
-          caption: "Три глагола рядом",
-          zvuchat: ["I worked at home.", "I liked the film.", "She studied English."],
-          text: "I worked at home.\nI liked the film.\nShe studied English.",
+          caption: "Пять глаголов рядом",
+          zvuchat: ["I worked at home.", "I liked the film.", "She studied English.", "We celebrated at home.", "She tidied the desk."],
+          text: "I worked at home.\nI liked the film.\nShe studied English.\nWe celebrated at home.\nShe tidied the desk.",
           explain:
-            "У work окончание целиком, у like — одна буква, у study вместо y стоит i. " +
-            "Смысл у всех трёх один: дело было и закончилось.",
+            "У work окончание целиком.\n\nУ like и celebrate — одна буква: конечное e " +
+            "уже есть.\n\nУ study и tidy вместо y стоит i.\n\nСмысл у всех пяти один: " +
+            "дело было и закончилось.",
         },
         {
           id: "slovar-napisaniya",
@@ -378,6 +433,11 @@ const module: Module = {
             { term: "dance", translation: "танцевать", example: "They danced at the party.", hint: "/dɑːns/" },
             { term: "carry", translation: "нести", example: "He carried the bag.", hint: "/ˈkæri/" },
             { term: "homework", translation: "домашняя работа", example: "I finished my homework.", hint: "/ˈhəʊmwɜːk/" },
+            { term: "celebrate", translation: "праздновать", example: "We celebrated at home.", hint: "/ˈseləbreɪt/" },
+            { term: "save", translation: "копить", example: "He saved money.", hint: "/seɪv/" },
+            { term: "worry", translation: "тревожиться", example: "I worried about my brother.", hint: "/ˈwʌri/" },
+            { term: "tidy", translation: "наводить порядок", example: "She tidied the desk.", hint: "/ˈtaɪdi/" },
+            { term: "desk", translation: "письменный стол", example: "She tidied the desk.", hint: "/desk/" },
           ],
         },
 
@@ -452,7 +512,7 @@ const module: Module = {
     {
       slug: "kak-chitaetsya-ed",
       title: "Как читается -ed",
-      estimatedMinutes: 13,
+      estimatedMinutes: 15,
       outcome: "различать три чтения окончания -ed по последнему звуку глагола",
 
       blocks: [
@@ -526,6 +586,10 @@ const module: Module = {
             { term: "open", translation: "открывать", example: "She opened the letter.", hint: "/ˈəʊpən/" },
             { term: "letter", translation: "письмо", example: "She opened the letter.", hint: "/ˈletə/" },
             { term: "friend", translation: "друг", example: "I visited my friend.", hint: "/frend/" },
+            { term: "push", translation: "толкать", example: "He pushed the door.", hint: "/pʊʃ/" },
+            { term: "pass", translation: "проходить мимо", example: "We passed the museum.", hint: "/pɑːs/" },
+            { term: "fix", translation: "чинить", example: "My father fixed the car.", hint: "/fɪks/" },
+            { term: "suggest", translation: "предлагать (мысль, план)", example: "She suggested a picnic.", hint: "/səˈdʒest/" },
           ],
         },
 
@@ -598,7 +662,7 @@ const module: Module = {
     {
       slug: "moy-vcherashniy-den",
       title: "Мой вчерашний день",
-      estimatedMinutes: 13,
+      estimatedMinutes: 15,
       outcome: "рассказывать о дне несколькими делами подряд",
 
       blocks: [
@@ -636,10 +700,10 @@ const module: Module = {
           id: "primer-rasskaza-o-dne",
           kind: "example",
           caption: "День Айгуль",
-          zvuchat: ["First I cleaned the room.", "Then I helped my mother.", "After that I listened to music."],
-          text: "First I cleaned the room.\nThen I helped my mother.\nAfter that I listened to music.",
+          zvuchat: ["First I boiled water.", "Then I cleaned the room.", "After that I helped my mother.", "Then I listened to music.", "After that I packed my bag."],
+          text: "First I boiled water.\nThen I cleaned the room.\nAfter that I helped my mother.\nThen I listened to music.\nAfter that I packed my bag.",
           explain:
-            "Три дела в том порядке, в каком они были. У каждого глагола окончание -ed, " +
+            "Пять дел в том порядке, в каком они были. У каждого глагола окончание -ed, " +
             "а слово порядка стоит первым.",
         },
         {
@@ -653,6 +717,9 @@ const module: Module = {
             { term: "walk", translation: "гулять, идти пешком", example: "We walked in the garden.", hint: "/wɔːk/" },
             { term: "garden", translation: "сад", example: "We walked in the garden.", hint: "/ˈgɑːdn/" },
             { term: "finish", translation: "заканчивать", example: "I finished my homework.", hint: "/ˈfɪnɪʃ/" },
+            { term: "snack", translation: "лёгкая еда", example: "I wanted a snack.", hint: "/snæk/" },
+            { term: "boil", translation: "кипятить", example: "I boiled water in the morning.", hint: "/bɔɪl/" },
+            { term: "pack", translation: "собирать вещи", example: "I packed my bag.", hint: "/pæk/" },
           ],
         },
 
@@ -735,7 +802,7 @@ const module: Module = {
     {
       slug: "dela-i-vremya",
       title: "Дело и время вместе",
-      estimatedMinutes: 13,
+      estimatedMinutes: 15,
       outcome: "ставить дело и время вместе: I worked yesterday, I cooked last night",
 
       blocks: [
@@ -782,11 +849,11 @@ const module: Module = {
         {
           id: "primer-nedeli",
           kind: "example",
-          caption: "Неделя Данияра",
-          zvuchat: ["I worked yesterday.", "I visited my friend two days ago.", "We danced at a party last week."],
-          text: "I worked yesterday.\nI visited my friend two days ago.\nWe danced at a party last week.",
+          caption: "Дела Данияра",
+          zvuchat: ["I worked yesterday.", "I visited my friend two days ago.", "We danced at a party last week.", "We cycled last night.", "We camped a month ago."],
+          text: "I worked yesterday.\nI visited my friend two days ago.\nWe danced at a party last week.\nWe cycled last night.\nWe camped a month ago.",
           explain:
-            "Три дела и три разных оборота времени. Каждый стоит в конце своего " +
+            "Пять дел, и у каждого свой оборот времени. Каждый стоит в конце своего " +
             "предложения.",
         },
         {
@@ -800,6 +867,9 @@ const module: Module = {
             { term: "answer", translation: "отвечать", example: "He answered the letter.", hint: "/ˈɑːnsə/" },
             { term: "stay", translation: "оставаться", example: "We stayed at home last night.", hint: "/steɪ/" },
             { term: "evening", translation: "вечер", example: "I called her in the evening.", hint: "/ˈiːvnɪŋ/" },
+            { term: "cycle", translation: "ездить на велосипеде", example: "We cycled two days ago.", hint: "/ˈsaɪkl/" },
+            { term: "sail", translation: "плавать под парусом", example: "We sailed last week.", hint: "/seɪl/" },
+            { term: "camp", translation: "ночевать в палатке", example: "We camped last week.", hint: "/kæmp/" },
           ],
         },
 
@@ -1099,7 +1169,7 @@ const module: Module = {
           id: "obrazec-pisma",
           kind: "example",
           caption: "Образец: четыре строки о дне",
-          zvuchat: ["First I studied English.", "Then I helped my sister."],
+          zvuchat: ["First I studied English.", "Then I helped my sister.", "After that I walked in the park.", "It was a busy day."],
           text:
             "First I studied English.\nThen I helped my sister.\nAfter that I walked in the park.\nIt was a busy day.",
           explain:

@@ -51,9 +51,43 @@ import type { Module } from "@/lib/content/types";
  *    about pastimes and past activities» — уроки 4 и 5, где спрашивают, а не
  *    только рассказывают.
  *
- * 6. Слова модуля — Oxford 3000, все A1 и A2 при потолке ступени A2. Из A2
- *    взяты `noisy` и `alone`; остальные стоят на A1 и берутся заново, потому
- *    что курс не ссылается на прошлую ступень.
+ * 6. СЛОВАРЬ МОДУЛЯ. Пятьдесят девять карточек, из них двадцать четыре несут
+ *    слово, которого на прошлой ступени не было. Это норма, принятая владельцем
+ *    20 августа: не меньше тридцати карточек на модуль и не меньше пятнадцати
+ *    новых (CLAUDE.md, «Объём словаря и число модулей»).
+ *
+ *    Ступень сверена двумя источниками сразу, потому что поодиночке не годится
+ *    ни один. Oxford 3000 отвечает «какая у слова ступень», но бытовой половины
+ *    экзамена не знает вовсе. Словник A2 Key отвечает «входит ли слово в
+ *    требования экзамена», но по ступеням не размечен и держит внутри восемьсот
+ *    пятьдесят слов уровня A1.
+ *
+ *    Новое в модуле, с пометой A2 по Oxford 3000: castle, gallery, awful,
+ *    lovely, fresh, ill, worried, nervous, pleased, competition, race, tour,
+ *    crowded, lake, forest, hill, noisy, alone.
+ *
+ *    Новое, чего Oxford 3000 не знает вовсе: zoo, circus, sunny, cloudy,
+ *    picnic, weekday. Опора у них одна — словник A2 Key. ЭТО НАДО СКАЗАТЬ
+ *    ПРЯМО: словник называет требования экзамена, а не ступень слова, и другой
+ *    разметки для этих шести в materials/ нет ни в одном файле. Найдено
+ *    методистом, оставлено сознательно.
+ *
+ *    Остальные стоят на A1 и берутся заново: курс не ссылается на прошлую
+ *    ступень.
+ *
+ *    СЛОВА-ПОДПОРКИ — те, что стоят в примерах и записях, а своей карточки не
+ *    имеют: bread, students, teacher, book. Все четыре A1 по Oxford 3000 и все
+ *    есть в словнике A2 Key. Названы здесь потому, что иначе перечень слов
+ *    модуля расходится с тем, что ученик видит. `teacher` и `book` дописаны 20
+ *    августа по второму разбору методиста: первое стоит в карточке `pleased`,
+ *    второе — в записи урока слушания, и ни одно в перечень не попало.
+ *
+ *    РЕШЕНИЯ ПРЕПОДАВАТЕЛЯ, которых в источниках нет и быть не может.
+ *    `castle` переведён «за́мок (старинный)» со знаком ударения: без него слово
+ *    читается как замо́к на двери. `gallery` сужена до картинной галереи,
+ *    потому что рядом в уроке стоит `museum`. `pleased` разведён с `happy`
+ *    пометой «(тем, что вышло)». `tour` сужен до экскурсии, чтобы отличался от
+ *    `trip`. Все четыре — сужения, а не выписки, и ждут слова владельца.
  *
  * ОТРИЦАНИЕ И ВОПРОС: ОПОРА ПРЯМАЯ, А НЕ КОСВЕННАЯ.
  *
@@ -224,10 +258,31 @@ const module: Module = {
         "angry A1, holiday A1, trip A1, museum A1, beach A1, village A1, city A1, " +
         "restaurant A1, yesterday A1, last A1, ago A1, night A1, week A1, month A1, " +
         "year A1, late A1, quiet A1, film A1, dinner A1, shop A1, hotel A1, " +
-        "concert A1, happy A1. Сверх A1 и в пределах ступени: noisy A2, alone A2. " +
+        "concert A1, happy A1; подпорки в примерах и записях bread, students, " +
+        "teacher, book — тоже A1. " +
+        "Сверх A1 и в пределах ступени: noisy A2, alone A2, castle A2, gallery A2, " +
+        "awful A2, lovely A2, fresh A2, ill A2, worried A2, nervous A2, pleased A2, " +
+        "competition A2, race A2, tour A2, crowded A2, lake A2, forest A2, hill A2. " +
+        "У слов с двумя пометами взята нужная: race (competition) A2, а не race " +
+        "(people) B1; tour n. A2, а не tour v. B1. " +
         "Слово early в перечне первой редакции стояло, а в модуле не встречалось — " +
         "убрано по замечанию методиста",
       license: "внутреннее использование",
+    },
+    {
+      ref: "Cambridge English, A2 Key vocabulary list",
+      section:
+        "опора шести слов, которых в Oxford 3000 нет вовсе: zoo, circus, sunny, " +
+        "cloudy, picnic, weekday — все шесть стоят в алфавитном перечне словника, " +
+        "а часть подтверждается ещё и тематическими списками: «Places: Town and " +
+        "City» — zoo и castle; «The Natural World» — forest, hill, lake; «Time» — " +
+        "weekday. " +
+        "ОГОВОРКА, без которой опора выглядит крепче, чем есть: словник называет " +
+        "требования экзамена A2 Key, а не ступень слова. Разметки по ступеням в " +
+        "нём нет, и для этих шести другого подтверждения в materials/ не нашлось. " +
+        "Опора добавлена 20 августа по разбору методиста: до этого слова стояли в " +
+        "модуле, а источник, на котором они держатся, назван не был",
+      license: "внутреннее использование, публично не называем",
     },
   ],
 
@@ -247,7 +302,7 @@ const module: Module = {
     {
       slug: "byl-i-byli",
       title: "Где это было: I was at home",
-      estimatedMinutes: 13,
+      estimatedMinutes: 15,
       outcome: "рассказывать, где прошёл вчерашний день: I was at home",
 
       blocks: [
@@ -370,11 +425,12 @@ const module: Module = {
           id: "primer-gde-byl",
           kind: "example",
           caption: "Вчерашний вечер",
-          zvuchat: ["I was at home.", "My sister was at school.", "My parents were at the station."],
-          text: "I was at home.\nMy sister was at school.\nMy parents were at the station.",
+          zvuchat: ["I was at home.", "My sister was at school.", "My parents were at the station.", "We were at the zoo."],
+          text: "I was at home.\nMy sister was at school.\nMy parents were at the station.\nWe were at the zoo.",
           explain:
             "В первых двух строках речь об одном человеке — стоит was. В третьей " +
-            "людей двое, и форма меняется на were.",
+            "людей двое, и форма меняется на were.\n\nВ четвёртой стоит we — это " +
+            "тоже несколько человек, и форма та же were.",
         },
         {
           id: "slovar-mest",
@@ -388,6 +444,10 @@ const module: Module = {
             { term: "market", translation: "рынок", example: "They were at the market.", hint: "/ˈmɑːkɪt/" },
             { term: "station", translation: "вокзал, станция", example: "We were at the station.", hint: "/ˈsteɪʃn/" },
             { term: "yesterday", translation: "вчера", example: "I was at home yesterday.", hint: "/ˈjestədeɪ/" },
+            { term: "castle", translation: "за́мок (старинный)", example: "We were at the castle.", hint: "/ˈkɑːsl/" },
+            { term: "zoo", translation: "зоопарк", example: "My sister was at the zoo.", hint: "/zuː/" },
+            { term: "gallery", translation: "картинная галерея", example: "She was at the gallery.", hint: "/ˈgæləri/" },
+            { term: "circus", translation: "цирк", example: "My parents were at the circus.", hint: "/ˈsɜːkəs/" },
           ],
         },
 
@@ -460,7 +520,7 @@ const module: Module = {
     {
       slug: "kak-eto-bylo",
       title: "Каким это было: The film was great",
-      estimatedMinutes: 13,
+      estimatedMinutes: 15,
       outcome: "говорить, каким что-то было: The film was great",
 
       blocks: [
@@ -519,10 +579,10 @@ const module: Module = {
           id: "primer-o-poezdke",
           kind: "example",
           caption: "Два дня на море",
-          zvuchat: ["The hotel was cheap.", "The beach was quiet.", "The days were hot."],
-          text: "The hotel was cheap.\nThe beach was quiet.\nThe days were hot.",
+          zvuchat: ["The hotel was cheap.", "The beach was quiet.", "The days were hot.", "The mornings were sunny.", "The bread was fresh."],
+          text: "The hotel was cheap.\nThe beach was quiet.\nThe days were hot.\nThe mornings were sunny.\nThe bread was fresh.",
           explain:
-            "Три отдельные строки — так и выглядит короткий рассказ о поездке: не " +
+            "Пять отдельных строк — так и выглядит короткий рассказ о поездке: не " +
             "длинный текст, а несколько простых предложений подряд.",
         },
         {
@@ -538,6 +598,11 @@ const module: Module = {
             { term: "delicious", translation: "вкусный", example: "The dinner was delicious.", hint: "/dɪˈlɪʃəs/" },
             { term: "boring", translation: "скучный", example: "The lessons were boring.", hint: "/ˈbɔːrɪŋ/" },
             { term: "great", translation: "отличный", example: "The film was great.", hint: "/greɪt/" },
+            { term: "sunny", translation: "солнечный", example: "The morning was sunny.", hint: "/ˈsʌni/" },
+            { term: "cloudy", translation: "облачный", example: "The day was cloudy.", hint: "/ˈklaʊdi/" },
+            { term: "awful", translation: "ужасный", example: "The weather was awful.", hint: "/ˈɔːfl/" },
+            { term: "lovely", translation: "чудесный", example: "The beach was lovely.", hint: "/ˈlʌvli/" },
+            { term: "fresh", translation: "свежий", example: "The bread was fresh.", hint: "/freʃ/" },
           ],
         },
 
@@ -610,7 +675,7 @@ const module: Module = {
     {
       slug: "ne-bylo-tak",
       title: "Чего не было: I wasn't at work",
-      estimatedMinutes: 13,
+      estimatedMinutes: 15,
       outcome: "говорить, где не был и каким что-то не было: I wasn't at work",
 
       blocks: [
@@ -677,11 +742,11 @@ const module: Module = {
           id: "primer-otricanie",
           kind: "example",
           caption: "Ответ на вопрос о вчера",
-          zvuchat: ["I wasn't at the party.", "I was at home.", "I wasn't free."],
-          text: "I wasn't at the party.\nI was at home.\nI wasn't free.",
+          zvuchat: ["I wasn't at the party.", "I was at home.", "I wasn't free.", "I wasn't ill.", "I wasn't nervous."],
+          text: "I wasn't at the party.\nI was at home.\nI wasn't free.\nI wasn't ill.\nI wasn't nervous.",
           explain:
-            "Отрицание и утверждение стоят рядом: сначала чего не было, потом что " +
-            "было. Так и строится обычный ответ.",
+            "В четырёх строках сказано, чего не было, и в одной — что было. " +
+            "Отрицание и утверждение так и стоят вместе в обычном ответе.",
         },
         {
           id: "slovar-sostoyaniy",
@@ -694,6 +759,10 @@ const module: Module = {
             { term: "ready", translation: "готовый", example: "The dinner wasn't ready.", hint: "/ˈredi/" },
             { term: "angry", translation: "сердитый", example: "My father wasn't angry.", hint: "/ˈæŋgri/" },
             { term: "alone", translation: "один, в одиночестве", example: "I wasn't alone.", hint: "/əˈləʊn/" },
+            { term: "ill", translation: "больной, нездоровый", example: "My brother wasn't ill.", hint: "/ɪl/" },
+            { term: "worried", translation: "встревоженный", example: "My sister wasn't worried.", hint: "/ˈwʌrid/" },
+            { term: "nervous", translation: "взволнованный", example: "The students weren't nervous.", hint: "/ˈnɜːvəs/" },
+            { term: "pleased", translation: "довольный (тем, что вышло)", example: "The teacher wasn't pleased.", hint: "/pliːzd/" },
           ],
         },
 
@@ -766,7 +835,7 @@ const module: Module = {
     {
       slug: "bylo-li",
       title: "Был ли: Were you at the party?",
-      estimatedMinutes: 13,
+      estimatedMinutes: 15,
       outcome: "спрашивать, было ли: Were you at the party?",
 
       blocks: [
@@ -852,6 +921,10 @@ const module: Module = {
             { term: "trip", translation: "поездка", example: "Was the trip long?", hint: "/trɪp/" },
             { term: "museum", translation: "музей", example: "Were they at the museum?", hint: "/mjuˈziːəm/" },
             { term: "concert", translation: "концерт", example: "Was the concert good?", hint: "/ˈkɒnsət/" },
+            { term: "competition", translation: "соревнование, конкурс", example: "Was the competition long?", hint: "/ˌkɒmpəˈtɪʃn/" },
+            { term: "race", translation: "забег, гонка", example: "Were you at the race?", hint: "/reɪs/" },
+            { term: "picnic", translation: "пикник", example: "Was the picnic good?", hint: "/ˈpɪknɪk/" },
+            { term: "tour", translation: "экскурсия", example: "Was the tour great?", hint: "/tɔː/" },
           ],
         },
 
@@ -924,7 +997,7 @@ const module: Module = {
     {
       slug: "gde-i-kak",
       title: "Где и как это было: Where were you?",
-      estimatedMinutes: 13,
+      estimatedMinutes: 15,
       outcome: "спрашивать о прошлом вопросительным словом: Where were you?",
 
       blocks: [
@@ -977,11 +1050,12 @@ const module: Module = {
           id: "primer-rassprosa",
           kind: "example",
           caption: "Расспрос о выходном",
-          zvuchat: ["Where were you on Sunday?", "How was the weather?", "Who was with you?"],
-          text: "Where were you on Sunday?\nHow was the weather?\nWho was with you?",
+          zvuchat: ["Where were you on Sunday?", "How was the weather?", "Who was with you?", "Where was the lake?"],
+          text: "Where were you on Sunday?\nHow was the weather?\nWho was with you?\nWhere was the lake?",
           explain:
-            "Три вопроса подряд об одном дне: место, погода, люди. Так и выглядит " +
-            "разговор о том, как прошли выходные.",
+            "Четыре вопроса подряд об одном дне: первый о месте, второй о погоде, " +
+            "третий о людях, четвёртый снова о месте. Так и выглядит разговор о " +
+            "том, как прошли выходные.",
         },
         {
           id: "slovar-mest-dva",
@@ -994,6 +1068,10 @@ const module: Module = {
             { term: "restaurant", translation: "ресторан", example: "The restaurant was full.", hint: "/ˈrestrɒnt/" },
             { term: "noisy", translation: "шумный", example: "The city was noisy.", hint: "/ˈnɔɪzi/" },
             { term: "quiet", translation: "тихий", example: "The village was quiet.", hint: "/ˈkwaɪət/" },
+            { term: "crowded", translation: "многолюдный", example: "The beach was crowded.", hint: "/ˈkraʊdɪd/" },
+            { term: "lake", translation: "озеро", example: "The lake was cold.", hint: "/leɪk/" },
+            { term: "forest", translation: "лес", example: "The forest was quiet.", hint: "/ˈfɒrɪst/" },
+            { term: "hill", translation: "холм", example: "The hill was quiet.", hint: "/hɪl/" },
           ],
         },
 
@@ -1069,7 +1147,7 @@ const module: Module = {
     {
       slug: "kogda-eto-bylo",
       title: "Когда это было: yesterday, last week",
-      estimatedMinutes: 13,
+      estimatedMinutes: 15,
       outcome: "называть время прошлого: yesterday, last week, two days ago",
 
       blocks: [
@@ -1134,11 +1212,11 @@ const module: Module = {
           id: "primer-kogda",
           kind: "example",
           caption: "Одна неделя",
-          zvuchat: ["Yesterday I was at work.", "Last week I was on holiday.", "A month ago I was in a village."],
-          text: "Yesterday I was at work.\nLast week I was on holiday.\nA month ago I was in a village.",
+          zvuchat: ["Yesterday I was at work.", "Last week I was on holiday.", "A month ago I was in a village.", "Two days ago I was at the castle."],
+          text: "Yesterday I was at work.\nLast week I was on holiday.\nA month ago I was in a village.\nTwo days ago I was at the castle.",
           explain:
-            "Во всех трёх строках оборот времени стоит в начале. Так удобнее, когда " +
-            "рассказываешь по порядку: сначала когда, потом что.",
+            "Во всех четырёх строках оборот времени стоит в начале. Так удобнее, " +
+            "когда рассказываешь по порядку: сначала когда, потом что.",
         },
         {
           id: "slovar-vremeni",
@@ -1151,6 +1229,7 @@ const module: Module = {
             { term: "week", translation: "неделя", example: "Last week I was on holiday.", hint: "/wiːk/" },
             { term: "month", translation: "месяц", example: "A month ago I was in a village.", hint: "/mʌnθ/" },
             { term: "year", translation: "год", example: "Last year I was at school.", hint: "/jɪə/" },
+            { term: "weekday", translation: "будний день", example: "Yesterday was a weekday.", hint: "/ˈwiːkdeɪ/" },
           ],
         },
 
@@ -1258,7 +1337,7 @@ const module: Module = {
             { term: "every day", translation: "каждый день" },
             { term: "again", translation: "снова, опять" },
             { term: "but", translation: "но" },
-            { term: "happy", translation: "довольный, счастливый" },
+            { term: "happy", translation: "счастливый, радостный" },
             { term: "On Friday", translation: "в пятницу" },
           ],
         },
