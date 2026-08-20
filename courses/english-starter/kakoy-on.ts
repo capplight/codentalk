@@ -805,12 +805,12 @@ const module: Module = {
         {
           id: "z2-artikl-s-very",
           kind: "short",
-          prompt: "Запиши целиком, вместе с артиклем: очень старая машина.",
-          answer: "a very old car",
-          accept: ["A very old car"],
+          prompt: "Запиши целиком, вместе с артиклем: очень лёгкое слово.",
+          answer: "a very easy word",
+          accept: ["A very easy word"],
           hint: "Артикль смотрит на слово сразу за собой, а там теперь стоит very.",
           why:
-            "A very old car. Без very было бы an old car, но very начинается с " +
+            "A very easy word. Без very было бы an easy word, но very начинается с " +
             "согласного звука и меняет артикль.",
         },
         {
@@ -1758,8 +1758,8 @@ const module: Module = {
           id: "zachem-pisat-obyavlenie",
           kind: "explain",
           text: [
-            "Объявление о продаже разобрано в этом модуле, в уроке чтения. Теперь " +
-              "напишешь своё — по тому же образцу, только о своей вещи.",
+            "Такое объявление разбирает урок «Читаем объявление о вещи». Теперь напишешь " +
+              "своё — по тому же образцу, только о своей вещи.",
             "В нём заголовок и три коротких строки: что продаётся и какое оно, какого " +
               "цвета и за сколько.",
           ],
@@ -1967,7 +1967,9 @@ const module: Module = {
         parts: [
           { text: "The books are new.", selectable: true },
           { text: " · " },
-          { text: "The books are news.", selectable: true, correct: true },
+          // Было «The books are news»: news — настоящее английское слово, и
+          // спотыкался ученик не о лишнее окончание, а о незнакомую строку.
+          { text: "The books are bigs.", selectable: true, correct: true },
           { text: " · " },
           { text: "The cars are old.", selectable: true },
           { text: " · " },

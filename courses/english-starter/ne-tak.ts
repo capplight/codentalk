@@ -1026,15 +1026,21 @@ const module: Module = {
         {
           id: "z1-kakoy-otvet-polnee",
           kind: "choice",
-          prompt: "Какой ответ сообщает и что не так, и как на самом деле?",
+          // Прежняя запись давала ровно ту тройку, что напечатана в таблице трёх
+          // длин и во врезке `ne-slepivat` выше. Теперь обстановка задана, и
+          // выбирать приходится по ней, а не по памяти о таблице.
+          prompt:
+            "Собеседник спросил: «Are you a driver?» Ты врач. Какой ответ сообщает и что " +
+            "не так, и как на самом деле?",
           options: [
             { text: "No, I'm not." },
-            { text: "No, I'm not a student." },
-            { text: "No, I'm not. I'm a teacher.", correct: true },
+            { text: "No, I'm not a driver." },
+            { text: "No, I'm not. I'm a doctor.", correct: true },
           ],
           hint: "Ищи ответ из двух предложений.",
           why:
-            "No, I'm not. I'm a teacher. Два других верны, но говорят только о том, чего нет.",
+            "No, I'm not. I'm a doctor. Два других верны, но говорят только о том, чего " +
+            "нет, — собеседник так и не узнает, кто ты.",
         },
         {
           id: "z2-otvetit-s-utochneniem",
@@ -1675,14 +1681,20 @@ const module: Module = {
       },
       {
         id: "q-gde-no-gde-not",
-        kind: "gap",
+        kind: "short",
         outcome: "различать no и not и ставить каждое на своё место",
-        prompt: "Допиши слово-ответ в начале.",
-        before: "",
-        after: ", I'm not a nurse.",
-        answer: "No",
-        exact: true,
-        why: "No, I'm not a nurse. В начале ответа стоит no, внутри предложения отрицает not.",
+        // Была рамка урочного задания с заменой занятия: ученик дописывал одно
+        // слово в готовую строку. Теперь оба слова ставит сам.
+        prompt:
+          "Тебя спросили: «Are you a teacher?» Ответь «нет» одним предложением, повторив " +
+          "занятие.",
+        answer: "No, I'm not a teacher.",
+        accept: [
+          "No, I am not a teacher.",
+          "No, I'm not a teacher",
+          "No, I am not a teacher",
+        ],
+        why: "No, I'm not a teacher. В начале ответа стоит no, внутри предложения отрицает not.",
       },
       {
         id: "q-no-vmesto-not",

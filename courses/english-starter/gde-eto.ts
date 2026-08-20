@@ -589,15 +589,15 @@ const module: Module = {
         {
           id: "z3-zdes-ili-tam",
           kind: "choice",
-          prompt: "Магазин на другой стороне улицы, далеко от тебя. Как сказать?",
+          prompt: "Станция на другой стороне улицы, далеко от тебя. Как сказать?",
           options: [
-            { text: "The shop is here." },
-            { text: "The shop is at there." },
-            { text: "The shop is there.", correct: true },
+            { text: "The station is here." },
+            { text: "The station is at there." },
+            { text: "The station is there.", correct: true },
           ],
           hint: "Далеко — значит не here. И предлог перед этим словом не нужен.",
           why:
-            "The shop is there. Here говорят о том, что рядом, а предлог перед there " +
+            "The station is there. Here говорят о том, что рядом, а предлог перед there " +
             "не ставят.",
         },
         {
@@ -849,15 +849,15 @@ const module: Module = {
         {
           id: "z1-is-ili-are",
           kind: "choice",
-          prompt: "Ты ищешь свои ключи — их несколько. Какой вопрос верный?",
+          prompt: "Ты ищешь свои книги — их несколько. Какой вопрос верный?",
           options: [
-            { text: "Where are my keys?", correct: true },
-            { text: "Where is my keys?" },
-            { text: "Where are my key?" },
+            { text: "Where are my books?", correct: true },
+            { text: "Where is my books?" },
+            { text: "Where are my book?" },
           ],
           hint: "Форма be и окончание -s должны сойтись: либо оба про несколько, либо оба про один.",
           why:
-            "Where are my keys? Ключей несколько, поэтому и форма are, и окончание -s.",
+            "Where are my books? Книг несколько, поэтому и форма are, и окончание -s.",
         },
         {
           id: "z2-sobrat-vopros-gde",
@@ -1863,20 +1863,20 @@ const module: Module = {
         id: "q-za-shkoloy",
         kind: "short",
         outcome: "говорить, что предмет рядом, позади или между: near, behind, between",
-        prompt: "Парк позади школы. Запиши предложение целиком, начни с The park.",
-        answer: "The park is behind the school.",
+        prompt: "Парк позади гостиницы. Запиши предложение целиком, начни с The park.",
+        answer: "The park is behind the hotel.",
         exact: true,
-        accept: ["The park is behind the school"],
-        why: "The park is behind the school. Behind значит «позади».",
+        accept: ["The park is behind the hotel"],
+        why: "The park is behind the hotel. Behind значит «позади».",
       },
       {
         id: "q-zdes-v-konce",
         kind: "order",
         outcome: "ставить here и there в конец предложения",
-        prompt: "Собери предложение: «Магазин там».",
-        items: ["there", "is", "The shop"],
+        prompt: "Собери предложение: «Станция там».",
+        items: ["there", "is", "The station"],
         answer: [2, 1, 0],
-        why: "The shop is there. Слово о месте идёт последним.",
+        why: "The station is there. Слово о месте идёт последним.",
       },
       {
         id: "q-bez-predloga-quiz",
@@ -2000,18 +2000,14 @@ const module: Module = {
       },
       {
         id: "q-zaglavnaya-v-meste",
-        kind: "hottext",
+        kind: "short",
         outcome: "называть места в городе: shop, station, hospital, park",
-        prompt: "Отметь записи, где слово написано с ошибкой.",
-        parts: [
-          { text: "The station is near my house.", selectable: true },
-          { text: " · " },
-          { text: "The Station is near my house.", selectable: true, correct: true },
-          { text: " · " },
-          { text: "The shop is behind the park.", selectable: true },
-          { text: " · " },
-          { text: "The Shop is behind the park.", selectable: true, correct: true },
-        ],
+        // Были две рамки урочного задания с заменой существительных. Теперь
+        // ученик не отмечает готовое, а переписывает строку сам.
+        prompt: "Перепиши предложение без ошибки: «The Hotel is next to the Park.»",
+        answer: "The hotel is next to the park.",
+        exact: true,
+        accept: ["The hotel is next to the park"],
         why:
           "Внутри предложения названия мест пишут с маленькой буквы. Заглавная остаётся " +
           "на самой вывеске.",

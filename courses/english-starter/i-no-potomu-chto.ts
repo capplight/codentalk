@@ -779,15 +779,15 @@ const module: Module = {
         {
           id: "z1-vybrat-korotkuyu-zapis",
           kind: "choice",
-          prompt: "Ты работаешь и учишься. Как сказать короче?",
+          prompt: "Ты читаешь и готовишь. Как сказать короче?",
           options: [
-            { text: "I work, and I study." },
-            { text: "I work and study.", correct: true },
-            { text: "I work and studies." },
+            { text: "I read, and I cook." },
+            { text: "I read and cook.", correct: true },
+            { text: "I read and cooks." },
           ],
           hint: "Второе слово о себе можно убрать.",
           why:
-            "I work and study. Первое верно, но длиннее, а в третьем осталось " +
+            "I read and cook. Первое верно, но длиннее, а в третьем осталось " +
             "окончание от другого человека.",
         },
         {
@@ -1106,10 +1106,11 @@ const module: Module = {
         {
           id: "z5-sprosit-why",
           kind: "short",
-          prompt: "Спроси у собеседника, почему он работает здесь. Работать — work, здесь — here.",
-          answer: "Why do you work here?",
-          hint: "Четыре слова после вопросительного.",
-          why: "Why do you work here? Порядок: why, do, you, глагол.",
+          prompt: "Спроси у собеседника, почему он учится. Учиться — study.",
+          answer: "Why do you study?",
+          accept: ["Why do you study"],
+          hint: "Три слова после вопросительного.",
+          why: "Why do you study? Порядок: why, do, you, глагол.",
         },
       ],
     },
@@ -1704,13 +1705,13 @@ const module: Module = {
         kind: "short",
         outcome: "противопоставлять: I work, but I don't study",
         prompt:
-          "Друг написал: I like my work, and I don't like early mornings. " +
+          "Друг написал: I like music, and I don't like films. " +
           "Замени соединение так, чтобы спор был слышен.",
-        answer: "I like my work, but I don't like early mornings.",
+        answer: "I like music, but I don't like films.",
+        accept: ["I like music but I don't like films."],
         hint: "Меняется одно слово.",
         why:
-          "I like my work, but I don't like early mornings. Слово but показывает, что " +
-          "части спорят.",
+          "I like music, but I don't like films. Слово but показывает, что части спорят.",
       },
       {
         id: "q-sopostavit-spor",

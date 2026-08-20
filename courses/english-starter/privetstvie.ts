@@ -1997,12 +1997,13 @@ const module: Module = {
       },
       {
         id: "q-vernut-vopros",
-        kind: "gap",
+        kind: "short",
         outcome: "вести короткий разговор при знакомстве: от приветствия до прощания",
-        prompt: "Допиши встречный вопрос после своего ответа.",
-        before: "I'm Alim. And ",
-        after: "?",
-        answer: "you",
+        // Прежняя запись повторяла урочное задание вместе с пропуском и
+        // ответом. Здесь ученик пишет оба слова сам.
+        prompt: "В ответ ты пишешь: «I'm Alim.» Верни вопрос собеседнику — два слова.",
+        answer: "And you?",
+        accept: ["And you", "and you?", "and you"],
         why: "And you? Так вопрос возвращают собеседнику, не повторяя его целиком.",
       },
       {
@@ -2075,12 +2076,19 @@ const module: Module = {
       },
       {
         id: "q-poryadok-znakomstva",
-        kind: "order",
+        kind: "choice",
         outcome: "называть своё имя и понимать, когда имя спрашивают",
-        prompt: "Расставь реплики знакомства по порядку.",
-        items: ["I'm Dana.", "What's your name?", "Nice to meet you."],
-        answer: [1, 0, 2],
-        why: "Сначала вопрос, потом имя, в конце — «приятно познакомиться».",
+        // Была укороченная копия z5-poryadok-dialoga урока 2, а сборку разговора
+        // в этой же работе уже спрашивает q-razgovor-ot-i-do.
+        prompt: "Собеседник сказал: «I'm Dana. And you?» Что ответить?",
+        options: [
+          { text: "I'm Alim.", correct: true },
+          { text: "Nice to meet you." },
+          { text: "What's your name?" },
+        ],
+        why:
+          "I'm Alim. Собеседник назвался и вернул вопрос — значит ждёт твоё имя. " +
+          "Спрашивать имя в ответ незачем: его уже назвали.",
       },
       {
         id: "q-zaglavnaya-i",
@@ -2122,15 +2130,18 @@ const module: Module = {
       },
       {
         id: "q-vezhlivye",
-        kind: "match",
+        kind: "gap",
         outcome: "отвечать на вопрос о делах, к месту говорить please, thank you и sorry и узнавать you're welcome",
-        prompt: "Сопоставь случай и нужное слово.",
-        left: ["Просишь чай", "Тебя поблагодарили", "Извиняешься"],
-        right: ["You're welcome", "Sorry", "Please"],
-        answer: [2, 0, 1],
+        // Две пары из трёх повторяли урочное задание, а случай с чаем спрашивал
+        // ещё и соседний вопрос этой же работы.
+        prompt: "Собеседник поблагодарил тебя. Допиши ответ.",
+        before: "— Thank you! — ",
+        after: ".",
+        answer: "You're welcome",
+        accept: ["you're welcome", "You are welcome", "you are welcome"],
         why:
-          "Просьба — please, ответ на благодарность — you're welcome, извинение — sorry. " +
-          "Русское «пожалуйста» подходит в двух случаях, а в английском для каждого своё слово.",
+          "You're welcome. Русское «пожалуйста» годится и для просьбы, и для ответа на " +
+          "благодарность, а в английском на каждый случай своё слово.",
       },
       {
         id: "q-napisat-please",

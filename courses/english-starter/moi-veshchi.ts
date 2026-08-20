@@ -223,13 +223,16 @@ const module: Module = {
           id: "z1-chto-lishnee",
           kind: "choice",
           prompt: "В какой строке лишнее слово?",
+          // Строка «It's a my bag» напечатана во врезке выше и ещё раз в z3:
+          // ученик узнавал её, не разбирая правила. Здесь тот же спор за одно
+          // место, но с your и другим предметом.
           options: [
-            { text: "It's my bag." },
-            { text: "It's a my bag.", correct: true },
-            { text: "It's a bag." },
+            { text: "It's your key." },
+            { text: "It's a your key.", correct: true },
+            { text: "It's a key." },
           ],
           hint: "Перед названием предмета стоит что-то одно.",
-          why: "«It's a my bag» — a и my борются за одно место. Нужно что-то одно.",
+          why: "«It's a your key» — a и your борются за одно место. Нужно что-то одно.",
         },
         {
           id: "z2-dopisat-moy",
@@ -648,18 +651,18 @@ const module: Module = {
         {
           id: "z5-popravit-o-veshchi",
           kind: "short",
-          prompt: "Собеседник сказал: «You've got a car.» У тебя машины нет. Возрази одним предложением.",
-          answer: "I haven't got a car.",
+          prompt: "Собеседник сказал: «You've got a bike.» У тебя велосипеда нет. Возрази одним предложением.",
+          answer: "I haven't got a bike.",
           exact: true,
           accept: [
-            "I haven't got a car",
-            "I have not got a car.",
-            "I have not got a car",
+            "I haven't got a bike",
+            "I have not got a bike.",
+            "I have not got a bike",
             "No, I haven't.",
             "No, I haven't",
           ],
           hint: "Отвечаешь о себе, значит первое слово меняется.",
-          why: "I haven't got a car. Про you сказали — про I отвечаешь.",
+          why: "I haven't got a bike. Про you сказали — про I отвечаешь.",
         },
       ],
     },

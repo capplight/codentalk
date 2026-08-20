@@ -685,14 +685,16 @@ const module: Module = {
         {
           id: "z2-vybrat-poryadok-be",
           kind: "choice",
-          prompt: "Она никогда не опаздывает. Как сказать через форму be?",
+          prompt: "Он всегда занят. Как сказать через форму be?",
           options: [
-            { text: "She is never late.", correct: true },
-            { text: "She never is late." },
-            { text: "Never she is late." },
+            { text: "He is always busy.", correct: true },
+            { text: "He always is busy." },
+            { text: "He always busy." },
           ],
           hint: "Смотри, что идёт сразу после того, о ком речь.",
-          why: "She is never late. Форма be стоит раньше наречия.",
+          why:
+            "He is always busy. Форма be стоит раньше наречия, и потерять её нельзя: " +
+            "без be предложения не выйдет.",
         },
         {
           id: "z3-otmetit-pereputannye",
@@ -1708,11 +1710,11 @@ const module: Module = {
         id: "q-never-perestroit",
         kind: "short",
         outcome: "говорить, что чего-то не бывает никогда: I never drink coffee",
-        prompt: "Скажи то же самое через never: I don't work on Sunday.",
-        answer: "I never work on Sunday.",
-        accept: ["i never work on sunday.", "I never work on Sunday"],
+        prompt: "Скажи то же самое через never: I don't watch TV.",
+        answer: "I never watch TV.",
+        accept: ["i never watch tv.", "I never watch TV"],
         hint: "Одно слово заменяет собой два.",
-        why: "I never work on Sunday. Never отрицает само, поэтому don't убирают.",
+        why: "I never watch TV. Never отрицает само, поэтому don't убирают.",
       },
       {
         id: "q-never-otmetit",
@@ -1732,8 +1734,8 @@ const module: Module = {
         ],
         hint: "Never отрицает само.",
         why:
-          "Дважды отрицают «I don't never go to bed late» и «She doesn't never drink " +
-          "coffee».",
+          "Дважды отрицают «We don't never work at the weekend» и «He doesn't never read " +
+          "in the morning». Верно — без don't и doesn't: never отрицает само.",
       },
 
       // ---- итог 4 ----
@@ -1933,13 +1935,15 @@ const module: Module = {
         // Задание было тем же, что в уроке, до последнего английского слова:
         // менялся только русский перевод условия. И в переводе стояло «я занят» —
         // краткое прилагательное, которое выдаёт пол ученика.
-        prompt: "Допиши предложение так, чтобы вышло «По понедельникам у меня всегда много дел».",
+        prompt: "Допиши предложение так, чтобы вышло «По утрам я часто опаздываю».",
         before: "I am ",
-        after: " busy on Monday.",
-        answer: "always",
-        accept: ["Always"],
+        after: " late in the morning.",
+        answer: "often",
+        accept: ["Often"],
         hint: "Слово am уже стоит — допиши слово о частоте.",
-        why: "I am always busy on Monday. Дел много каждый понедельник без исключений.",
+        why:
+          "I am often late in the morning. Often — «часто»: чаще, чем sometimes, но не " +
+          "каждый раз.",
       },
     ],
   },

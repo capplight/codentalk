@@ -753,16 +753,16 @@ const module: Module = {
         {
           id: "z1-vybrat-prosbu-v-magazine",
           kind: "choice",
-          prompt: "Ты просишь в магазине немного хлеба. Как сказать?",
+          prompt: "Ты просишь в магазине немного воды. Как сказать?",
           options: [
-            { text: "Give me bread." },
-            { text: "I'd like some bread, please.", correct: true },
-            { text: "I like bread." },
+            { text: "I'd like a water, please." },
+            { text: "I'd like some water, please.", correct: true },
+            { text: "I like water, please." },
           ],
-          hint: "В магазине берут не указание, а просьбу.",
+          hint: "Вода не считается по штукам, и просят не о вкусе.",
           why:
-            "I'd like some bread, please. Первое — указание, оно звучит прямо, а " +
-            "третье говорит о вкусе вообще.",
+            "I'd like some water, please. Перед несчитаемым словом артикль a не ставят, " +
+            "а I like говорит о вкусе вообще, а не о просьбе.",
         },
         {
           id: "z2-dopisat-anything-else",
@@ -1074,11 +1074,11 @@ const module: Module = {
         {
           id: "z5-napisat-otricanie",
           kind: "short",
-          prompt: "Напиши, что у тебя нет воды. Вода — water.",
-          answer: "I haven't got any water.",
-          accept: ["I have not got any water."],
+          prompt: "Напиши, что у тебя нет чая. Чай — tea.",
+          answer: "I haven't got any tea.",
+          accept: ["I have not got any tea.", "I haven't got any tea"],
           hint: "В отрицании берут any.",
-          why: "I haven't got any water. Слово water не меняется.",
+          why: "I haven't got any tea. Слово tea не меняется: чай по штукам не считают.",
         },
       ],
     },

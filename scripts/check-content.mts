@@ -52,8 +52,79 @@ function fail(where: string, message: string): void {
   errors.push(`${where}: ${message}`);
 }
 
+/**
+ * Замечания, о которых уже принято решение, молчат.
+ *
+ * До 20 августа `resheno.ts` читала одна-единственная проверка, а `warn()`
+ * складывал всё подряд. Из-за этого разобранные случаи — с записанной причиной,
+ * с именем решившего — висели в отчёте вечно. Скрипт, который каждый раз
+ * спрашивает об одном и том же, перестают читать, и вместе со старым замечанием
+ * теряется новое.
+ *
+ * Ошибок это не касается: замолчать можно то, что решает методист, а не то, что
+ * неверно наверняка.
+ */
+const zamolchali: string[] = [];
+
+/**
+ * Разобран ли отдельный случай.
+ *
+ * Нужна отдельно от `warn()`, потому что часть замечаний собирается пачкой: в
+ * одной строке отчёта перечислены все вопросы модуля. Замолчать такую строку
+ * целиком нельзя — вместе с разобранным вопросом пропал бы соседний, о котором
+ * ещё никто не думал. Поэтому решённые отсеиваются по одному, до сборки пачки.
+ */
+function razobrano(chto: string): boolean {
+  const nayden = resheno.some((r) => chto.includes(r.chto));
+  if (nayden) zamolchali.push(chto);
+  return nayden;
+}
+
 function warn(where: string, message: string): void {
-  warnings.push(`${where}: ${message}`);
+  const stroka = `${where}: ${message}`;
+  if (resheno.some((r) => stroka.includes(r.chto))) {
+    zamolchali.push(stroka);
+    return;
+  }
+  warnings.push(stroka);
+}
+
+/**
+ * Задание «исправь и запиши» без `exact: true`.
+ *
+ * Сверка ответа по умолчанию снимает регистр (`normalize` в
+ * `lib/content/check.ts`). Значит задание, где вся ошибка — в маленькой букве,
+ * засчитает дословно переписанную из условия ошибку как верный ответ. Комментарий
+ * об этом стоит в самом `check.ts` с пометкой «проверено опытом: засчитывало», и
+ * всё-таки 20 августа я написал такое задание снова — в работе части, где его
+ * нашёл методист.
+ *
+ * Проверка ищет в условии строку, которая от ответа отличается ТОЛЬКО регистром,
+ * и требует `exact`. Где ошибка не в регистре — молчит: там снятие регистра
+ * ничего не портит.
+ */
+function trebuetExact(task: any): boolean {
+  if (task.exact === true) return false;
+  const otvet = typeof task.answer === "string" ? task.answer : "";
+  if (!otvet.trim()) return false;
+
+  const chistka = (v: string): string =>
+    v
+      .trim()
+      .replace(/[«»"“”`]/g, "")
+      .replace(/[’‘]/g, "'")
+      .replace(/[.!?]+$/, "")
+      .replace(/\s+/g, " ");
+
+  const cel = chistka(otvet);
+  const uslovie = String(task.prompt ?? "") + " " + String(task.before ?? "");
+  // Куски условия в кавычках — там и стоит испорченная строка.
+  for (const kusok of uslovie.match(/«[^»]+»/gu) ?? []) {
+    const kandidat = chistka(kusok.slice(1, -1));
+    if (kandidat === cel) continue;
+    if (kandidat.toLowerCase() === cel.toLowerCase()) return true;
+  }
+  return false;
 }
 
 /** Имя блока: латиница в нижнем регистре, цифры и дефис. */
@@ -366,9 +437,11 @@ function checkRabotaNePovtoryaetZadaniya(mod: Module, where: string): void {
     if (gdeUslovie && gdeYadro) {
       sovpali.push(`${question.id}: то же задание, что ${gdeYadro} — «${question.prompt}»`);
     } else if (gdeUslovie) {
-      pohozhi.push(`${question.id}: условие как у ${gdeUslovie} — «${question.prompt}»`);
+      if (!razobrano(question.id))
+        pohozhi.push(`${question.id}: условие как у ${gdeUslovie} — «${question.prompt}»`);
     } else if (gdeYadro) {
-      pohozhi.push(`${question.id}: тот же пример, что в ${gdeYadro}`);
+      if (!razobrano(question.id))
+        pohozhi.push(`${question.id}: тот же пример, что в ${gdeYadro}`);
     }
   }
 
@@ -505,7 +578,7 @@ function checkOtvetNeStoitVyshe(lesson: any, where: string): void {
     for (const otvet of otvety) {
       if (!dlinnee(otvet)) continue;
       if (material.includes(slova(otvet))) {
-        utechki.push(`${block.id}: «${otvet.trim()}»`);
+        if (!razobrano(block.id)) utechki.push(`${block.id}: «${otvet.trim()}»`);
       }
     }
   }
@@ -540,7 +613,10 @@ function checkOtvetNePropechatan(mod: Module, where: string): void {
       ot = material.indexOf(otvet, ot + 1);
     }
     if (skolko >= CHASTOTA_PREDELA) {
-      chasto.push(`${question.id}: «${otvetZadaniya(question).trim()}» — в материале ${skolko} раз`);
+      if (!razobrano(question.id))
+        chasto.push(
+          `${question.id}: «${otvetZadaniya(question).trim()}» — в материале ${skolko} раз`
+        );
     }
   }
 
@@ -557,6 +633,14 @@ function checkOtvetNePropechatan(mod: Module, where: string): void {
 function checkTask(task: TaskBlock, where: string): void {
   if (blank(task.prompt)) fail(where, "нет формулировки задания");
   checkDubli(task, where);
+
+  if (trebuetExact(task)) {
+    fail(
+      where,
+      "нужен exact: true — вся ошибка в условии сводится к регистру, а сверка по " +
+        "умолчанию его снимает: дословно переписанная из условия ошибка засчитается верной"
+    );
+  }
 
   checkProse(task.prompt, where, "условие");
   checkProse(task.hint, where, "подсказка");
@@ -1221,6 +1305,102 @@ function checkCourse(course: Course): void {
       }
 
       /*
+       * Уроки умений тоже должны спрашиваться.
+       *
+       * Настоящая дыра, найденная 20 августа: работы частей писались 15 августа,
+       * уроки чтения, слушания и письма дописали 19-го — и работа их не
+       * спрашивала вовсе. Ученик проходил в части полтора десятка таких уроков,
+       * а работа проверяла только правила. Ни одна проверка этого не видела:
+       * покрытие считалось по модулям, а модули были затронуты.
+       */
+      const itogiUmeniy = new Set(
+        moduliChasti.flatMap((m) =>
+          m.lessons
+            .filter((l) => /^(chitaem|slushaem|pishem|govorim)-/.test(l.slug))
+            .map((l) => l.outcome)
+        )
+      );
+      if (itogiUmeniy.size > 0) {
+        const proUmeniya = part.quiz.questions.filter((q) => itogiUmeniy.has(q.outcome)).length;
+        if (proUmeniya === 0) {
+          fail(gde, `ни один вопрос не спрашивает об уроках умений, а их в части ${itogiUmeniy.size}`);
+        } else if (proUmeniya < 3) {
+          warn(
+            gde,
+            `об уроках умений спрашивают ${proUmeniya} ${proUmeniya === 1 ? "вопрос" : "вопроса"}, ` +
+              `а самих уроков ${itogiUmeniy.size}`
+          );
+        }
+      }
+
+      /*
+       * Работа части не должна быть зеркалом НИ УРОКОВ, НИ РАБОТ МОДУЛЕЙ.
+       *
+       * Сравнение с работами модулей дописано 20 августа, после того как
+       * методист нашёл в новых вопросах тринадцать близнецов из двадцати
+       * четырёх. Половина из них совпадала не с уроком, а с вопросом работы
+       * модуля — а туда проверка не смотрела вовсе: сравнение со всем курсом
+       * было написано для экзамена и на части не распространялось.
+       *
+       * Соблазн тот же, что у экзамена: работа части пишется последней, модули
+       * уже перед глазами, и показательный пример просится в вопрос сам.
+       */
+      const usloviyaChasti = new Map<string, string>();
+      const yadraChasti = new Map<string, string>();
+      const zapomnitChast = (task: any, gdeZadanie: string): void => {
+        const uslovie = slova(String(task.prompt ?? ""));
+        if (uslovie.split(" ").length > 3 && !usloviyaChasti.has(uslovie)) {
+          usloviyaChasti.set(uslovie, gdeZadanie);
+        }
+        const yadro = yadroZadaniya(task);
+        if (slovVYadre(yadro) >= 3 && !yadraChasti.has(yadro)) yadraChasti.set(yadro, gdeZadanie);
+      };
+      for (const mod of moduliChasti) {
+        for (const lesson of mod.lessons) {
+          for (const block of lesson.blocks as any[]) {
+            if (isTask(block)) zapomnitChast(block, `${mod.slug} → ${lesson.slug} → ${block.id}`);
+          }
+        }
+        for (const question of mod.quiz.questions as any[]) {
+          zapomnitChast(question, `${mod.slug} → работа → ${question.id}`);
+        }
+      }
+
+      const zerkaloChasti: string[] = [];
+      const pereklichkiChasti: string[] = [];
+      for (const question of part.quiz.questions as any[]) {
+        const uslovie = slova(String(question.prompt ?? ""));
+        const yadro = yadroZadaniya(question);
+        const gdeUslovie = usloviyaChasti.get(uslovie);
+        const gdeYadro = yadro ? yadraChasti.get(yadro) : undefined;
+
+        if (gdeUslovie && gdeYadro) {
+          zerkaloChasti.push(`${question.id}: то же задание, что ${gdeYadro}`);
+        } else if (gdeYadro && !razobrano(question.id)) {
+          pereklichkiChasti.push(`${question.id}: тот же пример, что в ${gdeYadro}`);
+        } else if (gdeUslovie && !razobrano(question.id)) {
+          pereklichkiChasti.push(`${question.id}: условие как у ${gdeUslovie}`);
+        }
+      }
+
+      if (zerkaloChasti.length > 0) {
+        fail(
+          gde,
+          `вопрос повторяет задание части условием и примером сразу (${zerkaloChasti.length} шт.):\n      ` +
+            zerkaloChasti.join("\n      ") +
+            "\n      Ученик узнаёт задание раньше, чем читает его"
+        );
+      }
+      if (pereklichkiChasti.length > 0) {
+        warn(
+          gde,
+          `вопрос перекликается с заданием части (${pereklichkiChasti.length} шт.):\n      ` +
+            pereklichkiChasti.join("\n      ") +
+            "\n      Решает методист: устойчивую фразу иногда взять больше неоткуда"
+        );
+      }
+
+      /*
        * Работа части не должна быть зеркалом уроков — тем более что писалась
        * она позже всех и соблазн взять готовый пример здесь сильнее всего.
        * Сравниваем с заданиями ВСЕХ уроков части сразу.
@@ -1342,8 +1522,10 @@ function checkCourse(course: Course): void {
       const gdeYadro = yadro ? yadraKursa.get(yadro) : undefined;
 
       if (gdeUslovie && gdeYadro) zerkalo.push(`${question.id}: то же задание, что ${gdeYadro}`);
-      else if (gdeYadro) pereklichki.push(`${question.id}: тот же пример, что в ${gdeYadro}`);
-      else if (gdeUslovie) pereklichki.push(`${question.id}: условие как у ${gdeUslovie}`);
+      else if (gdeYadro && !razobrano(question.id))
+        pereklichki.push(`${question.id}: тот же пример, что в ${gdeYadro}`);
+      else if (gdeUslovie && !razobrano(question.id))
+        pereklichki.push(`${question.id}: условие как у ${gdeUslovie}`);
     }
 
     if (zerkalo.length > 0) {
@@ -1638,6 +1820,21 @@ function checkZvuk(course: Course): void {
     }
   }
 
+  /*
+   * Работы частей проверка не смотрела до 20 августа — и молчала бы дальше.
+   * Пока в них не было слушания, это ничего не стоило; в тот день у них
+   * появились вопросы со звуком, и ученик получил бы тишину, а отчёт сказал бы
+   * «ошибок нет». Урок общий: список мест, где живёт звук, надо дополнять
+   * ВЕЗДЕ, а не только там, где о нём вспомнил.
+   */
+  for (const part of course.parts ?? []) {
+    for (const vopros of part.quiz?.questions ?? []) {
+      if (vopros.zvuk && !est(adresVoprosa(vopros.zvuk))) {
+        netu.push(`часть ${part.slug} · ${vopros.id}: запись к вопросу`);
+      }
+    }
+  }
+
   if (netu.length > 0) {
     fail(
       course.slug,
@@ -1733,6 +1930,13 @@ if (planned.length > 0) {
 if (warnings.length > 0) {
   console.log(`\nЗамечания (${warnings.length}) — сборку не останавливают:`);
   for (const w of warnings) console.log(`  · ${w}`);
+}
+
+if (zamolchali.length > 0) {
+  console.log(
+    `
+Разобрано раньше и потому пропущено: ${zamolchali.length} (courses/resheno.ts).`
+  );
 }
 
 if (errors.length > 0) {

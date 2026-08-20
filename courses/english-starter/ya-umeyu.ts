@@ -780,16 +780,16 @@ const module: Module = {
         {
           id: "z2-vybrat-vopros-what-can",
           kind: "choice",
-          prompt: "Ты хочешь узнать, что умеет собеседник. Как спросить?",
+          prompt: "Ты хочешь узнать, что умеет твоя мать. Как спросить?",
           options: [
-            { text: "What you can do?" },
-            { text: "What do you can?" },
-            { text: "What can you do?", correct: true },
+            { text: "What your mother can do?" },
+            { text: "What can do your mother?" },
+            { text: "What can your mother do?", correct: true },
           ],
           hint: "Вторым словом идёт can.",
           why:
-            "What can you do? После вопросительного слова сразу идёт can, и слово do " +
-            "как вопросительное здесь не нужно.",
+            "What can your mother do? После вопросительного слова сразу идёт can, а тот, " +
+            "о ком речь, встаёт между can и делом.",
         },
         {
           id: "z3-otmetit-poryadok-what-can",
@@ -1087,11 +1087,13 @@ const module: Module = {
         {
           id: "z4-poprosit-pomoshch",
           kind: "short",
-          prompt: "Попроси собеседника помочь и добавь «пожалуйста».",
-          answer: "Can you help, please?",
-          accept: ["Can you help me, please?"],
+          prompt: "Попроси у собеседника его ручку и добавь «пожалуйста».",
+          answer: "Can I have your pen, please?",
+          accept: ["Can I have your pen please?", "Can I have your pen, please"],
           hint: "Слово please идёт в конце.",
-          why: "Can you help, please? Слово please ставится после просьбы, через запятую.",
+          why:
+            "Can I have your pen, please? Слово please ставится после просьбы, через " +
+            "запятую.",
         },
         {
           id: "z5-sobrat-prosbu",
@@ -1818,10 +1820,11 @@ const module: Module = {
         id: "q-prosba-napisat",
         kind: "short",
         outcome: "просить и предлагать: Can you help? Can I have your pen?",
-        prompt: "Попроси у собеседника его ручку. Его ручка — your pen.",
-        answer: "Can I have your pen?",
-        hint: "Начни с can, вторым поставь того, кто просит.",
-        why: "Can I have your pen? По виду это вопрос, а по делу — просьба.",
+        prompt: "Тебе нужна помощь. Попроси о ней и добавь «пожалуйста».",
+        answer: "Can you help, please?",
+        accept: ["Can you help me, please?", "Can you help, please", "Can you help me, please"],
+        hint: "Начни с can, вторым поставь того, кого просишь.",
+        why: "Can you help, please? По виду это вопрос, а по делу — просьба.",
       },
 
       // ---- итог 8 ----

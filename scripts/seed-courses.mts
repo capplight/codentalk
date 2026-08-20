@@ -201,6 +201,76 @@ async function main(): Promise<void> {
       console.log(`  ✓ проверочная работа: ${quiz.questions.length} вопросов`);
     }
 
+    // ---- проверочные работы частей ----------------------------------------
+    /*
+     * Работы частей лежали в материалах с 15 августа и не переносились сюда
+     * вовсе: у них не было ни вида в базе, ни страницы. Ученик проходил шесть-
+     * семь модулей и не мог открыть работу, которая про них спрашивает.
+     *
+     * Группа вопроса здесь — модуль, как у экзамена, и по той же причине:
+     * выборка идёт по кругу групп, а тема (итог урока) у каждого вопроса своя.
+     * Без группы круг вырождается в случайную горсть, и часть модулей в попытку
+     * не попадает.
+     */
+    if (course.parts && course.parts.length > 0) {
+      const modulPoItoguVsego = new Map<string, string>();
+      for (const module of course.modules) {
+        for (const lesson of module.lessons) modulPoItoguVsego.set(lesson.outcome, module.slug);
+      }
+
+      for (const part of course.parts) {
+        if (!part.quiz) continue;
+        const partQuiz = part.quiz;
+
+        const existingPart = await prisma.test.findFirst({
+          where: { courseId: savedCourse.id, kind: "part_quiz", partSlug: part.slug },
+          select: { id: true },
+        });
+
+        const partTest = existingPart
+          ? await prisma.test.update({
+              where: { id: existingPart.id },
+              data: {
+                title: `Проверочная работа части: ${part.title}`,
+                questionsPerAttempt: partQuiz.ask ?? partQuiz.questions.length,
+                passScore: Math.round((partQuiz.passRatio ?? 0.8) * 100),
+              },
+              select: { id: true },
+            })
+          : await prisma.test.create({
+              data: {
+                courseId: savedCourse.id,
+                kind: "part_quiz",
+                partSlug: part.slug,
+                title: `Проверочная работа части: ${part.title}`,
+                questionsPerAttempt: partQuiz.ask ?? partQuiz.questions.length,
+                passScore: Math.round((partQuiz.passRatio ?? 0.8) * 100),
+              },
+              select: { id: true },
+            });
+
+        await prisma.testQuestion.deleteMany({ where: { testId: partTest.id } });
+        await prisma.testQuestion.createMany({
+          data: partQuiz.questions.map((question) => ({
+            testId: partTest.id,
+            kind: question.kind,
+            payload: question as never,
+            topic: question.outcome,
+            groupKey: modulPoItoguVsego.get(question.outcome) ?? null,
+          })),
+        });
+
+        const bezModulyaChasti = partQuiz.questions.filter(
+          (q) => !modulPoItoguVsego.has(q.outcome)
+        ).length;
+        if (bezModulyaChasti > 0) {
+          console.log(`  ⚠ вопросов части «${part.slug}» без модуля: ${bezModulyaChasti}`);
+        }
+
+        console.log(`  ✓ работа части «${part.title}»: ${partQuiz.questions.length} вопросов`);
+      }
+    }
+
     // ---- итоговый экзамен курса -------------------------------------------
     if (course.exam) {
       const exam = course.exam;

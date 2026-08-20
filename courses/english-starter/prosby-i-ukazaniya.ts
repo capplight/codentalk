@@ -1855,11 +1855,16 @@ const module: Module = {
         id: "q-otvet-napisat",
         kind: "short",
         outcome: "отвечать, когда предлагают вещь, и когда зовут: Yes, please. Yes, I'd like to.",
-        prompt: "Тебя позвали прийти завтра, и ты соглашаешься. Ответь оборотом I'd like to.",
+        // Условие называло сам оборот — ученику оставалось дописать «Yes,».
+        // Теперь выбор между Yes, please (о вещи) и Yes, I'd like to (о деле)
+        // делает он сам, а это и есть итог урока.
+        prompt: "Тебя зовут: «Would you like to come?» Ты соглашаешься. Ответь целиком.",
         answer: "Yes, I'd like to.",
-        accept: ["Yes, I would like to."],
-        hint: "На приглашение к делу отвечают тем же оборотом.",
-        why: "Yes, I'd like to. Полная запись I would like to тоже верна.",
+        accept: ["Yes, I would like to.", "Yes, I'd like to", "Yes, I would like to"],
+        hint: "Зовут к делу, а не предлагают вещь.",
+        why:
+          "Yes, I'd like to. Когда предлагают вещь, отвечают Yes, please; когда зовут " +
+          "что-то сделать — Yes, I'd like to.",
       },
 
       // ---- итог 8 ----

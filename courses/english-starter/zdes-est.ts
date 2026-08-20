@@ -797,7 +797,7 @@ const module: Module = {
             { text: " · " },
             { text: "There is some shop.", selectable: true, correct: true },
             { text: " · " },
-            { text: "There are some people.", selectable: true },
+            { text: "There are some gardens.", selectable: true },
             { text: " · " },
             { text: "There are some book.", selectable: true, correct: true },
           ],
@@ -1726,8 +1726,8 @@ const module: Module = {
           id: "zachem-pisat-o-zhilye",
           kind: "explain",
           text: [
-            "Объявление о сдаче разобрано в этом модуле, в уроке чтения. Теперь " +
-              "напишешь своё.",
+            "Такое объявление разбирает урок «Читаем объявление о жилье». Теперь напишешь " +
+              "своё.",
             "Каждое предложение начинается с There is или There are, а последнее " +
               "говорит, чего в жилье нет.",
           ],
@@ -1790,20 +1790,20 @@ const module: Module = {
           ],
           hint: "Перед формой be должно стоять короткое слово. Найди строку, где оно есть.",
           why:
-            "There is a window in the room. В двух других строках потеряно there: верно " +
-            "было бы There is a garden near the house и There are some books on the table.",
+            "There is a window in the room. В двух других строках потеряно there. Верно " +
+            "было бы: There is a garden near the house. There are some books on the table.",
         },
         {
           id: "z2-ispravit-formu",
           kind: "short",
-          prompt: "Исправь и запиши предложение целиком: «There is two rooms.»",
-          answer: "There are two rooms.",
+          prompt: "Исправь и запиши предложение целиком: «There is three bedrooms.»",
+          answer: "There are three bedrooms.",
           exact: true,
-          accept: ["There are two rooms"],
-          hint: "Форму выбирает то, что идёт следом: комнат две.",
+          accept: ["There are three bedrooms"],
+          hint: "Форму выбирает то, что идёт следом: спален три.",
           why:
-            "There are two rooms. Комнат несколько, значит are. Слово there при этом не " +
-            "меняется никогда.",
+            "There are three bedrooms. Спален несколько, значит are. Слово there при этом " +
+            "не меняется никогда.",
         },
         {
           // Порог в двенадцать слов — наш. Четыре строки условия дают ровно
@@ -1813,8 +1813,8 @@ const module: Module = {
           id: "z3-napisat-o-zhilye",
           kind: "essay",
           prompt:
-            "Напиши объявление о сдаче жилья: заголовок FLAT FOR RENT или HOUSE FOR " +
-            "RENT, потом сколько комнат, потом что есть рядом, потом чего в жилье нет.",
+            "Напиши объявление о сдаче жилья. Заголовок — FLAT FOR RENT или HOUSE FOR " +
+            "RENT. Дальше скажи, сколько комнат, что есть рядом и чего в жилье нет.",
           // Порог в двенадцать слов — наш: столько выходит в самом коротком
           // верном ответе («FLAT FOR RENT. There are two rooms. There is a shop
           // near the house. There isn't a garden.» — шестнадцать; двенадцать

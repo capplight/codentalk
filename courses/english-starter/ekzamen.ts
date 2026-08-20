@@ -43,6 +43,9 @@ export const ekzamenEnglishStarter: Quiz = {
       outcome: "писать с заглавной буквы имена, страны и названия языков",
       prompt: "Исправь ошибку и запиши целиком: «She is from italy.»",
       answer: "She is from Italy.",
+      // Без exact сверка снимает регистр, и переписанная из условия ошибка
+      // засчитывалась верной. Вся проверяемая разница здесь — заглавная буква.
+      exact: true,
       accept: ["She is from Italy"],
       why: "She is from Italy. Название страны пишется с заглавной буквы и в середине предложения.",
     },

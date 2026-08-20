@@ -276,6 +276,24 @@
   cursor: not-allowed;
 }
 
+/* ---------- работа части ----------
+ *
+ * Стоит в конце части и не принадлежит ни одному модулю. Поэтому у неё своя
+ * рамка, а не полоска сверху, как у работы модуля: без рамки она читалась бы
+ * работой последнего модуля, а спрашивает она сразу о шести-семи.
+ */
+.partQuiz {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  margin-top: var(--space-5);
+  padding: 18px 24px;
+  border: 1px solid var(--amber);
+  border-radius: var(--radius-m);
+  background: var(--amber-soft);
+}
+
 /* ---------- телефон ----------
  *
  * Отступы внутри карточек заданы в точках — двадцать и двадцать четыре. На
@@ -333,7 +351,8 @@
     flex: 1;
   }
 
-  .quiz {
+  .quiz,
+  .partQuiz {
     padding: 14px 16px;
   }
 

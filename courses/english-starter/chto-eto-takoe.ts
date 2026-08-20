@@ -960,16 +960,18 @@ const module: Module = {
         {
           id: "z4-popravit-o-predmete",
           kind: "short",
-          prompt: "Собеседник сказал: «It's a pen.» На самом деле это ключ. Возрази и скажи, как есть, — два предложения.",
-          answer: "It isn't a pen. It's a key.",
+          // Прежняя пара pen — key стояла и во вводном объяснении, и первой
+          // строкой таблицы, и во врезке `a-v-oboih`: ответ списывался глазами.
+          prompt: "Собеседник сказал: «It's a bag.» На самом деле это коробка. Возрази и скажи, как есть, — два предложения.",
+          answer: "It isn't a bag. It's a box.",
           exact: true,
           accept: [
-            "It isn't a pen. It's a key",
-            "It is not a pen. It is a key.",
-            "It is not a pen. It is a key",
+            "It isn't a bag. It's a box",
+            "It is not a bag. It is a box.",
+            "It is not a bag. It is a box",
           ],
           hint: "Оба предложения начинаются с it.",
-          why: "It isn't a pen. It's a key. Два шага, и в обоих артикль a на месте.",
+          why: "It isn't a bag. It's a box. Два шага, и в обоих артикль a на месте.",
         },
         {
           id: "z5-sobrat-popravku",
@@ -1068,12 +1070,14 @@ const module: Module = {
         {
           id: "z2-sdelat-vopros-o-predmete",
           kind: "short",
-          prompt: "Сделай вопрос из «This is a key.»",
-          answer: "Is this a key?",
+          // «Is this a key?» напечатан выше трижды — в объяснении, в таблице и во
+          // врезке `dva-voprosa-ryadom`. Предмет заменён, перестановка та же.
+          prompt: "Сделай вопрос из «This is a box.»",
+          answer: "Is this a box?",
           exact: true,
-          accept: ["Is this a key"],
+          accept: ["Is this a box"],
           hint: "Первые два слова меняются местами.",
-          why: "Is this a key? Перестановка та же, что в модуле про вопрос.",
+          why: "Is this a box? Перестановка та же, что в модуле про вопрос.",
         },
         {
           id: "z3-otvetit-net",
@@ -1568,11 +1572,14 @@ const module: Module = {
         id: "q-sprosit-chto-eto",
         kind: "short",
         outcome: "спрашивать «что это» и отвечать: What is this? — It's a book",
-        prompt: "Спроси о предмете, который лежит вдалеке. Запиши вопрос в полной записи.",
-        answer: "What is that?",
+        // Оба вопроса — и What is this?, и What is that? — заняты заданиями
+        // уроков 1 и 2. Поэтому работа спрашивает другую половину умения:
+        // не как спросить, а как ответить.
+        prompt: "«What's this?» — спросили о стуле. Ответь целиком.",
+        answer: "It's a chair.",
         exact: true,
-        accept: ["What is that"],
-        why: "What is that? Вдалеке — значит that; в полной записи форма be не сливается с what.",
+        accept: ["It's a chair", "It is a chair.", "It is a chair"],
+        why: "It's a chair. Отвечают через it, каким бы словом ни спросили.",
       },
       {
         id: "q-otvetit-o-knige",
@@ -1622,10 +1629,10 @@ const module: Module = {
         kind: "match",
         outcome: "называть предметы, которые носишь с собой",
         prompt: "Сопоставь слово и перевод.",
-        left: ["phone", "box", "key"],
-        right: ["ключ", "телефон", "коробка"],
+        left: ["phone", "ticket", "chair"],
+        right: ["стул", "телефон", "билет"],
         answer: [1, 2, 0],
-        why: "Phone — телефон, box — коробка, key — ключ.",
+        why: "Phone — телефон, ticket — билет, chair — стул.",
       },
       {
         id: "q-stul-po-angliyski",
@@ -1639,11 +1646,11 @@ const module: Module = {
         id: "q-okno-dopisat",
         kind: "gap",
         outcome: "называть то, что стоит в комнате",
-        prompt: "Допиши название предмета: окно.",
+        prompt: "Допиши название предмета: дверь.",
         before: "It's a ",
         after: ".",
-        answer: "window",
-        why: "It's a window. Слово начинается с буквы W.",
+        answer: "door",
+        why: "It's a door. Слово начинается с буквы D.",
       },
       {
         id: "q-bilet-po-angliyski",

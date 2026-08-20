@@ -34,7 +34,7 @@ config({ quiet: true });
 
 const { courses } = await import("../courses/index.ts");
 const { isTask } = await import("../lib/content/types.ts");
-const { klyuchZvuka, zvuchashchee } = await import("../lib/content/zvuk.ts");
+const { klyuchZvuka, razgovorLi, zvuchashchee } = await import("../lib/content/zvuk.ts");
 const { PROIZNOSHENIE } = await import("../lib/content/proiznoshenie.ts");
 
 type TempZvuka = "normal" | "slow";
@@ -169,12 +169,13 @@ function sobratOpis(): Zapis[] {
 
           // Запись, по которой спрашивает само задание.
           if (isTask(block) && block.zvuk) {
+            const dvaGolosa = razgovorLi(block.zvuk);
             dobavit({
               rod: "vopros",
-              klyuch: klyuchZvuka(block.zvuk, "slow"),
+              klyuch: klyuchZvuka(block.zvuk, "slow", dvaGolosa),
               text: block.zvuk,
               temp: "slow",
-              dvaGolosa: false,
+              dvaGolosa,
               otkuda: `${gde} · ${block.id}`,
             });
           }
@@ -184,12 +185,13 @@ function sobratOpis(): Zapis[] {
       // Вопросы проверочной работы модуля тоже умеют звучать.
       for (const vopros of module.quiz.questions) {
         if (!vopros.zvuk) continue;
+        const dvaGolosa = razgovorLi(vopros.zvuk);
         dobavit({
           rod: "vopros",
-          klyuch: klyuchZvuka(vopros.zvuk, "slow"),
+          klyuch: klyuchZvuka(vopros.zvuk, "slow", dvaGolosa),
           text: vopros.zvuk,
           temp: "slow",
-          dvaGolosa: false,
+          dvaGolosa,
           otkuda: `${course.slug}/${module.slug} · работа · ${vopros.id}`,
         });
       }
@@ -198,14 +200,37 @@ function sobratOpis(): Zapis[] {
     // И вопросы итогового экзамена.
     for (const vopros of course.exam?.questions ?? []) {
       if (!vopros.zvuk) continue;
+      const dvaGolosa = razgovorLi(vopros.zvuk);
       dobavit({
         rod: "vopros",
-        klyuch: klyuchZvuka(vopros.zvuk, "slow"),
+        klyuch: klyuchZvuka(vopros.zvuk, "slow", dvaGolosa),
         text: vopros.zvuk,
         temp: "slow",
-        dvaGolosa: false,
+        dvaGolosa,
         otkuda: `${course.slug} · экзамен · ${vopros.id}`,
       });
+    }
+
+    /*
+     * И вопросы проверочных работ частей.
+     *
+     * Их здесь не было до 20 августа, и это молчало: работы частей писались без
+     * слушания вовсе. Как только у них появились вопросы со звуком, ученик
+     * получил бы тишину — файла для такого вопроса просто не существует.
+     */
+    for (const part of course.parts ?? []) {
+      for (const vopros of part.quiz?.questions ?? []) {
+        if (!vopros.zvuk) continue;
+        const dvaGolosa = razgovorLi(vopros.zvuk);
+        dobavit({
+          rod: "vopros",
+          klyuch: klyuchZvuka(vopros.zvuk, "slow", dvaGolosa),
+          text: vopros.zvuk,
+          temp: "slow",
+          dvaGolosa,
+          otkuda: `${course.slug} · часть ${part.slug} · ${vopros.id}`,
+        });
+      }
     }
   }
 

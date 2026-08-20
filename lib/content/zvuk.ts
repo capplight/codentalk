@@ -72,7 +72,23 @@ export function adresObrazca(fraza: string): string {
  * молча испортит другую.
  */
 export function adresVoprosa(fraza: string): string {
-  return adresZvuka("vopros", klyuchZvuka(fraza, "slow"));
+  return adresZvuka("vopros", klyuchZvuka(fraza, "slow", razgovorLi(fraza)));
+}
+
+/**
+ * Разговор ли это.
+ *
+ * Вопрос на слух часто бывает разговором: спросили — ответили. Прочитанный
+ * одним голосом, он перестаёт быть разговором и становится длинным
+ * предложением, а решение владельца от 19 августа требует двух голосов. Реплики
+ * в таких записях разделены тире с пробелами — так они и записаны в материалах.
+ *
+ * Правило живёт здесь, а не в скрипте озвучки, по той же причине, что и всё
+ * остальное в этом файле: считать имя файла должны одинаково и скрипт, и
+ * страница. Разойдутся — ученик получит тишину.
+ */
+export function razgovorLi(text: string): boolean {
+  return / — /.test(text);
 }
 
 /**

@@ -382,6 +382,7 @@ model CourseProgress {
 
 enum TestKind {
   module_quiz
+  part_quiz
   final_exam
 }
 
@@ -391,6 +392,14 @@ model Test {
   course   Course  @relation(fields: [courseId], references: [id], onDelete: Cascade)
   moduleId String? @map("module_id") @db.Uuid
   module   Module? @relation(fields: [moduleId], references: [id], onDelete: SetNull)
+
+  /// Имя части курса — только у работ частей.
+  ///
+  /// Своей записи у части в базе нет и не нужно: части живут в материалах
+  /// (`courses/<курс>/index.ts`), а базе нужно лишь имя, чтобы найти работу и
+  /// проверить условие открытия. Модуля у такой работы нет — она спрашивает
+  /// сразу о шести-семи.
+  partSlug String? @map("part_slug")
 
   kind  TestKind
   title String

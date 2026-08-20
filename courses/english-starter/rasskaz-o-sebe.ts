@@ -591,15 +591,19 @@ const module: Module = {
           id: "z4-najti-lishnee",
           kind: "choice",
           prompt: "В какой строке артикль лишний?",
+          // Прежняя строка «I'm a Alim» нарушала сразу два правила: артикль перед
+          // именем и a перед гласным звуком. Ученик мог отметить её за второе и
+          // прочитать разбор о первом. У Nurlan начало согласное — лишним
+          // остаётся только артикль.
           options: [
-            { text: "I'm a Alim.", correct: true },
+            { text: "He's a Nurlan.", correct: true },
             { text: "She's a nurse." },
             { text: "It's a city." },
           ],
           hint: "Посмотри, что стоит после a: предмет, занятие или имя.",
           why:
-            "«I'm a Alim» — перед именем a не ставят: имя и так одно-единственное. " +
-            "Правильно I'm Alim.",
+            "«He's a Nurlan» — перед именем a не ставят: имя и так одно-единственное. " +
+            "Правильно He's Nurlan.",
         },
         {
           id: "z5-sopostavit-artikl",
@@ -1123,16 +1127,19 @@ const module: Module = {
         {
           id: "z1-kakoy-vopros",
           kind: "choice",
-          prompt: "Как спросить «откуда ты»?",
+          // Прежняя запись давала выбор из той самой пары, которую врезка выше
+          // разбирает целиком: ученик списывал ответ, не думая. Здесь вопрос
+          // задан, а выбирать приходится ответ.
+          prompt: "Собеседник спросил: «Where are you?» Что ответить?",
           options: [
-            { text: "Where are you?" },
-            { text: "Where are you from?", correct: true },
-            { text: "What's your name?" },
+            { text: "I'm in Almaty.", correct: true },
+            { text: "I'm from Kazakhstan." },
+            { text: "I'm Dana." },
           ],
-          hint: "Один из вопросов спрашивает, где человек сейчас.",
+          hint: "Вопрос без from спрашивает не о стране.",
           why:
-            "Where are you from? — «откуда ты». Where are you? спрашивает, где человек " +
-            "сейчас, а What's your name? — об имени.",
+            "I'm in Almaty. Вопрос без from спрашивает, где человек сейчас. Ответ про " +
+            "страну — ответ на другой вопрос, а имя здесь не спрашивали вовсе.",
         },
         {
           id: "z2-dopisat-where",
@@ -1955,11 +1962,11 @@ const module: Module = {
         id: "q-otvetit-otkuda",
         kind: "short",
         outcome: "спрашивать, откуда собеседник, и отвечать на этот вопрос",
-        prompt: "Ответь на вопрос «Where are you from?», если ты из Испании. Начни с I'm.",
-        answer: "I'm from Spain.",
+        prompt: "Ответь на вопрос «Where are you from?», если ты из Италии. Начни с I'm.",
+        answer: "I'm from Italy.",
         exact: true,
-        accept: ["I'm from Spain", "I am from Spain.", "I am from Spain"],
-        why: "I'm from Spain. В ответе повторяют предлог from.",
+        accept: ["I'm from Italy", "I am from Italy.", "I am from Italy"],
+        why: "I'm from Italy. В ответе повторяют предлог from, а страна идёт с заглавной.",
       },
       {
         id: "q-rasskaz-sobrat",

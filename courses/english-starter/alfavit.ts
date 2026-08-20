@@ -713,10 +713,13 @@ const module: Module = {
           id: "i-vsegda",
           kind: "note",
           tone: "info",
+          // Пример здесь стоял ровно тот, что просят записать в z2, — ученик
+          // списывал ответ, не разбирая правила. Имя взято Dana, а не Aigul:
+          // с Aigul совпадение переехало бы на ответ z5.
           text:
             "Слово I — «я» — пишется заглавной всегда, где бы оно ни стояло: " +
-            "My name is Alim, and I am from Kazakhstan. Другие короткие слова так себя не " +
-            "ведут: my, is, from в середине предложения пишутся с маленькой буквы.",
+            "My name is Dana, and I speak Kazakh. Другие короткие слова так себя не " +
+            "ведут: my, is, and в середине предложения пишутся с маленькой буквы.",
         },
         {
           id: "slovar-zaglavnaya",
@@ -1880,10 +1883,10 @@ const module: Module = {
         id: "q-imya-po-bukvam",
         kind: "short",
         outcome: "записывать своё имя латиницей и диктовать его по буквам",
-        prompt: "Ученицу зовут Dana. Её спрашивают: «How do you spell your name?» Запиши ответ по буквам через дефис.",
-        answer: "D-A-N-A",
-        accept: ["d-a-n-a", "D A N A", "d a n a"],
-        why: "D-A-N-A. В ответ на такой вопрос называют только буквы.",
+        prompt: "Ученицу зовут Aida. Её спрашивают: «How do you spell your name?» Запиши ответ по буквам через дефис.",
+        answer: "A-I-D-A",
+        accept: ["a-i-d-a", "A I D A", "a i d a"],
+        why: "A-I-D-A. В ответ на такой вопрос называют только буквы.",
       },
       {
         id: "q-zapisat-imya-pod-diktovku",
@@ -1936,13 +1939,12 @@ const module: Module = {
       },
       {
         id: "q-vopros-spell",
-        kind: "gap",
+        kind: "short",
         outcome: "узнавать букву по названию и записывать слово, продиктованное по буквам",
-        prompt: "Допиши вопрос «как это пишется?».",
-        before: "How do you ",
-        after: " that?",
-        answer: "spell",
-        why: "How do you spell that? — просьба продиктовать слово по буквам.",
+        prompt: "Ты не расслышал, как пишется слово. Запиши вопрос целиком.",
+        answer: "How do you spell that?",
+        accept: ["How do you spell that", "How do you spell it?", "How do you spell it"],
+        why: "How do you spell that? Это и есть просьба продиктовать слово по буквам.",
       },
       {
         id: "q-ispravit-yazyk",
@@ -1957,11 +1959,12 @@ const module: Module = {
         id: "q-otvet-po-bukvam",
         kind: "short",
         outcome: "понимать просьбу продиктовать слово и отвечать на неё по буквам",
-        prompt:
-          "Тебя спросили: «How do you spell that?» Речь об имени Alim. Запиши ответ по буквам, через дефис.",
-        answer: "A-L-I-M",
-        accept: ["a-l-i-m", "A L I M", "a l i m"],
-        why: "A-L-I-M. На вопрос о написании отвечают не словом, а его буквами.",
+        prompt: "Тебе продиктовали по буквам: D-A-N-A. Запиши имя одним словом.",
+        answer: "Dana",
+        accept: ["dana"],
+        why:
+          "Dana. Названия букв складываются в слово, дефисы на письме не остаются, а имя " +
+          "берёт заглавную.",
       },
       {
         id: "q-chto-prosyat",
@@ -2035,16 +2038,20 @@ const module: Module = {
         kind: "hottext",
         outcome: "писать с заглавной буквы имена, страны и названия языков",
         prompt: "Отметь слова, написанные с ошибкой.",
+        // Прежний набор повторял z1-najti-oshibki урока 3 вплоть до верных
+        // ответов. Здесь другой срез того же правила: заглавная у слова «я».
         parts: [
-          { text: "Dana", selectable: true },
+          { text: "i", selectable: true, correct: true },
           { text: " · " },
-          { text: "kazakhstan", selectable: true, correct: true },
+          { text: "Aigul", selectable: true },
           { text: " · " },
-          { text: "English", selectable: true },
+          { text: "kazakh", selectable: true, correct: true },
           { text: " · " },
-          { text: "russian", selectable: true, correct: true },
+          { text: "Kazakhstan", selectable: true },
         ],
-        why: "Страна и язык пишутся с заглавной: Kazakhstan, Russian. Dana и English написаны верно.",
+        why:
+          "Слово i пишется заглавной всегда, язык Kazakh — тоже. Aigul и Kazakhstan " +
+          "написаны верно.",
       },
       {
         id: "q-strana-s-zaglavnoy",

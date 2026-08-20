@@ -692,19 +692,21 @@ const module: Module = {
         {
           id: "z1-vybrat-zapis-po-slovu",
           kind: "choice",
-          // Слова every week стоят во всех трёх вариантах нарочно. Без них
-          // «I am working on Monday» — верное предложение о ближайшем понедельнике,
-          // и объявлять его ошибкой нельзя.
-          prompt: "Ты работаешь по понедельникам каждую неделю. Как сказать?",
+          // Слова every day стоят во всех трёх вариантах нарочно. Без них
+          // «I am playing football» — верное предложение о происходящем сейчас,
+          // и объявлять его ошибкой нельзя. Прежняя тройка повторяла врезку
+          // `ne-pereputay` целиком, а третий вариант («I am work…») был
+          // выдуманной строкой: так не говорит никто.
+          prompt: "Ты играешь в футбол каждый день. Как сказать?",
           options: [
-            { text: "I am working on Monday every week." },
-            { text: "I work on Monday every week.", correct: true },
-            { text: "I am work on Monday every week." },
+            { text: "I am playing football every day." },
+            { text: "I play football every day.", correct: true },
+            { text: "I plays football every day." },
           ],
-          hint: "Слова every week говорят, что дело повторяется.",
+          hint: "Слова every day говорят, что дело повторяется.",
           why:
-            "I work on Monday every week. О повторяющемся говорят записью о делах " +
-            "вообще, без формы be и без окончания -ing.",
+            "I play football every day. О повторяющемся говорят записью о делах вообще, " +
+            "без формы be и без окончания -ing. Окончание -s после I тоже лишнее.",
         },
         {
           id: "z2-vybrat-seychas",
@@ -1157,11 +1159,17 @@ const module: Module = {
         {
           id: "z5-sprosit-chto-delaet",
           kind: "short",
-          prompt: "Спроси у собеседника, что он делает.",
-          answer: "What are you doing?",
-          accept: ["what are you doing?", "What are you doing"],
-          hint: "Четыре слова, первое — вопросительное.",
-          why: "What are you doing? После вопросительного слова идёт форма be, потом you.",
+          prompt: "Спроси у собеседника, что делает его брат.",
+          answer: "What is your brother doing?",
+          accept: [
+            "What's your brother doing?",
+            "What is your brother doing",
+            "What's your brother doing",
+          ],
+          hint: "Первое слово вопросительное, второе — форма be.",
+          why:
+            "What is your brother doing? После вопросительного слова идёт форма be, а с " +
+            "братом она берётся is.",
         },
       ],
     },

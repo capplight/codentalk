@@ -20,10 +20,19 @@ import type { Quiz } from "@/lib/content/types";
  * пять раз. Это проверяется скриптом (`npm run check:content`), и правило то же,
  * что для работ модулей: ученик должен строить ответ, а не вспоминать картинку.
  *
- * СКОЛЬКО ВОПРОСОВ. В банке четырнадцать, показывается десять, порог зачёта —
- * семь из десяти, как у работы модуля. Каждый модуль части затрагивается не
- * меньше двух раз: часть считается сданной, только если работают все шесть-семь
- * модулей, а не половина.
+ * СКОЛЬКО ВОПРОСОВ. В банке двадцать, показывается десять, порог зачёта — восемь
+ * из десяти (доля 0.8, как у работы модуля и у экзамена). Каждый модуль части
+ * затрагивается не меньше двух раз: часть считается сданной, только если
+ * работают все шесть-семь модулей, а не половина. Выборка идёт по кругу
+ * модулей — устройство описано в `lib/domain/testing.ts`, — поэтому ни один
+ * модуль в попытке не пропускается.
+ *
+ * УМЕНИЯ ДОПИСАНЫ 20 АВГУСТА. Первая редакция работ спрашивала только правила:
+ * писалась она 15 августа, когда уроков чтения, слушания и письма ещё не было.
+ * Ученик проходил в части полтора десятка таких уроков, и ни один вопрос о них
+ * не заходил. Теперь в каждой части шесть вопросов на умения, по одному-двум на
+ * модуль: слушание идёт через поле `zvuk` (наружу уходит только адрес записи,
+ * расшифровка остаётся на сервере), чтение — коротким текстом прямо в условии.
  */
 
 // ===========================================================================
@@ -96,10 +105,10 @@ export const rabotaYaIDrugie: Quiz = {
       kind: "gap",
       outcome: "ставить a или an по первому звуку следующего слова",
       prompt: "Допиши артикль.",
-      before: "She's ",
-      after: " artist.",
+      before: "It's ",
+      after: " apple.",
       answer: "an",
-      why: "She's an artist. Слово artist начинается с гласного звука, поэтому an.",
+      why: "It's an apple. Слово apple начинается с гласного звука, поэтому an.",
     },
 
     // ---- Вопрос и краткий ответ ----
@@ -189,10 +198,10 @@ export const rabotaYaIDrugie: Quiz = {
       id: "ch1-chego-net",
       kind: "short",
       outcome: "говорить, чего у тебя нет: I haven't got a car",
-      prompt: "Напиши, что у тебя нет велосипеда. Велосипед — a bike.",
-      answer: "I haven't got a bike.",
-      accept: ["I have not got a bike.", "I haven't got a bike"],
-      why: "I haven't got a bike. Отрицание встаёт между have и got.",
+      prompt: "Напиши, что у тебя нет фотоаппарата. Фотоаппарат — a camera.",
+      answer: "I haven't got a camera.",
+      accept: ["I have not got a camera.", "I haven't got a camera"],
+      why: "I haven't got a camera. Отрицание встаёт между have и got.",
     },
     {
       id: "ch1-nasha-komnata",
@@ -203,6 +212,132 @@ export const rabotaYaIDrugie: Quiz = {
       after: " room.",
       answer: "our",
       why: "It's our room. Слово our говорит о нескольких хозяевах, включая тебя.",
+    },
+
+    /*
+     * ---- Умения: чтение, слушание, письмо ----
+     *
+     * Написаны 20 августа, когда уроки умений уже стояли во всех модулях, а
+     * работа части их не спрашивала вовсе: она писалась 15 августа, до них.
+     * Ученик проходил в части пятнадцать уроков чтения, слушания и письма, и
+     * ни один вопрос о них не заходил.
+     */
+    {
+      id: "ch1-sluh-diktovka",
+      kind: "short",
+      outcome: "записывать со слуха слово, продиктованное по буквам",
+      zvuk: "T-I-C-K-E-T. Ticket.",
+      prompt: "Послушай запись. Собеседник продиктовал слово по буквам. Запиши это слово.",
+      answer: "ticket",
+      accept: ["Ticket"],
+      why:
+        "ticket. Названия букв идут по одной, а слово целиком звучит последним — по " +
+        "нему себя и проверь.",
+    },
+    {
+      id: "ch1-perepiska-kto-sprosil",
+      kind: "short",
+      outcome: "понимать по переписке, кто что сказал",
+      prompt:
+        "Прочитай переписку. Кто первым спросил, как дела? Напиши имя.\n" +
+        "— Good morning! I'm Aigul.\n" +
+        "— Good morning, Aigul! My name is Alim.\n" +
+        "— Nice to meet you.\n" +
+        "— Nice to meet you too. How are you?",
+      answer: "Alim",
+      accept: ["alim"],
+      why:
+        "Alim. Рядом с вопросом имени нет, и очередь приходится считать от первой " +
+        "строки: её написала Aigul, значит вторая и четвёртая — Алима.",
+    },
+    {
+      id: "ch1-pismo-zaglavnaya",
+      kind: "short",
+      outcome:
+        "находить в записи о себе потерянные слова: форму be, артикль, заглавную букву",
+      prompt:
+        "В записи о себе одно предложение написано с ошибкой: «I'm Dana. I'm from " +
+        "turkey. I'm a teacher.» Перепиши это предложение верно.",
+      answer: "I'm from Turkey.",
+      exact: true,
+      accept: [
+        "I am from Turkey.",
+        "I'm from Turkey",
+        "I am from Turkey",
+      ],
+      why:
+        "I'm from Turkey. Название страны пишется с заглавной буквы, где бы оно ни " +
+        "стояло — в начале предложения или в середине.",
+    },
+    {
+      id: "ch1-sluh-kem-rabotaet",
+      kind: "choice",
+      outcome: "отличать на слух вопрос от сообщения и понимать краткий ответ",
+      zvuk: "You are from Astana. Are you a nurse? — Yes, I am.",
+      prompt: "Послушай запись. Сколько в ней вопросов?",
+      options: [
+        { text: "Два" },
+        { text: "Один", correct: true },
+        { text: "Ни одного" },
+      ],
+      why:
+        "Один. Первое предложение — сообщение: слова стоят по порядку. Вопрос слышно " +
+        "по перестановке: are выходит вперёд.",
+    },
+    {
+      id: "ch1-obyavlenie-popravka",
+      kind: "short",
+      outcome: "брать из объявления поправку, а не отменённые ею сведения",
+      prompt:
+        "Прочитай объявление и напиши английским словом, в каком городе идут занятия.\n" +
+        "ENGLISH\n" +
+        "Astana\n" +
+        "Sorry! The lessons aren't in Astana.\n" +
+        "They are in Almaty.",
+      answer: "Almaty",
+      accept: ["almaty", "in Almaty"],
+      why:
+        "Almaty. Крупная строка отменена припиской, и верное место стоит последним. " +
+        "Так устроена любая поправка: сначала что не так, потом как есть.",
+    },
+    {
+      id: "ch1-opis-chego-net",
+      kind: "short",
+      outcome: "проверять по описи, есть ли нужная вещь",
+      prompt:
+        "Прочитай две описи. Какой из трёх вещей — a key, a picture, a bag — нет ни в " +
+        "одной? Ответь по-английски.\n" +
+        "ROOM\n" +
+        "A table. A chair. A picture. A window.\n" +
+        "BAG\n" +
+        "A pen. A book. A key. A phone.",
+      answer: "a bag",
+      accept: ["bag", "A bag", "Bag"],
+      why:
+        "a bag. Ключ стоит во второй описи, картина — в первой, а сумка нигде: она сама " +
+        "и есть вторая опись.",
+    },
+    {
+      id: "ch1-razgovor-chto-est-u-sestry",
+      kind: "short",
+      outcome: "понимать по разговору, чья вещь и у кого что есть",
+      prompt:
+        "Прочитай разговор и напиши одним предложением, что есть у сестры.\n" +
+        "— Have you got a car?\n" +
+        "— No, I haven't. My sister has got a car.\n" +
+        "— And this key? Is it her key?\n" +
+        "— No, it's my key.",
+      answer: "She has got a car.",
+      accept: [
+        "She's got a car.",
+        "She has got a car",
+        "She's got a car",
+        "My sister has got a car.",
+        "My sister has got a car",
+      ],
+      why:
+        "She has got a car. В разговоре сказано «my sister has got a car». Когда говоришь " +
+        "о сестре со стороны, вместо my sister ставится she.",
     },
   ],
 };
@@ -292,10 +427,12 @@ export const rabotaMirVokrug: Quiz = {
       id: "ch2-pered-nazvaniem",
       kind: "short",
       outcome: "ставить прилагательное перед названием предмета: a big house",
-      prompt: "Скажи по-английски: это маленькая комната.",
-      answer: "It's a small room.",
-      accept: ["It is a small room.", "It's a small room"],
-      why: "It's a small room. Прилагательное встаёт между артиклем и названием предмета.",
+      prompt: "Скажи по-английски: это старая машина.",
+      answer: "It's an old car.",
+      accept: ["It is an old car.", "It's an old car"],
+      why:
+        "It's an old car. Прилагательное встаёт между артиклем и названием предмета, а " +
+        "артикль смотрит уже на него: old начинается с гласного звука.",
     },
 
     // ---- Где это ----
@@ -373,6 +510,91 @@ export const rabotaMirVokrug: Quiz = {
       why:
         "Are you free on Friday? — Yes, I am. — The meeting is at six in the evening. " +
         "Is that OK? Сначала спрашивают о дне, потом называют время.",
+    },
+
+    // ---- Умения: чтение, слушание, письмо ----
+    {
+      id: "ch2-sluh-chego-neskolko",
+      kind: "short",
+      outcome: "понимать на слух, об одной вещи говорят или о нескольких",
+      zvuk: "I have got two bags and one map.",
+      prompt:
+        "Послушай запись. Чего у говорящего несколько? Ответь английским словом во " +
+        "множественном числе.",
+      answer: "bags",
+      accept: ["Bags"],
+      why:
+        "bags. Число two и окончание -s говорят об одном и том же: вещей несколько. " +
+        "Карта названа через one — она одна.",
+    },
+    {
+      id: "ch2-cennik-dve-knigi",
+      kind: "short",
+      outcome: "находить в объявлении цену и количество",
+      prompt:
+        "Прочитай ценник. Сколько заплатит человек за два билета? Ответь цифрой.\n" +
+        "MARKET\n" +
+        "A ticket — 8\n" +
+        "Two tickets — 14\n" +
+        "A map — 5",
+      answer: "14",
+      why:
+        "14. У двух билетов своя строка, и цена в ней уже за оба. Считать 8 и 8 не " +
+        "надо — ценник об этом и говорит.",
+    },
+    {
+      id: "ch2-pismo-predlog-dnya",
+      kind: "short",
+      outcome: "проверять в сообщении о встрече предлог перед днём и перед временем",
+      prompt:
+        "В сообщении о встрече написали: «See you on the evening!» Перепиши строку с " +
+        "верным предлогом.",
+      answer: "See you in the evening!",
+      exact: true,
+      accept: ["See you in the evening"],
+      why:
+        "See you in the evening! Перед частью суток стоит in, а on остаётся дням недели.",
+    },
+    {
+      id: "ch2-obyavlenie-podhodit-li",
+      kind: "short",
+      outcome: "понимать по описанию, какая вещь и подходит ли она",
+      prompt:
+        "Человеку нужен маленький стол. Прочитай объявление и напиши цифрой, сколько он " +
+        "заплатит.\n" +
+        "FOR SALE\n" +
+        "Table 1. It is big and new. Price: 60.\n" +
+        "Table 2. It is small but old. Price: 35.",
+      answer: "35",
+      why:
+        "35. Маленький стол только один — второй. Он старый, но человек искал не новый, " +
+        "а маленький.",
+    },
+    {
+      id: "ch2-sluh-ryadom-s-chem",
+      kind: "short",
+      outcome: "понимать на слух указания дороги, а в объявлении — время и цену",
+      zvuk: "The bus is at ten. The ticket is thirty.",
+      prompt: "Послушай запись. Сколько стоит билет? Ответь цифрой.",
+      answer: "30",
+      accept: ["thirty", "Thirty"],
+      why:
+        "30. Чисел в записи два, и различает их предлог: после at идёт время, а цена " +
+        "стоит без него.",
+    },
+    {
+      id: "ch2-pismo-poteryannoe-there",
+      kind: "short",
+      outcome: "находить в объявлении о сдаче потерянное there и форму be не по числу",
+      prompt:
+        "В объявлении о сдаче квартиры написали: «Is a bathroom in the flat.» Перепиши " +
+        "строку верно.",
+      answer: "There is a bathroom in the flat.",
+      exact: true,
+      accept: ["There is a bathroom in the flat"],
+      why:
+        "There is a bathroom in the flat. Перед формой be стоит there — оно и говорит, " +
+        "что речь о наличии, а не о том, какова ванная.",
     },
   ],
 };
@@ -541,6 +763,100 @@ export const rabotaKazhdyyDen: Quiz = {
       answer: [1, 0, 2],
       why: "Do you work? — Yes, I do. I work in a shop. — And you? Вопрос, ответ, встречный вопрос.",
     },
+
+    // ---- Умения: чтение и слушание ----
+    {
+      id: "ch3-sluh-vo-skolko-sestra",
+      kind: "short",
+      outcome: "понимать на слух, кто что делает и во сколько",
+      zvuk: "I get up at six. My sister gets up at eight.",
+      prompt: "Послушай запись. Во сколько встаёт сестра? Ответь цифрой.",
+      answer: "8",
+      accept: ["eight", "Eight"],
+      why:
+        "8. Времени в записи два, и различает их то, о ком речь: шесть — о говорящем, " +
+        "восемь — о сестре.",
+    },
+    {
+      id: "ch3-obyavlenie-chego-ne-nado",
+      kind: "short",
+      outcome: "понимать по объявлению, что требуется, а что нет",
+      prompt:
+        "Прочитай объявление. Какая вещь для этой работы не нужна? Ответь английским " +
+        "словом.\n" +
+        "WE NEED A TEACHER\n" +
+        "You work in a school.\n" +
+        "You don't need a car.\n" +
+        "You start at nine.",
+      answer: "car",
+      accept: ["a car", "Car"],
+      why:
+        "car. О вещах в объявлении сказано один раз, и сказано через don't need: машина " +
+        "не требуется.",
+    },
+    {
+      id: "ch3-sluh-kratkiy-otvet",
+      kind: "choice",
+      outcome: "понимать на слух вопрос с do и короткий ответ на него",
+      zvuk: "Does Dana study English? — No, she doesn't. She studies Kazakh.",
+      prompt: "Послушай запись. Какой краткий ответ в ней прозвучал?",
+      options: [
+        { text: "No, she isn't." },
+        { text: "No, she doesn't.", correct: true },
+        { text: "No, I don't." },
+      ],
+      why:
+        "No, she doesn't. Краткий ответ повторяет слово вопроса: спросили does — " +
+        "ответили doesn't. Форма be сюда не подходит: спрашивали о деле.",
+    },
+    {
+      id: "ch3-rasskaz-izredka",
+      kind: "short",
+      outcome: "понимать по тексту, что бывает всегда, а что изредка",
+      prompt:
+        "Прочитай рассказ и напиши английским словом, в какой день Дана работает " +
+        "изредка.\n" +
+        "Dana is a nurse. She always works on Tuesday.\n" +
+        "She sometimes works on Sunday.\n" +
+        "She never works on Friday.",
+      answer: "Sunday",
+      accept: ["sunday", "on Sunday"],
+      why:
+        "Sunday. На лесенке частоты sometimes стоит ниже always, но выше never: изредка " +
+        "— это не «никогда».",
+    },
+    {
+      id: "ch3-sluh-chem-zanyat-seychas",
+      kind: "choice",
+      outcome: "слышать разницу между «сейчас» и «всегда»",
+      zvuk: "Dana is a teacher. She isn't working today. She is reading at home.",
+      prompt: "Послушай запись. Чем Дана занята сегодня?",
+      options: [
+        { text: "Ведёт занятия" },
+        { text: "Гуляет в парке" },
+        { text: "Читает дома", correct: true },
+      ],
+      why:
+        "Читает дома. Работа учителем — это то, что бывает всегда, а окончание -ing " +
+        "рядом со словом today говорит о сегодняшнем дне.",
+    },
+    {
+      id: "ch3-obyavlenie-pochemu-ne-podhodit",
+      kind: "short",
+      outcome: "понимать по объявлению, что нужно уметь и что там можно",
+      prompt:
+        "Человек умеет водить машину, но не говорит по-английски. Какая работа ему " +
+        "подходит? Ответь цифрой 1 или 2.\n" +
+        "JOB 1\n" +
+        "You can speak English. You can work in the evening.\n" +
+        "JOB 2\n" +
+        "You can drive. You can work at the weekend.",
+      answer: "2",
+      accept: ["job 2", "JOB 2"],
+      why:
+        "2. Первое объявление требует английского, второго умения у человека нет. " +
+        "Второе требует водить машину — это он умеет.",
+    },
   ],
 };
 
@@ -575,10 +891,10 @@ export const rabotaDelaIRazgovory: Quiz = {
       id: "ch4-vopros-o-vkusah",
       kind: "short",
       outcome: "спрашивать о вкусах: Do you like coffee?",
-      prompt: "Спроси у собеседника, нравится ли ему спорт. Спорт — sport. Запиши вопрос целиком.",
-      answer: "Do you like sport?",
-      accept: ["Do you like sport"],
-      why: "Do you like sport? Вопрос о вкусах строится так же, как вопрос о делах.",
+      prompt: "Спроси у собеседника, нравится ли ему музыка. Музыка — music. Запиши вопрос целиком.",
+      answer: "Do you like music?",
+      accept: ["Do you like music"],
+      why: "Do you like music? Вопрос о вкусах строится так же, как вопрос о делах.",
     },
     {
       id: "ch4-ne-nravitsya-gotovit",
@@ -715,6 +1031,99 @@ export const rabotaDelaIRazgovory: Quiz = {
       why:
         "Когда слушают кого-то, у listen стоит to; когда смотрят на кого-то, у look стоит at. " +
         "В двух записях предлога нет.",
+    },
+
+    // ---- Умения: чтение, слушание, письмо ----
+    {
+      id: "ch4-pismo-kogo-vidit-kazhdyy-den",
+      kind: "short",
+      outcome: "понимать в тексте, о ком идёт речь, когда имя не повторяют",
+      prompt:
+        "Прочитай сообщение. Кого Дана не видит? Ответь английским словом.\n" +
+        "A message from Dana\n" +
+        "Hi! I have got a brother and a sister.\n" +
+        "My brother lives in Almaty. I don't see him.\n" +
+        "My sister works with me. I see her every day.\n" +
+        "Dana",
+      answer: "brother",
+      accept: ["a brother", "Brother", "her brother"],
+      why:
+        "brother. Имён в последних строках нет: о брате говорит him, о сестре — her. " +
+        "Держать, кто из них кто, приходится от первой строки.",
+    },
+    {
+      id: "ch4-pismo-vkus-ili-prosba",
+      kind: "short",
+      outcome: "различать на письме I like и I'd like и ставить to там, где оно нужно",
+      prompt: "Человек написал: «I'd like read a book.» Перепиши строку верно.",
+      answer: "I'd like to read a book.",
+      accept: [
+        "I would like to read a book.",
+        "I'd like to read a book",
+        "I would like to read a book",
+      ],
+      why:
+        "I'd like to read a book. Перед делом после I'd like ставят to. Перед вещью его " +
+        "нет: I'd like a tea.",
+    },
+    {
+      id: "ch4-sluh-chto-poprosili",
+      kind: "choice",
+      outcome: "различать на слух указание, запрет и просьбу",
+      zvuk: "Don't sit here. Can you help me, please?",
+      prompt: "Послушай запись. О чём в ней попросили?",
+      options: [
+        { text: "Сесть здесь" },
+        { text: "Помочь", correct: true },
+        { text: "Открыть окно" },
+      ],
+      why:
+        "Помочь. Просьба начинается с Can you, а запрет — с Don't. Различает их первое " +
+        "слово, и только оно.",
+    },
+    {
+      id: "ch4-menyu-dva-blyuda",
+      kind: "short",
+      outcome: "находить в меню нужное и понимать, сколько это стоит",
+      prompt:
+        "Человек заказал только рис, без мяса. Прочитай меню и напиши цифрой, сколько " +
+        "он заплатит.\n" +
+        "CAFE\n" +
+        "Rice — 60\n" +
+        "Rice and meat — 90\n" +
+        "Tea — 25\n" +
+        "Water — 15",
+      answer: "60",
+      why:
+        "60. Цена 90 стоит за рис вместе с мясом — так в меню и пишут о блюде из " +
+        "нескольких вещей. У риса отдельно своя строка.",
+    },
+    {
+      id: "ch4-sluh-s-chem-sporit-but",
+      kind: "choice",
+      outcome: "слышать союз и понимать, добавляет он, спорит или даёт выбор",
+      zvuk: "I like my flat, but it is very small.",
+      prompt: "Послушай запись. Что сделал союз между двумя частями?",
+      options: [
+        { text: "Добавил второе дело" },
+        { text: "Дал выбор из двух" },
+        { text: "Поспорил с первой частью", correct: true },
+      ],
+      why:
+        "Поспорил. Квартира нравится — и всё же она мала: вторая часть спорит с первой. " +
+        "Добавляет and, выбор даёт or.",
+    },
+    {
+      id: "ch4-otkrytka-zavtra",
+      kind: "short",
+      outcome: "проверять в открытке, что время глагола сходится со словом времени",
+      prompt: "В открытке написали: «Yesterday I am at home.» Перепиши строку верно.",
+      answer: "Yesterday I was at home.",
+      exact: true,
+      accept: ["Yesterday I was at home"],
+      why:
+        "Yesterday I was at home. Слово yesterday говорит о вчера, и форма be тоже " +
+        "берётся прошедшая: was, а не am.",
     },
   ],
 };

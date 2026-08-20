@@ -960,12 +960,12 @@ const module: Module = {
         {
           id: "z1-ne-em",
           kind: "short",
-          prompt: "Ты не ешь мясо. Запиши предложение целиком, начни с I.",
-          answer: "I don't eat meat.",
+          prompt: "Ты не пьёшь кофе. Запиши предложение целиком, начни с I.",
+          answer: "I don't drink coffee.",
           exact: true,
-          accept: ["I don't eat meat"],
-          hint: "Речь о мясе вообще, а не об одном куске.",
-          why: "I don't eat meat. О еде вообще говорят без артикля.",
+          accept: ["I don't drink coffee"],
+          hint: "Речь о кофе вообще, а не об одной чашке.",
+          why: "I don't drink coffee. О питье вообще говорят без артикля.",
         },
         {
           id: "z2-lishniy-artikl",
@@ -1718,21 +1718,15 @@ const module: Module = {
       },
       {
         id: "q-opiska",
-        kind: "hottext",
+        kind: "short",
         outcome: "писать полную и короткую запись: do not и don't",
-        prompt: "Отметь записи с опиской.",
-        parts: [
-          { text: "I dont cook.", selectable: true, correct: true },
-          { text: " · " },
-          { text: "I don't cook.", selectable: true },
-          { text: " · " },
-          { text: "He doesn't cook.", selectable: true },
-          { text: " · " },
-          { text: "He does'nt cook.", selectable: true, correct: true },
-        ],
-        why:
-          "Описки в первой и четвёртой записях. Апостроф стоит на месте буквы o: don't, " +
-          "doesn't.",
+        // Была рамка z3-otmetit-opiski урока 3 с теми же четырьмя строками.
+        // Теперь короткую запись ученик производит сам.
+        prompt: "Запиши короткой формой: «He does not cook.»",
+        answer: "He doesn't cook.",
+        exact: true,
+        accept: ["He doesn't cook"],
+        why: "He doesn't cook. Апостроф стоит на месте буквы o: does not — doesn't.",
       },
       {
         id: "q-be-ili-dont",
@@ -1748,21 +1742,18 @@ const module: Module = {
       },
       {
         id: "q-pereputannye",
-        kind: "hottext",
+        kind: "choice",
         outcome: "различать отрицание с формой be и с don't: I'm not a doctor — I don't work",
-        prompt: "Отметь записи, где отрицание выбрано неверно.",
-        parts: [
-          { text: "I don't study English.", selectable: true },
-          { text: " · " },
-          { text: "I'm not study English.", selectable: true, correct: true },
-          { text: " · " },
-          { text: "I don't a student.", selectable: true, correct: true },
-          { text: " · " },
-          { text: "I'm not a student.", selectable: true },
+        // Была рамка z3-otmetit-pereputannye урока 4 с теми же строками.
+        prompt: "Ты хочешь сказать «я не работаю в магазине». Как верно?",
+        options: [
+          { text: "I don't work in a shop.", correct: true },
+          { text: "I'm not work in a shop." },
+          { text: "I not work in a shop." },
         ],
         why:
-          "Отрицания перепутаны во второй и третьей записях. Верно: I don't study English " +
-          "и I'm not a student.",
+          "I don't work in a shop. Речь о деле, значит отрицание идёт через don't. Форма " +
+          "be отрицает занятие или место: I'm not a driver.",
       },
       {
         id: "q-dva-otricaniya-napisat",
@@ -1807,23 +1798,18 @@ const module: Module = {
       },
       {
         id: "q-bez-artiklya",
-        kind: "hottext",
+        kind: "short",
         outcome: "называть свои привычки через «не»: I don't eat meat",
-        prompt: "Отметь записи с лишним артиклем.",
-        // Три записи из четырёх были дословно теми же, что в задании урока.
-        // Оставлена одна общая, остальные взяты на других словах модуля.
-        parts: [
-          { text: "I don't drink coffee.", selectable: true },
-          { text: " · " },
-          { text: "I don't drink a coffee.", selectable: true, correct: true },
-          { text: " · " },
-          { text: "I don't eat a fish.", selectable: true, correct: true },
-          { text: " · " },
-          { text: "I don't eat meat.", selectable: true },
-        ],
-        why:
-          "Лишний артикль во второй и третьей записях: речь о питье вообще, а не об " +
-          "одном стакане.",
+        // Была рамка z2-lishniy-artikl урока 6. Теперь ученик переписывает
+        // строку сам, а не отмечает готовую.
+        // Осторожно: строка про кофе теперь стоит ответом урочного задания
+        // z1-ne-em. Здесь взята рыба — она была среди прежних вариантов, но
+        // ответом не служила нигде.
+        prompt: "Исправь и запиши верно: «I don't eat a fish.»",
+        answer: "I don't eat fish.",
+        exact: true,
+        accept: ["I don't eat fish"],
+        why: "I don't eat fish. Речь о еде вообще, а не об одной рыбе — артикль лишний.",
       },
       {
         id: "q-chego-ne-napisat",
@@ -1899,11 +1885,11 @@ const module: Module = {
         id: "q-rasskaz-oba-shag",
         kind: "short",
         outcome: "рассказывать, что делаешь и чего не делаешь",
-        prompt: "Ты не смотришь футбол. Запиши предложение целиком, начни с I.",
-        answer: "I don't watch football.",
+        prompt: "Ты не смотришь телевизор. Запиши предложение целиком, начни с I.",
+        answer: "I don't watch TV.",
         exact: true,
-        accept: ["I don't watch football"],
-        why: "I don't watch football.",
+        accept: ["I don't watch TV"],
+        why: "I don't watch TV. Отрицание идёт до самого дела: don't watch.",
       },
       {
         id: "q-rasskaz-oba-o-brate",

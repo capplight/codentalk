@@ -474,14 +474,19 @@ const module: Module = {
           id: "z1-kak-sprosit-vozrast",
           kind: "choice",
           prompt: "Как спросить «сколько тебе лет»?",
+          // Прежние отвлекающие варианты стояли с many и much, а оба этих слова
+          // вводятся только в уроках 4 и 5 этого же модуля: задание требовало
+          // того, чего ученик ещё не проходил. Теперь обе ошибки — из того, что
+          // уже разобрано: порядок слов в вопросе и форма be.
           options: [
-            { text: "How many are you?" },
             { text: "How old are you?", correct: true },
-            { text: "How much are you?" },
+            { text: "How old you are?" },
+            { text: "How old is you?" },
           ],
           hint: "В вопросе стоит слово со значением «старый».",
           why:
-            "How old are you? Вопрос с many спрашивает о количестве предметов, с much — о цене.",
+            "How old are you? Форма be выходит вперёд подлежащего, а с you идёт are, " +
+            "а не is.",
         },
         {
           id: "z2-otvetit-o-vozraste",
@@ -1180,11 +1185,11 @@ const module: Module = {
         {
           id: "z5-napisat-mnogo",
           kind: "short",
-          prompt: "Напиши по-английски «много людей».",
-          answer: "a lot of people",
-          accept: ["A lot of people"],
+          prompt: "Напиши по-английски «много ключей».",
+          answer: "a lot of keys",
+          accept: ["A lot of keys"],
           hint: "Оборот из трёх слов и слово во множественном.",
-          why: "A lot of people. Слово people и так во множественном, s к нему не прибавляют.",
+          why: "A lot of keys. Оборот a lot of требует множественного числа: keys, а не key.",
         },
       ],
     },
@@ -1856,9 +1861,11 @@ const module: Module = {
         kind: "order",
         outcome: "вести короткий разговор о возрасте, количестве и цене",
         prompt: "Расставь реплики по порядку.",
-        items: ["I'm twenty.", "How old are you?", "And you?"],
+        // Прежний разговор был о возрасте — тот же, что собирает урок 9. Здесь
+        // взят другой из трёх разговоров модуля, о цене.
+        items: ["Ten.", "How much is it?", "Thank you."],
         answer: [1, 0, 2],
-        why: "How old are you? — I'm twenty. — And you?",
+        why: "How much is it? — Ten. — Thank you. Сначала вопрос, потом цена, потом благодарность.",
       },
       {
         id: "q-chislo-i-mnozhestvennoe",

@@ -54,6 +54,8 @@ export default async function CoursePage({ params }: Params) {
   // Модуль → лучший балл сданной работы. Без этого страница показывает
   // сданную работу так же, как несданную, и результат выглядит потерянным.
   const quizScoreByModule = new Map<string, number>();
+  // То же для работ частей: часть → лучший балл сданной работы.
+  const quizScoreByPart = new Map<string, number>();
   if (userId) {
     const [enrollment, tests, passed, certificate, exam] = await Promise.all([
       prisma.enrollment.findFirst({
@@ -69,7 +71,7 @@ export default async function CoursePage({ params }: Params) {
         select: {
           testId: true,
           score: true,
-          test: { select: { module: { select: { slug: true } } } },
+          test: { select: { partSlug: true, module: { select: { slug: true } } } },
         },
       }),
       prisma.certificate.findFirst({
@@ -92,6 +94,14 @@ export default async function CoursePage({ params }: Params) {
     serial = certificate?.serial ?? null;
     examPassed = exam !== null;
     for (const attempt of passed) {
+      const partSlug = attempt.test.partSlug;
+      if (partSlug) {
+        const wasPart = quizScoreByPart.get(partSlug);
+        if (wasPart === undefined || (attempt.score ?? 0) > wasPart) {
+          quizScoreByPart.set(partSlug, attempt.score ?? 0);
+        }
+        continue;
+      }
       const moduleSlug = attempt.test.module?.slug;
       if (!moduleSlug) continue;
       const before = quizScoreByModule.get(moduleSlug);
@@ -248,6 +258,17 @@ export default async function CoursePage({ params }: Params) {
           // сворачивать там нечего.
           if (group.part === null) return <div key="vse">{body}</div>;
 
+          /*
+           * Работа части. Открывается, когда пройдены все уроки части, — то же
+           * правило, что у работы модуля, только уроков больше. Условие
+           * проверяется ещё раз в методе интерфейса: скрытая кнопка защитой не
+           * является.
+           */
+          const partQuiz = group.part.quiz;
+          const partReady = partLessons.length > 0 && partDone === partLessons.length;
+          const partScore = quizScoreByPart.get(group.part.slug);
+          const partAsked = partQuiz ? partQuiz.ask ?? partQuiz.questions.length : 0;
+
           return (
             <details className={s.part} key={group.part.slug} open={openGroup}>
               <summary className={s.partHead}>
@@ -263,7 +284,37 @@ export default async function CoursePage({ params }: Params) {
                     : `${partDone} из ${partLessons.length} уроков`}
                 </span>
               </summary>
-              <div className={s.partBody}>{body}</div>
+              <div className={s.partBody}>
+                {body}
+                {partQuiz && (
+                  <div className={s.partQuiz}>
+                    <span className={s.quizTitle}>Работа части: {group.part.title}</span>
+                    <span className={s.quizMeta}>
+                      {partScore !== undefined
+                        ? `сдана, ${partScore} из 100`
+                        : `${partAsked} ${plural(partAsked, "вопрос", "вопроса", "вопросов")} · ${
+                            partReady
+                              ? "можно сдавать"
+                              : "откроется, когда пройдены все уроки части"
+                          }`}
+                    </span>
+                    <span className={s.quizAction}>
+                      {partReady ? (
+                        <Link
+                          className="btn"
+                          href={`/learn/${course.slug}/rabota-chasti/${group.part.slug}`}
+                        >
+                          {partScore !== undefined ? "Пройти ещё раз" : "Начать"}
+                        </Link>
+                      ) : (
+                        <button className={`btn ${s.locked}`} type="button" disabled>
+                          Пока закрыта
+                        </button>
+                      )}
+                    </span>
+                  </div>
+                )}
+              </div>
             </details>
           );
         })}

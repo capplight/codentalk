@@ -6,6 +6,7 @@ import { trebuetsyaUuid } from "@/lib/api/params";
 import { selectQuestions } from "@/lib/domain/testing";
 import { forBrowser, poolFrom } from "@/lib/content/quiz";
 import { checkCourseAccess } from "@/lib/api/access";
+import { findCourse } from "@/courses";
 import { plural } from "@/lib/plural";
 
 type Params = { params: Promise<{ test: string }> };
@@ -36,6 +37,7 @@ export const POST = handler(async (_request: Request, { params }: Params) => {
       maxAttemptsPerDay: true,
       passScore: true,
       moduleId: true,
+      partSlug: true,
       course: { select: { id: true, slug: true, access: true, isPublished: true } },
       questions: { select: { id: true, topic: true, groupKey: true, payload: true } },
     },
@@ -73,6 +75,39 @@ export const POST = handler(async (_request: Request, { params }: Params) => {
       throw new ApiError(
         "forbidden",
         `Экзамен откроется, когда сданы все проверочные работы модулей: сдано ${passedCount} из ${quizzes.length} ${plural(quizzes.length, "работы", "работ", "работ")}`
+      );
+    }
+  }
+
+  /*
+   * Работа части открывается по тому же правилу, что и работа модуля, только
+   * уроков считается больше: все уроки всех модулей части.
+   *
+   * Части живут в материалах, а не в базе, поэтому список модулей берётся
+   * оттуда. Если работа осталась от части, которую переименовали, условие не
+   * выполнить ничем — тогда честнее сказать «не найдена», чем молча открыть.
+   */
+  if (test.kind === "part_quiz") {
+    const part = findCourse(test.course.slug)?.parts?.find(
+      (item) => item.slug === test.partSlug
+    );
+    if (!part) throw new ApiError("not_found", "Проверочная работа не найдена");
+
+    const lessons = await prisma.lesson.findMany({
+      where: { module: { slug: { in: part.modules }, courseId: test.course.id } },
+      select: { id: true },
+    });
+    const done = await prisma.lessonProgress.count({
+      where: {
+        userId: user.id,
+        status: "completed",
+        lessonId: { in: lessons.map((lesson) => lesson.id) },
+      },
+    });
+    if (lessons.length > 0 && done < lessons.length) {
+      throw new ApiError(
+        "forbidden",
+        `Работа откроется, когда пройдены все уроки части: пройдено ${done} из ${lessons.length} ${plural(lessons.length, "урока", "уроков", "уроков")}`
       );
     }
   }
