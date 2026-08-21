@@ -11,6 +11,7 @@ import yaSdelayu from "./ya-sdelayu";
 import uzheDogovorilis from "./uzhe-dogovorilis";
 import poRaspisaniyu from "./po-raspisaniyu";
 import davayYa from "./davay-ya";
+import mozhetByt from "./mozhet-byt";
 
 /**
  * Английский · Elementary — ступень до A2.
@@ -38,7 +39,7 @@ const course: Course = {
   level: "до A2",
   tagline: "Для тех, кто говорит о себе в настоящем времени и хочет рассказать о прошлом",
   access: "premium",
-  modules: [etoBylo, vcheraYaRabotal, osobyeFormy, yaNeDelal, sprositOProshlom, chtoProishodilo, pokaIKogda, yaSobirayus, yaSdelayu, uzheDogovorilis, poRaspisaniyu, davayYa],
+  modules: [etoBylo, vcheraYaRabotal, osobyeFormy, yaNeDelal, sprositOProshlom, chtoProishodilo, pokaIKogda, yaSobirayus, yaSdelayu, uzheDogovorilis, poRaspisaniyu, davayYa, mozhetByt],
 };
 
 export default course;
