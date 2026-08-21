@@ -1160,6 +1160,116 @@ function checkVozvrat(course: Course, mod: Module, lesson: Lesson, where: string
   }
 }
 
+/**
+ * Подсказка обещает место в тексте, а ответ стоит не там.
+ *
+ * Написана 21 августа 2026 по разбору модуля 5 Elementary. Задание спрашивало
+ * «Кто был болен?», ответом стояло `chef`, а подсказка говорила «последнее слово
+ * записи после слова was». Запись кончается на `The chef was ill.`: последнее
+ * слово там `ill`, и слово после `was` — тоже `ill`. Подсказка уводила ровно в
+ * неверный ответ, а читают её как раз те, кто не уверен.
+ *
+ * Проверяем только те обещания, которые машина может пересчитать: «первое
+ * слово», «последнее слово», «первая строка», «последняя строка». Остальное
+ * («сразу после», «в той же реплике») остаётся редактору.
+ */
+function checkPodskazkaObeshchaetMesto(lesson: any, where: string): void {
+  const poId = new Map<string, any>();
+  for (const b of lesson.blocks) if (b.id) poId.set(b.id, b);
+
+  const tekstBloka = (b: any): string => {
+    if (!b) return "";
+    if (typeof b.transcript === "string") return b.transcript;
+    if (Array.isArray(b.body)) return b.body.join("\n");
+    if (typeof b.text === "string") return b.text;
+    if (Array.isArray(b.text)) return b.text.join("\n");
+    return "";
+  };
+
+  const golo = (s: string): string =>
+    s.toLowerCase().replace(/[^a-zA-Z0-9'\s]/g, " ").replace(/\s+/g, " ").trim();
+
+  for (const block of lesson.blocks) {
+    if (!isTask(block)) continue;
+    const t = block as any;
+    const podskazka: string = [t.hint, t.why].filter(Boolean).join(" ");
+    if (!podskazka) continue;
+    if (typeof t.answer !== "string" || !t.answer.trim()) continue;
+
+    // Что именно обещано. Проверяем ровно одно обещание — «последнее слово», —
+    // и только его: испытание на всём курсе показало, что «первое слово» и
+    // «первая строка» в подсказках почти всегда значат не то, что в них
+    // написано буквально («первая вещь в списке», «в первой строке считай
+    // часы»), и проверка на них кричала бы на верное.
+    const proSlovo = /последн[а-яё]*\s+слово/i.test(podskazka);
+    if (!proSlovo) continue;
+
+    const istochnik = tekstBloka(poId.get(t.about)) || (typeof t.zvuk === "string" ? t.zvuk : "");
+    if (!istochnik.trim()) continue;
+
+    const otvet = golo(t.answer);
+    // Ответ цифрой сверять нечем: в записи стоит слово («ninety»), в ответе 90.
+    if (!otvet || !/^[a-z' ]+$/.test(otvet)) continue;
+
+    const slova = golo(istochnik).split(" ").filter(Boolean);
+    if (slova.length < 2) continue;
+    const nuzhno = slova[slova.length - 1];
+    // Ответ бывает с артиклем: `the chef`. Сверяем по последнему слову ответа.
+    const hvost = otvet.split(" ").filter(Boolean).pop()!;
+    if (hvost !== nuzhno && !razobrano(block.id)) {
+      warn(
+        `${where} → ${block.id}`,
+        `подсказка обещает последнее слово, а там «${nuzhno}», ответ же «${hvost}»
+      ` +
+          "Читают подсказку те, кто не уверен: неверная уводит прямо в неверный ответ"
+      );
+    }
+  }
+}
+
+/**
+ * Условие говорит о человеке в третьем лице, а принимается вопрос на `you`.
+ *
+ * Написана 21 августа 2026 по разбору модуля 5 Elementary. Условие «Спроси по-
+ * английски, ездил ли твой сослуживец отдыхать в палатке» принимало только
+ * `Did you go camping?` — а `Did he go camping?` буквально отвечает на условие и
+ * безупречен по-английски. Ученик пишет верно и читает «пока не так».
+ *
+ * Лечится двумя способами: доопределить условие («обратись к нему на you») либо
+ * вписать формы с `he` в `accept`. Проверка смотрит оба.
+ */
+function checkTretyeLitsoPriOtveteNaYou(lesson: any, where: string): void {
+  const TRETYE = /(^|[^а-яё])(он|его|ему|им|сослуживец|сослуживца|собеседник|собеседника|знакомый|знакомого|подруг|друг)([^а-яё]|$)/i;
+  // Замечание снимается, если условие само называет, к кому обращаться. Тогда
+  // третье лицо в условии — не тот, о ком вопрос, а тот, о ком в вопросе речь:
+  // «Спроси у собеседника, знает ли он Алима» → Do you know Alim? Здесь всё
+  // однозначно, и придираться не к чему.
+  const SNYATO = /\byou\b|обратись|о\s+себе|собеседник|спроси\s+у\b|у\s+него\b|у\s+неё\b/i;
+
+  for (const block of lesson.blocks) {
+    if (!isTask(block)) continue;
+    const t = block as any;
+    if (typeof t.answer !== "string") continue;
+    if (!/\byou\b/i.test(t.answer)) continue;
+
+    const uslovie: string = t.prompt ?? "";
+    if (!TRETYE.test(uslovie)) continue;
+    if (SNYATO.test(uslovie)) continue;
+
+    // Если третье лицо уже принимается — придираться не к чему.
+    const prinimaem: string[] = [t.answer, ...(t.accept ?? [])];
+    if (prinimaem.some((s) => /\b(he|she|they)\b/i.test(s))) continue;
+    if (razobrano(block.id)) continue;
+
+    warn(
+      `${where} → ${block.id}`,
+      "условие говорит о человеке в третьем лице, а принимается только ответ с you\n      " +
+        `«${uslovie.trim()}» → «${t.answer.trim()}»\n      ` +
+        "Либо скажи в условии «обратись к нему на you», либо впиши форму с he в accept"
+    );
+  }
+}
+
 function checkLesson(lesson: Lesson, where: string): void {
   if (blank(lesson.outcome)) {
     fail(where, "нет итога урока — нечего проверять проверочной работой");
@@ -1192,6 +1302,8 @@ function checkLesson(lesson: Lesson, where: string): void {
   }
 
   checkPrivyazka(lesson, where);
+  checkPodskazkaObeshchaetMesto(lesson, where);
+  checkTretyeLitsoPriOtveteNaYou(lesson, where);
 
   // Время урока против числа блоков. Оценка грубая: объяснение читают около
   // минуты, задание занимает примерно полторы. Расхождение больше пяти минут
@@ -1416,6 +1528,81 @@ function checkQuiz(quiz: Quiz, quizWhere: string, rules: QuizRules): void {
  * `chitaem-spisok-veshchey`, что урок модуля 8, и заодно тот же id блока и тот
  * же предмет. Поймал методист, глазами. Дальше ловит эта строка.
  */
+/**
+ * Усилительное `did` в утверждении — оборот ступени C1.
+ *
+ * Написана 21 августа 2026 по разбору модуля 5 Elementary. В образце письма
+ * стояло `Yes, I did go to the stadium.` Это усилительное `did`: English Grammar
+ * Profile ставит его на C1 (PAST past simple, «USE: FOR EMPHASIS, WITH 'DID'»).
+ * Весь модуль учил обратному — `did` начинает вопрос, — а соседняя работа
+ * объявляла похожую запись негодной. Ученик читает подряд и видит спор.
+ *
+ * Ищем `did` + глагол в строке без знака вопроса. Отрицание (`didn't`, `did
+ * not`) под правило не подпадает: там `did` законно и на A2.
+ */
+function checkUsilitelnoeDid(course: Course): void {
+  const nahodki: string[] = [];
+
+  const smotret = (stroka: string, gde: string): void => {
+    if (typeof stroka !== "string") return;
+    for (const kusok of stroka.split(/\n/)) {
+      // Вопрос — законное место для did, и там оно первое слово.
+      if (kusok.includes("?")) continue;
+      // Русская речь о did («слово did уже сказало о прошлом») — не предмет.
+      if (/[а-яё]/i.test(kusok)) continue;
+      // Усиление узнаётся по порядку: подлежащее стоит ПЕРЕД did («I did go»).
+      // В вопросе порядок обратный — «did you go», «what did you buy», — и
+      // знака вопроса там может не быть: в задании на отметку части стоят
+      // кусками без знаков препинания.
+      const m = /\b(i|you|he|she|it|we|they)\s+did\s+(?!not\b)([a-z]{2,})/i.exec(kusok);
+      if (!m) continue;
+      // `did` бывает и обычным глаголом: «I did my work». Тогда за ним идёт не
+      // действие, а вещь — с определителем впереди.
+      if (/^(my|your|his|her|its|our|their|the|an?|this|that|these|those|it|them|nothing|everything|something|all)$/i.test(m[2])) continue;
+      nahodki.push(`${gde}: «${kusok.trim()}»`);
+      return;
+    }
+  };
+
+  for (const mod of course.modules) {
+    for (const lesson of mod.lessons) {
+      for (const block of lesson.blocks) {
+        const b = block as any;
+        const gde = `${mod.slug} → ${lesson.slug} → ${b.id}`;
+        smotret(b.text, gde);
+        if (Array.isArray(b.text)) for (const s of b.text) smotret(s, gde);
+        if (Array.isArray(b.body)) for (const s of b.body) smotret(s, gde);
+        if (Array.isArray(b.zvuchat)) for (const s of b.zvuchat) smotret(s, gde);
+        for (const row of b.rows ?? []) for (const cell of row) smotret(cell, gde);
+        smotret(b.transcript, gde);
+        smotret(b.sample, gde);
+        smotret(b.answer, gde);
+        for (const o of b.options ?? []) smotret(o.text, gde);
+        for (const p of b.parts ?? []) smotret(p.text, gde);
+      }
+    }
+    for (const q of mod.quiz?.questions ?? []) {
+      const gde = `${mod.slug} → проверочная → ${(q as any).id}`;
+      const b = q as any;
+      smotret(b.answer, gde);
+      smotret(b.zvuk, gde);
+      for (const o of b.options ?? []) smotret(o.text, gde);
+      for (const p of b.parts ?? []) smotret(p.text, gde);
+    }
+  }
+
+  const zhivye = [...new Set(nahodki)].filter((n) => !razobrano(n.split(":")[0].trim()));
+  if (zhivye.length > 0) {
+    warn(
+      course.slug,
+      `усилительное did в утверждении (${zhivye.length} шт.):\n      ` +
+        zhivye.join("\n      ") +
+        "\n      English Grammar Profile ставит этот оборот на C1. Проверь: если это " +
+        "не усиление, впиши случай в courses/resheno.ts"
+    );
+  }
+}
+
 function checkImenaUrokovPoKursu(course: Course): void {
   const gde = new Map<string, string>();
   for (const mod of course.modules) {
@@ -1482,6 +1669,7 @@ function checkCourse(course: Course): void {
 
   checkImenaUrokovPoKursu(course);
   checkSourcesNazyvayutSushchestvuyushchie(course);
+  checkUsilitelnoeDid(course);
 
   /*
    * Части курса обязаны покрывать все модули и ровно по разу.
