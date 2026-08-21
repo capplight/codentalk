@@ -1364,11 +1364,90 @@ function checkPodpisiNePovtoryayutsya(mod: Module, where: string): void {
   }
 }
 
+/**
+ * Карточка, не встречающаяся нигде, кроме себя самой.
+ *
+ * ЗАЧЕМ. Найдено руками дважды: восемь таких карточек в модуле 6 ступени
+ * Elementary (нашёл методист) и четыре в модуле 8 (нашёл счётом автор). Ученик
+ * видит слово с одним придуманным примером и больше не встречает его никогда —
+ * значит слово взято ради счёта, а не ради речи. Норма ступени требует
+ * тридцати карточек на модуль, и соблазн добрать их пустыми велик.
+ *
+ * ЧТО СЧИТАЕТСЯ РАБОТОЙ. Любое употребление вне словарных блоков: объяснение,
+ * таблица, пример, текст для чтения, расшифровка записи, условие задания,
+ * вариант, подсказка, разбор, вопрос проверочной работы. Собственный пример
+ * карточки не в счёт — он и есть то место, где слово стоит одиноко.
+ *
+ * ПОЧЕМУ ПОБЛАЖКА В ОКОНЧАНИЯХ. Ищем слово вместе с обычными английскими
+ * окончаниями: `degree` работает строкой `twenty degrees`, `close` — строкой
+ * `going to be closed`. Ошибиться здесь лучше в сторону молчания: скрипт,
+ * который кричит на верное, перестают читать.
+ *
+ * Это сведения, а не ошибка: карточка, работающая только в словарике, иногда
+ * законна — так вводят перечень дней недели или цветов. Решает методист.
+ */
+function checkKartochkaRabotaet(mod: Module, where: string): void {
+  const kuski: string[] = [];
+  const sobrat = (x: any): void => {
+    if (typeof x === "string") kuski.push(x);
+    else if (Array.isArray(x)) x.forEach(sobrat);
+    else if (x && typeof x === "object") {
+      for (const [klyuch, znachenie] of Object.entries(x)) {
+        if (["id", "kind", "tone", "pace", "voice", "slug"].includes(klyuch)) continue;
+        sobrat(znachenie);
+      }
+    }
+  };
+
+  const kartochki: { slovo: string; urok: string }[] = [];
+  for (const lesson of mod.lessons) {
+    for (const block of lesson.blocks as any[]) {
+      if (block.kind === "vocab") {
+        for (const item of block.items ?? []) {
+          const slovo = String(item.term ?? "").trim();
+          if (slovo) kartochki.push({ slovo, urok: lesson.slug });
+        }
+        continue;
+      }
+      sobrat(block);
+    }
+  }
+  sobrat(mod.quiz);
+
+  const tekst = kuski.join(" \n ").toLowerCase();
+  const bez: string[] = [];
+
+  for (const { slovo, urok } of kartochki) {
+    // Многоточие в карточке — это место, куда ученик подставляет своё:
+    // «Can I have…?». Искать его вместе с многоточием значит не найти никогда.
+    const nizhnee = slovo.toLowerCase().replace(/[…?]/g, "").replace(/\.\.\./g, "").trim();
+    let rabotaet: boolean;
+    if (/\s/.test(nizhnee)) {
+      // Составное имя ищем как есть: окончания к нему не приставляются.
+      rabotaet = tekst.includes(nizhnee);
+    } else {
+      const osnova = nizhnee.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+      rabotaet = new RegExp(`\\b${osnova}(s|es|ing|ed|d|'s)?\\b`).test(tekst);
+    }
+    if (!rabotaet) bez.push(`«${slovo}» (${urok})`);
+  }
+
+  if (bez.length > 0) {
+    warn(
+      where,
+      `карточка не встречается в модуле нигде, кроме себя (${bez.length} шт.):\n      ` +
+        bez.join(", ") +
+        "\n      Слово с одним придуманным примером ученик не встретит больше никогда. Решает методист"
+    );
+  }
+}
+
 function checkModule(course: Course, mod: Module, where: string): void {
   if (mod.sources.length === 0) {
     fail(where, "не заполнены источники: содержание не сочиняется самостоятельно");
   }
   checkPodpisiNePovtoryayutsya(mod, where);
+  checkKartochkaRabotaet(mod, where);
   if (mod.outcomes.length === 0) fail(where, "у модуля не указано, чему он учит");
   if (mod.lessons.length === 0) fail(where, "в модуле нет уроков");
 
