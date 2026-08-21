@@ -1428,6 +1428,12 @@ function checkKartochkaRabotaet(mod: Module, where: string): void {
     } else {
       const osnova = nizhnee.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
       rabotaet = new RegExp(`\\b${osnova}(s|es|ing|ed|d|'s)?\\b`).test(tekst);
+      // Выпадение конечного -e перед окончанием: telephone → telephoning,
+      // come → coming, leave → leaving. Без этой поблажки проверка объявила
+      // мёртвой карточку telephone, работавшую в задании модуля 10.
+      if (!rabotaet && osnova.endsWith("e")) {
+        rabotaet = new RegExp(`\\b${osnova.slice(0, -1)}(ing|ed)\\b`).test(tekst);
+      }
     }
     if (!rabotaet) bez.push(`«${slovo}» (${urok})`);
   }
