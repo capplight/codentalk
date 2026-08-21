@@ -166,6 +166,16 @@ const module: Module = {
     {
       ref: "Cambridge English, A2 Key handbook for teachers",
       section:
+        "ИМЕНА ДВУХ ВРЕМЁН. с. 52, Language specifications, раздел Tenses: «Past " +
+        "simple: past events» и «Past continuous: parallel past actions, continuous " +
+        "actions interrupted by the past simple tense». Вторая строка описывает " +
+        "ровно устройство этого модуля — длительное, прерванное законченным, — и " +
+        "называет оба времени в одной фразе. " +
+        "Имена уже названы раньше на ступени (модули 1, 2 и 6), и правило требует " +
+        "называть время один раз. Повтор здесь — решение владельца от 22 августа " +
+        "2026: это единственный модуль, где два времени стоят рядом и " +
+        "противопоставляются, и английские имена помогают перенести различение в " +
+        "учебник. Довод принёс методист при разборе правки. " +
         "УРОК 7, ФОРМА ОТВЕТА. с. 29, раздел THE TASK: «The candidates should only " +
         "write ONE word, or a number, or a date, or a time for their answer» — " +
         "поэтому ответы на слух здесь односложные",
@@ -243,6 +253,7 @@ const module: Module = {
             "Одно действие тянулось, другое случилось разом — и оба в одной строке.",
             "По-английски это I was cooking when my colleague came.",
             "Длительное действие берёт was и окончание -ing, законченное — форму прошедшего.",
+            "У этих двух времён есть имена: длительное — Past Continuous, законченное — Past Simple.",
           ],
         },
         {

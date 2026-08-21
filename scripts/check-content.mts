@@ -1778,6 +1778,9 @@ function checkVremyaNazvano(course: Course): void {
     "Present Continuous",
     "Present Perfect",
     "Past Perfect",
+    // Имя решено владельцем 22 августа 2026: источники разошлись, и спор решал
+    // он как преподаватель. Подробности — в шапке модуля 9 ступени Elementary.
+    "Future Simple",
   ];
 
   // Видимый текст курса целиком. `sources` сюда не входит нарочно: опоры —
