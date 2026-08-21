@@ -33,7 +33,7 @@ import {
 import { nayti } from "../lib/content/vozvrat.ts";
 import { resheno } from "../courses/resheno.ts";
 import { courses } from "../courses/index.ts";
-import { existsSync } from "node:fs";
+import { existsSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 
 const errors: string[] = [];
@@ -1741,6 +1741,91 @@ function checkSourcesNazyvayutSushchestvuyushchie(course: Course): void {
   }
 }
 
+/**
+ * Модуль объявил время своей грамматикой, а ученику его имени не сказали.
+ *
+ * ЗАЧЕМ. CLAUDE.md требует: время называется один раз, при первой встрече,
+ * английским именем. На ступени Beginner это сделано в трёх местах, а на
+ * Elementary не было сделано нигде — при том, что шапки восьми модулей из
+ * двенадцати честно писали «грамматика: Past Simple». Имя стояло в комментарии,
+ * то есть в единственном месте, куда ученик не заходит никогда.
+ *
+ * Проверяющие этого не ловили и поймать не могли. Редактор знает про имена
+ * времён другое — что их не переводят; отсутствие имени переводом не является.
+ * Методист сверяет содержание с источниками, а требование наше: English Grammar
+ * Profile нигде не пишет «назовите это ученику Past Simple».
+ *
+ * КАК УСТРОЕНА. Опирается на строку `грамматика: …` в шапке модуля — она есть
+ * во всех модулях курса и пишется автором раньше самих уроков. Что модуль в ней
+ * объявил, то обязано хоть раз прозвучать в видимом тексте курса.
+ *
+ * Берётся именно эта строка, а не весь комментарий: шапки поминают времена и
+ * по другим поводам. Модуль 3 ступени Elementary объясняет, почему НЕ показывает
+ * форму: «это Present Perfect, а он приходит в модуле 22». Требовать имени от
+ * такого упоминания значило бы кричать на правильное.
+ *
+ * Имени нет у `be going to` и `will`, и это не пропуск: руководство A2 Key,
+ * с. 52, перечень Tenses, зовёт их описанием случая — «Future with going to»,
+ * «Future with will and shall: offers, promises, predictions, etc.». Рядом там
+ * стоят настоящие имена, «Past simple» и «Present continuous». Поэтому проверка
+ * ищет только имена, а придумывать «Future Simple» курс не станет.
+ */
+function checkVremyaNazvano(course: Course): void {
+  const IMENA = [
+    "Past Simple",
+    "Past Continuous",
+    "Present Simple",
+    "Present Continuous",
+    "Present Perfect",
+    "Past Perfect",
+  ];
+
+  // Видимый текст курса целиком. `sources` сюда не входит нарочно: опоры —
+  // поле для проверяющего, ученик их не видит, и «название есть в опоре» на
+  // этот вопрос не отвечает.
+  const kuski: string[] = [];
+  const sobrat = (x: any): void => {
+    if (typeof x === "string") kuski.push(x);
+    else if (Array.isArray(x)) x.forEach(sobrat);
+    else if (x && typeof x === "object") {
+      for (const [klyuch, znachenie] of Object.entries(x)) {
+        if (["id", "kind", "tone", "pace", "voice", "slug"].includes(klyuch)) continue;
+        sobrat(znachenie);
+      }
+    }
+  };
+  for (const mod of course.modules) {
+    for (const lesson of mod.lessons) sobrat(lesson.blocks);
+    sobrat(mod.quiz);
+  }
+  const vidimoe = kuski.join(" \n ").toLowerCase();
+
+  for (const mod of course.modules) {
+    const put = join("courses", course.slug, `${mod.slug}.ts`);
+    if (!existsSync(put)) continue;
+
+    // Шапка — до первой строки кода. Комментарии из тела модуля не берём.
+    const ishodnik = readFileSync(put, "utf8");
+    const shapka = ishodnik.split(/^const |^export /m)[0];
+    const bez = shapka.replace(/^\s*(\/\*+|\*+\/|\*|\/\/)/gmu, " ").replace(/\s+/gu, " ");
+
+    const obyavleno = /грамматика:\s*([^;.]*)/u.exec(bez);
+    if (!obyavleno) continue;
+
+    for (const imya of IMENA) {
+      if (!obyavleno[1].includes(imya)) continue;
+      if (vidimoe.includes(imya.toLowerCase())) continue;
+      fail(
+        `${course.slug} → ${mod.slug}`,
+        `шапка объявляет грамматикой ${imya}, а ученику это имя не сказано ни в ` +
+          "одном уроке курса. Имя времени называется один раз, при первой встрече, " +
+          "английским именем и без объяснений, зачем оно нужно (CLAUDE.md, «Язык " +
+          "текстов»). Комментарий в шапке ученик не читает"
+      );
+    }
+  }
+}
+
 function checkCourse(course: Course): void {
   const where = course.slug;
   if (course.modules.length === 0) fail(where, "в курсе нет модулей");
@@ -1753,6 +1838,7 @@ function checkCourse(course: Course): void {
   }
 
   checkImenaUrokovPoKursu(course);
+  checkVremyaNazvano(course);
   checkSourcesNazyvayutSushchestvuyushchie(course);
   checkUsilitelnoeDid(course);
 

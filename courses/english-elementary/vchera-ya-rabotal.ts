@@ -101,6 +101,20 @@ const module: Module = {
 
   sources: [
     {
+      ref: "Cambridge English, A2 Key handbook for teachers",
+      section:
+        "ИМЯ ВРЕМЕНИ. с. 52, Language specifications, раздел Tenses: «Past simple: " +
+        "past events». Это опора строки урока 1 «Оба слова стоят в одном времени, и " +
+        "оно называется Past Simple». " +
+        "Имя названо и в модуле 1, при первой встрече на ступени; здесь оно " +
+        "повторено нарочно и несёт другое сведение — что `was` и `worked` одно " +
+        "время, а не два. Источник кладёт оба случая в одну графу: English Grammar " +
+        "Profile, A1, PAST past simple, «USE: EVERYDAY EVENTS AND STATES» — " +
+        "«everyday events or states», и пример этой самой графы — «The people were " +
+        "very polite». Найдено методистом при разборе правки.",
+      license: "внутреннее использование, публично не называем",
+    },
+    {
       ref: "English Grammar Profile",
       section:
         "A2, PAST past simple, «FORM: AFFIRMATIVE»: «Can use the affirmative form " +
@@ -236,6 +250,8 @@ const module: Module = {
             "Прошлый модуль отвечал на вопрос, где человек был. Этот — на вопрос, что он делал.",
             "«Я работал», «Она готовила», «Мы смотрели фильм».",
             "У глагола для этого есть своя форма: к нему прибавляется окончание -ed.",
+            "Was — форма из прошлого модуля, worked — форма этого урока.",
+            "Оба слова стоят в одном времени, и оно называется Past Simple.",
           ],
         },
         {

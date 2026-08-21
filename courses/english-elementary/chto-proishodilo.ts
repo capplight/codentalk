@@ -15,6 +15,12 @@ import type { Module } from "@/lib/content/types";
  * уроке 1, строкой с примером. Противопоставляется **законченному действию** —
  * тому, что курс давал модулями 2–5. Оба слова настоящие, а не наши ярлыки.
  *
+ * Английское имя `Past Continuous` этому правилу не противоречит и стоит в уроке
+ * 1 рядом с формой. «Длительное действие» — русское имя вещи, `Past Continuous`
+ * — имя времени, под которым его знает весь мир; CLAUDE.md требует назвать его
+ * один раз при первой встрече и без объяснений, зачем название нужно. Первая
+ * встреча на ступени — здесь: до модуля 6 длительного времени в курсе нет.
+ *
  * ЧТО ПРОВЕРЕНО ДО НАПИСАНИЯ.
  *
  * 1. English Grammar Profile, A2, PAST past continuous, «FORM: AFFIRMATIVE» —
@@ -156,6 +162,11 @@ const module: Module = {
     {
       ref: "Cambridge English, A2 Key handbook for teachers",
       section:
+        "ИМЯ ВРЕМЕНИ. с. 52, Language specifications, раздел Tenses: «Past " +
+        "continuous: parallel past actions, continuous actions interrupted by the " +
+        "past simple tense». Это опора того, что урок 1 называет время ученику. " +
+        "Имя даётся один раз на ступень, при первой встрече, и первая встреча " +
+        "здесь: до модуля 6 длительного времени в курсе нет. " +
         "УРОК 7, ФОРМА ОТВЕТА. с. 29, раздел THE TASK: «The candidates should only " +
         "write ONE word, or a number, or a date, or a time for their answer» — " +
         "поэтому ответы на слух здесь односложные",
@@ -232,6 +243,7 @@ const module: Module = {
             "Такое действие называют длительным: оно занимает время.",
             "По-английски о нём говорят так: I was working.",
             "Рядом стоят два слова: was и глагол с окончанием -ing.",
+            "Время, в котором стоит I was working, называется Past Continuous.",
           ],
         },
         {
