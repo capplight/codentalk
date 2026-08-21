@@ -984,10 +984,9 @@ curl -s -o /dev/null -w "%{http_code}" https://codentalk.kz/learn/<курс>/<у
 ## Где мы остановились
 
 **Свежая записка — [docs/zapiska-elementary-pyat-moduley.md](docs/zapiska-elementary-pyat-moduley.md)**:
-семь модулей ступени Elementary (пять выложены, шестой и седьмой ждут слова
-владельца), решения владельца о словаре и о числе кругов проверки, новые
-инструменты (`slovo`, `sosedi`), пять разборов ошибок и записанные долги.
-Начинай с неё.
+семь модулей ступени Elementary, все выложены; решения владельца о словаре и о
+числе кругов проверки, новые инструменты (`slovo`, `sosedi`), пять разборов
+ошибок и записанные долги. Начинай с неё.
 
 Записка предыдущего дня —
 [docs/zapiska-elementary-nachalo.md](docs/zapiska-elementary-nachalo.md):
