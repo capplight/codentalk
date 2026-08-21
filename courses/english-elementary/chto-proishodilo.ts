@@ -44,8 +44,15 @@ import type { Module } from "@/lib/content/types";
  *   «FORM: QUESTIONS» — B1.
  * — СВЯЗКИ С ЗАКОНЧЕННЫМ ДЕЙСТВИЕМ через `when` и `while`. Программа отдаёт её
  *   модулю 7, и здесь её нет ни строкой: сперва надо освоить саму форму.
- * — НАРЕЧИЙ СВЕРХ ТРЁХ. Источник говорит «limited range», и модуль берёт
- *   `still`, `just`, `always` — те, что стоят в его же примерах.
+ * — НАРЕЧИЙ СВЕРХ ТРЁХ. Источник говорит «limited range» и числа не задаёт.
+ *   Модуль берёт `just`, `still` и `always`, и это НАДО ЧИТАТЬ ТОЧНО. В примере
+ *   строки A2 стоит только `just` («I was just watching a football match»).
+ *   `still` при этом времени иллюстрирует строку B1 («He was still waiting at
+ *   the traffic light»), а `always` — строку B1 «USE: REPEATED EVENTS» и строку
+ *   C2 «USE: UNDESIRED EVENTS». Первая редакция шапки написала, что все три
+ *   стоят в примерах графы A2, — неверно, нашёл методист. Форма (наречие между
+ *   `was` и глаголом) остаётся A2 по строке «FORM: WITH ADVERBS»; набор из трёх
+ *   наречий — решение автора, и методисту стоит посмотреть на него отдельно.
  *
  * ВОПРОС `WHAT WERE YOU DOING?` — МЕСТО, ГДЕ ИСТОЧНИКИ РАСХОДЯТСЯ.
  *
@@ -56,9 +63,21 @@ import type { Module } from "@/lib/content/types";
  * пункт ссылками «► present continuous ► past continuous». То есть вопрос с
  * вопросительным словом источник кладёт на A2, а вопрос да/нет — на B1.
  *
- * Взято по второй строке: урок 5 даёт только `What were you doing?` и
- * `Where were you going?`, а `Were you working?` в модуле не встречается вовсе.
- * Методисту стоит посмотреть на это отдельно.
+ * Взято по второй строке: урок 5 даёт `What were you doing?`, `Where were you
+ * going?` и `What was your sister doing?`, а `Were you working?` в модуле не
+ * встречается вовсе.
+ *
+ * НЕСИММЕТРИЯ ЗДЕСЬ ЕСТЬ, И ЕЁ НАДО ЗНАТЬ. У вопроса да/нет тоже есть встречная
+ * строка графы A2: QUESTIONS yes/no, «FORM: AUXILIARY 'BE'» — «Can use auxiliary
+ * 'be' + subject + the '-ing' form (continuous form) to form 'yes/no' questions».
+ * Довод тот же самый, каким взят `What were you doing?`. Разница одна: у строки
+ * про `wh-`-вопросы стоит помета «► past continuous», а у строки про да/нет её
+ * нет. Поэтому `wh-`-вопрос взят, а вопрос да/нет — нет. Нашёл методист; решение
+ * автора держится на этой помете и больше ни на чём.
+ *
+ * Первая редакция урока 5 давала ещё и `Who was cooking?`. Строка снята: правило
+ * того же урока говорит «после were идёт человек», а в ней его нет, и ученик
+ * читает противоречие. Разбор `Who was there?` живёт в модуле 5, там ему место.
  *
  * СЛОВАРЬ МОДУЛЯ. Тридцать восемь карточек, и все тридцать восемь несут слово,
  * которого на прошлой ступени не было.
@@ -80,14 +99,21 @@ import type { Module } from "@/lib/content/types";
  *
  *    СЛОВА-ПОДПОРКИ: still, just, always, rain, kitchen, garden, street, window,
  *    door, wall, floor, outside, together, sit, stand, run, cook, wait, clean,
- *    play, read, write, watch, listen, talk, sleep, dark, cold, hot, long, small
- *    — все A1 по Oxford 3000. Плюс слова прошлых модулей этой же ступени, у
- *    которых карточка уже есть: noise, loud, storm, sky, cloud, tent, chef.
+ *    play, read, write, watch, listen, talk, sleep, dark, cold, hot, long, small,
+ *    make, take, come, dance, swim, stop, wash, fall, go, empty, wet, white,
+ *    full, horse, quiet, message, film, moment, somebody, move, tea, neighbour —
+ *    все A1 или A2 по Oxford 3000 и все в словнике A2 Key. Первая редакция
+ *    списка описывала не тот урок: два десятка работающих слов в неё не попали,
+ *    нашёл методист. Плюс слова прошлых модулей этой же ступени, у которых
+ *    карточка уже есть: noise, loud, storm, sky, cloud, tent, chef, plate.
  *
  * ВОЗВРАЩЕНИЕ. Два задания из пройденного: одно в уроке 2 (написание окончания
- * `-ed` из модуля 2 — там же разбиралось, когда буква удваивается) и одно в
+ * `-ed` из модуля 2 — там разбиралась замена `y` на `i`, и рядом с уроком про
+ * `-ing` это к месту: перед `-ing` буква `y` как раз НЕ меняется) и одно в
  * уроке 5 (вопрос с `did` из модуля 5, ровно то, с чем сравнивают порядок слов).
- * Берутся ссылкой (`vozvrat`), устройство — docs/format-uroka.md.
+ * Первая редакция шапки написала, что возврат про удвоение согласной, — неверно,
+ * удвоения в модуле 2 нет вовсе, нашёл методист. Берутся ссылкой (`vozvrat`),
+ * устройство — docs/format-uroka.md.
  */
 const module: Module = {
   slug: "chto-proishodilo",
@@ -140,7 +166,10 @@ const module: Module = {
       section:
         "новые слова модуля с пометой A2: roof, hall, cupboard, lamp, oven, " +
         "cooker, fridge, field, grass, ground, insect, smoke, knock, wave, bin, " +
-        "board, brush, bowl, spoon, knife, fork. " +
+        "board, brush, bowl, spoon, knife, fork. Слово wave взято " +
+        "СУЩЕСТВИТЕЛЬНЫМ («волна»): Oxford 3000 ставит wave n. A2, а глагол wave " +
+        "— B1, и словника A2 Key в этом слове нет вовсе. Первая редакция дала " +
+        "глагол, нашёл методист. " +
         "Помету B1 Oxford 3000 ставит трём словам — ceiling, curtain, garage, — а " +
         "словник A2 Key их содержит: по правилу ступени они в запасе и потому " +
         "взяты. " +
@@ -277,7 +306,7 @@ const module: Module = {
             { term: "hall", translation: "прихожая, коридор", example: "The lamp was in the hall.", hint: "/hɔːl/" },
             { term: "cupboard", translation: "шкаф для посуды", example: "The cupboard was open.", hint: "/ˈkʌbəd/" },
             { term: "oven", translation: "духовка", example: "The oven was hot.", hint: "/ˈʌvn/" },
-            { term: "cooker", translation: "плита", example: "My sister was cleaning the cooker.", hint: "/ˈkʊkə/" },
+            { term: "cooker", translation: "плита", example: "The cooker was old.", hint: "/ˈkʊkə/" },
             { term: "fridge", translation: "холодильник", example: "The fridge was loud.", hint: "/frɪdʒ/" },
             { term: "lamp", translation: "лампа", example: "The lamp was in the hall.", hint: "/læmp/" },
           ],
@@ -287,7 +316,7 @@ const module: Module = {
         {
           id: "z1-dopisat-was",
           kind: "gap",
-          prompt: "Речь об одном человеке. Допиши недостающее слово.",
+          prompt: "Речь об одном человеке, и дело было вчера. Допиши недостающее слово.",
           before: "My sister ",
           after: " cooking.",
           answer: "was",
@@ -338,7 +367,7 @@ const module: Module = {
         {
           id: "z5-napisat-o-sestre",
           kind: "short",
-          prompt: "Скажи по-английски, что твоя сестра чистила плиту. Три слова после My sister.",
+          prompt: "Скажи по-английски, что твоя сестра чистила плиту. Четыре слова после My sister.",
           answer: "My sister was cleaning the cooker.",
           accept: ["My sister was cleaning the cooker"],
           hint: "Человек один, значит was. Глагол clean берёт окончание -ing.",
@@ -402,9 +431,11 @@ const module: Module = {
           id: "kogda-bukva-udvaivaetsya",
           kind: "explain",
           text: [
-            "Согласная удваивается у коротких глаголов из одного слога.",
-            "Sit, run, swim, stop — в них один гласный звук и одна согласная на конце.",
-            "Гласный — это a, e, i, o, u: в слове sit гласный один, это i.",
+            "Гласные буквы — это a, e, i, o, u, а все прочие согласные.",
+            "Согласная на конце удваивается, если глагол в один слог и гласная перед ней одна.",
+            "Sit, run, swim, stop — везде одна гласная перед последней согласной, и она удваивается.",
+            "У wait, sleep, read, cook гласных перед ней две, и удвоения не бывает.",
+            "Буквы w, x и y на конце не удваиваются никогда: play даёт playing.",
           ],
         },
         {
@@ -422,10 +453,10 @@ const module: Module = {
           zvuchat: [
             "My brother was writing a message.",
             "The children were running in the hall.",
-            "I was making toast.",
+            "I was making tea.",
           ],
           text:
-            "My brother was writing a message.\nThe children were running in the hall.\nI was making toast.",
+            "My brother was writing a message.\nThe children were running in the hall.\nI was making tea.",
           explain:
             "Три глагола и три разных случая: в writing и making пропала буква e, в " +
             "running удвоилась n.",
@@ -440,7 +471,7 @@ const module: Module = {
             { term: "wardrobe", translation: "шкаф для одежды", example: "The wardrobe was open.", hint: "/ˈwɔːdrəʊb/" },
             { term: "curtain", translation: "штора", example: "The curtain was long.", hint: "/ˈkɜːtn/" },
             { term: "ceiling", translation: "потолок", example: "The lamp was on the ceiling.", hint: "/ˈsiːlɪŋ/" },
-            { term: "stairs", translation: "лестница в доме", example: "The children were running on the stairs.", hint: "/steəz/" },
+            { term: "stairs", translation: "лестница в доме", example: "The stairs were dark.", hint: "/steəz/" },
           ],
         },
 
@@ -562,7 +593,7 @@ const module: Module = {
           kind: "explain",
           text: [
             "Оборот времени ставят в конце строки, после самого действия.",
-            "Реже его выносят вперёд, и тогда после него ставят запятую.",
+            "Там его и ищут, когда хотят узнать, когда всё это шло.",
           ],
         },
         {
@@ -585,8 +616,8 @@ const module: Module = {
           text:
             "The rain was falling all day.\nAt seven the street was empty.\nMy neighbour was cleaning his garage.",
           explain:
-            "В первой строке промежуток, во второй точка, и она вынесена вперёд с " +
-            "запятой не нужна — оборот короткий. Третья строка времени не называет вовсе.",
+            "В первой строке промежуток all day, во второй точка at seven. Третья " +
+            "строка времени не называет вовсе.",
         },
         {
           id: "slovar-ulicy",
@@ -596,7 +627,7 @@ const module: Module = {
             { term: "roof", translation: "крыша", example: "The rain was falling on the roof.", hint: "/ruːf/" },
             { term: "garage", translation: "гараж", example: "My neighbour was cleaning his garage.", hint: "/ˈgærɪdʒ/" },
             { term: "exit", translation: "выход", example: "The exit was open.", hint: "/ˈegzɪt/" },
-            { term: "playground", translation: "детская площадка", example: "The children were playing on the playground.", hint: "/ˈpleɪgraʊnd/" },
+            { term: "playground", translation: "детская площадка", example: "The playground was near the field.", hint: "/ˈpleɪgraʊnd/" },
             { term: "field", translation: "поле", example: "The horses were running in the field.", hint: "/fiːld/" },
             { term: "grass", translation: "трава", example: "The grass was wet.", hint: "/grɑːs/" },
           ],
@@ -658,11 +689,15 @@ const module: Module = {
           id: "z5-napisat-o-detyah-na-ploshchadke",
           kind: "short",
           prompt: "Скажи по-английски, что дети играли на площадке весь вечер.",
-          answer: "The children were playing on the playground all evening.",
-          accept: ["The children were playing on the playground all evening"],
+          answer: "The children were playing in the playground all evening.",
+          accept: [
+            "The children were playing in the playground all evening",
+            "The children were playing on the playground all evening.",
+            "The children were playing on the playground all evening",
+          ],
           hint: "Детей несколько, значит were. Промежуток идёт в конце и без предлога.",
           why:
-            "The children were playing on the playground all evening. Оборот all " +
+            "The children were playing in the playground all evening. Оборот all " +
             "evening стоит последним и предлога перед собой не берёт.",
         },
       ],
@@ -707,7 +742,7 @@ const module: Module = {
           text: [
             "Все три наречия встали между was и глаголом, и это не случайность.",
             "Длительное действие состоит из двух слов, и наречие вклинивается ровно между ними.",
-            "В начало и в конец строки эти три наречия не ставят.",
+            "Это и есть его место при длительном действии.",
           ],
         },
         {
@@ -723,12 +758,12 @@ const module: Module = {
           kind: "example",
           caption: "Что шло в тот момент",
           zvuchat: [
-            "I was just making toast.",
+            "I was just making tea.",
             "My sister was still sleeping.",
             "The fridge was always making a noise.",
           ],
           text:
-            "I was just making toast.\nMy sister was still sleeping.\nThe fridge was always making a noise.",
+            "I was just making tea.\nMy sister was still sleeping.\nThe fridge was always making a noise.",
           explain:
             "Три строки и три наречия, и все три стоят на одном месте — сразу после " +
             "was.",
@@ -739,10 +774,10 @@ const module: Module = {
           caption: "Слова урока",
           items: [
             { term: "ground", translation: "земля под ногами", example: "The ground was wet.", hint: "/graʊnd/" },
-            { term: "thunderstorm", translation: "гроза", example: "The thunderstorm was still going.", hint: "/ˈθʌndəstɔːm/" },
+            { term: "thunderstorm", translation: "гроза", example: "The thunderstorm was loud.", hint: "/ˈθʌndəstɔːm/" },
             { term: "smoke", translation: "дым", example: "The smoke was going up.", hint: "/sməʊk/" },
             { term: "knock", translation: "стучать", example: "Somebody was knocking on the door.", hint: "/nɒk/" },
-            { term: "wave", translation: "махать рукой", example: "My neighbour was waving.", hint: "/weɪv/" },
+            { term: "wave", translation: "волна", example: "The waves were big.", hint: "/weɪv/" },
             { term: "insect", translation: "насекомое", example: "An insect was sitting on the grass.", hint: "/ˈɪnsekt/" },
           ],
         },
@@ -779,7 +814,7 @@ const module: Module = {
           parts: [
             { text: "She was still sleeping", selectable: true, correct: true },
             { text: " · " },
-            { text: "Still she was sleeping", selectable: true },
+            { text: "She still was sleeping", selectable: true },
             { text: " · " },
             { text: "He was always talking", selectable: true, correct: true },
             { text: " · " },
@@ -788,7 +823,7 @@ const module: Module = {
           hint: "Своё место у наречия между was и глаголом.",
           why:
             "Верны She was still sleeping и He was always talking. В двух других " +
-            "наречие ушло в начало и в конец.",
+            "наречие встало перед was и после глагола, а его место между ними.",
         },
         {
           id: "z4-sopostavit-narechiya",
@@ -838,14 +873,12 @@ const module: Module = {
           zvuchat: [
             "What were you doing?",
             "Where were you going?",
-            "Who was cooking?",
             "What was your sister doing?",
           ],
           head: ["Вопрос", "О чём спрашивают"],
           rows: [
             ["What were you doing?", "о занятии"],
             ["Where were you going?", "о направлении"],
-            ["Who was cooking?", "о человеке"],
             ["What was your sister doing?", "о занятии другого"],
           ],
         },
@@ -872,7 +905,7 @@ const module: Module = {
           caption: "Кто чем был занят",
           razgovor: true,
           text:
-            "— What were you doing at seven?\n— I was making toast.\n— And your sister?\n— She was still sleeping.",
+            "— What were you doing at seven?\n— I was making tea.\n— And your sister?\n— She was still sleeping.",
           explain:
             "Первый вопрос полный, второй короткий: чтобы не повторять всё, называют " +
             "только человека.",
@@ -884,7 +917,7 @@ const module: Module = {
           items: [
             { term: "bowl", translation: "миска", example: "The bowl was on the table.", hint: "/bəʊl/" },
             { term: "spoon", translation: "ложка", example: "I was washing a spoon.", hint: "/spuːn/" },
-            { term: "knife", translation: "нож", example: "The knife was sharp.", hint: "/naɪf/" },
+            { term: "knife", translation: "нож", example: "The knife was on the plate.", hint: "/naɪf/" },
             { term: "fork", translation: "вилка", example: "The fork was on the plate.", hint: "/fɔːk/" },
             { term: "mug", translation: "кружка", example: "My mug was full.", hint: "/mʌg/" },
             { term: "brush", translation: "щётка", example: "My brother was cleaning the floor with a brush.", hint: "/brʌʃ/" },
@@ -985,9 +1018,9 @@ const module: Module = {
           body: [
             "Yesterday at seven I was standing at the window.",
             "The rain was falling on the roof, and the ground was wet.",
-            "The children were playing on the playground. My neighbour was cleaning his garage all evening.",
-            "An insect was sitting on the grass near the exit. The smoke from the kitchen was going up.",
-            "I was just making toast and watching all this.",
+            "The children were playing in the playground. My neighbour was cleaning his garage all evening.",
+            "An insect was sitting on the grass near the exit. The smoke was going up.",
+            "I was just making tea and watching all this.",
           ],
           glossary: [
             { term: "at the window", translation: "у окна" },
@@ -1001,9 +1034,9 @@ const module: Module = {
           kind: "note",
           tone: "info",
           text:
-            "Все действия в сообщении длительные: всюду стоит was или were и " +
-            "окончание -ing.\n\nВремя названо один раз, в самом начале, и дальше " +
-            "держится само собой.",
+            "Почти всё в сообщении длительное: там стоит was или were и окончание " +
+            "-ing.\n\nСтрока the ground was wet выпадает: она говорит не о " +
+            "действии, а о том, каким было место.",
         },
         {
           id: "slovar-veshchey",
@@ -1038,7 +1071,7 @@ const module: Module = {
           prompt: "Что убирал сосед? Ответь одним английским словом.",
           answer: "garage",
           accept: ["his garage", "the garage"],
-          hint: "Это слово стоит сразу после слова cleaning.",
+          hint: "Загляни в строку про соседа: там названо, что он убирал.",
           why: "My neighbour was cleaning his garage all evening.",
         },
         {
@@ -1061,15 +1094,14 @@ const module: Module = {
             "on the grass. Сосед убирал гараж, а о машине не сказано.",
         },
         {
-          id: "z4-skolko-deystviy",
+          id: "z4-chto-bylo-mokrym",
           kind: "short",
           about: "soobshchenie-o-dvore",
-          prompt: "Сколько оборотов времени в сообщении? Ответь цифрой.",
-          answer: "2",
-          accept: ["два"],
-          hint: "Обороты времени бывают вида at seven и all evening. Считай их.",
-          why:
-            "Два: at seven в первой строке и all evening в третьей.",
+          prompt: "Что было мокрым? Ответь одним английским словом.",
+          answer: "ground",
+          accept: ["the ground"],
+          hint: "Об этом сказано во второй строке, после слов the rain was falling.",
+          why: "The rain was falling on the roof, and the ground was wet.",
         },
         {
           id: "z5-chto-delal-sam",
@@ -1079,10 +1111,10 @@ const module: Module = {
           options: [
             { text: "Убирал кухню" },
             { text: "Спал" },
-            { text: "Делал тосты и смотрел во двор", correct: true },
+            { text: "Делал чай и смотрел во двор", correct: true },
           ],
           hint: "Об этом сказано в последней строке.",
-          why: "I was just making toast and watching all this.",
+          why: "I was just making tea and watching all this.",
         },
       ],
     },
@@ -1181,16 +1213,14 @@ const module: Module = {
           why: "What were you doing at seven?",
         },
         {
-          id: "z5-vosstanovit-vopros-o-zanyatii",
-          kind: "order",
-          zvuk: "What were you doing at seven? — I was making pasta.",
-          prompt: "Послушай запись и собери из карточек вопрос, который в ней прозвучал.",
-          items: ["at seven?", "doing", "you", "were", "What"],
-          answer: [4, 3, 2, 1, 0],
-          hint: "Оборот времени стоит в самом конце, и услышать его можно только в записи.",
-          why:
-            "What were you doing at seven? После вопросительного слова стоит were, " +
-            "потом человек, потом глагол с окончанием.",
+          id: "z5-kto-eshche-byl-doma",
+          kind: "short",
+          about: "zapis-o-vchera-vechere",
+          prompt: "О ком ещё спросили в записи? Ответь одним английским словом.",
+          answer: "brother",
+          accept: ["your brother", "the brother"],
+          hint: "Этот человек назван в третьей реплике, короткой.",
+          why: "And your brother? — He was still sleeping on the sofa.",
         },
       ],
     },
@@ -1240,13 +1270,13 @@ const module: Module = {
           kind: "example",
           caption: "Образец описания",
           zvuchat: [
-            "Yesterday at eight I was sitting in the armchair.",
-            "The rain was falling on the roof.",
-            "My sister was washing a mug in the kitchen.",
-            "The children were playing on the stairs.",
+            "Yesterday at nine I was sitting on the blanket.",
+            "My brother was washing a bowl in the kitchen.",
+            "The curtain was moving near the window.",
+            "My sister was looking for a spoon in the cupboard.",
           ],
           text:
-            "Yesterday at eight I was sitting in the armchair.\nThe rain was falling on the roof.\nMy sister was washing a mug in the kitchen.\nThe children were playing on the stairs.",
+            "Yesterday at nine I was sitting on the blanket.\nMy brother was washing a bowl in the kitchen.\nThe curtain was moving near the window.\nMy sister was looking for a spoon in the cupboard.",
           explain:
             "Четыре строки, и в каждой те же три части. Время названо один раз, в " +
             "первой строке.",
@@ -1318,7 +1348,7 @@ const module: Module = {
             "Опиши вчерашний вечер четырьмя строками. В первой назови время и своё место, в остальных — что происходило вокруг.",
           minWords: 16,
           sample:
-            "Yesterday at eight I was sitting in the armchair.\nThe rain was falling on the roof.\nMy sister was washing a mug in the kitchen.\nThe children were playing on the stairs.",
+            "Yesterday at nine I was sitting on the blanket.\nMy brother was washing a bowl in the kitchen.\nThe curtain was moving near the window.\nMy sister was looking for a spoon in the cupboard.",
           checklist: [
             "в каждой строке стоит was или were",
             "у каждого глагола есть окончание -ing",
@@ -1347,26 +1377,26 @@ const module: Module = {
         id: "q-forma-ispravit",
         kind: "short",
         outcome: "говорить о длительном действии: I was working",
-        prompt: "Исправь ошибку и запиши целиком: «My parents was watching a film.»",
-        answer: "My parents were watching a film.",
-        accept: ["My parents were watching a film"],
+        prompt: "Исправь ошибку и запиши целиком: «The children was playing in the hall.»",
+        answer: "The children were playing in the hall.",
+        accept: ["The children were playing in the hall"],
         why:
-          "My parents were watching a film. Родителей несколько, и при них стоит " +
+          "The children were playing in the hall. Детей несколько, и при них стоит " +
           "were.",
       },
       {
         id: "q-forma-prichina",
         kind: "choice",
         outcome: "говорить о длительном действии: I was working",
-        prompt: "Почему запись «I working in the kitchen» неверна?",
+        prompt: "Чем «I was working» отличается от «I worked»?",
         options: [
-          { text: "Потому что пропала форма was, а без неё нет времени", correct: true },
-          { text: "Потому что после kitchen нужно ещё одно слово" },
-          { text: "Потому что глагол work нельзя брать с окончанием" },
+          { text: "Первое говорит, что работа шла и к тому мигу не кончилась", correct: true },
+          { text: "Первое говорит о том, что будет завтра" },
+          { text: "Разницы между ними нет" },
         ],
         why:
-          "I was working in the kitchen. Длительное действие держится на двух словах " +
-          "сразу: форме was и окончании -ing.",
+          "I was working показывает работу в ходу. I worked говорит о ней как о " +
+          "законченной.",
       },
 
       // ---- итог 2 ----
@@ -1374,19 +1404,19 @@ const module: Module = {
         id: "q-ing-ispravit",
         kind: "short",
         outcome: "писать окончание -ing по правилу",
-        prompt: "Исправь ошибку и запиши целиком: «She was writeing a message.»",
-        answer: "She was writing a message.",
-        accept: ["She was writing a message"],
-        why: "She was writing a message. У write буква e на конце пропадает.",
+        prompt: "Исправь ошибку и запиши целиком: «She was danceing near the stage.»",
+        answer: "She was dancing near the stage.",
+        accept: ["She was dancing near the stage"],
+        why: "She was dancing near the stage. У dance буква e на конце пропадает.",
       },
       {
         id: "q-ing-udvoenie",
         kind: "short",
         outcome: "писать окончание -ing по правилу",
-        prompt: "Запиши глагол swim с окончанием -ing.",
-        answer: "swimming",
-        accept: ["Swimming"],
-        why: "swimming. У коротких глаголов из одного слога последняя буква удваивается.",
+        prompt: "Запиши глагол stop с окончанием -ing.",
+        answer: "stopping",
+        accept: ["Stopping"],
+        why: "stopping. Глагол в один слог, и гласная перед последней согласной одна.",
       },
 
       // ---- итог 3 ----
@@ -1394,11 +1424,11 @@ const module: Module = {
         id: "q-vremya-ispravit",
         kind: "short",
         outcome: "называть время длительного действия: at seven, all evening",
-        prompt: "Исправь ошибку и запиши целиком: «The rain was falling at all day.»",
-        answer: "The rain was falling all day.",
-        accept: ["The rain was falling all day"],
+        prompt: "Исправь ошибку и запиши целиком: «She was reading at all evening.»",
+        answer: "She was reading all evening.",
+        accept: ["She was reading all evening"],
         why:
-          "The rain was falling all day. Оборот с all называет время сам, и лишнее " +
+          "She was reading all evening. Оборот с all называет время сам, и лишнее " +
           "слово перед ним только мешает.",
       },
       {
@@ -1421,24 +1451,20 @@ const module: Module = {
         id: "q-narechie-ispravit",
         kind: "short",
         outcome: "ставить наречие между was и глаголом",
-        prompt: "Исправь ошибку и запиши целиком: «Still she was sleeping.»",
+        prompt: "Исправь ошибку и запиши целиком: «She still was sleeping.»",
         answer: "She was still sleeping.",
         accept: ["She was still sleeping"],
         why: "She was still sleeping. Место наречия одно — сразу после was.",
       },
       {
         id: "q-narechie-po-smyslu",
-        kind: "choice",
+        kind: "short",
         outcome: "ставить наречие между was и глаголом",
-        prompt: "Работа тогда ещё не кончилась. Какое наречие это скажет?",
-        options: [
-          { text: "just" },
-          { text: "always" },
-          { text: "still", correct: true },
-        ],
+        prompt: "Вставь наречие just в строку и запиши её целиком: «She was cleaning the oven.»",
+        answer: "She was just cleaning the oven.",
+        accept: ["She was just cleaning the oven"],
         why:
-          "I was still working. Наречие still значит «всё ещё», just — «только что», " +
-          "always — «всегда».",
+          "She was just cleaning the oven. Наречие встаёт между was и глаголом.",
       },
 
       // ---- итог 5 ----
@@ -1472,7 +1498,7 @@ const module: Module = {
         kind: "choice",
         outcome: "понимать текст, где описано, что происходило вокруг",
         prompt:
-          "В сообщении написано: «The rain was falling. My neighbour was cleaning his garage. I was making toast.» Что делал сосед?",
+          "В сообщении написано: «The rain was falling. My neighbour was cleaning his garage. I was making tea.» Что делал сосед?",
         options: [
           { text: "Делал тосты" },
           { text: "Убирал гараж", correct: true },
@@ -1487,12 +1513,11 @@ const module: Module = {
         kind: "short",
         outcome: "понимать текст, где описано, что происходило вокруг",
         prompt:
-          "Сколько длительных действий в этих строках: «The rain was falling. The ground was wet. The children were playing.» Ответь цифрой.",
-        answer: "2",
-        accept: ["два", "две"],
+          "В сообщении написано: «The rain was falling. The ground was wet. The children were playing.» Какая строка говорит не о действии?",
+        answer: "The ground was wet.",
+        accept: ["The ground was wet", "the ground was wet"],
         why:
-          "Два: was falling и were playing. Строка The ground was wet говорит не о " +
-          "действии, а о том, каким что-то было.",
+          "The ground was wet. Тут сказано, каким было место, а не что кто-то делал.",
       },
 
       // ---- итог 7 ----
@@ -1526,12 +1551,12 @@ const module: Module = {
         kind: "short",
         outcome: "проверять описание: всюду ли стоит форма was и окончание -ing",
         prompt:
-          "В описании стоит строка «The smoke going up.» Исправь её и запиши целиком.",
-        answer: "The smoke was going up.",
-        accept: ["The smoke was going up"],
+          "В описании стоит строка «My sister washing a bowl.» Исправь её и запиши целиком.",
+        answer: "My sister was washing a bowl.",
+        accept: ["My sister was washing a bowl"],
         why:
-          "The smoke was going up. Пропала форма was, а без неё строка не говорит о " +
-          "прошлом.",
+          "My sister was washing a bowl. Пропала форма was, а без неё строка не " +
+          "говорит о прошлом.",
       },
       {
         id: "q-opisanie-lishnyaya-stroka",

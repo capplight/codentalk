@@ -11,70 +11,106 @@ import type { Module } from "@/lib/content/types";
  *
  * Оба имени взяты из модуля 6 и не меняются здесь ни разу. Слов «фон» и
  * «событие» в тексте для ученика нет вовсе: это были бы вторые имена тем же
- * вещам, а модуль 5 уже показал, чем это кончается (CLAUDE.md, «Понятность
- * объяснения», пункт 3).
+ * вещам (CLAUDE.md, «Понятность объяснения», пункт 3).
+ *
+ * ЧЕМУ МОДУЛЬ УЧИТ, А ЧЕМУ НЕТ — САМОЕ ВАЖНОЕ МЕСТО.
+ *
+ * Первая редакция ввела правило «после `when` стоит только законченное
+ * действие» и трижды объявила ошибкой безупречный английский. Нашёл методист, и
+ * он же привёл строку, которая это опровергает: CLAUSES subordinated, графа A2,
+ * «FORM/USE: TIME» — пример источника «I feel comfortable **when I am wearing**
+ * these clothes». Это `when` при длительном действии, на нашей же ступени.
+ *
+ * Поэтому модуль учит одному правилу и проверяет только его:
+ * **после `while` стоит длительное действие.** Слово `while` значит «пока», и
+ * этим оно связано. `When` называет тот миг, о котором речь, и после него
+ * встречается и то, что случилось, и то, что шло, — так в модуле и сказано.
+ * Ни одно задание не объявляет `when` при длительном действии ошибкой.
  *
  * ЧТО ПРОВЕРЕНО ДО НАПИСАНИЯ.
  *
  * 1. English Grammar Profile, A2, PAST past continuous, «USE: BACKGROUND
  *    EVENTS» — «Can use the past continuous to show that an event was happening
- *    in the background to the main event», пример источника «Yesterday we were
- *    studying maths in your house, and I left my book». Это весь модуль.
+ *    in the background to the main event», пример «Yesterday we were studying
+ *    maths in your house, and I left my book». Это уроки 1 и 5.
  *
- * 2. English Grammar Profile, A2, CONJUNCTIONS subordinating, «FORM: SIMPLE» —
+ * 2. English Grammar Profile, A2, PAST past continuous, «USE: EVENTS IN
+ *    PROGRESS» — «Can use the past continuous to talk about actions and states
+ *    in progress around a particular time in the past». Это урок 4, где оба
+ *    действия тянутся разом. Первая редакция сослалась и для него на «BACKGROUND
+ *    EVENTS» — ссылка была не та, нашёл методист.
+ *
+ * 3. English Grammar Profile, A2, CONJUNCTIONS subordinating, «FORM: SIMPLE» —
  *    «Can use a limited range of simple subordinating conjunctions '(if, when,
  *    so, while)' to introduce a subordinate clause». Источник называет `when` и
  *    `while` прямо и держит их на A2.
  *
- * 3. English Grammar Profile, A2, CLAUSES subordinated, «FORM/USE: TIME» — «Can
+ * 4. English Grammar Profile, A2, CLAUSES subordinated, «FORM/USE: TIME» — «Can
  *    use a finite subordinate clause with time conjunctions, before or after a
  *    main clause», пример «I feel comfortable when I am wearing these clothes».
- *    Оговорка «before or after» — это урок 3 целиком: часть с `when` может стоять
- *    и впереди, и позади.
+ *    Отсюда и порядок частей (урок 3), и отказ от выдуманного ограничения.
  *
- * 4. Описания Совета Европы, с. 67, шкала Creative writing, графа A2: «Can give
+ * 5. English Grammar Profile, A2, PAST past simple, «FORM: WITH 'WHEN'» — «Can
+ *    use 'when' + past simple in subordinate clauses», пример «When I arrived,
+ *    the weather was horrible». Пример графы A2 с вынесенной вперёд частью и
+ *    запятой — прямая опора урока 3. Первая редакция её не назвала.
+ *
+ * 6. Описания Совета Европы, с. 67, шкала Creative writing, графа A2: «Can give
  *    very short, basic descriptions of events, past activities and personal
  *    experiences». Отсюда размер рассказа в уроках 5 и 8.
+ *
+ * ЗАПЯТАЯ — МЕСТО, ГДЕ ИСТОЧНИКИ МОЛЧАТ.
+ *
+ * Правил пунктуации наши материалы не содержат вовсе. Что запятая СТОИТ, когда
+ * часть с союзом вынесена вперёд, видно из примера графы A2 в пункте 5 («When I
+ * arrived, the weather was horrible»); что её НЕ ставят, когда часть с союзом
+ * идёт позади, видно из примера пункта 4. Обратного утверждения — «так писать
+ * нельзя» — в модуле нет нигде: оно было бы заявлением об употреблении без
+ * источника.
  *
  * ЧЕГО В МОДУЛЕ НЕТ И ПОЧЕМУ.
  *
  * — ОТРИЦАНИЯ И ВОПРОСА ДА/НЕТ У ДЛИТЕЛЬНОГО ДЕЙСТВИЯ. English Grammar Profile
  *   ставит обе строки на B1 (PAST past continuous, «FORM: NEGATIVE» и «FORM:
  *   QUESTIONS»), и модуль 6 их не давал. Здесь их тоже нет.
- * — СОЮЗОВ `as`, `until`, `before`, `after`. Источник в пункте 2 называет
+ * — СОЮЗОВ `as`, `until`, `before`, `after`. Источник в пункте 3 называет
  *   «limited range» и перечисляет четыре союза, из которых времени касаются два.
- *   Модуль берёт ровно эти два.
- * — НЕПРАВИЛЬНЫХ ГЛАГОЛОВ СВЕРХ ДЕСЯТКА МОДУЛЯ 3. Законченное действие требует
- *   формы прошедшего, а курс дал только `went`, `came`, `saw`, `met`, `had`,
- *   `got`, `took`, `ate`, `bought`, `wrote`. Все прочие действия модуля —
- *   правильные глаголы с окончанием `-ed`.
+ * — НЕПРАВИЛЬНЫХ ГЛАГОЛОВ СВЕРХ ДЕСЯТКА МОДУЛЯ 3 И ПАРЫ `LOSE — LOST`. Курс дал
+ *   `went`, `came`, `saw`, `met`, `had`, `got`, `took`, `ate`, `bought`,
+ *   `wrote`. Пара `lose — lost` нужна модулю на каждом шагу и потому дана
+ *   карточками в уроке 2 — так же, как модуль 3 давал `see — saw`. Первая
+ *   редакция употребила `lost` в четырнадцати местах, не дав самого глагола, и
+ *   вдобавок требовала форм `read` и `fell`, которых курс не давал никогда. Всё
+ *   нашёл методист; `read` и `fell` из модуля убраны.
  *
- * СЛОВАРЬ МОДУЛЯ. Тридцать восемь карточек, и все тридцать восемь несут слово,
- * которого на прошлой ступени не было.
+ * СЛОВАРЬ МОДУЛЯ. Тридцать девять карточек, из них тридцать восемь несут слово,
+ * которого на прошлой ступени не было. Тридцать девятая — глагол `lose`
+ * (Oxford 3000 ставит A1): он взят не ради новизны, а потому что без него нельзя
+ * дать форму `lost`.
  *
- *    Oxford 3000 помечает A2: accident, luck, lucky, suddenly, immediately,
- *    unfortunately, danger, safe, careful, carefully, broken, lost, missing,
- *    drop, engine, petrol, wheel, lock, trouble, cry, jump, hurt, track.
+ *    Oxford 3000 помечает A2: accident, suddenly, hurt, lost, drop, missing,
+ *    carefully, immediately, unfortunately, trouble, engine, petrol, wheel,
+ *    lock, broken, danger, cry, track, safe, luck, lucky, careful.
  *
  *    Oxford 3000 помечает B1, но словник A2 Key содержит: tyre, helicopter,
- *    deliver, receipt, battery, glove. По правилу ступени (CLAUDE.md, «Объём
- *    словаря») такое слово в запасе и взято.
+ *    deliver, receipt, battery, glove.
  *
- *    Oxford 3000 не содержит вовсе, а словник A2 Key требует: ambulance, wallet,
- *    purse, luckily, motorbike, scooter, scarf, crossing, roundabout.
+ *    Oxford 3000 не содержит вовсе, а словник A2 Key требует: ambulance,
+ *    wallet, purse, luckily, motorbike, scooter, scarf, crossing, roundabout.
  *
  *    Два слова — `lock` и `track` — Oxford 3000 помечает A2, а словника A2 Key в
- *    них нет. Правило ступени принимает любое из двух оснований, и здесь работает
- *    первое.
+ *    них нет. Правило ступени принимает любое из двух оснований.
  *
- *    Норма ступени — не меньше тридцати карточек и не меньше пятнадцати новых,
- *    считает `npm run kontrol`.
+ *    КАЖДАЯ КАРТОЧКА РАБОТАЕТ В МОДУЛЕ, и стоит она в том уроке, где слово
+ *    впервые встречается. Первая редакция дала восемь карточек, не встречавшихся
+ *    нигде, кроме себя, и шесть таких, что работали раньше своего урока.
  *
  *    СЛОВА-ПОДПОРКИ: road, street, car, bus, door, window, phone, bag, money,
  *    home, work, shop, rain, wait, call, stop, open, close, help, run, walk,
- *    drive, look, find, cold, dark, late, quick — все A1 по Oxford 3000. Плюс
- *    слова прошлых модулей этой же ступени, у которых карточка уже есть: lift,
- *    corner, gate, pocket, bridge, platform, noise, storm, stairs, garage, roof.
+ *    drive, look, find, cold, dark, late, quick, dog, book, dinner, people,
+ *    nobody, everybody, quickly, near, way, key — все A1 по Oxford 3000. Плюс
+ *    слова прошлых модулей этой же ступени: gate, timetable, colleague, sofa,
+ *    kitchen, motorway, stairs.
  *
  * ВОЗВРАЩЕНИЕ. Два задания из пройденного: одно в уроке 1 (форма `was` + `-ing`
  * из модуля 6 — она и есть левая половина каждой строки этого модуля) и одно в
@@ -92,14 +128,22 @@ const module: Module = {
         "A2, PAST past continuous, «USE: BACKGROUND EVENTS»: «Can use the past " +
         "continuous to show that an event was happening in the background to the " +
         "main event», пример источника — «Yesterday we were studying maths in your " +
-        "house, and I left my book». " +
+        "house, and I left my book» — уроки 1 и 5. " +
+        "A2, PAST past continuous, «USE: EVENTS IN PROGRESS»: «Can use the past " +
+        "continuous to talk about actions and states in progress around a " +
+        "particular time in the past» — урок 4, где оба действия тянутся разом. " +
         "A2, CONJUNCTIONS subordinating, «FORM: SIMPLE»: «Can use a limited range " +
         "of simple subordinating conjunctions '(if, when, so, while)' to introduce " +
         "a subordinate clause» — источник называет when и while прямо. " +
         "A2, CLAUSES subordinated, «FORM/USE: TIME»: «Can use a finite subordinate " +
         "clause with time conjunctions, before or after a main clause», пример «I " +
-        "feel comfortable when I am wearing these clothes» — оговорка «before or " +
-        "after» это урок 3. " +
+        "feel comfortable when I am wearing these clothes». ЭТОТ ПРИМЕР ВАЖЕН " +
+        "ОТДЕЛЬНО: в нём when стоит при длительном действии на графе A2, и потому " +
+        "модуль нигде не объявляет такое сочетание ошибкой. " +
+        "A2, PAST past simple, «FORM: WITH 'WHEN'»: «Can use 'when' + past simple " +
+        "in subordinate clauses», пример «When I arrived, the weather was " +
+        "horrible» — часть с союзом вынесена вперёд и отделена запятой, это опора " +
+        "урока 3. " +
         "ЧЕГО НЕТ. B1, PAST past continuous, «FORM: NEGATIVE» и «FORM: QUESTIONS» " +
         "— отрицания и вопроса да/нет у длительного действия в модуле нет",
       license: "внутреннее использование, публично не называем",
@@ -130,19 +174,21 @@ const module: Module = {
     {
       ref: "Oxford 3000",
       section:
-        "новые слова модуля с пометой A2: accident, luck, lucky, suddenly, " +
-        "immediately, unfortunately, danger, safe, careful, carefully, broken, " +
-        "lost, missing, drop, engine, petrol, wheel, lock, trouble, cry, jump, " +
-        "hurt, track. " +
+        "новые слова модуля с пометой A2: accident, suddenly, hurt, lost, drop, " +
+        "missing, carefully, immediately, unfortunately, trouble, engine, petrol, " +
+        "wheel, lock, broken, danger, cry, track, safe, luck, lucky, careful. " +
         "Помету B1 Oxford 3000 ставит шести словам — tyre, helicopter, deliver, " +
         "receipt, battery, glove, — а словник A2 Key их содержит: по правилу " +
         "ступени они в запасе и потому взяты. " +
         "Слов ambulance, wallet, purse, luckily, motorbike, scooter, scarf, " +
         "crossing, roundabout Oxford 3000 не содержит вовсе, а словник A2 Key " +
         "требует. " +
+        "Глагол lose Oxford 3000 помечает A1: он взят не ради новизны, а потому " +
+        "что без него нельзя дать форму lost, которая модулю нужна на каждом шагу. " +
         "Подпорки: road, street, car, bus, door, window, phone, bag, money, home, " +
         "work, shop, rain, wait, call, stop, open, close, help, run, walk, drive, " +
-        "look, find, cold, dark, late, quick — все A1",
+        "look, find, cold, dark, late, quick, dog, book, dinner, people, nobody, " +
+        "everybody, quickly, near, way, key — все A1",
       license: "внутреннее использование",
     },
     {
@@ -150,8 +196,8 @@ const module: Module = {
       section:
         "словник ступени, по которому проверена новизна: 1637 слов. Слов lock и " +
         "track словник не содержит, и взяты они по помете Oxford 3000 (A2) — " +
-        "правило ступени принимает любое из двух оснований. Остальные тридцать " +
-        "шесть карточек в словнике есть",
+        "правило ступени принимает любое из двух оснований. Остальные карточки в " +
+        "словнике есть",
       license: "внутреннее использование, публично не называем",
     },
     {
@@ -162,20 +208,21 @@ const module: Module = {
         "/ˈæmbjʊləns/, suddenly /ˈsʌdnli/, careful /ˈkeəfl/, trouble /ˈtrʌbl/, " +
         "engine /ˈendʒɪn/, petrol /ˈpetrəl/, motorbike /ˈməʊtəbaɪk/, scooter " +
         "/ˈskuːtə/, tyre /ˈtaɪə/, helicopter /ˈhelɪkɒptə/, roundabout " +
-        "/ˈraʊndəbaʊt/, deliver /dɪˈlɪvə/, receipt /rɪˈsiːt/",
+        "/ˈraʊndəbaʊt/, deliver /dɪˈlɪvə/, receipt /rɪˈsiːt/, crossing " +
+        "/ˈkrɒsɪŋ/, lose /luːz/, lost /lɒst/",
       license: "внутреннее использование",
     },
   ],
 
   outcomes: [
     "связывать длительное и законченное действие: I was cooking when he came",
-    "выбирать when или while по тому, какое действие идёт следом",
-    "ставить запятую, когда часть с when стоит впереди",
+    "ставить while там, где после союза идёт длительное действие",
+    "ставить запятую, когда часть с союзом стоит впереди",
     "соединять два длительных действия словом while",
-    "рассказывать о случае двумя действиями подряд",
+    "рассказывать о случае в три хода",
     "понимать рассказ, где длительное действие прервано законченным",
     "слышать в записи, что шло и что случилось",
-    "проверять рассказ: там ли стоит when, там ли while",
+    "проверять рассказ: там ли стоит while",
   ],
 
   lessons: [
@@ -205,16 +252,16 @@ const module: Module = {
           zvuchat: [
             "I was cooking",
             "when my colleague came",
-            "She was reading",
-            "when the phone stopped",
-            "They were waiting",
-            "when the bus arrived",
+            "She was waiting at the crossing",
+            "when she saw the accident",
+            "They were walking home",
+            "when the ambulance arrived",
           ],
           head: ["Что тянулось", "Что случилось"],
           rows: [
             ["I was cooking", "when my colleague came"],
-            ["She was reading", "when the phone stopped"],
-            ["They were waiting", "when the bus arrived"],
+            ["She was waiting at the crossing", "when she saw the accident"],
+            ["They were walking home", "when the ambulance arrived"],
           ],
         },
         {
@@ -242,13 +289,13 @@ const module: Module = {
           zvuchat: [
             "I was walking home when I saw an accident.",
             "A car stopped near the crossing.",
-            "Luckily, nobody was hurt.",
+            "The ambulance arrived very quickly.",
           ],
           text:
-            "I was walking home when I saw an accident.\nA car stopped near the crossing.\nLuckily, nobody was hurt.",
+            "I was walking home when I saw an accident.\nA car stopped near the crossing.\nThe ambulance arrived very quickly.",
           explain:
             "В первой строке две половины: ходьба уже шла, а вид происшествия случился " +
-            "разом. Две другие строки говорят только о законченном.",
+            "разом. Во второй и третьей строках названо только то, что случилось.",
         },
         {
           id: "slovar-proisshestviya",
@@ -256,11 +303,11 @@ const module: Module = {
           caption: "Слова урока",
           items: [
             { term: "accident", translation: "происшествие, авария", example: "I saw an accident.", hint: "/ˈæksɪdənt/" },
-            { term: "ambulance", translation: "скорая помощь", example: "The ambulance came quickly.", hint: "/ˈæmbjʊləns/" },
+            { term: "ambulance", translation: "скорая помощь", example: "The ambulance arrived very quickly.", hint: "/ˈæmbjʊləns/" },
+            { term: "crossing", translation: "пешеходный переход", example: "A car stopped near the crossing.", hint: "/ˈkrɒsɪŋ/" },
             { term: "suddenly", translation: "вдруг", example: "Suddenly a car stopped.", hint: "/ˈsʌdnli/" },
             { term: "luckily", translation: "к счастью", example: "Luckily, nobody was hurt.", hint: "/ˈlʌkɪli/" },
-            { term: "danger", translation: "опасность", example: "There was no danger.", hint: "/ˈdeɪndʒə/" },
-            { term: "safe", translation: "невредимый, в безопасности", example: "Everybody was safe.", hint: "/seɪf/" },
+            { term: "hurt", translation: "пострадать, ушибиться", example: "Luckily, nobody was hurt.", hint: "/hɜːt/" },
           ],
         },
 
@@ -280,16 +327,16 @@ const module: Module = {
         {
           id: "z2-vybrat-paru-form",
           kind: "choice",
-          prompt: "Как сказать, что чтение уже шло, а потом позвонили?",
+          prompt: "Ожидание уже шло, а потом приехала скорая. Какая запись это говорит?",
           options: [
-            { text: "She read when the phone called." },
-            { text: "She was reading when somebody called.", correct: true },
-            { text: "She was reading when somebody was calling." },
+            { text: "She waited when the ambulance arrived." },
+            { text: "She was waiting when the ambulance arrived.", correct: true },
+            { text: "She was waiting when the ambulance was arriving." },
           ],
-          hint: "Одна запись сделала оба действия законченными, другая — оба длительными.",
+          hint: "Первая половина должна тянуться, вторая — занять один миг.",
           why:
-            "She was reading when somebody called. Чтение тянулось, поэтому was " +
-            "reading, а звонок занял миг, поэтому called.",
+            "She was waiting when the ambulance arrived. Ожидание тянулось, поэтому " +
+            "was waiting, а приезд занял миг, поэтому arrived.",
         },
         {
           id: "z3-otmetit-chto-tyanulos",
@@ -300,14 +347,14 @@ const module: Module = {
             { text: " · " },
             { text: "when I saw an accident", selectable: true },
             { text: " · " },
-            { text: "They were waiting at the gate", selectable: true, correct: true },
+            { text: "They were waiting at the crossing", selectable: true, correct: true },
             { text: " · " },
-            { text: "when the bus arrived", selectable: true },
+            { text: "when the ambulance arrived", selectable: true },
           ],
           hint: "У длительного действия рядом с глаголом стоит форма was или were.",
           why:
             "О длительном действии говорят I was walking home и They were waiting at " +
-            "the gate. Две другие половины называют то, что случилось разом.",
+            "the crossing. Две другие половины называют то, что случилось разом.",
         },
         {
           id: "z4-sobrat-dve-poloviny",
@@ -324,9 +371,13 @@ const module: Module = {
           id: "z5-napisat-o-hodbe",
           kind: "short",
           prompt:
-            "Скажи о себе по-английски: ходьба домой шла, и в этот миг случилось увидеть происшествие. Начни с I.",
+            "Скажи о себе по-английски: ходьба домой шла, и в этот миг случилось увидеть происшествие. Начни с I was walking.",
           answer: "I was walking home when I saw an accident.",
-          accept: ["I was walking home when I saw an accident"],
+          accept: [
+            "I was walking home when I saw an accident",
+            "I was walking home when I saw the accident.",
+            "I was walking home when I saw the accident",
+          ],
           hint: "Левая половина берёт was и окончание -ing, правая — форму saw.",
           why:
             "I was walking home when I saw an accident. Ходьба тянулась, а вид " +
@@ -338,9 +389,9 @@ const module: Module = {
     // =====================================================================
     {
       slug: "when-i-while",
-      title: "When и while: какое слово взять",
+      title: "While: что стоит после него",
       estimatedMinutes: 15,
-      outcome: "выбирать when или while по тому, какое действие идёт следом",
+      outcome: "ставить while там, где после союза идёт длительное действие",
 
       blocks: [
         {
@@ -348,8 +399,8 @@ const module: Module = {
           kind: "explain",
           text: [
             "Связать две половины можно двумя словами: when и while.",
-            "Оба переводятся «когда», но ставятся при разных действиях.",
-            "Смотреть надо на то действие, которое идёт сразу за союзом.",
+            "Такие связывающие слова называют союзами.",
+            "Оба переводятся «когда», но ведут себя по-разному.",
           ],
         },
         {
@@ -357,35 +408,36 @@ const module: Module = {
           kind: "table",
           caption: "Что стоит после союза",
           zvuchat: [
-            "when the bus arrived",
-            "when I saw an accident",
-            "while I was cooking",
-            "while she was reading",
+            "while I was walking to the shop",
+            "while she was looking for the wallet",
+            "when I lost my purse",
+            "when I was walking home",
           ],
-          head: ["Союз", "Какое действие после него", "Пример"],
+          head: ["Союз", "Что стоит после него", "Пример"],
           rows: [
-            ["when", "законченное", "when the bus arrived"],
-            ["when", "законченное", "when I saw an accident"],
-            ["while", "длительное", "while I was cooking"],
-            ["while", "длительное", "while she was reading"],
+            ["while", "всегда длительное действие", "while I was walking to the shop"],
+            ["while", "всегда длительное действие", "while she was looking for the wallet"],
+            ["when", "то, что случилось", "when I lost my purse"],
+            ["when", "или то, что шло", "when I was walking home"],
           ],
         },
         {
-          id: "pochemu-tak-delyat",
+          id: "pochemu-while-svyazan",
           kind: "explain",
           text: [
             "While само значит «пока», и после него всегда стоит то, что тянулось.",
-            "When значит «в тот миг, когда», и после него стоит то, что случилось.",
-            "Половины при этом можно ставить в любом порядке — важен только союз.",
+            "When называет тот миг, о котором речь, и после него встречается и то, и другое.",
+            "Значит проверять надо одно: после while — длительное действие.",
           ],
         },
         {
-          id: "ne-while-arrived",
+          id: "chto-znachit-while",
           kind: "note",
-          tone: "mistake",
+          tone: "info",
           text:
-            "«while the bus arrived» — так не говорят.\n\nПосле while стоит " +
-            "длительное действие, а прибытие автобуса заняло один миг.",
+            "Пара «while и длительное действие» — единственное, что здесь надо " +
+            "держать в голове.\n\nЗа when следить не нужно: он берёт и то, что " +
+            "случилось, и то, что шло.",
         },
         {
           id: "primer-o-poteryannom-koshelke",
@@ -399,20 +451,20 @@ const module: Module = {
           text:
             "While I was walking to the shop, I lost my purse.\nI dropped it near the roundabout.\nThe wallet was missing too.",
           explain:
-            "В первой строке после while стоит длительное действие, и потому взято " +
-            "именно оно. Вторая и третья строки союза не берут вовсе.",
+            "В первой строке после while стоит длительное действие, и это его " +
+            "обычное место. Вторая и третья строки союза не берут вовсе.",
         },
         {
           id: "slovar-propazhi",
           kind: "vocab",
           caption: "Слова урока",
           items: [
-            { term: "wallet", translation: "бумажник", example: "The wallet was missing.", hint: "/ˈwɒlɪt/" },
+            { term: "lose", translation: "терять", example: "I lose my key every week.", hint: "/luːz/" },
+            { term: "lost", translation: "потерял", example: "I lost my purse.", hint: "/lɒst/" },
+            { term: "wallet", translation: "бумажник", example: "The wallet was missing too.", hint: "/ˈwɒlɪt/" },
             { term: "purse", translation: "кошелёк", example: "I lost my purse.", hint: "/pɜːs/" },
-            { term: "lost", translation: "потерянный", example: "My purse was lost.", hint: "/lɒst/" },
-            { term: "missing", translation: "пропавший", example: "The wallet was missing.", hint: "/ˈmɪsɪŋ/" },
             { term: "drop", translation: "ронять", example: "I dropped it near the roundabout.", hint: "/drɒp/" },
-            { term: "careful", translation: "осторожный", example: "My sister is careful.", hint: "/ˈkeəfl/" },
+            { term: "missing", translation: "пропавший", example: "The wallet was missing too.", hint: "/ˈmɪsɪŋ/" },
           ],
         },
 
@@ -425,59 +477,66 @@ const module: Module = {
           after: " I was walking to the shop, I lost my purse.",
           answer: "While",
           hint: "Одно из двух слов значит «пока».",
-          why: "While I was walking to the shop, I lost my purse. После while стоит длительное действие.",
-        },
-        {
-          id: "z2-vybrat-soyuz",
-          kind: "choice",
-          prompt: "Какая запись верна?",
-          options: [
-            { text: "While the bus arrived, I was waiting." },
-            { text: "When I was waiting, the bus arrived." },
-            { text: "While I was waiting, the bus arrived.", correct: true },
-          ],
-          hint: "Смотри, какое действие стоит сразу за союзом.",
           why:
-            "While I was waiting, the bus arrived. После while нужно длительное " +
-            "действие, а прибытие автобуса заняло миг.",
+            "While I was walking to the shop, I lost my purse. После while стоит " +
+            "длительное действие.",
         },
         {
-          id: "z3-otmetit-vernye-soyuzy",
+          id: "z2-vybrat-formy-pri-while",
+          kind: "choice",
+          prompt: "Ходьба шла, а кошелёк пропал разом. Какая запись это говорит?",
+          options: [
+            { text: "While I walked to the shop, I was losing my purse." },
+            { text: "While I was walking to the shop, I lost my purse.", correct: true },
+            { text: "While I was walking to the shop, I was losing my purse." },
+          ],
+          hint: "Пропажа заняла один миг, а ходьба тянулась.",
+          why:
+            "While I was walking to the shop, I lost my purse. После while стоит " +
+            "длительное действие, а пропажа заняла миг и потому взяла форму lost.",
+        },
+        {
+          id: "z3-otmetit-dlitelnoe-posle-while",
           kind: "hottext",
-          prompt: "Отметь части, где союз выбран верно.",
+          prompt: "Отметь части, где после while стоит длительное действие.",
           parts: [
             { text: "while I was cooking", selectable: true, correct: true },
             { text: " · " },
             { text: "while my colleague came", selectable: true },
             { text: " · " },
-            { text: "when the ambulance arrived", selectable: true, correct: true },
+            { text: "while the rain was falling", selectable: true, correct: true },
             { text: " · " },
-            { text: "when I was cooking dinner", selectable: true },
+            { text: "while the bus arrived", selectable: true },
           ],
-          hint: "После while — длительное, после when — законченное.",
+          hint: "У длительного действия стоит форма was или were и окончание -ing.",
           why:
-            "Верны while I was cooking и when the ambulance arrived. В двух других " +
-            "союз и действие не совпали по виду.",
+            "Длительное действие стоит в while I was cooking и while the rain was " +
+            "falling. В двух других после while названо то, что заняло миг.",
         },
         {
-          id: "z4-sopostavit-soyuz-i-deystvie",
+          id: "z4-sopostavit-poloviny",
           kind: "match",
-          prompt: "Соедини начало с концом так, чтобы союз подошёл действию.",
-          left: ["While I was reading,", "When I opened the door,", "While she was cooking,"],
-          right: ["I helped her with the plates.", "somebody called me.", "the dog jumped on the sofa."],
+          prompt: "Соедини начало с концом. В каждом конце есть слово из своего начала.",
+          left: ["While I was reading a book,", "When I opened the door,", "While she was cooking dinner,"],
+          right: ["I helped her with the dinner.", "I dropped the book.", "my sister came in."],
           answer: [1, 2, 0],
-          hint: "В одном ответе стоит her — значит он идёт к той половине, где речь о ней.",
+          hint: "Ищи в ответах слова book, дверь и dinner.",
           why:
-            "While I was reading, somebody called me. When I opened the door, the dog " +
-            "jumped on the sofa. While she was cooking, I helped her with the plates.",
+            "While I was reading a book, I dropped the book. When I opened the door, " +
+            "my sister came in. While she was cooking dinner, I helped her with the " +
+            "dinner.",
         },
         {
           id: "z5-napisat-s-while",
           kind: "short",
           prompt:
-            "Скажи о себе по-английски: пока шла ходьба в магазин, кошелёк потерялся. Начни с While.",
+            "Скажи о себе по-английски: пока шла ходьба в магазин, кошелёк потерялся. Начни с While I was walking.",
           answer: "While I was walking to the shop, I lost my purse.",
-          accept: ["While I was walking to the shop, I lost my purse"],
+          accept: [
+            "While I was walking to the shop, I lost my purse",
+            "While I was walking to the shop I lost my purse.",
+            "While I was walking to the shop I lost my purse",
+          ],
           hint: "После While ставь длительное действие, а потом запятую и вторую половину.",
           why:
             "While I was walking to the shop, I lost my purse. После While стоит " +
@@ -491,7 +550,7 @@ const module: Module = {
       slug: "chto-vperedi",
       title: "Что впереди: запятая при перестановке",
       estimatedMinutes: 14,
-      outcome: "ставить запятую, когда часть с when стоит впереди",
+      outcome: "ставить запятую, когда часть с союзом стоит впереди",
 
       blocks: [
         {
@@ -515,72 +574,72 @@ const module: Module = {
           ],
           head: ["Порядок", "Запись"],
           rows: [
-            ["часть с when позади", "I was cooking when he came."],
-            ["часть с when впереди", "When he came, I was cooking."],
-            ["часть с while позади", "I lost my purse while I was walking."],
-            ["часть с while впереди", "While I was walking, I lost my purse."],
+            ["часть с союзом позади", "I was cooking when he came."],
+            ["часть с союзом впереди", "When he came, I was cooking."],
+            ["часть с союзом позади", "I lost my purse while I was walking."],
+            ["часть с союзом впереди", "While I was walking, I lost my purse."],
           ],
         },
         {
           id: "pochemu-zapyataya",
           kind: "explain",
           text: [
-            "Запятая стоит только в двух записях из четырёх, и обе они начинаются с союза.",
+            "Запятая стоит в двух записях из четырёх, и обе начинаются с союза.",
             "Она показывает, где кончилась часть с союзом и началась главная.",
-            "Если часть с союзом стоит позади, запятая не нужна.",
+            "Когда часть с союзом идёт позади, разделять нечего, и запятая не нужна.",
           ],
         },
         {
-          id: "ne-zapyataya-vsegda",
+          id: "zapyataya-i-vvodnoe-slovo",
           kind: "note",
-          tone: "mistake",
+          tone: "info",
           text:
-            "«I was cooking, when he came» — так не пишут.\n\nЧасть с when стоит " +
-            "позади, и запятая перед ней не нужна.",
+            "Запятая бывает в строке и по другой причине — после вводного слова: " +
+            "Unfortunately, I did not open the door.\n\nЭто другой случай, и с союзом " +
+            "он не связан.",
         },
         {
           id: "primer-o-dostavke",
           kind: "example",
           caption: "Посылка у двери",
           zvuchat: [
-            "When the courier called, I was cleaning the stairs.",
-            "Unfortunately, I did not hear the door.",
+            "When the postman called, I was cleaning the stairs.",
+            "Unfortunately, I did not open the door.",
             "Immediately I looked for the receipt.",
           ],
           text:
-            "When the courier called, I was cleaning the stairs.\nUnfortunately, I did not hear the door.\nImmediately I looked for the receipt.",
+            "When the postman called, I was cleaning the stairs.\nUnfortunately, I did not open the door.\nImmediately I looked for the receipt.",
           explain:
-            "В первой строке часть с when стоит впереди, и потому в середине запятая. " +
-            "Дальше запятая появляется только после вводного слова.",
+            "В первой строке часть с союзом стоит впереди, и потому в середине " +
+            "запятая. Во второй запятая стоит после вводного слова, а в третьей её " +
+            "нет вовсе.",
         },
         {
-          id: "slovar-ocenki",
+          id: "slovar-dostavki",
           kind: "vocab",
           caption: "Слова урока",
           items: [
             { term: "carefully", translation: "осторожно", example: "She was driving carefully.", hint: "/ˈkeəfəli/" },
             { term: "immediately", translation: "сразу же", example: "Immediately I looked for the receipt.", hint: "/ɪˈmiːdiətli/" },
-            { term: "unfortunately", translation: "к сожалению", example: "Unfortunately, I did not hear the door.", hint: "/ʌnˈfɔːtʃənətli/" },
-            { term: "luck", translation: "удача", example: "It was good luck.", hint: "/lʌk/" },
-            { term: "lucky", translation: "удачливый, счастливый", example: "I was lucky.", hint: "/ˈlʌki/" },
+            { term: "unfortunately", translation: "к сожалению", example: "Unfortunately, I did not open the door.", hint: "/ʌnˈfɔːtʃənətli/" },
+            { term: "receipt", translation: "чек", example: "Immediately I looked for the receipt.", hint: "/rɪˈsiːt/" },
+            { term: "deliver", translation: "доставлять", example: "They were delivering a book.", hint: "/dɪˈlɪvə/" },
             { term: "trouble", translation: "неприятность", example: "There was no trouble.", hint: "/ˈtrʌbl/" },
           ],
         },
 
         // ---- задания ----
         {
-          id: "z1-dopisat-zapyatuyu",
-          kind: "choice",
-          prompt: "В какой записи запятая стоит верно?",
-          options: [
-            { text: "When he came, I was cooking.", correct: true },
-            { text: "I was cooking, when he came." },
-            { text: "When he came I was cooking." },
-          ],
-          hint: "Запятая нужна там, где часть с союзом стоит впереди.",
+          id: "z1-postavit-zapyatuyu",
+          kind: "short",
+          prompt:
+            "Поставь недостающий знак и запиши целиком: «When the postman called I was cleaning the stairs.»",
+          answer: "When the postman called, I was cleaning the stairs.",
+          accept: ["When the postman called, I was cleaning the stairs"],
+          hint: "Часть с союзом стоит впереди, и её надо отделить.",
           why:
-            "When he came, I was cooking. Часть с when стоит впереди, и запятая " +
-            "показывает, где она кончилась.",
+            "When the postman called, I was cleaning the stairs. Запятая показывает, " +
+            "где кончилась часть с союзом.",
         },
         {
           id: "z2-perestavit-poloviny",
@@ -594,53 +653,53 @@ const module: Module = {
             "после неё запятая.",
         },
         {
-          id: "z3-otmetit-lishnyuyu-zapyatuyu",
+          id: "z3-otmetit-gde-nuzhna-zapyataya",
           kind: "hottext",
-          prompt: "Отметь записи, где запятая лишняя.",
+          prompt: "Отметь записи, где часть с союзом стоит впереди и запятая нужна.",
           parts: [
-            { text: "I was reading, when somebody called", selectable: true, correct: true },
+            { text: "When the postman called I was cleaning", selectable: true, correct: true },
             { text: " · " },
-            { text: "When somebody called, I was reading", selectable: true },
+            { text: "I was cleaning when the postman called", selectable: true },
             { text: " · " },
-            { text: "She was driving, while I was sleeping", selectable: true, correct: true },
+            { text: "While I was sleeping she was driving", selectable: true, correct: true },
             { text: " · " },
-            { text: "While I was sleeping, she was driving", selectable: true },
+            { text: "She was driving while I was sleeping", selectable: true },
           ],
-          hint: "Запятая нужна только тогда, когда часть с союзом стоит впереди.",
+          hint: "Смотри на первое слово записи: если это союз, запятая нужна.",
           why:
-            "Лишняя запятая в I was reading, when somebody called и She was driving, " +
-            "while I was sleeping. В обеих часть с союзом стоит позади.",
+            "Запятая нужна в When the postman called и While I was sleeping: обе " +
+            "записи начинаются с союза. В двух других часть с союзом стоит позади.",
         },
         {
           id: "z4-sopostavit-poryadok",
           kind: "match",
           prompt: "Соедини запись с тем, как в ней стоят половины.",
           left: [
-            "When the courier called, I was cleaning.",
-            "I was cleaning when the courier called.",
-            "While I was cleaning, the courier called.",
+            "When the postman called, I was cleaning.",
+            "I was cleaning when the postman called.",
+            "While I was cleaning, the postman called.",
           ],
           right: [
-            "длительное впереди, союз while, запятая есть",
-            "часть с when впереди, запятая есть",
-            "часть с when позади, запятой нет",
+            "впереди часть со while, запятая есть",
+            "впереди часть с when, запятая есть",
+            "часть с союзом позади, запятой нет",
           ],
           answer: [1, 2, 0],
           hint: "Смотри на первое слово записи и на запятую.",
           why:
             "Первая запись начинается с when и берёт запятую. Вторая ставит часть с " +
-            "when позади и обходится без запятой. Третья начинается с while.",
+            "союзом позади и обходится без запятой. Третья начинается с while.",
         },
         {
           id: "z5-napisat-s-perestanovkoy",
           kind: "short",
           prompt:
-            "Перепиши эту мысль, начав с части с When: «I was cleaning the stairs when the courier called.»",
-          answer: "When the courier called, I was cleaning the stairs.",
-          accept: ["When the courier called, I was cleaning the stairs"],
+            "Перепиши эту мысль, начав с части с When: «I was cleaning the stairs when the postman called.»",
+          answer: "When the postman called, I was cleaning the stairs.",
+          accept: ["When the postman called, I was cleaning the stairs"],
           hint: "Часть с When уходит вперёд, и после неё нужна запятая.",
           why:
-            "When the courier called, I was cleaning the stairs. Половины поменялись " +
+            "When the postman called, I was cleaning the stairs. Половины поменялись " +
             "местами, и запятая встала в середину.",
         },
       ],
@@ -661,7 +720,7 @@ const module: Module = {
           text: [
             "Иногда ни одно из двух действий не занимало миг: оба тянулись разом.",
             "Тогда обе половины берут was или were с окончанием -ing.",
-            "Связывает их while: он ставится при длительном действии.",
+            "Связывает их while, и это его прямое дело.",
           ],
         },
         {
@@ -687,18 +746,10 @@ const module: Module = {
           id: "pochemu-tolko-while",
           kind: "explain",
           text: [
-            "When тут не годится: после него ставят то, что случилось разом.",
-            "Оба действия тянулись, значит союз только один — while.",
+            "После while стоит длительное действие — значит для этого случая он и создан.",
             "Формы was и were выбираются в каждой половине отдельно, по своему лицу.",
+            "Порядок половин любой: важно, что после while стоит то, что тянулось.",
           ],
-        },
-        {
-          id: "ne-when-oba-dlitelnyh",
-          kind: "note",
-          tone: "mistake",
-          text:
-            "«She was driving when I was sleeping» — так не говорят.\n\nОба действия " +
-            "тянулись, и связать их надо словом while.",
         },
         {
           id: "primer-o-poezdke-na-mopede",
@@ -706,11 +757,11 @@ const module: Module = {
           caption: "По дороге за город",
           zvuchat: [
             "My brother was cleaning the engine while I was checking the wheel.",
-            "The scooter was old, and the tyre was flat.",
-            "We bought petrol at the crossing.",
+            "The scooter was old, and the tyre was broken.",
+            "We bought petrol near the motorway.",
           ],
           text:
-            "My brother was cleaning the engine while I was checking the wheel.\nThe scooter was old, and the tyre was flat.\nWe bought petrol at the crossing.",
+            "My brother was cleaning the engine while I was checking the wheel.\nThe scooter was old, and the tyre was broken.\nWe bought petrol near the motorway.",
           explain:
             "В первой строке оба действия тянулись, и между ними стоит while. Во " +
             "второй сказано, каким что-то было, а в третьей — что случилось.",
@@ -721,11 +772,11 @@ const module: Module = {
           caption: "Слова урока",
           items: [
             { term: "engine", translation: "двигатель", example: "My brother was cleaning the engine.", hint: "/ˈendʒɪn/" },
-            { term: "petrol", translation: "бензин", example: "We bought petrol at the crossing.", hint: "/ˈpetrəl/" },
+            { term: "petrol", translation: "бензин", example: "We bought petrol near the motorway.", hint: "/ˈpetrəl/" },
             { term: "wheel", translation: "колесо", example: "I was checking the wheel.", hint: "/wiːl/" },
-            { term: "motorbike", translation: "мотоцикл", example: "The motorbike was old.", hint: "/ˈməʊtəbaɪk/" },
+            { term: "motorbike", translation: "мотоцикл", example: "The motorbike stopped near the crossing.", hint: "/ˈməʊtəbaɪk/" },
             { term: "scooter", translation: "самокат, мопед", example: "The scooter was old.", hint: "/ˈskuːtə/" },
-            { term: "tyre", translation: "шина", example: "The tyre was flat.", hint: "/ˈtaɪə/" },
+            { term: "tyre", translation: "шина", example: "The tyre was broken.", hint: "/ˈtaɪə/" },
           ],
         },
 
@@ -741,18 +792,18 @@ const module: Module = {
           why: "She was driving while I was sleeping. При I стоит was.",
         },
         {
-          id: "z2-vybrat-soyuz-dlya-dvuh",
+          id: "z2-vybrat-formy-dlya-dvuh",
           kind: "choice",
-          prompt: "Оба действия тянулись. Какая запись верна?",
+          prompt: "Разговор шёл, и дождь шёл в то же время. Какая запись это говорит?",
           options: [
-            { text: "They were talking when the rain was falling." },
+            { text: "They talked while the rain was falling." },
             { text: "They were talking while the rain was falling.", correct: true },
-            { text: "They talked while the rain fell." },
+            { text: "They were talking while the rain stopped." },
           ],
-          hint: "Одна запись взяла не тот союз, другая сделала оба действия законченными.",
+          hint: "Тянуться должны обе половины сразу.",
           why:
-            "They were talking while the rain was falling. Оба действия тянулись, и " +
-            "союз при них только while.",
+            "They were talking while the rain was falling. В обеих половинах стоит " +
+            "форма was или were и окончание -ing.",
         },
         {
           id: "z3-otmetit-dva-dlitelnyh",
@@ -788,9 +839,13 @@ const module: Module = {
           id: "z5-napisat-dva-dlitelnyh",
           kind: "short",
           prompt:
-            "Скажи по-английски: сестра вела машину, а в это время шёл дождь. Начни с My sister.",
+            "Скажи по-английски: сестра вела машину, а в это время шёл дождь. Начни с My sister was driving.",
           answer: "My sister was driving while the rain was falling.",
-          accept: ["My sister was driving while the rain was falling"],
+          accept: [
+            "My sister was driving while the rain was falling",
+            "My sister was driving while it was raining.",
+            "My sister was driving while it was raining",
+          ],
           hint: "Оба действия тянулись, значит в обеих половинах стоит was.",
           why:
             "My sister was driving while the rain was falling. Оба действия тянулись, " +
@@ -804,7 +859,7 @@ const module: Module = {
       slug: "rasskaz-o-sluchae",
       title: "Рассказ о том, как это вышло",
       estimatedMinutes: 15,
-      outcome: "рассказывать о случае двумя действиями подряд",
+      outcome: "рассказывать о случае в три хода",
 
       blocks: [
         {
@@ -812,8 +867,8 @@ const module: Module = {
           kind: "explain",
           text: [
             "Рассказ о случае строится в три хода.",
-            "Сначала говорят, что уже шло. Потом — что случилось. Потом — чем кончилось.",
-            "Первый ход берёт длительное действие, второй и третий — законченное.",
+            "Сначала говорят, что уже шло. Потом — что случилось. Потом — чем это кончилось.",
+            "Первый ход берёт длительное действие, второй — законченное.",
           ],
         },
         {
@@ -821,15 +876,15 @@ const module: Module = {
           kind: "table",
           caption: "Три хода рассказа",
           zvuchat: [
-            "I was waiting at the bus stop.",
-            "Suddenly a scooter stopped near me.",
-            "The driver asked about the roundabout.",
+            "I was looking for my key.",
+            "Suddenly the lock opened.",
+            "Luckily, the battery was new.",
           ],
-          head: ["Ход", "Какое действие", "Пример"],
+          head: ["Ход", "Что в нём", "Пример"],
           rows: [
-            ["что шло", "длительное", "I was waiting at the bus stop."],
-            ["что случилось", "законченное", "Suddenly a scooter stopped near me."],
-            ["чем кончилось", "законченное", "The driver asked about the roundabout."],
+            ["что шло", "длительное действие", "I was looking for my key."],
+            ["что случилось", "законченное действие", "Suddenly the lock opened."],
+            ["чем кончилось", "оценка или короткий итог", "Luckily, the battery was new."],
           ],
         },
         {
@@ -838,7 +893,7 @@ const module: Module = {
           text: [
             "Первый ход нужен, чтобы слушающий понял обстановку.",
             "Без него рассказ начинается с середины, и случай повисает в пустоте.",
-            "Дальше идут только законченные действия: они и двигают рассказ.",
+            "Третий ход действия уже не требует: там обычно говорят, чем всё обернулось.",
           ],
         },
         {
@@ -856,10 +911,10 @@ const module: Module = {
           zvuchat: [
             "I was looking for my key while my sister was waiting outside.",
             "Suddenly the lock opened.",
-            "Luckily, the battery in my torch was new.",
+            "Luckily, the battery in my phone was new.",
           ],
           text:
-            "I was looking for my key while my sister was waiting outside.\nSuddenly the lock opened.\nLuckily, the battery in my torch was new.",
+            "I was looking for my key while my sister was waiting outside.\nSuddenly the lock opened.\nLuckily, the battery in my phone was new.",
           explain:
             "Три строки и три хода: сперва два длительных действия, потом то, что " +
             "случилось, потом оценка того, чем всё кончилось.",
@@ -870,11 +925,11 @@ const module: Module = {
           caption: "Слова урока",
           items: [
             { term: "lock", translation: "замок", example: "Suddenly the lock opened.", hint: "/lɒk/" },
-            { term: "battery", translation: "батарейка", example: "The battery was new.", hint: "/ˈbætəri/" },
-            { term: "glove", translation: "перчатка", example: "I dropped my glove.", hint: "/glʌv/" },
+            { term: "battery", translation: "батарейка", example: "The battery in my phone was new.", hint: "/ˈbætəri/" },
+            { term: "glove", translation: "перчатка", example: "I dropped my glove near the lock.", hint: "/glʌv/" },
             { term: "scarf", translation: "шарф", example: "My scarf was in the bag.", hint: "/skɑːf/" },
             { term: "broken", translation: "сломанный", example: "The lock was broken.", hint: "/ˈbrəʊkən/" },
-            { term: "hurt", translation: "пострадать, ушибиться", example: "Nobody was hurt.", hint: "/hɜːt/" },
+            { term: "danger", translation: "опасность", example: "There was no danger.", hint: "/ˈdeɪndʒə/" },
           ],
         },
 
@@ -886,7 +941,7 @@ const module: Module = {
           options: [
             { text: "Suddenly the lock opened." },
             { text: "I was looking for my key.", correct: true },
-            { text: "The battery was new." },
+            { text: "Luckily, the battery was new." },
           ],
           hint: "Первый ход говорит об обстановке, а не о том, что случилось.",
           why:
@@ -896,34 +951,34 @@ const module: Module = {
         {
           id: "z2-vybrat-vtoroy-hod",
           kind: "choice",
-          prompt: "Обстановка названа: I was waiting at the bus stop. Какая строка идёт следом?",
+          prompt: "Обстановка названа: I was waiting at the gate. Какая строка идёт следом?",
           options: [
             { text: "I was waiting for a long time." },
-            { text: "The bus stop was near the crossing." },
+            { text: "I was looking at the timetable." },
             { text: "Suddenly a scooter stopped near me.", correct: true },
           ],
           hint: "Второй ход называет то, что случилось разом.",
           why:
-            "Suddenly a scooter stopped near me. Две другие строки описывают " +
-            "обстановку, а рассказ уже ждёт случившегося.",
+            "Suddenly a scooter stopped near me. Две другие строки снова говорят о " +
+            "том, что тянулось, а рассказ уже ждёт случившегося.",
         },
         {
           id: "z3-otmetit-hody",
           kind: "hottext",
-          prompt: "Отметь строки, которые двигают рассказ, а не описывают обстановку.",
+          prompt: "Отметь строки, где названо то, что случилось разом.",
           parts: [
             { text: "Suddenly the lock opened", selectable: true, correct: true },
             { text: " · " },
             { text: "I was looking for my key", selectable: true },
             { text: " · " },
-            { text: "The driver asked about the roundabout", selectable: true, correct: true },
+            { text: "I dropped my glove near the lock", selectable: true, correct: true },
             { text: " · " },
             { text: "My sister was waiting outside", selectable: true },
           ],
-          hint: "Рассказ двигают законченные действия.",
+          hint: "У случившегося нет окончания -ing.",
           why:
-            "Двигают рассказ Suddenly the lock opened и The driver asked about the " +
-            "roundabout. Две другие строки описывают обстановку.",
+            "Случились Suddenly the lock opened и I dropped my glove near the lock. " +
+            "Две другие строки говорят о том, что тянулось.",
         },
         {
           id: "z4-sobrat-rasskaz",
@@ -944,13 +999,16 @@ const module: Module = {
           id: "z5-napisat-pervyy-hod",
           kind: "short",
           prompt:
-            "Начни рассказ о случае: скажи о себе, что ожидание шло на остановке. Начни с I.",
-          answer: "I was waiting at the bus stop.",
-          accept: ["I was waiting at the bus stop"],
+            "Начни рассказ о случае: скажи о себе, что поиск ключа шёл. Начни с I was looking.",
+          answer: "I was looking for my key.",
+          accept: [
+            "I was looking for my key",
+            "I was looking for the key.",
+            "I was looking for the key",
+          ],
           hint: "Первый ход берёт длительное действие: was и окончание -ing.",
           why:
-            "I was waiting at the bus stop. Первый ход рассказа показывает, что уже " +
-            "шло.",
+            "I was looking for my key. Первый ход рассказа показывает, что уже шло.",
         },
       ],
     },
@@ -1006,9 +1064,9 @@ const module: Module = {
           caption: "Слова урока",
           items: [
             { term: "cry", translation: "плакать", example: "Some children were crying.", hint: "/kraɪ/" },
-            { term: "jump", translation: "прыгать", example: "The dog was jumping near the gate.", hint: "/dʒʌmp/" },
             { term: "helicopter", translation: "вертолёт", example: "A helicopter was going over the road.", hint: "/ˈhelɪkɒptə/" },
-            { term: "receipt", translation: "чек", example: "The receipt was in my pocket.", hint: "/rɪˈsiːt/" },
+            { term: "track", translation: "дорожка, тропа", example: "The driver dropped his glove on the track.", hint: "/træk/" },
+            { term: "safe", translation: "невредимый, в безопасности", example: "Everybody was safe.", hint: "/seɪf/" },
           ],
         },
 
@@ -1033,27 +1091,27 @@ const module: Module = {
           prompt: "Что уронил водитель? Ответь одним английским словом.",
           answer: "glove",
           accept: ["his glove", "the glove"],
-          hint: "Это слово стоит сразу после слова dropped.",
+          hint: "Загляни во вторую строку: там сказано, что упало на дорожку.",
           why: "The driver dropped his glove on the track.",
         },
         {
           id: "z3-otmetit-dlitelnye-v-tekste",
           kind: "hottext",
           about: "soobshchenie-o-proisshestvii",
-          prompt: "Отметь то, что в сообщении тянулось, а не случилось разом.",
+          prompt: "Отметь части сообщения, где стоит длительное действие.",
           parts: [
-            { text: "ехала скорая", selectable: true, correct: true },
+            { text: "the ambulance was coming", selectable: true, correct: true },
             { text: " · " },
-            { text: "остановился мотоцикл", selectable: true },
+            { text: "a motorbike stopped", selectable: true },
             { text: " · " },
-            { text: "летел вертолёт", selectable: true, correct: true },
+            { text: "a helicopter was going over the road", selectable: true, correct: true },
             { text: " · " },
-            { text: "пришла скорая", selectable: true },
+            { text: "the ambulance arrived", selectable: true },
           ],
-          hint: "Тянулось то, что стоит с формой was или were и окончанием -ing.",
+          hint: "У длительного действия есть форма was или were и окончание -ing.",
           why:
-            "Тянулись while the ambulance was coming и A helicopter was going over " +
-            "the road. Остановка мотоцикла и приход скорой заняли миг.",
+            "Длительные — the ambulance was coming и a helicopter was going over the " +
+            "road. Остановка мотоцикла и приход скорой заняли миг.",
         },
         {
           id: "z4-chto-poteryala",
@@ -1062,7 +1120,7 @@ const module: Module = {
           prompt: "Что Айгуль потеряла по дороге? Ответь одним английским словом.",
           answer: "scarf",
           accept: ["my scarf", "the scarf"],
-          hint: "Об этом сказано в последней строке, после слова lost.",
+          hint: "Об этом сказано в последней строке, после слов Unfortunately, I lost my.",
           why: "Unfortunately, I lost my scarf on the way.",
         },
         {
@@ -1072,7 +1130,7 @@ const module: Module = {
           prompt: "Кто-нибудь пострадал?",
           options: [
             { text: "Водитель" },
-            { text: "Никто", correct: true },
+            { text: "Никто, все были невредимы", correct: true },
             { text: "Дети" },
           ],
           hint: "Это сказано в третьей строке, после слова Luckily.",
@@ -1106,88 +1164,88 @@ const module: Module = {
           pace: "slow",
           skryt: true,
           transcript:
-            "Where did you lose it? — While I was walking to the shop. — What were " +
-            "you doing at the crossing? — I was looking for my phone. — And the " +
-            "purse? — It was in my glove. I dropped it near the roundabout.",
+            "What were you doing when you lost it? — I was walking to the shop. — " +
+            "And where were you then? — Near the roundabout. — Was the purse in your " +
+            "bag? — No, it was in my glove. I dropped it there.",
         },
         {
           id: "chto-slushat-o-propazhe",
           kind: "note",
           tone: "info",
           text:
-            "Слушай, что человек делал у перехода, где лежал кошелёк и где он " +
-            "выпал.\n\nОб этом и будут вопросы.",
+            "Слушай, что человек делал, где он был в тот миг и где лежал " +
+            "кошелёк.\n\nОб этом и будут вопросы.",
         },
         {
           id: "slovar-dorogi",
           kind: "vocab",
           caption: "Слова урока",
           items: [
-            { term: "crossing", translation: "пешеходный переход", example: "I was standing at the crossing.", hint: "/ˈkrɒsɪŋ/" },
-            { term: "roundabout", translation: "круговое движение", example: "I dropped it near the roundabout.", hint: "/ˈraʊndəbaʊt/" },
-            { term: "deliver", translation: "доставлять", example: "They deliver bread every morning.", hint: "/dɪˈlɪvə/" },
-            { term: "track", translation: "дорожка, тропа", example: "The glove was on the track.", hint: "/træk/" },
+            { term: "roundabout", translation: "круговое движение", example: "I was near the roundabout.", hint: "/ˈraʊndəbaʊt/" },
+            { term: "luck", translation: "удача", example: "It was good luck.", hint: "/lʌk/" },
+            { term: "lucky", translation: "удачливый, счастливый", example: "I was lucky: the purse was safe.", hint: "/ˈlʌki/" },
+            { term: "careful", translation: "осторожный", example: "My sister is careful with her wallet.", hint: "/ˈkeəfl/" },
           ],
         },
 
         // ---- задания ----
         {
-          id: "z1-chto-delal-u-perehoda",
+          id: "z1-chto-delal-chelovek",
           kind: "choice",
           about: "zapis-o-propazhe",
-          prompt: "Что человек делал у перехода?",
+          prompt: "Что человек делал, когда кошелёк пропал?",
           options: [
             { text: "Ждал автобус" },
-            { text: "Искал телефон", correct: true },
+            { text: "Шёл в магазин", correct: true },
             { text: "Считал деньги" },
           ],
-          hint: "Ответ идёт сразу за вопросом о переходе.",
-          why: "What were you doing at the crossing? — I was looking for my phone.",
+          hint: "Ответ идёт сразу за первым вопросом записи.",
+          why: "What were you doing when you lost it? — I was walking to the shop.",
         },
         {
-          id: "z2-gde-lezhal-koshelek",
+          id: "z2-gde-byl",
+          kind: "short",
+          about: "zapis-o-propazhe",
+          prompt: "Где человек был в тот миг? Ответь одним английским словом.",
+          answer: "roundabout",
+          accept: ["the roundabout", "near the roundabout"],
+          hint: "Это слово стоит в ответе на второй вопрос записи.",
+          why: "And where were you then? — Near the roundabout.",
+        },
+        {
+          id: "z3-gde-lezhal-koshelek",
           kind: "short",
           about: "zapis-o-propazhe",
           prompt: "Где лежал кошелёк? Ответь одним английским словом.",
           answer: "glove",
           accept: ["my glove", "the glove"],
-          hint: "Это слово стоит сразу после слов It was in my.",
-          why: "It was in my glove.",
+          hint: "Это слово стоит после слов No, it was in my.",
+          why: "No, it was in my glove.",
         },
         {
-          id: "z3-gde-vypal",
-          kind: "short",
-          about: "zapis-o-propazhe",
-          prompt: "Где кошелёк выпал? Ответь одним английским словом.",
-          answer: "roundabout",
-          accept: ["the roundabout"],
-          hint: "Это слово стоит в самом конце записи.",
-          why: "I dropped it near the roundabout.",
-        },
-        {
-          id: "z4-shel-li-poisk",
+          id: "z4-byl-li-koshelek-v-sumke",
           kind: "choice",
           about: "zapis-o-propazhe",
-          prompt: "Ходьба в магазин уже шла, когда кошелёк пропал?",
+          prompt: "Кошелёк лежал в сумке?",
           options: [
-            { text: "Нет, она только началась" },
-            { text: "Да, она шла", correct: true },
+            { text: "Да, в сумке" },
             { text: "В записи об этом не сказано" },
+            { text: "Нет, в перчатке", correct: true },
           ],
-          hint: "Слушай первую пару реплик и союз в ответе.",
-          why: "While I was walking to the shop. После while стоит длительное действие.",
+          hint: "На третий вопрос записи дан отрицательный ответ.",
+          why: "Was the purse in your bag? — No, it was in my glove.",
         },
         {
           id: "z5-vosstanovit-so-sluha",
           kind: "order",
-          zvuk: "While I was walking to the shop. — And the purse?",
-          prompt: "Послушай запись и собери из карточек то, что в ней сказано первым.",
-          items: ["to the shop.", "walking", "was", "I", "While"],
+          zvuk: "What were you doing when you lost it? — I was walking to the shop.",
+          prompt: "Послушай запись и собери из карточек первый вопрос.",
+          items: ["when you lost it?", "doing", "you", "were", "What"],
           answer: [4, 3, 2, 1, 0],
-          hint: "Первым стоит союз, за ним человек и длительное действие.",
+          hint: "Впереди вопросительное слово, за ним were, человек и действие.",
           why:
-            "While I was walking to the shop. После While идёт тот, кто действует, и " +
-            "длительное действие.",
+            "What were you doing when you lost it? Вопросительное слово стоит первым, " +
+            "за ним were, потом человек и действие с окончанием.",
         },
       ],
     },
@@ -1197,43 +1255,42 @@ const module: Module = {
       slug: "pishem-o-sluchae",
       title: "Пишем о том, как это вышло",
       estimatedMinutes: 15,
-      outcome: "проверять рассказ: там ли стоит when, там ли while",
+      outcome: "проверять рассказ: там ли стоит while",
 
       blocks: [
         {
-          id: "zachem-proveryat-soyuzy",
+          id: "zachem-proveryat-soyuz",
           kind: "explain",
           text: [
-            "В рассказе о случае легче всего ошибиться в союзе.",
-            "Проверить его просто: посмотри, какое действие идёт сразу за ним.",
-            "Длительное — while. Законченное — when.",
+            "В рассказе о случае легче всего ошибиться в одном месте — после while.",
+            "Проверить его можно так: посмотри, что стоит сразу за ним.",
+            "Там должно быть длительное действие: форма was или were и окончание -ing.",
           ],
         },
         {
-          id: "proverka-soyuza",
+          id: "proverka-while",
           kind: "table",
-          caption: "Как проверить союз",
+          caption: "Что должно стоять после while",
           zvuchat: [
             "while I was waiting",
-            "when the bus arrived",
             "while the rain was falling",
-            "when I dropped my glove",
+            "while my brother was cleaning the engine",
           ],
-          head: ["Что стоит следом", "Какой союз нужен", "Пример"],
+          head: ["Запись", "Что после while", "Годится"],
           rows: [
-            ["was или were с -ing", "while", "while I was waiting"],
-            ["форма прошедшего", "when", "when the bus arrived"],
-            ["was или were с -ing", "while", "while the rain was falling"],
-            ["форма прошедшего", "when", "when I dropped my glove"],
+            ["while I was waiting", "was и waiting", "да"],
+            ["while the rain was falling", "was и falling", "да"],
+            ["while my brother was cleaning the engine", "was и cleaning", "да"],
+            ["while the bus arrived", "arrived, без -ing", "нет"],
           ],
         },
         {
           id: "pochemu-proverka-rabotaet",
           kind: "explain",
           text: [
-            "Правило одно и то же в любую сторону: союз смотрит вперёд, а не назад.",
-            "Что стоит перед ним, значения не имеет.",
+            "Смотреть надо только вперёд: что стоит перед while, значения не имеет.",
             "Поэтому проверять можно по одной половине, не читая всей строки.",
+            "За when следить не нужно: после него годится и то, и другое.",
           ],
         },
         {
@@ -1241,56 +1298,57 @@ const module: Module = {
           kind: "example",
           caption: "Образец рассказа",
           zvuchat: [
-            "Yesterday I was waiting at the bus stop when a scooter stopped near me.",
+            "Yesterday I was waiting at the gate when a scooter stopped near me.",
             "While the driver was looking at the wheel, I called my brother.",
-            "Unfortunately, my phone battery was very low.",
+            "Unfortunately, my phone was cold and it stopped.",
             "Luckily, the bus arrived and I got home.",
           ],
           text:
-            "Yesterday I was waiting at the bus stop when a scooter stopped near me.\nWhile the driver was looking at the wheel, I called my brother.\nUnfortunately, my phone battery was very low.\nLuckily, the bus arrived and I got home.",
+            "Yesterday I was waiting at the gate when a scooter stopped near me.\nWhile the driver was looking at the wheel, I called my brother.\nUnfortunately, my phone was cold and it stopped.\nLuckily, the bus arrived and I got home.",
           explain:
             "Четыре строки. В первой после when стоит форма прошедшего, во второй " +
-            "после while — длительное действие, и оба союза выбраны верно.",
+            "после while — длительное действие, и оба союза на своих местах.",
         },
         {
           id: "chto-proverit-v-rasskaze",
           kind: "note",
           tone: "info",
           text:
-            "Проверь три вещи. После while стоит длительное действие, после when — " +
-            "законченное, и запятая есть только там, где часть с союзом стоит " +
-            "впереди.\n\nЕсли союз пришлось менять, проверь запятую заново.",
+            "Проверь три вещи. После while стоит длительное действие; в первой строке " +
+            "есть и длительное, и законченное; запятая есть там, где часть с союзом " +
+            "идёт впереди.\n\nЕсли союз пришлось менять, проверь запятую заново.",
         },
 
         // ---- задания ----
         {
-          id: "z1-nayti-nevernyy-soyuz",
+          id: "z1-nayti-nevernyy-while",
           kind: "hottext",
-          prompt: "Отметь части, где союз выбран неверно.",
+          prompt: "Отметь части, где после while стоит НЕ длительное действие.",
           parts: [
             { text: "while the bus arrived", selectable: true, correct: true },
             { text: " · " },
             { text: "while I was waiting", selectable: true },
             { text: " · " },
-            { text: "when the rain was falling", selectable: true, correct: true },
+            { text: "while my colleague came", selectable: true, correct: true },
             { text: " · " },
-            { text: "when I dropped my glove", selectable: true },
+            { text: "while the rain was falling", selectable: true },
           ],
-          hint: "Посмотри, какое действие стоит сразу за союзом.",
+          hint: "Ищи форму was или were и окончание -ing сразу за союзом.",
           why:
-            "Неверны while the bus arrived и when the rain was falling. В первой после " +
-            "while стоит законченное действие, во второй после when — длительное.",
+            "Длительного действия нет в while the bus arrived и while my colleague " +
+            "came: у обоих глаголов нет окончания -ing.",
         },
         {
-          id: "z2-ispravit-soyuz",
+          id: "z2-ispravit-posle-while",
           kind: "short",
-          prompt: "Исправь союз и запиши целиком: «I was reading when somebody was calling me.»",
-          answer: "I was reading while somebody was calling me.",
-          accept: ["I was reading while somebody was calling me"],
-          hint: "После союза стоит длительное действие, значит нужен другой союз.",
+          prompt:
+            "После while нужно длительное действие. Исправь строку и запиши целиком: «While the ambulance arrived, I called my brother.»",
+          answer: "While the ambulance was coming, I called my brother.",
+          accept: ["While the ambulance was coming, I called my brother"],
+          hint: "Глагол после while должен получить форму was и окончание -ing.",
           why:
-            "I was reading while somebody was calling me. После длительного действия " +
-            "ставят while.",
+            "While the ambulance was coming, I called my brother. После while стоит " +
+            "длительное действие.",
         },
         {
           id: "z3-vybrat-zapyatuyu",
@@ -1311,19 +1369,19 @@ const module: Module = {
           kind: "essay",
           prompt:
             "Напиши рассказ о случае четырьмя строками. В первой скажи, что шло и что случилось, дальше — чем всё кончилось.",
-          minWords: 18,
+          minWords: 15,
           sample:
-            "Yesterday I was waiting at the bus stop when a scooter stopped near me.\nWhile the driver was looking at the wheel, I called my brother.\nUnfortunately, my phone battery was very low.\nLuckily, the bus arrived and I got home.",
+            "Yesterday I was waiting at the gate when a scooter stopped near me.\nWhile the driver was looking at the wheel, I called my brother.\nUnfortunately, my phone was cold and it stopped.\nLuckily, the bus arrived and I got home.",
           checklist: [
             "в первой строке есть и длительное действие, и законченное",
-            "после while стоит длительное действие, после when — законченное",
-            "запятая стоит только там, где часть с союзом идёт впереди",
+            "после while стоит длительное действие",
+            "запятая стоит там, где часть с союзом идёт впереди",
             "у длительного действия есть форма was или were и окончание -ing",
           ],
           hint: "Бери законченные действия, формы которых знаешь: came, saw, stopped, called, arrived.",
           why:
-            "Проверь по четырём пунктам списка. Главное — чтобы каждый союз смотрел на " +
-            "то действие, которое идёт сразу за ним.",
+            "Проверь по четырём пунктам списка. Главное — чтобы после while стояло " +
+            "длительное действие.",
         },
       ],
     },
@@ -1333,87 +1391,89 @@ const module: Module = {
     ask: 10,
     passRatio: 0.8,
     questions: [
-      // Работа написана отдельно от заданий уроков и другими углами: исправить
-      // чужую запись, назвать причину ошибки, восстановить половину строки,
-      // отличить по русскому переводу. Совпадений с заданиями уроков нет.
+      // Работа написана отдельно от заданий уроков и другими углами: восстановить
+      // половину строки, назвать разницу в смысле, поставить знак, ответить по
+      // записи. Строк уроков в ней нет.
 
       // ---- итог 1 ----
       {
         id: "q-dve-formy-ispravit",
         kind: "short",
         outcome: "связывать длительное и законченное действие: I was cooking when he came",
-        prompt: "Исправь ошибку и запиши целиком: «I cooked when my colleague was coming.»",
-        answer: "I was cooking when my colleague came.",
-        accept: ["I was cooking when my colleague came"],
+        prompt:
+          "Уборка двигателя уже шла к приходу брата. Исправь и запиши целиком: «I cleaned the engine when my brother arrived.»",
+        answer: "I was cleaning the engine when my brother arrived.",
+        accept: ["I was cleaning the engine when my brother arrived"],
         why:
-          "I was cooking when my colleague came. Готовка тянулась, а приход занял " +
-          "миг: формы стояли наоборот.",
+          "I was cleaning the engine when my brother arrived. Уборка тянулась, и " +
+          "потому левая половина берёт was и окончание -ing.",
       },
       {
         id: "q-dve-formy-prichina",
         kind: "choice",
         outcome: "связывать длительное и законченное действие: I was cooking when he came",
-        prompt: "Чем «I read when he came» отличается от «I was reading when he came»?",
+        prompt: "Чем «I cooked when he came» отличается от «I was cooking when he came»?",
         options: [
-          { text: "Ничем, это одно и то же" },
-          { text: "В первой чтение началось после его прихода", correct: true },
+          { text: "В первой готовка началась после его прихода", correct: true },
           { text: "В первой он пришёл дважды" },
+          { text: "Ничем, это одно и то же" },
         ],
         why:
-          "I was reading when he came говорит, что чтение уже шло. I read when he " +
-          "came ставит чтение после прихода.",
+          "I was cooking when he came говорит, что готовка уже шла. I cooked when he " +
+          "came ставит готовку после прихода.",
       },
 
       // ---- итог 2 ----
       {
-        id: "q-soyuz-ispravit",
+        id: "q-posle-while-ispravit",
         kind: "short",
-        outcome: "выбирать when или while по тому, какое действие идёт следом",
-        prompt: "Исправь союз и запиши целиком: «While the ambulance arrived, I called my brother.»",
-        answer: "When the ambulance arrived, I called my brother.",
-        accept: ["When the ambulance arrived, I called my brother"],
+        outcome: "ставить while там, где после союза идёт длительное действие",
+        prompt:
+          "После while нужно длительное действие. Исправь и запиши целиком: «While my sister cooked dinner, I helped her.»",
+        answer: "While my sister was cooking dinner, I helped her.",
+        accept: ["While my sister was cooking dinner, I helped her"],
         why:
-          "When the ambulance arrived, I called my brother. Приход скорой занял миг, " +
-          "а при таком действии стоит when.",
+          "While my sister was cooking dinner, I helped her. После while стоит форма " +
+          "was и окончание -ing.",
       },
       {
-        id: "q-soyuz-po-perevodu",
-        kind: "short",
-        outcome: "выбирать when или while по тому, какое действие идёт следом",
-        prompt:
-          "Допиши союз и запиши половину целиком: «___ the rain was falling» — по-русски «пока шёл дождь».",
-        answer: "while the rain was falling",
-        accept: ["While the rain was falling", "while the rain was falling."],
+        id: "q-posle-while-vybrat",
+        kind: "choice",
+        outcome: "ставить while там, где после союза идёт длительное действие",
+        prompt: "В какой части после while стоит длительное действие?",
+        options: [
+          { text: "while the lock opened" },
+          { text: "while the postman called" },
+          { text: "while the rain was falling", correct: true },
+        ],
         why:
-          "while the rain was falling. Слово «пока» показывает, что действие " +
-          "тянулось, а при таком стоит while.",
+          "while the rain was falling. Только здесь после союза стоит форма was и " +
+          "окончание -ing.",
       },
 
       // ---- итог 3 ----
       {
-        id: "q-zapyataya-ispravit",
+        id: "q-zapyataya-postavit",
         kind: "short",
-        outcome: "ставить запятую, когда часть с when стоит впереди",
-        prompt: "Убери лишний знак и запиши целиком: «I was sleeping, when the phone stopped.»",
-        answer: "I was sleeping when the phone stopped.",
-        accept: ["I was sleeping when the phone stopped"],
+        outcome: "ставить запятую, когда часть с союзом стоит впереди",
+        prompt: "Поставь недостающий знак и запиши целиком: «While I was sleeping she was driving.»",
+        answer: "While I was sleeping, she was driving.",
+        accept: ["While I was sleeping, she was driving"],
         why:
-          "I was sleeping when the phone stopped. Часть с when стоит позади, и " +
-          "запятая перед ней не нужна.",
+          "While I was sleeping, she was driving. Часть с союзом стоит впереди, и её " +
+          "отделяют запятой.",
       },
       {
-        id: "q-zapyataya-prichina",
-        kind: "choice",
-        outcome: "ставить запятую, когда часть с when стоит впереди",
-        prompt: "Зачем в записи «When he came, I was cooking» нужна запятая?",
-        options: [
-          { text: "Она отделяет часть с союзом, стоящую впереди", correct: true },
-          { text: "Она всегда стоит перед словом I" },
-          { text: "Она показывает, что действие длилось долго" },
-        ],
+        id: "q-zapyataya-ubrat",
+        kind: "short",
+        outcome: "ставить запятую, когда часть с союзом стоит впереди",
+        prompt:
+          "Перепиши эту мысль так, чтобы часть с союзом стояла позади: «When he came, I was cooking.»",
+        answer: "I was cooking when he came.",
+        accept: ["I was cooking when he came"],
         why:
-          "Запятая показывает, где кончилась часть с when и началась главная. Если " +
-          "часть с союзом стоит позади, запятая не нужна.",
+          "I was cooking when he came. Часть с союзом ушла назад, и разделять стало " +
+          "нечего: запятая не нужна.",
       },
 
       // ---- итог 4 ----
@@ -1421,12 +1481,13 @@ const module: Module = {
         id: "q-dva-dlitelnyh-ispravit",
         kind: "short",
         outcome: "соединять два длительных действия словом while",
-        prompt: "Исправь ошибку и запиши целиком: «She was driving when I was sleeping.»",
-        answer: "She was driving while I was sleeping.",
-        accept: ["She was driving while I was sleeping"],
+        prompt:
+          "Оба действия тянулись. Исправь и запиши целиком: «My brother was waiting while I cleaned the wheel.»",
+        answer: "My brother was waiting while I was cleaning the wheel.",
+        accept: ["My brother was waiting while I was cleaning the wheel"],
         why:
-          "She was driving while I was sleeping. Ни одно из двух действий не заняло " +
-          "миг, а при таком союз только один.",
+          "My brother was waiting while I was cleaning the wheel. Раз тянулись оба, " +
+          "форма was и окончание -ing нужны в обеих половинах.",
       },
       {
         id: "q-dva-dlitelnyh-otlichit",
@@ -1434,22 +1495,22 @@ const module: Module = {
         outcome: "соединять два длительных действия словом while",
         prompt: "В какой записи оба действия тянулись?",
         options: [
-          { text: "They were talking when the bus arrived." },
-          { text: "They talked while the rain fell." },
-          { text: "They were talking while the rain was falling.", correct: true },
+          { text: "She was driving while I was sleeping.", correct: true },
+          { text: "She was driving when I called her." },
+          { text: "She stopped while I was sleeping." },
         ],
         why:
-          "They were talking while the rain was falling. В обеих половинах стоит were " +
-          "или was и окончание -ing.",
+          "She was driving while I was sleeping. В обеих половинах стоит was и " +
+          "окончание -ing.",
       },
 
       // ---- итог 5 ----
       {
         id: "q-rasskaz-pervyy-hod",
         kind: "short",
-        outcome: "рассказывать о случае двумя действиями подряд",
+        outcome: "рассказывать о случае в три хода",
         prompt:
-          "Рассказ начали так: «I cleaned the engine. Suddenly the rain started.» Первая строка должна описывать обстановку, а не двигать рассказ. Перепиши её.",
+          "Рассказ начали так: «I cleaned the engine. Suddenly the rain started.» Первая строка должна описывать обстановку. Перепиши её.",
         answer: "I was cleaning the engine.",
         accept: ["I was cleaning the engine"],
         why:
@@ -1457,47 +1518,44 @@ const module: Module = {
           "потому первая строка берёт was и окончание -ing.",
       },
       {
-        id: "q-rasskaz-lishnyaya-stroka",
+        id: "q-rasskaz-tretiy-hod",
         kind: "choice",
-        outcome: "рассказывать о случае двумя действиями подряд",
-        prompt: "Какая строка не двигает рассказ, а только описывает обстановку?",
+        outcome: "рассказывать о случае в три хода",
+        prompt: "Два хода уже есть: обстановка и то, что случилось. Чем кончают третий?",
         options: [
-          { text: "The driver asked about the roundabout." },
-          { text: "My sister was waiting outside.", correct: true },
-          { text: "Suddenly the lock opened." },
+          { text: "Ещё одним длительным действием" },
+          { text: "Тем, чем всё обернулось: Luckily, nobody was hurt.", correct: true },
+          { text: "Вопросом к собеседнику" },
         ],
-        why:
-          "My sister was waiting outside. Это длительное действие, и оно описывает " +
-          "обстановку, а рассказ двигают законченные.",
+        why: "Третий ход говорит, чем всё обернулось, и действия там обычно уже нет.",
       },
 
       // ---- итог 6 ----
       {
-        id: "q-rasskaz-chto-tyanulos",
-        kind: "choice",
-        outcome: "понимать рассказ, где длительное действие прервано законченным",
-        prompt:
-          "В сообщении написано: «While the ambulance was coming, two people were helping him.» Что тянулось?",
-        options: [
-          { text: "Только приезд скорой" },
-          { text: "Только помощь людей" },
-          { text: "И приезд скорой, и помощь людей", correct: true },
-        ],
-        why:
-          "Тянулось и то, и другое: в обеих половинах стоит was или were с окончанием " +
-          "-ing.",
-      },
-      {
-        id: "q-rasskaz-chto-sluchilos",
+        id: "q-rasskaz-chto-prervalo",
         kind: "short",
         outcome: "понимать рассказ, где длительное действие прервано законченным",
         prompt:
-          "В сообщении написано: «While the ambulance was coming, two people were helping him.» Запиши по-английски ту половину, которая стоит после союза.",
-        answer: "two people were helping him",
-        accept: ["two people were helping him."],
+          "В сообщении написано: «Yesterday I was walking home from work when I saw an accident.» Запиши по-английски то, что прервало ходьбу.",
+        answer: "I saw an accident",
+        accept: ["I saw an accident.", "saw an accident"],
         why:
-          "Вторая половина — two people were helping him. Первая стоит перед " +
-          "запятой и начинается с While.",
+          "I saw an accident. Ходьба тянулась, а вид происшествия занял миг и потому " +
+          "прервал её.",
+      },
+      {
+        id: "q-rasskaz-chto-tyanulos",
+        kind: "choice",
+        outcome: "понимать рассказ, где длительное действие прервано законченным",
+        prompt: "В сообщении написано: «When the ambulance arrived, I walked home.» Что тянулось?",
+        options: [
+          { text: "Приход скорой" },
+          { text: "Ходьба домой" },
+          { text: "Ничего: обе половины называют то, что случилось", correct: true },
+        ],
+        why:
+          "Здесь нет длительного действия вовсе: и arrived, и walked — формы " +
+          "прошедшего, окончания -ing нет ни у одного.",
       },
 
       // ---- итог 7 ----
@@ -1505,54 +1563,54 @@ const module: Module = {
         id: "q-na-sluh-chto-shlo",
         kind: "choice",
         outcome: "слышать в записи, что шло и что случилось",
-        zvuk: "While I was walking to the shop, I lost my purse.",
+        zvuk: "While I was waiting at the gate, the scooter stopped.",
         prompt: "Послушай и ответь: что тянулось?",
         options: [
-          { text: "Потеря кошелька" },
-          { text: "Ходьба в магазин", correct: true },
+          { text: "Остановка мопеда" },
+          { text: "Ожидание у ворот", correct: true },
           { text: "В записи об этом не сказано" },
         ],
         why:
-          "While I was walking to the shop, I lost my purse. Тянулась ходьба: она " +
-          "стоит после while.",
+          "While I was waiting at the gate, the scooter stopped. Тянулось ожидание: " +
+          "оно стоит после while.",
       },
       {
-        id: "q-na-sluh-slovo-o-propazhe",
+        id: "q-na-sluh-gde-byl",
         kind: "short",
         outcome: "слышать в записи, что шло и что случилось",
-        zvuk: "What were you doing near the gate? — I was looking for my receipt.",
-        prompt: "Послушай и запиши одним английским словом, что человек искал.",
-        answer: "receipt",
-        accept: ["my receipt", "the receipt"],
-        why: "Человек искал чек: I was looking for my receipt.",
+        zvuk: "Where were you when the rain started? — Near the motorway.",
+        prompt: "Послушай и запиши одним английским словом, где был человек.",
+        answer: "motorway",
+        accept: ["the motorway", "near the motorway"],
+        why: "Where were you when the rain started? — Near the motorway.",
       },
 
       // ---- итог 8 ----
       {
-        id: "q-proverka-soyuza-i-zapyatoy",
+        id: "q-proverka-while",
         kind: "short",
-        outcome: "проверять рассказ: там ли стоит when, там ли while",
+        outcome: "проверять рассказ: там ли стоит while",
         prompt:
-          "В рассказе строка «When I was looking at the wheel, my brother called me.» Исправь союз и запиши целиком.",
-        answer: "While I was looking at the wheel, my brother called me.",
-        accept: ["While I was looking at the wheel, my brother called me"],
+          "В рассказе строка «While the postman called, I was cleaning the stairs.» После while нужно длительное действие. Перепиши строку.",
+        answer: "While the postman was calling, I was cleaning the stairs.",
+        accept: ["While the postman was calling, I was cleaning the stairs"],
         why:
-          "While I was looking at the wheel, my brother called me. После союза стоит " +
-          "длительное действие, а при нём нужен while.",
+          "While the postman was calling, I was cleaning the stairs. После while " +
+          "глагол берёт форму was и окончание -ing.",
       },
       {
         id: "q-proverka-chto-smotret",
         kind: "choice",
-        outcome: "проверять рассказ: там ли стоит when, там ли while",
-        prompt: "Куда смотреть, чтобы проверить союз?",
+        outcome: "проверять рассказ: там ли стоит while",
+        prompt: "Строка начинается словами «While the driver…». Что проверять первым?",
         options: [
-          { text: "На то, что стоит перед союзом" },
-          { text: "На запятую в середине строки" },
-          { text: "На то действие, которое идёт сразу за союзом", correct: true },
+          { text: "Есть ли форма was и окончание -ing сразу за while", correct: true },
+          { text: "Сколько слов в первой половине" },
+          { text: "Стоит ли в конце строки точка" },
         ],
         why:
-          "Союз смотрит вперёд: длительное действие после него требует while, " +
-          "законченное — when.",
+          "После while должно стоять длительное действие. Что идёт перед союзом, для " +
+          "этой проверки значения не имеет.",
       },
     ],
   },
