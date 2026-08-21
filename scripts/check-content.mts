@@ -1434,6 +1434,13 @@ function checkKartochkaRabotaet(mod: Module, where: string): void {
       if (!rabotaet && osnova.endsWith("e")) {
         rabotaet = new RegExp(`\\b${osnova.slice(0, -1)}(ing|ed)\\b`).test(tekst);
       }
+      // Переход -y в -ies и -ied после согласного: strawberry → strawberries,
+      // hurry → hurried, study → studies. Без этой поблажки проверка объявила
+      // мёртвой карточку strawberry, работавшую в задании модуля 12: слово
+      // стояло там во множественном числе, а другой формы у него в речи и нет.
+      if (!rabotaet && /[^aeiou]y$/.test(osnova)) {
+        rabotaet = new RegExp(`\\b${osnova.slice(0, -1)}(ies|ied)\\b`).test(tekst);
+      }
     }
     if (!rabotaet) bez.push(`«${slovo}» (${urok})`);
   }
