@@ -94,6 +94,10 @@ const FAILY: Array<[RegExp, string]> = [
   // принято». Выписки лежат в репозитории, потому что они маленькие и потому
   // что проверяющий должен видеть, откуда взято утверждение о вежливости.
   [/^docs\/istochniki-vezhlivost/i, "docs/istochniki-vezhlivost.md"],
+  // Тот же случай, но не про обычаи, а про норму языка: что слово значит, как
+  // сильно звучит и где как принято. Появился 22 августа 2026 по просьбе
+  // владельца найти ответы в открытых источниках.
+  [/^docs\/istochniki-norma-yazyka/i, "docs/istochniki-norma-yazyka.md"],
 ];
 
 const kesh = new Map<string, string>();

@@ -241,6 +241,41 @@ const module: Module = {
       license: "внутреннее использование, публично не называем",
     },
     {
+      ref: "docs/istochniki-norma-yazyka.md — выписки из открытых источников",
+      section:
+        "Наши материалы отвечают «как читается слово» и «на какой ступени оно " +
+        "стоит», но не «что оно значит» и не «где как принято». Четыре " +
+        "утверждения модуля стоят на выписках оттуда, и каждая цитата открыта " +
+        "своими глазами. " +
+        "УРОК 2, ЧТО ЗНАЧИТ TOO. Викисловарь, статья «too»: «To an excessive " +
+        "degree, more than enough — indicates that the degree of a quality is " +
+        "more than what is needed or wanted». Определение говорит о степени " +
+        "качества и ничего не требует дописывать — отсюда правка правила урока. " +
+        "УРОК 2, ВТОРОЕ TOO. Та же статья: «Also, in addition», пометка «Used " +
+        "postpositively». Слово postpositively и значит «после» — на этом стоит " +
+        "врезка о двух too. " +
+        "УРОК 1, СЛОВО QUITE. Викисловарь, статья «quite»: значение «completely, " +
+        "entirely» и значение «To a moderate extent or degree; somewhat, rather», " +
+        "с пометкой «similar to fairly and rather and somewhat». Двузначность " +
+        "подтверждена, и потому урок говорит о quite не вообще, а перед словами " +
+        "вроде good, expensive, old. ПРЯМОГО сравнения «quite слабее, чем very» " +
+        "ни один открытый источник, который я сумел открыть, не даёт: это " +
+        "остаётся решением владельца как преподавателя. " +
+        "УРОК 5, МЕСТО A LOT. Викисловарь, статья «a lot»: примеры «I go swimming " +
+        "a lot» и «Thanks a lot for listening to me». Первый подтверждает место " +
+        "после действия, второй показывает, что после оборота бывает " +
+        "продолжение, — отсюда снята прежняя строка «в самом конце строки». " +
+        "УРОК 6, ПОЧТА ПО-БРИТАНСКИ. Википедия, «Comparison of American and " +
+        "British English», таблица различий: post (British) — mail (American). " +
+        "Строка письма исправлена на by post, карточка `mail` снята, её место " +
+        "заняло `surprising`. " +
+        "ЧЕГО В МОДУЛЕ НЕТ ПО ТОЙ ЖЕ ПРИЧИНЕ: этажей. Википедия, «Storey»: «the " +
+        "floor at ground level is called the “ground floor”… the next floor up is " +
+        "assigned the number 1». Значит британское second floor — это третий " +
+        "этаж, и прежний словарик урока чтения переводил его неверно",
+      license: "открытые источники, ссылки внутри файла",
+    },
+    {
       ref: "Словарь произношения materials/ipa-en-uk.txt",
       section:
         "Чтение карточек модуля. Условности курса применены: `r` вместо `ɹ`, `g` " +
@@ -1081,7 +1116,7 @@ const module: Module = {
             "So I bought a tie and a pair of trainers. The trainers fit me very well.",
             "The cafe there is quite good, but the coffee was too hot.",
             "There is a foreign shop near the entrance. The jewellery there is so beautiful.",
-            "That shop sends everything by mail, and that is quite useful.",
+            "That shop sends everything by post. The prices there are surprising.",
             "See you soon, Dana",
           ],
           glossary: [
@@ -1104,7 +1139,7 @@ const module: Module = {
           caption: "Слова урока",
           items: [
             { term: "foreign", translation: "иностранный", example: "There is a foreign shop near the entrance.", hint: "/ˈfɒrən/" },
-            { term: "mail", translation: "почта", example: "That shop sends everything by mail.", hint: "/meɪl/" },
+            { term: "surprising", translation: "неожиданный", example: "The prices there are surprising.", hint: "/səˈpraɪzɪŋ/" },
           ],
         },
 
@@ -1140,10 +1175,10 @@ const module: Module = {
           about: "pismo-dany",
           kind: "short",
           prompt: "Как иностранный магазин присылает покупки? Ответь одним словом по-английски.",
-          answer: "mail",
-          accept: ["Mail", "by mail"],
+          answer: "post",
+          accept: ["Post", "by post"],
           hint: "Ответ стоит в предпоследней строке письма.",
-          why: "That shop sends everything by mail, and that is quite useful.",
+          why: "That shop sends everything by post. По-британски почта — post.",
         },
         {
           id: "z4-otmetit-verno-o-pisme",
