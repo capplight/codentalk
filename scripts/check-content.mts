@@ -1386,6 +1386,67 @@ function checkPodpisiNePovtoryayutsya(mod: Module, where: string): void {
  * Это сведения, а не ошибка: карточка, работающая только в словарике, иногда
  * законна — так вводят перечень дней недели или цветов. Решает методист.
  */
+/**
+ * Прошедшие формы неправильных глаголов, которыми пользуется курс. Нужны
+ * проверке «карточка работает где-то ещё»: из основы такая форма не выводится,
+ * и без списка карточка объявляется мёртвой при живой работающей строке.
+ *
+ * Список ведётся по надобности: сюда попадает глагол, у которого в курсе есть
+ * карточка. Лишняя строка вреда не делает, недостающая — даёт ложный крик.
+ */
+const OSOBYE_FORMY: Record<string, string[]> = {
+  steal: ["stole", "stolen"],
+  buy: ["bought"],
+  bring: ["brought"],
+  think: ["thought"],
+  catch: ["caught"],
+  teach: ["taught"],
+  find: ["found"],
+  lose: ["lost"],
+  leave: ["left"],
+  sing: ["sang", "sung"],
+  drink: ["drank", "drunk"],
+  eat: ["ate", "eaten"],
+  give: ["gave", "given"],
+  take: ["took", "taken"],
+  write: ["wrote", "written"],
+  speak: ["spoke", "spoken"],
+  break: ["broke", "broken"],
+  wear: ["wore", "worn"],
+  meet: ["met"],
+  sell: ["sold"],
+  tell: ["told"],
+  sleep: ["slept"],
+  feel: ["felt"],
+  keep: ["kept"],
+  send: ["sent"],
+  spend: ["spent"],
+  build: ["built"],
+  read: ["read"],
+  run: ["ran"],
+  swim: ["swam"],
+  begin: ["began"],
+  drive: ["drove", "driven"],
+  ride: ["rode", "ridden"],
+  choose: ["chose", "chosen"],
+  forget: ["forgot", "forgotten"],
+  understand: ["understood"],
+  become: ["became"],
+  hear: ["heard"],
+  hold: ["held"],
+  pay: ["paid"],
+  say: ["said"],
+  see: ["saw", "seen"],
+  sit: ["sat"],
+  stand: ["stood"],
+  win: ["won"],
+  wake: ["woke", "woken"],
+  fly: ["flew", "flown"],
+  grow: ["grew", "grown"],
+  know: ["knew", "known"],
+  throw: ["threw", "thrown"],
+};
+
 function checkKartochkaRabotaet(mod: Module, where: string): void {
   const kuski: string[] = [];
   const sobrat = (x: any): void => {
@@ -1453,6 +1514,17 @@ function checkKartochkaRabotaet(mod: Module, where: string): void {
       if (!rabotaet && /[^aeiou][aeiou][bdgklmnprt]$/.test(osnova)) {
         const udvoenie = osnova + osnova.slice(-1);
         rabotaet = new RegExp(`\\b${udvoenie}(er|est|ing|ed)\\b`).test(tekst);
+      }
+      // Неправильные глаголы: их прошедшая форма из основы не выводится
+      // никакими окончаниями, и потому карточка steal, работающая строкой
+      // «Someone stole my bag», объявлялась мёртвой. Пятая поблажка того же
+      // ряда, и повод у неё тот же: проверка на однокоренные слова обязана
+      // знать словоизменение того предмета, который проверяет. Курс учит этим
+      // формам сам — модуль 3 ступени Elementary целиком о них.
+      if (!rabotaet && OSOBYE_FORMY[osnova]) {
+        rabotaet = OSOBYE_FORMY[osnova].some((f) =>
+          new RegExp(`\\b${f}\\b`).test(tekst)
+        );
       }
     }
     if (!rabotaet) bez.push(`«${slovo}» (${urok})`);

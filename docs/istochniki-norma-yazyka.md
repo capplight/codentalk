@@ -271,6 +271,52 @@ floor` — третий. Пока эта схема ученику не объя
 
 ---
 
+## 12. Двойного отрицания в правильном английском нет
+
+Нужно было для модуля 19: русский требует двойного отрицания («я **ни**кого
+**не** видел»), английский его не терпит, и это первая ошибка, которую сделает
+русскоязычный ученик.
+
+**Википедия, статья «Double negative»** — открыл, цитирую дословно.
+
+Из вводной части:
+
+> Chinese, Latin, German …, Dutch, Japanese, Swedish and modern Standard
+> English are examples of languages that do not have negative concord.
+
+Оттуда же, о том, чем язык заменяет второе отрицание:
+
+> Languages without negative concord typically have negative polarity items that
+> are used in place of additional negatives when another negating word already
+> occurs. Examples are "ever", "anything" and "anyone" in the sentence "I haven't
+> ever owed anything to anyone" (cf. "I haven't never owed nothing to no one" in
+> negative-concord dialects of English …).
+
+Из раздела «English»:
+
+> In Standard English, two negatives are understood to resolve to a positive.
+
+И там же, в разделе о славянских языках, — прямое сравнение с русским:
+
+> In Russian, "I know nothing" is я ничего не знаю, lit. "I don't know nothing".
+
+Ссылка: https://en.wikipedia.org/wiki/Double_negative
+
+**Что отсюда следует для курса.** Правило урока звучит так: если в строке уже
+есть отрицание, второе не ставят, а берут слово на `any-`. `I didn't see
+anyone`, а не `I didn't see nobody`.
+
+**И чего говорить нельзя.** Та же статья прямо пишет, что многие
+разновидности английского двойное отрицание как раз употребляют («This is also
+true of many vernacular dialects of modern English»). Значит «так никто не
+говорит» — неправда; правда — «так не пишут и не говорят на правильном
+английском», и в уроке стоит именно это.
+
+**Заодно источник подтверждает состав модуля:** место второго отрицания
+занимают ровно `anything` и `anyone` — те самые слова, которым учит урок 2.
+
+---
+
 ## Что этот файл НЕ подтвердил
 
 Честности ради, потому что в этом проекте утверждение «в источнике сказано так»

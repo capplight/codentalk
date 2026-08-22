@@ -303,7 +303,7 @@ predictions», пример «I think this Saturday is going to be a nice day»)
 | 16 | Очень и слишком | говорить о мере: насколько и не слишком ли | `very`, `really`, `so`, `quite`; `too` + прилагательное и `too … for me`; `too many`; `a lot`, `so much` при действии | 50 |
 | 17 | Как это делается | описывать, как происходит действие | наречия образа действия; их место в предложении | 50 |
 | 18 | Сколько чего | говорить о количестве точно | исчисляемое и неисчисляемое; `a lot of`, `a few`, `a bit of`, `enough`; `much` и `many` в отрицании; `How much` и `How many` | 55 |
-| 19 | Кто-то и что-то | говорить о неизвестном или неважном | `something`, `anyone`, `nobody`, `everywhere` | 50 |
+| 19 | Кто-то и что-то | говорить о неизвестном или неважном | `someone`, `something`, `anyone`, `anything`, `nobody`, `nothing`, `everyone`, `everything`; `somewhere`, `anywhere`, `everywhere`; `something new`, `something to eat`, `something else` | 50 |
 | 20 | Этот, тот и другой | указывать и не повторять названное | указательные; `one`, `ones`, `none`; `another`, `other` | 45 |
 | 21 | Свой и сам | говорить о принадлежности и о самостоятельном действии | притяжательные местоимения `mine`, `yours`; возвратные `myself` | 45 |
 
@@ -348,6 +348,58 @@ INTERROGATIVE»). А руководство A2 Key на с. 52 в перечне
 + 'OF' + DETERMINER», примеры «I spent all of my money», «Some of my friends
 gave me books»), но модуль 18 и без него набирает пять уроков правил, а модуль
 20 занят как раз тем, чтобы не повторять названное.
+
+**Строка модуля 19 расширена 23 августа 2026, при его написании.** Прежде она
+обещала четыре слова — «`something`, `anyone`, `nobody`, `everywhere`». С
+источниками она не разошлась: все четыре стоят в словнике A2 Key, а руководство
+A2 Key на с. 52 в перечне Pronouns называет их прямо — «Quantitative: one,
+something, everybody, etc.», «Indefinite: some, any, something, one, etc.».
+Разошлась она с ОБЪЁМОМ: четыре слова там, где English Grammar Profile даёт
+семь отдельных граф A2, и половина из них — не слова, а обороты, без которых
+ученик остаётся с голым списком.
+
+Что там стоит на A2, всё в подкатегории PRONOUNS «indefinite - thing, -one,
+-body etc»:
+
+- «FORM: SUBJECT» — «Can use a limited range of indefinite pronouns
+  ('someone', 'everyone') as subjects, with a singular verb», пример «someone
+  stole my luggage at the airport»;
+- «FORM: OBJECT OR COMPLEMENT» — «an increasing range … as objects or
+  complements of prepositions», пример «I have to call someone»;
+- «FORM: NEGATIVE + 'ANYTHING'» — пример «You don't have to bring anything»;
+- «FORM/USE: WITH ADJECTIVE, SPECIFYING» — «Can modify 'something' or
+  'anything' with an adjective», пример «I needed something new to wear»;
+- «FORM/USE: WITH 'TO' INFINITIVE, SPECIFYING» — пример «Please, bring
+  something to drink»;
+- «FORM: WITH 'ELSE'» — примеры «Have you got something else to do…», «but
+  nothing else»;
+- «USE: 'SOMETHING' IN VAGUE EXPRESSIONS» — пример «a pizza or something else».
+
+**Мерка взята одна на весь модуль, и это важнее самого списка.** English
+Grammar Profile ставит на B1 три вещи, которые модуль всё-таки берёт:
+`something` и `nobody` в роли подлежащего (графа B1 «FORM: SUBJECT» так и
+названа — «an increasing range … ('something', 'nobody')»), `anyone` и `nothing`
+дополнением (B1, LR 3) и слова на `-where` (там же и в B2). Все они стоят в
+словнике A2 Key — `nobody (pron)`, `nothing (pron)`, `anyone (pron)`,
+`somewhere (adv)`, `anywhere (adv)`, `everywhere (adv)`, — то есть входят в
+требования экзамена, к которому ведёт ступень.
+
+Это та же мерка, по которой в модуль 18 вернулся `enough`, и применена она
+одинаково ко всем: единственное слово этого ряда, которого в словнике **нет**, —
+`nowhere`, и оно из модуля убрано, хотя Oxford помечает его A2. Кто рассудит
+иначе, снимает не отдельное слово, а всю мерку сразу.
+
+**Слова на `-where` — наречия, а не местоимения**, и словник помечает их именно
+так. Руководство на с. 52 держит для них свою строку: «Adverbs … Place: here,
+there, etc.». Поэтому урок 5 вводит их вторым именем, а не подкладывает под
+главное имя модуля.
+
+**Двойное отрицание пришлось подтверждать открытым источником.** Русский его
+требует, английский не терпит, и без прямого запрета ученик напишет `I didn't
+see nobody` на первом же задании. Наши материалы про это молчат: графа A2
+«FORM: NEGATIVE + 'ANYTHING'» — разрешение поставить `anything`, а не запрет
+ставить `nobody`. Выписка из Википедии — [istochniki-norma-yazyka.md](istochniki-norma-yazyka.md),
+пункт 12.
 
 ### Часть четвёртая. Разговор о жизни (модули 22–31)
 
