@@ -317,6 +317,70 @@ true of many vernacular dialects of modern English»). Значит «так н�
 
 ---
 
+## 13. `chips` по-британски — жареный картофель, а не чипсы
+
+Владелец сказал 23 августа 2026: «chips всё-таки чипсы» — и велел поискать
+ответ в интернете. Искал. Ниже всё, что открыл своими глазами.
+
+**Викисловарь, статья «chip», значения 10 и 11** — цитирую дословно:
+
+> (UK, Ireland, Australia, New Zealand, archaic in Canada, usually in the
+> plural) A deep-fried strip of potato
+
+> (US, Canada, Australia and New Zealand, especially in the plural) A thin,
+> crisp, fried slice of potato, a crisp
+
+Ссылка: https://en.wiktionary.org/wiki/chip
+
+**Википедия, статья «French fries»** — первая строка:
+
+> French fries … or simply fries, also known as French fried potatoes,
+> **chips**, and finger chips
+
+Помета к слову `chips` в самой статье: «Spoken in British English and other
+national varieties».
+
+Ссылка: https://en.wikipedia.org/wiki/French_fries
+
+**Википедия, статья «Potato chips»** — первая строка:
+
+> Potato chips (North American and Australian English; often just **chips**) or
+> **crisps** (British and Irish English) are thin slices of potato … that have
+> been deep-fried, baked, or air-fried until crunchy.
+
+Ссылка: https://en.wikipedia.org/wiki/Potato_chips
+
+**И наш собственный словник экзамена говорит то же.** `materials/cambridge-vocab-a2-key.pdf`
+даёт две строки, и они сходятся друг с другом:
+
+> chips (n pl) (Br Eng) • egg and chips
+
+> French fries (n) (Am Eng) (Br Eng: chips)
+
+Там же пример из другой статьи словника: «Chicken and chips is my favourite
+dish».
+
+**Что отсюда следует.** Три независимых источника и словник экзамена сходятся:
+в британском английском `chips` — это картофель, жаренный брусочками. Тонкие
+хрустящие ломтики по-британски зовутся `crisps`, и слова `crisp` в словнике A2
+Key нет вовсе — значит требований экзамена оно не касается.
+
+**Но у владельца была причина так думать, и её стоит записать.** Русское
+«чипсы» — заимствование как раз американского `chips`. Викисловарь показывает
+это прямо: в статье «chips» переводы на датский, нидерландский, шведский,
+польский и французский дают одно и то же — «(US) a chip, (UK) a crisp». То есть
+во всех этих языках, как и в русском, прижилось американское значение.
+
+Отсюда `chips` — **ложный друг для нашего ученика**, и карточка обязана его
+разводить, а не подтверждать. Курс держит британскую норму (решение владельца),
+и по ней `chips` подаются к рыбе, а не к пиву.
+
+**Решение за владельцем.** Он преподаватель, и последнее слово его. Пока он не
+сказал иначе, карточка модуля 19 переводит `chips` как «жареный картофель
+брусочками».
+
+---
+
 ## Что этот файл НЕ подтвердил
 
 Честности ради, потому что в этом проекте утверждение «в источнике сказано так»

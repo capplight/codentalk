@@ -304,7 +304,7 @@ predictions», пример «I think this Saturday is going to be a nice day»)
 | 17 | Как это делается | описывать, как происходит действие | наречия образа действия; их место в предложении | 50 |
 | 18 | Сколько чего | говорить о количестве точно | исчисляемое и неисчисляемое; `a lot of`, `a few`, `a bit of`, `enough`; `much` и `many` в отрицании; `How much` и `How many` | 55 |
 | 19 | Кто-то и что-то | говорить о неизвестном или неважном | `someone`, `something`, `anyone`, `anything`, `nobody`, `nothing`, `everyone`, `everything`; `somewhere`, `anywhere`, `everywhere`; `something new`, `something to eat`, `something else` | 50 |
-| 20 | Этот, тот и другой | указывать и не повторять названное | указательные; `one`, `ones`, `none`; `another`, `other` | 45 |
+| 20 | Этот, тот и другой | указывать и не повторять названное | указательные `this`, `that`, `these`, `those`; `one`; `another`, `other`; `some of`, `all of` | 45 |
 | 21 | Свой и сам | говорить о принадлежности и о самостоятельном действии | притяжательные местоимения `mine`, `yours`; возвратные `myself` | 45 |
 
 **Проверочная работа части.** Описание и сравнение вещей, мест и людей.
@@ -400,6 +400,48 @@ see nobody` на первом же задании. Наши материалы �
 «FORM: NEGATIVE + 'ANYTHING'» — разрешение поставить `anything`, а не запрет
 ставить `nobody`. Выписка из Википедии — [istochniki-norma-yazyka.md](istochniki-norma-yazyka.md),
 пункт 12.
+
+**Строка модуля 20 проверена 23 августа 2026, ДО написания** — по просьбе
+владельца и потому, что три строки из четырёх последних расходились с
+источниками. Она обещает «указательные; `one`, `ones`, `none`; `another`,
+`other`». Расхождений два, и оба сняты той же меркой, которой держится модуль 19.
+
+- **`none` — C1, и в словнике A2 Key его нет.** English Grammar Profile даёт
+  его тремя графами сразу, и все три C1: PRONOUNS «substitution, one, ones,
+  none», «FORM: 'NONE'» — «Can use 'none' as a pronoun»; PRONOUNS quantity,
+  «FORM: 'NONE', SUBSTITUTION»; NEGATION, «FORM: 'NONE', SUBSTITUTION» — «Can
+  use negative pronoun 'none' to substitute for subject and object pronouns or
+  noun phrases». Обороты `none of` и `neither of` — B1 и B2. В словнике A2 Key
+  искал построчно: есть `another (det & pron)`, `one (det & pron)`,
+  `other (det & pron)`, а `none` нет. Значит случай тот же, что у `nowhere` в
+  модуле 19: источник не даёт, требования экзамена не требуют — слово снимается.
+
+- **`ones` — B1.** Там же, «FORM: 'ONES'»: «Can use 'ones' as a pronoun to
+  substitute for plural nouns which have already been mentioned», примеры «My
+  pillows are getting old and I need new ones», «I prefer large schools to small
+  ones». В словнике A2 Key `ones` отдельной строкой тоже нет. Снимается.
+
+- **`one` остаётся, и это надёжно.** Три графы A2 подряд: «FORM: 'ONE'» — «Can
+  use 'one' as a pronoun to substitute for singular countable nouns», пример «I
+  chose the black one with the numbers in orange»; «FORM: PRE-MODIFYING» —
+  «Can use determiners + premodifers + 'one'», пример «I love blue so I bought
+  the blue one»; «FORM/USE: POSTMODIFYING, SPECIFYING» — «Can use 'the one' … to
+  refer to something specific», пример «My house is No.8 and it's the one with
+  silver gates».
+
+- **Указательные остаются.** Руководство A2 Key, с. 52, перечень Pronouns:
+  «Demonstrative: this, that, these, those»; там же в перечне Adjectives:
+  «Demonstrative: this, that, these, those».
+
+- **`another` и `other` остаются:** обе строки есть в словнике, а руководство на
+  с. 52 в перечне Quantitative прямо называет `other`.
+
+**Дыра, которую надо назвать честно.** Без `none` и `ones` модуль 20 не сможет
+не повторять названное во множественном числе: `one` работает только с
+единственным. Учить надо своему случаю, а не отрицанию чужого, — значит модуль
+берёт единственное число и указательные, а о множественном молчит. Взамен туда
+уже перенесён оборот `some of` / `all of` (A2, «FORM: DETERMINER + 'OF' +
+DETERMINER»), см. разбор модуля 18 выше.
 
 ### Часть четвёртая. Разговор о жизни (модули 22–31)
 
