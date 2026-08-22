@@ -219,7 +219,7 @@ const module: Module = {
     "говорить о длительном действии: I was working",
     "писать окончание -ing по правилу",
     "называть время длительного действия: at seven, all evening",
-    "ставить наречие между was и глаголом",
+    "ставить наречие времени между was и глаголом",
     "спрашивать, что происходило: What were you doing?",
     "понимать текст, где описано, что происходило вокруг",
     "слышать в записи, что происходило в тот момент",
@@ -720,7 +720,7 @@ const module: Module = {
       slug: "narechie-v-seredine",
       title: "Наречие в середине: I was just watching",
       estimatedMinutes: 14,
-      outcome: "ставить наречие между was и глаголом",
+      outcome: "ставить наречие времени между was и глаголом",
 
       blocks: [
         {
@@ -762,8 +762,8 @@ const module: Module = {
           kind: "note",
           tone: "mistake",
           text:
-            "«Just I was watching a film» — так не говорят.\n\nМесто у наречия одно: " +
-            "сразу после was.",
+            "«Just I was watching a film» — так не говорят.\n\nМесто у этого " +
+            "наречия одно: сразу после was.",
         },
         {
           id: "primer-vecher-s-narechiyami",
@@ -816,7 +816,7 @@ const module: Module = {
           ],
           hint: "Наречие вклинивается между двумя словами длительного действия.",
           why:
-            "I was just watching a film. Место наречия одно — сразу после was, перед " +
+            "I was just watching a film. Место у этого наречия одно — сразу после was, перед " +
             "глаголом.",
         },
         {
@@ -1462,16 +1462,16 @@ const module: Module = {
       {
         id: "q-narechie-ispravit",
         kind: "short",
-        outcome: "ставить наречие между was и глаголом",
+        outcome: "ставить наречие времени между was и глаголом",
         prompt: "Исправь ошибку и запиши целиком: «She still was sleeping.»",
         answer: "She was still sleeping.",
         accept: ["She was still sleeping"],
-        why: "She was still sleeping. Место наречия одно — сразу после was.",
+        why: "She was still sleeping. Место у этого наречия одно — сразу после was.",
       },
       {
         id: "q-narechie-po-smyslu",
         kind: "short",
-        outcome: "ставить наречие между was и глаголом",
+        outcome: "ставить наречие времени между was и глаголом",
         prompt: "Вставь наречие just в строку и запиши её целиком: «She was cleaning the oven.»",
         answer: "She was just cleaning the oven.",
         accept: ["She was just cleaning the oven"],
