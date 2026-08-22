@@ -482,15 +482,15 @@ const module: Module = {
         {
           id: "z3-vybrat-pri-neskolkih",
           kind: "choice",
-          prompt: "Носков несколько, и они, может быть, в шкафу. Какая запись верна?",
+          prompt: "Ключей несколько, и они, может быть, в шкафу. Какая запись верна?",
           options: [
-            { text: "The socks may are in the cupboard." },
-            { text: "The socks may be in the cupboard.", correct: true },
-            { text: "The socks may being in the cupboard." },
+            { text: "The keys may are in the cupboard." },
+            { text: "The keys may be in the cupboard.", correct: true },
+            { text: "The keys may being in the cupboard." },
           ],
           hint: "После may глагол не меняется, сколько бы вещей ни было.",
           why:
-            "The socks may be in the cupboard. Форма be остаётся и при одной вещи, " +
+            "The keys may be in the cupboard. Форма be остаётся и при одной вещи, " +
             "и при нескольких: слово may её не трогает.",
         },
         {

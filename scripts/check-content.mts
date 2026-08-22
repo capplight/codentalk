@@ -1427,19 +1427,32 @@ function checkKartochkaRabotaet(mod: Module, where: string): void {
       rabotaet = tekst.includes(nizhnee);
     } else {
       const osnova = nizhnee.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-      rabotaet = new RegExp(`\\b${osnova}(s|es|ing|ed|d|'s)?\\b`).test(tekst);
+      // Окончания -er и -est стоят здесь ради модулей о сравнении: карточка
+      // clever работает строкой cleverer, wide — строкой wider. Поблажка
+      // нарочно широкая: она может засчитать paint по слову painter, но
+      // промолчать лучше, чем снять верное (CLAUDE.md, правила `kontrol`).
+      rabotaet = new RegExp(`\\b${osnova}(s|es|ing|ed|d|er|est|'s)?\\b`).test(tekst);
       // Выпадение конечного -e перед окончанием: telephone → telephoning,
       // come → coming, leave → leaving. Без этой поблажки проверка объявила
       // мёртвой карточку telephone, работавшую в задании модуля 10.
       if (!rabotaet && osnova.endsWith("e")) {
-        rabotaet = new RegExp(`\\b${osnova.slice(0, -1)}(ing|ed)\\b`).test(tekst);
+        rabotaet = new RegExp(`\\b${osnova.slice(0, -1)}(ing|ed|er|est)\\b`).test(tekst);
       }
       // Переход -y в -ies и -ied после согласного: strawberry → strawberries,
       // hurry → hurried, study → studies. Без этой поблажки проверка объявила
       // мёртвой карточку strawberry, работавшую в задании модуля 12: слово
       // стояло там во множественном числе, а другой формы у него в речи и нет.
       if (!rabotaet && /[^aeiou]y$/.test(osnova)) {
-        rabotaet = new RegExp(`\\b${osnova.slice(0, -1)}(ies|ied)\\b`).test(tekst);
+        rabotaet = new RegExp(`\\b${osnova.slice(0, -1)}(ies|ied|ier|iest|ily)\\b`)
+          .test(tekst);
+      }
+      // Удвоение конечной согласной перед окончанием: big → bigger, slim →
+      // slimmer, hot → hottest, stop → stopped. Без этой поблажки проверка
+      // объявила мёртвыми пятнадцать карточек модуля 14, работавших формой
+      // сравнения — то есть ровно тем, чему модуль и учит.
+      if (!rabotaet && /[^aeiou][aeiou][bdgklmnprt]$/.test(osnova)) {
+        const udvoenie = osnova + osnova.slice(-1);
+        rabotaet = new RegExp(`\\b${udvoenie}(er|est|ing|ed)\\b`).test(tekst);
       }
     }
     if (!rabotaet) bez.push(`«${slovo}» (${urok})`);
