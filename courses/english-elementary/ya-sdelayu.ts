@@ -1106,11 +1106,11 @@ const module: Module = {
           zvuchat: [
             "My colleague will repair the car on Tuesday.",
             "I'm glad: my parents will allow it.",
-            "The staff will post the whole set of tickets.",
+            "The staff will post all the tickets.",
             "It is not the usual way, but it will work.",
           ],
           text:
-            "My colleague will repair the car on Tuesday.\nI'm glad: my parents will allow it.\nThe staff will post the whole set of tickets.\nIt is not the usual way, but it will work.",
+            "My colleague will repair the car on Tuesday.\nI'm glad: my parents will allow it.\nThe staff will post all the tickets.\nIt is not the usual way, but it will work.",
           explain:
             "Четыре строки, и в каждой will стоит перед глаголом в словарной форме. " +
             "В первых трёх речь о согласии других людей, в четвёртой — о самом деле.",

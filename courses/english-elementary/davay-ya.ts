@@ -268,11 +268,17 @@ const module: Module = {
           id: "pomoshch-na-kuhne",
           kind: "example",
           caption: "На кухне перед приходом гостей",
+          razgovor: true,
           zvuchat: [
-            "Shall I cut the bread? — Yes, please. — Shall I serve the tea? — Not yet, the guests are late. — Shall I help you with the plates? — Thank you!",
+            "Shall I cut the bread?",
+            "Yes, please.",
+            "Shall I serve the tea?",
+            "Not yet, the guests are late.",
+            "Shall I help you with the plates?",
+            "Thank you!",
           ],
           text:
-            "Shall I cut the bread? — Yes, please. — Shall I serve the tea? — Not yet, the guests are late. — Shall I help you with the plates? — Thank you!",
+            "Shall I cut the bread?\nYes, please.\nShall I serve the tea?\nNot yet, the guests are late.\nShall I help you with the plates?\nThank you!",
           explain:
             "Каждый раз предлагается одно дело и каждый раз одним человеком: slice, " +
             "serve, help. Хозяйка отвечает коротко, и о том, как отвечают, — урок 5.",
@@ -408,11 +414,17 @@ const module: Module = {
           id: "zanyatiya-vmeste",
           kind: "example",
           caption: "Суббота у Алима и Данияра",
+          razgovor: true,
           zvuchat: [
-            "Shall we play golf on Saturday? — I don't have a racket. — Shall we go sailing? — The lake is far. — Shall we skate at the square? — Now that's a good day.",
+            "Shall we play golf on Saturday?",
+            "I don't have a racket.",
+            "Shall we go sailing?",
+            "The lake is far.",
+            "Shall we skate at the square?",
+            "Now that's a good day.",
           ],
           text:
-            "Shall we play golf on Saturday? — I don't have a racket. — Shall we go sailing? — The lake is far. — Shall we skate at the square? — Now that's a good day.",
+            "Shall we play golf on Saturday?\nI don't have a racket.\nShall we go sailing?\nThe lake is far.\nShall we skate at the square?\nNow that's a good day.",
           explain:
             "Каждый раз зовут вместе, и каждый раз с новым делом: golf, sailing, " +
             "skate. Друг отвечает не «да» и не «нет», а называет причину.",
@@ -436,6 +448,7 @@ const module: Module = {
             { term: "racket", translation: "ракетка", example: "I don't have a racket.", hint: "/ˈrækɪt/" },
             { term: "net", translation: "сетка", example: "The net is new.", hint: "/net/" },
             { term: "square", translation: "площадь", example: "Shall we skate at the square?", hint: "/skweə/" },
+            { term: "supper", translation: "ужин", example: "And supper? Let's cook at home.", hint: "/ˈsʌpə/" },
           ],
         },
 
@@ -556,11 +569,16 @@ const module: Module = {
           id: "gotovim-vmeste",
           kind: "example",
           caption: "Вечер у плиты",
+          razgovor: true,
           zvuchat: [
-            "Let's bake a pizza. — We don't have a recipe. — Let's mix eggs and cheese then. — An omelette with mushrooms? — Yes.",
+            "Let's bake a pizza.",
+            "We don't have a recipe.",
+            "Let's mix eggs and cheese then.",
+            "An omelette with mushrooms?",
+            "Yes.",
           ],
           text:
-            "Let's bake a pizza. — We don't have a recipe. — Let's mix eggs and cheese then. — An omelette with mushrooms? — Yes.",
+            "Let's bake a pizza.\nWe don't have a recipe.\nLet's mix eggs and cheese then.\nAn omelette with mushrooms?\nYes.",
           explain:
             "Первый зов не прошёл — рецепта нет, — и тогда зовут иначе. Слово then " +
             "значит «тогда» и связывает второй зов с помехой.",
@@ -703,11 +721,17 @@ const module: Module = {
           id: "vybor-mesta",
           kind: "example",
           caption: "Где встретиться с гостьей",
+          razgovor: true,
           zvuchat: [
-            "Why don't we meet at the station? — It's noisy there. — Why don't we meet at the square? — Perfect. — And supper? — Let's cook at home.",
+            "Why don't we meet at the station?",
+            "It's noisy there.",
+            "Why don't we meet at the square?",
+            "Perfect.",
+            "And supper?",
+            "Let's cook at home.",
           ],
           text:
-            "Why don't we meet at the station? — It's noisy there. — Why don't we meet at the square? — Perfect. — And supper? — Let's cook at home.",
+            "Why don't we meet at the station?\nIt's noisy there.\nWhy don't we meet at the square?\nPerfect.\nAnd supper?\nLet's cook at home.",
           explain:
             "Первое место не подошло, и тогда зовут в другое. Последний зов сказан " +
             "коротко — способ выбирают по ходу разговора.",
@@ -718,7 +742,6 @@ const module: Module = {
           caption: "Слова урока",
           items: [
             
-            { term: "supper", translation: "ужин", example: "And supper? Let's cook at home.", hint: "/ˈsʌpə/" },
             { term: "strawberry", translation: "клубника", example: "Let's buy strawberries for supper.", hint: "/ˈstrɔːbəri/" },
           ],
         },
@@ -861,11 +884,17 @@ const module: Module = {
           id: "subbota-troih",
           kind: "example",
           caption: "Суббота втроём",
+          razgovor: true,
           zvuchat: [
-            "Shall we play golf? — Sorry, I can't. I work on Saturday. — Why don't we meet on Sunday? — Good idea. — Let's go sailing then. — Certainly, the lake is relaxing.",
+            "Shall we play golf?",
+            "Sorry, I can't. I work on Saturday.",
+            "Why don't we meet on Sunday?",
+            "Good idea.",
+            "Let's go sailing then.",
+            "Certainly, the lake is relaxing.",
           ],
           text:
-            "Shall we play golf? — Sorry, I can't. I work on Saturday. — Why don't we meet on Sunday? — Good idea. — Let's go sailing then. — Certainly, the lake is relaxing.",
+            "Shall we play golf?\nSorry, I can't. I work on Saturday.\nWhy don't we meet on Sunday?\nGood idea.\nLet's go sailing then.\nCertainly, the lake is relaxing.",
           explain:
             "Отказ идёт с причиной, и разговор не обрывается: собеседник зовёт на " +
             "другой день. Дальше согласие звучит дважды и разными словами.",
@@ -1015,6 +1044,7 @@ const module: Module = {
             { term: "dessert", translation: "сладкое блюдо", example: "My sister makes a dessert with honey.", hint: "/dɪˈzɜːt/" },
             { term: "honey", translation: "мёд", example: "My sister makes a dessert with honey.", hint: "/ˈhʌni/" },
             { term: "melon", translation: "дыня", example: "Bring lemonade and a melon.", hint: "/ˈmelən/" },
+            { term: "sweet", translation: "сладкий", example: "The dessert with honey is very sweet.", hint: "/swiːt/" },
           ],
         },
 
@@ -1279,7 +1309,6 @@ const module: Module = {
           kind: "vocab",
           caption: "Слова урока",
           items: [
-            { term: "sweet", translation: "сладкий", example: "The dessert with honey is very sweet.", hint: "/swiːt/" },
             { term: "club", translation: "клуб", example: "The club is expensive, but the golf is good.", hint: "/klʌb/" },
             { term: "road", translation: "дорога", example: "Let's take the early bus — the road is long.", hint: "/rəʊd/" },
           ],

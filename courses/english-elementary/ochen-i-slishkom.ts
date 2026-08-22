@@ -364,11 +364,15 @@ const module: Module = {
           id: "razgovor-ob-otzyve",
           kind: "example",
           caption: "Разговор об отзыве",
+          razgovor: true,
           zvuchat: [
-            "Did you read the review on the web? — Yes, it is really good. — Is the jewellery expensive there? — Quite expensive. Gold is in fashion now, and the shop is very successful.",
+            "Did you read the review on the web?",
+            "Yes, it is really good.",
+            "Is the jewellery expensive there?",
+            "Quite expensive. Gold is in fashion now, and the shop is very successful.",
           ],
           text:
-            "Did you read the review on the web? — Yes, it is really good. — Is the jewellery expensive there? — Quite expensive. Gold is in fashion now, and the shop is very successful.",
+            "Did you read the review on the web?\nYes, it is really good.\nIs the jewellery expensive there?\nQuite expensive. Gold is in fashion now, and the shop is very successful.",
           explain:
             "Наречия меры стоят перед прилагательным каждый раз: really good, " +
             "quite expensive, very successful. Меняется слово, а место не меняется.",
@@ -530,11 +534,17 @@ const module: Module = {
           id: "razgovor-o-pokupkah",
           kind: "example",
           caption: "Разговор о покупках",
+          razgovor: true,
           zvuchat: [
-            "Did you buy the jacket? — No, it was too small. — And the suit? — Too expensive. The guy in the shop is very serious, but he helped me. I bought a tie. — Does the tie fit? — Yes.",
+            "Did you buy the jacket?",
+            "No, it was too small.",
+            "And the suit?",
+            "Too expensive. The guy in the shop is very serious, but he helped me. I bought a tie.",
+            "Does the tie fit?",
+            "Yes.",
           ],
           text:
-            "Did you buy the jacket? — No, it was too small. — And the suit? — Too expensive. The guy in the shop is very serious, but he helped me. I bought a tie. — Does the tie fit? — Yes.",
+            "Did you buy the jacket?\nNo, it was too small.\nAnd the suit?\nToo expensive. The guy in the shop is very serious, but he helped me. I bought a tie.\nDoes the tie fit?\nYes.",
           explain:
             "Каждое too здесь стоит перед прилагательным. Первое объясняет, почему " +
             "куртку не купили, второе — почему остался в магазине костюм.",
@@ -697,11 +707,16 @@ const module: Module = {
           id: "razgovor-o-mebeli",
           kind: "example",
           caption: "Разговор о мебели",
+          razgovor: true,
           zvuchat: [
-            "We bought new furniture. The round table is too big for the kitchen. — And the wooden shelf? — Too heavy for me. — Is the cupboard deep? — Yes, but inside it is empty.",
+            "We bought new furniture. The round table is too big for the kitchen.",
+            "And the wooden shelf?",
+            "Too heavy for me.",
+            "Is the cupboard deep?",
+            "Yes, but inside it is empty.",
           ],
           text:
-            "We bought new furniture. The round table is too big for the kitchen. — And the wooden shelf? — Too heavy for me. — Is the cupboard deep? — Yes, but inside it is empty.",
+            "We bought new furniture. The round table is too big for the kitchen.\nAnd the wooden shelf?\nToo heavy for me.\nIs the cupboard deep?\nYes, but inside it is empty.",
           explain:
             "Первое for называет место, второе — человека. Оба стоят в конце " +
             "строки, сразу после прилагательного.",
@@ -848,11 +863,15 @@ const module: Module = {
           id: "razgovor-o-rasprodazhe",
           kind: "example",
           caption: "Разговор о распродаже",
+          razgovor: true,
           zvuchat: [
-            "How was the sale? — There were too many people. I saw Dana among them. — What sort of toy did you want? — A red car. There were so many toys, and I did not choose. It was impossible!",
+            "How was the sale?",
+            "There were too many people. I saw Dana among them.",
+            "What sort of toy did you want?",
+            "A red car. There were so many toys, and I did not choose. It was impossible!",
           ],
           text:
-            "How was the sale? — There were too many people. I saw Dana among them. — What sort of toy did you want? — A red car. There were so many toys, and I did not choose. It was impossible!",
+            "How was the sale?\nThere were too many people. I saw Dana among them.\nWhat sort of toy did you want?\nA red car. There were so many toys, and I did not choose. It was impossible!",
           explain:
             "Too many стоит там, где число мешало, а so many — там, где просто " +
             "было много. Вещь после обоих оборотов во множественном числе.",
@@ -1001,11 +1020,16 @@ const module: Module = {
           id: "razgovor-o-filme",
           kind: "example",
           caption: "Разговор о фильме",
+          razgovor: true,
           zvuchat: [
-            "How was the film? — I liked it a lot. The end is really strange. — Was it scary? — Yes, I almost left. — Thanks so much for the ticket.",
+            "How was the film?",
+            "I liked it a lot. The end is really strange.",
+            "Was it scary?",
+            "Yes, I almost left.",
+            "Thanks so much for the ticket.",
           ],
           text:
-            "How was the film? — I liked it a lot. The end is really strange. — Was it scary? — Yes, I almost left. — Thanks so much for the ticket.",
+            "How was the film?\nI liked it a lot. The end is really strange.\nWas it scary?\nYes, I almost left.\nThanks so much for the ticket.",
           explain:
             "Обороты a lot и so much стоят после действия, а really — перед " +
             "прилагательным strange. Место зависит от слова, а не от настроения.",

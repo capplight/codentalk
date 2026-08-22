@@ -363,6 +363,7 @@ const module: Module = {
             { term: "camping", translation: "отдых в палатке", example: "Did you go camping?", hint: "/ˈkæmpɪŋ/" },
             { term: "campsite", translation: "место для палаток", example: "The campsite was quiet.", hint: "/ˈkæmpsaɪt/" },
             { term: "timetable", translation: "расписание", example: "Did you see the timetable?", hint: "/ˈtaɪmteɪbl/" },
+            { term: "postcard", translation: "открытка", example: "I wrote you a postcard.", hint: "/ˈpəʊstkɑːd/" },
           ],
         },
 
@@ -1110,7 +1111,6 @@ const module: Module = {
             { term: "harbour", translation: "гавань", example: "The campsite was near the harbour.", hint: "/ˈhɑːbə/" },
             { term: "guidebook", translation: "путеводитель", example: "I bought a guidebook.", hint: "/ˈgaɪdbʊk/" },
             { term: "sightseeing", translation: "осмотр достопримечательностей", example: "I went sightseeing.", hint: "/ˈsaɪtsiːɪŋ/" },
-            { term: "postcard", translation: "открытка", example: "I wrote you a postcard.", hint: "/ˈpəʊstkɑːd/" },
           ],
         },
 

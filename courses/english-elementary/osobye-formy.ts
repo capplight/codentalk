@@ -291,6 +291,7 @@ const module: Module = {
             { term: "platform", translation: "перрон", example: "The platform was long.", hint: "/ˈplætfɔːm/" },
             { term: "passenger", translation: "пассажир", example: "The passengers were tired.", hint: "/ˈpæsɪndʒə/" },
             { term: "coast", translation: "морское побережье", example: "We went to the coast.", hint: "/kəʊst/" },
+            { term: "colleague", translation: "сослуживец, коллега", example: "My colleague came with me.", hint: "/ˈkɒliːg/" },
           ],
         },
 
@@ -432,7 +433,6 @@ const module: Module = {
             { term: "meet", translation: "встречаться", example: "We meet at the station.", hint: "/miːt/" },
             { term: "met", translation: "встретился", example: "I met my guide.", hint: "/met/" },
             { term: "guest", translation: "гость", example: "The guests were friendly.", hint: "/gest/" },
-            { term: "colleague", translation: "сослуживец, коллега", example: "My colleague came with me.", hint: "/ˈkɒliːg/" },
             { term: "crowd", translation: "толпа", example: "I saw a big crowd.", hint: "/kraʊd/" },
             { term: "guide", translation: "экскурсовод", example: "I met my guide.", hint: "/gaɪd/" },
           ],

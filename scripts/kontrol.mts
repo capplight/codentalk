@@ -315,7 +315,10 @@ function tekstBloka(b: any): string {
     }
   };
   for (const key of Object.keys(b)) {
-    if (key === "id" || key === "kind" || key === "src") continue;
+    // `genre` — служебная помета вида текста (`notice`, `email`), ученику она
+    // не показывается. Без этой строки слово `article` попадало в счёт слов,
+    // которых курс якобы не ввёл.
+    if (key === "id" || key === "kind" || key === "src" || key === "genre") continue;
     proydti(b[key]);
   }
   return chasti.join(" ");
@@ -863,6 +866,138 @@ async function zagruzitA2Key(): Promise<Set<string> | null> {
   return slovnikA2;
 }
 
+/**
+ * Слово ступени введено карточкой — и не позже, чем впервые понадобилось.
+ *
+ * ЗАЧЕМ. Правило владельца от 16 августа: между ступенями нет ссылок на память.
+ * Человек мог прийти сразу на Elementary со своим A1, полученным где угодно.
+ * Значит слово, которое Oxford ставит ВЫШЕ первой ступени, ученик обязан
+ * получить здесь: A1 у него есть, A2 — нет.
+ *
+ * Дыру нашёл методист при разборе модулей 17 и 18, и оба раза случайно: модуль
+ * 17 стоял на парах `good — well` и `bad — badly`, модуль 18 — на словах
+ * `water` и `bread`, и ни у одного из них не было карточки нигде на ступени.
+ *
+ * ПОЧЕМУ ЭТОГО НЕ ВИДЕЛА НИ ОДНА ПРОВЕРКА. `proveritNoviznu` считает карточки
+ * модуля и их новизну — она смотрит на то, что ВВЕДЕНО. `proveritPoryadokSlov`
+ * ловит задание, требующее слова раньше материала, — она смотрит на порядок
+ * внутри курса. А вопрос «получил ли ученик это слово хоть раз» лежит между тем
+ * и другим: слово может честно стоять в материале десяти уроков и не иметь
+ * карточки ни в одном.
+ *
+ * МЕРКА ЗДЕСЬ ТА ЖЕ, ЧТО У НОРМЫ СЛОВАРЯ, и это не совпадение. «Новое для
+ * ступени» — слово с пометой Oxford выше первой ступени либо слово, которого
+ * Oxford не знает, но которое требует словник экзамена. Слова первой ступени
+ * (`and`, `of`, `you`, `train`) проверка не трогает: их ученик приносит с
+ * собой, и карточка им не нужна.
+ */
+async function proveritVvedenieSlov(course: Course, tolko?: string): Promise<void> {
+  if (tolko) return;   // разбор одного модуля: долг ступени тут не считаем
+  const pometa = (course.level ?? "").match(/\b([abc][12])\b/i)?.[1].toLowerCase() ?? "a1";
+  if (STUPENI.indexOf(pometa) < 1) return;   // на первой ступени всё новое
+
+  const slovar = await zagruzitSlovnik();
+  const a2key = await zagruzitA2Key();
+  if (!slovar || !a2key) return;
+
+  /** Слово ступени — то, которого ученик с прошлой ступени знать не обязан. */
+  const stupennoe = (w: string): boolean => {
+    const svoya = slovar.get(w);
+    if (svoya) return STUPENI.indexOf(svoya) >= 1;
+    const poOsnovam = osnovy(w).map((o) => slovar.get(o)).filter(Boolean) as string[];
+    if (poOsnovam.length) {
+      const nizshaya = poOsnovam.sort((a, b) => STUPENI.indexOf(a) - STUPENI.indexOf(b))[0];
+      return STUPENI.indexOf(nizshaya) >= 1;
+    }
+    return a2key.has(w) || osnovy(w).some((o) => a2key.has(o));
+  };
+
+  // Где какое слово получило карточку. Основы тоже: карточка `biscuit`
+  // покрывает `biscuits`, иначе проверка закричит на каждое множественное.
+  const kartochki = new Map<string, number>();
+  let nomer = 0;
+  for (const mod of course.modules) {
+    for (const les of mod.lessons) {
+      nomer += 1;
+      for (const b of les.blocks as Block[]) {
+        // Слово вводит не только словарная карточка: у текста для чтения есть
+        // свой словарик (`glossary`), и он делает ровно то же — объясняет слово
+        // на месте. Без этой половины проверка требовала карточку для `along`,
+        // который объяснён словариком в том же уроке.
+        const vvodyat = [
+          ...((b as any).kind === "vocab" ? (b as any).items ?? [] : []),
+          ...((b as any).glossary ?? []),
+        ];
+        for (const item of vvodyat) {
+          for (const w of angliyskie(String(item.term))) {
+            if (!kartochki.has(w)) kartochki.set(w, nomer);
+            for (const o of osnovy(w)) if (!kartochki.has(o)) kartochki.set(o, nomer);
+          }
+        }
+      }
+    }
+  }
+
+  // Где слово впервые попалось ученику на глаза.
+  const imena = new Set<string>();
+  const vstrecha = new Map<string, { urok: number; gde: string; raz: number }>();
+  nomer = 0;
+  for (const mod of course.modules) {
+    for (const les of mod.lessons) {
+      nomer += 1;
+      const gde = `${mod.slug} → ${les.slug}`;
+      for (const block of les.blocks as Block[]) {
+        const b = block as any;
+        sobratImena(tekstBloka(b)).forEach((n) => imena.add(n));
+        if (b.kind === "vocab") continue;      // карточка сама себя не вводит
+        const tekst = isTask(b) ? trebuetsyaOtUchenika(b) : tekstBloka(b);
+        if (!tekst) continue;
+        for (const w of angliyskie(tekst)) {
+          const bylo = vstrecha.get(w);
+          if (bylo) bylo.raz += 1;
+          else vstrecha.set(w, { urok: nomer, gde, raz: 1 });
+        }
+      }
+    }
+  }
+
+  const bez: Array<{ w: string; raz: number; gde: string }> = [];
+  const pozdno: string[] = [];
+  for (const [w, v] of vstrecha) {
+    if (imena.has(w)) continue;
+    // Служебные слова ученик приносит с прошлой ступени и без карточки: их
+    // получают в первый же час любого курса. Иначе проверка требует карточку
+    // для `i`, встречающегося девятьсот раз.
+    if (SLUZHEBNYE.has(w)) continue;
+    if (!stupennoe(w)) continue;
+    // Берём САМУЮ РАННЮЮ карточку среди основ, а не первую попавшуюся:
+    // порядок основ случайный, и `cycled` находил чужую основу `cycl` из
+    // восьмого модуля вместо своей карточки `cycle` из второго.
+    const nomera = [kartochki.get(w), ...osnovy(w).map((o) => kartochki.get(o))]
+      .filter((n): n is number => typeof n === "number");
+    const est = nomera.length ? Math.min(...nomera) : undefined;
+    if (est === undefined) bez.push({ w, raz: v.raz, gde: v.gde });
+    else if (est > v.urok) pozdno.push(`${w} → ${v.gde} (карточка в уроке ${est}, работает с ${v.urok})`);
+  }
+
+  bez.sort((a, b) => b.raz - a.raz);
+  const gde = course.slug;
+  if (bez.length) {
+    const spisok = bez.slice(0, 40).map((b) => `${b.w} (${b.raz})`).join(", ");
+    skazat("ВОПРОС", gde,
+      `слов ступени без карточки: ${bez.length} — ученик встречает их в текстах, ` +
+      `а получить не получал\n   чаще прочих: ${spisok}` +
+      (bez.length > 40 ? `\n   … и ещё ${bez.length - 40}` : ""),
+      "заведи карточку в том модуле, где слово впервые работает");
+  }
+  if (pozdno.length) {
+    skazat("ВОПРОС", gde,
+      `карточка приходит позже, чем слово понадобилось: ${pozdno.length}\n   ` +
+      pozdno.slice(0, 20).join(", "),
+      "переставь карточку в тот урок, где слово впервые работает");
+  }
+}
+
 async function proveritNoviznu(mod: Module, course: Course, gde: string): Promise<void> {
   const pometa = (course.level ?? "").match(/\b([abc][12])\b/i)?.[1].toLowerCase() ?? "a1";
   // На первой ступени спрашивать не о чем: там всё новое по определению.
@@ -964,6 +1099,8 @@ for (const course of courses) {
     await proveritNoviznu(mod, course, gde);
     tablicaZadaniy(mod, gde);
   }
+
+  await proveritVvedenieSlov(course, modulSlug);
 }
 
 otchyot(

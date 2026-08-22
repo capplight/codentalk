@@ -253,11 +253,16 @@ const module: Module = {
           id: "zveri-i-razmery",
           kind: "example",
           caption: "Кто самый большой",
+          razgovor: true,
           zvuchat: [
-            "The whale is the biggest animal. — And on land? — The elephant. — What about the tallest? — The giraffe is the tallest animal on land.",
+            "The whale is the biggest animal.",
+            "And on land?",
+            "The elephant.",
+            "What about the tallest?",
+            "The giraffe is the tallest animal on land.",
           ],
           text:
-            "The whale is the biggest animal. — And on land? — The elephant. — What about the tallest? — The giraffe is the tallest animal on land.",
+            "The whale is the biggest animal.\nAnd on land?\nThe elephant.\nWhat about the tallest?\nThe giraffe is the tallest animal on land.",
           explain:
             "Каждый раз из всех зверей называют одного. Слово the стоит и перед " +
             "формой выделения, и перед самим зверем — это разные the.",
@@ -536,11 +541,16 @@ const module: Module = {
           id: "snimki-iz-poezdki",
           kind: "example",
           caption: "Снимки из поездки",
+          razgovor: true,
           zvuchat: [
-            "This is the most beautiful place in the country. — And the oldest? — The palace of the king and the queen. — Was it the most expensive trip? — No, the cheapest. The square there is a circle, and the environment is the cleanest here.",
+            "This is the most beautiful place in the country.",
+            "And the oldest?",
+            "The palace of the king and the queen.",
+            "Was it the most expensive trip?",
+            "No, the cheapest. The square there is a circle, and the environment is the cleanest here.",
           ],
           text:
-            "This is the most beautiful place in the country. — And the oldest? — The palace of the king and the queen. — Was it the most expensive trip? — No, the cheapest. The square there is a circle, and the environment is the cleanest here.",
+            "This is the most beautiful place in the country.\nAnd the oldest?\nThe palace of the king and the queen.\nWas it the most expensive trip?\nNo, the cheapest. The square there is a circle, and the environment is the cleanest here.",
           explain:
             "Длинные прилагательные берут the most, короткие — окончание. В одном " +
             "разговоре встречаются оба способа, и это обычное дело.",
@@ -554,6 +564,8 @@ const module: Module = {
             { term: "queen", translation: "королева", example: "The queen is on the money here.", hint: "/kwiːn/" },
             { term: "giraffe", translation: "жираф", example: "The giraffe is the tallest animal here.", hint: "/dʒɪˈrɑːf/" },
             { term: "environment", translation: "окружающая среда", example: "The rainforest is the richest environment.", hint: "/ɪnˈvaɪrənmənt/" },
+            { term: "palace", translation: "дворец", example: "The palace of the king and the queen.", hint: "/ˈpælɪs/" },
+            { term: "circle", translation: "круг", example: "We draw a circle slowly.", hint: "/ˈsɜːkl/" },
           ],
         },
 
@@ -678,11 +690,18 @@ const module: Module = {
           id: "zoopark-i-dom",
           kind: "example",
           caption: "В зоопарке",
+          razgovor: true,
           zvuchat: [
-            "It is the biggest zoo in the country. — Which animal is the tallest? — The giraffe. — And the oldest of all? — The tortoise. She is fifty. — The funniest? — The penguin.",
+            "It is the biggest zoo in the country.",
+            "Which animal is the tallest?",
+            "The giraffe.",
+            "And the oldest of all?",
+            "The tortoise. She is fifty.",
+            "The funniest?",
+            "The penguin.",
           ],
           text:
-            "It is the biggest zoo in the country. — Which animal is the tallest? — The giraffe. — And the oldest of all? — The tortoise. She is fifty. — The funniest? — The penguin.",
+            "It is the biggest zoo in the country.\nWhich animal is the tallest?\nThe giraffe.\nAnd the oldest of all?\nThe tortoise. She is fifty.\nThe funniest?\nThe penguin.",
           explain:
             "Про зоопарк круг назван местом — in the country. Про черепаху кругом " +
             "стал набор зверей — of all.",
@@ -834,11 +853,16 @@ const module: Module = {
           id: "podarki",
           kind: "example",
           caption: "Подарки на день рождения",
+          razgovor: true,
           zvuchat: [
-            "My relatives gave me presents, but the computer game was the best. — And the worst? — A duck for the bath. — Who gave it? — My youngest brother. He has a puppy, a kitten and a rabbit: three pets in one flat.",
+            "My friends gave me presents, but the computer game was the best.",
+            "And the worst?",
+            "A duck for the bath.",
+            "Who gave it?",
+            "My youngest brother. He has a puppy, a kitten and a rabbit: three pets in one flat.",
           ],
           text:
-            "My relatives gave me presents, but the computer game was the best. — And the worst? — A duck for the bath. — Who gave it? — My youngest brother. He has a puppy, a kitten and a rabbit: three pets in one flat.",
+            "My friends gave me presents, but the computer game was the best.\nAnd the worst?\nA duck for the bath.\nWho gave it?\nMy youngest brother. He has a puppy, a kitten and a rabbit: three pets in one flat.",
           explain:
             "В первой строке вещь после the best не названа: ясно, что речь о " +
             "подарках. В последней перед формой выделения стоит my.",
@@ -853,6 +877,7 @@ const module: Module = {
             { term: "rabbit", translation: "кролик", example: "My rabbit is the quietest pet.", hint: "/ˈræbɪt/" },
             { term: "pet", translation: "домашнее животное", example: "My rabbit is the quietest pet.", hint: "/pet/" },
             { term: "duck", translation: "утка", example: "The duck is the noisiest of all.", hint: "/dʌk/" },
+            { term: "worst", translation: "самый плохой", example: "The socks were the worst present.", hint: "/wɜːst/" },
           ],
         },
 
@@ -1095,6 +1120,7 @@ const module: Module = {
             { term: "explorer", translation: "путешественник", example: "The explorer saw the biggest whale.", hint: "/ɪkˈsplɔːrə/" },
             { term: "elephant", translation: "слон", example: "The elephant is the biggest animal on land.", hint: "/ˈelɪfənt/" },
             { term: "heart", translation: "сердце, середина", example: "The heart of the rainforest is the wettest place.", hint: "/hɑːt/" },
+            { term: "earth", translation: "земля, планета", example: "The wettest place on earth.", hint: "/ɜːθ/" },
           ],
         },
 

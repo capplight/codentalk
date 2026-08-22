@@ -476,6 +476,7 @@ const module: Module = {
             { term: "purse", translation: "кошелёк", example: "I lost my purse.", hint: "/pɜːs/" },
             { term: "drop", translation: "ронять", example: "I dropped it near the roundabout.", hint: "/drɒp/" },
             { term: "missing", translation: "пропавший", example: "The wallet was missing too.", hint: "/ˈmɪsɪŋ/" },
+            { term: "roundabout", translation: "круговое движение", example: "I was near the roundabout.", hint: "/ˈraʊndəbaʊt/" },
           ],
         },
 
@@ -788,6 +789,7 @@ const module: Module = {
             { term: "motorbike", translation: "мотоцикл", example: "The motorbike stopped near the crossing.", hint: "/ˈməʊtəbaɪk/" },
             { term: "scooter", translation: "самокат, мопед", example: "The scooter was old.", hint: "/ˈskuːtə/" },
             { term: "tyre", translation: "шина", example: "The tyre was broken.", hint: "/ˈtaɪə/" },
+            { term: "drive", translation: "вести машину", example: "She was driving to work.", hint: "/draɪv/" },
           ],
         },
 
@@ -939,7 +941,6 @@ const module: Module = {
             { term: "battery", translation: "батарейка", example: "The battery in my phone was new.", hint: "/ˈbætəri/" },
             { term: "glove", translation: "перчатка", example: "I dropped my glove near the lock.", hint: "/glʌv/" },
             { term: "scarf", translation: "шарф", example: "My scarf was in the bag.", hint: "/skɑːf/" },
-            { term: "broken", translation: "сломанный", example: "The lock was broken.", hint: "/ˈbrəʊkən/" },
             { term: "danger", translation: "опасность", example: "There was no danger.", hint: "/ˈdeɪndʒə/" },
           ],
         },
@@ -1192,7 +1193,6 @@ const module: Module = {
           kind: "vocab",
           caption: "Слова урока",
           items: [
-            { term: "roundabout", translation: "круговое движение", example: "I was near the roundabout.", hint: "/ˈraʊndəbaʊt/" },
             { term: "luck", translation: "удача", example: "It was good luck.", hint: "/lʌk/" },
             { term: "lucky", translation: "удачливый, счастливый", example: "I was lucky: the purse was safe.", hint: "/ˈlʌki/" },
             { term: "careful", translation: "осторожный", example: "My sister is careful with her wallet.", hint: "/ˈkeəfl/" },

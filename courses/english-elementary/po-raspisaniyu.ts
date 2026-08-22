@@ -567,7 +567,6 @@ const module: Module = {
             { term: "flight", translation: "рейс", example: "The direct flight doesn't leave next week.", hint: "/flaɪt/" },
             { term: "direct", translation: "прямой", example: "The direct flight doesn't leave next week.", hint: "/daɪˈrekt/" },
             { term: "pool", translation: "бассейн", example: "The pool doesn't open in the morning.", hint: "/puːl/" },
-            { term: "empty", translation: "пустой", example: "The pool is empty in the morning.", hint: "/ˈempti/" },
           ],
         },
 

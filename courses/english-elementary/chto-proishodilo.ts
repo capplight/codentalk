@@ -642,6 +642,7 @@ const module: Module = {
             { term: "playground", translation: "детская площадка", example: "The playground was near the field.", hint: "/ˈpleɪgraʊnd/" },
             { term: "field", translation: "поле", example: "The horses were running in the field.", hint: "/fiːld/" },
             { term: "grass", translation: "трава", example: "The grass was wet.", hint: "/grɑːs/" },
+            { term: "empty", translation: "пустой", example: "The pool is empty in the morning.", hint: "/ˈempti/" },
           ],
         },
 
@@ -933,6 +934,7 @@ const module: Module = {
             { term: "fork", translation: "вилка", example: "The fork was on the plate.", hint: "/fɔːk/" },
             { term: "mug", translation: "кружка", example: "My mug was full.", hint: "/mʌg/" },
             { term: "brush", translation: "щётка", example: "My brother was cleaning the floor with a brush.", hint: "/brʌʃ/" },
+            { term: "wash", translation: "мыть", example: "I was washing a spoon.", hint: "/wɒʃ/" },
           ],
         },
 

@@ -234,6 +234,7 @@ const module: Module = {
             { term: "printer", translation: "принтер", example: "The printer was broken.", hint: "/ˈprɪntə/" },
             { term: "screen", translation: "экран", example: "The screen was dark.", hint: "/skriːn/" },
             { term: "department", translation: "отдел", example: "Our department didn't work on Friday.", hint: "/dɪˈpɑːtmənt/" },
+            { term: "broken", translation: "сломанный", example: "The lock was broken.", hint: "/ˈbrəʊkən/" },
           ],
         },
 
@@ -693,6 +694,7 @@ const module: Module = {
             { term: "gate", translation: "ворота", example: "We didn't wait at the gate.", hint: "/geɪt/" },
             { term: "lorry", translation: "грузовик", example: "The lorry didn't come.", hint: "/ˈlɒri/" },
             { term: "lift", translation: "лифт", example: "The lift didn't work.", hint: "/lɪft/" },
+            { term: "closed", translation: "закрыт", example: "The shop was closed.", hint: "/kləʊzd/" },
           ],
         },
 
@@ -982,6 +984,7 @@ const module: Module = {
             { term: "cash", translation: "наличные деньги", example: "I didn't have cash.", hint: "/kæʃ/" },
             { term: "shelf", translation: "полка", example: "The soap was on the shelf.", hint: "/ʃelf/" },
             { term: "message", translation: "сообщение", example: "I wrote a message to my boss.", hint: "/ˈmesɪdʒ/" },
+            { term: "loud", translation: "шумный", example: "We aren't meeting in the cafeteria: it's loud there.", hint: "/laʊd/" },
           ],
         },
 
@@ -1089,7 +1092,6 @@ const module: Module = {
             { term: "strange", translation: "странный" },
             { term: "broken", translation: "сломан" },
             { term: "for an hour", translation: "час (о продолжительности)" },
-            { term: "closed", translation: "закрыт" },
           ],
         },
         {

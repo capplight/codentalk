@@ -292,11 +292,15 @@ const module: Module = {
           id: "razgovor-o-brate",
           kind: "example",
           caption: "Разговор о брате",
+          razgovor: true,
           zvuchat: [
-            "Does your brother play well? — No, he plays badly. But he sings loudly! — And your sister? — She sings quietly, and she speaks very clearly.",
+            "Does your brother play well?",
+            "No, he plays badly. But he sings loudly!",
+            "And your sister?",
+            "She sings quietly, and she speaks very clearly.",
           ],
           text:
-            "Does your brother play well? — No, he plays badly. But he sings loudly! — And your sister? — She sings quietly, and she speaks very clearly.",
+            "Does your brother play well?\nNo, he plays badly. But he sings loudly!\nAnd your sister?\nShe sings quietly, and she speaks very clearly.",
           explain:
             "Каждое наречие здесь стоит после действия и отвечает на вопрос «как». " +
             "Слово very перед наречием работает так же, как перед прилагательным.",
@@ -444,11 +448,16 @@ const module: Module = {
           id: "razgovor-na-trenirovke",
           kind: "example",
           caption: "Разговор на тренировке",
+          razgovor: true,
           zvuchat: [
-            "Can you throw the ball? — Yes, I throw it easily. — And can you jump? — I jump happily, but I hit the ball badly. — Then hit it carefully.",
+            "Can you throw the ball?",
+            "Yes, I throw it easily.",
+            "And can you jump?",
+            "I jump happily, but I hit the ball badly.",
+            "Then hit it carefully.",
           ],
           text:
-            "Can you throw the ball? — Yes, I throw it easily. — And can you jump? — I jump happily, but I hit the ball badly. — Then hit it carefully.",
+            "Can you throw the ball?\nYes, I throw it easily.\nAnd can you jump?\nI jump happily, but I hit the ball badly.\nThen hit it carefully.",
           explain:
             "Наречия здесь собраны по-разному: у easily буква y сменилась на i, у " +
             "carefully сошлись две l, а badly не поменяло ничего.",
@@ -464,6 +473,7 @@ const module: Module = {
             { term: "hit", translation: "ударять, бить", example: "Then hit it carefully.", hint: "/hɪt/" },
             { term: "easy", translation: "лёгкий", example: "The ball is easy for him.", hint: "/ˈiːzi/" },
             { term: "carefully", translation: "внимательно, аккуратно", example: "Then hit it carefully.", hint: "/ˈkeəfəli/" },
+            { term: "happily", translation: "радостно", example: "She jumps happily.", hint: "/ˈhæpɪli/" },
           ],
         },
 
@@ -596,11 +606,17 @@ const module: Module = {
           id: "razgovor-o-sporte",
           kind: "example",
           caption: "Разговор о спорте",
+          razgovor: true,
           zvuchat: [
-            "Is your friend a good runner? — Yes, he runs well and he works hard. — Does he ski? — He skis fast, but running is his sport. — Does he play hockey too? — Badly!",
+            "Is your friend a good runner?",
+            "Yes, he runs well and he works hard.",
+            "Does he ski?",
+            "He skis fast, but running is his sport.",
+            "Does he play hockey too?",
+            "Badly!",
           ],
           text:
-            "Is your friend a good runner? — Yes, he runs well and he works hard. — Does he ski? — He skis fast, but running is his sport. — Does he play hockey too? — Badly!",
+            "Is your friend a good runner?\nYes, he runs well and he works hard.\nDoes he ski?\nHe skis fast, but running is his sport.\nDoes he play hockey too?\nBadly!",
           explain:
             "Слово good стоит при человеке, а well при действии. Слова fast и hard " +
             "не поменялись, и место в строке говорит, чем они здесь работают.",
@@ -748,11 +764,16 @@ const module: Module = {
           id: "razgovor-o-muzyke",
           kind: "example",
           caption: "Разговор о музыке",
+          razgovor: true,
           zvuchat: [
-            "Do you like jazz? — I like rock more. — Does your friend play an instrument? — He plays classical music badly, but he sings rock loudly. — And his singing?",
+            "Do you like jazz?",
+            "I like rock more.",
+            "Does your friend play an instrument?",
+            "He plays classical music badly, but he sings rock loudly.",
+            "And his singing?",
           ],
           text:
-            "Do you like jazz? — I like rock more. — Does your friend play an instrument? — He plays classical music badly, but he sings rock loudly. — And his singing?",
+            "Do you like jazz?\nI like rock more.\nDoes your friend play an instrument?\nHe plays classical music badly, but he sings rock loudly.\nAnd his singing?",
           explain:
             "Наречие каждый раз стоит последним: после instrument, после music, " +
             "после rock. Вещь всегда идёт раньше него.",
@@ -898,11 +919,15 @@ const module: Module = {
           id: "razgovor-o-koncerte",
           kind: "example",
           caption: "Разговор о концерте",
+          razgovor: true,
           zvuchat: [
-            "Is he a good singer? — He sings well, but he acts badly. — And the musical family next door? — The son is a quiet journalist, and he speaks very quietly. His fan club is small.",
+            "Is he a good singer?",
+            "He sings well, but he acts badly.",
+            "And the musical family next door?",
+            "The son is a quiet journalist, and he speaks very quietly. His fan club is small.",
           ],
           text:
-            "Is he a good singer? — He sings well, but he acts badly. — And the musical family next door? — The son is a quiet journalist, and he speaks very quietly. His fan club is small.",
+            "Is he a good singer?\nHe sings well, but he acts badly.\nAnd the musical family next door?\nThe son is a quiet journalist, and he speaks very quietly. His fan club is small.",
           explain:
             "Слова good, quiet и musical стоят при людях и вещах, а well, badly и " +
             "quietly — при действиях. Один и тот же смысл, две разные формы.",
@@ -1314,7 +1339,6 @@ const module: Module = {
           caption: "Слова урока",
           items: [
             { term: "drawing", translation: "рисование", example: "Our drawing club meets on Friday.", hint: "/ˈdrɔːɪŋ/" },
-            { term: "circle", translation: "круг", example: "We draw a circle slowly.", hint: "/ˈsɜːkl/" },
           ],
         },
 

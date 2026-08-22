@@ -242,11 +242,16 @@ const module: Module = {
           id: "dve-kvartiry",
           kind: "example",
           caption: "Две квартиры",
+          razgovor: true,
           zvuchat: [
-            "My flat is smaller than yours. — But the rent is lower? — Yes, and the kitchen is bigger. — What about the size of the rooms? — They are smaller.",
+            "My flat is smaller than yours.",
+            "But the price is lower?",
+            "Yes, and the kitchen is bigger.",
+            "What about the size of the rooms?",
+            "They are smaller.",
           ],
           text:
-            "My flat is smaller than yours. — But the rent is lower? — Yes, and the kitchen is bigger. — What about the size of the rooms? — They are smaller.",
+            "My flat is smaller than yours.\nBut the price is lower?\nYes, and the kitchen is bigger.\nWhat about the size of the rooms?\nThey are smaller.",
           explain:
             "Каждая строка сравнивает одну вещь с другой. В первой вторая вещь " +
             "названа после than, в остальных она уже известна из разговора.",
@@ -260,6 +265,8 @@ const module: Module = {
             { term: "size", translation: "размер", example: "What about the size of the rooms?", hint: "/saɪz/" },
             { term: "huge", translation: "огромный", example: "Their kitchen is huge.", hint: "/hjuːdʒ/" },
             { term: "electricity", translation: "электричество", example: "The electricity here is cheaper.", hint: "/ɪˌlekˈtrɪsɪti/" },
+            { term: "yours", translation: "твой, ваш", example: "My flat is smaller than yours.", hint: "/jɔːz/" },
+            { term: "hers", translation: "её", example: "My room is smaller than hers.", hint: "/hɜːz/" },
           ],
         },
 
@@ -391,11 +398,16 @@ const module: Module = {
           id: "dve-raboty",
           kind: "example",
           caption: "Две работы",
+          razgovor: true,
           zvuchat: [
-            "This job is more attractive than my old one. — Is the pay higher? — No, but the people are more polite. — Who works there? — An engineer. He is cleverer than me and he has more experience.",
+            "This job is more attractive than my old one.",
+            "Is the pay higher?",
+            "No, but the people are more polite.",
+            "Who works there?",
+            "An engineer. He is cleverer than me and he has more experience.",
           ],
           text:
-            "This job is more attractive than my old one. — Is the pay higher? — No, but the people are more polite. — Who works there? — An engineer. He is cleverer than me and he has more experience.",
+            "This job is more attractive than my old one.\nIs the pay higher?\nNo, but the people are more polite.\nWho works there?\nAn engineer. He is cleverer than me and he has more experience.",
           explain:
             "Длинные прилагательные берут more, короткое high — окончание. В одном " +
             "разговоре встречаются оба способа, и это обычное дело.",
@@ -409,6 +421,7 @@ const module: Module = {
             { term: "polite", translation: "вежливый", example: "The people are more polite.", hint: "/pəˈlaɪt/" },
             { term: "clever", translation: "умный", example: "My sister is cleverer than me.", hint: "/ˈklevə/" },
             { term: "engineer", translation: "инженер", example: "An engineer earns more than a painter.", hint: "/ˌendʒɪˈnɪə/" },
+            { term: "experience", translation: "опыт", example: "A pilot needs more experience.", hint: "/ɪkˈspɪəriəns/" },
           ],
         },
 
@@ -673,11 +686,17 @@ const module: Module = {
           id: "vybor-telefona",
           kind: "example",
           caption: "Какой телефон брать",
+          razgovor: true,
           zvuchat: [
-            "What colour do you think is better? — The black one. — And the memory? — The black one is better, but the price is worse. — How much worse? — A penny. Forty pence.",
+            "What colour do you think is better?",
+            "The black one.",
+            "And the memory?",
+            "The black one is better, but the price is worse.",
+            "How much worse?",
+            "A penny. Forty pence.",
           ],
           text:
-            "What colour do you think is better? — The black one. — And the memory? — The black one is better, but the price is worse. — How much worse? — A penny. Forty pence.",
+            "What colour do you think is better?\nThe black one.\nAnd the memory?\nThe black one is better, but the price is worse.\nHow much worse?\nA penny. Forty pence.",
           explain:
             "Слово better стоит дважды и оба раза без than: с чем сравнивают, ясно " +
             "из разговора. Слово worse собрано так же.",
@@ -691,6 +710,7 @@ const module: Module = {
             { term: "cheque", translation: "чек", example: "A cheque is worse than cash here.", hint: "/tʃek/" },
             { term: "penny", translation: "пенни", example: "The difference is one penny.", hint: "/ˈpeni/" },
             { term: "pence", translation: "пенсы", example: "The difference is only forty pence.", hint: "/pens/" },
+            { term: "worse", translation: "хуже", example: "The weather is worse today.", hint: "/wɜːs/" },
           ],
         },
 
@@ -816,11 +836,17 @@ const module: Module = {
           id: "vybor-kvartiry",
           kind: "example",
           caption: "Разговор о работе",
+          razgovor: true,
           zvuchat: [
-            "I want a quieter job. — A painter works in a quieter place than a mechanic. — And a pilot? — A pilot has a harder job. — What about a waitress? — Longer hours and lower pay.",
+            "I want a quieter job.",
+            "A painter works in a quieter place than a mechanic.",
+            "And a pilot?",
+            "A pilot has a harder job.",
+            "What about a waitress?",
+            "Longer hours and lower pay.",
           ],
           text:
-            "I want a quieter job. — A painter works in a quieter place than a mechanic. — And a pilot? — A pilot has a harder job. — What about a waitress? — Longer hours and lower pay.",
+            "I want a quieter job.\nA painter works in a quieter place than a mechanic.\nAnd a pilot?\nA pilot has a harder job.\nWhat about a waitress?\nLonger hours and lower pay.",
           explain:
             "Формы сравнения здесь стоят перед самими вещами и называют их: " +
             "a quieter job, a harder job, longer hours. В строке про маляра вторая " +
@@ -1083,7 +1109,6 @@ const module: Module = {
           kind: "vocab",
           caption: "Слова урока",
           items: [
-            { term: "experience", translation: "опыт", example: "A pilot needs more experience.", hint: "/ɪkˈspɪəriəns/" },
             { term: "variety", translation: "разнообразие", example: "There is a bigger variety of flats here.", hint: "/vəˈraɪəti/" },
             { term: "half-price", translation: "за полцены", example: "The second month is half-price.", hint: "/ˌhɑːfˈpraɪs/" },
           ],
@@ -1262,7 +1287,7 @@ const module: Module = {
           kind: "hottext",
           prompt: "Отметь строки, по которым понятно, с чем сравнивают.",
           parts: [
-            { text: "The rent is lower than in flat A", selectable: true, correct: true },
+            { text: "The price is lower than in flat A", selectable: true, correct: true },
             { text: " · " },
             { text: "The kitchen is bigger", selectable: true },
             { text: " · " },
@@ -1550,7 +1575,7 @@ const module: Module = {
         kind: "short",
         outcome: "слышать в разговоре, что из двух выбрали",
         zvuk:
-          "The kitchen in B is bigger. — And the rent? — Higher than in A.",
+          "The kitchen in B is bigger. — And the price? — Higher than in A.",
         prompt:
           "Послушай. Что сказано про плату в квартире B — выше или ниже? Ответь одним словом по-английски.",
         answer: "higher",
@@ -1566,15 +1591,15 @@ const module: Module = {
         kind: "short",
         outcome: "проверять записку со сравнением: названы обе вещи",
         prompt:
-          "К строке записки The rent is lower допиши вторую вещь: чем в квартире A.",
-        answer: "The rent is lower than in flat A.",
+          "К строке записки The price is lower допиши вторую вещь: чем в квартире A.",
+        answer: "The price is lower than in flat A.",
         accept: [
-          "The rent is lower than in flat A",
-          "The rent is lower than in Flat A.",
+          "The price is lower than in flat A",
+          "The price is lower than in Flat A.",
         ],
-        hint: "После than назови, где плата выше.",
+        hint: "После than назови, где цена выше.",
         why:
-          "The rent is lower than in flat A. Слово in нужно, потому что сравнивают " +
+          "The price is lower than in flat A. Слово in нужно, потому что сравнивают " +
           "плату с платой.",
       },
       {

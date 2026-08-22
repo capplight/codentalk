@@ -564,7 +564,6 @@ const module: Module = {
           caption: "Слова урока",
           items: [
             { term: "except", translation: "кроме", example: "I'm free every day except Tuesday.", hint: "/ɪkˈsept/" },
-            { term: "loud", translation: "шумный", example: "We aren't meeting in the cafeteria: it's loud there.", hint: "/laʊd/" },
             { term: "pity", translation: "жалость, досада", example: "What a pity — Dana isn't coming on Saturday.", hint: "/ˈpɪti/" },
             { term: "exactly", translation: "ровно, точно", example: "We're meeting at exactly five.", hint: "/ɪgˈzæktli/" },
             { term: "especially", translation: "особенно", example: "I'm busy this week, especially on Monday.", hint: "/ɪˈspeʃəli/" },
@@ -1042,6 +1041,7 @@ const module: Module = {
             { term: "headteacher", translation: "директор школы", example: "The headteacher is coming on Tuesday.", hint: "/ˈhedtiːtʃə/" },
             { term: "anybody", translation: "кто-нибудь", example: "I'm not meeting anybody.", hint: "/ˈenibɒdi/" },
             { term: "telephone", translation: "звонить по телефону", example: "I'm not telephoning her yet.", hint: "/ˈtelɪfəʊn/" },
+            { term: "yet", translation: "пока ещё", example: "I'm not telephoning her yet.", hint: "/jet/" },
           ],
         },
 

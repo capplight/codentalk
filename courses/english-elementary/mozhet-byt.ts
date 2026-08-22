@@ -287,11 +287,15 @@ const module: Module = {
           id: "pogoda-na-zavtra",
           kind: "example",
           caption: "Разговор о завтрашней погоде",
+          razgovor: true,
           zvuchat: [
-            "What is the weather tomorrow? — It might rain tomorrow. — Then I'll take an umbrella. — The morning might be sunny, but take it anyway.",
+            "What is the weather tomorrow?",
+            "It might rain tomorrow.",
+            "Then I'll take an umbrella.",
+            "The morning might be sunny, but take it anyway.",
           ],
           text:
-            "What is the weather tomorrow? — It might rain tomorrow. — Then I'll take an umbrella. — The morning might be sunny, but take it anyway.",
+            "What is the weather tomorrow?\nIt might rain tomorrow.\nThen I'll take an umbrella.\nThe morning might be sunny, but take it anyway.",
           explain:
             "Оба предположения о завтрашнем дне, и оба стоят со словом might. " +
             "Между ними обычное будущее — I'll take, — потому что зонт человек " +
@@ -304,6 +308,7 @@ const module: Module = {
           items: [
             { term: "umbrella", translation: "зонт", example: "Then I'll take an umbrella.", hint: "/ʌmˈbrelə/" },
             { term: "heavy", translation: "сильный, тяжёлый", example: "The rain might be heavy tomorrow.", hint: "/ˈhevi/" },
+            { term: "might", translation: "может быть, возможно", example: "The weather might be hot.", hint: "/maɪt/" },
           ],
         },
 
@@ -431,11 +436,15 @@ const module: Module = {
           id: "gde-mozhet-lezhat",
           kind: "example",
           caption: "Ключ куда-то делся",
+          razgovor: true,
           zvuchat: [
-            "Where is the key? — It may be in my handbag. — I looked there. — Then it might be in the cabinet, or under the carpet.",
+            "Where is the key?",
+            "It may be in my handbag.",
+            "I looked there.",
+            "Then it might be in the cabinet, or under the carpet.",
           ],
           text:
-            "Where is the key? — It may be in my handbag. — I looked there. — Then it might be in the cabinet, or under the carpet.",
+            "Where is the key?\nIt may be in my handbag.\nI looked there.\nThen it might be in the cabinet, or under the carpet.",
           explain:
             "Первое место названо через may, второе через might, и разницы между " +
             "ними нет. Оба раза говорящий гадает, а не знает.",
@@ -584,11 +593,15 @@ const module: Module = {
           id: "gde-fayl",
           kind: "example",
           caption: "Пропала запись с телефона",
+          razgovor: true,
           zvuchat: [
-            "I can't find the song. — Maybe the download stopped. — Perhaps it's in another folder. — Or maybe the app is old.",
+            "I can't find the song.",
+            "Maybe the download stopped.",
+            "Perhaps it's in another folder.",
+            "Or maybe the app is old.",
           ],
           text:
-            "I can't find the song. — Maybe the download stopped. — Perhaps it's in another folder. — Or maybe the app is old.",
+            "I can't find the song.\nMaybe the download stopped.\nPerhaps it's in another folder.\nOr maybe the app is old.",
           explain:
             "Все три предположения стоят словом снаружи, и глаголы внутри строк " +
             "обычные: stopped, is. Слово or перед maybe просто присоединяет " +
@@ -730,11 +743,15 @@ const module: Module = {
           id: "razgovor-o-naushnikah",
           kind: "example",
           caption: "Наушники нашлись не сразу",
+          razgovor: true,
           zvuchat: [
-            "Where are my headphones? — I'm sure they're in the black case. — The case is empty. — Then maybe the speaker is on the shelf with them.",
+            "Where are my headphones?",
+            "I'm sure they're in the black case.",
+            "The case is empty.",
+            "Then maybe the speaker is on the shelf with them.",
           ],
           text:
-            "Where are my headphones? — I'm sure they're in the black case. — The case is empty. — Then maybe the speaker is on the shelf with them.",
+            "Where are my headphones?\nI'm sure they're in the black case.\nThe case is empty.\nThen maybe the speaker is on the shelf with them.",
           explain:
             "Первая строка обещает наверняка, и обещание не сбылось. Второе " +
             "предположение сказано осторожнее — со словом maybe.",
@@ -872,11 +889,17 @@ const module: Module = {
           id: "opisanie-veshchi",
           kind: "example",
           caption: "Что за вещь потерялась",
+          razgovor: true,
           zvuchat: [
-            "What is it? — I'm sure it's a metal bracelet. — Silver or not? — It may be silver, I don't remember. — Thin or heavy? — Maybe it's thin.",
+            "What is it?",
+            "I'm sure it's a metal bracelet.",
+            "Silver or not?",
+            "It may be silver, I don't remember.",
+            "Thin or heavy?",
+            "Maybe it's thin.",
           ],
           text:
-            "What is it? — I'm sure it's a metal bracelet. — Silver or not? — It may be silver, I don't remember. — Thin or heavy? — Maybe it's thin.",
+            "What is it?\nI'm sure it's a metal bracelet.\nSilver or not?\nIt may be silver, I don't remember.\nThin or heavy?\nMaybe it's thin.",
           explain:
             "О самой вещи хозяин говорит уверенно, а о серебре и о толщине — нет. " +
             "Три разных способа стоят в одном разговоре и не мешают друг другу.",
@@ -1013,6 +1036,7 @@ const module: Module = {
             "Come with your ticket. Maybe your thing is here!",
           ],
           glossary: [
+            { term: "lunchtime", translation: "обеденный перерыв" },
             { term: "LOST PROPERTY", translation: "бюро находок" },
             { term: "We have", translation: "у нас есть" },
             { term: "Come with", translation: "приходи с" },
@@ -1033,6 +1057,7 @@ const module: Module = {
           caption: "Слова урока",
           items: [
             { term: "necklace", translation: "ожерелье", example: "We have a silver necklace.", hint: "/ˈnekləs/" },
+            { term: "sock", translation: "носок", example: "And the socks? Maybe two pairs.", hint: "/sɒk/" },
             { term: "earring", translation: "серьга", example: "We also have an earring.", hint: "/ˈɪərɪŋ/" },
             { term: "belt", translation: "ремень", example: "We have a black belt.", hint: "/belt/" },
             { term: "raincoat", translation: "плащ", example: "We also have a green raincoat.", hint: "/ˈreɪnkəʊt/" },
@@ -1149,7 +1174,6 @@ const module: Module = {
           caption: "Слова урока",
           items: [
             { term: "coat", translation: "пальто", example: "Take a coat, it may be cold.", hint: "/kəʊt/" },
-            { term: "sock", translation: "носок", example: "And the socks? Maybe two pairs.", hint: "/sɒk/" },
             { term: "jumper", translation: "свитер", example: "A jumper might be enough today.", hint: "/ˈdʒʌmpə/" },
           ],
         },
