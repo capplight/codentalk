@@ -251,6 +251,48 @@ predictions», пример «I think this Saturday is going to be a nice day»)
    Это четвёртое расхождение программы с источником на ступени, и все четыре
    одной породы: строка писалась по памяти о том, что «обычно бывает на A2», а
    не по графе. Проверять надо каждую строку отдельно.
+5. **Модуль 16 переписан целиком: равенство снято, осталась мера.** Прежде
+   строка звалась «Такой же» и обещала «`as … as`; `too`, `enough`; `quite`,
+   `really`». Из четырёх обещаний два стоят выше ступени, и проверено это по
+   двум источникам сразу, а не по одному.
+
+   - **`as … as` — B1.** English Grammar Profile, CLAUSES comparatives,
+     «FORM/USE: 'AS … AS'»: «Can use '(not) as' + adjective/adverb + 'as' to
+     introduce a clause … to talk about two things being equal or unequal in
+     some way», пример «it is not as cold as I expected». Второй источник его
+     не подтверждает: в перечне Language specifications руководства A2 Key
+     (с. 52) я оборота не нашёл — смотрел разделы Adjectives, Adverbs и Clause
+     types и искал по строке «as» по всему файлу. Это «не нашёл», а не «нет»:
+     проверить стоит ещё раз. Соседние способы сказать то же самое первый
+     источник ставит выше: `the same … as` — B1, `like` и `similar to` при
+     глаголе — B1.
+   - **`enough` при прилагательном — B1.** Тот же файл, ADJECTIVES modifying,
+     «FORM: WITH 'ENOUGH'»: «Can use 'enough' to modify adjectives», пример «My
+     room is big enough». Слово `enough` в словнике A2 Key есть, но словник
+     отвечает за лексику, а не за оборот.
+
+   Взамен модуль взял то, что у источника стоит на A2 и складывается в целый
+   случай — меру: `too` при прилагательном («FORM: WITH 'TOO'»), `too` с
+   указанием, кому слишком («FORM: WITH 'TOO' + PREPOSITIONAL PHRASE»), наречия
+   меры `really`, `so`, `quite` («FORM: WITH DEGREE ADVERBS»), `too many` и
+   `so many` перед вещами во множественном числе (DETERMINERS quantity, «FORM:
+   'SO MANY' WITH PLURAL NOUNS») и меру при действии — `a lot`, `so much`
+   (ADVERBS, «USE: DEGREE WITH VERBS»). Второй источник подтверждает: перечень
+   Language specifications, раздел Adverbs, держит строку «Degree: very, too,
+   rather, etc.».
+
+   **Оговорка, без которой это прочтут неверно.** Графа B1 — не запрет: она
+   говорит, где оборот обычно появляется у учеников, и ничего не запрещает
+   (CLAUDE.md, «графа источника — это разрешение»). Равенство просто отложено на
+   Pre-Intermediate, и в модуле о нём не сказано ни слова — его там нет.
+
+   **И заодно проверено вперёд, для модуля 18.** Его строка обещает `enough` в
+   ряду слов о количестве, а тот же файл ставит `enough` перед вещами на B1:
+   DETERMINERS quantity, «FORM: WITH PLURAL AND UNCOUNTABLE NOUNS», B1 — «'most',
+   'enough', 'plenty of', 'loads of'». Там же на B1 стоит `too much` с
+   неисчисляемым («FORM: 'SO MUCH', 'TOO MUCH' WITH UNCOUNTABLE NOUNS»). Строку
+   модуля 18 не трогаю: её решает тот, кто будет его писать, — но искать заново
+   уже не придётся.
 
 ### Часть третья. Сравнение и подробности (модули 14–21)
 
@@ -258,7 +300,7 @@ predictions», пример «I think this Saturday is going to be a nice day»)
 |---|---|---|---|---|
 | 14 | Больше и меньше | сравнивать две вещи | сравнительная степень; `than`; особые формы `better`, `worse` | 55 |
 | 15 | Самый | выделять одно из многих | превосходная степень; `the`; круг через `in` и `of` | 50 |
-| 16 | Такой же | говорить о равенстве и о мере | `as … as`; `too`, `enough`; `quite`, `really` | 50 |
+| 16 | Очень и слишком | говорить о мере: насколько и не слишком ли | `very`, `really`, `so`, `quite`; `too` + прилагательное и `too … for me`; `too many`; `a lot`, `so much` при действии | 50 |
 | 17 | Как это делается | описывать, как происходит действие | наречия образа действия; их место в предложении | 50 |
 | 18 | Сколько чего | говорить о количестве точно | `a few`, `a little`, `a lot of`, `enough`; исчисляемое и неисчисляемое | 55 |
 | 19 | Кто-то и что-то | говорить о неизвестном или неважном | `something`, `anyone`, `nobody`, `everywhere` | 50 |
