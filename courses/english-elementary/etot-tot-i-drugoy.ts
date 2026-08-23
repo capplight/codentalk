@@ -49,11 +49,21 @@ import type { Module } from "@/lib/content/types";
  * than the other one» и «I bought a jacket because the other one that I had was
  * too small». То есть на A2 ученики его уже пишут и им его засчитывают.
  *
+ * И ЕЩЁ ОДНО ВЗЯТО ВЫШЕ ГРАФЫ ТОЙ ЖЕ МЕРКОЙ: `this one` и `that one`. English
+ * Grammar Profile ставит их на B1 («FORM: 'THIS ONE', 'THAT ONE'»), а словник
+ * A2 Key содержит обе части порознь — `one (det & pron)`, `this (det & pron)`,
+ * `that (det & pron)`, — и руководство на с. 52 называет указательные дважды, и
+ * местоимениями, и определениями.
+ *
+ * Объявляется это здесь потому, что первая редакция шапки написала обратное —
+ * «модуль даёт только `the blue one` и `the other one`», — а уроки давали
+ * `this one` и `that one` тринадцать раз, включая подсказку к сочинению. Нашёл
+ * методист. Незаявленное заимствование хуже заявленного: следующий проверяющий
+ * читает шапку и решает, что оборота в модуле нет.
+ *
  * ЧЕГО В МОДУЛЕ НЕТ, И ПОЧЕМУ ЭТО РЕШЕНИЕ:
  *
  * - `none` и `ones` — см. выше;
- * - `this one`, `that one` — B1, «FORM: 'THIS ONE', 'THAT ONE'». Модуль даёт
- *   `the blue one` и `the other one`, как в графах A2;
  * - `these ones`, `those ones` — B2;
  * - `each other` — B1, PRONOUNS reciprocal;
  * - `each of`, `neither of` — `each of` есть в графе A2 наравне с `some of`, но
@@ -79,9 +89,9 @@ const module: Module = {
   outcomes: [
     "показывать на вещь: this cap, that shop",
     "показывать на несколько вещей: these tights, those shorts",
-    "не повторять названное: the blue one",
+    "не повторять названное: the pale one",
     "различать the other one и another",
-    "называть часть: some of my friends",
+    "говорить о названном через of: some of my friends, all of my money",
     "находить в объявлении, что продают и почём",
     "слышать в разговоре, какую вещь взяли",
     "проверять объявление: о каждой вещи сказано, какая она и сколько стоит",
@@ -117,6 +127,16 @@ const module: Module = {
         "places from the speaker's or writer's point of view», и A2, «USE: 'THAT', " +
         "POINTING» — «to talk about or point to things which are further away in " +
         "time and space from the speaker or writer». " +
+        "ОГОВОРКА, КОТОРУЮ НАДО ЗНАТЬ ЧИТАЮЩЕМУ ЭТУ ОПОРУ. У графы «USE: 'THAT', " +
+        "POINTING» поле примера в источнике заполнено словами «Placeholder row, " +
+        "lack of spoken data (see A2)» — то же у «USE: 'THESE' POINTING» и «USE: " +
+        "THOSE POINTING». Дескриптор есть, свидетельств письменных работ нет: " +
+        "показывание пальцем живёт в разговоре, а собран корпус по письму. " +
+        "Значит на этих трёх графах держится дескриптор, а не пример, и правило " +
+        "проекта «к цитате читается её пример» здесь исполнить нечем. Опоры с " +
+        "настоящими примерами у модуля другие и их достаточно: A2 «FORM: 'THAT'» " +
+        "(«I also want to see that film»), A2 «USE: 'THAT', ALREADY MENTIONED», " +
+        "A2 «FORM: 'THESE'» и «FORM: 'THOSE'», A1 «USE: 'THIS', POINTING». " +
         "PRONOUNS demonstratives, A2: «FORM: 'THIS'» — «Can use 'this' as a " +
         "pronoun with singular reference», пример «This is a very interesting " +
         "place»; «FORM: 'THAT'» — пример «That was amazing»; «FORM/USE: RESPONSE " +
@@ -143,9 +163,19 @@ const module: Module = {
         "'of', 'each of')», примеры «I spent all of my money!», «Some of my " +
         "friends gave me books», «The competition was very tough because both of " +
         "the teams were good». Оборотов в графе семь; урок берёт три. " +
-        "ЧЕГО НЕТ. `none` — C1 тремя графами. `ones` — B1. `this one`, `that one` " +
-        "— B1. `these ones`, `those ones` — B2. `each other` — B1. `neither of` — " +
-        "B2",
+        "ВЗЯТО ВЫШЕ ГРАФЫ ТОЙ ЖЕ МЕРКОЙ: `this one`, `that one` — B1, «FORM: " +
+        "'THIS ONE', 'THAT ONE'», — но словник A2 Key содержит обе части порознь " +
+        "(`one (det & pron)`, `this (det & pron)`, `that (det & pron)`), а " +
+        "руководство на с. 52 называет указательные и местоимениями, и " +
+        "определениями. Оборот стоит в уроках 1, 4, 6, 7, 8 и в работе. " +
+        "И ОДИНОЧНОЕ `both` МЕСТОИМЕНИЕМ — в уроке 5 оно стоит в конце последней " +
+        "строки разговора, без вещи после себя. PRONOUNS quantity, B1, «FORM: " +
+        "SUBJECT AND OBJECT PRONOUNS». " +
+        "Мерка та же: `both (det & pron)` стоит в словнике, а в графе A2 " +
+        "«DETERMINER + 'OF' + DETERMINER» `both of` названо прямо — одиночное " +
+        "`both` от него на шаг. " +
+        "ЧЕГО НЕТ. `none` — C1 тремя графами. `ones` — B1. `these ones`, `those " +
+        "ones` — B2. `each other` — B1. `neither of` — B2",
       license: "внутреннее использование, публично не называем",
     },
     {
@@ -176,8 +206,12 @@ const module: Module = {
         "`one`, `another`, `other`), у которых карточки не было ни в одном модуле " +
         "Elementary. " +
         "ЗНАЧЕНИЯ СВЕРЕНЫ С ПОМЕТАМИ СЛОВНИКА: `these (det & pron)` и `those (det " +
-        "& pron)` — помечены и определением, и местоимением, и урок 2 даёт оба " +
-        "случая; `shorts (n pl)` и `tights (n pl)` — только множественное число, и " +
+        "& pron)` помечены и определением, и местоимением, но УРОК 2 ДАЁТ ТОЛЬКО " +
+        "СЛУЧАЙ ОПРЕДЕЛЕНИЯ (`these tights`), и это решение: местоименные `these` " +
+        "и `those` стоят на B1, а помета словника говорит о слове вообще, не о " +
+        "нашей ступени. Первая редакция приписывала уроку оба случая — неправда, " +
+        "нашёл методист; " +
+        "`shorts (n pl)` и `tights (n pl)` — только множественное число, и " +
         "урок 2 на этом стоит; `leather (n & adj)` — карточка берёт значение " +
         "прилагательного, кожаный; " +
         "`shampoo (n & v)` — карточка берёт вещь; `stripes (n)` и `striped (adj)` " +
@@ -185,8 +219,12 @@ const module: Module = {
         "`rubber` — БРИТАНСКОЕ СЛОВО в значении «ластик», и оно здесь нарочно: " +
         "курс держит британскую норму. Американское `eraser` в словнике тоже есть, " +
         "но курс его не берёт — то же решение, что с `chips` и `post`. " +
-        "СЕМЬ СЛОВ ВЫШЕ СТУПЕНИ ПО OXFORD 3000, И ЭТО ОБЪЯВЛЯЕТСЯ НАРОЧНО: " +
-        "leather, pale, wool, drum, album, keyboard — B1, rubber — B2. Все семь " +
+        "ВОСЕМЬ СЛОВ ВЫШЕ СТУПЕНИ ПО OXFORD 3000, И ЭТО ОБЪЯВЛЯЕТСЯ НАРОЧНО: " +
+        "leather, pale, wool, drum, album, keyboard, cap — B1, rubber — B2. " +
+        "Первая редакция насчитала семь и пропустила `cap`, который стоит в " +
+        "названии урока 1 и в итоге модуля; нашёл методист. Карточка `dressed` " +
+        "(тоже B1) снята вовсе: она не работала в модуле нигде, кроме себя " +
+        "самой. Все восемь " +
         "стоят в словнике A2 Key, то есть входят в требования экзамена, к " +
         "которому ведёт ступень. Два словника здесь расходятся, и это их обычное " +
         "состояние: Oxford размечен по ступеням, но бытовой половины экзамена не " +
@@ -292,7 +330,10 @@ const module: Module = {
             "Look at this cap. It is leather.\nAnd that cap in the window?\nThat one is for a child.\nThen I take this one. That's a good idea!",
           explain:
             "Кепка в руках — this cap, кепка на витрине — that cap. В последней " +
-            "строке That's a good idea стоит без вещи: так отвечают на сказанное.",
+            "строке That's a good idea стоит без вещи: так отвечают на сказанное.\n\n" +
+            "В третьей и четвёртой строках стоит слово one: that one, this one. " +
+            "Оно заменяет слово cap, чтобы не повторять его четыре раза подряд. " +
+            "Полностью разберём его в уроке «Без повтора: the pale one».",
         },
         {
           id: "slovar-torgovogo-centra",
@@ -303,7 +344,6 @@ const module: Module = {
             { term: "that", translation: "тот, та, то", example: "And that cap in the window?", hint: "/ðæt/" },
             { term: "cap", translation: "кепка", example: "Look at this cap.", hint: "/kæp/" },
             { term: "leather", translation: "кожаный", example: "It is leather.", hint: "/ˈleðə/" },
-            { term: "dressed", translation: "одетый", example: "She was dressed for the party.", hint: "/drest/" },
           ],
         },
 
@@ -316,12 +356,12 @@ const module: Module = {
           options: [
             { text: "that cap" },
             { text: "this cap", correct: true },
-            { text: "these cap" },
+            { text: "this caps" },
           ],
           hint: "Одно из этих слов говорит о том, что рядом.",
           why:
-            "This cap. Слово that сказало бы о кепке подальше, а these идёт к " +
-            "нескольким вещам сразу.",
+            "This cap. Слово that сказало бы о кепке подальше, а в this caps " +
+            "лишняя буква s: вещь при this стоит в единственном числе.",
         },
         {
           id: "z2-dopisat-that",
@@ -337,20 +377,20 @@ const module: Module = {
         {
           id: "z3-otmetit-ukazatelnye",
           kind: "hottext",
-          prompt: "Отметь указательные местоимения.",
+          prompt: "Отметь слова, которыми показывают на вещь.",
           parts: [
+            { text: "Look at " },
             { text: "this", selectable: true, correct: true },
-            { text: " · " },
-            { text: "he", selectable: true },
-            { text: " · " },
-            { text: "that", selectable: true, correct: true },
-            { text: " · " },
-            { text: "someone", selectable: true },
+            { text: " cap. " },
+            { text: "It", selectable: true },
+            { text: " is leather. " },
+            { text: "That", selectable: true, correct: true },
+            { text: " shop is closed." },
           ],
-          hint: "Указательным местоимением показывают на вещь.",
+          hint: "Одной вещью тут показывают на кепку рядом, другой — на магазин подальше.",
           why:
-            "This и that. Слово he указывает на человека, а someone как раз не " +
-            "указывает ни на кого точно.",
+            "This и That. Слово It ни на что не показывает: оно стоит вместо " +
+            "кепки, названной строкой раньше.",
         },
         {
           id: "z4-sobrat-o-magazine",
@@ -366,7 +406,7 @@ const module: Module = {
           id: "z5-otvetit-tokenom",
           kind: "short",
           prompt:
-            "Друг предложил хорошее. Ответь ему двумя словами по-английски, начав с That.",
+            "Друг предложил хорошее. Ответь ему коротко по-английски, начав с That's.",
           answer: "That's great!",
           accept: [
             "That's great",
@@ -406,14 +446,14 @@ const module: Module = {
           caption: "Одна вещь и несколько",
           zvuchat: [
             "this cap",
-            "these tights",
+            "these caps",
             "that shop",
-            "those shorts",
+            "those shops",
           ],
           head: ["Одна вещь", "Несколько вещей"],
           rows: [
-            ["this cap", "these tights"],
-            ["that shop", "those shorts"],
+            ["this cap", "these caps"],
+            ["that shop", "those shops"],
           ],
         },
         {
@@ -450,7 +490,7 @@ const module: Module = {
             "These tights are cheap.\nAnd those shorts?\nThose shorts are striped. I like them.\nI like these caps too.",
           explain:
             "Колготки рядом — these tights, шорты подальше — those shorts. У всех " +
-            "четырёх вещей множественное число: tights, shorts, caps.",
+            "трёх вещей множественное число: tights, shorts, caps.",
         },
         {
           id: "slovar-stola",
@@ -539,9 +579,9 @@ const module: Module = {
     // =====================================================================
     {
       slug: "bez-povtora-one",
-      title: "Без повтора: the blue one",
+      title: "Без повтора: the pale one",
       estimatedMinutes: 15,
-      outcome: "не повторять названное: the blue one",
+      outcome: "не повторять названное: the pale one",
 
       blocks: [
         {
@@ -578,7 +618,6 @@ const module: Module = {
             "Слово, которое говорит, какая эта вещь, остаётся: the pale one, the wool one.",
             "Слово the перед ним обычно нужно: речь об известной вещи.",
             "Одно условие: вещь должна быть названа раньше или видна обоим.",
-            "И работает one с одной вещью, а не с несколькими.",
           ],
         },
         {
@@ -586,9 +625,10 @@ const module: Module = {
           kind: "note",
           tone: "mistake",
           text:
-            "«I take the pale one» в начале разговора — так не говорят.\n\nСобеседник " +
-            "не знает, о какой вещи речь. Сперва вещь называют, и только потом " +
-            "заменяют её словом one.",
+            "«Please send me the pale one» в письме, где ни одна вещь не " +
+            "названа, — так не говорят.\n\nЧитатель не знает, о какой вещи речь, и " +
+            "увидеть её не может. В магазине сказать так можно: блузки лежат " +
+            "перед обоими.",
         },
         {
           id: "one-s-utochneniem",
@@ -667,7 +707,7 @@ const module: Module = {
           parts: [
             { text: "This blouse is nice, but I take the pale one.", selectable: true, correct: true },
             { text: " · " },
-            { text: "Hello! I take the pale one, please.", selectable: true },
+            { text: "Dear Aigul, please send me the pale one.", selectable: true },
             { text: " · " },
             { text: "My house is the one with silver gates.", selectable: true, correct: true },
             { text: " · " },
@@ -675,8 +715,8 @@ const module: Module = {
           ],
           hint: "Спроси у каждой строки: знает ли собеседник, о какой вещи речь?",
           why:
-            "Неверна только вторая: разговор ещё не начался, и вещь никто не " +
-            "называл.",
+            "Неверна только вторая: это начало письма, вещь в нём не названа, и " +
+            "увидеть её читатель не может.",
         },
         {
           id: "z4-sobrat-o-sherstyanoy",
@@ -748,7 +788,7 @@ const module: Module = {
             "Перед ним стоит the, потому что эта вещь известна: она одна такая.",
             "Another значит «ещё один» и пишется одним словом.",
             "Перед ним the не бывает: вещь не выбрана, их много.",
-            "Проверить просто: спроси, сколько вещей всего — две или больше.",
+            "Спроси у себя, сколько вещей всего — две или больше.",
           ],
         },
         {
@@ -782,7 +822,7 @@ const module: Module = {
           kind: "vocab",
           caption: "Слова урока",
           items: [
-            { term: "other", translation: "другой из двух", example: "And the other one?", hint: "/ˈʌðə/" },
+            { term: "other", translation: "другой, второй", example: "And the other one?", hint: "/ˈʌðə/" },
             { term: "another", translation: "ещё один", example: "Can I see another swimsuit?", hint: "/əˈnʌðə/" },
             { term: "swimsuit", translation: "купальник", example: "Can I see another swimsuit?", hint: "/ˈswɪmsuːt/" },
             { term: "golden", translation: "золотой", example: "This one is golden.", hint: "/ˈgəʊldən/" },
@@ -864,9 +904,9 @@ const module: Module = {
     // =====================================================================
     {
       slug: "chast-iz-nih",
-      title: "Часть из них: some of my friends",
+      title: "Часть и всё: some of my friends, all of my money",
       estimatedMinutes: 15,
-      outcome: "называть часть: some of my friends",
+      outcome: "говорить о названном через of: some of my friends, all of my money",
 
       blocks: [
         {
@@ -899,11 +939,12 @@ const module: Module = {
           id: "kogda-nuzhno-of",
           kind: "explain",
           text: [
-            "Слово of появляется тогда, когда дальше стоит my, the, these или those.",
+            "Слово of появляется тогда, когда дальше сказано, о каких именно вещах речь.",
+            "Такое слово — my, his, her, the, these, those, а ещё them, «из них».",
             "Some of my friends — «некоторые из моих друзей».",
             "All of my money — «все мои деньги», до последней монеты.",
             "Both of the shops — «оба магазина», когда их ровно два.",
-            "А без my и the оно не нужно вовсе: some friends, all shops.",
+            "А если сразу стоит вещь, of не нужно вовсе: some friends, all shops.",
           ],
         },
         {
@@ -911,8 +952,8 @@ const module: Module = {
           kind: "note",
           tone: "mistake",
           text:
-            "«some of friends» — так не говорят.\n\nПосле of стоит my, the, these " +
-            "или those: some of my friends.",
+            "«some of friends» — так не говорят.\n\nПосле of сказано, о каких именно " +
+            "друзьях речь: some of my friends, some of his friends.",
         },
         {
           id: "razgovor-v-supermarkete",
@@ -961,7 +1002,7 @@ const module: Module = {
         {
           id: "z2-vybrat-nuzhno-li-of",
           kind: "choice",
-          prompt: "В какой записи слово of лишнее?",
+          prompt: "В какой записи ошибка?",
           options: [
             { text: "all of my money" },
             { text: "some of these mangoes" },
@@ -969,8 +1010,8 @@ const module: Module = {
           ],
           hint: "Посмотри, что стоит сразу после of.",
           why:
-            "Some of friends. После of должно стоять my, the, these или those, а " +
-            "тут сразу вещь.",
+            "Some of friends. После of не сказано, о каких именно друзьях речь, — " +
+            "сразу стоит вещь. В двух других записях всё на месте.",
         },
         {
           id: "z3-otmetit-vernye-o-chasti",
@@ -985,7 +1026,7 @@ const module: Module = {
             { text: " · " },
             { text: "some of these mangoes", selectable: true, correct: true },
           ],
-          hint: "Слово of нужно только там, где дальше идёт my, the, these или those.",
+          hint: "Слово of нужно только там, где дальше сказано, о каких именно вещах речь.",
           why:
             "Неверна только вторая: после of там стоит сразу вещь. Запись some " +
             "friends верна и без of — она про друзей вообще.",
@@ -1042,8 +1083,9 @@ const module: Module = {
           body: [
             "Come to the school hall on Saturday!",
             "These toys are from our families: a doll, a kite and a drum.",
-            "The doll is 500 tenge. The drum is bigger, and that one is 2000 tenge.",
+            "The doll is 500 tenge, and the drum is 2000 tenge.",
             "We have two kites. This one is golden, and the other one is striped.",
+            "The golden kite is 800 tenge, and the striped one is 1200 tenge.",
             "Some of the books are old, but all of them are cheap.",
             "Bring your friends, because all of the money goes to our trip!",
           ],
@@ -1058,8 +1100,8 @@ const module: Module = {
           kind: "note",
           tone: "info",
           text:
-            "Цену ищут в той же строке, где названа вещь.\n\nА саму вещь ищут " +
-            "выше: во второй раз вместо неё часто стоит one.",
+            "Цену ищут в той строке, где названа вещь, или в следующей за " +
+            "ней.\n\nА саму вещь ищут выше: во второй раз вместо неё часто стоит one.",
         },
         {
           id: "slovar-rasprodazhi",
@@ -1068,7 +1110,7 @@ const module: Module = {
           items: [
             { term: "doll", translation: "кукла", example: "The doll is 500 tenge.", hint: "/dɒl/" },
             { term: "kite", translation: "воздушный змей", example: "We have two kites.", hint: "/kaɪt/" },
-            { term: "drum", translation: "барабан", example: "The drum is bigger.", hint: "/drʌm/" },
+            { term: "drum", translation: "барабан", example: "The drum is 2000 tenge.", hint: "/drʌm/" },
           ],
         },
 
@@ -1081,7 +1123,7 @@ const module: Module = {
           answer: "2000",
           accept: ["2000 tenge", "две тысячи"],
           hint: "Цена стоит в той же строке, где сказано про барабан.",
-          why: "The drum is bigger, and that one is 2000 tenge.",
+          why: "The doll is 500 tenge, and the drum is 2000 tenge.",
         },
         {
           id: "z2-kakie-zmei",
@@ -1099,15 +1141,16 @@ const module: Module = {
             "is striped.",
         },
         {
-          id: "z3-chto-znachit-that-one",
+          id: "z3-chto-znachit-striped-one",
           about: "obyavlenie-o-rasprodazhe",
           kind: "short",
           prompt:
-            "В строке про барабан стоит that one. Какое слово оно заменяет? Ответь одним словом по-английски.",
-          answer: "drum",
-          accept: ["Drum", "the drum"],
-          hint: "Заменённое слово стоит в той же строке, чуть раньше.",
-          why: "The drum is bigger, and that one is 2000 tenge.",
+            "В строке про цены стоит the striped one. Какое слово оно заменяет? Ответь одним словом по-английски.",
+          answer: "kite",
+          hint: "Заменённое слово стоит строкой выше.",
+          why:
+            "Kite. Строкой выше сказано We have two kites, и повторять слово kite " +
+            "в третий раз не надо.",
         },
         {
           id: "z4-otmetit-verno-ob-obyavlenii",
@@ -1159,7 +1202,7 @@ const module: Module = {
           id: "zachem-slushat-o-vybore",
           kind: "explain",
           text: [
-            "Двое выбирают подарок и перебирают вещи на столе.",
+            "Дана и Данияр всё ещё выбирают подарок, а теперь стоят у прилавка с альбомами.",
             "Слушать надо, какую вещь они взяли в конце и почему.",
             "Ниже запись, а расшифровка спрятана под кнопкой.",
             "Слушай целиком, потом отвечай.",
@@ -1190,7 +1233,8 @@ const module: Module = {
           caption: "Слова урока",
           items: [
             { term: "album", translation: "альбом", example: "Look at these two albums.", hint: "/ˈælbəm/" },
-            { term: "keyboard", translation: "клавиатура", example: "And a keyboard?", hint: "/ˈkiːbɔːd/" },
+            { term: "animal", translation: "животное", example: "The other one is about animals.", hint: "/ˈænɪməl/" },
+            { term: "keyboard", translation: "синтезатор, клавишные", example: "And a keyboard?", hint: "/ˈkiːbɔːd/" },
           ],
         },
 
@@ -1202,7 +1246,7 @@ const module: Module = {
           prompt:
             "Послушай. О чём альбом, который взяли? Ответь одним словом по-английски.",
           answer: "music",
-          accept: ["Music", "about music"],
+          accept: ["Music"],
           hint: "Ответ звучит во второй реплике, сразу после I take.",
           why: "I take the music one.",
         },
@@ -1280,7 +1324,7 @@ const module: Module = {
           id: "zachem-proveryat-obyavlenie",
           kind: "explain",
           text: [
-            "Ученик написал объявление: «We sell books and toys. Come on Saturday.»",
+            "Ученик написал объявление: «We sell books and toys. Come to the school hall on Saturday.»",
             "Никто не пришёл: непонятно, какие книги, какие игрушки и сколько стоят.",
             "В объявлении пропускают не сами вещи, а то, какие они и сколько стоят.",
             "Проверить своё объявление можно по четырём строкам.",
@@ -1291,17 +1335,17 @@ const module: Module = {
           kind: "table",
           caption: "Что должно быть в объявлении",
           zvuchat: [
-            "Come to the school hall on Saturday!",
-            "We have two kites.",
-            "This one is golden, and the other one is striped.",
-            "All of the books are cheap.",
+            "Come to the school library on Friday at four!",
+            "We sell two rulers and some rubbers.",
+            "This ruler has stripes, but the other one is pale.",
+            "All of the rubbers are 100 tenge.",
           ],
           head: ["Что сказано", "Пример строки"],
           rows: [
-            ["куда и когда прийти", "Come to the school hall on Saturday!"],
-            ["что продают", "We have two kites."],
-            ["чем вещи различаются", "This one is golden, and the other one is striped."],
-            ["сколько стоит", "All of the books are cheap."],
+            ["куда и когда прийти", "Come to the school library on Friday at four!"],
+            ["что продают", "We sell two rulers and some rubbers."],
+            ["чем вещи различаются", "This ruler has stripes, but the other one is pale."],
+            ["сколько стоит", "All of the rubbers are 100 tenge."],
           ],
         },
         {
@@ -1309,7 +1353,7 @@ const module: Module = {
           kind: "explain",
           text: [
             "Первая строка зовёт: куда прийти и в какой день.",
-            "Вторая называет вещи и их число: two kites, three books.",
+            "Вторая называет вещи и их число: two rulers, three books.",
             "Третья различает вещи, и вот тут пригождается one.",
             "Четвёртая говорит про цену — числом или словом cheap.",
             "Строки связывают словами and, but и because: без них выйдет список.",
@@ -1318,26 +1362,26 @@ const module: Module = {
         {
           id: "obrazec-obyavleniya",
           kind: "example",
-          caption: "Объявление Данияра",
+          caption: "Объявление Айгуль",
           zvuchat: [
-            "Come to the school hall on Saturday!",
-            "We have two caps and some books.",
-            "This cap is leather, but the other one is wool.",
-            "All of the books are cheap, because they are old.",
+            "Come to the school library on Friday at four!",
+            "We sell two rulers and some rubbers.",
+            "This ruler has stripes and it is 200 tenge, but the other one is pale and 300 tenge.",
+            "All of the rubbers are 100 tenge, because they are old.",
           ],
           text:
-            "Come to the school hall on Saturday!\nWe have two caps and some books.\nThis cap is leather, but the other one is wool.\nAll of the books are cheap, because they are old.",
+            "Come to the school library on Friday at four!\nWe sell two rulers and some rubbers.\nThis ruler has stripes and it is 200 tenge, but the other one is pale and 300 tenge.\nAll of the rubbers are 100 tenge, because they are old.",
           explain:
-            "Слово cap названо один раз, дальше стоит the other one. Строки связаны " +
-            "словами but и because, как требует объявление.",
+            "Слово ruler названо один раз, дальше стоит the other one. У каждой " +
+            "вещи сказано и какая она, и сколько стоит: 200, 300 и 100 тенге.",
         },
         {
           id: "slovar-obyavleniya",
           kind: "vocab",
           caption: "Слова урока",
           items: [
-            { term: "ruler", translation: "линейка", example: "We sell a ruler and a rubber.", hint: "/ˈruːlə/" },
-            { term: "rubber", translation: "ластик", example: "We sell a ruler and a rubber.", hint: "/ˈrʌbə/" },
+            { term: "ruler", translation: "линейка", example: "We sell two rulers and some rubbers.", hint: "/ˈruːlə/" },
+            { term: "rubber", translation: "ластик", example: "All of the rubbers are 100 tenge.", hint: "/ˈrʌbə/" },
           ],
         },
 
@@ -1346,64 +1390,63 @@ const module: Module = {
           id: "z1-chego-ne-hvataet-obyavleniyu",
           kind: "choice",
           prompt:
-            "Объявление целиком: We sell books and toys. Come on Saturday. Чего в нём не хватает?",
+            "Объявление целиком: We sell books and toys. Come to the school hall on Saturday. Чего в нём не хватает?",
           options: [
-            { text: "Названия школы." },
+            { text: "Благодарности читателю." },
             { text: "Не сказано, какие это вещи и сколько стоят.", correct: true },
             { text: "Имени того, кто продаёт." },
           ],
           hint: "Представь себя читателем: пойдёшь ли ты по такому объявлению?",
           why:
-            "Не сказано, какие вещи и почём. День назван, а вот какие книги и " +
-            "сколько они стоят — " +
-            "читатель не узнает.",
+            "Не сказано, какие вещи и почём. Куда и когда прийти — сказано, а " +
+            "вот какие это книги и сколько они стоят, читатель не узнает.",
         },
         {
           id: "z2-dopisat-razlichie",
           kind: "gap",
           prompt:
-            "Кепки уже названы. Допиши слово, чтобы не повторять его во второй раз.",
-          before: "This cap is leather, but the other ",
-          after: " is wool.",
+            "Линейки уже названы. Допиши слово, чтобы не повторять их во второй раз.",
+          before: "This ruler has stripes, but the other ",
+          after: " is pale.",
           answer: "one",
           hint: "Вместо названной вещи встаёт короткое слово.",
           why:
-            "This cap is leather, but the other one is wool. Слово cap во второй " +
-            "раз не нужно.",
+            "This ruler has stripes, but the other one is pale. Слово ruler во " +
+            "второй раз не нужно.",
         },
         {
           id: "z3-otmetit-poleznye-stroki",
           kind: "hottext",
-          prompt: "Отметь строки, которые говорят читателю что-то полезное.",
+          prompt: "Отметь строки, которые говорят читателю о вещах.",
           parts: [
-            { text: "All of the books are cheap.", selectable: true, correct: true },
+            { text: "All of the rubbers are 100 tenge.", selectable: true, correct: true },
             { text: " · " },
-            { text: "It is a good sale.", selectable: true },
+            { text: "We like this sale.", selectable: true },
             { text: " · " },
-            { text: "We have two caps.", selectable: true, correct: true },
+            { text: "We sell two rulers.", selectable: true, correct: true },
             { text: " · " },
             { text: "We are happy.", selectable: true },
           ],
           hint: "Спроси у каждой строки: что читатель узнал из неё о вещах?",
           why:
-            "Первая и третья. Строки It is a good sale и We are happy говорят о " +
-            "чувствах, а о вещах не говорят ничего.",
+            "Первая и третья. Строки We like this sale и We are happy говорят о " +
+            "чувствах продавца: ни вещи, ни цены в них нет.",
         },
         {
           id: "z4-svyazat-stroki",
           kind: "short",
           prompt:
-            "Соедини две строки одним словом: All of the books are cheap. They are old. Запиши получившуюся строку целиком.",
-          answer: "All of the books are cheap, because they are old.",
+            "Соедини две строки одним словом: This cap is cheap. It is old. Запиши получившуюся строку целиком.",
+          answer: "This cap is cheap, because it is old.",
           accept: [
-            "All of the books are cheap, because they are old",
-            "All of the books are cheap because they are old.",
-            "All of the books are cheap because they are old",
+            "This cap is cheap, because it is old",
+            "This cap is cheap because it is old.",
+            "This cap is cheap because it is old",
           ],
           hint: "Вторая строка называет причину первой.",
           why:
-            "All of the books are cheap, because they are old. Слово because и " +
-            "связывает причину со следствием.",
+            "This cap is cheap, because it is old. Слово because и связывает " +
+            "причину со следствием.",
         },
         {
           id: "z5-napisat-obyavlenie",
@@ -1412,15 +1455,15 @@ const module: Module = {
             "Напиши объявление о школьной распродаже, четырьмя строками. Позови читателя, назови вещи и их число, различи их и скажи про цену.",
           minWords: 16,
           sample:
-            "Come to the school hall on Saturday!\nWe have two caps and some books.\nThis cap is leather, but the other one is wool.\nAll of the books are cheap, because they are old.",
+            "Come to the school library on Friday at four!\nWe sell two rulers and some rubbers.\nThis ruler has stripes and it is 200 tenge, but the other one is pale and 300 tenge.\nAll of the rubbers are 100 tenge, because they are old.",
           checklist: [
             "первая строка зовёт: куда и когда прийти",
             "названы вещи и их число",
             "есть строка со словом one вместо повтора",
-            "сказано про цену: числом или словом cheap",
+            "у каждой вещи сказано, сколько она стоит",
           ],
           hint:
-            "Бери обороты, которые знаешь: two caps, this one, the other one, all of the books.",
+            "Бери обороты, которые знаешь: two rulers, this one, the other one, all of the rubbers.",
           why:
             "Объявление работает, когда читатель понимает, что там продают, не " +
             "переспрашивая.",
@@ -1503,7 +1546,7 @@ const module: Module = {
       {
         id: "q-zachem-nuzhno-one",
         kind: "choice",
-        outcome: "не повторять названное: the blue one",
+        outcome: "не повторять названное: the pale one",
         prompt:
           "Зачем в строке I take the pale one ставят слово one?",
         options: [
@@ -1519,7 +1562,7 @@ const module: Module = {
       {
         id: "q-zamenit-povtor",
         kind: "short",
-        outcome: "не повторять названное: the blue one",
+        outcome: "не повторять названное: the pale one",
         prompt:
           "Строку I take the wool cap перепиши так, чтобы слово cap не повторялось. О кепках уже говорили.",
         answer: "I take the wool one.",
@@ -1547,17 +1590,21 @@ const module: Module = {
           "ещё один из многих.",
       },
       {
-        id: "q-poprosit-eshche-odnu-veshch",
+        id: "q-poprosit-vtoruyu-iz-dvuh",
         kind: "short",
         outcome: "различать the other one и another",
         prompt:
-          "На полке много кепок. Попроси показать ещё одну, начав с Can I see.",
-        answer: "Can I see another cap?",
-        accept: ["Can I see another cap"],
-        hint: "Вещей много, и эта не выбрана из двух.",
+          "Блузок в магазине ровно две, и первая уже отложена. Попроси показать вторую, начав с Can I see.",
+        answer: "Can I see the other one?",
+        accept: [
+          "Can I see the other one",
+          "Can I see the other blouse?",
+          "Can I see the other blouse",
+        ],
+        hint: "Вещей ровно две, и вторая известна вам обоим.",
         why:
-          "Can I see another cap? Оборот the other one сказал бы о втором из " +
-          "двух.",
+          "Can I see the other one? Слово another сказало бы «ещё одну из " +
+          "многих», а блузок всего две.",
       },
       {
         id: "q-ispravit-the-another",
@@ -1577,7 +1624,7 @@ const module: Module = {
       {
         id: "q-kogda-nuzhno-of",
         kind: "choice",
-        outcome: "называть часть: some of my friends",
+        outcome: "говорить о названном через of: some of my friends, all of my money",
         prompt:
           "В записи some of my friends есть of, а в записи some friends его нет. Отчего это зависит?",
         options: [
@@ -1593,7 +1640,7 @@ const module: Module = {
       {
         id: "q-napisat-o-chasti-knig",
         kind: "short",
-        outcome: "называть часть: some of my friends",
+        outcome: "говорить о названном через of: some of my friends, all of my money",
         prompt:
           "Часть его книг старые. Скажи это по-английски, начав с Some.",
         answer: "Some of his books are old.",
@@ -1606,14 +1653,20 @@ const module: Module = {
       {
         id: "q-vse-dengi",
         kind: "short",
-        outcome: "называть часть: some of my friends",
+        outcome: "говорить о названном через of: some of my friends, all of my money",
         prompt:
           "Он потратил все свои деньги. Скажи это по-английски, начав с He spent.",
         answer: "He spent all of his money.",
-        accept: ["He spent all of his money"],
-        hint: "Слово all работает так же, как some: перед his нужно of.",
+        accept: [
+          "He spent all of his money",
+          "He spent all his money.",
+          "He spent all his money",
+        ],
+        hint: "Слово all работает так же, как some: дальше идёт his.",
         why:
-          "He spent all of his money. Слово all называет всё целиком, а не часть.",
+          "He spent all of his money. Слово all называет всё целиком, а не " +
+          "часть. Запись без of — He spent all his money — тоже верна, и в " +
+          "речи она даже чаще; урок учит записи с of.",
       },
 
       // ---- итог 6 ----
@@ -1652,13 +1705,14 @@ const module: Module = {
         kind: "short",
         outcome: "слышать в разговоре, какую вещь взяли",
         zvuk:
-          "This album is about music, and the other one is about animals. — I take the animal one.",
+          "Here are two rulers. This one has stripes. — I take the pale one, please.",
         prompt:
-          "Послушай. О чём альбом, который взяли? Ответь одним словом по-английски.",
-        answer: "animals",
-        accept: ["Animals", "animal", "about animals"],
-        hint: "Ответ звучит в последней реплике, сразу после I take.",
-        why: "Ответ — animals: в записи звучит I take the animal one.",
+          "Послушай. Какую линейку взяли? Ответь одним словом по-английски.",
+        answer: "pale",
+        accept: ["Pale"],
+        hint: "Взявший назвал линейку не той, что показали первой.",
+        why:
+          "Pale. Показали линейку в полоску, а взяли вторую — the pale one.",
       },
       {
         id: "q-uslyshat-skolko-veshchey",
@@ -1666,11 +1720,14 @@ const module: Module = {
         outcome: "слышать в разговоре, какую вещь взяли",
         zvuk:
           "Here are two caps. This one is leather. — And the other one? — The other one is wool.",
-        prompt: "Послушай. Сколько кепок на столе? Ответь числом.",
-        answer: "2",
-        accept: ["two", "два"],
-        hint: "Кепки пересчитаны раньше, чем их начали различать.",
-        why: "Here are two caps. И потому дальше идёт the other one, а не another.",
+        prompt:
+          "Послушай. Из чего сделана вторая кепка? Ответь одним словом по-английски.",
+        answer: "wool",
+        accept: ["Wool"],
+        hint: "Про вторую кепку говорят в самой последней реплике.",
+        why:
+          "Wool. Первая кепка кожаная, а про вторую сказано the other one is " +
+          "wool.",
       },
 
       // ---- итог 8 ----
@@ -1679,28 +1736,29 @@ const module: Module = {
         kind: "choice",
         outcome: "проверять объявление: о каждой вещи сказано, какая она и сколько стоит",
         prompt:
-          "Объявление целиком: We sell toys. Come on Sunday. Чего в нём не хватает?",
+          "Объявление: We sell two caps. Come to the hall on Sunday. This cap is leather, but the other one is wool. Какой из четырёх нужных строк здесь нет?",
         options: [
-          { text: "Не сказано, где именно и сколько стоит.", correct: true },
-          { text: "Не сказано, кто написал объявление." },
-          { text: "Не сказано, сколько лет продавцу." },
+          { text: "Той, что зовёт: куда и когда прийти." },
+          { text: "Той, что говорит про цену.", correct: true },
+          { text: "Той, что различает две вещи." },
         ],
-        hint: "Сравни его с четырьмя строками, которые в объявлении нужны.",
+        hint: "Пройди по объявлению строку за строкой и вычёркивай найденное.",
         why:
-          "Не сказано, где именно и сколько стоит. День назван, а места и цены " +
-          "нет.",
+          "Той, что говорит про цену. Зовут в зал в воскресенье, продают две " +
+          "кепки, различают их кожей и шерстью — а сколько они стоят, нигде не " +
+          "сказано.",
       },
       {
         id: "q-dopisat-stroku-o-cene",
         kind: "short",
         outcome: "проверять объявление: о каждой вещи сказано, какая она и сколько стоит",
         prompt:
-          "К объявлению допиши строку о цене: все книги дешёвые. Начни с All.",
-        answer: "All of the books are cheap.",
-        accept: ["All of the books are cheap"],
-        hint: "Книги известны читателю, значит после of встанет the.",
+          "К объявлению допиши строку о цене: все линейки дешёвые. Начни с All.",
+        answer: "All of the rulers are cheap.",
+        accept: ["All of the rulers are cheap"],
+        hint: "Линейки известны читателю, значит после of встанет the.",
         why:
-          "All of the books are cheap. Слово all говорит, что дешёвые все до " +
+          "All of the rulers are cheap. Слово all говорит, что дешёвые все до " +
           "одной.",
       },
       {
