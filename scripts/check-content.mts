@@ -1540,12 +1540,123 @@ function checkKartochkaRabotaet(mod: Module, where: string): void {
   }
 }
 
+/**
+ * Подпись картинки не печатает ответ задания, стоящего ниже.
+ *
+ * У блока `image` описание `alt` обязательно, и правильно: без него картинку
+ * не увидит ни программа чтения с экрана, ни поиск. Но описание — это текст
+ * на странице, и если оно перечисляет то, о чём спрашивает задание, ответ
+ * оказывается напечатан раньше вопроса.
+ *
+ * ЛОВУШКА, ИЗ-ЗА КОТОРОЙ ПРОСТОЕ СРАВНЕНИЕ СТРОК ЗДЕСЬ БЕСПОЛЕЗНО: описание
+ * по-русски, а ответ по-английски. Первая же находка была такой — alt говорил
+ * «под номером три зонт», а ответом задания стояло `umbrella`. Поэтому ответ
+ * сперва переводится по словарным карточкам всего курса, и в описании ищется
+ * перевод.
+ *
+ * Уровень — вопрос, а не ошибка: у картинки бывает законное описание, которое
+ * называет предмет, а спрашивают о нём не поэтому. Решает методист.
+ */
+function checkAltNePechataetOtvet(course: Course, mod: Module, where: string): void {
+  // Словарь курса целиком: слово → его переводы. Карточка могла прийти в
+  // другом модуле, а картинка стоять здесь.
+  const perevody = new Map<string, string[]>();
+  for (const m of course.modules) {
+    for (const lesson of m.lessons) {
+      for (const block of lesson.blocks as any[]) {
+        if (block.kind !== "vocab") continue;
+        for (const item of block.items ?? []) {
+          const slovo = slova(String(item.term ?? ""));
+          const perevod = String(item.translation ?? "").trim();
+          if (!slovo || !perevod) continue;
+          if (!perevody.has(slovo)) perevody.set(slovo, []);
+          perevody.get(slovo)!.push(perevod);
+        }
+      }
+    }
+  }
+
+  const utechki: string[] = [];
+
+  for (const lesson of mod.lessons) {
+    // Описания картинок, встреченных ВЫШЕ по уроку. Картинка ниже задания
+    // ответа выдать не может: ученик отвечает раньше, чем до неё дойдёт.
+    let podpisi = "";
+
+    for (const block of lesson.blocks as any[]) {
+      if (block.kind === "image") {
+        podpisi += " . " + String(block.alt ?? "") + " . " + String(block.caption ?? "");
+        continue;
+      }
+      if (!isTask(block)) continue;
+      if (!podpisi.trim()) continue;
+      if (razobrano(block.id)) continue;
+
+      const material = slova(podpisi);
+      if (!material) continue;
+
+      // Условие задания читается раньше картинки и само может называть вещь:
+      // «На столе лежит чужой рюкзак — спроси, чей он». Тогда описание
+      // картинки ничего не выдаёт, и кричать не на что.
+      const uslovie = slova(
+        [block.prompt, block.before, block.after].filter(Boolean).join(" ")
+      );
+
+      const otvety: string[] = [];
+      if (typeof block.answer === "string") otvety.push(block.answer);
+      for (const o of block.options ?? []) if (o.correct) otvety.push(o.text);
+      for (const p of block.parts ?? []) if (p.correct) otvety.push(p.text);
+
+      for (const otvet of otvety) {
+        const chistyy = slova(otvet);
+        if (!chistyy) continue;
+
+        // Прямое совпадение: описание и ответ на одном языке.
+        if (uslovie.includes(chistyy)) continue;
+        if (chistyy.length >= 4 && material.includes(chistyy)) {
+          utechki.push(`${block.id}: «${otvet.trim()}» стоит в описании картинки`);
+          continue;
+        }
+
+        // Совпадение через перевод. Берём только короткие переводы: длинное
+        // толкование («заменяет названную вещь») в описании не встретится, а
+        // ложных срабатываний даст сколько угодно.
+        let nashlos: string | undefined;
+        for (const slovo of chistyy.split(" ")) {
+          for (const perevod of perevody.get(slovo) ?? []) {
+            for (const kusok of perevod.split(/[,;]/)) {
+              const p = slova(kusok);
+              if (p.length < 4) continue;
+              if (p.split(" ").length > 2) continue;
+              if (uslovie.includes(p)) continue;
+              if (material.includes(p)) nashlos = `${slovo} → «${kusok.trim()}»`;
+            }
+          }
+        }
+        if (nashlos) {
+          utechki.push(`${block.id}: ответ «${otvet.trim()}» назван в описании картинки по-русски (${nashlos})`);
+        }
+      }
+    }
+  }
+
+  if (utechki.length > 0) {
+    warn(
+      where,
+      `описание картинки печатает ответ задания (${utechki.length} шт.):\n      ` +
+        utechki.join("\n      ") +
+        "\n      Ученик прочтёт ответ раньше вопроса. Решает методист"
+    );
+  }
+}
+
 function checkModule(course: Course, mod: Module, where: string): void {
   if (mod.sources.length === 0) {
     fail(where, "не заполнены источники: содержание не сочиняется самостоятельно");
   }
   checkPodpisiNePovtoryayutsya(mod, where);
   checkKartochkaRabotaet(mod, where);
+  checkAltNePechataetOtvet(course, mod, where);
   checkRazgovorRazneseyon(mod, where);
   if (mod.outcomes.length === 0) fail(where, "у модуля не указано, чему он учит");
   if (mod.lessons.length === 0) fail(where, "в модуле нет уроков");

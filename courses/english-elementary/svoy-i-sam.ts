@@ -39,11 +39,17 @@ import type { Module } from "@/lib/content/types";
  * - **`hers`, `ours`, `theirs`** — English Grammar Profile ставит их на B2 и C1
  *   («FORM: 'HERS' AS OBJECT», «FORM: 'OURS' AS SUBJECT» и прочие), тогда как
  *   `mine` у него A2 целиком («FORM: 'MINE'» — и подлежащим, и дополнением, и
- *   после `be`, и после предлогов), а `yours` A2 дополнением. Но графы там
- *   строятся на том, в работах какого уровня форма ВСТРЕТИЛАСЬ, а `theirs` —
- *   слово редкое: его нечастость в работах A2 говорит о частоте, а не о
- *   трудности. Тот же случай, что «usually three or more syllables» в модуле
- *   14, где наблюдение приняли за порог.
+ *   после `be`, и после предлогов), а `yours` A2 дополнением. Довод берётся
+ *   не отсюда: графы English Grammar Profile говорят, в работах какого уровня
+ *   форма встретилась, а руководство и словник говорят, что входит в
+ *   требования экзамена. Мерка курса — вторая, и применена ко всем шести
+ *   одинаково.
+ *
+ *   ОСТОРОЖНО, ЗДЕСЬ БЫЛО ЛИШНЕЕ УТВЕРЖДЕНИЕ. Первая редакция шапки писала,
+ *   что `theirs` просто редкое слово и потому не попало в работы A2. Проверить
+ *   это в `materials/` нечем: `ngsl-stats.csv` устроен по леммам и отдельных
+ *   записей для `hers`, `ours`, `theirs`, `yours` не держит вовсе. Нашёл
+ *   методист. Утверждение снято — довод без него крепче.
  * - **`by myself`** в значении «сам, без помощи» — B1, «FORM/USE: 'BY' +
  *   SINGULAR». А словник A2 Key даёт этот оборот собственной строкой:
  *   `myself (pron) • by myself`, и так же у `himself` и `herself`. Оборот
@@ -54,6 +60,30 @@ import type { Module } from "@/lib/content/types";
  *   A2, а словник содержит оба. Взяты по тому же доводу, что и притяжательные:
  *   набор показывается целиком. В ЗАДАНИЯХ ИХ НЕТ — таблица показывает ряд, а
  *   спрашивается то, что источник подтверждает на A2.
+ * - **`himself`, `herself` и глагол `hurt`** — графа A2 сама называет свой круг
+ *   узким: «a limited range of singular reflexive pronouns ('myself',
+ *   'yourself') with a limited range of verbs ('enjoy', 'buy')». Расширение
+ *   круга лиц и глаголов — это по прямому слову источника шаг на B1: «an
+ *   increasing range of singular reflexive pronouns with an increasing range of
+ *   verbs». Шаг сделан нарочно и берётся по мерке словника (`himself (pron)`,
+ *   `herself (pron)`, `hurt (v)`). Первая редакция шапки писала обратное — что
+ *   урок держится «лиц я и ты», — а уроки давали `himself` и `herself` в
+ *   таблице, примере и трёх заданиях. Нашёл методист.
+ * - **`his` местоимением** (`It's his`) — у English Grammar Profile «FORM:
+ *   'HIS'» стоит на C2. В словнике `his` помечен `(det & pron)`, и мерка берёт
+ *   его оттуда.
+ * - **Притяжательное подлежащим** — «No, his is black», «No, hers is purple» в
+ *   примерах уроков 2 и 3. У источника подлежащее стоит на C2 («FORM: 'HERS'
+ *   AS SUBJECT»). В ЗАДАНИЯХ его нет нигде, а в примерах оно есть, и это надо
+ *   было объявить сразу: без такой строки урок 2 не показал бы, зачем форма
+ *   вообще нужна. Нашёл методист.
+ *
+ * И ОДНА ОГОВОРКА ПРО МЕРКУ СЛОВНИКА В УРОКЕ 5. Подстрока `• by …` стоит в
+ * словнике у трёх слов из четырёх: `myself (pron) • by myself`, `himself
+ * (pron) • by himself`, `herself (pron) • by herself`. У `yourself (pron)`
+ * подстроки нет — за ней сразу идёт «Z». Значит `by yourself` держится не
+ * словником, а графой B1 English Grammar Profile, где оно названо прямо.
+ * Проверено методистом построчно.
  *
  * ЗАДАНИЯ ДЕРЖАТСЯ МЕСТ, ПОДТВЕРЖДЁННЫХ НА A2. Притяжательное спрашивается
  * после `be` («It's mine»), дополнением («I loved yours») и после предлога.
@@ -102,12 +132,12 @@ const module: Module = {
   outcomes: [
     "сказать, что вещь твоя: It's mine",
     "назвать хозяина любой вещи: his, hers, ours, theirs",
-    "спросить и ответить, чья вещь: Whose is it?",
+    "спросить и ответить, чья вещь: Whose is it? A friend of mine",
     "сказать о действии с самим собой: I hurt myself",
     "сказать, что справился без помощи: by myself",
     "находить в объявлении о находках, что нашли и где забрать",
     "слышать в разговоре, чья вещь",
-    "проверять объявление о находке: названа вещь, место и как забрать",
+    "проверять объявление о находке по четырём строкам: вещь и день, приметы, чьё оно, где забрать",
   ],
 
   sources: [
@@ -153,9 +183,14 @@ const module: Module = {
         "('myself', 'yourself') with a limited range of verbs ('enjoy', 'buy') " +
         "to refer to actions where the subject and object of the verb are the " +
         "same», примеры «I enjoyed myself so much», «I bought myself a yellow " +
-        "T-shirt with nothing on it». Графа сама называет свой круг узким " +
-        "(«limited range»), и урок держится его: глаголы enjoy, buy и hurt, " +
-        "лица я и ты. " +
+        "T-shirt with nothing on it». ГРАФА САМА НАЗЫВАЕТ СВОЙ КРУГ УЗКИМ " +
+        "(«limited range»), А УРОК ЕГО РАСШИРЯЕТ: к enjoy и buy добавлен hurt, " +
+        "к myself и yourself — himself и herself. По прямому слову источника " +
+        "это шаг на B1 («an increasing range of singular reflexive pronouns " +
+        "with an increasing range of verbs»), и он объявлен в шапке модуля " +
+        "наравне с прочим, взятым по мерке словника. " +
+        "О РУКОВОДСТВАХ см. отдельную опору ниже: возвратных не называет " +
+        "руководство A2 Key, но называет руководство B1 Preliminary. " +
         "УРОК 5, БЕЗ ПОМОЩИ. Та же подкатегория, B1, «FORM/USE: 'BY' + " +
         "SINGULAR» — «Can use the singular reflexive pronouns 'myself', " +
         "'yourself', 'himself' and 'herself' with 'by' to mean alone, without " +
@@ -170,9 +205,22 @@ const module: Module = {
       license: "внутреннее использование, публично не называем",
     },
     {
+      ref: "Cambridge English, B1 Preliminary handbook for teachers",
+      section:
+        "УРОКИ 4 И 5, ГДЕ ИСКАТЬ ВОЗВРАТНЫЕ. Руководство A2 Key их не называет " +
+        "вовсе — в перечне Pronouns на с. 52 стоят Personal, Impersonal, " +
+        "Demonstrative, Quantitative, Indefinite, Relative. А руководство " +
+        "следующей ступени называет: перечень Pronouns, строка «Reflexive and " +
+        "emphatic: myself, etc.». То есть ближайший источник, который знает " +
+        "этот разряд, ставит его ступенью выше. Проверено методистом по обоим " +
+        "разборам. Модуль берёт разряд по мерке словника A2 Key, где стоят все " +
+        "шесть возвратных, и объявляет это в шапке",
+      license: "внутреннее использование, публично не называем",
+    },
+    {
       ref: "Council of Europe, CEFR Companion Volume 2020",
       section:
-        "УРОК ЧТЕНИЯ «Читаем объявление о находках» и УРОК ПИСЬМА «Пишем " +
+        "УРОК ЧТЕНИЯ «Читаем объявление стола находок» и УРОК ПИСЬМА «Пишем " +
         "объявление о находке». с. 66, шкала «Overall written production», " +
         "графа A2: «Can produce a series of simple phrases and sentences linked " +
         "with simple connectors like» — далее в источнике перечислены and, but " +
@@ -199,7 +247,7 @@ const module: Module = {
         "значение «вещи»; `rent (n & v)` — карточка берёт глагол, снимать " +
         "жильё. " +
         "ПЯТНАДЦАТЬ СЛОВ ВЫШЕ СТУПЕНИ ПО OXFORD 3000, И ЭТО ОБЪЯВЛЯЕТСЯ " +
-        "НАРОЧНО: ours, theirs, toe, chain, costume, stuff, rent, heating, shy, " +
+        "НАРОЧНО: ours, theirs, toe, chain, stuff, rent, heating, shy, " +
         "frightened, photographer, hurry, horrible, indoors, outdoors — B1. Все " +
         "пятнадцать стоят в словнике A2 Key, то есть входят в требования " +
         "экзамена, к которому ведёт ступень. Мерка та же, что в модулях 18–20: " +
@@ -261,8 +309,9 @@ const module: Module = {
             "Слово my стоит ПЕРЕД вещью и без неё не работает: my bag.",
             "Слово mine стоит ВМЕСТО вещи, и вещь после него не нужна.",
             "По-русски и там, и там «моя», поэтому их легко перепутать.",
-            "Проверка простая: если после слова названа вещь — нужно my.",
-            "Если вещь названа раньше или её видно обоим — нужно mine.",
+            "Спроси себя: названы ли после слова вещь или человек?",
+            "Названы — нужно my: my bag, my friend.",
+            "Не названы, потому что о них сказали раньше, — нужно mine.",
             "Местоимения, которые говорят о хозяине вещи, называют притяжательными.",
           ],
         },
@@ -298,6 +347,7 @@ const module: Module = {
           items: [
             { term: "mine", translation: "мой, моя, моё", example: "No, it isn't mine.", hint: "/maɪn/" },
             { term: "stuff", translation: "вещи, барахло", example: "All my stuff is in this bag.", hint: "/stʌf/" },
+            { term: "skateboard", translation: "скейтборд", example: "This is my skateboard.", hint: "/ˈskeɪtbɔːd/" },
           ],
         },
 
@@ -310,12 +360,12 @@ const module: Module = {
           options: [
             { text: "It's my." },
             { text: "It's mine.", correct: true },
-            { text: "It's my bag mine." },
+            { text: "It's mine bag." },
           ],
           hint: "После слова вещь не названа.",
           why:
-            "It's mine. Запись It's my оборвана: слово my требует вещи после " +
-            "себя.",
+            "It's mine. Запись It's my оборвана — после my ждут вещь; а в It's " +
+            "mine bag слово mine, наоборот, вещи перед собой не терпит.",
         },
         {
           id: "z2-dopisat-my",
@@ -362,7 +412,7 @@ const module: Module = {
           id: "z5-otvetit-chto-tvoyo",
           kind: "short",
           prompt:
-            "Тебя спрашивают: Is this your skateboard? Ответь по-английски, что да, начав с Yes,.",
+            "Тебя спрашивают: Is this your skateboard? Ответь, что скейтборд твой, поставив слово вместо вещи. Начни с Yes,.",
           answer: "Yes, it's mine.",
           accept: ["Yes, it's mine", "Yes, it is mine.", "Yes, it is mine"],
           hint: "Вещь уже названа в вопросе, повторять её не надо.",
@@ -417,9 +467,9 @@ const module: Module = {
           id: "chto-vidno-v-tablice",
           kind: "explain",
           text: [
-            "У четырёх лиц слово меняется: my — mine, your — yours, her — hers, their — theirs.",
+            "У пяти лиц слово меняется: my — mine, your — yours, her — hers, our — ours, their — theirs.",
             "У одного не меняется вовсе: his bag и It's his пишутся одинаково.",
-            "Слово our меняется на ours, и это про нескольких хозяев сразу.",
+            "Формы ours и theirs говорят о нескольких хозяевах сразу.",
             "Вместо имени работает то же слово: Aigul's bag — It's hers.",
           ],
         },
@@ -437,13 +487,13 @@ const module: Module = {
           caption: "Разговор о чужих вещах",
           razgovor: true,
           zvuchat: [
-            "Is this Daniyar's costume?",
+            "Is this Daniyar's uniform?",
             "No, his is black. This one is hers.",
             "And the big bag near the door?",
             "That one is ours. All our stuff is in it.",
           ],
           text:
-            "Is this Daniyar's costume?\nNo, his is black. This one is hers.\nAnd the big bag near the door?\nThat one is ours. All our stuff is in it.",
+            "Is this Daniyar's uniform?\nNo, his is black. This one is hers.\nAnd the big bag near the door?\nThat one is ours. All our stuff is in it.",
           explain:
             "Костюм назвали в первой строке, и дальше вещь не повторяют: his, " +
             "hers, ours. В последней строке стоит our stuff — там вещь названа " +
@@ -467,7 +517,6 @@ const module: Module = {
           caption: "Слова урока",
           items: [
             { term: "ours", translation: "наш, наша, наше", example: "That one is ours.", hint: "/ˈaʊəz/" },
-            { term: "costume", translation: "костюм", example: "Is this Daniyar's costume?", hint: "/ˈkɒstjuːm/" },
             { term: "chain", translation: "цепочка", example: "The blue chain is theirs.", hint: "/tʃeɪn/" },
             { term: "theirs", translation: "их", example: "The red bags are theirs.", hint: "/ðeəz/" },
             { term: "grandma", translation: "бабушка", example: "This chain is my grandma's.", hint: "/ˈgrændmɑː/" },
@@ -481,13 +530,13 @@ const module: Module = {
         {
           id: "z1-dopisat-hers",
           kind: "gap",
-          prompt: "Про костюм Айгуль уже сказали. Допиши слово.",
-          before: "The black costume is ",
+          prompt: "Про форму Айгуль уже сказали. Допиши слово.",
+          before: "The black uniform is ",
           after: ".",
           answer: "hers",
           hint: "После слова вещь не называют.",
           why:
-            "The black costume is hers. Слово her сюда не встанет: после него " +
+            "The black uniform is hers. Слово her сюда не встанет: после него " +
             "ждут вещь.",
         },
         {
@@ -516,7 +565,7 @@ const module: Module = {
             { text: " · " },
             { text: "The heating isn't ours.", selectable: true, correct: true },
             { text: " · " },
-            { text: "That costume is his.", selectable: true, correct: true },
+            { text: "That uniform is his.", selectable: true, correct: true },
           ],
           hint: "У одного лица слово перед вещью и вместо вещи пишется одинаково.",
           why:
@@ -558,7 +607,7 @@ const module: Module = {
       slug: "chey-eto",
       title: "Чьё это: Whose is it?",
       estimatedMinutes: 14,
-      outcome: "спросить и ответить, чья вещь: Whose is it?",
+      outcome: "спросить и ответить, чья вещь: Whose is it? A friend of mine",
 
       vozvrat: [{ iz: "kto-to-i-chto-to", zadanie: "z1-dopisat-anyone" }],
 
@@ -569,7 +618,7 @@ const module: Module = {
           text: [
             "На парте лежит рюкзак, и никто не знает, чей он.",
             "Спросить надо коротко, не называя вещи дважды.",
-            "Для такого вопроса в английском есть своё слово.",
+            "Для такого вопроса есть слово whose — курс давал его в модуле про уговор.",
           ],
         },
         {
@@ -612,7 +661,7 @@ const module: Module = {
           kind: "explain",
           text: [
             "Есть оборот, который по-русски звучит наоборот.",
-            "A friend of mine — «один мой друг», а дословно «друг из моих».",
+            "A friend of mine — «один мой друг», а дословно «друг из моих друзей».",
             "Так говорят, когда друг для собеседника новый и по имени не назван.",
             "Во множественном числе так же: some friends of mine.",
           ],
@@ -622,9 +671,8 @@ const module: Module = {
           kind: "note",
           tone: "mistake",
           text:
-            "«Whose is his backpack?» — так не спрашивают.\n\nВопрос whose уже " +
-            "спрашивает о хозяине, и второй раз называть его незачем: Whose is " +
-            "this backpack?",
+            "«Whose this backpack?» — так не спрашивают.\n\nПосле whose нужна " +
+            "связка is: Whose is this backpack?",
         },
         {
           id: "razgovor-o-naydennom-ryukzake",
@@ -633,11 +681,11 @@ const module: Module = {
           razgovor: true,
           zvuchat: [
             "Whose is this backpack?",
-            "It isn't mine. Possibly it's Aigul's.",
-            "No, hers is violet. This one is a friend of mine.",
+            "It isn't mine. Maybe it's Aigul's.",
+            "No, hers is purple. This one is a friend of mine.",
           ],
           text:
-            "Whose is this backpack?\nIt isn't mine. Possibly it's Aigul's.\nNo, hers is violet. This one is a friend of mine.",
+            "Whose is this backpack?\nIt isn't mine. Maybe it's Aigul's.\nNo, hers is purple. This one is a friend of mine.",
           explain:
             "Вещь названа один раз, в вопросе, и дальше не повторяется: mine, " +
             "Aigul's, hers. В последней строке стоит a friend of mine — друг по " +
@@ -663,7 +711,6 @@ const module: Module = {
           items: [
             { term: "grandson", translation: "внук", example: "The skateboard is her grandson's.", hint: "/ˈgrændsʌn/" },
             { term: "granddaughter", translation: "внучка", example: "This chain is her granddaughter's.", hint: "/ˈgrændɔːtə/" },
-            { term: "skateboard", translation: "скейтборд", example: "The skateboard is her grandson's.", hint: "/ˈskeɪtbɔːd/" },
           ],
         },
 
@@ -700,18 +747,18 @@ const module: Module = {
           kind: "hottext",
           prompt: "Отметь вопросы, заданные верно.",
           parts: [
-            { text: "Whose is this costume?", selectable: true, correct: true },
+            { text: "Whose is this uniform?", selectable: true, correct: true },
             { text: " · " },
-            { text: "Whose is her costume?", selectable: true },
+            { text: "Whose this uniform?", selectable: true },
             { text: " · " },
-            { text: "Whose costume is this?", selectable: true, correct: true },
+            { text: "Whose uniform is this?", selectable: true, correct: true },
             { text: " · " },
             { text: "Whose is this?", selectable: true, correct: true },
           ],
-          hint: "Вопрос уже спрашивает о хозяине — значит хозяина в нём не называют.",
+          hint: "В каждом вопросе должна стоять связка is.",
           why:
-            "Верны первый, третий и четвёртый. Во втором хозяин уже назван " +
-            "словом her, и спрашивать после этого не о чем.",
+            "Верны первый, третий и четвёртый. Во втором пропала связка is, а " +
+            "без неё вопроса не выходит.",
         },
         {
           id: "z4-sobrat-o-druge",
@@ -728,13 +775,19 @@ const module: Module = {
           id: "z5-sprosit-o-veshchi",
           kind: "short",
           prompt:
-            "На столе лежит чужой рюкзак. Спроси по-английски, чей он, назвав вещь после первого слова.",
+            "На столе лежит чужой рюкзак. Спроси по-английски, чей он.",
           answer: "Whose backpack is this?",
-          accept: ["Whose backpack is this", "Whose backpack is it?", "Whose backpack is it"],
-          hint: "Вещь ставят сразу после слова о хозяине.",
+          accept: [
+            "Whose backpack is this",
+            "Whose backpack is it?",
+            "Whose backpack is it",
+            "Whose is this backpack?",
+            "Whose is this backpack",
+          ],
+          hint: "Вещь можно назвать сразу после первого слова, а можно в конце.",
           why:
-            "Whose backpack is this? Годится и Whose is this backpack — вещь " +
-            "тогда встаёт в конец.",
+            "Whose backpack is this? Годится и Whose is this backpack — оба " +
+            "порядка верны, вещь просто встаёт в другое место.",
         },
       ],
     },
@@ -761,6 +814,14 @@ const module: Module = {
           id: "ryad-sebya",
           kind: "table",
           caption: "Кто действует и на кого",
+          zvuchat: [
+            "myself",
+            "yourself",
+            "himself",
+            "herself",
+            "ourselves",
+            "themselves",
+          ],
           head: ["Кто", "Себя"],
           rows: [
             ["I", "myself"],
@@ -830,6 +891,7 @@ const module: Module = {
           kind: "vocab",
           caption: "Слова урока",
           items: [
+            { term: "enjoy", translation: "радоваться, получать удовольствие", example: "Did he enjoy himself?", hint: "/enˈdʒɔɪ/" },
             { term: "myself", translation: "себя (о себе)", example: "Yes, I hurt myself.", hint: "/maɪˈself/" },
             { term: "yourself", translation: "себя (о тебе)", example: "Did you hurt yourself?", hint: "/jɔːˈself/" },
             { term: "himself", translation: "себя (о нём)", example: "He enjoyed himself.", hint: "/hɪmˈself/" },
@@ -847,7 +909,7 @@ const module: Module = {
         {
           id: "z1-dopisat-myself",
           kind: "gap",
-          prompt: "Ты ушиб не кого-то, а себя. Допиши слово.",
+          prompt: "Речь о себе: пострадал не кто-то другой. Допиши слово.",
           before: "I hurt ",
           after: " yesterday.",
           answer: "myself",
@@ -863,12 +925,13 @@ const module: Module = {
           options: [
             { text: "He enjoyed himself.", correct: true },
             { text: "He enjoyed him." },
-            { text: "He enjoyed his." },
+            { text: "He enjoyed." },
           ],
           hint: "Хорошо было ему самому, а не кому-то другому.",
           why:
             "He enjoyed himself. Запись He enjoyed him сказала бы о другом " +
-            "человеке, а his требует вещи после себя.",
+            "человеке, а He enjoyed оборвана: после enjoy всегда говорят, чем " +
+            "или кем.",
         },
         {
           id: "z3-otmetit-o-sebe",
@@ -973,10 +1036,10 @@ const module: Module = {
             "Did your grandma go with you?",
             "No, I went by myself. I wasn't frightened.",
             "And the photographer? Did he work by himself?",
-            "Yes, and he was in a hurry all day.",
+            "Yes, and he did not hurry at all.",
           ],
           text:
-            "Did your grandma go with you?\nNo, I went by myself. I wasn't frightened.\nAnd the photographer? Did he work by himself?\nYes, and he was in a hurry all day.",
+            "Did your grandma go with you?\nNo, I went by myself. I wasn't frightened.\nAnd the photographer? Did he work by himself?\nYes, and he did not hurry at all.",
           explain:
             "Оборот by myself говорит, что бабушка не поехала и помощи не было. " +
             "К третьему лицу берётся своё слово: by himself. Ушибов и падений " +
@@ -990,8 +1053,8 @@ const module: Module = {
             { term: "shy", translation: "застенчивый", example: "My grandson is shy, but he goes to school by himself.", hint: "/ʃaɪ/" },
             { term: "frightened", translation: "испуганный", example: "I wasn't frightened.", hint: "/ˈfraɪtnd/" },
             { term: "photographer", translation: "фотограф", example: "Did the photographer work by himself?", hint: "/fəˈtɒgrəfə/" },
-            { term: "hurry", translation: "спешка, спешить", example: "He was in a hurry all day.", hint: "/ˈhʌri/" },
-            { term: "indoors", translation: "в помещении", example: "We stayed indoors by ourselves.", hint: "/ɪnˈdɔːz/" },
+            { term: "hurry", translation: "спешить", example: "He did not hurry at all.", hint: "/ˈhʌri/" },
+            { term: "indoors", translation: "в помещении", example: "I stayed indoors by myself.", hint: "/ɪnˈdɔːz/" },
             { term: "outdoors", translation: "на улице", example: "She works outdoors by herself.", hint: "/aʊtˈdɔːz/" },
           ],
         },
@@ -1035,7 +1098,7 @@ const module: Module = {
             { text: " · " },
             { text: "I painted the room by myself.", selectable: true, correct: true },
             { text: " · " },
-            { text: "I bought myself a costume.", selectable: true },
+            { text: "I bought myself a uniform.", selectable: true },
           ],
           hint: "Ищи короткое слово перед словом на -self.",
           why:
@@ -1057,7 +1120,7 @@ const module: Module = {
           id: "z5-napisat-o-sebe-odnom",
           kind: "short",
           prompt:
-            "Скажи по-английски, что ты живёшь здесь один и никто с тобой не живёт. Начни с I live here.",
+            "Скажи по-английски, что живёшь здесь один, оборотом с коротким by. Начни с I live here.",
           answer: "I live here by myself.",
           accept: ["I live here by myself"],
           hint: "После места встаёт оборот с коротким by.",
@@ -1071,7 +1134,7 @@ const module: Module = {
     // =====================================================================
     {
       slug: "chitaem-stol-nahodok",
-      title: "Читаем объявление о находках",
+      title: "Читаем объявление стола находок",
       estimatedMinutes: 13,
       outcome: "находить в объявлении о находках, что нашли и где забрать",
 
@@ -1091,25 +1154,25 @@ const module: Module = {
           kind: "image",
           src: "/kartinki/stol-nahodok.svg",
           alt:
-            "Полка стола находок. На ней четыре вещи с бумажками: под номером один шарф, под номером два перчатка, под номером три зонт, под номером четыре цепочка.",
+            "Полка стола находок. На ней четыре вещи, и у каждой лежит бумажка с номером от одного до четырёх.",
           caption: "Что лежит на столе находок",
         },
         {
           id: "obyavlenie-o-nahodkah",
           kind: "text",
-          title: "LOST AND FOUND",
+          title: "LOST PROPERTY",
           genre: "notice",
           body: [
-            "This is our lost and found table.",
+            "This is our lost property table.",
             "These things are not ours. Somebody lost them last week.",
-            "Number 1 is a long scarf. It is his, and he is in class 7B.",
-            "Number 2 is a glove. We possibly have the other one too.",
+            "Number 1 is a long scarf. A boy from class 7B lost it, and it is his.",
+            "Number 2 is a glove. Maybe we have the other one too.",
             "Number 3 is an umbrella. It isn't new, but it works!",
-            "Number 4 is a chain. It is a horrible day for its owner.",
+            "Number 4 is a chain. It is a horrible day for the owner!",
             "The table is near the door. Come indoors and take yours.",
           ],
           glossary: [
-            { term: "lost and found", translation: "стол находок" },
+            { term: "lost property", translation: "стол находок" },
             { term: "owner", translation: "хозяин" },
             { term: "class 7B", translation: "класс 7Б" },
           ],
@@ -1154,14 +1217,14 @@ const module: Module = {
           ],
           hint: "Про шарф сказано в строке с номером 1.",
           why:
-            "Это мальчик из 7Б: It is his, and he is in class 7B. Слово his и " +
-            "говорит, что хозяин мужского пола.",
+            "Это мальчик из 7Б: A boy from class 7B lost it, and it is his. " +
+            "Слово his и говорит, что хозяин мужского пола.",
         },
         {
           id: "z3-gde-stol",
           about: "obyavlenie-o-nahodkah",
           kind: "short",
-          prompt: "Где стоит стол находок? Ответь одним словом по-английски.",
+          prompt: "Рядом с чем стоит стол находок? Ответь одним словом по-английски.",
           answer: "door",
           accept: ["Door", "the door", "near the door"],
           hint: "Про место сказано в самой последней строке.",
@@ -1183,8 +1246,8 @@ const module: Module = {
           ],
           hint: "Про перчатку сказано в строке 2, а про хозяев — в самой первой.",
           why:
-            "Верно первое и второе. Про вторую перчатку сказано possibly — " +
-            "«возможно», а первая строка прямо говорит These things are not " +
+            "Верно первое и второе. Про вторую перчатку сказано maybe — " +
+            "«может быть», а первая строка прямо говорит These things are not " +
             "ours.",
         },
         {
@@ -1231,7 +1294,7 @@ const module: Module = {
           pace: "slow",
           skryt: true,
           transcript:
-            "Whose is this costume? — It isn't mine. Possibly it's hers. — " +
+            "Whose is this uniform? — It isn't mine. Maybe it's hers. — " +
             "And the skateboard? — That one is theirs. They bought it in May.",
         },
         {
@@ -1247,7 +1310,7 @@ const module: Module = {
           id: "z1-chya-veshch-v-zapisi",
           about: "zapis-o-veshchah-posle-poezdki",
           kind: "choice",
-          prompt: "Послушай. Чей, скорее всего, костюм?",
+          prompt: "Послушай. Чья, скорее всего, форма?",
           options: [
             { text: "Того, кто спрашивает." },
             { text: "Женщины, о которой говорят.", correct: true },
@@ -1255,7 +1318,7 @@ const module: Module = {
           ],
           hint: "Ответ звучит во второй реплике.",
           why:
-            "Женщины: Possibly it's hers. Слово hers и называет хозяйку.",
+            "Женщины: Maybe it's hers. Слово hers и называет хозяйку.",
         },
         {
           id: "z2-kogda-kupili-skeytbord",
@@ -1263,7 +1326,7 @@ const module: Module = {
           kind: "short",
           prompt: "Послушай. В каком месяце купили скейтборд? Ответь одним словом по-английски.",
           answer: "May",
-          accept: ["may", "в мае"],
+          accept: ["may"],
           hint: "Месяц звучит в самой последней реплике.",
           why: "They bought it in May.",
         },
@@ -1288,15 +1351,15 @@ const module: Module = {
           kind: "hottext",
           prompt: "Отметь то, что прозвучало в записи.",
           parts: [
-            { text: "костюм не принадлежит спрашивающему", selectable: true, correct: true },
+            { text: "форма не принадлежит спрашивающему", selectable: true, correct: true },
             { text: " · " },
             { text: "скейтборд купили в мае", selectable: true, correct: true },
             { text: " · " },
-            { text: "костюм нашли на улице", selectable: true },
+            { text: "форму нашли на улице", selectable: true },
             { text: " · " },
             { text: "скейтборд принадлежит фотографу", selectable: true },
           ],
-          hint: "Про костюм говорят в первых двух репликах.",
+          hint: "Про форму говорят в первых двух репликах.",
           why:
             "Прозвучали первое и второе. Про улицу и фотографа речи не было " +
             "вовсе.",
@@ -1319,7 +1382,7 @@ const module: Module = {
       slug: "pishem-obyavlenie-o-nahodke",
       title: "Пишем объявление о находке",
       estimatedMinutes: 15,
-      outcome: "проверять объявление о находке: названа вещь, место и как забрать",
+      outcome: "проверять объявление о находке по четырём строкам: вещь и день, приметы, чьё оно, где забрать",
 
       blocks: [
         {
@@ -1339,14 +1402,14 @@ const module: Module = {
           zvuchat: [
             "I found a chain on Monday.",
             "It is long and it isn't new.",
-            "It isn't mine, and possibly it is yours.",
+            "It isn't mine, and maybe it is yours.",
             "The chain is with our teacher indoors.",
           ],
           head: ["Что сказано", "Пример строки"],
           rows: [
             ["что и когда нашли", "I found a chain on Monday."],
             ["какая эта вещь", "It is long and it isn't new."],
-            ["чья она не твоя", "It isn't mine, and possibly it is yours."],
+            ["что вещь не твоя, а может быть его", "It isn't mine, and maybe it is yours."],
             ["где её забрать", "The chain is with our teacher indoors."],
           ],
         },
@@ -1362,17 +1425,25 @@ const module: Module = {
           ],
         },
         {
+          id: "slovar-obyavleniya-o-nahodke",
+          kind: "vocab",
+          caption: "Слова урока",
+          items: [
+            { term: "find", translation: "находить", example: "I found a chain on Monday.", hint: "/faɪnd/" },
+          ],
+        },
+        {
           id: "obrazec-obyavleniya-o-nahodke",
           kind: "example",
           caption: "Объявление Данияра",
           zvuchat: [
             "I found a chain on Monday.",
             "It is long and it isn't new, but it is nice.",
-            "It isn't mine, and possibly it is yours.",
+            "It isn't mine, and maybe it is yours.",
             "The chain is with our teacher indoors, because the table is outdoors.",
           ],
           text:
-            "I found a chain on Monday.\nIt is long and it isn't new, but it is nice.\nIt isn't mine, and possibly it is yours.\nThe chain is with our teacher indoors, because the table is outdoors.",
+            "I found a chain on Monday.\nIt is long and it isn't new, but it is nice.\nIt isn't mine, and maybe it is yours.\nThe chain is with our teacher indoors, because the table is outdoors.",
           explain:
             "Вещь названа в первой строке, и дальше вместо неё стоят it и mine. " +
             "Приметы, день и место на месте, а строки связаны словами but, and " +
@@ -1399,57 +1470,57 @@ const module: Module = {
           id: "z2-dopisat-mine-v-obyavlenie",
           kind: "gap",
           prompt:
-            "Цепочка уже названа. Допиши слово так, чтобы вещь не повторялась.",
-          before: "It isn't ",
-          after: ", and possibly it is yours.",
+            "Перчатка уже названа. Допиши слово так, чтобы вещь не повторялась.",
+          before: "The glove isn't ",
+          after: ". Maybe it is your glove.",
           answer: "mine",
           hint: "После слова вещь не называют.",
           why:
-            "It isn't mine, and possibly it is yours. Слово my оборвало бы " +
-            "строку: после него ждут вещь.",
+            "The glove isn't mine. Слово my оборвало бы строку: после него " +
+            "ждут вещь, а она уже названа в начале.",
         },
         {
           id: "z3-otmetit-poleznye-stroki-o-nahodke",
           kind: "hottext",
           prompt: "Отметь строки, которые помогут хозяину узнать свою вещь.",
           parts: [
-            { text: "It is long and it isn't new.", selectable: true, correct: true },
+            { text: "It is small and it is purple.", selectable: true, correct: true },
             { text: " · " },
-            { text: "I was in a hurry.", selectable: true },
+            { text: "I did not hurry.", selectable: true },
             { text: " · " },
-            { text: "I found it near the door.", selectable: true, correct: true },
+            { text: "I found it outdoors on Friday.", selectable: true, correct: true },
             { text: " · " },
             { text: "I am a shy person.", selectable: true },
           ],
           hint: "Спроси у каждой строки: узнал ли хозяин из неё что-то о вещи?",
           why:
-            "Первая и третья: одна даёт приметы, другая место. Строки про " +
-            "спешку и застенчивость говорят о нашедшем, а не о вещи.",
+            "Первая и третья: одна даёт приметы, другая — место и день. Строки " +
+            "про спешку и застенчивость говорят о нашедшем, а не о вещи.",
         },
         {
           id: "z4-svyazat-stroki-o-nahodke",
           kind: "short",
           prompt:
-            "Соедини две строки одним словом: The chain is indoors. The table is outdoors. Запиши получившуюся строку целиком.",
-          answer: "The chain is indoors, because the table is outdoors.",
+            "Соедини две строки одним словом: The glove is with our teacher. It was outdoors all night. Запиши получившуюся строку целиком.",
+          answer: "The glove is with our teacher, because it was outdoors all night.",
           accept: [
-            "The chain is indoors, because the table is outdoors",
-            "The chain is indoors because the table is outdoors.",
-            "The chain is indoors because the table is outdoors",
+            "The glove is with our teacher, because it was outdoors all night",
+            "The glove is with our teacher because it was outdoors all night.",
+            "The glove is with our teacher because it was outdoors all night",
           ],
           hint: "Вторая строка называет причину первой.",
           why:
-            "The chain is indoors, because the table is outdoors. Слово because " +
-            "и связывает причину со следствием.",
+            "The glove is with our teacher, because it was outdoors all night. " +
+            "Слово because и связывает причину со следствием.",
         },
         {
           id: "z5-napisat-obyavlenie-o-nahodke",
           kind: "essay",
           prompt:
             "Напиши объявление о находке, четырьмя строками. Назови вещь и день, дай приметы, скажи, что вещь не твоя, и назови место.",
-          minWords: 18,
+          minWords: 16,
           sample:
-            "I found a chain on Monday.\nIt is long and it isn't new, but it is nice.\nIt isn't mine, and possibly it is yours.\nThe chain is with our teacher indoors, because the table is outdoors.",
+            "I found a glove on Friday.\nIt is small and it is purple, but it isn't new.\nIt isn't mine, and maybe it is yours.\nThe glove is with our teacher indoors, because I found it outdoors.",
           checklist: [
             "названы вещь и день находки",
             "даны приметы: какая эта вещь",
@@ -1457,7 +1528,7 @@ const module: Module = {
             "сказано, где вещь забрать",
           ],
           hint:
-            "Бери обороты, которые знаешь: I found, it isn't mine, possibly it is yours.",
+            "Бери обороты, которые знаешь: I found, it isn't mine, maybe it is yours.",
           why:
             "Объявление работает, когда хозяин узнаёт свою вещь, не приходя " +
             "смотреть.",
@@ -1479,7 +1550,7 @@ const module: Module = {
         id: "q-pochemu-ne-its-my",
         kind: "choice",
         outcome: "сказать, что вещь твоя: It's mine",
-        prompt: "Отчего запись It's my не годится?",
+        prompt: "Почему запись It's my не годится?",
         options: [
           { text: "Слово my требует вещи после себя.", correct: true },
           { text: "Слово my годится только к людям." },
@@ -1495,13 +1566,13 @@ const module: Module = {
         kind: "short",
         outcome: "сказать, что вещь твоя: It's mine",
         prompt:
-          "Ученик написал: The black bag is my. Запиши строку без ошибки.",
+          "Ученик написал: The black bag is my. Запиши строку без ошибки, не повторяя слово bag.",
         answer: "The black bag is mine.",
         accept: ["The black bag is mine"],
         hint: "Вещь названа в начале строки, и в конце её не повторяют.",
         why:
-          "The black bag is mine. Годилось бы и The bag is my bag, но там вещь " +
-          "звучит дважды.",
+          "The black bag is mine. Слово my требует вещи после себя, а повторять " +
+          "bag условие запрещает.",
       },
 
       // ---- итог 2 ----
@@ -1538,7 +1609,7 @@ const module: Module = {
         kind: "short",
         outcome: "назвать хозяина любой вещи: his, hers, ours, theirs",
         prompt:
-          "Квартира принадлежит вашей семье. Скажи это по-английски, начав с This flat.",
+          "Квартира принадлежит твоей семье. Скажи это по-английски, начав с This flat.",
         answer: "This flat is ours.",
         accept: ["This flat is ours"],
         hint: "Хозяев несколько, и ты один из них.",
@@ -1551,7 +1622,7 @@ const module: Module = {
       {
         id: "q-otvetit-na-whose",
         kind: "short",
-        outcome: "спросить и ответить, чья вещь: Whose is it?",
+        outcome: "спросить и ответить, чья вещь: Whose is it? A friend of mine",
         prompt:
           "Тебя спросили: Whose is this chain? Цепочка принадлежит твоей бабушке. Ответь по-английски, начав с It's.",
         answer: "It's my grandma's.",
@@ -1568,7 +1639,7 @@ const module: Module = {
       {
         id: "q-napisat-o-druge-neznakomom",
         kind: "short",
-        outcome: "спросить и ответить, чья вещь: Whose is it?",
+        outcome: "спросить и ответить, чья вещь: Whose is it? A friend of mine",
         prompt:
           "Здесь работает один твой друг, и собеседник его не знает. Скажи это по-английски, начав с A friend.",
         answer: "A friend of mine works here.",
@@ -1584,7 +1655,7 @@ const module: Module = {
         id: "q-pochemu-ne-hurt-me",
         kind: "choice",
         outcome: "сказать о действии с самим собой: I hurt myself",
-        prompt: "Отчего в строке I hurt … нельзя поставить me?",
+        prompt: "Почему в строке I hurt … нельзя поставить me?",
         options: [
           { text: "Слово me не ставят после действия." },
           { text: "Слово me годится только вопросам." },
@@ -1600,7 +1671,7 @@ const module: Module = {
         kind: "short",
         outcome: "сказать о действии с самим собой: I hurt myself",
         prompt:
-          "Тебя спросили: Did you enjoy the party? Ответь по-английски, что тебе было хорошо, начав с Yes, I.",
+          "Тебя спросили: Did you enjoy the party? Ответь, что хорошо было тебе самому, словом на -self. Начни с Yes, I.",
         answer: "Yes, I enjoyed myself.",
         accept: ["Yes, I enjoyed myself"],
         hint: "Хорошо было тебе самому.",
@@ -1684,19 +1755,17 @@ const module: Module = {
           "нескольких — theirs.",
       },
       {
-        id: "q-zachem-nomera-v-obyavlenii",
-        kind: "choice",
+        id: "q-najti-veshch-i-mesto",
+        kind: "short",
         outcome: "находить в объявлении о находках, что нашли и где забрать",
-        prompt: "Зачем в объявлении о находках вещам дают номера?",
-        options: [
-          { text: "Чтобы показать, сколько вещей всего." },
-          { text: "Чтобы хозяин назвал свою вещь, не описывая её.", correct: true },
-          { text: "Чтобы вещи лежали по порядку." },
-        ],
-        hint: "Представь себя хозяином у стола находок.",
+        prompt:
+          "В объявлении строка: Number 2 is a glove. The table is near the door. Где забрать перчатку? Ответь одним словом по-английски.",
+        answer: "door",
+        accept: ["Door", "the door", "near the door"],
+        hint: "Место названо во второй строке.",
         why:
-          "Чтобы хозяин назвал свою вещь, не описывая её. Достаточно сказать " +
-          "номер.",
+          "Door. Первая строка говорит, что нашли, вторая — где это лежит: " +
+          "объявление о находках всегда отвечает на оба вопроса.",
       },
 
       // ---- итог 7 ----
@@ -1714,25 +1783,24 @@ const module: Module = {
           "Grandpa. В записи звучит It's my grandpa's — хозяин назван через 's.",
       },
       {
-        id: "q-uslyshat-skolko-hozyaev",
+        id: "q-uslyshat-chi-sumki",
         kind: "short",
         outcome: "слышать в разговоре, чья вещь",
         zvuk: "Are these bags ours? — No, they aren't. They are theirs.",
         prompt:
-          "Послушай. Сколько сумок в разговоре обсуждают? Ответь числом больше одного или словом one.",
-        answer: "2",
-        accept: ["two", "много", "несколько"],
-        hint: "Смотри на слово these и на форму глагола.",
+          "Послушай. Чьи сумки? Ответь одним словом по-английски.",
+        answer: "theirs",
+        accept: ["Theirs"],
+        hint: "Хозяин назван в самой последней реплике.",
         why:
-          "Сумок несколько: these bags и they are. Точного числа в записи нет, " +
-          "но одна вещь звучала бы как this bag.",
+          "Theirs. Спрашивали, не наши ли сумки, и ответ отвёл: они чужие.",
       },
 
       // ---- итог 8 ----
       {
         id: "q-chego-ne-hvataet-chuzhomu-obyavleniyu-o-nahodke",
         kind: "choice",
-        outcome: "проверять объявление о находке: названа вещь, место и как забрать",
+        outcome: "проверять объявление о находке по четырём строкам: вещь и день, приметы, чьё оно, где забрать",
         prompt:
           "Объявление: I found a glove. It is long and it isn't new. It isn't mine. Какой из четырёх нужных строк здесь нет?",
         options: [
@@ -1748,24 +1816,24 @@ const module: Module = {
       {
         id: "q-dopisat-stroku-o-meste",
         kind: "short",
-        outcome: "проверять объявление о находке: названа вещь, место и как забрать",
+        outcome: "проверять объявление о находке по четырём строкам: вещь и день, приметы, чьё оно, где забрать",
         prompt:
-          "К объявлению допиши строку о месте: костюм у нашего учителя. Начни с The costume.",
-        answer: "The costume is with our teacher.",
+          "К объявлению допиши строку о месте: форма у нашего учителя. Начни с The uniform.",
+        answer: "The uniform is with our teacher.",
         accept: [
-          "The costume is with our teacher",
-          "The costume is with our teacher indoors.",
-          "The costume is with our teacher indoors",
+          "The uniform is with our teacher",
+          "The uniform is with our teacher indoors.",
+          "The uniform is with our teacher indoors",
         ],
         hint: "Вещь названа в начале строки, а место — в конце.",
         why:
-          "The costume is with our teacher. Здесь стоит our, потому что дальше " +
-          "названа вещь — учитель.",
+          "The uniform is with our teacher. Здесь стоит our, а не ours, потому " +
+          "что дальше назван человек — teacher.",
       },
       {
         id: "q-pochemu-nuzhen-den-v-obyavlenii",
         kind: "choice",
-        outcome: "проверять объявление о находке: названа вещь, место и как забрать",
+        outcome: "проверять объявление о находке по четырём строкам: вещь и день, приметы, чьё оно, где забрать",
         prompt: "Зачем в объявлении о находке называют день?",
         options: [
           { text: "Чтобы хозяин понял, его ли это вещь.", correct: true },

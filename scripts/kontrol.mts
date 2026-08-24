@@ -86,6 +86,11 @@ const FAILY: Array<[RegExp, string]> = [
   [/^Council of Europe/i, "cefr-companion-2020.pdf"],
   [/словник A2 Key|A2 Key Vocabulary/i, "cambridge-vocab-a2-key.pdf"],
   [/^Cambridge English, A2 Key/i, "cambridge-a2-key-handbook.pdf"],
+  // Руководство следующей ступени нужно не для содержания, а для доказательства
+  // ОТСУТСТВИЯ: когда A2 Key о разряде молчит, важно знать, называет ли его
+  // ближайший источник и на какой ступени. Так проверялись возвратные
+  // местоимения в модуле 21.
+  [/^Cambridge English, B1 Preliminary/i, "cambridge-b1-preliminary-handbook.pdf"],
   [/Pre A1 Starters|A1 Movers|A2 Flyers|младших ступеней/i, "cambridge-young-learners-pre-a1-a2.pdf"],
   [/ipa-en-uk/i, "ipa-en-uk.txt"],
   [/wikipron-en-uk/i, "wikipron-en-uk.tsv"],
