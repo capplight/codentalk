@@ -529,6 +529,61 @@ DETERMINER»), см. разбор модуля 18 выше.
 
 **Проверочная работа части.** Пересказ разговора и обсуждение планов.
 
+**Строка модуля 22 проверена 24 августа 2026, до написания.** Все три обещания
+держатся, но у одного из них есть граница, о которой надо знать заранее.
+
+**`Present Perfect` для опыта — прямо у источника.** English Grammar Profile,
+PAST, present perfect simple, A2, «USE: EXPERIENCES»: «Can use the present
+perfect simple to talk about experiences up to now», примеры «I've seen the
+British Museum», «We have visited the Coliseum and several museums». Это ровно
+то, что обещает столбец «чему учит» — рассказывать об опыте.
+
+**`been` подтвердил не дескриптор, а ПРИМЕР графы.** Графа A2 «FORM:
+AFFIRMATIVE» о слове `been` не говорит ни слова, зато её собственный пример
+содержит его прямо: «I like Japanese people and **I've been to Japan** more than
+three times». Правило проекта «к цитате всегда читается её пример» сработало
+здесь в нашу пользу: без чтения примера оборот пришлось бы объявлять взятым
+выше графы, а он подтверждён.
+
+**`ever` и `never` даёт руководство, и это проверено по обоим разборам.**
+Руководство A2 Key, с. 49, Language specifications, перечень Tenses: «Present
+perfect simple: recent past with just, indefinite past with **yet, already,
+never, ever**; unfinished past with for and since». Строка есть и в разборе
+`materials/.md/` (2882), и в разборе `materials/.text/` (3617) — двухколоночная
+вёрстка её не разорвала. English Grammar Profile при этом даёт на A2 графу
+«FORM: WITH ADVERBS» с примером «I have **never** seen a competition like that
+before», а само слово `ever` ставит на B1 — но в других графах: NEGATION и past
+perfect. К нашему случаю они не относятся, и руководство здесь сильнее.
+
+**ГРАНИЦА, О КОТОРОЙ НАДО ЗНАТЬ: на A2 утверждение идёт только от `I` и `we`.**
+Графа A2 «FORM: AFFIRMATIVE» говорит дословно: «Can use the affirmative form
+'have' + '-ed' **with pronouns 'I' and 'we'**, and with a limited range of
+verbs». Форма `has` там не названа вовсе, а B1 «FORM: AFFIRMATIVE» звучит так:
+«Can use the affirmative forms with **a range of pronouns and nouns** and an
+increasing range of verbs».
+
+То есть третье лицо (`he has been`) — это шаг на B1. Решение то же, что в
+модуле 21 с притяжательными: **ряд показывается таблицей целиком, а задания
+держатся подтверждённых лиц.** Половина парадигмы хуже целой — ученик спросит
+про «он» на первом же примере, — но спрашивать с него то, чего источник на этой
+ступени не подтверждает, мы не будем. Объявляется в шапке модуля.
+
+**Вопрос при этом законен во втором лице:** графа A2 «FORM: QUESTIONS» — «Can
+use the question form 'have you' + '-ed'», примеры «Have you bought anything?»,
+«Where have you been?». Отсюда главный оборот модуля — `Have you ever been to…?`
+— стоит на двух графах A2 сразу и на строке руководства.
+
+**Чего в модуле 22 не будет, потому что это следующие модули программы:**
+`just`, `yet`, `already` (модуль 23), `for` и `since` (модуль 24). English
+Grammar Profile ставит `yet` и отрицание с `for` на A2, так что дело не в
+ступени, а в порядке.
+
+**И одно, что придётся назвать ученику.** Правило курса: время называется один
+раз при первой встрече внутри ступени, английским именем и без объяснений,
+зачем оно нужно. Здесь это первая встреча — значит в модуле 22 стоит строка
+«Это время называется Present Perfect», а модули 23 и 24 её не повторяют.
+
+
 ### Отдельно: страдательный залог
 
 Пункт, у которого нет своего места в четырёх частях, а выбрасывать нельзя.
