@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 190" width="340" height="190" role="img" aria-labelledby="zagolovok">
+<title id="zagolovok">Два рюкзака: слева синий с подписью Daniyar, справа сиреневый с подписью Aigul</title>
+<!--
+  Рисунок урока «Чьё это». Красок своих не держит и темы не знает: линии и
+  подписи взяты серо-синим, который читается и на светлой странице, и на
+  тёмной. Заливки полупрозрачные по той же причине — белая заливка на тёмной
+  теме светилась бы пятном.
+
+  Внешний файл через <img> не наследует переменные страницы: он отдельный
+  документ, и currentColor до него не доходит. Поэтому краски здесь свои и
+  выбраны так, чтобы годиться обеим темам.
+-->
+<g fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <!-- рюкзак Данияра -->
+  <rect x="26" y="48" width="88" height="100" rx="17" fill="#3b82f6" fill-opacity=".16" stroke="#3b82f6" stroke-width="2.5"/>
+  <path d="M48 48 A22 22 0 0 1 92 48" stroke="#3b82f6" stroke-width="2.5"/>
+  <rect x="45" y="98" width="50" height="31" rx="7" stroke="#3b82f6" stroke-width="2"/>
+  <line x1="70" y1="48" x2="70" y2="98" stroke="#3b82f6" stroke-width="2"/>
+
+  <!-- рюкзак Айгуль -->
+  <rect x="226" y="48" width="88" height="100" rx="17" fill="#8b5cf6" fill-opacity=".16" stroke="#8b5cf6" stroke-width="2.5"/>
+  <path d="M248 48 A22 22 0 0 1 292 48" stroke="#8b5cf6" stroke-width="2.5"/>
+  <rect x="245" y="98" width="50" height="31" rx="7" stroke="#8b5cf6" stroke-width="2"/>
+  <circle cx="270" cy="76" r="11" stroke="#8b5cf6" stroke-width="2"/>
+</g>
+<g font-family="-apple-system, Segoe UI, Roboto, Arial, sans-serif" text-anchor="middle" fill="#5b6b7f">
+  <text x="70" y="172" font-size="16">Daniyar</text>
+  <text x="270" y="172" font-size="16">Aigul</text>
+  <text x="170" y="88" font-size="34">?</text>
+  <text x="170" y="122" font-size="15">Whose is it?</text>
+</g>
+</svg>

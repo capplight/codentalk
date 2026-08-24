@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Пробный лист картинок · CodeNTalk</title>
+<style>
+  /* Краски взяты из app/globals.css — чтобы лист показывал то же, что сайт. */
+  :root {
+    --paper: #f6f8fb; --paper-alt: #eef2f7; --surface: #ffffff;
+    --ink: #16202e; --ink-soft: #5b6b7f; --line: #dde3ea;
+    --accent: #2563eb; --accent-soft: #e8f0fd; --accent-ink: #123f88;
+    --amber: #8a5a11; --amber-soft: #fdf6e9;
+    --good: #0e7a5a; --good-soft: #e3f4ee;
+    --violet: #6d28d9; --violet-soft: #f1ebfe;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #0d141d; --paper-alt: #121b26; --surface: #131d29;
+      --ink: #e6edf5; --ink-soft: #94a4b8; --line: #24303f;
+      --accent: #6fa4ff; --accent-soft: #16243c; --accent-ink: #9cc0ff;
+      --amber: #d9a441; --amber-soft: #2a2113;
+      --good: #4bbd97; --good-soft: #10281f;
+      --violet: #a78bfa; --violet-soft: #1e1733;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--paper); color: var(--ink);
+    font: 16px/1.6 -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  }
+  .wrap { max-width: 900px; margin: 0 auto; padding: 40px 20px 80px; }
+  h1 { font-size: 28px; line-height: 1.25; margin: 0 0 8px; }
+  .lead { color: var(--ink-soft); margin: 0 0 36px; max-width: 62ch; }
+  h2 { font-size: 19px; margin: 0 0 4px; }
+  .card {
+    background: var(--surface); border: 1px solid var(--line);
+    border-radius: 14px; padding: 22px; margin-bottom: 22px;
+  }
+  .note { color: var(--ink-soft); font-size: 14px; margin: 0 0 18px; }
+  figure { margin: 0; }
+  figcaption { color: var(--ink-soft); font-size: 14px; margin-top: 10px; }
+  /* Картинке во всю ширину задаём СВОЮ высоту: иначе она диктует её
+     собственной пропорцией — на этом уже обжигались с обложкой курса. */
+  .risunok { display: block; width: 100%; height: auto; max-width: 460px; }
+  .ryad { display: flex; flex-wrap: wrap; gap: 24px; align-items: flex-start; }
+  .pochemu {
+    background: var(--accent-soft); border-radius: 10px;
+    padding: 12px 16px; font-size: 14px; margin-top: 16px;
+  }
+  code { background: var(--paper-alt); padding: 1px 5px; border-radius: 4px; font-size: 0.92em; }
+  /* Общие правила рисунков: линии наследуют цвет текста, заливки — краски темы. */
+  svg text { font-family: -apple-system, "Segoe UI", Roboto, Arial, sans-serif; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<h1>Пробный лист картинок</h1>
+<p class="lead">
+  Пять схем в одной манере, нарисованных кодом. Смотреть надо на манеру, а не на
+  содержание: годится ли такой вид курсу. Переключите тему телефона на тёмную —
+  рисунки должны остаться читаемыми, потому что цвет они берут у страницы, а не
+  держат свой.
+</p>
+
+<div class="card">
+  <h2>1. Который час</h2>
+  <p class="note">Модули о времени. Вопрос «What time is it?» без картинки задаётся только по-русски.</p>
+  <figure>
+    <svg class="risunok" viewBox="0 0 200 200" role="img" aria-label="Часы показывают половину восьмого">
+      <circle cx="100" cy="100" r="86" fill="var(--surface)" stroke="var(--ink)" stroke-width="3"/>
+      <g stroke="var(--ink)" stroke-width="3" stroke-linecap="round">
+        <line x1="100" y1="20" x2="100" y2="32"/>
+        <line x1="180" y1="100" x2="168" y2="100"/>
+        <line x1="100" y1="180" x2="100" y2="168"/>
+        <line x1="20" y1="100" x2="32" y2="100"/>
+      </g>
+      <g fill="var(--ink-soft)" font-size="15" text-anchor="middle">
+        <text x="100" y="49">12</text>
+        <text x="153" y="106">3</text>
+        <text x="100" y="162">6</text>
+        <text x="48" y="106">9</text>
+      </g>
+      <!-- половина восьмого: часовая между 7 и 8, минутная на 6 -->
+      <line x1="100" y1="100" x2="66" y2="128" stroke="var(--ink)" stroke-width="7" stroke-linecap="round"/>
+      <line x1="100" y1="100" x2="100" y2="152" stroke="var(--accent)" stroke-width="5" stroke-linecap="round"/>
+      <circle cx="100" cy="100" r="6" fill="var(--ink)"/>
+    </svg>
+    <figcaption>Ответ ученика: <code>half past seven</code></figcaption>
+  </figure>
+  <p class="pochemu">
+    Стрелки — это и есть предмет урока, поэтому цифр на циферблате только четыре:
+    лишние отвлекают. Минутная стрелка выделена цветом ссылки, чтобы вопрос
+    «сколько минут» читался сразу.
+  </p>
+</div>
+
+<div class="card">
+  <h2>2. Ценник</h2>
+  <p class="note">Модули о покупках и числах. Заменяет условие «Представь, что кепка стоит 2000 тенге».</p>
+  <figure>
+    <svg class="risunok" viewBox="0 0 260 150" role="img" aria-label="Ценник: кепка, две тысячи тенге">
+      <path d="M18 30 L170 30 A14 14 0 0 1 184 44 L184 106 A14 14 0 0 1 170 120 L18 120 A14 14 0 0 1 4 106 L4 44 A14 14 0 0 1 18 30 Z"
+            fill="var(--amber-soft)" stroke="var(--amber)" stroke-width="2.5"/>
+      <circle cx="30" cy="75" r="7" fill="none" stroke="var(--amber)" stroke-width="2.5"/>
+      <text x="56" y="70" font-size="17" fill="var(--ink-soft)">cap</text>
+      <text x="56" y="102" font-size="26" font-weight="700" fill="var(--ink)">2000 ₸</text>
+      <line x1="184" y1="75" x2="230" y2="75" stroke="var(--amber)" stroke-width="2.5" stroke-dasharray="5 5"/>
+      <circle cx="240" cy="75" r="12" fill="none" stroke="var(--amber)" stroke-width="2.5"/>
+    </svg>
+    <figcaption>Вопрос: <code>How much is the cap?</code></figcaption>
+  </figure>
+  <p class="pochemu">
+    Надпись на картинке — настоящий текст, а не рисунок букв. Значит её читает
+    программа чтения с экрана, находит поиск и может произнести синтез речи.
+    Ни один готовый клипарт так не умеет.
+  </p>
+</div>
+
+<div class="card">
+  <h2>3. Расписание</h2>
+  <p class="note">Модули о времени и распорядке. Тот самый вид задания Cambridge, которого у нас нет вовсе.</p>
+  <figure>
+    <svg class="risunok" viewBox="0 0 300 190" style="max-width:520px" role="img"
+         aria-label="Расписание автобусов: три рейса с временем отправления">
+      <rect x="2" y="2" width="296" height="186" rx="12" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+      <rect x="2" y="2" width="296" height="40" rx="12" fill="var(--accent-soft)"/>
+      <rect x="2" y="30" width="296" height="12" fill="var(--accent-soft)"/>
+      <text x="18" y="28" font-size="15" font-weight="700" fill="var(--accent-ink)">BUS</text>
+      <text x="120" y="28" font-size="15" font-weight="700" fill="var(--accent-ink)">TO</text>
+      <text x="222" y="28" font-size="15" font-weight="700" fill="var(--accent-ink)">TIME</text>
+      <g font-size="16" fill="var(--ink)">
+        <text x="18" y="76">12</text><text x="120" y="76">the park</text><text x="222" y="76">9:15</text>
+        <text x="18" y="118">45</text><text x="120" y="118">the museum</text><text x="222" y="118">10:30</text>
+        <text x="18" y="160">7</text><text x="120" y="160">the station</text><text x="222" y="160">11:00</text>
+      </g>
+      <g stroke="var(--line)" stroke-width="1.5">
+        <line x1="2" y1="92" x2="298" y2="92"/>
+        <line x1="2" y1="134" x2="298" y2="134"/>
+      </g>
+    </svg>
+    <figcaption>Вопрос: <code>What time is the bus to the museum?</code> — ответ одним числом</figcaption>
+  </figure>
+  <p class="pochemu">
+    Ответ на слух и по картинке источник требует давать одним словом, числом,
+    датой или временем. Расписание даёт ровно такой ответ и не требует от
+    ученика ни одного нового слова.
+  </p>
+</div>
+
+<div class="card">
+  <h2>4. План комнаты</h2>
+  <p class="note">Модули о предлогах места. Сейчас «под столом» и «рядом с окном» проверяются только переводом.</p>
+  <figure>
+    <svg class="risunok" viewBox="0 0 300 210" style="max-width:520px" role="img"
+         aria-label="План комнаты сверху: кровать, стол, окно, дверь и кошка под столом">
+      <rect x="10" y="10" width="280" height="190" rx="6" fill="var(--paper-alt)" stroke="var(--ink)" stroke-width="3"/>
+      <!-- окно -->
+      <line x1="110" y1="10" x2="190" y2="10" stroke="var(--accent)" stroke-width="7"/>
+      <text x="150" y="30" font-size="13" fill="var(--accent-ink)" text-anchor="middle">window</text>
+      <!-- дверь -->
+      <line x1="10" y1="140" x2="10" y2="190" stroke="var(--good)" stroke-width="7"/>
+      <path d="M10 190 A50 50 0 0 0 60 140" fill="none" stroke="var(--good)" stroke-width="2" stroke-dasharray="4 4"/>
+      <text x="34" y="204" font-size="13" fill="var(--good)">door</text>
+      <!-- кровать -->
+      <rect x="196" y="46" width="80" height="120" rx="6" fill="var(--surface)" stroke="var(--ink)" stroke-width="2.5"/>
+      <rect x="204" y="54" width="64" height="30" rx="4" fill="var(--violet-soft)" stroke="var(--violet)" stroke-width="2"/>
+      <text x="236" y="120" font-size="14" fill="var(--ink)" text-anchor="middle">bed</text>
+      <!-- стол -->
+      <rect x="46" y="60" width="96" height="56" rx="5" fill="var(--surface)" stroke="var(--ink)" stroke-width="2.5"/>
+      <text x="94" y="94" font-size="14" fill="var(--ink)" text-anchor="middle">table</text>
+      <!-- кошка под столом -->
+      <circle cx="94" cy="140" r="15" fill="var(--amber-soft)" stroke="var(--amber)" stroke-width="2.5"/>
+      <path d="M84 130 L88 122 L92 130 M96 130 L100 122 L104 130" fill="none" stroke="var(--amber)" stroke-width="2.5"/>
+      <text x="94" y="172" font-size="13" fill="var(--amber)" text-anchor="middle">cat</text>
+    </svg>
+    <figcaption>Вопрос: <code>Where is the cat?</code> — ответ <code>under the table</code></figcaption>
+  </figure>
+  <p class="pochemu">
+    Вид сверху выбран нарочно: сбоку «под столом» и «за столом» на рисунке
+    сливаются. Названия вещей подписаны по-английски — значит картинка заодно
+    повторяет словарь, а задание можно спросить и о кровати, и о двери.
+  </p>
+</div>
+
+<div class="card">
+  <h2>5. Чьё это — прямо для модуля 21</h2>
+  <p class="note">«Свой и сам». Принадлежность по-русски объясняется словами, а показывается картинкой за секунду.</p>
+  <figure>
+    <svg class="risunok" viewBox="0 0 320 180" style="max-width:520px" role="img"
+         aria-label="Два рюкзака с подписями: один Данияра, другой Айгуль">
+      <!-- рюкзак 1 -->
+      <g>
+        <rect x="24" y="46" width="86" height="100" rx="16" fill="var(--accent-soft)" stroke="var(--accent)" stroke-width="2.5"/>
+        <path d="M46 46 A21 21 0 0 1 88 46" fill="none" stroke="var(--accent)" stroke-width="2.5"/>
+        <rect x="42" y="96" width="50" height="30" rx="6" fill="var(--surface)" stroke="var(--accent)" stroke-width="2"/>
+        <text x="67" y="166" font-size="15" fill="var(--ink)" text-anchor="middle">Daniyar</text>
+      </g>
+      <!-- рюкзак 2 -->
+      <g>
+        <rect x="210" y="46" width="86" height="100" rx="16" fill="var(--violet-soft)" stroke="var(--violet)" stroke-width="2.5"/>
+        <path d="M232 46 A21 21 0 0 1 274 46" fill="none" stroke="var(--violet)" stroke-width="2.5"/>
+        <rect x="228" y="96" width="50" height="30" rx="6" fill="var(--surface)" stroke="var(--violet)" stroke-width="2"/>
+        <text x="253" y="166" font-size="15" fill="var(--ink)" text-anchor="middle">Aigul</text>
+      </g>
+      <text x="160" y="86" font-size="30" fill="var(--ink-soft)" text-anchor="middle">?</text>
+      <text x="160" y="120" font-size="14" fill="var(--ink-soft)" text-anchor="middle">Whose is it?</text>
+    </svg>
+    <figcaption>Ответы: <code>This one is his.</code> · <code>That one is hers.</code></figcaption>
+  </figure>
+  <p class="pochemu">
+    Вот случай, где картинка не украшение: без неё задание вынуждено объяснять
+    обстановку по-русски («у Данияра синий рюкзак, а у Айгуль сиреневый»), и
+    ученик разбирает условие вместо английского. С картинкой условие — два
+    слова.
+  </p>
+</div>
+
+<div class="card">
+  <h2>Что решать</h2>
+  <p style="margin:0 0 12px">
+    Годится ли такая манера — тонкая линия, две-три краски темы, подписи
+    настоящим текстом? Если да, беру её за образец и рисую дальше по этому же
+    складу.
+  </p>
+  <p class="note" style="margin:0">
+    Чего здесь нет нарочно: людей и сценок. Их так не нарисуешь, и они ждут
+    вашего решения о сквозном сюжете — рисовать героев до того, как решено,
+    есть ли у них история, значит рисовать дважды.
+  </p>
+</div>
+
+</div>
+</body>
+</html>

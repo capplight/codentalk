@@ -1,0 +1,1784 @@
+import type { Module } from "@/lib/content/types";
+
+/**
+ * Модуль 21 курса «Английский · Elementary»: свой и сам.
+ *
+ * Программа: docs/programma-english-elementary.md, модуль 21 — «говорить о
+ * принадлежности и о самостоятельном действии». Строка проверена и расширена
+ * 24 августа 2026, до написания; разбор с цитатами — там же, под таблицей.
+ *
+ * ИМЁН ГЛАВНЫХ ВЕЩЕЙ В МОДУЛЕ ДВА, И ОБА НАСТОЯЩИЕ:
+ *
+ * - уроки 1–3 — «ПРИТЯЖАТЕЛЬНОЕ МЕСТОИМЕНИЕ» (`mine`, `yours`, `his`, `hers`,
+ *   `ours`, `theirs`);
+ * - уроки 4–5 — «ВОЗВРАТНОЕ МЕСТОИМЕНИЕ» (`myself`, `yourself`, `himself`,
+ *   `herself`, `ourselves`, `themselves`).
+ *
+ * Так эти разряды зовут русские учебники, придумывать взамен нечего, и слово
+ * «местоимение» курс уже вводил. Оба имени объясняются на месте, при первой
+ * встрече, одной строкой с примером.
+ *
+ * ГЛАВНАЯ ТРУДНОСТЬ МОДУЛЯ НЕ ГРАММАТИЧЕСКАЯ, А ПЕРЕВОДНАЯ. По-русски «мой»
+ * годится обоим случаям — «мой рюкзак» и «это мой», — а по-английски это два
+ * разных слова: `my bag` и `It's mine`. Ученик, идущий от русского, скажет
+ * «It's my», и это не выдуманная, а самая настоящая ошибка. Модуль строится
+ * вокруг неё: сперва случай, потом таблица, и только потом правило.
+ *
+ * НАБОР ПОКАЗЫВАЕТСЯ ЦЕЛИКОМ, И ЭТО РЕШЕНИЕ. Программа обещала половину —
+ * `mine` и `yours`, — а модуль даёт все шесть форм и таблицу по лицу в строке.
+ * Основание двойное. Первое: три источника из четырёх дают разряд без
+ * ограничения по лицам (руководство A2 Key, с. 52, перечень Pronouns:
+ * «Personal (subject, object, possessive)»; там же Genitive: «Double genitive:
+ * a friend of theirs»; словник A2 Key содержит все шесть). Второе: половина
+ * набора хуже целого. Таблица с пустыми клетками у «её» и «их» — это не
+ * осторожность, а брошенный на полпути ученик, и правило владельца о показе
+ * форм столбиком требует обратного.
+ *
+ * ВЗЯТО ВЫШЕ ГРАФЫ ПО МЕРКЕ СЛОВНИКА, И ОБЪЯВЛЯЕТСЯ ЗДЕСЬ:
+ *
+ * - **`hers`, `ours`, `theirs`** — English Grammar Profile ставит их на B2 и C1
+ *   («FORM: 'HERS' AS OBJECT», «FORM: 'OURS' AS SUBJECT» и прочие), тогда как
+ *   `mine` у него A2 целиком («FORM: 'MINE'» — и подлежащим, и дополнением, и
+ *   после `be`, и после предлогов), а `yours` A2 дополнением. Но графы там
+ *   строятся на том, в работах какого уровня форма ВСТРЕТИЛАСЬ, а `theirs` —
+ *   слово редкое: его нечастость в работах A2 говорит о частоте, а не о
+ *   трудности. Тот же случай, что «usually three or more syllables» в модуле
+ *   14, где наблюдение приняли за порог.
+ * - **`by myself`** в значении «сам, без помощи» — B1, «FORM/USE: 'BY' +
+ *   SINGULAR». А словник A2 Key даёт этот оборот собственной строкой:
+ *   `myself (pron) • by myself`, и так же у `himself` и `herself`. Оборот
+ *   назван самим словником, и без него вторая половина строки программы —
+ *   «самостоятельное действие» — теряет смысл.
+ * - **`ourselves`, `themselves`** — у English Grammar Profile все графы
+ *   множественных возвратных стоят на B2, но Oxford 3000 помечает оба слова
+ *   A2, а словник содержит оба. Взяты по тому же доводу, что и притяжательные:
+ *   набор показывается целиком. В ЗАДАНИЯХ ИХ НЕТ — таблица показывает ряд, а
+ *   спрашивается то, что источник подтверждает на A2.
+ *
+ * ЗАДАНИЯ ДЕРЖАТСЯ МЕСТ, ПОДТВЕРЖДЁННЫХ НА A2. Притяжательное спрашивается
+ * после `be` («It's mine»), дополнением («I loved yours») и после предлога.
+ * Подлежащим («Ours is the only store…») не спрашивается нигде: там у
+ * источника C1 и C2.
+ *
+ * ЧЕГО В МОДУЛЕ НЕТ, И ПОЧЕМУ ЭТО РЕШЕНИЕ:
+ *
+ * - возвратное для усиления («you decide yourself what to do») — B1, отдельная
+ *   графа, и к нашему случаю не относится;
+ * - `a friend of yours` — B1 («FORM: + 'OF YOURS'»), тогда как `a friend of
+ *   mine` стоит на A2 отдельной графой и берётся. Урок 3 даёт только первое;
+ * - `itself` — все его графы у источника B2, и в словник оно входит, но ряду
+ *   таблицы ничего не добавляет: вещь редко делает что-то с собой.
+ *
+ * СЛОВАРЬ МОДУЛЯ. Тридцать карточек, из них новых для ступени двадцать девять.
+ *
+ * `yours` и `hers` КАРТОЧЕК ЗДЕСЬ НЕ ПОЛУЧАЮТ, И ЭТО НАРОЧНО: их уже завёл
+ * модуль 15 «Больше и меньше» в сравнении — «My flat is smaller than yours».
+ * Вторая карточка сказала бы ученику, что слово новое. В таблице модуля обе
+ * формы стоят наравне с прочими.
+ *
+ * И ПОПУТНАЯ НАХОДКА, О КОТОРОЙ СТОИТ ЗНАТЬ СЛЕДУЮЩЕМУ. Ученик встретил
+ * `yours` в модуле 15 раньше, чем `mine`, — а у English Grammar Profile
+ * сравнительные обороты с `mine` и `yours` стоят на B1. Порядок вышел
+ * обратный удобному; модуль 21 его выправляет, давая весь набор разом.
+ *
+ * КАРТИНКИ. Первые две в курсе: `/kartinki/chey-ryukzak.svg` (урок 3) и
+ * `/kartinki/stol-nahodok.svg` (урок 6). Обе нарисованы схемой, а не
+ * фотографией, и красок темы не наследуют: внешний файл через `<img>` —
+ * отдельный документ, переменные страницы до него не доходят. Поэтому цвета в
+ * них выбраны так, чтобы читаться и на светлой странице, и на тёмной.
+ *
+ * ОСТОРОЖНО С ПОДПИСЬЮ `alt` У КАРТИНКИ УРОКА 6: она называет вещи, но не
+ * говорит, чьи они. Иначе описание напечатало бы ученику верный ответ, и
+ * задание решалось бы чтением разметки, а не текста.
+ *
+ * СНЯТО ИЗ-ЗА ТРАНСКРИПЦИИ: `drawer`, `envelope`, `selfie`, `penfriend`,
+ * `underground`, `upset` — `ipa-en-uk` молчит, согласного ответа источники не
+ * дают. Правило то же, что в модулях 19 и 20: не угадывать.
+ */
+const module: Module = {
+  slug: "svoy-i-sam",
+  title: "Свой и сам",
+
+  outcomes: [
+    "сказать, что вещь твоя: It's mine",
+    "назвать хозяина любой вещи: his, hers, ours, theirs",
+    "спросить и ответить, чья вещь: Whose is it?",
+    "сказать о действии с самим собой: I hurt myself",
+    "сказать, что справился без помощи: by myself",
+    "находить в объявлении о находках, что нашли и где забрать",
+    "слышать в разговоре, чья вещь",
+    "проверять объявление о находке: названа вещь, место и как забрать",
+  ],
+
+  sources: [
+    {
+      ref: "Cambridge English, A2 Key handbook for teachers",
+      section:
+        "с. 52, Language specifications. Перечень Pronouns: «Personal " +
+        "(subject, object, possessive)» — разряд назван прямо, лица не " +
+        "оговорены; отсюда весь набор уроков 1 и 2. Перечень Genitive: «Double " +
+        "genitive: a friend of theirs» — форма theirs названа руководством " +
+        "открытым текстом, и это же опора урока 3 для оборота a friend of mine. " +
+        "ВОЗВРАТНЫХ РУКОВОДСТВО НЕ НАЗЫВАЕТ ВОВСЕ, и это проверено по обоим " +
+        "разборам: в перечне Pronouns стоят Personal, Impersonal, " +
+        "Demonstrative, Quantitative, Indefinite, Relative — строки Reflexive " +
+        "нет. Это не запрет, а молчание: опора уроков 4 и 5 — English Grammar " +
+        "Profile и словник. " +
+        "УРОК 7, ФОРМА ОТВЕТА. с. 29, раздел THE TASK: «The candidates should " +
+        "only write ONE word, or a number, or a date, or a time for their " +
+        "answer» — поэтому ответы на слух здесь односложные",
+      license: "внутреннее использование, публично не называем",
+    },
+    {
+      ref: "English Grammar Profile",
+      section:
+        "УРОКИ 1–3, ПРИТЯЖАТЕЛЬНЫЕ. PRONOUNS possessive, A2, «FORM: 'MINE'» — " +
+        "«Can use the possessive pronoun 'mine', with singular and plural " +
+        "reference, in subject and object positions, and complement positions " +
+        "after 'be' and after prepositions», примеры «I bought a new jacket " +
+        "because mine was very old», «I bought a pullover and trousers because " +
+        "mine are too small for me». Там же A2, «FORM: 'YOURS' AS OBJECT» — " +
+        "«…in object positions, and complement positions after 'be' and after " +
+        "prepositions», примеры «It was my best present, although I also loved " +
+        "yours», «My favourite meal is spaghetti with garlic bread. What's " +
+        "yours?». Отсюда же оборот урока 3: A2, «FORM: + 'OF MINE'» — «Can use " +
+        "the possessive pronoun 'mine' after 'of' in the phrases 'a friend of " +
+        "mine' and 'friends of mine'», пример «A friend of mine gave me a " +
+        "present for my birthday». " +
+        "ВЗЯТО ВЫШЕ ГРАФЫ ПО МЕРКЕ СЛОВНИКА: `hers`, `ours`, `theirs` стоят у " +
+        "источника на B2 и C1, а `yours` подлежащим — на B1. Довод — в шапке " +
+        "модуля. " +
+        "УРОК 4, ВОЗВРАТНЫЕ. PRONOUNS reflexive, A2, «FORM: SAME SUBJECT AND " +
+        "OBJECT.» — «Can use a limited range of singular reflexive pronouns " +
+        "('myself', 'yourself') with a limited range of verbs ('enjoy', 'buy') " +
+        "to refer to actions where the subject and object of the verb are the " +
+        "same», примеры «I enjoyed myself so much», «I bought myself a yellow " +
+        "T-shirt with nothing on it». Графа сама называет свой круг узким " +
+        "(«limited range»), и урок держится его: глаголы enjoy, buy и hurt, " +
+        "лица я и ты. " +
+        "УРОК 5, БЕЗ ПОМОЩИ. Та же подкатегория, B1, «FORM/USE: 'BY' + " +
+        "SINGULAR» — «Can use the singular reflexive pronouns 'myself', " +
+        "'yourself', 'himself' and 'herself' with 'by' to mean alone, without " +
+        "any help», примеры «I will ask my friends from the class and I will " +
+        "study by myself», «You can do some exercise by yourself». Взято выше " +
+        "графы по мерке словника, где запись читается `myself (pron) • by " +
+        "myself`. " +
+        "ЧЕГО НЕТ. Возвратное для усиления — B1, «USE: SINGULAR, FOR " +
+        "EMPHASIS». `a friend of yours` — B1, «FORM: + 'OF YOURS'». " +
+        "Множественные возвратные — B2 всеми графами; в таблице урока 4 они " +
+        "показаны рядом, но ни одно задание их не спрашивает",
+      license: "внутреннее использование, публично не называем",
+    },
+    {
+      ref: "Council of Europe, CEFR Companion Volume 2020",
+      section:
+        "УРОК ЧТЕНИЯ «Читаем объявление о находках» и УРОК ПИСЬМА «Пишем " +
+        "объявление о находке». с. 66, шкала «Overall written production», " +
+        "графа A2: «Can produce a series of simple phrases and sentences linked " +
+        "with simple connectors like» — далее в источнике перечислены and, but " +
+        "и because. Объявление вешают для читателей вообще, а не пишут " +
+        "человеку, и потому опора здесь — производство текста, а не переписка. " +
+        "ШКАЛА ВЫБРАНА НАРОЧНО: с. 81 разводит соседей прямо, Correspondence — " +
+        "о переписке, «Notes, messages and forms» — о передаче сведений " +
+        "человеку. Здесь читателя по имени нет, есть объявление на доске. " +
+        "И ОСТОРОЖНО С СОСЕДНЕЙ СТРОКОЙ ТОЙ ЖЕ ШКАЛЫ: «Can produce simple " +
+        "isolated phrases and sentences» — это графа A1, проверил; наша графа " +
+        "требует связок",
+      license: "CC BY-NC-SA 4.0",
+    },
+    {
+      ref: "Cambridge English, A2 Key vocabulary list (август 2025)",
+      section:
+        "Тридцать карточек модуля взяты из словника ступени; новых для ступени " +
+        "двадцать девять. " +
+        "ЗНАЧЕНИЯ СВЕРЕНЫ С ПОМЕТАМИ СЛОВНИКА: `mine (pron)`, `ours (pron)`, " +
+        "`theirs (pron)` — местоимения, а не определители, и уроки дают именно " +
+        "их; `myself (pron) • by myself`, `himself (pron) • by himself`, " +
+        "`herself (pron) • by herself` — оборот назван словником при самом " +
+        "слове, и на этом стоит урок 5; `stuff (n)` — берётся разговорное " +
+        "значение «вещи»; `rent (n & v)` — карточка берёт глагол, снимать " +
+        "жильё. " +
+        "ПЯТНАДЦАТЬ СЛОВ ВЫШЕ СТУПЕНИ ПО OXFORD 3000, И ЭТО ОБЪЯВЛЯЕТСЯ " +
+        "НАРОЧНО: ours, theirs, toe, chain, costume, stuff, rent, heating, shy, " +
+        "frightened, photographer, hurry, horrible, indoors, outdoors — B1. Все " +
+        "пятнадцать стоят в словнике A2 Key, то есть входят в требования " +
+        "экзамена, к которому ведёт ступень. Мерка та же, что в модулях 18–20: " +
+        "слово в словнике — слово ступени. " +
+        "ИХ БОЛЬШЕ, ЧЕМ В ПРЕЖНИХ МОДУЛЯХ, И ЭТО НЕ СЛУЧАЙНОСТЬ: запас " +
+        "ступени, ещё не взятый курсом, к двадцать первому модулю состоит " +
+        "почти целиком из слов, которые Oxford помечает B1. Дальше доля будет " +
+        "только расти, и это стоит знать заранее. " +
+        "ПЯТИ СЛОВ OXFORD 3000 НЕ ЗНАЕТ ВОВСЕ: grandma, grandpa, grandson, " +
+        "granddaughter, skateboard. Это не «выше ступени», а отсутствие " +
+        "пометы: словник A2 Key их содержит, и мерка берёт их оттуда. " +
+        "СНЯТО ПРИ ПОДБОРЕ: `drawer`, `envelope`, `selfie`, `penfriend`, " +
+        "`underground`, `upset` — из-за транскрипции, см. шапку модуля",
+      license: "внутреннее использование, публично не называем",
+    },
+  ],
+
+  lessons: [
+    // =====================================================================
+    {
+      slug: "moy-i-eto-moyo",
+      title: "Мой и это моё: my bag и mine",
+      estimatedMinutes: 15,
+      outcome: "сказать, что вещь твоя: It's mine",
+
+      vozvrat: [{ iz: "etot-tot-i-drugoy", zadanie: "z2-dopisat-that" }],
+
+      blocks: [
+        {
+          id: "dve-odinakovye-sumki",
+          kind: "explain",
+          text: [
+            "В раздевалке две одинаковые сумки, и Данияр берёт не свою.",
+            "Айгуль надо сказать: эта сумка моя.",
+            "Слово «моя» она уже знает — my.",
+            "Но сказать It's my по-английски нельзя, и вот почему.",
+          ],
+        },
+        {
+          id: "pered-veshchyu-i-vmesto-veshchi",
+          kind: "table",
+          caption: "Перед вещью и вместо вещи",
+          zvuchat: [
+            "my bag",
+            "It's mine.",
+            "your bag",
+            "It's yours.",
+          ],
+          head: ["Перед вещью", "Вместо вещи"],
+          rows: [
+            ["my bag", "It's mine."],
+            ["your bag", "It's yours."],
+          ],
+        },
+        {
+          id: "chem-otlichayutsya-my-i-mine",
+          kind: "explain",
+          text: [
+            "Слово my стоит ПЕРЕД вещью и без неё не работает: my bag.",
+            "Слово mine стоит ВМЕСТО вещи, и вещь после него не нужна.",
+            "По-русски и там, и там «моя», поэтому их легко перепутать.",
+            "Проверка простая: если после слова названа вещь — нужно my.",
+            "Если вещь названа раньше или её видно обоим — нужно mine.",
+            "Местоимения, которые говорят о хозяине вещи, называют притяжательными.",
+          ],
+        },
+        {
+          id: "ne-its-my",
+          kind: "note",
+          tone: "mistake",
+          text:
+            "«It's my» — так не говорят.\n\nСлово my требует вещи после себя. " +
+            "Без вещи ставят mine: It's mine.",
+        },
+        {
+          id: "razgovor-v-razdevalke",
+          kind: "example",
+          caption: "Разговор в раздевалке",
+          razgovor: true,
+          zvuchat: [
+            "Is this your bag?",
+            "No, it isn't mine. My bag is black.",
+            "Then it's mine! Sorry.",
+          ],
+          text:
+            "Is this your bag?\nNo, it isn't mine. My bag is black.\nThen it's mine! Sorry.",
+          explain:
+            "В первой строке вещь названа — your bag. Во второй её уже назвали, " +
+            "и вместо неё стоит mine. А следом идёт My bag is black, потому что " +
+            "там вещь названа заново.",
+        },
+        {
+          id: "slovar-razdevalki",
+          kind: "vocab",
+          caption: "Слова урока",
+          items: [
+            { term: "mine", translation: "мой, моя, моё", example: "No, it isn't mine.", hint: "/maɪn/" },
+            { term: "stuff", translation: "вещи, барахло", example: "All my stuff is in this bag.", hint: "/stʌf/" },
+          ],
+        },
+
+        // ---- задания ----
+        {
+          id: "z1-vybrat-bez-veshchi",
+          kind: "choice",
+          prompt:
+            "Сумку уже назвали, и Айгуль говорит, что сумка её. Как она скажет?",
+          options: [
+            { text: "It's my." },
+            { text: "It's mine.", correct: true },
+            { text: "It's my bag mine." },
+          ],
+          hint: "После слова вещь не названа.",
+          why:
+            "It's mine. Запись It's my оборвана: слово my требует вещи после " +
+            "себя.",
+        },
+        {
+          id: "z2-dopisat-my",
+          kind: "gap",
+          prompt: "Вещь названа сразу после слова. Допиши слово.",
+          before: "This is ",
+          after: " bag. It is black.",
+          answer: "my",
+          hint: "Дальше стоит слово bag.",
+          why:
+            "This is my bag. Слово mine сюда не встанет: после него вещь не " +
+            "называют.",
+        },
+        {
+          id: "z3-otmetit-gde-mine",
+          kind: "hottext",
+          prompt: "Отметь строки, где слово поставлено верно.",
+          parts: [
+            { text: "This is my skateboard.", selectable: true, correct: true },
+            { text: " · " },
+            { text: "This one is my.", selectable: true },
+            { text: " · " },
+            { text: "The black bag is mine.", selectable: true, correct: true },
+            { text: " · " },
+            { text: "Is this mine stuff?", selectable: true },
+          ],
+          hint: "Спроси у каждой строки: названа ли вещь после слова?",
+          why:
+            "Верны первая и третья. Во второй после my вещи нет, а в четвёртой " +
+            "после mine вещь стоит — там нужно my.",
+        },
+        {
+          id: "z4-sobrat-o-sumke",
+          kind: "order",
+          prompt: "Собери строку: эта сумка не моя. О сумке уже говорили.",
+          items: ["isn't", "This bag", "mine."],
+          answer: [1, 0, 2],
+          hint: "Вещь названа в начале строки, а в конце её уже не повторяют.",
+          why:
+            "This bag isn't mine. Слово my в конце оборвало бы строку: после " +
+            "него ждут вещь.",
+        },
+        {
+          id: "z5-otvetit-chto-tvoyo",
+          kind: "short",
+          prompt:
+            "Тебя спрашивают: Is this your skateboard? Ответь по-английски, что да, начав с Yes,.",
+          answer: "Yes, it's mine.",
+          accept: ["Yes, it's mine", "Yes, it is mine.", "Yes, it is mine"],
+          hint: "Вещь уже названа в вопросе, повторять её не надо.",
+          why:
+            "Yes, it's mine. Скейтборд назвали в вопросе, и вместо него встаёт " +
+            "mine.",
+        },
+      ],
+    },
+
+    // =====================================================================
+    {
+      slug: "ego-eyo-nash-i-ih",
+      title: "Его, её, наш и их: his, hers, ours, theirs",
+      estimatedMinutes: 15,
+      outcome: "назвать хозяина любой вещи: his, hers, ours, theirs",
+
+      blocks: [
+        {
+          id: "hozyain-ne-tolko-ya",
+          kind: "explain",
+          text: [
+            "Вещи в раздевалке не только твои и не только собеседника.",
+            "Одна сумка Данияра, другая Айгуль, третья — всего класса.",
+            "У каждого лица есть своё слово вместо вещи.",
+            "Ниже весь ряд, по одному лицу в строке.",
+          ],
+        },
+        {
+          id: "ves-ryad-po-licam",
+          kind: "table",
+          caption: "Весь ряд по лицам",
+          zvuchat: [
+            "It's mine.",
+            "It's yours.",
+            "It's his.",
+            "It's hers.",
+            "It's ours.",
+            "It's theirs.",
+          ],
+          head: ["Перед вещью", "Вместо вещи"],
+          rows: [
+            ["my bag", "It's mine."],
+            ["your bag", "It's yours."],
+            ["his bag", "It's his."],
+            ["her bag", "It's hers."],
+            ["our bag", "It's ours."],
+            ["their bag", "It's theirs."],
+          ],
+        },
+        {
+          id: "chto-vidno-v-tablice",
+          kind: "explain",
+          text: [
+            "У четырёх лиц слово меняется: my — mine, your — yours, her — hers, their — theirs.",
+            "У одного не меняется вовсе: his bag и It's his пишутся одинаково.",
+            "Слово our меняется на ours, и это про нескольких хозяев сразу.",
+            "Вместо имени работает то же слово: Aigul's bag — It's hers.",
+          ],
+        },
+        {
+          id: "ne-its-her",
+          kind: "note",
+          tone: "mistake",
+          text:
+            "«It's her» — так не говорят.\n\nБез вещи ставят hers: It's hers. " +
+            "Слово her требует вещи после себя, как и my.",
+        },
+        {
+          id: "razgovor-o-chuzhih-veshchah",
+          kind: "example",
+          caption: "Разговор о чужих вещах",
+          razgovor: true,
+          zvuchat: [
+            "Is this Daniyar's costume?",
+            "No, his is black. This one is hers.",
+            "And the big bag near the door?",
+            "That one is ours. All our stuff is in it.",
+          ],
+          text:
+            "Is this Daniyar's costume?\nNo, his is black. This one is hers.\nAnd the big bag near the door?\nThat one is ours. All our stuff is in it.",
+          explain:
+            "Костюм назвали в первой строке, и дальше вещь не повторяют: his, " +
+            "hers, ours. В последней строке стоит our stuff — там вещь названа " +
+            "заново, и потому our, а не ours.",
+        },
+        {
+          id: "primer-o-syomnoy-kvartire",
+          kind: "example",
+          caption: "Про съёмную квартиру",
+          zvuchat: [
+            "My grandpa rents this flat, and the heating isn't ours.",
+          ],
+          text: "My grandpa rents this flat, and the heating isn't ours.",
+          explain:
+            "Квартира снята, и потому отопление чужое. В конце строки стоит " +
+            "ours, а не our: вещь названа раньше и второй раз не звучит.",
+        },
+        {
+          id: "slovar-chuzhih-veshchey",
+          kind: "vocab",
+          caption: "Слова урока",
+          items: [
+            { term: "ours", translation: "наш, наша, наше", example: "That one is ours.", hint: "/ˈaʊəz/" },
+            { term: "costume", translation: "костюм", example: "Is this Daniyar's costume?", hint: "/ˈkɒstjuːm/" },
+            { term: "chain", translation: "цепочка", example: "The blue chain is theirs.", hint: "/tʃeɪn/" },
+            { term: "theirs", translation: "их", example: "The red bags are theirs.", hint: "/ðeəz/" },
+            { term: "grandma", translation: "бабушка", example: "This chain is my grandma's.", hint: "/ˈgrændmɑː/" },
+            { term: "grandpa", translation: "дедушка", example: "My grandpa rents this flat.", hint: "/ˈgrændpɑː/" },
+            { term: "rent", translation: "снимать жильё", example: "My grandpa rents this flat.", hint: "/rent/" },
+            { term: "heating", translation: "отопление", example: "The heating isn't ours.", hint: "/ˈhiːtɪŋ/" },
+          ],
+        },
+
+        // ---- задания ----
+        {
+          id: "z1-dopisat-hers",
+          kind: "gap",
+          prompt: "Про костюм Айгуль уже сказали. Допиши слово.",
+          before: "The black costume is ",
+          after: ".",
+          answer: "hers",
+          hint: "После слова вещь не называют.",
+          why:
+            "The black costume is hers. Слово her сюда не встанет: после него " +
+            "ждут вещь.",
+        },
+        {
+          id: "z2-vybrat-o-klasse",
+          kind: "choice",
+          prompt:
+            "Сумка принадлежит всему классу, и ты в этом классе. Как сказать?",
+          options: [
+            { text: "It's theirs." },
+            { text: "It's ours.", correct: true },
+            { text: "It's our." },
+          ],
+          hint: "Ты тоже один из хозяев.",
+          why:
+            "It's ours. Запись It's theirs сказала бы о чужом классе, а It's " +
+            "our оборвана: после our ждут вещь.",
+        },
+        {
+          id: "z3-otmetit-vernye-o-hozyaine",
+          kind: "hottext",
+          prompt: "Отметь строки, где слово поставлено верно.",
+          parts: [
+            { text: "The blue chain is theirs.", selectable: true, correct: true },
+            { text: " · " },
+            { text: "This flat is our.", selectable: true },
+            { text: " · " },
+            { text: "The heating isn't ours.", selectable: true, correct: true },
+            { text: " · " },
+            { text: "That costume is his.", selectable: true, correct: true },
+          ],
+          hint: "У одного лица слово перед вещью и вместо вещи пишется одинаково.",
+          why:
+            "Верны первая, третья и четвёртая. Во второй после our вещи нет — " +
+            "там нужно ours. А his одинаково годится обоим случаям.",
+        },
+        {
+          id: "z4-sobrat-o-babushke",
+          kind: "order",
+          prompt: "Собери строку: эта цепочка бабушкина. Вещь названа в начале.",
+          items: ["my grandma's.", "This chain", "is"],
+          answer: [1, 2, 0],
+          hint: "Начни с вещи, а хозяина назови в конце.",
+          why:
+            "This chain is my grandma's. С именем хозяина работает та же " +
+            "запись, что с местоимением: вещь после него не называют.",
+        },
+        {
+          id: "z5-napisat-ob-otoplenii",
+          kind: "short",
+          prompt:
+            "Дедушка снимает квартиру, и отопление не его. Скажи это по-английски, начав с The heating.",
+          answer: "The heating isn't his.",
+          accept: [
+            "The heating isn't his",
+            "The heating is not his.",
+            "The heating is not his",
+          ],
+          hint: "Вещь названа в начале строки, значит в конце её не повторяют.",
+          why:
+            "The heating isn't his. У этого лица слово не меняется: и his flat, " +
+            "и It's his.",
+        },
+      ],
+    },
+
+    // =====================================================================
+    {
+      slug: "chey-eto",
+      title: "Чьё это: Whose is it?",
+      estimatedMinutes: 14,
+      outcome: "спросить и ответить, чья вещь: Whose is it?",
+
+      vozvrat: [{ iz: "kto-to-i-chto-to", zadanie: "z1-dopisat-anyone" }],
+
+      blocks: [
+        {
+          id: "veshch-lezhit-a-hozyaina-net",
+          kind: "explain",
+          text: [
+            "На парте лежит рюкзак, и никто не знает, чей он.",
+            "Спросить надо коротко, не называя вещи дважды.",
+            "Для такого вопроса в английском есть своё слово.",
+          ],
+        },
+        {
+          id: "risunok-dva-ryukzaka",
+          kind: "image",
+          src: "/kartinki/chey-ryukzak.svg",
+          alt:
+            "Два рюкзака рядом. Слева синий, под ним подпись Daniyar. Справа сиреневый, под ним подпись Aigul. Между ними знак вопроса и надпись Whose is it?",
+          caption: "Чей это рюкзак?",
+        },
+        {
+          id: "vopros-i-otvet-o-hozyaine",
+          kind: "table",
+          caption: "Вопрос и ответ",
+          zvuchat: [
+            "Whose is this backpack?",
+            "It's mine.",
+            "Whose backpack is this?",
+            "It's Aigul's.",
+          ],
+          head: ["Вопрос", "Ответ"],
+          rows: [
+            ["Whose is this backpack?", "It's mine."],
+            ["Whose backpack is this?", "It's Aigul's."],
+          ],
+        },
+        {
+          id: "kak-ustroen-vopros-o-hozyaine",
+          kind: "explain",
+          text: [
+            "Слово whose спрашивает о хозяине: чей, чья, чьё.",
+            "Вещь при нём можно назвать сразу: Whose backpack is this?",
+            "А можно не называть: Whose is this?",
+            "Отвечают тем же словом вместо вещи: It's mine. It's hers.",
+            "С именем хозяина к имени добавляют 's: It's Aigul's.",
+          ],
+        },
+        {
+          id: "drug-moy-a-ne-moy-drug",
+          kind: "explain",
+          text: [
+            "Есть оборот, который по-русски звучит наоборот.",
+            "A friend of mine — «один мой друг», а дословно «друг из моих».",
+            "Так говорят, когда друг для собеседника новый и по имени не назван.",
+            "Во множественном числе так же: some friends of mine.",
+          ],
+        },
+        {
+          id: "ne-whose-is-his",
+          kind: "note",
+          tone: "mistake",
+          text:
+            "«Whose is his backpack?» — так не спрашивают.\n\nВопрос whose уже " +
+            "спрашивает о хозяине, и второй раз называть его незачем: Whose is " +
+            "this backpack?",
+        },
+        {
+          id: "razgovor-o-naydennom-ryukzake",
+          kind: "example",
+          caption: "Разговор о найденном рюкзаке",
+          razgovor: true,
+          zvuchat: [
+            "Whose is this backpack?",
+            "It isn't mine. Possibly it's Aigul's.",
+            "No, hers is violet. This one is a friend of mine.",
+          ],
+          text:
+            "Whose is this backpack?\nIt isn't mine. Possibly it's Aigul's.\nNo, hers is violet. This one is a friend of mine.",
+          explain:
+            "Вещь названа один раз, в вопросе, и дальше не повторяется: mine, " +
+            "Aigul's, hers. В последней строке стоит a friend of mine — друг по " +
+            "имени не назван, и собеседник его не знает.",
+        },
+        {
+          id: "primer-veshchi-vnukov",
+          kind: "example",
+          caption: "Вещи внуков",
+          zvuchat: [
+            "The skateboard is her grandson's.",
+            "The chain is her granddaughter's.",
+          ],
+          text: "The skateboard is her grandson's.\nThe chain is her granddaughter's.",
+          explain:
+            "С именем хозяина работает та же запись, что с местоимением: к " +
+            "хозяину добавляют 's, а вещь после него не называют.",
+        },
+        {
+          id: "slovar-nahodki",
+          kind: "vocab",
+          caption: "Слова урока",
+          items: [
+            { term: "grandson", translation: "внук", example: "The skateboard is her grandson's.", hint: "/ˈgrændsʌn/" },
+            { term: "granddaughter", translation: "внучка", example: "This chain is her granddaughter's.", hint: "/ˈgrændɔːtə/" },
+            { term: "skateboard", translation: "скейтборд", example: "The skateboard is her grandson's.", hint: "/ˈskeɪtbɔːd/" },
+          ],
+        },
+
+        // ---- задания ----
+        {
+          id: "z1-dopisat-whose",
+          kind: "gap",
+          prompt: "Хозяин цепочки неизвестен. Допиши вопросительное слово.",
+          before: "",
+          after: " is this chain?",
+          answer: "Whose",
+          hint: "Спрашивают не о вещи, а о хозяине.",
+          why:
+            "Whose is this chain? Слово who спросило бы о человеке вообще, а не " +
+            "о том, чья вещь.",
+        },
+        {
+          id: "z2-vybrat-otvet-o-vnuke",
+          kind: "choice",
+          prompt:
+            "Скейтборд принадлежит её внуку. Как ответить на вопрос Whose is this skateboard?",
+          options: [
+            { text: "It's her grandson." },
+            { text: "It's her grandson skateboard." },
+            { text: "It's her grandson's.", correct: true },
+          ],
+          hint: "К имени хозяина добавляют две буквы.",
+          why:
+            "It's her grandson's. Без 's выходит «это её внук», а сам скейтборд " +
+            "повторять не надо.",
+        },
+        {
+          id: "z3-otmetit-vopros-bez-povtora",
+          kind: "hottext",
+          prompt: "Отметь вопросы, заданные верно.",
+          parts: [
+            { text: "Whose is this costume?", selectable: true, correct: true },
+            { text: " · " },
+            { text: "Whose is her costume?", selectable: true },
+            { text: " · " },
+            { text: "Whose costume is this?", selectable: true, correct: true },
+            { text: " · " },
+            { text: "Whose is this?", selectable: true, correct: true },
+          ],
+          hint: "Вопрос уже спрашивает о хозяине — значит хозяина в нём не называют.",
+          why:
+            "Верны первый, третий и четвёртый. Во втором хозяин уже назван " +
+            "словом her, и спрашивать после этого не о чем.",
+        },
+        {
+          id: "z4-sobrat-o-druge",
+          kind: "order",
+          prompt: "Собери строку: это один мой друг. Друга по имени не называют.",
+          items: ["of mine.", "is", "This one", "a friend"],
+          answer: [2, 1, 3, 0],
+          hint: "Оборот кончается словом вместо вещи, а не словом my.",
+          why:
+            "This one is a friend of mine. Запись a friend of my не годится: " +
+            "после my ждут вещь.",
+        },
+        {
+          id: "z5-sprosit-o-veshchi",
+          kind: "short",
+          prompt:
+            "На столе лежит чужой рюкзак. Спроси по-английски, чей он, назвав вещь после первого слова.",
+          answer: "Whose backpack is this?",
+          accept: ["Whose backpack is this", "Whose backpack is it?", "Whose backpack is it"],
+          hint: "Вещь ставят сразу после слова о хозяине.",
+          why:
+            "Whose backpack is this? Годится и Whose is this backpack — вещь " +
+            "тогда встаёт в конец.",
+        },
+      ],
+    },
+
+    // =====================================================================
+    {
+      slug: "sam-sebya",
+      title: "Сам себя: I hurt myself",
+      estimatedMinutes: 15,
+      outcome: "сказать о действии с самим собой: I hurt myself",
+
+      blocks: [
+        {
+          id: "deystvie-vernulos-k-tomu-zhe",
+          kind: "explain",
+          text: [
+            "Данияр упал со скейтборда и ушиб палец.",
+            "Ушиб он не кого-то, а себя самого.",
+            "По-русски это «себя», и слово одно на все лица.",
+            "По-английски у каждого лица своё слово, и ниже весь ряд.",
+          ],
+        },
+        {
+          id: "ryad-sebya",
+          kind: "table",
+          caption: "Кто действует и на кого",
+          head: ["Кто", "Себя"],
+          rows: [
+            ["I", "myself"],
+            ["you", "yourself"],
+            ["he", "himself"],
+            ["she", "herself"],
+            ["we", "ourselves"],
+            ["they", "themselves"],
+          ],
+        },
+        {
+          id: "kak-ustroeno-sebya",
+          kind: "explain",
+          text: [
+            "Такое слово ставят, когда действующий и тот, на кого действуют, — одно лицо.",
+            "I hurt myself — ушиб себя, а не кого-то другого.",
+            "У четырёх лиц слово кончается на -self, у двух на -selves.",
+            "Местоимения, которые возвращают действие к самому действующему, называют возвратными.",
+            "Чаще всего они идут с тремя глаголами: enjoy, buy и hurt.",
+          ],
+        },
+        {
+          id: "razlichie-hurt-me-i-myself",
+          kind: "table",
+          caption: "Себя и другого",
+          zvuchat: [
+            "I hurt myself.",
+            "He hurt me.",
+            "She enjoyed herself.",
+            "She enjoyed the film.",
+          ],
+          head: ["О себе", "О другом"],
+          rows: [
+            ["I hurt myself.", "He hurt me."],
+            ["She enjoyed herself.", "She enjoyed the film."],
+          ],
+        },
+        {
+          id: "ne-i-hurt-me",
+          kind: "note",
+          tone: "mistake",
+          text:
+            "«I hurt me» — так не говорят.\n\nЕсли действующий и тот, на кого " +
+            "действуют, одно лицо, ставят myself: I hurt myself.",
+        },
+        {
+          id: "razgovor-posle-padeniya",
+          kind: "example",
+          caption: "Разговор после падения",
+          razgovor: true,
+          zvuchat: [
+            "What happened? Did you hurt yourself?",
+            "Yes, I hurt myself. My finger, my toe and my stomach.",
+            "And Daniyar? Did he enjoy himself?",
+            "He enjoyed himself, but now his neck hurts too.",
+          ],
+          text:
+            "What happened? Did you hurt yourself?\nYes, I hurt myself. My finger, my toe and my stomach.\nAnd Daniyar? Did he enjoy himself?\nHe enjoyed himself, but now his neck hurts too.",
+          explain:
+            "В каждой строке действующий и тот, на кого действуют, — одно лицо. " +
+            "Слово подобрано под него: yourself к you, myself к I, himself к he. " +
+            "В последней строке стоит his neck. Там вещь названа, и потому his, " +
+            "а не himself.",
+        },
+        {
+          id: "slovar-tela",
+          kind: "vocab",
+          caption: "Слова урока",
+          items: [
+            { term: "myself", translation: "себя (о себе)", example: "Yes, I hurt myself.", hint: "/maɪˈself/" },
+            { term: "yourself", translation: "себя (о тебе)", example: "Did you hurt yourself?", hint: "/jɔːˈself/" },
+            { term: "himself", translation: "себя (о нём)", example: "He enjoyed himself.", hint: "/hɪmˈself/" },
+            { term: "herself", translation: "себя (о ней)", example: "She enjoyed herself.", hint: "/hɜːˈself/" },
+            { term: "ourselves", translation: "себя (о нас)", example: "We enjoyed ourselves.", hint: "/aʊəˈselvz/" },
+            { term: "themselves", translation: "себя (о них)", example: "They enjoyed themselves.", hint: "/ðemˈselvz/" },
+            { term: "finger", translation: "палец на руке", example: "My finger, my toe and my stomach.", hint: "/ˈfɪŋgə/" },
+            { term: "toe", translation: "палец на ноге", example: "My finger, my toe and my stomach.", hint: "/təʊ/" },
+            { term: "neck", translation: "шея", example: "Now his neck hurts too.", hint: "/nek/" },
+            { term: "stomach", translation: "живот", example: "My finger, my toe and my stomach.", hint: "/ˈstʌmək/" },
+          ],
+        },
+
+        // ---- задания ----
+        {
+          id: "z1-dopisat-myself",
+          kind: "gap",
+          prompt: "Ты ушиб не кого-то, а себя. Допиши слово.",
+          before: "I hurt ",
+          after: " yesterday.",
+          answer: "myself",
+          hint: "Действующий и тот, на кого действуют, — одно лицо.",
+          why:
+            "I hurt myself yesterday. Запись I hurt me не годится: у этого лица " +
+            "своё слово.",
+        },
+        {
+          id: "z2-vybrat-o-nem",
+          kind: "choice",
+          prompt: "Данияру на празднике было хорошо. Как сказать?",
+          options: [
+            { text: "He enjoyed himself.", correct: true },
+            { text: "He enjoyed him." },
+            { text: "He enjoyed his." },
+          ],
+          hint: "Хорошо было ему самому, а не кому-то другому.",
+          why:
+            "He enjoyed himself. Запись He enjoyed him сказала бы о другом " +
+            "человеке, а his требует вещи после себя.",
+        },
+        {
+          id: "z3-otmetit-o-sebe",
+          kind: "hottext",
+          prompt: "Отметь строки, где действие возвращается к самому действующему.",
+          parts: [
+            { text: "She enjoyed herself.", selectable: true, correct: true },
+            { text: " · " },
+            { text: "She enjoyed the film.", selectable: true },
+            { text: " · " },
+            { text: "I bought myself a chain.", selectable: true, correct: true },
+            { text: " · " },
+            { text: "He hurt me.", selectable: true },
+          ],
+          hint: "Спроси у каждой строки: действующий и тот, на кого действуют, — одно лицо?",
+          why:
+            "Первая и третья. Во второй хорошо было ей от фильма, а в четвёртой " +
+            "ушибли не его самого.",
+        },
+        {
+          id: "z4-sobrat-o-pokupke",
+          kind: "order",
+          prompt: "Собери строку: я купил себе скейтборд.",
+          items: ["a skateboard.", "bought", "I", "myself"],
+          answer: [2, 1, 3, 0],
+          hint: "Слово о себе стоит сразу после действия, а вещь — в конце.",
+          why:
+            "I bought myself a skateboard. Слово о себе идёт перед вещью, а не " +
+            "после неё.",
+        },
+        {
+          id: "z5-napisat-o-nej",
+          kind: "short",
+          prompt:
+            "Айгуль ушибла себя, а не кого-то. Скажи это по-английски, начав с She.",
+          answer: "She hurt herself.",
+          accept: ["She hurt herself"],
+          hint: "У этого лица слово кончается на -self.",
+          why:
+            "She hurt herself. Запись She hurt her сказала бы о другой женщине.",
+        },
+      ],
+    },
+
+    // =====================================================================
+    {
+      slug: "sam-bez-pomoshchi",
+      title: "Сам, без помощи: by myself",
+      estimatedMinutes: 14,
+      outcome: "сказать, что справился без помощи: by myself",
+
+      blocks: [
+        {
+          id: "sdelal-bez-chuzhoy-pomoshchi",
+          kind: "explain",
+          text: [
+            "Айгуль дошла до музея, и никто ей не помогал.",
+            "По-русски это «сама», и слово то же, что в «ушибла себя».",
+            "По-английски слово то же, но перед ним встаёт короткое by.",
+          ],
+        },
+        {
+          id: "sebya-i-bez-pomoshchi",
+          kind: "table",
+          caption: "Себя и без помощи",
+          zvuchat: [
+            "I hurt myself.",
+            "I went there by myself.",
+            "She enjoyed herself.",
+            "She lives here by herself.",
+          ],
+          head: ["Действие на себя", "Без чужой помощи"],
+          rows: [
+            ["I hurt myself.", "I went there by myself."],
+            ["She enjoyed herself.", "She lives here by herself."],
+          ],
+        },
+        {
+          id: "chto-menyaet-by",
+          kind: "explain",
+          text: [
+            "Без by слово говорит, на кого пошло действие: hurt myself — ушиб себя.",
+            "С by оно говорит, что рядом никого не было: by myself — один, без помощи.",
+            "Само слово при этом не меняется: myself, yourself, himself, herself.",
+            "Ставят такой оборот обычно в конце строки.",
+          ],
+        },
+        {
+          id: "ne-by-my",
+          kind: "note",
+          tone: "mistake",
+          text:
+            "«I did it by my» — так не говорят.\n\nПосле by стоит слово на " +
+            "-self: by myself.",
+        },
+        {
+          id: "razgovor-o-poezdke-odnoy",
+          kind: "example",
+          caption: "Разговор о поездке",
+          razgovor: true,
+          zvuchat: [
+            "Did your grandma go with you?",
+            "No, I went by myself. I wasn't frightened.",
+            "And the photographer? Did he work by himself?",
+            "Yes, and he was in a hurry all day.",
+          ],
+          text:
+            "Did your grandma go with you?\nNo, I went by myself. I wasn't frightened.\nAnd the photographer? Did he work by himself?\nYes, and he was in a hurry all day.",
+          explain:
+            "Оборот by myself говорит, что бабушка не поехала и помощи не было. " +
+            "К третьему лицу берётся своё слово: by himself. Ушибов и падений " +
+            "здесь нет вовсе — by меняет смысл целиком.",
+        },
+        {
+          id: "slovar-samostoyatelnosti",
+          kind: "vocab",
+          caption: "Слова урока",
+          items: [
+            { term: "shy", translation: "застенчивый", example: "My grandson is shy, but he goes to school by himself.", hint: "/ʃaɪ/" },
+            { term: "frightened", translation: "испуганный", example: "I wasn't frightened.", hint: "/ˈfraɪtnd/" },
+            { term: "photographer", translation: "фотограф", example: "Did the photographer work by himself?", hint: "/fəˈtɒgrəfə/" },
+            { term: "hurry", translation: "спешка, спешить", example: "He was in a hurry all day.", hint: "/ˈhʌri/" },
+            { term: "indoors", translation: "в помещении", example: "We stayed indoors by ourselves.", hint: "/ɪnˈdɔːz/" },
+            { term: "outdoors", translation: "на улице", example: "She works outdoors by herself.", hint: "/aʊtˈdɔːz/" },
+          ],
+        },
+
+        // ---- задания ----
+        {
+          id: "z1-dopisat-by",
+          kind: "gap",
+          prompt: "Никто ей не помогал. Допиши короткое слово.",
+          before: "She went to the museum ",
+          after: " herself.",
+          answer: "by",
+          hint: "Без этого слова вышло бы, что она сходила сама на себя.",
+          why:
+            "She went to the museum by herself. Слово by и говорит, что помощи " +
+            "не было.",
+        },
+        {
+          id: "z2-vybrat-smysl",
+          kind: "choice",
+          prompt:
+            "Строка: Daniyar cooked dinner by himself. Что она значит?",
+          options: [
+            { text: "Он приготовил ужин для себя." },
+            { text: "Он приготовил ужин без чужой помощи.", correct: true },
+            { text: "Он обжёгся, когда готовил." },
+          ],
+          hint: "Смотри на короткое слово перед himself.",
+          why:
+            "Без чужой помощи. Про ужин для себя сказали бы cooked himself " +
+            "dinner, и это уже другая строка.",
+        },
+        {
+          id: "z3-otmetit-bez-pomoshchi",
+          kind: "hottext",
+          prompt: "Отметь строки, где сказано, что помощи не было.",
+          parts: [
+            { text: "He goes to school by himself.", selectable: true, correct: true },
+            { text: " · " },
+            { text: "He hurt himself at school.", selectable: true },
+            { text: " · " },
+            { text: "I painted the room by myself.", selectable: true, correct: true },
+            { text: " · " },
+            { text: "I bought myself a costume.", selectable: true },
+          ],
+          hint: "Ищи короткое слово перед словом на -self.",
+          why:
+            "Первая и третья: в них стоит by. Во второй ушиб, в четвёртой " +
+            "покупка — там действие идёт на самого себя.",
+        },
+        {
+          id: "z4-sobrat-o-vnuke",
+          kind: "order",
+          prompt: "Собери строку: мой внук ходит в школу сам.",
+          items: ["by himself.", "goes to school", "My grandson"],
+          answer: [2, 1, 0],
+          hint: "Оборот о самостоятельности ставят в конец.",
+          why:
+            "My grandson goes to school by himself. Оборот стоит последним, " +
+            "после места.",
+        },
+        {
+          id: "z5-napisat-o-sebe-odnom",
+          kind: "short",
+          prompt:
+            "Скажи по-английски, что ты живёшь здесь один и никто с тобой не живёт. Начни с I live here.",
+          answer: "I live here by myself.",
+          accept: ["I live here by myself"],
+          hint: "После места встаёт оборот с коротким by.",
+          why:
+            "I live here by myself. Без by вышло бы, что ты живёшь на самого " +
+            "себя, а это ничего не значит.",
+        },
+      ],
+    },
+
+    // =====================================================================
+    {
+      slug: "chitaem-stol-nahodok",
+      title: "Читаем объявление о находках",
+      estimatedMinutes: 13,
+      outcome: "находить в объявлении о находках, что нашли и где забрать",
+
+      blocks: [
+        {
+          id: "zachem-chitat-o-nahodkah",
+          kind: "explain",
+          text: [
+            "В школе есть стол находок: туда кладут забытые вещи.",
+            "Над столом висит объявление, и в нём ищут три вещи.",
+            "Что нашли, где это лежит и когда можно забрать.",
+            "Ниже объявление, и вопросы будут о нём.",
+          ],
+        },
+        {
+          id: "risunok-stol-nahodok",
+          kind: "image",
+          src: "/kartinki/stol-nahodok.svg",
+          alt:
+            "Полка стола находок. На ней четыре вещи с бумажками: под номером один шарф, под номером два перчатка, под номером три зонт, под номером четыре цепочка.",
+          caption: "Что лежит на столе находок",
+        },
+        {
+          id: "obyavlenie-o-nahodkah",
+          kind: "text",
+          title: "LOST AND FOUND",
+          genre: "notice",
+          body: [
+            "This is our lost and found table.",
+            "These things are not ours. Somebody lost them last week.",
+            "Number 1 is a long scarf. It is his, and he is in class 7B.",
+            "Number 2 is a glove. We possibly have the other one too.",
+            "Number 3 is an umbrella. It isn't new, but it works!",
+            "Number 4 is a chain. It is a horrible day for its owner.",
+            "The table is near the door. Come indoors and take yours.",
+          ],
+          glossary: [
+            { term: "lost and found", translation: "стол находок" },
+            { term: "owner", translation: "хозяин" },
+            { term: "class 7B", translation: "класс 7Б" },
+          ],
+        },
+        {
+          id: "kak-iskat-v-obyavlenii-o-nahodkah",
+          kind: "note",
+          tone: "info",
+          text:
+            "Вещь ищут по номеру, а хозяина — по слову вместо вещи.\n\nСлова " +
+            "his, hers, ours и theirs говорят, чья вещь, не называя её заново.",
+        },
+        {
+          id: "slovar-stola-nahodok",
+          kind: "vocab",
+          caption: "Слова урока",
+          items: [
+            { term: "horrible", translation: "ужасный", example: "It is a horrible day for its owner.", hint: "/ˈhɒrɪbl/" },
+          ],
+        },
+
+        // ---- задания ----
+        {
+          id: "z1-chto-lezhit-pod-nomerom-tri",
+          about: "obyavlenie-o-nahodkah",
+          kind: "short",
+          prompt: "Что лежит под номером 3? Ответь одним словом по-английски.",
+          answer: "umbrella",
+          accept: ["Umbrella", "an umbrella"],
+          hint: "Каждая строка объявления начинается с номера.",
+          why: "Number 3 is an umbrella.",
+        },
+        {
+          id: "z2-chey-sharf",
+          about: "obyavlenie-o-nahodkah",
+          kind: "choice",
+          prompt: "Что объявление говорит о хозяине шарфа?",
+          options: [
+            { text: "Хозяина не нашли." },
+            { text: "Это мальчик из 7Б.", correct: true },
+            { text: "Шарф принадлежит школе." },
+          ],
+          hint: "Про шарф сказано в строке с номером 1.",
+          why:
+            "Это мальчик из 7Б: It is his, and he is in class 7B. Слово his и " +
+            "говорит, что хозяин мужского пола.",
+        },
+        {
+          id: "z3-gde-stol",
+          about: "obyavlenie-o-nahodkah",
+          kind: "short",
+          prompt: "Где стоит стол находок? Ответь одним словом по-английски.",
+          answer: "door",
+          accept: ["Door", "the door", "near the door"],
+          hint: "Про место сказано в самой последней строке.",
+          why: "The table is near the door.",
+        },
+        {
+          id: "z4-otmetit-verno-o-nahodkah",
+          about: "obyavlenie-o-nahodkah",
+          kind: "hottext",
+          prompt: "Отметь то, что верно по объявлению.",
+          parts: [
+            { text: "вещи потеряли на прошлой неделе", selectable: true, correct: true },
+            { text: " · " },
+            { text: "зонт старый, но целый", selectable: true, correct: true },
+            { text: " · " },
+            { text: "перчаток нашли ровно две", selectable: true },
+            { text: " · " },
+            { text: "вещи принадлежат школе", selectable: true },
+          ],
+          hint: "Про перчатку сказано в строке 2, а про хозяев — в самой первой.",
+          why:
+            "Верно первое и второе. Про вторую перчатку сказано possibly — " +
+            "«возможно», а первая строка прямо говорит These things are not " +
+            "ours.",
+        },
+        {
+          id: "z5-chto-znachit-take-yours",
+          about: "obyavlenie-o-nahodkah",
+          kind: "choice",
+          prompt:
+            "Последняя строка кончается словами take yours. Что это значит?",
+          options: [
+            { text: "Забери всё, что лежит на столе." },
+            { text: "Забери свою вещь.", correct: true },
+            { text: "Забери вещь друга." },
+          ],
+          hint: "Слово yours стоит вместо вещи и называет хозяина.",
+          why:
+            "Забери свою вещь. Слово yours говорит, что вещь твоя, а какая " +
+            "именно — сказано выше по номерам.",
+        },
+      ],
+    },
+
+    // =====================================================================
+    {
+      slug: "slushaem-chya-eto-veshch",
+      title: "Слушаем, чья это вещь",
+      estimatedMinutes: 13,
+      outcome: "слышать в разговоре, чья вещь",
+
+      blocks: [
+        {
+          id: "zachem-slushat-o-hozyaine",
+          kind: "explain",
+          text: [
+            "Двое разбирают вещи после поездки и ищут хозяев.",
+            "Слушать надо, чья вещь и что с ней делают дальше.",
+            "Ниже запись, а расшифровка спрятана под кнопкой.",
+            "Слушай целиком, потом отвечай.",
+          ],
+        },
+        {
+          id: "zapis-o-veshchah-posle-poezdki",
+          kind: "audio",
+          caption: "Разговор после поездки",
+          pace: "slow",
+          skryt: true,
+          transcript:
+            "Whose is this costume? — It isn't mine. Possibly it's hers. — " +
+            "And the skateboard? — That one is theirs. They bought it in May.",
+        },
+        {
+          id: "chto-slushat-o-hozyaine",
+          kind: "note",
+          tone: "info",
+          text:
+            "Слушай слово, которое стоит вместо вещи.\n\nОно и называет " +
+            "хозяина: mine, hers, theirs.",
+        },
+        // ---- задания ----
+        {
+          id: "z1-chya-veshch-v-zapisi",
+          about: "zapis-o-veshchah-posle-poezdki",
+          kind: "choice",
+          prompt: "Послушай. Чей, скорее всего, костюм?",
+          options: [
+            { text: "Того, кто спрашивает." },
+            { text: "Женщины, о которой говорят.", correct: true },
+            { text: "Никто не знает." },
+          ],
+          hint: "Ответ звучит во второй реплике.",
+          why:
+            "Женщины: Possibly it's hers. Слово hers и называет хозяйку.",
+        },
+        {
+          id: "z2-kogda-kupili-skeytbord",
+          about: "zapis-o-veshchah-posle-poezdki",
+          kind: "short",
+          prompt: "Послушай. В каком месяце купили скейтборд? Ответь одним словом по-английски.",
+          answer: "May",
+          accept: ["may", "в мае"],
+          hint: "Месяц звучит в самой последней реплике.",
+          why: "They bought it in May.",
+        },
+        {
+          id: "z3-chto-znachit-theirs-v-zapisi",
+          about: "zapis-o-veshchah-posle-poezdki",
+          kind: "choice",
+          prompt: "В записи звучит theirs. О скольких хозяевах это слово?",
+          options: [
+            { text: "Об одном." },
+            { text: "О нескольких.", correct: true },
+            { text: "Ни о ком: это про вещь." },
+          ],
+          hint: "Вспомни ряд по лицам из второго урока.",
+          why:
+            "О нескольких. Об одном сказали бы his или hers, а theirs идёт к " +
+            "they.",
+        },
+        {
+          id: "z4-otmetit-uslyshannoe-o-veshchah",
+          about: "zapis-o-veshchah-posle-poezdki",
+          kind: "hottext",
+          prompt: "Отметь то, что прозвучало в записи.",
+          parts: [
+            { text: "костюм не принадлежит спрашивающему", selectable: true, correct: true },
+            { text: " · " },
+            { text: "скейтборд купили в мае", selectable: true, correct: true },
+            { text: " · " },
+            { text: "костюм нашли на улице", selectable: true },
+            { text: " · " },
+            { text: "скейтборд принадлежит фотографу", selectable: true },
+          ],
+          hint: "Про костюм говорят в первых двух репликах.",
+          why:
+            "Прозвучали первое и второе. Про улицу и фотографа речи не было " +
+            "вовсе.",
+        },
+        {
+          id: "z5-uslyshat-veshch",
+          about: "zapis-o-veshchah-posle-poezdki",
+          kind: "short",
+          prompt: "Послушай. О какой второй вещи спрашивают? Ответь одним словом по-английски.",
+          answer: "skateboard",
+          accept: ["Skateboard", "the skateboard"],
+          hint: "Вторая вещь названа в третьей реплике.",
+          why: "And the skateboard?",
+        },
+      ],
+    },
+
+    // =====================================================================
+    {
+      slug: "pishem-obyavlenie-o-nahodke",
+      title: "Пишем объявление о находке",
+      estimatedMinutes: 15,
+      outcome: "проверять объявление о находке: названа вещь, место и как забрать",
+
+      blocks: [
+        {
+          id: "zachem-proveryat-obyavlenie-o-nahodke",
+          kind: "explain",
+          text: [
+            "Ученик повесил объявление: «I found a bag. Come and take it.»",
+            "За вещью никто не пришёл: непонятно, какая сумка и куда идти.",
+            "В объявлении о находке пропускают не саму вещь, а её приметы и место.",
+            "Проверить своё объявление можно по четырём строкам.",
+          ],
+        },
+        {
+          id: "chto-dolzhno-byt-v-obyavlenii-o-nahodke",
+          kind: "table",
+          caption: "Что должно быть в объявлении",
+          zvuchat: [
+            "I found a chain on Monday.",
+            "It is long and it isn't new.",
+            "It isn't mine, and possibly it is yours.",
+            "The chain is with our teacher indoors.",
+          ],
+          head: ["Что сказано", "Пример строки"],
+          rows: [
+            ["что и когда нашли", "I found a chain on Monday."],
+            ["какая эта вещь", "It is long and it isn't new."],
+            ["чья она не твоя", "It isn't mine, and possibly it is yours."],
+            ["где её забрать", "The chain is with our teacher indoors."],
+          ],
+        },
+        {
+          id: "chem-derzhitsya-obyavlenie-o-nahodke",
+          kind: "explain",
+          text: [
+            "Первая строка называет вещь и день: без дня хозяин не поймёт, его ли это.",
+            "Вторая даёт приметы: длинная, старая, в полоску.",
+            "Третья говорит, что вещь не твоя, и вот тут нужно слово вместо вещи.",
+            "Четвёртая говорит, где забрать: у кого и в каком месте.",
+            "Строки связывают словами and, but и because: без них выйдет список.",
+          ],
+        },
+        {
+          id: "obrazec-obyavleniya-o-nahodke",
+          kind: "example",
+          caption: "Объявление Данияра",
+          zvuchat: [
+            "I found a chain on Monday.",
+            "It is long and it isn't new, but it is nice.",
+            "It isn't mine, and possibly it is yours.",
+            "The chain is with our teacher indoors, because the table is outdoors.",
+          ],
+          text:
+            "I found a chain on Monday.\nIt is long and it isn't new, but it is nice.\nIt isn't mine, and possibly it is yours.\nThe chain is with our teacher indoors, because the table is outdoors.",
+          explain:
+            "Вещь названа в первой строке, и дальше вместо неё стоят it и mine. " +
+            "Приметы, день и место на месте, а строки связаны словами but, and " +
+            "и because.",
+        },
+
+        // ---- задания ----
+        {
+          id: "z1-chego-ne-hvataet-obyavleniyu-o-nahodke",
+          kind: "choice",
+          prompt:
+            "Объявление целиком: I found a bag on Monday. Come and take it. Чего в нём не хватает?",
+          options: [
+            { text: "Имени того, кто нашёл." },
+            { text: "Не сказано, какая сумка и где её забрать.", correct: true },
+            { text: "Благодарности хозяину." },
+          ],
+          hint: "Представь себя хозяином: поймёшь ли ты, твоя это сумка или нет?",
+          why:
+            "Не сказано, какая сумка и где её забрать. День назван, а примет и " +
+            "места нет, и хозяин не узнает свою вещь.",
+        },
+        {
+          id: "z2-dopisat-mine-v-obyavlenie",
+          kind: "gap",
+          prompt:
+            "Цепочка уже названа. Допиши слово так, чтобы вещь не повторялась.",
+          before: "It isn't ",
+          after: ", and possibly it is yours.",
+          answer: "mine",
+          hint: "После слова вещь не называют.",
+          why:
+            "It isn't mine, and possibly it is yours. Слово my оборвало бы " +
+            "строку: после него ждут вещь.",
+        },
+        {
+          id: "z3-otmetit-poleznye-stroki-o-nahodke",
+          kind: "hottext",
+          prompt: "Отметь строки, которые помогут хозяину узнать свою вещь.",
+          parts: [
+            { text: "It is long and it isn't new.", selectable: true, correct: true },
+            { text: " · " },
+            { text: "I was in a hurry.", selectable: true },
+            { text: " · " },
+            { text: "I found it near the door.", selectable: true, correct: true },
+            { text: " · " },
+            { text: "I am a shy person.", selectable: true },
+          ],
+          hint: "Спроси у каждой строки: узнал ли хозяин из неё что-то о вещи?",
+          why:
+            "Первая и третья: одна даёт приметы, другая место. Строки про " +
+            "спешку и застенчивость говорят о нашедшем, а не о вещи.",
+        },
+        {
+          id: "z4-svyazat-stroki-o-nahodke",
+          kind: "short",
+          prompt:
+            "Соедини две строки одним словом: The chain is indoors. The table is outdoors. Запиши получившуюся строку целиком.",
+          answer: "The chain is indoors, because the table is outdoors.",
+          accept: [
+            "The chain is indoors, because the table is outdoors",
+            "The chain is indoors because the table is outdoors.",
+            "The chain is indoors because the table is outdoors",
+          ],
+          hint: "Вторая строка называет причину первой.",
+          why:
+            "The chain is indoors, because the table is outdoors. Слово because " +
+            "и связывает причину со следствием.",
+        },
+        {
+          id: "z5-napisat-obyavlenie-o-nahodke",
+          kind: "essay",
+          prompt:
+            "Напиши объявление о находке, четырьмя строками. Назови вещь и день, дай приметы, скажи, что вещь не твоя, и назови место.",
+          minWords: 18,
+          sample:
+            "I found a chain on Monday.\nIt is long and it isn't new, but it is nice.\nIt isn't mine, and possibly it is yours.\nThe chain is with our teacher indoors, because the table is outdoors.",
+          checklist: [
+            "названы вещь и день находки",
+            "даны приметы: какая эта вещь",
+            "есть строка со словом вместо вещи: mine или yours",
+            "сказано, где вещь забрать",
+          ],
+          hint:
+            "Бери обороты, которые знаешь: I found, it isn't mine, possibly it is yours.",
+          why:
+            "Объявление работает, когда хозяин узнаёт свою вещь, не приходя " +
+            "смотреть.",
+        },
+      ],
+    },
+  ],
+
+  quiz: {
+    ask: 10,
+    passRatio: 0.8,
+    questions: [
+      // Углы работы нарочно другие, чем у заданий уроков: назвать причину
+      // выбора, отличить две записи по смыслу, исправить чужую строку,
+      // произвести ответ на вопрос собеседника.
+
+      // ---- итог 1 ----
+      {
+        id: "q-pochemu-ne-its-my",
+        kind: "choice",
+        outcome: "сказать, что вещь твоя: It's mine",
+        prompt: "Отчего запись It's my не годится?",
+        options: [
+          { text: "Слово my требует вещи после себя.", correct: true },
+          { text: "Слово my годится только к людям." },
+          { text: "Слово my не ставят в конце вопроса." },
+        ],
+        hint: "Посмотри, чего в этой записи не хватает.",
+        why:
+          "Слово my требует вещи после себя. Без вещи ставят mine, и запись " +
+          "становится законченной.",
+      },
+      {
+        id: "q-ispravit-its-my",
+        kind: "short",
+        outcome: "сказать, что вещь твоя: It's mine",
+        prompt:
+          "Ученик написал: The black bag is my. Запиши строку без ошибки.",
+        answer: "The black bag is mine.",
+        accept: ["The black bag is mine"],
+        hint: "Вещь названа в начале строки, и в конце её не повторяют.",
+        why:
+          "The black bag is mine. Годилось бы и The bag is my bag, но там вещь " +
+          "звучит дважды.",
+      },
+
+      // ---- итог 2 ----
+      {
+        id: "q-chem-his-osobennyy",
+        kind: "choice",
+        outcome: "назвать хозяина любой вещи: his, hers, ours, theirs",
+        prompt: "Чем слово his отличается от остальных в ряду?",
+        options: [
+          { text: "Оно годится только вещам." },
+          { text: "После него всегда ставят 's." },
+          { text: "Перед вещью и вместо вещи оно пишется одинаково.", correct: true },
+        ],
+        hint: "Сравни его с парами my — mine и her — hers.",
+        why:
+          "Перед вещью и вместо вещи оно пишется одинаково: his bag и It's " +
+          "his. У остальных лиц формы две.",
+      },
+      {
+        id: "q-ispravit-its-their",
+        kind: "short",
+        outcome: "назвать хозяина любой вещи: his, hers, ours, theirs",
+        prompt:
+          "Ученик написал: These bags are their. Запиши строку без ошибки.",
+        answer: "These bags are theirs.",
+        accept: ["These bags are theirs"],
+        hint: "Строка кончается этим словом, а сумки названы в начале.",
+        why:
+          "These bags are theirs. Форма their живёт только перед вещью: their " +
+          "bags. В конце строки её место занимает theirs.",
+      },
+      {
+        id: "q-napisat-o-nashey-kvartire",
+        kind: "short",
+        outcome: "назвать хозяина любой вещи: his, hers, ours, theirs",
+        prompt:
+          "Квартира принадлежит вашей семье. Скажи это по-английски, начав с This flat.",
+        answer: "This flat is ours.",
+        accept: ["This flat is ours"],
+        hint: "Хозяев несколько, и ты один из них.",
+        why:
+          "This flat is ours. Запись This flat is our оборвана: после our ждут " +
+          "вещь, как в our flat.",
+      },
+
+      // ---- итог 3 ----
+      {
+        id: "q-otvetit-na-whose",
+        kind: "short",
+        outcome: "спросить и ответить, чья вещь: Whose is it?",
+        prompt:
+          "Тебя спросили: Whose is this chain? Цепочка принадлежит твоей бабушке. Ответь по-английски, начав с It's.",
+        answer: "It's my grandma's.",
+        accept: [
+          "It's my grandma's",
+          "It is my grandma's.",
+          "It is my grandma's",
+        ],
+        hint: "К имени хозяина добавляют две буквы, а вещь не повторяют.",
+        why:
+          "It's my grandma's. Запись It's my grandma сказала бы, что цепочка и " +
+          "есть бабушка.",
+      },
+      {
+        id: "q-napisat-o-druge-neznakomom",
+        kind: "short",
+        outcome: "спросить и ответить, чья вещь: Whose is it?",
+        prompt:
+          "Здесь работает один твой друг, и собеседник его не знает. Скажи это по-английски, начав с A friend.",
+        answer: "A friend of mine works here.",
+        accept: ["A friend of mine works here"],
+        hint: "Начни с человека, а себя назови в конце оборота.",
+        why:
+          "A friend of mine works here. Запись My friend works here сказала бы " +
+          "о друге, уже известном собеседнику.",
+      },
+
+      // ---- итог 4 ----
+      {
+        id: "q-pochemu-ne-hurt-me",
+        kind: "choice",
+        outcome: "сказать о действии с самим собой: I hurt myself",
+        prompt: "Отчего в строке I hurt … нельзя поставить me?",
+        options: [
+          { text: "Слово me не ставят после действия." },
+          { text: "Слово me годится только вопросам." },
+          { text: "Действующий и тот, на кого действуют, — одно лицо.", correct: true },
+        ],
+        hint: "Спроси, кого ушибли.",
+        why:
+          "Действующий и тот, на кого действуют, — одно лицо. Для такого " +
+          "случая берут слово на -self.",
+      },
+      {
+        id: "q-otvetit-o-prazdnike",
+        kind: "short",
+        outcome: "сказать о действии с самим собой: I hurt myself",
+        prompt:
+          "Тебя спросили: Did you enjoy the party? Ответь по-английски, что тебе было хорошо, начав с Yes, I.",
+        answer: "Yes, I enjoyed myself.",
+        accept: ["Yes, I enjoyed myself"],
+        hint: "Хорошо было тебе самому.",
+        why:
+          "Yes, I enjoyed myself. Так отвечают о себе, а не о самом празднике.",
+      },
+      {
+        id: "q-otlichit-sebya-ot-drugogo",
+        kind: "choice",
+        outcome: "сказать о действии с самим собой: I hurt myself",
+        prompt: "Строки She hurt her и She hurt herself говорят о разном. Чем?",
+        options: [
+          { text: "Первая о прошлом, вторая о настоящем." },
+          { text: "Первая вопрос, вторая ответ." },
+          { text: "В первой пострадала другая женщина, во второй — она сама.", correct: true },
+        ],
+        hint: "Спроси у каждой строки, кто пострадал.",
+        why:
+          "В первой пострадала другая женщина, во второй — она сама. Слово на " +
+          "-self и возвращает действие к действующему.",
+      },
+
+      // ---- итог 5 ----
+      {
+        id: "q-chto-dobavlyaet-by",
+        kind: "choice",
+        outcome: "сказать, что справился без помощи: by myself",
+        prompt: "Что меняет короткое by перед словом на -self?",
+        options: [
+          { text: "Делает строку вежливее." },
+          { text: "Говорит, что рядом никого не было.", correct: true },
+          { text: "Переносит действие в прошлое." },
+        ],
+        hint: "Сравни I hurt myself и I went there by myself.",
+        why:
+          "Говорит, что рядом никого не было. Без by слово называет того, на " +
+          "кого пошло действие.",
+      },
+      {
+        id: "q-napisat-o-rabote-odnoy",
+        kind: "short",
+        outcome: "сказать, что справился без помощи: by myself",
+        prompt:
+          "Фотограф работал без помощников. Скажи это по-английски, начав с The photographer worked.",
+        answer: "The photographer worked by himself.",
+        accept: ["The photographer worked by himself"],
+        hint: "Оборот о самостоятельности ставят в конец строки.",
+        why:
+          "The photographer worked by himself. Без by вышло бы, что он работал " +
+          "над самим собой.",
+      },
+      {
+        id: "q-ispravit-by-my",
+        kind: "short",
+        outcome: "сказать, что справился без помощи: by myself",
+        prompt:
+          "Ученик написал: I painted the room by my. Запиши строку без ошибки.",
+        answer: "I painted the room by myself.",
+        accept: ["I painted the room by myself"],
+        hint: "После by стоит слово на -self.",
+        why:
+          "I painted the room by myself. Слово my требует вещи после себя и " +
+          "после by не работает.",
+      },
+
+      // ---- итог 6 ----
+      {
+        id: "q-najti-hozyaina-v-obyavlenii",
+        kind: "choice",
+        outcome: "находить в объявлении о находках, что нашли и где забрать",
+        prompt:
+          "В объявлении строка: Number 5 is a glove. It is hers. Что из этого следует?",
+        options: [
+          { text: "Перчатку потеряла женщина.", correct: true },
+          { text: "Перчатку потеряли несколько человек." },
+          { text: "Перчатка принадлежит школе." },
+        ],
+        hint: "Слово вместо вещи называет хозяина.",
+        why:
+          "Перчатку потеряла женщина. Про мужчину сказали бы his, про " +
+          "нескольких — theirs.",
+      },
+      {
+        id: "q-zachem-nomera-v-obyavlenii",
+        kind: "choice",
+        outcome: "находить в объявлении о находках, что нашли и где забрать",
+        prompt: "Зачем в объявлении о находках вещам дают номера?",
+        options: [
+          { text: "Чтобы показать, сколько вещей всего." },
+          { text: "Чтобы хозяин назвал свою вещь, не описывая её.", correct: true },
+          { text: "Чтобы вещи лежали по порядку." },
+        ],
+        hint: "Представь себя хозяином у стола находок.",
+        why:
+          "Чтобы хозяин назвал свою вещь, не описывая её. Достаточно сказать " +
+          "номер.",
+      },
+
+      // ---- итог 7 ----
+      {
+        id: "q-uslyshat-chya-veshch",
+        kind: "short",
+        outcome: "слышать в разговоре, чья вещь",
+        zvuk: "Whose is this umbrella? — It isn't mine. It's my grandpa's.",
+        prompt:
+          "Послушай. Чей зонт? Ответь одним словом по-английски.",
+        answer: "grandpa",
+        accept: ["Grandpa", "grandpa's"],
+        hint: "Хозяин назван в самой последней реплике.",
+        why:
+          "Grandpa. В записи звучит It's my grandpa's — хозяин назван через 's.",
+      },
+      {
+        id: "q-uslyshat-skolko-hozyaev",
+        kind: "short",
+        outcome: "слышать в разговоре, чья вещь",
+        zvuk: "Are these bags ours? — No, they aren't. They are theirs.",
+        prompt:
+          "Послушай. Сколько сумок в разговоре обсуждают? Ответь числом больше одного или словом one.",
+        answer: "2",
+        accept: ["two", "много", "несколько"],
+        hint: "Смотри на слово these и на форму глагола.",
+        why:
+          "Сумок несколько: these bags и they are. Точного числа в записи нет, " +
+          "но одна вещь звучала бы как this bag.",
+      },
+
+      // ---- итог 8 ----
+      {
+        id: "q-chego-ne-hvataet-chuzhomu-obyavleniyu-o-nahodke",
+        kind: "choice",
+        outcome: "проверять объявление о находке: названа вещь, место и как забрать",
+        prompt:
+          "Объявление: I found a glove. It is long and it isn't new. It isn't mine. Какой из четырёх нужных строк здесь нет?",
+        options: [
+          { text: "Той, что даёт приметы вещи." },
+          { text: "Той, что говорит, где вещь забрать.", correct: true },
+          { text: "Той, что называет вещь." },
+        ],
+        hint: "Пройди по объявлению строку за строкой и вычёркивай найденное.",
+        why:
+          "Той, что говорит, где вещь забрать. Вещь названа, приметы даны, " +
+          "хозяин отсечён — а куда идти, хозяин не узнает.",
+      },
+      {
+        id: "q-dopisat-stroku-o-meste",
+        kind: "short",
+        outcome: "проверять объявление о находке: названа вещь, место и как забрать",
+        prompt:
+          "К объявлению допиши строку о месте: костюм у нашего учителя. Начни с The costume.",
+        answer: "The costume is with our teacher.",
+        accept: [
+          "The costume is with our teacher",
+          "The costume is with our teacher indoors.",
+          "The costume is with our teacher indoors",
+        ],
+        hint: "Вещь названа в начале строки, а место — в конце.",
+        why:
+          "The costume is with our teacher. Здесь стоит our, потому что дальше " +
+          "названа вещь — учитель.",
+      },
+      {
+        id: "q-pochemu-nuzhen-den-v-obyavlenii",
+        kind: "choice",
+        outcome: "проверять объявление о находке: названа вещь, место и как забрать",
+        prompt: "Зачем в объявлении о находке называют день?",
+        options: [
+          { text: "Чтобы хозяин понял, его ли это вещь.", correct: true },
+          { text: "Чтобы объявление выглядело длиннее." },
+          { text: "Чтобы школа знала, кто дежурил." },
+        ],
+        hint: "Представь: вещь пропала во вторник, а нашли её в пятницу.",
+        why:
+          "Чтобы хозяин понял, его ли это вещь. Потерявший в другой день сразу " +
+          "видит, что вещь не его.",
+      },
+    ],
+  },
+};
+
+export default module;

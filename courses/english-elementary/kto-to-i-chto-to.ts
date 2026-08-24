@@ -1434,7 +1434,7 @@ const module: Module = {
             "Did anybody find a bag here? — Somebody left a bag yesterday. Is it " +
             "bright red? — Yes, it is! — There is nothing inside. Only a puzzle and " +
             "a violin. — The puzzle is my son's. Nobody plays the violin at home, " +
-            "but it is mine too.",
+            "but it is my son's too.",
         },
         {
           id: "chto-slushat-o-nahodke",

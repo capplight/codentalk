@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 200" width="400" height="200" role="img" aria-labelledby="zagolovok">
+<title id="zagolovok">Полка стола находок: шарф, перчатка, зонт и цепочка, у каждой вещи бумажка с номером от одного до четырёх</title>
+<!--
+  Рисунок урока чтения «Читаем объявление о находках». Краски свои и
+  тема-нейтральные — см. пояснение в chey-ryukzak.svg.
+
+  ВАЖНО про подпись alt у этого рисунка: она называет ВЕЩИ, но не говорит,
+  чьи они. Иначе описание напечатало бы ученику верный ответ, и задание
+  решалось бы чтением разметки.
+-->
+<g fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <!-- полка -->
+  <line x1="14" y1="150" x2="386" y2="150" stroke="#5b6b7f" stroke-width="3"/>
+  <line x1="40" y1="150" x2="40" y2="176" stroke="#5b6b7f" stroke-width="3"/>
+  <line x1="360" y1="150" x2="360" y2="176" stroke="#5b6b7f" stroke-width="3"/>
+
+  <!-- 1. шарф -->
+  <path d="M38 58 q16 -14 32 0 v52 q-16 12 -32 0 z" fill="#3b82f6" fill-opacity=".16" stroke="#3b82f6" stroke-width="2.5"/>
+  <path d="M46 110 v26 M62 110 v26" stroke="#3b82f6" stroke-width="2.5"/>
+
+  <!-- 2. перчатка -->
+  <path d="M138 88 v-26 a6 6 0 0 1 12 0 v22 M150 84 v-30 a6 6 0 0 1 12 0 v30 M162 84 v-24 a6 6 0 0 1 12 0 v28
+           M174 88 v-14 a6 6 0 0 1 12 0 v30 a26 26 0 0 1 -26 26 h-10 a22 22 0 0 1 -22 -22 v-6 a6 6 0 0 1 12 0"
+        fill="#8b5cf6" fill-opacity=".16" stroke="#8b5cf6" stroke-width="2.5"/>
+
+  <!-- 3. зонт -->
+  <path d="M226 96 a38 38 0 0 1 76 0 z" fill="#3b82f6" fill-opacity=".16" stroke="#3b82f6" stroke-width="2.5"/>
+  <path d="M264 96 v40 a12 12 0 0 0 24 0" stroke="#3b82f6" stroke-width="2.5"/>
+
+  <!-- 4. цепочка -->
+  <g stroke="#8b5cf6" stroke-width="2.5">
+    <ellipse cx="330" cy="66" rx="9" ry="7"/>
+    <ellipse cx="344" cy="80" rx="9" ry="7"/>
+    <ellipse cx="330" cy="94" rx="9" ry="7"/>
+    <ellipse cx="344" cy="108" rx="9" ry="7"/>
+    <ellipse cx="330" cy="122" rx="9" ry="7"/>
+  </g>
+</g>
+<!-- бумажки с номерами -->
+<g font-family="-apple-system, Segoe UI, Roboto, Arial, sans-serif" text-anchor="middle">
+  <g fill="none" stroke="#5b6b7f" stroke-width="2">
+    <rect x="40" y="154" width="30" height="22" rx="5"/>
+    <rect x="147" y="154" width="30" height="22" rx="5"/>
+    <rect x="249" y="154" width="30" height="22" rx="5"/>
+    <rect x="322" y="154" width="30" height="22" rx="5"/>
+  </g>
+  <g fill="#5b6b7f" font-size="15">
+    <text x="55" y="170">1</text>
+    <text x="162" y="170">2</text>
+    <text x="264" y="170">3</text>
+    <text x="337" y="170">4</text>
+  </g>
+</g>
+</svg>
