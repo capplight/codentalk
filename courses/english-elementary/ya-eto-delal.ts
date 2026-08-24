@@ -68,7 +68,11 @@ import type { Module } from "@/lib/content/types";
  *   бессмысленно;
  * - Present Perfect Continuous — B1 целиком.
  *
- * СЛОВАРЬ МОДУЛЯ. Тридцать карточек, все тридцать новые для ступени.
+ * СЛОВАРЬ МОДУЛЯ. Тридцать карточек, из них новых для ступени двадцать
+ * шесть: `island`, `mountain`, `ever` и `horse` Oxford помечает A1, то есть
+ * они с прошлой ступени. Норма (тридцать карточек, пятнадцать новых)
+ * выдержана с запасом. Первая редакция шапки писала «все тридцать» — цифра
+ * была ложной, нашёл методист.
  *
  * ШЕСТЬ СЛОВ ВЫШЕ СТУПЕНИ ПО OXFORD 3000: rugby, fur, tail, wing, brave,
  * amazed — B1. Все шесть стоят в словнике A2 Key. Мерка та же, что в модулях
@@ -91,12 +95,12 @@ const module: Module = {
   outcomes: [
     "рассказать об опыте: I have seen a dolphin",
     "строить третью форму глагола: visited, seen, been",
-    "сказать, чего не делал никогда: I have never tried it",
+    "назвать то, чего не было в жизни: I have never tried it",
     "спросить об опыте: Have you ever been to Astana?",
-    "сказать, где бывал: I have been to the mountains",
-    "находить в рассказе о поездке, что человек видел и делал",
+    "рассказать о посещённых местах: I have been to the mountains",
+    "находить в рассказе о поездке, что человек увидел и попробовал",
     "слышать в разговоре, кто что видел",
-    "проверять рассказ об опыте: сказано, что видел и каким это было",
+    "проверять рассказ об опыте: названо увиденное и дана оценка",
   ],
 
   sources: [
@@ -133,11 +137,16 @@ const module: Module = {
     {
       ref: "Cambridge English, A2 Key handbook for teachers",
       section:
-        "с. 49, Language specifications, перечень Tenses: «Present perfect " +
+        "с. 52, Language specifications, перечень Tenses: «Present perfect " +
         "simple: recent past with just, indefinite past with yet, already, " +
         "never, ever; unfinished past with for and since». Отсюда `ever` и " +
-        "`never` уроков 3 и 4. Строка проверена по ОБОИМ разборам источника: " +
-        "двухколоночная вёрстка её не разорвала. " +
+        "`never` уроков 3 и 4. " +
+        "ОСТОРОЖНО, ЗДЕСЬ ПЕРВАЯ РЕДАКЦИЯ ОПОРЫ СОВРАЛА. Она писала, что строка " +
+        "проверена по обоим разборам и вёрстка её не разорвала. Это неправда: " +
+        "разбор `.md` вклеил в неё соседний столбец и читается «indefinite past " +
+        "with Double genitive: a friend of theirs». Строку подтверждают разбор " +
+        "`.text` (там она разорвана на две, но цела) и прямой поиск по PDF " +
+        "через `npm run pdf`. Нашёл методист. " +
         "УРОК 7, ФОРМА ОТВЕТА. с. 29, раздел THE TASK: «The candidates should " +
         "only write ONE word, or a number, or a date, or a time for their " +
         "answer» — поэтому ответы на слух здесь односложные",
@@ -146,8 +155,8 @@ const module: Module = {
     {
       ref: "Council of Europe, CEFR Companion Volume 2020",
       section:
-        "УРОК ЧТЕНИЯ «Читаем рассказ о поездке» и УРОК ПИСЬМА «Пишем о том, что " +
-        "видел». с. 66, шкала «Overall written production», графа A2: «Can " +
+        "УРОК ЧТЕНИЯ «Читаем рассказ о поездке» и УРОК ПИСЬМА «Пишем рассказ " +
+        "об опыте». с. 66, шкала «Overall written production», графа A2: «Can " +
         "produce a series of simple phrases and sentences linked with simple " +
         "connectors like» — далее в источнике перечислены and, but и because. " +
         "Рассказ об опыте пишется читателям вообще, а не человеку по имени, и " +
@@ -163,8 +172,9 @@ const module: Module = {
     {
       ref: "Cambridge English, A2 Key vocabulary list (август 2025)",
       section:
-        "Тридцать карточек модуля взяты из словника ступени; все тридцать новые " +
-        "для ступени. " +
+        "Тридцать карточек модуля взяты из словника ступени; новых для ступени " +
+        "двадцать шесть, а `island`, `mountain`, `ever` и `horse` Oxford " +
+        "помечает A1. " +
         "ЗНАЧЕНИЯ СВЕРЕНЫ С ПОМЕТАМИ СЛОВНИКА: `diving (n)` и `surfing (n)` — " +
         "названия занятий, и уроки берут именно их; `grilled (adj)` — " +
         "прилагательное при еде; `steak (n)`, `curry (n)`, `chilli (n)`, " +
@@ -212,6 +222,8 @@ const module: Module = {
           zvuchat: [
             "I saw a dolphin last summer.",
             "I have seen a dolphin.",
+            "We visited the island in May.",
+            "We have visited the island.",
           ],
           head: ["О дне: когда", "Об опыте: было ли"],
           rows: [
@@ -233,7 +245,7 @@ const module: Module = {
         {
           id: "ryad-po-licam-have",
           kind: "table",
-          caption: "Кто и какое слово берёт",
+          caption: "Как это звучит у каждого лица",
           zvuchat: [
             "I have seen",
             "we have seen",
@@ -256,7 +268,7 @@ const module: Module = {
           id: "chto-menyaetsya-v-ryadu",
           kind: "explain",
           text: [
-            "У пяти лиц стоит have, и только у he и she — has.",
+            "У четырёх лиц стоит have, и только у he и she — has.",
             "Сам глагол при этом не меняется: seen остаётся seen.",
             "В речи have часто сливается с местоимением: I've seen, we've seen.",
           ],
@@ -356,20 +368,20 @@ const module: Module = {
             "говорит, а глагол — за ним.",
         },
         {
-          id: "z5-napisat-o-gorah",
+          id: "z5-napisat-o-delfine",
           kind: "short",
           prompt:
-            "Скажи по-английски, что бывал в горах. Дня не называй, начни с I have.",
-          answer: "I have seen the mountains.",
+            "Скажи по-английски, что дельфина доводилось видеть. Дня не называй, начни с I have.",
+          answer: "I have seen a dolphin.",
           accept: [
-            "I have seen the mountains",
-            "I have visited the mountains.",
-            "I have visited the mountains",
+            "I have seen a dolphin",
+            "I have seen the dolphin.",
+            "I have seen the dolphin",
           ],
           hint: "После have глагол берёт особую форму.",
           why:
-            "I have seen the mountains. Годится и I have visited the mountains: " +
-            "оба глагола говорят об одном и том же опыте.",
+            "I have seen a dolphin. Форма saw ждала бы дня, а после have стоит " +
+            "третья.",
         },
       ],
     },
@@ -409,7 +421,7 @@ const module: Module = {
             ["try", "tried", "tried"],
             ["see", "saw", "seen"],
             ["eat", "ate", "eaten"],
-            ["be", "was", "been"],
+            ["be", "was, were", "been"],
           ],
         },
         {
@@ -418,8 +430,8 @@ const module: Module = {
           text: [
             "У большинства глаголов вторая и третья формы одинаковы: visited, tried.",
             "Они берут окончание -ed, как в разговоре о прошлом дне.",
-            "А у тех глаголов, которые в модуле «Особые формы» брали своё прошедшее, третья форма тоже своя.",
-            "See — saw — seen, eat — ate — eaten, be — was — been.",
+            "А у тех глаголов, которые в модуле «Неправильные глаголы» брали своё прошедшее, третья форма тоже своя.",
+            "See — saw — seen, eat — ate — eaten, be — was и were — been.",
             "Такие формы не выводятся правилом, их запоминают.",
           ],
         },
@@ -437,13 +449,13 @@ const module: Module = {
           caption: "Разговор о еде",
           razgovor: true,
           zvuchat: [
-            "Have you tried this curry?",
-            "Yes, and I have eaten a grilled steak too.",
+            "I have tried this curry.",
+            "And I have eaten a grilled steak here.",
             "With garlic?",
             "With garlic and chilli. It was very hot!",
           ],
           text:
-            "Have you tried this curry?\nYes, and I have eaten a grilled steak too.\nWith garlic?\nWith garlic and chilli. It was very hot!",
+            "I have tried this curry.\nAnd I have eaten a grilled steak here.\nWith garlic?\nWith garlic and chilli. It was very hot!",
           explain:
             "Глагол try берёт -ed, как большинство: tried. А eat берёт свою " +
             "форму: eaten. В последней строке стоит was — там речь уже о том " +
@@ -454,7 +466,7 @@ const module: Module = {
           kind: "vocab",
           caption: "Слова урока",
           items: [
-            { term: "curry", translation: "карри", example: "Have you tried this curry?", hint: "/ˈkʌri/" },
+            { term: "curry", translation: "карри", example: "I have tried this curry.", hint: "/ˈkʌri/" },
             { term: "crocodile", translation: "крокодил", example: "I have seen a crocodile.", hint: "/ˈkrɒkədaɪl/" },
             { term: "steak", translation: "стейк", example: "I have eaten a grilled steak.", hint: "/steɪk/" },
             { term: "grilled", translation: "жаренный на решётке", example: "I have eaten a grilled steak.", hint: "/grɪld/" },
@@ -523,12 +535,12 @@ const module: Module = {
           id: "z5-ispravit-have-saw",
           kind: "short",
           prompt:
-            "Ученик написал: I have saw a zebra. Запиши строку без ошибки.",
-          answer: "I have seen a zebra.",
-          accept: ["I have seen a zebra"],
+            "Ученик написал: I have saw a dolphin here. Запиши строку без ошибки.",
+          answer: "I have seen a dolphin here.",
+          accept: ["I have seen a dolphin here"],
           hint: "После have нужна третья форма, а стоит вторая.",
           why:
-            "I have seen a zebra. Три формы этого глагола: see, saw, seen.",
+            "I have seen a dolphin here. Три формы этого глагола: see, saw, seen.",
         },
       ],
     },
@@ -538,7 +550,7 @@ const module: Module = {
       slug: "nikogda-ne-videl",
       title: "Никогда не видел: I have never seen",
       estimatedMinutes: 14,
-      outcome: "сказать, чего не делал никогда: I have never tried it",
+      outcome: "назвать то, чего не было в жизни: I have never tried it",
 
       blocks: [
         {
@@ -592,15 +604,16 @@ const module: Module = {
           razgovor: true,
           zvuchat: [
             "Look, a kangaroo!",
-            "I have never seen a kangaroo.",
+            "I have never seen a kangaroo before!",
             "And a crocodile? There is one near the water.",
-            "I have never seen a crocodile too. This is a good day!",
+            "I have never seen a crocodile before. This is a good day!",
           ],
           text:
-            "Look, a kangaroo!\nI have never seen a kangaroo.\nAnd a crocodile? There is one near the water.\nI have never seen a crocodile too. This is a good day!",
+            "Look, a kangaroo!\nI have never seen a kangaroo before!\nAnd a crocodile? There is one near the water.\nI have never seen a crocodile before. This is a good day!",
           explain:
             "В обеих строках never стоит между have и третьей формой. Слово not " +
-            "рядом не появляется ни разу: одного отрицания довольно.",
+            "рядом не появляется ни разу: одного отрицания довольно. А before в " +
+            "конце говорит «до этого дня»: сейчас-то оба зверя перед глазами.",
         },
         {
           id: "slovar-parka",
@@ -633,12 +646,12 @@ const module: Module = {
           options: [
             { text: "I haven't never seen a kangaroo." },
             { text: "I have never seen a kangaroo.", correct: true },
-            { text: "I have never not seen a kangaroo." },
+            { text: "I never seen a kangaroo." },
           ],
           hint: "Отрицание в такой строке одно.",
           why:
-            "I have never seen a kangaroo. В двух других записях отрицаний два, " +
-            "а по-английски хватает одного.",
+            "I have never seen a kangaroo. В первой записи отрицаний два, а " +
+            "хватает одного; в третьей потерялось само have.",
         },
         {
           id: "z3-otmetit-gde-never-na-meste",
@@ -647,7 +660,7 @@ const module: Module = {
           parts: [
             { text: "I have never tried chilli.", selectable: true, correct: true },
             { text: " · " },
-            { text: "I never have tried chilli.", selectable: true },
+            { text: "I never tried chilli have.", selectable: true },
             { text: " · " },
             { text: "We have never seen a zebra.", selectable: true, correct: true },
             { text: " · " },
@@ -655,8 +668,8 @@ const module: Module = {
           ],
           hint: "Слово стоит между have и третьей формой глагола.",
           why:
-            "Первая и третья. Во второй never ушло перед have, в четвёртой — за " +
-            "глагол, а его место между ними.",
+            "Первая и третья. Во второй и четвёртой never ушло в конец или " +
+            "разорвало have с глаголом, а его обычное место — между ними.",
         },
         {
           id: "z4-sobrat-o-krokodile",
@@ -673,7 +686,7 @@ const module: Module = {
           id: "z5-napisat-o-nikogda",
           kind: "short",
           prompt:
-            "Скажи по-английски, что никогда не пробовал карри. Начни с I have.",
+            "Скажи по-английски, что карри в твоей жизни не было ни разу. Начни с I have.",
           answer: "I have never tried curry.",
           accept: [
             "I have never tried curry",
@@ -728,7 +741,7 @@ const module: Module = {
             "Слово have уходит в начало строки, а тот, о ком речь, встаёт за ним.",
             "Слово ever идёт следом и значит «когда-нибудь в жизни».",
             "Третья форма глагола остаётся на месте: tried, seen.",
-            "Без ever вопрос тоже верен, но тогда он про недавнее, а не про жизнь.",
+            "Слово ever и говорит, что спрашивают про всю жизнь целиком.",
           ],
         },
         {
@@ -850,14 +863,14 @@ const module: Module = {
       slug: "ya-tam-byl",
       title: "Я там был: I have been to Astana",
       estimatedMinutes: 14,
-      outcome: "сказать, где бывал: I have been to the mountains",
+      outcome: "рассказать о посещённых местах: I have been to the mountains",
 
       blocks: [
         {
           id: "byval-li-ty-tam",
           kind: "explain",
           text: [
-            "Чаще всего об опыте спрашивают про места: был ли ты там.",
+            "Чаще всего про опыт спрашивают про места: доводилось ли там бывать.",
             "У глагола be третья форма — been, и она работает именно так.",
             "После неё ставят короткое to, а следом само место.",
           ],
@@ -884,7 +897,7 @@ const module: Module = {
           text: [
             "Слева стоит день и слово was — это разговор о том дне.",
             "Справа дня нет, стоит have been, и это разговор обо всей жизни.",
-            "Предлог при been всегда to, а не in: I have been to Astana.",
+            "Когда говорят, что где-то побывал и вернулся, ставят to: I have been to Astana.",
             "Оборот значит, что человек там бывал и уже вернулся.",
           ],
         },
@@ -893,8 +906,9 @@ const module: Module = {
           kind: "note",
           tone: "mistake",
           text:
-            "«I have been in Astana» в разговоре об опыте — так не говорят.\n\n" +
-            "При been ставят to: I have been to Astana.",
+            "«I have been to Astana yesterday» — так не говорят.\n\nОборот " +
+            "говорит о жизни целиком, и день при нём не называют: I have been " +
+            "to Astana.",
         },
         {
           id: "razgovor-o-mestah",
@@ -936,8 +950,8 @@ const module: Module = {
           answer: "to",
           hint: "Это не in: у оборота своё слово.",
           why:
-            "I have been to Astana. Запись have been in говорила бы, что человек " +
-            "там сейчас.",
+            "I have been to Astana. Это то самое короткое слово, которое " +
+            "присоединяет место к been.",
         },
         {
           id: "z2-vybrat-ob-opyte-mesta",
@@ -952,7 +966,8 @@ const module: Module = {
           hint: "Дня нет, значит и слова о дне не будет; а при been стоит to.",
           why:
             "I have been to the mountains. Запись I was ждёт дня, а have been in " +
-            "сказала бы, что человек там сейчас.",
+            "the mountains говорит не о поездке, а о том, сколько человек там " +
+            "пробыл.",
         },
         {
           id: "z3-otmetit-o-byvanii",
@@ -984,7 +999,7 @@ const module: Module = {
             "чем-то присоединить.",
         },
         {
-          id: "z5-sprosit-o-more",
+          id: "z5-sprosit-ob-ostrove",
           kind: "short",
           prompt:
             "Спроси по-английски, бывал ли собеседник когда-нибудь на острове. Начни с Have.",
@@ -1007,7 +1022,7 @@ const module: Module = {
       slug: "chitaem-rasskaz-o-poezdke",
       title: "Читаем рассказ о поездке",
       estimatedMinutes: 13,
-      outcome: "находить в рассказе о поездке, что человек видел и делал",
+      outcome: "находить в рассказе о поездке, что человек увидел и попробовал",
 
       blocks: [
         {
@@ -1026,8 +1041,8 @@ const module: Module = {
           genre: "article",
           body: [
             "I have been to many parks, but this one is the best.",
-            "I have seen a zebra with a very long tail and two young pandas.",
-            "The pandas have thick fur, and they eat all day.",
+            "I have seen a monkey with a very long tail and two young pandas.",
+            "Their fur is thick, and they eat all day.",
             "I have never seen a bird's nest so close: it was near the path.",
             "A swan opened its wings, and everybody said wow.",
             "I have tried the food there too: a grilled steak with garlic.",
@@ -1051,8 +1066,8 @@ const module: Module = {
           kind: "vocab",
           caption: "Слова урока",
           items: [
-            { term: "fur", translation: "мех, шерсть", example: "The pandas have thick fur.", hint: "/fɜː/" },
-            { term: "tail", translation: "хвост", example: "A zebra with a very long tail.", hint: "/teɪl/" },
+            { term: "fur", translation: "мех, шерсть", example: "Their fur is thick.", hint: "/fɜː/" },
+            { term: "tail", translation: "хвост", example: "A monkey with a very long tail.", hint: "/teɪl/" },
             { term: "wing", translation: "крыло", example: "A swan opened its wings.", hint: "/wɪŋ/" },
             { term: "nest", translation: "гнездо", example: "I have never seen a bird's nest so close.", hint: "/nest/" },
           ],
@@ -1064,10 +1079,10 @@ const module: Module = {
           about: "rasskaz-o-parke",
           kind: "short",
           prompt: "У какого животного был длинный хвост? Ответь одним словом по-английски.",
-          answer: "zebra",
-          accept: ["Zebra", "a zebra"],
+          answer: "monkey",
+          accept: ["Monkey", "a monkey"],
           hint: "Про хвост сказано во второй строке.",
-          why: "I have seen a zebra with a very long tail.",
+          why: "I have seen a monkey with a very long tail.",
         },
         {
           id: "z2-chego-avtor-ne-videl-ranshe",
@@ -1092,7 +1107,7 @@ const module: Module = {
           answer: "2",
           accept: ["two", "две"],
           hint: "Про панд сказано во второй строке.",
-          why: "I have seen a zebra with a very long tail and two young pandas.",
+          why: "I have seen a monkey with a very long tail and two young pandas.",
         },
         {
           id: "z4-otmetit-verno-o-parke",
@@ -1255,9 +1270,9 @@ const module: Module = {
     // =====================================================================
     {
       slug: "pishem-o-tom-chto-videl",
-      title: "Пишем о том, что видел",
+      title: "Пишем рассказ об опыте",
       estimatedMinutes: 15,
-      outcome: "проверять рассказ об опыте: сказано, что видел и каким это было",
+      outcome: "проверять рассказ об опыте: названо увиденное и дана оценка",
 
       blocks: [
         {
@@ -1278,14 +1293,14 @@ const module: Module = {
             "I have been to a wildlife park.",
             "I have seen a zebra and two pandas.",
             "I was amazed by the pandas, but the zebra was quiet.",
-            "I have never seen a swan so close.",
+            "I have never seen a swan so close before.",
           ],
           head: ["Что сказано", "Пример строки"],
           rows: [
-            ["где бывал", "I have been to a wildlife park."],
-            ["что видел", "I have seen a zebra and two pandas."],
-            ["каким это было", "I was amazed by the pandas, but the zebra was quiet."],
-            ["чего не видел раньше", "I have never seen a swan so close."],
+            ["место", "I have been to a wildlife park."],
+            ["увиденное", "I have seen a zebra and two pandas."],
+            ["оценка", "I was amazed by the pandas, but the zebra was quiet."],
+            ["чего раньше не случалось", "I have never seen a swan so close before."],
           ],
         },
         {
@@ -1306,11 +1321,11 @@ const module: Module = {
           zvuchat: [
             "I have been to a wildlife park near the mountains.",
             "I have seen a zebra, two pandas and a very old crocodile.",
-            "I was amazed by the pandas, but the crocodile was dead quiet.",
-            "I have never seen a swan so close, because it came to the path.",
+            "I was amazed by the pandas, but the crocodile was very quiet.",
+            "I have never seen a swan so close before. It came to the path!",
           ],
           text:
-            "I have been to a wildlife park near the mountains.\nI have seen a zebra, two pandas and a very old crocodile.\nI was amazed by the pandas, but the crocodile was dead quiet.\nI have never seen a swan so close, because it came to the path.",
+            "I have been to a wildlife park near the mountains.\nI have seen a zebra, two pandas and a very old crocodile.\nI was amazed by the pandas, but the crocodile was very quiet.\nI have never seen a swan so close before. It came to the path!",
           explain:
             "Первые две строки об опыте: have been, have seen. Третья о том " +
             "дне, и потому was. Четвёртая снова об опыте, со словом never.",
@@ -1321,7 +1336,7 @@ const module: Module = {
           caption: "Слова урока",
           items: [
             { term: "amazed", translation: "поражённый", example: "I was amazed by the pandas.", hint: "/əˈmeɪzd/" },
-            { term: "dead", translation: "мёртвый; совсем", example: "The crocodile was dead quiet.", hint: "/ded/" },
+            { term: "bird", translation: "птица", example: "I have never seen a bird's nest so close.", hint: "/bɜːd/" },
           ],
         },
 
@@ -1330,75 +1345,72 @@ const module: Module = {
           id: "z1-chego-ne-hvataet-rasskazu",
           kind: "choice",
           prompt:
-            "Рассказ целиком: I have been to a park. It was good. Чего в нём не хватает?",
+            "Рассказ целиком: I have been to a farm. I have seen goats and horses. Чего в нём не хватает?",
           options: [
             { text: "Имени того, кто писал." },
-            { text: "Не сказано, что автор там видел.", correct: true },
             { text: "Даты поездки." },
+            { text: "Не сказано, каким это было.", correct: true },
           ],
-          hint: "Представь себя читателем: захочешь ли ты туда после такого?",
+          hint: "Пройди по четырём нужным строкам и вычёркивай найденное.",
           why:
-            "Не сказано, что автор видел. Место названо, оценка есть, а самого " +
-            "рассказа нет.",
+            "Не сказано, каким это было. Ферма названа, козы с лошадьми " +
+            "перечислены — а стоит ли туда ехать, читатель не узнает.",
         },
         {
-          id: "z2-dopisat-o-tom-chto-videl",
-          kind: "gap",
-          prompt: "Речь об опыте, и глагол see стоит после have. Допиши форму.",
-          before: "I have ",
-          after: " a swan and two donkeys.",
-          answer: "seen",
-          hint: "После have глагол берёт третью форму.",
-          why:
-            "I have seen a swan and two donkeys. Форма saw говорила бы о " +
-            "прошлом дне.",
-        },
-        {
-          id: "z3-otmetit-stroki-ob-opyte",
-          kind: "hottext",
-          prompt: "Отметь строки, которые говорят об опыте, а не о том дне.",
-          parts: [
-            { text: "I have been to a farm.", selectable: true, correct: true },
-            { text: " · " },
-            { text: "The goats were very loud.", selectable: true },
-            { text: " · " },
-            { text: "I have never tried surfing.", selectable: true, correct: true },
-            { text: " · " },
-            { text: "It was a hot day.", selectable: true },
+          id: "z2-vybrat-stroku-ob-opyte",
+          kind: "choice",
+          prompt:
+            "Какая строка годится в рассказ об опыте, а не в рассказ о том дне?",
+          options: [
+            { text: "I saw a swan near the path." },
+            { text: "The swan was very loud." },
+            { text: "I have seen a swan and two donkeys.", correct: true },
           ],
-          hint: "Ищи слово have и третью форму глагола.",
+          hint: "В рассказе об опыте день не называют, а глагол стоит после have.",
           why:
-            "Первая и третья: в них стоит have. Во второй и четвёртой — were и " +
-            "was, а это рассказ о том дне.",
+            "I have seen a swan and two donkeys. В первых двух строках речь о " +
+            "том самом дне: там saw и was.",
         },
         {
-          id: "z4-svyazat-stroki-o-lebede",
+          id: "z3-sobrat-stroku-ocenki",
+          kind: "order",
+          prompt:
+            "Собери третью строку рассказа — ту, что говорит, каким это было.",
+          items: ["were", "The goats", "very loud."],
+          answer: [1, 0, 2],
+          hint: "Речь о том самом дне, значит стоит were, а не have.",
+          why:
+            "The goats were very loud. Оценка — единственная строка рассказа, " +
+            "где have не появляется вовсе.",
+        },
+        {
+          id: "z4-svyazat-stroki-o-pandah",
           kind: "short",
           prompt:
-            "Соедини две строки одним словом: I have never seen a swan so close. It came to the path. Запиши получившуюся строку целиком.",
-          answer: "I have never seen a swan so close, because it came to the path.",
+            "Соедини две строки одним словом: The pandas were quiet. They ate all day. Запиши получившуюся строку целиком.",
+          answer: "The pandas were quiet, because they ate all day.",
           accept: [
-            "I have never seen a swan so close, because it came to the path",
-            "I have never seen a swan so close because it came to the path.",
-            "I have never seen a swan so close because it came to the path",
+            "The pandas were quiet, because they ate all day",
+            "The pandas were quiet because they ate all day.",
+            "The pandas were quiet because they ate all day",
           ],
           hint: "Вторая строка называет причину первой.",
           why:
-            "I have never seen a swan so close, because it came to the path. " +
-            "Слово because и связывает причину со следствием.",
+            "The pandas were quiet, because they ate all day. Слово because и " +
+            "связывает причину со следствием.",
         },
         {
           id: "z5-napisat-rasskaz-ob-opyte",
           kind: "essay",
           prompt:
-            "Напиши рассказ об опыте, четырьмя строками. Скажи, где бывал, что видел, каким это было и чего не видел раньше.",
-          minWords: 18,
+            "Напиши рассказ об опыте, четырьмя строками. Назови место, увиденное, оценку и то, чего раньше не случалось.",
+          minWords: 16,
           sample:
-            "I have been to a wildlife park near the mountains.\nI have seen a zebra, two pandas and a very old crocodile.\nI was amazed by the pandas, but the crocodile was dead quiet.\nI have never seen a swan so close, because it came to the path.",
+            "I have been to a wildlife park near the mountains.\nI have seen a zebra, two pandas and a very old crocodile.\nI was amazed by the pandas, but the crocodile was very quiet.\nI have never seen a swan so close before. It came to the path!",
           checklist: [
-            "сказано, где бывал: have been to",
-            "названо, что видел: have seen",
-            "сказано, каким это было — там уже was или were",
+            "названо место: have been to",
+            "перечислено увиденное: have seen",
+            "дана оценка — там уже was или were",
             "есть строка со словом never",
           ],
           hint:
@@ -1421,52 +1433,52 @@ const module: Module = {
 
       // ---- итог 1 ----
       {
-        id: "q-otlichit-den-ot-opyta",
-        kind: "choice",
+        id: "q-perepisat-den-v-opyt",
+        kind: "short",
         outcome: "рассказать об опыте: I have seen a dolphin",
         prompt:
-          "Строки I saw a dolphin и I have seen a dolphin говорят о разном. Чем?",
-        options: [
-          { text: "Первая о своём, вторая о чужом." },
-          { text: "Первая о дельфине, вторая о нескольких." },
-          { text: "Первая о дне, вторая о жизни целиком.", correct: true },
-        ],
-        hint: "Спроси у каждой строки: можно ли к ней добавить last summer?",
+          "Строку I visited a farm last May перепиши так, чтобы она говорила не о дне, а об опыте.",
+        answer: "I have visited a farm.",
+        accept: ["I have visited a farm"],
+        hint: "Слово о дне уходит, а перед глаголом появляется другое.",
         why:
-          "Первая о дне, вторая о жизни целиком. К I saw день добавить можно, " +
-          "а к I have seen — нет.",
+          "I have visited a farm. День last May в такой строке не остаётся: " +
+          "она говорит о жизни целиком.",
       },
       {
         id: "q-napisat-ob-opyte-ostrova",
         kind: "short",
         outcome: "рассказать об опыте: I have seen a dolphin",
         prompt:
-          "Скажи по-английски, что бывал на этом острове. Дня не называй, начни с I have.",
-        answer: "I have visited this island.",
+          "Скажи по-английски, что этот остров в твоей жизни был. Дня не называй, начни с I have.",
+        answer: "I have been to this island.",
         accept: [
+          "I have been to this island",
+          "I have visited this island.",
           "I have visited this island",
-          "I have seen this island.",
-          "I have seen this island",
         ],
         hint: "Слово о дне в такую строку не встаёт.",
         why:
-          "I have visited this island. Годится и I have seen this island: оба " +
-          "глагола говорят об опыте.",
+          "I have been to this island. Годится и I have visited this island: " +
+          "оба оборота говорят об одном опыте — человек там побывал.",
       },
 
       // ---- итог 2 ----
       {
-        id: "q-ispravit-have-ate",
-        kind: "short",
+        id: "q-vybrat-formu-posle-have",
+        kind: "choice",
         outcome: "строить третью форму глагола: visited, seen, been",
         prompt:
-          "Ученик написал: I have ate curry with garlic. Запиши строку без ошибки.",
-        answer: "I have eaten curry with garlic.",
-        accept: ["I have eaten curry with garlic"],
-        hint: "Проверь, какая из трёх форм встаёт после have.",
+          "У глагола eat три формы: eat, ate, eaten. Какая из них встаёт после have?",
+        options: [
+          { text: "eat — она обычная и годится везде." },
+          { text: "ate — она же о прошлом." },
+          { text: "eaten — третья.", correct: true },
+        ],
+        hint: "После have у глагола стоит не вторая форма, а следующая за ней.",
         why:
-          "I have eaten curry with garlic. Форма ate — вторая, а после have " +
-          "стоит третья.",
+          "Eaten. Форма ate говорит о прошлом дне и после have не встаёт, а " +
+          "eat — обычная.",
       },
       {
         id: "q-pochemu-tretya-forma",
@@ -1488,7 +1500,7 @@ const module: Module = {
       {
         id: "q-ispravit-dva-otricaniya",
         kind: "short",
-        outcome: "сказать, чего не делал никогда: I have never tried it",
+        outcome: "назвать то, чего не было в жизни: I have never tried it",
         prompt:
           "Ученик написал: I haven't never tried diving. Запиши строку без ошибки.",
         answer: "I have never tried diving.",
@@ -1501,7 +1513,7 @@ const module: Module = {
       {
         id: "q-gde-mesto-never",
         kind: "choice",
-        outcome: "сказать, чего не делал никогда: I have never tried it",
+        outcome: "назвать то, чего не было в жизни: I have never tried it",
         prompt: "Где в строке стоит слово never?",
         options: [
           { text: "В самом начале строки." },
@@ -1510,8 +1522,8 @@ const module: Module = {
         ],
         hint: "Вспомни строку I have never seen a panda.",
         why:
-          "Между have и третьей формой. Записи never have seen и have seen " +
-          "never по-английски не встречаются.",
+          "Между have и третьей формой. Это обычное место наречия, и урок учит " +
+          "именно ему.",
       },
 
       // ---- итог 4 ----
@@ -1520,7 +1532,7 @@ const module: Module = {
         kind: "short",
         outcome: "спросить об опыте: Have you ever been to Astana?",
         prompt:
-          "Тебя спросили: Have you ever been to a farm? Такой опыт у тебя есть. Ответь коротко.",
+          "Тебя спросили: Have you ever been to a farm? Ответь коротко — да.",
         answer: "Yes, I have.",
         accept: ["Yes, I have"],
         hint: "Глагол в таком ответе не звучит вовсе.",
@@ -1529,42 +1541,39 @@ const module: Module = {
           "вопрос, а been в нём не повторяют.",
       },
       {
-        id: "q-pochemu-ne-do-you-ever",
-        kind: "choice",
-        outcome: "спросить об опыте: Have you ever been to Astana?",
-        prompt: "Отчего запись Do you ever seen a dolphin? не годится?",
-        options: [
-          { text: "Слово ever нельзя ставить в вопрос." },
-          { text: "Слово dolphin требует the." },
-          { text: "В начало должно выйти have, а не do.", correct: true },
-        ],
-        hint: "Посмотри, какое слово стоит в рассказе перед глаголом.",
-        why:
-          "В начало должно выйти have. В рассказе стоит you have seen, и в " +
-          "вопрос выходит именно have.",
-      },
-      {
-        id: "q-sprosit-o-gorah",
+        id: "q-ispravit-do-you-ever",
         kind: "short",
         outcome: "спросить об опыте: Have you ever been to Astana?",
         prompt:
-          "Спроси по-английски, бывал ли собеседник когда-нибудь в горах. Начни с Have.",
-        answer: "Have you ever been to the mountains?",
-        accept: [
-          "Have you ever been to the mountains",
-          "Have you ever been to the mountains?",
-        ],
-        hint: "Слово о всей жизни стоит после you, а при been — короткое to.",
+          "Ученик написал: Do you ever seen a crocodile? Запиши вопрос без ошибки.",
+        answer: "Have you ever seen a crocodile?",
+        accept: ["Have you ever seen a crocodile"],
+        hint: "Посмотри, какое слово стоит в рассказе перед глаголом.",
         why:
-          "Have you ever been to the mountains? Порядок такой: have, кто, ever, " +
-          "третья форма, место.",
+          "Have you ever seen a crocodile? В рассказе стоит you have seen, и в " +
+          "вопрос выходит have, а не do.",
+      },
+      {
+        id: "q-vybrat-vernyy-vopros",
+        kind: "choice",
+        outcome: "спросить об опыте: Have you ever been to Astana?",
+        prompt: "В каком вопросе порядок слов верный?",
+        options: [
+          { text: "Have ever you been to the mountains?" },
+          { text: "Have you ever been to the mountains?", correct: true },
+          { text: "You have ever been to the mountains?" },
+        ],
+        hint: "Слово о всей жизни стоит сразу за тем, о ком спрашивают.",
+        why:
+          "Have you ever been to the mountains? В первом ever встало слишком " +
+          "рано, а в третьем have осталось на месте рассказа.",
       },
 
       // ---- итог 5 ----
       {
         id: "q-pochemu-been-to",
         kind: "choice",
-        outcome: "сказать, где бывал: I have been to the mountains",
+        outcome: "рассказать о посещённых местах: I have been to the mountains",
         prompt:
           "Строки I have been to Astana и I was in Astana говорят о разном. Чем?",
         options: [
@@ -1580,7 +1589,7 @@ const module: Module = {
       {
         id: "q-ispravit-been-in",
         kind: "short",
-        outcome: "сказать, где бывал: I have been to the mountains",
+        outcome: "рассказать о посещённых местах: I have been to the mountains",
         prompt:
           "Ученик написал: I have been in a horse farm. Запиши строку без ошибки.",
         answer: "I have been to a horse farm.",
@@ -1595,13 +1604,13 @@ const module: Module = {
       {
         id: "q-najti-opyt-v-rasskaze",
         kind: "choice",
-        outcome: "находить в рассказе о поездке, что человек видел и делал",
+        outcome: "находить в рассказе о поездке, что человек увидел и попробовал",
         prompt:
           "В рассказе строка: I have never seen a bird's nest so close. Что из этого следует?",
         options: [
           { text: "Гнездо было далеко." },
-          { text: "Так близко автор гнезда раньше не видел.", correct: true },
           { text: "Автор не видел гнезда и в этот раз." },
+          { text: "Так близко автор гнезда раньше не видел.", correct: true },
         ],
         hint: "Слово never говорит о том, чего не было раньше.",
         why:
@@ -1611,7 +1620,7 @@ const module: Module = {
       {
         id: "q-chto-avtor-proboval",
         kind: "short",
-        outcome: "находить в рассказе о поездке, что человек видел и делал",
+        outcome: "находить в рассказе о поездке, что человек увидел и попробовал",
         prompt:
           "В рассказе строка: I have tried the food there: a grilled steak with garlic. С чем был стейк? Ответь одним словом по-английски.",
         answer: "garlic",
@@ -1651,12 +1660,12 @@ const module: Module = {
       {
         id: "q-chego-ne-hvataet-chuzhomu-rasskazu",
         kind: "choice",
-        outcome: "проверять рассказ об опыте: сказано, что видел и каким это было",
+        outcome: "проверять рассказ об опыте: названо увиденное и дана оценка",
         prompt:
           "Рассказ: I have been to a farm. I have seen goats and donkeys. Какой из четырёх нужных строк здесь нет?",
         options: [
-          { text: "Той, что называет место." },
           { text: "Той, что говорит, каким это было.", correct: true },
+          { text: "Той, что называет место." },
           { text: "Той, что перечисляет увиденное." },
         ],
         hint: "Пройди по рассказу строку за строкой и вычёркивай найденное.",
@@ -1667,7 +1676,7 @@ const module: Module = {
       {
         id: "q-dopisat-stroku-o-tom-kakim-bylo",
         kind: "short",
-        outcome: "проверять рассказ об опыте: сказано, что видел и каким это было",
+        outcome: "проверять рассказ об опыте: названо увиденное и дана оценка",
         prompt:
           "К рассказу допиши строку о том, каким это было: козы были шумными. Начни с The goats.",
         answer: "The goats were loud.",
@@ -1684,13 +1693,13 @@ const module: Module = {
       {
         id: "q-pochemu-v-rasskaze-dva-vremeni",
         kind: "choice",
-        outcome: "проверять рассказ об опыте: сказано, что видел и каким это было",
+        outcome: "проверять рассказ об опыте: названо увиденное и дана оценка",
         prompt:
           "Отчего в рассказе об опыте рядом стоят have seen и was?",
         options: [
           { text: "Чтобы рассказ не был однообразным." },
-          { text: "Одно говорит о жизни, другое о том дне.", correct: true },
           { text: "Так короче писать." },
+          { text: "Одно говорит о жизни, другое о том дне.", correct: true },
         ],
         hint: "Спроси у каждой строки, о чём она: о жизни или о дне.",
         why:

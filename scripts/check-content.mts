@@ -2077,6 +2077,60 @@ function checkRazgovorRazneseyon(mod: Module, where: string): void {
   }
 }
 
+/**
+ * Ссылка на наш модуль или урок называет его тем именем, которое видит ученик.
+ *
+ * Внутри одной ступени ссылаться на свои модули можно и нужно: человек идёт по
+ * порядку. Но у модуля два имени — короткое служебное (`osobye-formy`) и
+ * видимое (`Неправильные глаголы`), — и в тексте урока легко назвать первое.
+ *
+ * ЧЕМ ЭТО ПЛОХО ИМЕННО У НАС. Служебное имя ученику нигде не показывается, и
+ * найти по нему нечего. Хуже, когда оно случайно совпадает с ЧУЖОЙ подписью:
+ * модуль 22 отправлял ученика «в модуль „Особые формы“», а такой заголовок в
+ * курсе есть только у таблицы внутри модуля 15, и та про сравнение. Нашёл
+ * редактор чтением.
+ *
+ * Уровень — ошибка: это сломанная ссылка, как и ссылка на несуществующий якорь.
+ */
+function checkSsylkiNaModuli(course: Course): void {
+  const imena = new Set<string>();
+  for (const m of course.modules) {
+    imena.add(m.title.toLowerCase());
+    for (const lesson of m.lessons) imena.add(lesson.title.toLowerCase());
+  }
+
+  // «в модуле «Имя»», «в уроке „Имя“», «модуля «Имя»» — кавычки любые из тех,
+  // что встречаются в наших текстах.
+  // ОСТОРОЖНО С `\w`: в JavaScript он значит [A-Za-z0-9_] и кириллицы не
+  // знает вовсе. Первая редакция этой проверки писала `(?:модул|урок)\w*` и не
+  // находила НИЧЕГО — даже той самой ссылки, ради которой писалась. Это та же
+  // ловушка, из-за которой когда-то не находилось ни одной кальки.
+  const obrazec = /(?:модул|урок)[а-яё]*\s+[«"„]([^»"“]{3,60})[»"“]/gi;
+
+  for (const mod of course.modules) {
+    for (const lesson of mod.lessons) {
+      for (const kusok of sobratMaterial(lesson)) {
+        for (const najdeno of kusok.matchAll(obrazec)) {
+          const imya = najdeno[1].trim();
+          if (imena.has(imya.toLowerCase())) continue;
+          // Урок мог быть назван с двоеточием — «Этот и тот: this cap»,
+          // а в тексте его зовут коротко. Такое сравнение тоже принимаем.
+          const korotko = [...imena].some(
+            (i) => i.split(":")[0].trim() === imya.toLowerCase()
+          );
+          if (korotko) continue;
+          if (razobrano(imya)) continue;
+          fail(
+            `${course.slug} → ${mod.slug} → ${lesson.slug}`,
+            `ссылка ведёт в «${imya}», а модуля или урока с таким именем в курсе ` +
+              `нет — ученик увидит имя, которого нигде не найдёт`
+          );
+        }
+      }
+    }
+  }
+}
+
 function checkCourse(course: Course): void {
   const where = course.slug;
   if (course.modules.length === 0) fail(where, "в курсе нет модулей");
@@ -2089,6 +2143,7 @@ function checkCourse(course: Course): void {
   }
 
   checkImenaUrokovPoKursu(course);
+  checkSsylkiNaModuli(course);
   checkVremyaNazvano(course);
   checkSourcesNazyvayutSushchestvuyushchie(course);
   checkUsilitelnoeDid(course);
