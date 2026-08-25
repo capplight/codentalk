@@ -53,19 +53,56 @@ import type { Module } from "@/lib/content/types";
  * - `for` и `since` — модуль 24 по программе;
  * - `ever` и `never` — их место в модуле 22, и повторять их здесь незачем.
  *
- * СЛОВАРЬ МОДУЛЯ. Тридцать карточек, из них новых для ступени двадцать восемь:
- * `just` и `prepare` Oxford помечает A1.
+* СЛОВАРЬ МОДУЛЯ — ДВАДЦАТЬ КАРТОЧЕК, А НЕ ТРИДЦАТЬ, И ЭТО РЕШЕНИЕ, КОТОРОЕ
+ * НАДО ОБЪЯСНИТЬ. Из них новых для ступени восемнадцать: `just` и `prepare`
+ * Oxford помечает A1.
+ *
+ * Первая редакция набрала тридцать. Методист показал, что ТРИНАДЦАТЬ из них не
+ * работали в модуле нигде, кроме себя самих: `channel`, `pop`, `ad`, `length`,
+ * `birth`, `smoking`, `businessman`, `fail`, `further`, `against`, `fair`,
+ * `able`, `including`. Это ровно «след добитой ради счёта нормы», о котором
+ * говорят правила проекта.
+ *
+ * Пять из тринадцати вплетены в текст и остались: `fair` и `able` — в разговор
+ * урока 4, `including` — в записку урока 5, `smoking` — туда же, `businessman`
+ * — в запись урока 6. Остальные восемь сняты: втиснуть поп-музыку и дату
+ * рождения в модуль о сборах к приезду гостя можно только силой, а силой и
+ * получаются мёртвые карточки.
+ *
+ * ЗДЕСЬ СТАЛКИВАЮТСЯ ДВА РЕШЕНИЯ ВЛАДЕЛЬЦА, И ЭТО НАДО РЕШИТЬ ЕМУ.
+ * Решение от 20 августа: «не меньше 30 карточек на модуль, из них 15 новых».
+ * Уточнение от 21 августа: «не надо форсить, можно по ходу добавлять чуть
+ * больше слов», и проверка на карточку-одиночку написана именно против
+ * форсирования.
+ *
+ * До модуля 20 они не спорили: слов ступени хватало. Теперь запас — 147 слов
+ * против 200 перед модулем 21, больше половины из них Oxford помечает B1,
+ * часть американские (`candy`, `elevator`, `eraser`, `mail`, `soccer`), у
+ * десятка молчит транскрипция. Набрать тридцать слов, которые в ОДНОМ модуле
+ * работают друг на друга, из такого остатка уже нельзя.
+ *
+ * Пока владелец не решил иначе, модуль держит двадцать работающих карточек, а
+ * не тридцать с тринадцатью мёртвыми. Сверка `kontrol` пишет об этом вопросом,
+ * а не ошибкой — то есть решает методист, и он решил так.
  *
  * `yet` КАРТОЧКИ ЗДЕСЬ НЕ ПОЛУЧАЕТ, И ЭТО НАРОЧНО: её завёл модуль 10 «Уже
  * договорились». Вторая карточка сказала бы ученику, что слово новое.
  *
- * ОДИННАДЦАТЬ СЛОВ ВЫШЕ СТУПЕНИ ПО OXFORD 3000: accommodation, block,
- * ingredient, slice, various, sink, channel, kiss, length, fried, ad — B1.
- * Все одиннадцать стоят в словнике A2 Key.
+ * ВОСЕМЬ СЛОВ ВЫШЕ СТУПЕНИ ПО OXFORD 3000: accommodation, block,
+ * ingredient, slice, various, kiss, ad, length — B1. Все восемь стоят в
+ * словнике A2 Key.
  *
- * ЧЕТЫРЁХ СЛОВ OXFORD 3000 НЕ ЗНАЕТ ВОВСЕ: pharmacy, boiled, roast,
- * lunchtime. Это не «выше ступени», а отсутствие пометы. Первая редакция
- * шапки числила здесь и `fried`, а Oxford ставит его на B1; поймала сверка.
+ * ШЕСТИ СЛОВ OXFORD 3000 НЕ ЗНАЕТ ВОВСЕ: pharmacy, boiled, fried, roast,
+ * lunchtime, sink. Это не «выше ступени», а отсутствие пометы.
+ *
+ * ОСТОРОЖНО, ЗДЕСЬ Я УЖЕ ОШИБСЯ ОДИН РАЗ. Сверка `kontrol` сказала «fried
+ * (B1)», я поверил на слово и перенёс слово в список взятых выше ступени.
+ * В `oxford-3000` строки `fried` НЕТ ВОВСЕ — есть `fry v. B1`, другое
+ * слово и другая часть речи; сверка сравнила основы. То же у `sink`: там
+ * `sink v. B1`, «тонуть», а карточка даёт существительное «раковина»
+ * (`sink (n)` словника). Нашёл методист. Урок: **помету Oxford проверяют
+ * по строке файла, а не по ответу скрипта** — усечение основ врёт в обе
+ * стороны, и об этом прямо сказано в правилах проекта.
  *
  * ЗАПАС СТУПЕНИ ПОДХОДИТ К КОНЦУ — 147 слов против 200 перед модулем 21, и
  * больше половины из них B1. Разбор и что с этим делать — в программе, под
@@ -83,7 +120,7 @@ const module: Module = {
     "сказать о только что сделанном: I have just finished",
     "спросить, сделано ли дело: Have you packed yet?",
     "находить в списке дел, что сделано, а что нет",
-    "слышать в разговоре, что уже готово",
+    "слышать в разговоре, что готово, а что нет",
     "проверять записку о делах: названо сделанное и несделанное",
   ],
 
@@ -157,20 +194,24 @@ const module: Module = {
     {
       ref: "Cambridge English, A2 Key vocabulary list (август 2025)",
       section:
-        "Тридцать карточек модуля взяты из словника ступени; новых для ступени " +
-        "двадцать восемь, `just` и `prepare` Oxford помечает A1. " +
+        "Двадцать карточек модуля взяты из словника ступени; новых для ступени " +
+        "восемнадцать, `just` и `prepare` Oxford помечает A1. Почему двадцать, а " +
+        "не тридцать — разобрано в шапке модуля: тринадцать карточек первой " +
+        "редакции не работали нигде, кроме себя, и восемь из них сняты. " +
         "ЗНАЧЕНИЯ СВЕРЕНЫ С ПОМЕТАМИ СЛОВНИКА: `slice (n)` — берётся " +
         "существительное, кусок хлеба; глагол словник не помечает, и по этой " +
         "же причине слово однажды снимали из модуля 12. `boiled (adj)`, `fried " +
         "(adj)`, `roast (adj)` — прилагательные при еде. `sink (n)` — раковина, " +
         "а не глагол. `record (n)` в модуль не берётся: `ipa-en-uk` о нём " +
         "молчит. " +
-        "ОДИННАДЦАТЬ СЛОВ ВЫШЕ СТУПЕНИ ПО OXFORD 3000, И ЭТО ОБЪЯВЛЯЕТСЯ " +
-        "НАРОЧНО: accommodation, block, ingredient, slice, various, sink, " +
-        "channel, kiss, length, fried, ad — B1. Все одиннадцать стоят в словнике " +
-        "A2 Key. " +
-        "ЧЕТЫРЁХ СЛОВ OXFORD 3000 НЕ ЗНАЕТ ВОВСЕ: pharmacy, boiled, roast, " +
-        "lunchtime. " +
+        "ВОСЕМЬ СЛОВ ВЫШЕ СТУПЕНИ ПО OXFORD 3000, И ЭТО ОБЪЯВЛЯЕТСЯ " +
+        "НАРОЧНО: accommodation, block, ingredient, slice, various, kiss, " +
+        "ad, length — B1. Все восемь стоят в словнике A2 Key. " +
+        "ШЕСТИ СЛОВ OXFORD 3000 НЕ ЗНАЕТ ВОВСЕ: pharmacy, boiled, fried, " +
+        "roast, lunchtime, sink — у последних двух Oxford знает ГЛАГОЛЫ " +
+        "(`fry v. B1`, `sink v. B1`), а карточки дают прилагательное и " +
+        "существительное, и словник помечает именно их: `fried (adj)`, " +
+        "`sink (n)`. " +
         "`yet` КАРТОЧКИ НЕ ПОЛУЧАЕТ: её завёл модуль 10, и вторая сказала бы " +
         "ученику, что слово новое",
       license: "внутреннее использование, публично не называем",
@@ -192,7 +233,7 @@ const module: Module = {
           id: "delo-k-sroku",
           kind: "explain",
           text: [
-            "Утром Данияр и Айгуль собираются к приезду гостей.",
+            "Утром Данияр и Айгуль собираются к приезду Алима — он приедет к двум.",
             "У них список дел, и каждое надо успеть до обеда.",
             "Про такие дела говорят не «когда сделал», а «сделано или нет».",
             "И если сделано раньше срока, ставят особое слово.",
@@ -229,9 +270,9 @@ const module: Module = {
           kind: "note",
           tone: "mistake",
           text:
-            "«I have packed the bags already» в такой записке — так обычно не " +
-            "пишут.\n\nОбычное место already — между have и глаголом: I have " +
-            "already packed the bags.",
+            "«I have already prepared lunch yesterday» — так не " +
+            "говорят.\n\nВ такой строке дня не называют вовсе: I have already " +
+            "prepared lunch.",
         },
         {
           id: "razgovor-o-sborah",
@@ -371,7 +412,7 @@ const module: Module = {
           text: [
             "Слово have берёт not и сливается с ним: haven't.",
             "Третья форма глагола после этого не меняется: packed остаётся packed.",
-            "Слово yet значит «ещё не» и встаёт в самый конец строки.",
+            "Слово yet встаёт в самый конец строки; вместе с haven't оно и даёт «ещё не».",
             "Оно говорит, что дело ещё впереди, а не отменено.",
           ],
         },
@@ -402,9 +443,9 @@ const module: Module = {
           kind: "note",
           tone: "mistake",
           text:
-            "«I haven't yet packed the bags» в такой записке — так обычно не " +
-            "пишут.\n\nОбычное место yet — в конце строки: I haven't packed " +
-            "the bags yet.",
+            "«I haven't packed the bags already» — так не " +
+            "говорят.\n\nВ строке о несделанном стоит yet, а already идёт к " +
+            "сделанному: I haven't packed the bags yet.",
         },
         {
           id: "razgovor-o-nesdelannom",
@@ -430,8 +471,8 @@ const module: Module = {
           items: [
             { term: "sink", translation: "раковина", example: "I haven't washed the sink yet.", hint: "/sɪŋk/" },
             { term: "pharmacy", translation: "аптека", example: "I have already been to the pharmacy.", hint: "/ˈfɑːməsi/" },
-            { term: "block", translation: "дом, многоквартирный", example: "The pharmacy is in our block.", hint: "/blɒk/" },
-            { term: "lunchtime", translation: "обеденное время", example: "We haven't finished at lunchtime yet.", hint: "/ˈlʌntʃtaɪm/" },
+            { term: "block", translation: "многоквартирный дом", example: "The pharmacy is in our block.", hint: "/blɒk/" },
+            { term: "lunchtime", translation: "обеденное время", example: "Please do the rest before lunchtime.", hint: "/ˈlʌntʃtaɪm/" },
           ],
         },
 
@@ -544,9 +585,9 @@ const module: Module = {
           kind: "explain",
           text: [
             "Слово just значит «только что» и стоит между have и глаголом.",
-            "Оно говорит, что дело кончилось совсем недавно.",
-            "Слово already о времени не говорит: важно, что сделано, а не когда.",
-            "Поэтому just годится и там, где дело сделано позже срока.",
+            "Оно говорит, что дело кончилось совсем недавно — минуту, час назад.",
+            "Слово already о том, насколько недавно, молчит: оно говорит, что дело сделано, и часто раньше срока.",
+            "Поэтому just годится и там, где дело сделано позже срока: важно, что только что.",
           ],
         },
         {
@@ -565,15 +606,16 @@ const module: Module = {
           zvuchat: [
             "I have just fried the fish.",
             "And the roast meat?",
-            "I have just taken it out. The gas is off.",
+            "I have just taken it out. The boiled eggs are ready too.",
             "You have prepared various dishes!",
           ],
           text:
-            "I have just fried the fish.\nAnd the roast meat?\nI have just taken it out. The gas is off.\nYou have prepared various dishes!",
+            "I have just fried the fish.\nAnd the roast meat?\nI have just taken it out. The boiled eggs are ready too.\nYou have prepared various dishes!",
           explain:
-            "В первых двух строках just стоит между have и третьей формой: оба " +
-            "дела кончились минуту назад. В последней строке just нет — там " +
-            "говорят обо всём приготовленном, без срока.",
+            "В первой и третьей строках just стоит между have и третьей формой: " +
+            "оба дела кончились минуту назад. Во второй строке глагола нет " +
+            "вовсе, а в последней just не нужно: там говорят обо всём " +
+            "приготовленном, без срока.",
         },
         {
           id: "slovar-kuhni",
@@ -584,9 +626,8 @@ const module: Module = {
             { term: "fried", translation: "жареный", example: "I have just fried the fish.", hint: "/fraɪd/" },
             { term: "roast", translation: "запечённый", example: "And the roast meat?", hint: "/rəʊst/" },
             { term: "boiled", translation: "варёный", example: "The boiled eggs are ready.", hint: "/bɔɪld/" },
-            { term: "gas", translation: "газ", example: "The gas is off.", hint: "/gæs/" },
             { term: "various", translation: "разные", example: "You have prepared various dishes!", hint: "/ˈveəriəs/" },
-            { term: "fair", translation: "справедливый", example: "It isn't fair: I have done everything!", hint: "/feə/" },
+            { term: "fair", translation: "справедливый", example: "That isn't fair!", hint: "/feə/" },
           ],
         },
 
@@ -653,7 +694,11 @@ const module: Module = {
           prompt:
             "Скажи по-английски, что варёные яйца только что приготовлены. Начни с I have.",
           answer: "I have just prepared the boiled eggs.",
-          accept: ["I have just prepared the boiled eggs"],
+          accept: [
+            "I have just prepared the boiled eggs",
+            "I have just prepared boiled eggs.",
+            "I have just prepared boiled eggs",
+          ],
           hint: "Слово о минуте назад стоит между have и глаголом.",
           why:
             "I have just prepared the boiled eggs. Слово boiled стоит перед " +
@@ -665,7 +710,7 @@ const module: Module = {
     // =====================================================================
     {
       slug: "sdelal-li-ty",
-      title: "Сделал ли: Have you packed yet?",
+      title: "Сделано ли: Have you packed yet?",
       estimatedMinutes: 15,
       outcome: "спросить, сделано ли дело: Have you packed yet?",
 
@@ -675,7 +720,7 @@ const module: Module = {
           kind: "explain",
           text: [
             "Про чужие дела спрашивают так же коротко, как рассказывают о своих.",
-            "Слово have выходит в начало, а слово о сроке остаётся в конце.",
+            "Слово have уходит в начало, а слово о сделанном остаётся в конце.",
           ],
         },
         {
@@ -700,7 +745,7 @@ const module: Module = {
           text: [
             "Слово have уходит в начало, а тот, о ком речь, встаёт за ним.",
             "Третья форма глагола остаётся на месте: packed, washed.",
-            "Слово yet идёт в конец и значит «уже» — спрашивают, сделано ли.",
+            "Слово yet идёт в конец и здесь читается иначе, чем в отрицании: там «ещё не», а тут «уже».",
             "Отвечают коротко: Yes, I have или No, not yet.",
           ],
         },
@@ -711,10 +756,12 @@ const module: Module = {
           zvuchat: [
             "Yes, I have.",
             "No, not yet.",
+            "No, I haven't.",
           ],
           head: ["Сделано", "Ещё нет"],
           rows: [
             ["Yes, I have.", "No, not yet."],
+            ["Yes, I have.", "No, I haven't."],
           ],
         },
         {
@@ -734,22 +781,23 @@ const module: Module = {
             "Have you packed the bags yet?",
             "Yes, I have. And you?",
             "No, not yet. I have just finished the washing.",
+            "That isn't fair! Will you be able to help me?",
           ],
           text:
-            "Have you packed the bags yet?\nYes, I have. And you?\nNo, not yet. I have just finished the washing.",
+            "Have you packed the bags yet?\nYes, I have. And you?\nNo, not yet. I have just finished the washing.\nThat isn't fair! Will you be able to help me?",
           explain:
             "В вопросе have стоит первым, а yet — последним. Короткий ответ " +
-            "повторяет только have, а No, not yet говорит, что дело впереди.",
+            "повторяет только have, а No, not yet говорит, что дело впереди. В " +
+            "последней строке про сделанное не говорят вовсе — там просят о " +
+            "помощи.",
         },
         {
           id: "slovar-vyhoda",
           kind: "vocab",
           caption: "Слова урока",
           items: [
-            { term: "able", translation: "способный, могущий", example: "I am able to help you now.", hint: "/ˈeɪbl/" },
-            { term: "including", translation: "включая", example: "Everything is ready, including lunch.", hint: "/ɪnˈkluːdɪŋ/" },
-            { term: "further", translation: "дальше", example: "The pharmacy is further than the shop.", hint: "/ˈfɜːðə/" },
-            { term: "against", translation: "против", example: "Nobody is against this plan.", hint: "/əˈgenst/" },
+            { term: "able", translation: "способный, могущий", example: "Will you be able to help me?", hint: "/ˈeɪbl/" },
+            { term: "including", translation: "включая", example: "Lunch is ready, including boiled eggs.", hint: "/ɪnˈkluːdɪŋ/" },
           ],
         },
 
@@ -757,15 +805,15 @@ const module: Module = {
         {
           id: "z1-vybrat-vopros-o-dele",
           kind: "choice",
-          prompt: "Спроси, собраны ли уже сумки.",
+          prompt: "Спроси, вымыта ли уже раковина.",
           options: [
-            { text: "Do you packed the bags yet?" },
-            { text: "You have packed the bags yet?" },
-            { text: "Have you packed the bags yet?", correct: true },
+            { text: "Do you washed the sink yet?" },
+            { text: "You have washed the sink yet?" },
+            { text: "Have you washed the sink yet?", correct: true },
           ],
           hint: "В начало вопроса выходит то же слово, что стоит в рассказе перед глаголом.",
           why:
-            "Have you packed the bags yet? Слово do к этому времени не " +
+            "Have you washed the sink yet? Слово do к этому времени не " +
             "подходит, а во второй записи have осталось на месте рассказа.",
         },
         {
@@ -785,7 +833,14 @@ const module: Module = {
           prompt:
             "Тебя спросили: Have you packed the bags yet? Ответь коротко — ещё нет.",
           answer: "No, not yet.",
-          accept: ["No, not yet", "Not yet.", "Not yet"],
+          accept: [
+            "No, not yet",
+            "Not yet.",
+            "Not yet",
+            "No, I haven't.",
+            "No, I haven't",
+            "No, I have not.",
+          ],
           hint: "В коротком ответе глагол не повторяют.",
           why:
             "No, not yet. Так отвечают, когда дело ещё впереди.",
@@ -805,10 +860,14 @@ const module: Module = {
           id: "z5-sprosit-ob-apteke",
           kind: "short",
           prompt:
-            "Спроси по-английски, сходил ли собеседник в аптеку. Начни с Have.",
+            "Спроси по-английски, сходил ли собеседник в аптеку уже. Начни с Have.",
           answer: "Have you been to the pharmacy yet?",
-          accept: ["Have you been to the pharmacy yet"],
-          hint: "Третья форма глагола be — been, а слово о сроке идёт в конец.",
+          accept: [
+            "Have you been to the pharmacy yet",
+            "Have you been to the pharmacy?",
+            "Have you been to the pharmacy",
+          ],
+          hint: "Третья форма глагола be — been, а слово со значением «уже» идёт в конец.",
           why:
             "Have you been to the pharmacy yet? При been стоит to, как в " +
             "рассказе о местах.",
@@ -843,13 +902,13 @@ const module: Module = {
             "I have already booked a double room in the block near the park.",
             "I have just been to the pharmacy, so we have the medicine.",
             "I haven't washed the sink yet, and I haven't packed the bags yet.",
-            "Lunch is ready: boiled eggs, fried fish and various slices of bread.",
-            "Please do the rest before lunchtime. Kiss!",
+            "Lunch is ready, including boiled eggs, fried fish and various slices of bread.",
+            "There is no smoking in our block, so please tell Alim.",
+            "Please do the rest before lunchtime!",
           ],
           glossary: [
             { term: "the rest", translation: "остальное" },
             { term: "medicine", translation: "лекарство" },
-            { term: "do the washing", translation: "стирать" },
           ],
         },
         {
@@ -866,8 +925,8 @@ const module: Module = {
           caption: "Слова урока",
           items: [
             { term: "slice", translation: "кусок, ломоть", example: "Various slices of bread.", hint: "/slaɪs/" },
-            { term: "kiss", translation: "поцелуй", example: "Please do the rest before lunchtime. Kiss!", hint: "/kɪs/" },
-            { term: "ingredient", translation: "составная часть блюда", example: "We have all the ingredients for lunch.", hint: "/ɪnˈgriːdiənt/" },
+            { term: "smoking", translation: "курение", example: "There is no smoking in our block.", hint: "/ˈsməʊkɪŋ/" },
+            { term: "ingredient", translation: "ингредиент", example: "We have all the ingredients for lunch.", hint: "/ɪnˈgriːdiənt/" },
           ],
         },
 
@@ -950,7 +1009,7 @@ const module: Module = {
       slug: "slushaem-chto-uzhe-gotovo",
       title: "Слушаем, что уже готово",
       estimatedMinutes: 13,
-      outcome: "слышать в разговоре, что уже готово",
+      outcome: "слышать в разговоре, что готово, а что нет",
 
       blocks: [
         {
@@ -971,7 +1030,16 @@ const module: Module = {
           skryt: true,
           transcript:
             "Have you packed the bags yet? — No, not yet. But I have already " +
-            "prepared lunch. — And the sink? — I have just washed it.",
+            "prepared lunch. — And the sink? — I have just washed it. — Good. " +
+            "Alim is a businessman, and he arrives at two.",
+        },
+        {
+          id: "slovar-sverki",
+          kind: "vocab",
+          caption: "Слова урока",
+          items: [
+            { term: "businessman", translation: "предприниматель", example: "Alim is a businessman, and he arrives at two.", hint: "/ˈbɪznəsmən/" },
+          ],
         },
         {
           id: "chto-slushat-o-gotovom",
@@ -980,16 +1048,6 @@ const module: Module = {
           text:
             "Слушай, где звучит already, а где not yet.\n\nПервое говорит, что " +
             "дело сделано, второе — что оно ещё впереди.",
-        },
-        {
-          id: "slovar-sverki",
-          kind: "vocab",
-          caption: "Слова урока",
-          items: [
-            { term: "channel", translation: "канал", example: "The film is on the first channel.", hint: "/ˈtʃænl/" },
-            { term: "ad", translation: "объявление", example: "I have just seen an ad for a guest house.", hint: "/æd/" },
-            { term: "pop", translation: "поп-музыка", example: "They have just played pop music.", hint: "/pɒp/" },
-          ],
         },
 
         // ---- задания ----
@@ -1088,17 +1146,17 @@ const module: Module = {
           kind: "table",
           caption: "Что должно быть в записке",
           zvuchat: [
-            "Daniyar, I have already booked a room.",
-            "I have just been to the pharmacy.",
-            "I haven't washed the sink yet.",
-            "Please do the rest before lunchtime.",
+            "Aigul, I have already made the fried fish.",
+            "I have just cut the bread.",
+            "I haven't found the ingredients yet.",
+            "Please buy them before lunchtime.",
           ],
           head: ["Что сказано", "Пример строки"],
           rows: [
-            ["кому записка и что сделано", "Daniyar, I have already booked a room."],
-            ["что сделано совсем недавно", "I have just been to the pharmacy."],
-            ["что осталось", "I haven't washed the sink yet."],
-            ["к какому сроку", "Please do the rest before lunchtime."],
+            ["кому записка и что сделано", "Aigul, I have already made the fried fish."],
+            ["что сделано совсем недавно", "I have just cut the bread."],
+            ["что осталось", "I haven't found the ingredients yet."],
+            ["к какому сроку", "Please buy them before lunchtime."],
           ],
         },
         {
@@ -1115,30 +1173,18 @@ const module: Module = {
         {
           id: "obrazec-zapiski",
           kind: "example",
-          caption: "Записка Айгуль",
+          caption: "Записка Данияра",
           zvuchat: [
-            "Daniyar, I have already booked a double room in our block.",
-            "I have just been to the pharmacy, and I have the medicine.",
-            "But I haven't washed the sink yet, and I haven't packed the bags yet.",
-            "Please do the rest before lunchtime, because Alim arrives at two.",
+            "Aigul, I have already made the boiled eggs and the fried fish.",
+            "I have just cut various slices of bread.",
+            "But I haven't found the ingredients for the salad yet.",
+            "Please buy them before lunchtime, because Alim is hungry after the road.",
           ],
           text:
-            "Daniyar, I have already booked a double room in our block.\nI have just been to the pharmacy, and I have the medicine.\nBut I haven't washed the sink yet, and I haven't packed the bags yet.\nPlease do the rest before lunchtime, because Alim arrives at two.",
+            "Aigul, I have already made the boiled eggs and the fried fish.\nI have just cut various slices of bread.\nBut I haven't found the ingredients for the salad yet.\nPlease buy them before lunchtime, because Alim is hungry after the road.",
           explain:
             "Сделанное стоит со словами already и just, оставшееся — с haven't " +
             "и yet в конце. Последняя строка называет срок и причину.",
-        },
-        {
-          id: "slovar-zapiski-o-delah",
-          kind: "vocab",
-          caption: "Слова урока",
-          items: [
-            { term: "length", translation: "длина", example: "The length of the list is four lines.", hint: "/leŋθ/" },
-            { term: "birth", translation: "рождение", example: "Write your date of birth here.", hint: "/bɜːθ/" },
-            { term: "businessman", translation: "предприниматель", example: "Alim is a businessman.", hint: "/ˈbɪznəsmən/" },
-            { term: "fail", translation: "не суметь, провалить", example: "I don't want to fail before lunchtime.", hint: "/feɪl/" },
-            { term: "smoking", translation: "курение", example: "There is no smoking in our block.", hint: "/ˈsməʊkɪŋ/" },
-          ],
         },
 
         // ---- задания ----
@@ -1210,7 +1256,7 @@ const module: Module = {
             "Напиши записку о делах, четырьмя строками. Назови, кому она, одно сделанное дело, одно законченное только что, одно оставшееся и срок.",
           minWords: 16,
           sample:
-            "Daniyar, I have already booked a double room in our block.\nI have just been to the pharmacy, and I have the medicine.\nBut I haven't washed the sink yet, and I haven't packed the bags yet.\nPlease do the rest before lunchtime, because Alim arrives at two.",
+            "Aigul, I have already made the boiled eggs and the fried fish.\nI have just cut various slices of bread.\nBut I haven't found the ingredients for the salad yet.\nPlease buy them before lunchtime, because Alim is hungry after the road.",
           checklist: [
             "названо, кому записка",
             "есть строка со словом already или just",
@@ -1253,14 +1299,14 @@ const module: Module = {
         outcome: "сообщить, что дело сделано: I have already packed",
         prompt: "Что добавляет already к строке о сделанном деле?",
         options: [
-          { text: "Что дело сделали вдвоём." },
           { text: "Что дело сделано, и часто раньше срока.", correct: true },
+          { text: "Что дело сделали вдвоём." },
           { text: "Что дело сделали вчера." },
         ],
         hint: "Сравни I have booked a room и I have already booked a room.",
         why:
-          "Что дело сделано, и часто раньше срока. О дне already не говорит " +
-          "ничего.",
+          "Что дело сделано, и часто раньше срока. О том, минуту назад или " +
+          "утром, already не говорит: для этого есть just.",
       },
 
       // ---- итог 2 ----
@@ -1293,20 +1339,20 @@ const module: Module = {
 
       // ---- итог 3 ----
       {
-        id: "q-vybrat-slovo-po-sluchayu",
+        id: "q-chto-izmenit-zamena-slova",
         kind: "choice",
         outcome: "сказать о только что сделанном: I have just finished",
         prompt:
-          "Рыбу пожарили минуту назад, и она ещё горячая. Какое слово тут годится?",
+          "В записке стояло I have just cut the bread, а стало I have already cut the bread. Что изменилось для читателя?",
         options: [
-          { text: "yet — дело ещё впереди." },
-          { text: "already — дело сделано, без срока." },
-          { text: "just — дело кончилось минуту назад.", correct: true },
+          { text: "Хлеб теперь не нарезан." },
+          { text: "Хлеб нарежет кто-то другой." },
+          { text: "Пропало, что хлеб нарезали минуту назад.", correct: true },
         ],
-        hint: "Одно из трёх слов говорит не о самом деле, а о том, давно ли.",
+        hint: "Оба слова говорят, что дело сделано. Разница в другом.",
         why:
-          "Just. Слово already о минуте назад молчит, а yet говорит о " +
-          "несделанном.",
+          "Пропало, что хлеб нарезали минуту назад. Слово already о том, " +
+          "насколько недавно, молчит.",
       },
       {
         id: "q-perepisat-v-tolko-chto",
@@ -1331,54 +1377,60 @@ const module: Module = {
           "Ученик написал: Do you packed the bags yet? Запиши вопрос без ошибки.",
         answer: "Have you packed the bags yet?",
         accept: ["Have you packed the bags yet"],
-        hint: "Посмотри, какое слово стоит в рассказе перед глаголом.",
+        hint: "Слово do к этому времени не подходит вовсе.",
         why:
           "Have you packed the bags yet? В рассказе стоит you have packed, и в " +
           "вопрос выходит have.",
       },
       {
-        id: "q-otvetit-chto-sdelano",
+        id: "q-vybrat-vernyy-korotkiy-otvet",
+        kind: "choice",
+        outcome: "спросить, сделано ли дело: Have you packed yet?",
+        prompt:
+          "На вопрос Have you washed the sink yet? один ответ не годится. Какой?",
+        options: [
+          { text: "Yes, I have." },
+          { text: "Yes, I washed.", correct: true },
+          { text: "No, not yet." },
+        ],
+        hint: "В коротком ответе повторяют не глагол, а первое слово вопроса.",
+        why:
+          "Yes, I washed. Такого короткого ответа не бывает: глагол в нём не " +
+          "звучит вовсе.",
+      },
+      {
+        id: "q-otvetit-chto-eshchyo-net-v-rabote",
         kind: "short",
         outcome: "спросить, сделано ли дело: Have you packed yet?",
         prompt:
-          "Тебя спросили: Have you washed the sink yet? Ответь коротко — да.",
-        answer: "Yes, I have.",
-        accept: ["Yes, I have"],
-        hint: "Ответ строится на первом слове вопроса.",
-        why:
-          "Yes, I have. Слово washed в таком ответе не звучит вовсе.",
-      },
-      {
-        id: "q-chto-znachit-not-yet-v-otvete",
-        kind: "choice",
-        outcome: "спросить, сделано ли дело: Have you packed yet?",
-        prompt: "Ответ No, not yet говорит собеседнику что?",
-        options: [
-          { text: "Что дело сделано, но плохо." },
-          { text: "Что за дело ещё не брались, но возьмутся.", correct: true },
-          { text: "Что дело поручено другому." },
+          "Тебя спросили: Have you found the ingredients yet? Ответь коротко — ещё нет.",
+        answer: "No, not yet.",
+        accept: [
+          "No, not yet",
+          "Not yet.",
+          "Not yet",
+          "No, I haven't.",
+          "No, I haven't",
         ],
-        hint: "Слово yet говорит о том, что впереди.",
+        hint: "В коротком ответе глагол не звучит вовсе.",
         why:
-          "Что за дело ещё не брались, но возьмутся. Отменённое дело называют " +
-          "иначе.",
+          "No, not yet. Годится и No, I haven't — оба ответа говорят, что дело " +
+          "впереди.",
       },
 
       // ---- итог 5 ----
       {
-        id: "q-najti-ostavsheesya",
-        kind: "choice",
+        id: "q-perepisat-v-nesdelannoe",
+        kind: "short",
         outcome: "находить в списке дел, что сделано, а что нет",
         prompt:
-          "В записке строка: I haven't packed the bags yet. Что должен сделать читатель?",
-        options: [
-          { text: "Ничего: сумки собраны." },
-          { text: "Проверить, не потерялись ли сумки." },
-          { text: "Собрать сумки.", correct: true },
-        ],
-        hint: "Слово yet в конце говорит, что дело осталось.",
+          "Строку I have already packed the bags перепиши так, чтобы она говорила: дело ещё не сделано.",
+        answer: "I haven't packed the bags yet.",
+        accept: ["I haven't packed the bags yet"],
+        hint: "Слово о сделанном уходит, а в конец встаёт другое.",
         why:
-          "Собрать сумки. Запись I have already packed сказала бы обратное.",
+          "I haven't packed the bags yet. Слово already в отрицании не " +
+          "остаётся: там его место занимает yet в конце.",
       },
       {
         id: "q-najti-sdelannoe-nedavno",
@@ -1396,7 +1448,7 @@ const module: Module = {
       {
         id: "q-uslyshat-chto-gotovo",
         kind: "short",
-        outcome: "слышать в разговоре, что уже готово",
+        outcome: "слышать в разговоре, что готово, а что нет",
         zvuk: "Have you prepared lunch yet? — Yes, I have. I have just fried the fish.",
         prompt: "Послушай. Что пожарили? Ответь одним словом по-английски.",
         answer: "fish",
@@ -1407,7 +1459,7 @@ const module: Module = {
       {
         id: "q-uslyshat-chto-ostalos",
         kind: "short",
-        outcome: "слышать в разговоре, что уже готово",
+        outcome: "слышать в разговоре, что готово, а что нет",
         zvuk: "I have already washed the sink, but I haven't packed the bags yet.",
         prompt:
           "Послушай. Что ещё не сделано? Ответь одним словом по-английски.",
@@ -1423,7 +1475,7 @@ const module: Module = {
         kind: "choice",
         outcome: "проверять записку о делах: названо сделанное и несделанное",
         prompt:
-          "Записка: Daniyar, I have already booked a room. I haven't washed the sink yet. Какой из четырёх нужных строк здесь нет?",
+          "Записка: Daniyar, I have already booked a room. I have just been to the pharmacy. I haven't washed the sink yet. Какой из четырёх нужных строк здесь нет?",
         options: [
           { text: "Той, что называет срок.", correct: true },
           { text: "Той, что называет, кому записка." },
@@ -1431,21 +1483,22 @@ const module: Module = {
         ],
         hint: "Пройди по четырём нужным строкам и вычёркивай найденное.",
         why:
-          "Той, что называет срок. Имя есть, сделанное есть, оставшееся есть — " +
-          "а к какому времени успеть, читатель не узнает.",
+          "Той, что называет срок. Имя есть, сделанное есть, сделанное только " +
+          "что есть, оставшееся есть — а к какому времени успеть, читатель не " +
+          "узнает.",
       },
       {
         id: "q-dopisat-stroku-o-sroke",
         kind: "short",
         outcome: "проверять записку о делах: названо сделанное и несделанное",
         prompt:
-          "К записке допиши строку о сроке: сделай остальное до обеда. Начни с Please.",
-        answer: "Please do the rest before lunchtime.",
-        accept: ["Please do the rest before lunchtime"],
-        hint: "Срок ставят в конец строки.",
+          "К записке допиши строку о сроке: купи хлеб до вечера. Начни с Please.",
+        answer: "Please buy the bread before the evening.",
+        accept: ["Please buy the bread before the evening"],
+        hint: "Время, к которому надо успеть, ставят в конец строки.",
         why:
-          "Please do the rest before lunchtime. Без срока читатель не поймёт, " +
-          "когда браться.",
+          "Please buy the bread before the evening. Без такой строки читатель " +
+          "не поймёт, когда браться.",
       },
       {
         id: "q-pochemu-v-zapiske-dva-vida-strok",
@@ -1455,8 +1508,8 @@ const module: Module = {
           "Отчего в записке о делах нужны и строки с already, и строки с yet?",
         options: [
           { text: "Чтобы записка была длиннее." },
-          { text: "Чтобы читатель не взялся за сделанное и не забыл оставшееся.", correct: true },
           { text: "Так принято начинать записку." },
+          { text: "Чтобы читатель не взялся за сделанное и не забыл оставшееся.", correct: true },
         ],
         hint: "Представь читателя, которому назвали только сделанное.",
         why:
