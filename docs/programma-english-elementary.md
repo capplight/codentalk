@@ -529,6 +529,40 @@ DETERMINER»), см. разбор модуля 18 выше.
 
 **Проверочная работа части.** Пересказ разговора и обсуждение планов.
 
+**Строка модуля 24 проверена 25 августа 2026, до написания, и она тоньше всех
+предыдущих.**
+
+**`How long` даёт руководство прямо.** A2 Key, с. 52, перечень вопросительных
+слов: «Who; Whose; Which How; How much; How many; How often; **How long**; etc.»
+English Grammar Profile отдельной графы про `How long` не даёт вовсе — искал по
+графам, дескрипторам и примерам всех уровней до B1.
+
+**`for` в ОТРИЦАНИИ подтверждён на A2.** Графа «FORM/USE: TIME WITH 'FOR'»:
+«Can use **the negative form** with 'for' to talk about a past event or action
+which hasn't occurred again in the period of time up to now», пример «I haven't
+eaten Italian food for a long time».
+
+**А `for` В УТВЕРЖДЕНИИ — то есть главный случай модуля — у English Grammar
+Profile стоит на B1.** Графа «USE: UNFINISHED»: «Can use the present perfect
+simple to refer to a state or period of time which is unlimited or indefinite».
+Именно она покрывает «I have lived here for two years». Графы A2, которая давала
+бы длительность утверждением, я не нашёл: смотрел все графы `present perfect
+simple`, а также `present perfect continuous` (там всё B1 и выше).
+
+**Отсюда состояние модуля 24: его сердцевина держится на одном источнике из
+двух.** Руководство A2 Key называет «unfinished past with **for** and since» в
+перечне Tenses (с. 52) — без оговорки о том, что годится только отрицание.
+Мерка курса берёт слово по руководству и словнику, и модуль 24 берёт — но это
+надо знать: у модулей 22 и 23 подпорок было по две-три, здесь одна.
+
+**`since` в строке не обещан, и брать его не надо:** графа «FORM/USE: DURATION
+WITH 'SINCE'» стоит на B1 отдельно от `for`, и модуль 24 его не даёт.
+
+**Present Perfect Continuous («I have been studying for four years») — B1
+целиком** и в модуль не входит, хотя по-русски «сколько времени ты учишься»
+просится именно им.
+
+
 **Строка модуля 23 проверена 25 августа 2026, до написания.** Все четыре
 обещания держатся, но три из них — с границами, и границы разные.
 
