@@ -542,15 +542,26 @@ English Grammar Profile отдельной графы про `How long` не д�
 which hasn't occurred again in the period of time up to now», пример «I haven't
 eaten Italian food for a long time».
 
-**А `for` В УТВЕРЖДЕНИИ — то есть главный случай модуля — у English Grammar
-Profile стоит на B1.** Графа «USE: UNFINISHED»: «Can use the present perfect
-simple to refer to a state or period of time which is unlimited or indefinite».
-Именно она покрывает «I have lived here for two years». Графы A2, которая давала
-бы длительность утверждением, я не нашёл: смотрел все графы `present perfect
-simple`, а также `present perfect continuous` (там всё B1 и выше).
+**А `for` В УТВЕРЖДЕНИИ — то есть главный случай модуля — источник не
+описывает НИ НА ОДНОМ УРОВНЕ.** Первая редакция этого разбора ссылалась на
+графу B1 «USE: UNFINISHED» — неверно, и проверяется её же примером: «In spite of
+bad weather forecasts on TV, it has been a sunny, warm weekend», «I've had a
+really nice week». Графа о периоде НЕОПРЕДЕЛЁННОМ («unlimited or indefinite»), а
+`for two years` — отрезок определённый, ровно обратное. Нашёл методист при
+разборе модуля 24; правило «к цитате читается её пример» сработало против меня.
+
+Ближайшее, что источник знает, — B1 «FORM/USE: DURATION WITH 'SINCE'» и B1
+`present perfect continuous, USE: SINGLE CONTINUING EVENT` («often with 'for' or
+'since'», пример «I've been studying International business there for four
+years»). То есть длительность утверждением источник видит у ПРОДОЛЖЕННОЙ формы,
+а простой формы с `for` не описывает вовсе. Графы A2 нет: смотрел все графы
+`present perfect simple` и `present perfect continuous`.
 
 **Отсюда состояние модуля 24: его сердцевина держится на одном источнике из
-двух.** Руководство A2 Key называет «unfinished past with **for** and since» в
+двух.** (У урока 2 подпорок всё же две: кроме руководства, его устройство
+описывает QUESTIONS wh-, A2, «FORM: WITH AUXILIARY 'HAVE'» — «Can use 'wh-'words
++ auxiliary 'have' to form 'wh-'questions ► present perfect», пример «How have
+you been?». Эту графу первая редакция пропустила.) Руководство A2 Key называет «unfinished past with **for** and since» в
 перечне Tenses (с. 52) — без оговорки о том, что годится только отрицание.
 Мерка курса берёт слово по руководству и словнику, и модуль 24 берёт — но это
 надо знать: у модулей 22 и 23 подпорок было по две-три, здесь одна.

@@ -25,12 +25,22 @@ import type { Module } from "@/lib/content/types";
  * - **`for` в ОТРИЦАНИИ подтверждён на A2:** «FORM/USE: TIME WITH 'FOR'» —
  *   «Can use **the negative form** with 'for'…», пример «I haven't eaten
  *   Italian food for a long time».
- * - **`for` В УТВЕРЖДЕНИИ — то есть главный случай модуля — у English Grammar
- *   Profile стоит на B1.** Графа «USE: UNFINISHED» покрывает «I have lived here
- *   for two years». Графы A2, дающей длительность утверждением, нет.
+ * - **`for` В УТВЕРЖДЕНИИ — то есть главный случай модуля — графы нет НИ НА
+ *   ОДНОМ УРОВНЕ.** Первая редакция шапки писала, что его покрывает графа B1
+ *   «USE: UNFINISHED», — это неверно, и проверяется её же примером: «In spite
+ *   of bad weather forecasts on TV, it has been a sunny, warm weekend», «I've
+ *   had a really nice week». Графа о периоде НЕОПРЕДЕЛЁННОМ («unlimited or
+ *   indefinite»), а `for two years` — отрезок определённый, ровно обратное.
+ *   Нашёл методист; правило «к цитате читается её пример» сработало против
+ *   меня.
  *
- * Значит подпорок у модуля 24 меньше, чем у 22 и 23: там их было по две-три, а
- * здесь утверждение держится на одной строке руководства — «unfinished past
+ *   Ближайшее, что источник знает, — B1 «FORM/USE: DURATION WITH 'SINCE'» и
+ *   B1 `present perfect continuous, USE: SINGLE CONTINUING EVENT` («often with
+ *   'for' or 'since'», пример «I've been studying International business there
+ *   for four years»). То есть длительность утверждением источник видит у
+ *   ПРОДОЛЖЕННОЙ формы, а простой формы с `for` он не описывает вовсе.
+ *
+ * Значит утверждение держится на одной строке руководства — «unfinished past
  * with **for** and since» (с. 52, перечень Tenses), без оговорки об отрицании.
  * Мерка курса берёт по руководству и словнику, и модуль берёт. Но записать это
  * надо прямо, а не спрятать.
@@ -59,11 +69,25 @@ import type { Module } from "@/lib/content/types";
  * программе:** либо поздние модули берут меньше карточек, либо словарь ступени
  * пополняется из другого источника.
  *
- * СЕМЬ СЛОВ ВЫШЕ СТУПЕНИ ПО OXFORD 3000: advanced, click, photography,
- * horror, length, ad, software — B1. Все семь стоят в словнике A2 Key.
+ * ВОСЕМЬ СЛОВ ВЫШЕ СТУПЕНИ ПО OXFORD 3000: advanced, click, photography,
+ * horror, length, ad, software, plus — B1. Все восемь стоят в словнике
+ * A2 Key.
  *
- * СЕМИ СЛОВ OXFORD 3000 НЕ ЗНАЕТ ВОВСЕ: studies, diploma, beginner,
- * vocabulary, comic, chatroom, plus.
+ * ВОСЬМОЕ СЛОВО ВЫШЕ СТУПЕНИ — `plus`, И ЗДЕСЬ Я ОШИБСЯ ВТОРОЙ РАЗ ПОДРЯД.
+ * Сверка сказала «plus (B1)», я поискал в файле строку `^plus ` и не нашёл —
+ * потому что там стоит **`plus1 prep. B1, adj., conj., n. B2`**, с цифрой
+ * омонима. Об этом предупреждает сама сверка: «у омонимов к слову приписана
+ * цифра». Модуль берёт `plus` предлогом, значит B1. Нашёл методист.
+ *
+ * Урок отсюда шире одного слова: в модуле 23 сверка ошиблась, а здесь была
+ * права — **проверять надо и её слова, и своё опровержение**. Поиск по началу
+ * строки не годится: у омонимов цифра, а часть речи бывает не та.
+ *
+ * `comic` OXFORD 3000 НЕ ЗНАЕТ, НО OXFORD 5000 СТАВИТ ЕГО НА B2
+ * (`comic adj., n. B2`), и это тоже объявляется.
+ *
+ * ШЕСТИ СЛОВ НЕ ЗНАЕТ НИ ОДИН ИЗ ДВУХ СПИСКОВ: studies, diploma, beginner,
+ * vocabulary, chatroom.
  *
  * А `article` OXFORD ЗНАЕТ И СТАВИТ НА A1 (`article n. A1`), то есть слово
  * с прошлой ступени. Первая редакция шапки числила его среди незнакомых
@@ -93,7 +117,9 @@ const module: Module = {
       ref: "Cambridge English, A2 Key handbook for teachers",
       section:
         "с. 52, Language specifications, перечень вопросительных слов: «Who; " +
-        "Whose; Which How; How much; How many; How often; How long; etc.» — " +
+        "Whose; Which / How; How much; How many; How often; How long; etc.» — " +
+        "(косая черта здесь — конец строки на странице, разборщик склеил " +
+        "«Which How» в одно) " +
         "отсюда весь урок 2. У English Grammar Profile отдельной графы про `How " +
         "long` НЕТ ВОВСЕ: искал по графам, дескрипторам и примерам всех уровней " +
         "до B1 включительно. " +
@@ -118,11 +144,17 @@ const module: Module = {
         "action which hasn't occurred again in the period of time up to now», " +
         "пример «I haven't eaten Italian food for a long time». " +
         "ЗДЕСЬ ГЛАВНАЯ ОГОВОРКА МОДУЛЯ, И ОНА ОБЪЯВЛЯЕТСЯ ПРЯМО: графа " +
-        "подтверждает `for` только В ОТРИЦАНИИ. Утверждение с длительностью («I " +
-        "have lived here for two years») покрывает графа «USE: UNFINISHED», а " +
-        "она стоит на B1. Значит уроки 1 и 2 держатся на строке руководства A2 " +
-        "Key, а не на графе; подпорка у них одна, тогда как у модулей 22 и 23 " +
-        "их было по две-три. " +
+        "подтверждает `for` только В ОТРИЦАНИИ, а утверждения с длительностью " +
+        "простой формой источник не описывает НИ НА ОДНОМ УРОВНЕ. Первая " +
+        "редакция опоры ссылалась здесь на B1 «USE: UNFINISHED» — неверно: её " +
+        "примеры «it has been a sunny, warm weekend» и «I've had a really nice " +
+        "week» говорят о периоде неопределённом, а `for two years` определён. " +
+        "Нашёл методист. Значит урок 1 держится на строке руководства A2 Key. " +
+        "А У УРОКА 2 ПОДПОРОК ДВЕ. Кроме руководства, его устройство прямо " +
+        "описывает QUESTIONS wh-, A2, «FORM: WITH AUXILIARY 'HAVE'»: «Can use " +
+        "'wh-'words + auxiliary 'have' to form 'wh-'questions. ► present " +
+        "perfect», пример «How have you been?». Первая редакция эту графу " +
+        "пропустила и написала «подпорка одна» — нашёл методист. " +
         "ОПОРА ФОРМЫ. A2, «FORM: AFFIRMATIVE» — «Can use the affirmative form " +
         "'have' + '-ed' with pronouns 'I' and 'we'», и A2, «FORM: QUESTIONS» — " +
         "«Can use the question form 'have you' + '-ed' with with a limited " +
@@ -161,17 +193,21 @@ const module: Module = {
         "ЗНАЧЕНИЯ СВЕРЕНЫ С ПОМЕТАМИ СЛОВНИКА: `studies (n pl)` — учёба, " +
         "занятия; `comic (n)` — журнал с рисованными историями, а не " +
         "прилагательное; `click (v)` — нажимать; `such (det)`. " +
-        "СЕМЬ СЛОВ ВЫШЕ СТУПЕНИ ПО OXFORD 3000, И ЭТО ОБЪЯВЛЯЕТСЯ НАРОЧНО: " +
-        "advanced, click, photography, horror, length, ad, software — B1. " +
-        "Проверено " +
+        "ВОСЕМЬ СЛОВ ВЫШЕ СТУПЕНИ ПО OXFORD 3000, И ЭТО ОБЪЯВЛЯЕТСЯ НАРОЧНО: " +
+        "advanced, click, photography, horror, length, ad, software, plus — " +
+        "B1. Проверено " +
         "ПОСТРОЧНО по `oxford-3000`, а не по ответу сверки: она сравнивает " +
         "основы и в модуле 23 из-за этого сказала «fried (B1)», тогда как в " +
         "файле стоит `fry v. B1`. " +
-        "СЕМИ СЛОВ OXFORD 3000 НЕ ЗНАЕТ ВОВСЕ: studies, diploma, beginner, " +
-        "vocabulary, comic, chatroom, plus. А `article` Oxford знает и " +
-        "ставит на A1, то есть это слово с прошлой ступени. " +
-        "СВЕРКА ЗДЕСЬ СКАЗАЛА «plus (B1)» — строки `plus` в файле нет вовсе, " +
-        "она сравнила основы. Тот же случай, что с `fried` в модуле 23",
+        "ВОСЬМОЕ СЛОВО ВЫШЕ СТУПЕНИ — `plus`: в файле стоит `plus1 prep. B1`, " +
+        "с цифрой омонима, и модуль берёт его предлогом. Первая редакция " +
+        "опоры написала, что строки нет вовсе, — я искал по началу строки и " +
+        "не увидел цифры. Нашёл методист. " +
+        "`comic` OXFORD 3000 НЕ ЗНАЕТ, А OXFORD 5000 СТАВИТ НА B2 (`comic " +
+        "adj., n. B2`) — объявляется наравне с прочими. " +
+        "ПЯТИ СЛОВ НЕ ЗНАЕТ НИ ОДИН СПИСОК: studies, diploma, beginner, " +
+        "vocabulary, chatroom. А `article` Oxford ставит на A1, то есть это " +
+        "слово с прошлой ступени",
       license: "внутреннее использование, публично не называем",
     },
   ],
@@ -200,27 +236,28 @@ const module: Module = {
         {
           id: "kogda-nachal-i-skolko-dlitsya",
           kind: "table",
-          caption: "Когда начал и сколько длится",
+          caption: "Кончилось и идёт до сих пор",
           zvuchat: [
-            "I started English two years ago.",
+            "I studied English for two years.",
             "I have studied English for two years.",
-            "We came here in May.",
+            "We lived here for four months.",
             "We have lived here for four months.",
           ],
-          head: ["О начале", "О длительности"],
+          head: ["Дело кончилось", "Дело идёт до сих пор"],
           rows: [
-            ["I started English two years ago.", "I have studied English for two years."],
-            ["We came here in May.", "We have lived here for four months."],
+            ["I studied English for two years.", "I have studied English for two years."],
+            ["We lived here for four months.", "We have lived here for four months."],
           ],
         },
         {
           id: "chto-delaet-for",
           kind: "explain",
           text: [
-            "Слева назван день начала, и глагол стоит в прошедшем: started, came.",
-            "Справа дня нет, а есть отрезок времени: два года, четыре месяца.",
+            "Отрезок времени стоит в обоих столбцах: два года, четыре месяца.",
             "Перед отрезком стоит короткое for — «в течение».",
-            "И сама строка говорит: дело идёт до сих пор.",
+            "Слева глагол в прошедшем: studied, lived. Там дело кончилось.",
+            "Справа стоит have и третья форма. Там дело идёт до сих пор.",
+            "Различает их не отрезок, а слово have перед глаголом.",
           ],
         },
         {
@@ -261,24 +298,27 @@ const module: Module = {
           razgovor: true,
           zvuchat: [
             "I have studied English for two years.",
-            "And your vocabulary is good! I haven't had such a teacher before.",
+            "And your vocabulary is good! I haven't had such a good teacher before.",
             "I have used this software for a year, and it helps.",
           ],
           text:
-            "I have studied English for two years.\nAnd your vocabulary is good! I haven't had such a teacher before.\nI have used this software for a year, and it helps.",
+            "I have studied English for two years.\nAnd your vocabulary is good! I haven't had such a good teacher before.\nI have used this software for a year, and it helps.",
           explain:
-            "В первой и третьей строках стоит have и третья форма, а за ними — " +
-            "отрезок времени с for. Обе строки говорят: дело идёт и сейчас.",
+            "В первой и третьей строках после have и третьей формы стоит ещё и " +
+            "отрезок времени с for — обе говорят, что дело идёт и сейчас. Во " +
+            "второй строке have тоже есть, но отрезка нет: она о том, чего в " +
+            "жизни не случалось.",
         },
         {
           id: "slovar-kursa",
           kind: "vocab",
           caption: "Слова урока",
           items: [
+            { term: "photography", translation: "фотография как занятие", example: "I have studied photography for a year.", hint: "/fəˈtɒgrəfi/" },
             { term: "vocabulary", translation: "словарный запас", example: "And your vocabulary is good!", hint: "/vəʊˈkæbjʊləri/" },
             { term: "software", translation: "программа для компьютера", example: "I have used this software for a year.", hint: "/ˈsɒftweə/" },
             { term: "studies", translation: "учёба, занятия", example: "My studies take four hours a week.", hint: "/ˈstʌdɪz/" },
-            { term: "such", translation: "такой", example: "I haven't had such a teacher before.", hint: "/sʌtʃ/" },
+            { term: "such", translation: "такой", example: "I haven't had such a good teacher before.", hint: "/sʌtʃ/" },
           ],
         },
 
@@ -317,16 +357,16 @@ const module: Module = {
           parts: [
             { text: "I have studied English for two years.", selectable: true, correct: true },
             { text: " · " },
-            { text: "I started English two years ago.", selectable: true },
+            { text: "I studied English two years ago.", selectable: true },
             { text: " · " },
             { text: "We have lived here for four months.", selectable: true, correct: true },
             { text: " · " },
-            { text: "We came here in May.", selectable: true },
+            { text: "We lived here for four months.", selectable: true },
           ],
-          hint: "Ищи have, третью форму и отрезок времени с for.",
+          hint: "Ищи have перед третьей формой: отрезок есть и там, и там.",
           why:
             "Первая и третья. Во второй и четвёртой глагол стоит в прошедшем, и " +
-            "речь только о начале.",
+            "дело уже кончилось.",
         },
         {
           id: "z4-sobrat-o-zhilye",
@@ -345,7 +385,11 @@ const module: Module = {
           prompt:
             "Скажи по-английски, что пользуешься этой программой уже год. Начни с I have.",
           answer: "I have used this software for a year.",
-          accept: ["I have used this software for a year"],
+          accept: [
+            "I have used this software for a year",
+            "I have used this software for one year.",
+            "I have used this software for one year",
+          ],
           hint: "После третьей формы идёт короткое слово и отрезок времени.",
           why:
             "I have used this software for a year. Слово for стоит перед " +
@@ -402,9 +446,9 @@ const module: Module = {
           kind: "note",
           tone: "mistake",
           text:
-            "«How long do you study English?» о деле, которое идёт с прошлого, — " +
-            "так не спрашивают.\n\nПосле how long выходит have: How long have " +
-            "you studied English?",
+            "«How long do you study English?» — так не спрашивают о деле, " +
+            "которое идёт с прошлого до сих пор.\n\nПосле how long выходит " +
+            "have: How long have you studied English?",
         },
         {
           id: "razgovor-o-zanyatiyah",
@@ -414,10 +458,10 @@ const module: Module = {
           zvuchat: [
             "How long have you studied photography?",
             "For a year. I have taken photos of the moon!",
-            "I have read comics for six years, but that isn't a study!",
+            "I have read comics for six years, but that isn't studying!",
           ],
           text:
-            "How long have you studied photography?\nFor a year. I have taken photos of the moon!\nI have read comics for six years, but that isn't a study!",
+            "How long have you studied photography?\nFor a year. I have taken photos of the moon!\nI have read comics for six years, but that isn't studying!",
           explain:
             "В вопросе how long стоит первым, а отрезок времени не называют. " +
             "Короткий ответ For a year повторяет только отрезок, без глагола, " +
@@ -428,10 +472,10 @@ const module: Module = {
           kind: "vocab",
           caption: "Слова урока",
           items: [
-            { term: "photography", translation: "фотография как занятие", example: "How long have you studied photography?", hint: "/fəˈtɒgrəfi/" },
             { term: "moon", translation: "луна", example: "I have taken photos of the moon for a year.", hint: "/muːn/" },
+            { term: "chatroom", translation: "чат, комната для разговора", example: "How long have you talked in this chatroom?", hint: "/ˈtʃætruːm/" },
             { term: "comic", translation: "журнал с рисованными историями", example: "I have read comics for six years.", hint: "/ˈkɒmɪk/" },
-            { term: "article", translation: "статья", example: "I have read three articles this week.", hint: "/ˈɑːtɪkl/" },
+            { term: "article", translation: "статья", example: "I haven't read articles for a month.", hint: "/ˈɑːtɪkl/" },
             { term: "length", translation: "длина, продолжительность", example: "The length of the course is two years.", hint: "/leŋθ/" },
           ],
         },
@@ -456,11 +500,11 @@ const module: Module = {
           kind: "gap",
           prompt: "Спрашивают о длительности. Допиши два слова в начало.",
           before: "",
-          after: " have you lived here?",
+          after: " have you used this software?",
           answer: "How long",
           hint: "Эти два слова вместе значат «как долго».",
           why:
-            "How long have you lived here? Одно слово How спросило бы о " +
+            "How long have you used this software? Одно слово How спросило бы о " +
             "способе, а не о времени.",
         },
         {
@@ -477,13 +521,13 @@ const module: Module = {
         {
           id: "z4-sobrat-vopros-o-komiksah",
           kind: "order",
-          prompt: "Собери вопрос: как долго ты читаешь комиксы?",
-          items: ["read comics?", "How long", "have you"],
+          prompt: "Собери вопрос: как долго идёт этот разговор в чате?",
+          items: ["in this chatroom?", "How long", "have you talked"],
           answer: [1, 2, 0],
           hint: "Начни с двух слов о длительности.",
           why:
-            "How long have you read comics? Отрезок времени в вопросе не " +
-            "называют: о нём и спрашивают.",
+            "How long have you talked in this chatroom? Отрезок времени в " +
+            "вопросе не называют: о нём и спрашивают.",
         },
         {
           id: "z5-sprosit-o-zhilye",
@@ -560,10 +604,10 @@ const module: Module = {
           zvuchat: [
             "I haven't seen Alim for a long time.",
             "We have talked in a chatroom for two years, and that is all.",
-            "I haven't watched a horror film with him for ages!",
+            "I haven't watched a horror film with him for a year!",
           ],
           text:
-            "I haven't seen Alim for a long time.\nWe have talked in a chatroom for two years, and that is all.\nI haven't watched a horror film with him for ages!",
+            "I haven't seen Alim for a long time.\nWe have talked in a chatroom for two years, and that is all.\nI haven't watched a horror film with him for a year!",
           explain:
             "В первой и третьей строках стоит haven't: дела не случалось всё " +
             "это время. Во второй строке отрицания нет, и там дело идёт до сих " +
@@ -574,10 +618,9 @@ const module: Module = {
           kind: "vocab",
           caption: "Слова урока",
           items: [
-            { term: "chatroom", translation: "чат, комната для разговора", example: "We have talked in a chatroom for two years.", hint: "/ˈtʃætruːm/" },
-            { term: "horror", translation: "ужас; фильм ужасов", example: "I haven't watched a horror film for ages!", hint: "/ˈhɒrə/" },
+            { term: "horror", translation: "(о фильме) ужасов", example: "I haven't watched a horror film for a year!", hint: "/ˈhɒrə/" },
             { term: "click", translation: "нажимать", example: "Click here and open the chatroom.", hint: "/klɪk/" },
-            { term: "ad", translation: "объявление", example: "I have just clicked the ad for the course.", hint: "/æd/" },
+            { term: "ad", translation: "объявление", example: "I have clicked the ad twice.", hint: "/æd/" },
           ],
         },
 
@@ -599,13 +642,13 @@ const module: Module = {
           kind: "choice",
           prompt: "Какое слово стоит перед отрезком времени?",
           options: [
-            { text: "ago — оно ставится после отрезка." },
-            { text: "for — оно стоит перед отрезком.", correct: true },
-            { text: "in — оно ставится перед месяцем." },
+            { text: "ago" },
+            { text: "for", correct: true },
+            { text: "in" },
           ],
           hint: "Сравни two years ago и for two years.",
           why:
-            "For. Слово ago идёт после отрезка и говорит о дне начала, а in " +
+            "For. Слово ago идёт ПОСЛЕ отрезка и говорит о дне начала, а in " +
             "ставят перед месяцем.",
         },
         {
@@ -617,7 +660,7 @@ const module: Module = {
             { text: " · " },
             { text: "We have talked in a chatroom for two years.", selectable: true },
             { text: " · " },
-            { text: "I haven't read a comic for ages.", selectable: true, correct: true },
+            { text: "I haven't read a comic for a month.", selectable: true, correct: true },
             { text: " · " },
             { text: "I have used this software for a year.", selectable: true },
           ],
@@ -641,7 +684,7 @@ const module: Module = {
           id: "z5-napisat-o-chatroom",
           kind: "short",
           prompt:
-            "Скажи по-английски, что давно не заходил в чат. Начни с I haven't.",
+            "Скажи по-английски, что давно не был в чате. Начни с I haven't.",
           answer: "I haven't been in a chatroom for a long time.",
           accept: [
             "I haven't been in a chatroom for a long time",
@@ -683,7 +726,7 @@ const module: Module = {
             "I was a beginner, and now I am in the advanced group.",
             "My studies take four hours a week, plus the software at home.",
             "The length of the course is three years, so I have one year more.",
-            "I haven't written articles in English for a long time, but I will.",
+            "I haven't written articles in English for a long time.",
             "Click the ad on our page and read about the diploma!",
           ],
           glossary: [
@@ -918,17 +961,17 @@ const module: Module = {
           kind: "table",
           caption: "Что должно быть в рассказе",
           zvuchat: [
-            "I have studied photography for a year.",
-            "I was a beginner, and now I am in the advanced group.",
-            "My studies take four hours a week.",
-            "I haven't written articles for a long time, but I will.",
+            "I have played basketball for three years.",
+            "I was a beginner, but now I play in the school team.",
+            "We train two hours a week.",
+            "I haven't been to the pool for a month.",
           ],
           head: ["Что сказано", "Пример строки"],
           rows: [
-            ["чем занят и сколько времени", "I have studied photography for a year."],
-            ["с чего начал и где сейчас", "I was a beginner, and now I am in the advanced group."],
-            ["сколько это берёт времени", "My studies take four hours a week."],
-            ["чего давно не делал", "I haven't written articles for a long time, but I will."],
+            ["чем занят и сколько времени", "I have played basketball for three years."],
+            ["с чего начал и где сейчас", "I was a beginner, but now I play in the school team."],
+            ["сколько это берёт времени", "We train two hours a week."],
+            ["чего давно не делал", "I haven't been to the pool for a month."],
           ],
         },
         {
@@ -936,7 +979,7 @@ const module: Module = {
           kind: "explain",
           text: [
             "Первая строка называет занятие и срок — там have, третья форма и for.",
-            "Вторая говорит о начале и о сегодняшнем дне: was и am.",
+            "Вторая говорит о начале и о сегодняшнем дне: was и обычное настоящее.",
             "Третья считает время в неделю: это уже обычное настоящее.",
             "Четвёртая называет то, чего давно не было, — с haven't и for.",
             "Строки связывают словами and, but и because: без них выйдет список.",
@@ -947,17 +990,17 @@ const module: Module = {
           kind: "example",
           caption: "Рассказ Данияра",
           zvuchat: [
-            "I have studied photography for a year, and I still like it.",
-            "I was a beginner, but now I am in the advanced group.",
-            "My studies take three hours a week, plus the software at home.",
-            "I haven't read a comic for a long time, because photography takes my evenings.",
+            "I have played basketball for three years, and I still like it.",
+            "I was a beginner, but now I play in the school team.",
+            "We train two hours a week, plus a game on Saturday.",
+            "I haven't been to the pool for a month, because basketball takes my evenings.",
           ],
           text:
-            "I have studied photography for a year, and I still like it.\nI was a beginner, but now I am in the advanced group.\nMy studies take three hours a week, plus the software at home.\nI haven't read a comic for a long time, because photography takes my evenings.",
+            "I have played basketball for three years, and I still like it.\nI was a beginner, but now I play in the school team.\nWe train two hours a week, plus a game on Saturday.\nI haven't been to the pool for a month, because basketball takes my evenings.",
           explain:
             "Первая и четвёртая строки стоят на have и for: одна о том, что " +
             "длится, другая о том, чего давно не было. Вторая и третья говорят " +
-            "о начале и о сегодняшнем распорядке.",
+            "о начале и о сегодняшнем распорядке, и там have не нужно.",
         },
 
         // ---- задания ----
@@ -979,47 +1022,47 @@ const module: Module = {
         {
           id: "z2-dopisat-for-v-rasskaz",
           kind: "gap",
-          prompt: "Дальше стоит отрезок времени. Допиши короткое слово.",
-          before: "I have studied photography ",
-          after: " a year.",
-          answer: "for",
-          hint: "Перед отрезком времени стоит короткое слово.",
+          prompt: "Речь о деле, которое идёт до сих пор. Допиши слово перед глаголом.",
+          before: "I ",
+          after: " played basketball for three years.",
+          answer: "have",
+          hint: "Отрезок времени уже стоит; не хватает слова, которое говорит «и сейчас».",
           why:
-            "I have studied photography for a year. Слово ago идёт после " +
-            "отрезка и говорит о дне начала.",
+            "I have played basketball for three years. Без have строка сказала " +
+            "бы, что дело кончилось.",
         },
         {
           id: "z3-otmetit-stroki-o-sroke",
           kind: "hottext",
           prompt: "Отметь строки, из которых читатель узнаёт срок.",
           parts: [
-            { text: "I have studied photography for a year.", selectable: true, correct: true },
+            { text: "I have played basketball for three years.", selectable: true, correct: true },
             { text: " · " },
-            { text: "I like this course.", selectable: true },
+            { text: "I like this team.", selectable: true },
             { text: " · " },
-            { text: "I haven't read a comic for a long time.", selectable: true, correct: true },
+            { text: "I haven't been to the pool for a month.", selectable: true, correct: true },
             { text: " · " },
-            { text: "The teacher is very good.", selectable: true },
+            { text: "The coach is very good.", selectable: true },
           ],
           hint: "Ищи короткое слово перед отрезком времени.",
           why:
-            "Первая и третья: в них стоит for и отрезок. Про курс и учителя " +
+            "Первая и третья: в них стоит for и отрезок. Про команду и тренера " +
             "сказано без всякого срока.",
         },
         {
           id: "z4-svyazat-stroki-o-zanyatii",
           kind: "short",
           prompt:
-            "Соедини две строки одним словом: I haven't read a comic for a long time. Photography takes my evenings. Запиши получившуюся строку целиком.",
-          answer: "I haven't read a comic for a long time, because photography takes my evenings.",
+            "Соедини две строки одним словом: I haven't been to the pool for a month. Basketball takes my evenings. Запиши получившуюся строку целиком.",
+          answer: "I haven't been to the pool for a month, because basketball takes my evenings.",
           accept: [
-            "I haven't read a comic for a long time, because photography takes my evenings",
-            "I haven't read a comic for a long time because photography takes my evenings.",
-            "I haven't read a comic for a long time because photography takes my evenings",
+            "I haven't been to the pool for a month, because basketball takes my evenings",
+            "I haven't been to the pool for a month because basketball takes my evenings.",
+            "I haven't been to the pool for a month because basketball takes my evenings",
           ],
           hint: "Вторая строка называет причину первой.",
           why:
-            "I haven't read a comic for a long time, because photography takes " +
+            "I haven't been to the pool for a month, because basketball takes " +
             "my evenings. Слово because и связывает причину со следствием.",
         },
         {
@@ -1029,7 +1072,7 @@ const module: Module = {
             "Напиши о своём занятии, четырьмя строками. Назови дело и срок, начало и сегодняшний уровень, время в неделю и то, чего давно не делал.",
           minWords: 16,
           sample:
-            "I have studied photography for a year, and I still like it.\nI was a beginner, but now I am in the advanced group.\nMy studies take three hours a week, plus the software at home.\nI haven't read a comic for a long time, because photography takes my evenings.",
+            "I have played basketball for three years, and I still like it.\nI was a beginner, but now I play in the school team.\nWe train two hours a week, plus a game on Saturday.\nI haven't been to the pool for a month, because basketball takes my evenings.",
           checklist: [
             "названо дело и срок: have, третья форма и for",
             "сказано, с чего начал и где сейчас",
@@ -1037,7 +1080,7 @@ const module: Module = {
             "есть строка с haven't и for",
           ],
           hint:
-            "Бери обороты, которые знаешь: I have studied … for, I was a beginner, I haven't … for a long time.",
+            "Бери обороты, которые знаешь: I have played … for, I was a beginner, We train … hours a week, I haven't … for a month.",
           why:
             "Рассказ работает, когда читателю ясно, давно ли идёт занятие и " +
             "далеко ли зашло дело.",
@@ -1080,7 +1123,7 @@ const module: Module = {
         options: [
           { text: "В первой человек здесь больше не живёт.", correct: true },
           { text: "В первой речь о будущем." },
-          { text: "Первая вежливее второй." },
+          { text: "В первой отрезок времени длиннее." },
         ],
         hint: "Спроси у каждой строки: живёт ли человек здесь сейчас?",
         why:
@@ -1094,43 +1137,48 @@ const module: Module = {
         kind: "short",
         outcome: "спросить о длительности: How long have you studied English?",
         prompt:
-          "Ученик написал: How long do you used this software? Запиши вопрос без ошибки.",
+          "Ученик написал: How long do you use this software? Запиши вопрос без ошибки.",
         answer: "How long have you used this software?",
         accept: ["How long have you used this software"],
         hint: "После двух первых слов выходит не do.",
         why:
-          "How long have you used this software? В рассказе стоит you have used, " +
-          "и в вопрос выходит have, а не do.",
+          "How long have you used this software? Запись с do годилась бы " +
+          "вопросу о том, что бывает обычно, а не о длительности.",
       },
       {
-        id: "q-chto-sprashivaet-how-long",
-        kind: "choice",
+        id: "q-napisat-vopros-o-shkole",
+        kind: "short",
         outcome: "спросить о длительности: How long have you studied English?",
-        prompt: "О чём спрашивают словами how long?",
-        options: [
-          { text: "О том, когда дело началось." },
-          { text: "О том, сколько времени дело длится.", correct: true },
-          { text: "О том, сколько раз в неделю." },
+        prompt:
+          "Спроси по-английски, сколько времени человек работает в этой школе. Начни с How long.",
+        answer: "How long have you worked in this school?",
+        accept: [
+          "How long have you worked in this school",
+          "How long have you worked at this school?",
+          "How long have you worked at this school",
         ],
-        hint: "Ответ на такой вопрос начинается словом For.",
+        hint: "Глагол work берёт -ed, как большинство.",
         why:
-          "О том, сколько времени длится. Про начало спросили бы When did you " +
-          "start, а про число раз — How often.",
+          "How long have you worked in this school? Ни одного числа в вопросе " +
+          "нет: число и есть то, чего ждут в ответ.",
       },
 
       // ---- итог 3 ----
       {
-        id: "q-ispravit-ago-vmesto-for",
-        kind: "short",
+        id: "q-vybrat-for-ili-ago",
+        kind: "choice",
         outcome: "сказать, чего давно не было: I haven't seen him for a long time",
         prompt:
-          "Ученик написал: I haven't seen Alim a long time ago. Запиши строку без ошибки.",
-        answer: "I haven't seen Alim for a long time.",
-        accept: ["I haven't seen Alim for a long time"],
-        hint: "Перед отрезком времени стоит другое короткое слово.",
+          "В какой строке короткое слово перед отрезком времени поставлено верно?",
+        options: [
+          { text: "I haven't used this software a month ago." },
+          { text: "I haven't used this software for a month.", correct: true },
+          { text: "I haven't used this software in a month ago." },
+        ],
+        hint: "Слово ago живёт при прошедшем времени и стоит ПОСЛЕ отрезка.",
         why:
-          "I haven't seen Alim for a long time. Запись с ago годилась бы " +
-          "прошедшему времени: I saw Alim a long time ago.",
+          "I haven't used this software for a month. Запись с ago годилась бы " +
+          "другой строке: I used this software a month ago.",
       },
       {
         id: "q-chto-znachit-havent-for",
@@ -1155,12 +1203,12 @@ const module: Module = {
         kind: "short",
         outcome: "находить в рассказе о курсе, кто чем занимается и сколько времени",
         prompt:
-          "В письме строка: The length of the course is three years, so I have one year more. Сколько лет человек уже отучился? Ответь числом.",
-        answer: "2",
-        accept: ["two", "два"],
-        hint: "Из всей длины курса вычти то, что осталось.",
+          "В письме строка: The length of the course is three years. Сколько лет длится курс? Ответь числом.",
+        answer: "3",
+        accept: ["three", "три"],
+        hint: "Ответ стоит в самой строке, считать ничего не надо.",
         why:
-          "Два. Курс длится три года, а впереди ещё год — значит позади два.",
+          "Три. Слово length и называет продолжительность курса.",
       },
       {
         id: "q-najti-uroven-v-rasskaze",
@@ -1210,7 +1258,7 @@ const module: Module = {
         kind: "choice",
         outcome: "проверять рассказ о занятии: названо дело, срок и уровень",
         prompt:
-          "Рассказ: I have studied English for a year. My studies take four hours a week. Какой из четырёх нужных строк здесь нет?",
+          "Рассказ: I have studied English for a year. My studies take four hours a week. I haven't written articles for a long time. Какой из четырёх нужных строк здесь нет?",
         options: [
           { text: "Той, что говорит, с чего начал и где сейчас.", correct: true },
           { text: "Той, что называет дело и срок." },
@@ -1218,8 +1266,9 @@ const module: Module = {
         ],
         hint: "Пройди по четырём нужным строкам и вычёркивай найденное.",
         why:
-          "Той, что говорит о начале и сегодняшнем уровне. Дело, срок и часы в " +
-          "неделю названы, а продвинулся человек или нет — не сказано.",
+          "Той, что говорит о начале и сегодняшнем уровне. Дело со сроком, часы " +
+          "в неделю и то, чего давно не было, названы — а с чего человек начал и " +
+          "где он теперь, не сказано.",
       },
       {
         id: "q-dopisat-stroku-ob-urovne",
@@ -1233,7 +1282,7 @@ const module: Module = {
           "I was a beginner and now I read articles.",
           "I was a beginner and now I read articles",
         ],
-        hint: "О прошлом говорят через was, о сегодняшнем дне — через am.",
+        hint: "О прошлом говорят через was, о сегодняшнем дне — обычным настоящим.",
         why:
           "I was a beginner, and now I read articles. Оборот с have тут не " +
           "нужен: речь о двух точках, а не о длительности.",
@@ -1245,8 +1294,8 @@ const module: Module = {
         prompt:
           "Отчего в рассказе о занятии рядом стоят have studied, was и take?",
         options: [
-          { text: "Чтобы рассказ не был однообразным." },
-          { text: "Так короче писать." },
+          { text: "Все три говорят о сроке, но разными словами." },
+          { text: "Все три говорят о сегодняшнем дне." },
           { text: "Они говорят о разном: о сроке, о начале и о распорядке.", correct: true },
         ],
         hint: "Спроси у каждой строки, о чём она.",
