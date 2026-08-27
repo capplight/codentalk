@@ -521,7 +521,7 @@ DETERMINER»), см. разбор модуля 18 выше.
 | 24 | Как долго | называть длительность | Present Perfect с `for`; `How long…?` | 45 |
 | 25 | Надо и не надо | говорить об обязанности и её отсутствии | `have to`, `must`, `mustn't`, `don't have to` | 55 |
 | 26 | Стоит и не стоит | советовать | `should`, `shouldn't`, `Should I…?` | 15 |
-| 27 | Раньше мог | говорить об умении и разрешении в прошлом | `could`, `couldn't`; `was able to` | 45 |
+| 27 | Раньше мог | говорить об умении в прошлом | `could`, `couldn't`, `Could you…?` об умении | 15 |
 | 28 | Вежливо | просить, предлагать и отказывать так, чтобы не обидеть | `would like`, `would you`, `could you`; краткое `I'd` | 50 |
 | 29 | Если | ставить условие | условные предложения с настоящим и `will`; `if` и `when` | 50 |
 | 30 | Который | описывать человека и вещь придаточным | `who`, `which`, `that`; место придаточного | 50 |
@@ -580,6 +580,90 @@ don't we meet at the square?» и «Почему бы не: Why don't we go ridi
 have written before»), вопрос-переспрос с `shouldn't we`, `should` о вероятном
 («It should be a good day»), `should` о желаемом положении дел («British people
 should eat more vegetables»).
+
+
+**Строка модуля 27 проверена 27 августа 2026, до написания. ИЗ ТРЁХ ОБЕЩАННЫХ
+ВЕЩЕЙ ОДНА СНИМАЕТСЯ ЦЕЛИКОМ, А ГЛАВНАЯ БЕРЁТСЯ ПО МЕРКЕ СТУПЕНИ, А НЕ ПО
+ГРАФЕ.** Это первая строка части, где источники расходятся между собой.
+
+**Что даёт English Grammar Profile.** MODALITY, could — десять граф, и они
+делят предмет строго:
+
+- **A2, «FORM: NEGATIVE»** — «Can use the negative form», примеры «Too bad you
+  **couldn't** come», «I **couldn't** close the window», «…he was ill, so he
+  **could not** go to the game».
+- **A2, «USE: ABILITY»** — и вот здесь оговорка, которую легко проглядеть:
+  «Can use **the negative form** of 'could' to talk about inability». Примеры —
+  «I **couldn't** work without it», «I **couldn't** buy the T-shirt because it
+  was too expensive».
+- **B1, «USE: ABILITY»** — «Can use **the affirmative form** of 'could' to talk
+  about ability», пример «…she **could** hear a man talking».
+- **A2, «FORM: AFFIRMATIVE»** — форма на ступени есть, но оба её примера про
+  другое: «You could come by bus, and we could meet at the bus station», «We
+  could go to the museum near Cibeles». Это предложения, а не умение.
+- **A2, «FORM: QUESTIONS»** — «Could you help me?», «Could we meet on Friday
+  afternoon?». Тоже про другое: это просьбы.
+- **A2, «USE: REQUESTS»** и **A2, «USE: SUGGESTIONS»** (с пометой «a limited
+  range of verbs») — просьбы и предложения.
+- **B1, «USE: PERMISSION»**, **B1, «USE: POSSIBILITY»**, **B1, «USE:
+  SUGGESTIONS»** с расширенным кругом глаголов.
+
+То есть по English Grammar Profile на A2 умение через `could` выражается
+**только отрицанием**. «Я умел» — B1.
+
+**Что даёт руководство A2 Key.** С. 51, Language specifications, перечень
+Modals — строка целиком: «can (ability; requests; permission) **could (ability;
+polite requests)** would (polite requests)». Никакого ограничения отрицанием
+там нет. И собственный текст экзамена на с. 10 и 13 пишет утвердительно:
+«Alice's daughter Demi started learning ballet **as soon as she could walk**».
+
+**Решение: берём утвердительное `could` об умении.** Это та же мерка, которой
+держатся модули 18–20 и 26: **слово стоит в требованиях экзамена A2 Key —
+значит входит в ступень, даже если English Grammar Profile ставит его выше.**
+Здесь подкрепление даже сильнее обычного: не строка словника, а перечень
+Language specifications — тот самый, из которого взяты `mustn't (prohibition)`
+для модуля 25 и `should (advice)` для модуля 26.
+
+Мерка объявляется в шапке модуля, как и в прошлые разы, и применяется одинаково
+ко всем: то, чего нет ни у одного из двух источников, не берётся.
+
+**ЧТО ПО ЭТОЙ ЖЕ МЕРКЕ НЕ БЕРЁТСЯ — И ЭТО ПРАВКА СТРОКИ ПРОГРАММЫ.**
+
+1. **Разрешение (`Could I…?`) снято.** English Grammar Profile ставит «USE:
+   PERMISSION» на B1. И руководство A2 Key с ним согласно: в той же строке с.
+   51 разрешение приписано `can`, а у `could` названы только умение и вежливая
+   просьба. Два источника из двух против — значит не берём. Строка программы
+   обещала «умение и разрешение в прошлом»; остаётся умение.
+
+2. **`was able to` снято.** English Grammar Profile, MODALITY, expressions with
+   be, **B1**, «USE: 'BE ABLE TO', PAST» — «Can use 'was able to', 'were able
+   to' to talk about facts in the past». На A2 у этого оборота есть только
+   будущее: «FORM/USE: 'WILL BE ABLE TO'» — и оно в курсе уже работает, в
+   модулях 9 и 23. В перечне Modals руководства `be able to` не назван вовсе.
+   Опять два источника из двух.
+
+**И ТРЕТЬЕ, ЧЕГО НЕТ У ИСТОЧНИКОВ, А ЕСТЬ У КУРСА.** Графа A2 «USE:
+SUGGESTIONS» разрешает `could` для предложений — «We could have dinner after
+that», «you could go to Versailles». Уровню это не противоречит, и соблазн
+взять был. Не берём, и причина не в источнике: **предлагать курс уже учит
+трижды** — `Shall we…?` и `Let's` и `Why don't we…?` в модуле 12, `should` в
+модуле 26. Четвёртый способ того же назначения множит выбор, ничего не
+прибавляя. Ровно так же рассуждала ступень Beginner, отказываясь от `could
+you` при готовом `can you`.
+
+Это проверка по новому правилу — **строка проверяется и по источнику, и по
+курсу**, — и в этот раз она сработала до написания, а не после.
+
+**Граница с модулем 28.** Вежливая просьба `Could you…?` — A2 и по графе «USE:
+REQUESTS», и по руководству, но она отдана модулю 28 «Вежливо», где стоит
+рядом с `would like` и `would you`. Модуль 27 берёт вопросительную форму только
+об умении: «Could you swim when you were five?». Форму вопроса разрешает графа
+A2 «FORM: QUESTIONS» — она о форме и о случае не говорит ничего.
+
+**Урок письма опирается на A2.** Описания Совета Европы, с. 67, шкала Creative
+writing, графа A2: «Can give very short, basic descriptions of events, past
+activities and personal experiences» и «Can tell a simple story». Рассказ о том,
+что умел в детстве, — ровно этот случай.
 
 
 **Строка модуля 25 проверена 25 августа 2026, до написания. Она самая

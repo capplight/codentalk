@@ -25,6 +25,7 @@ import uzheIEshchyoNet from "./uzhe-i-eshchyo-net";
 import kakDolgo from "./kak-dolgo";
 import nadoINeNado from "./nado-i-ne-nado";
 import stoitINeStoit from "./stoit-i-ne-stoit";
+import ransheMog from "./ranshe-mog";
 
 /**
  * Английский · Elementary — ступень до A2.
@@ -52,7 +53,7 @@ const course: Course = {
   level: "до A2",
   tagline: "Для тех, кто говорит о себе в настоящем времени и хочет рассказать о прошлом",
   access: "premium",
-  modules: [etoBylo, vcheraYaRabotal, osobyeFormy, yaNeDelal, sprositOProshlom, chtoProishodilo, pokaIKogda, yaSobirayus, yaSdelayu, uzheDogovorilis, poRaspisaniyu, davayYa, mozhetByt, bolsheIMenshe, samyy, ochenISlishkom, kakEtoDelaetsya, skolkoChego, ktoToIChtoTo, etotTotIDrugoy, svoyISam, yaEtoDelal, uzheIEshchyoNet, kakDolgo, nadoINeNado, stoitINeStoit],
+  modules: [etoBylo, vcheraYaRabotal, osobyeFormy, yaNeDelal, sprositOProshlom, chtoProishodilo, pokaIKogda, yaSobirayus, yaSdelayu, uzheDogovorilis, poRaspisaniyu, davayYa, mozhetByt, bolsheIMenshe, samyy, ochenISlishkom, kakEtoDelaetsya, skolkoChego, ktoToIChtoTo, etotTotIDrugoy, svoyISam, yaEtoDelal, uzheIEshchyoNet, kakDolgo, nadoINeNado, stoitINeStoit, ransheMog],
 };
 
 export default course;
