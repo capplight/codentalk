@@ -8,9 +8,16 @@ import type { Module } from "@/lib/content/types";
  * `don't have to`. Строка проверена 25 августа 2026, до написания; разбор с
  * цитатами — там же.
  *
- * ИМЯ ГЛАВНОЙ ВЕЩИ — «МОДАЛЬНЫЙ ГЛАГОЛ», и оно уже введено: модуль 13 «Может
- * быть» дал его при `may` и `might`. Здесь оно только повторяется в строке с
- * примером, как имя знакомой вещи.
+ * ИМЕНИ КЛАССА У `MUST` И `HAVE TO` МОДУЛЬ НЕ ДАЁТ, И ЭТО РЕШЕНИЕ.
+ *
+ * Первая редакция шапки писала, что термин «модальный глагол» уже введён в
+ * модуле 13 при `may` и `might`. ЭТО НЕВЕРНО: поиск по видимому тексту
+ * всего курса даёт слово «модальный» ровно один раз — в этом самом модуле,
+ * в строке, которая на модуль 13 и ссылалась. Нашёл методист.
+ *
+ * Ссылка снята. Вводить термин здесь незачем: модуль учит двум оборотам и
+ * их различию, а имя класса ученику ничего не добавит. Правило курса
+ * прямое — либо строка с примером здесь же, либо слова нет.
  *
  * СТРОКА ЭТОГО МОДУЛЯ — САМАЯ ПОДКРЕПЛЁННАЯ ИЗ ЧЕТЫРЁХ ПОСЛЕДНИХ.
  *
@@ -45,17 +52,22 @@ import type { Module } from "@/lib/content/types";
  * - `need` в значении необходимости — руководство его называет, но графы A2 у
  *   него нет; оставлено следующей ступени.
  *
- * СЛОВАРЬ МОДУЛЯ — ДЕВЯТЬ КАРТОЧЕК, И ЗДЕСЬ ЗАПАС СТУПЕНИ КОНЧИЛСЯ СОВСЕМ.
+ * СЛОВАРЬ МОДУЛЯ — ОДИННАДЦАТЬ КАРТОЧЕК, И ЗАПАС СТУПЕНИ ПОЧТИ КОНЧИЛСЯ.
  *
  * Это третий модуль подряд, где норма в тридцать карточек не берётся: 20 в
  * модуле 23, 17 в модуле 24, 9 здесь. Но в этом модуле впервые не берётся и
  * ВТОРАЯ половина нормы — пятнадцать НОВЫХ для ступени слов: новых тут семь,
  * потому что `passport` и `machine` Oxford помечает A1.
  *
- * На теме правил из остатка ступени нашлось ровно девять слов, которые в
+ * На теме правил из остатка ступени нашлось одиннадцать слов, которые в
  * модуле работают. Остальные пришлось бы вписывать силой — а это и есть
  * мёртвые карточки, которые ловит проверка и запрещает уточнение владельца
  * от 21 августа.
+ *
+ * ПЕРВАЯ РЕДАКЦИЯ ОСТАНОВИЛАСЬ НА ДЕВЯТИ И НАПИСАЛА «запас кончился
+ * совсем». Методист показал, что это сказано на шаг раньше срока: из
+ * остатка брались ещё `dive` («You mustn't dive here» — самая известная
+ * табличка бассейна) и `against` («It is against the rules»). Оба взяты.
  *
  * **ЭТО МЕСТО, ГДЕ РЕШЕНИЕ ВЛАДЕЛЬЦА ПЕРЕСТАЛО ИСПОЛНЯТЬСЯ, И ДАЛЬШЕ БУДЕТ
  * ТОЛЬКО ХУЖЕ.** До двадцатого модуля слов хватало. Вопрос записан в
@@ -68,12 +80,16 @@ import type { Module } from "@/lib/content/types";
  * это слово прошлой ступени, и в текстах оно употребляется без карточки — по
  * тому же основанию, по которому курс не карточит `the` и `and`.
  *
- * ПЯТЬ СЛОВ ВЫШЕ СТУПЕНИ: `set`, `indoor`, `outdoor` — B1; `licence` и
- * `pupil` — B2. Все пять стоят в словнике A2 Key. Проверено ПОСТРОЧНО по
+ * ПЯТЬ СЛОВ ВЫШЕ СТУПЕНИ: `set` — B1; `licence`, `pupil`, `id`, `kit` — B2.
+ * Все пять стоят в словнике A2 Key. Проверено ПОСТРОЧНО по
  * `oxford-3000` и `oxford-5000`, а не по ответу сверки: она сравнивает основы
  * и в модулях 23 и 24 из-за этого ошиблась дважды в обе стороны.
  *
- * ДВУХ СЛОВ НЕ ЗНАЕТ НИ ОДИН СПИСОК: `id`, `kit`. Оба стоят в словнике.
+ * ОСТОРОЖНО: первая редакция шапки писала, что `id` и `kit` не знает ни один
+ * список. Это неверно — оба стоят в `oxford-5000` на B2. Сверка их не нашла
+ * потому, что смотрит только `oxford-3000`, и её сведения об этом прямо
+ * предупреждают: «Это НЕ значит, что их там нет… Проверь глазами». Нашёл
+ * методист. Это третья ошибка того же рода за три модуля.
  */
 const module: Module = {
   slug: "nado-i-ne-nado",
@@ -82,7 +98,7 @@ const module: Module = {
   outcomes: [
     "сказать, что делать обязан: I have to wear a uniform",
     "сказать о чужой обязанности: He has to show his passport",
-    "сказать, что делать нельзя: You mustn't touch the machine",
+    "сказать, что делать нельзя: You mustn't use the machine",
     "сказать, что делать не обязан: You don't have to bring a kit",
     "находить в правилах, что обязательно, а что нет",
     "слышать в разговоре, что нельзя и что необязательно",
@@ -157,8 +173,11 @@ const module: Module = {
     {
       ref: "Cambridge English, A2 Key vocabulary list (август 2025)",
       section:
-        "Девять карточек модуля взяты из словника ступени; новых для ступени " +
-        "семь, а `passport` и `machine` Oxford помечает A1. Почему девять, а не " +
+        "Одиннадцать карточек модуля взяты из словника ступени; новых для " +
+        "ступени девять, а `passport` и `machine` Oxford помечает A1. " +
+        "Первая редакция взяла девять и объявила запас кончившимся — методист " +
+        "показал, что из остатка брались ещё `dive` и `against`. Почему " +
+        "одиннадцать, а не " +
         "тридцать — разобрано в шапке модуля и в программе: запас ступени " +
         "выбран совсем, и набирать норму словами, которые в модуле не " +
         "работают, запрещает уточнение владельца от 21 августа. Здесь впервые " +
@@ -167,10 +186,12 @@ const module: Module = {
         "(n)` — набор вещей для занятия, британское спортивное значение; " +
         "`licence (n)` — права, разрешение; `set (n)` — набор; `pupil (n)` — " +
         "ученик школы. " +
-        "ПЯТЬ СЛОВ ВЫШЕ СТУПЕНИ, И ЭТО ОБЪЯВЛЯЕТСЯ НАРОЧНО: set, indoor, " +
-        "outdoor — B1; licence и pupil — B2. Проверено ПОСТРОЧНО по " +
-        "`oxford-3000` и `oxford-5000`. " +
-        "ДВУХ СЛОВ НЕ ЗНАЕТ НИ ОДИН СПИСОК: id, kit. " +
+        "ПЯТЬ СЛОВ ВЫШЕ СТУПЕНИ, И ЭТО ОБЪЯВЛЯЕТСЯ НАРОЧНО: set — B1; " +
+        "licence, pupil, id, kit — B2. Проверено ПОСТРОЧНО. " +
+        "ПЕРВАЯ РЕДАКЦИЯ ПИСАЛА, ЧТО `id` И `kit` НЕ ЗНАЕТ НИ ОДИН СПИСОК: это " +
+        "неверно, оба стоят в `oxford-5000` (`ID n. B2`, `kit n. B2`). Сверка " +
+        "их не нашла потому, что смотрит только `oxford-3000`, и её сведения " +
+        "об этом прямо предупреждают. Нашёл методист. " +
         "СЛОВА `rule` В СЛОВНИКЕ НЕТ, и карточки у него нет: Oxford помечает " +
         "его A1, то есть это слово прошлой ступени, и в текстах оно " +
         "употребляется без карточки",
@@ -193,7 +214,7 @@ const module: Module = {
           id: "pravila-shkoly",
           kind: "explain",
           text: [
-            "В школе Данияра есть правила, и их не выбирают.",
+            "В школе есть правила, и их не выбирают.",
             "Форму носить обязательно, телефон на уроке держать нельзя.",
             "Про обязанность по-английски говорят особым оборотом.",
           ],
@@ -255,7 +276,7 @@ const module: Module = {
           items: [
             { term: "kit", translation: "набор вещей для занятия", example: "We have to bring a kit for the pool.", hint: "/kɪt/" },
             { term: "id", translation: "удостоверение", example: "Do you have to show your ID at the door?", hint: "/ˌaɪˈdiː/" },
-            { term: "pupil", translation: "ученик школы", example: "Pupils have to wear a uniform.", hint: "/ˈpjuːpl/" },
+            { term: "pupil", translation: "школьник", example: "Pupils have to wear a uniform.", hint: "/ˈpjuːpl/" },
           ],
         },
 
@@ -384,17 +405,20 @@ const module: Module = {
         {
           id: "must-i-have-to",
           kind: "table",
-          caption: "Два слова об обязанности",
+          caption: "Что меняется, а что нет",
           zvuchat: [
-            "I must show my passport.",
-            "You must show your passport.",
-            "He has to show his passport.",
+            "I must show",
+            "I have to show",
+            "you must show",
+            "you have to show",
+            "he must show",
+            "he has to show",
           ],
-          head: ["О ком", "Как говорят"],
+          head: ["Кто", "must", "have to"],
           rows: [
-            ["о себе", "I must show my passport."],
-            ["о собеседнике", "You must show your passport."],
-            ["о третьем человеке", "He has to show his passport."],
+            ["I", "I must show", "I have to show"],
+            ["you", "you must show", "you have to show"],
+            ["he", "he must show", "he has to show"],
           ],
         },
         {
@@ -402,10 +426,10 @@ const module: Module = {
           kind: "explain",
           text: [
             "Слово must — тоже об обязанности, и оно короче: после него сразу глагол.",
-            "Его берут, когда речь о себе или о собеседнике: I must, you must.",
-            "А о третьем человеке говорят через has to: he has to, she has to.",
-            "Слова must и have to здесь близки, и в этих случаях годится любое.",
-            "Слово must — модальный глагол, как may и might из модуля «Может быть».",
+            "Про себя и про собеседника must и have to близки: I must show и I have to show — оба верны.",
+            "У must есть удобство: оно не меняется вовсе. I must, you must, he must.",
+            "А have to меняется, как обычный глагол: I have to, а he has to.",
+            "В наших уроках о третьем человеке чаще берут has to — так привычнее звучит.",
           ],
         },
         {
@@ -438,7 +462,7 @@ const module: Module = {
           caption: "Слова урока",
           items: [
             { term: "passport", translation: "паспорт", example: "I must show my passport here.", hint: "/ˈpɑːspɔːt/" },
-            { term: "licence", translation: "права, разрешение", example: "The driver has to show a licence too.", hint: "/ˈlaɪsəns/" },
+            { term: "licence", translation: "водительские права", example: "The driver has to show a licence too.", hint: "/ˈlaɪsəns/" },
           ],
         },
 
@@ -461,13 +485,13 @@ const module: Module = {
           prompt: "Как сказать, что твой брат обязан показать удостоверение?",
           options: [
             { text: "He must to show his ID." },
-            { text: "He has to show his ID.", correct: true },
             { text: "He have to show his ID." },
+            { text: "He has to show his ID.", correct: true },
           ],
-          hint: "О третьем человеке говорят через has to.",
+          hint: "Оборот have to меняется, как обычный глагол.",
           why:
-            "He has to show his ID. В первой записи лишнее to, а во второй " +
-            "осталось have вместо has.",
+            "He has to show his ID. В первой записи лишнее to после must, во " +
+            "второй осталось have вместо has.",
         },
         {
           id: "z3-otmetit-vernye-o-obyazannosti",
@@ -516,9 +540,9 @@ const module: Module = {
     // =====================================================================
     {
       slug: "nelzya",
-      title: "Нельзя: You mustn't touch the machine",
+      title: "Нельзя: You mustn't use the machine",
       estimatedMinutes: 14,
-      outcome: "сказать, что делать нельзя: You mustn't touch the machine",
+      outcome: "сказать, что делать нельзя: You mustn't use the machine",
 
       blocks: [
         {
@@ -536,14 +560,14 @@ const module: Module = {
           caption: "Надо и нельзя",
           zvuchat: [
             "You must show your ID.",
-            "You mustn't touch the machine.",
-            "You must wear a kit.",
-            "You mustn't run indoor.",
+            "You mustn't use the machine.",
+            "You must bring a kit.",
+            "You mustn't run indoors.",
           ],
           head: ["Надо", "Нельзя"],
           rows: [
-            ["You must show your ID.", "You mustn't touch the machine."],
-            ["You must wear a kit.", "You mustn't run indoor."],
+            ["You must show your ID.", "You mustn't use the machine."],
+            ["You must bring a kit.", "You mustn't run indoors."],
           ],
         },
         {
@@ -553,7 +577,7 @@ const module: Module = {
             "Слово must берёт not и сливается с ним: mustn't.",
             "После него глагол стоит в обычной форме, и to не ставят.",
             "Оно значит: этого делать нельзя, это запрещено.",
-            "Так пишут таблички и правила, а не просьбы.",
+            "Так пишут таблички и правила.",
           ],
         },
         {
@@ -561,8 +585,8 @@ const module: Module = {
           kind: "note",
           tone: "mistake",
           text:
-            "«You mustn't to touch the machine» — так не говорят.\n\nПосле " +
-            "mustn't слово to не ставят: You mustn't touch the machine.",
+            "«You mustn't to use the machine» — так не говорят.\n\nПосле " +
+            "mustn't слово to не ставят: You mustn't use the machine.",
         },
         {
           id: "razgovor-v-basseyne",
@@ -570,24 +594,25 @@ const module: Module = {
           caption: "Разговор в бассейне",
           razgovor: true,
           zvuchat: [
-            "You mustn't run indoor. It is a rule here.",
+            "You mustn't run indoors, and you mustn't dive here. It is against the rules.",
             "And the machine at the door?",
-            "You mustn't touch it. Only the manager has the set of keys.",
+            "You mustn't use it. Only the manager has the set of keys.",
           ],
           text:
-            "You mustn't run indoor. It is a rule here.\nAnd the machine at the door?\nYou mustn't touch it. Only the manager has the set of keys.",
+            "You mustn't run indoors, and you mustn't dive here. It is against the rules.\nAnd the machine at the door?\nYou mustn't use it. Only the manager has the set of keys.",
           explain:
-            "В обеих строках с mustn't стоит запрет, и глагол после него в " +
-            "обычной форме. Слово rule называет само правило, а set of keys — " +
-            "связку ключей.",
+            "В каждой строке с mustn't стоит запрет, и глагол после него в " +
+            "обычной форме. Оборот against the rules значит «вопреки " +
+            "правилам», а set of keys — набор ключей.",
         },
         {
           id: "slovar-basseyna",
           kind: "vocab",
           caption: "Слова урока",
           items: [
-            { term: "machine", translation: "аппарат, машина", example: "You mustn't touch the machine.", hint: "/məˈʃiːn/" },
-            { term: "indoor", translation: "в помещении", example: "You mustn't run indoor.", hint: "/ˈɪndɔː/" },
+            { term: "machine", translation: "аппарат, машина", example: "You mustn't use the machine.", hint: "/məˈʃiːn/" },
+            { term: "dive", translation: "нырять", example: "You mustn't dive here.", hint: "/daɪv/" },
+            { term: "against", translation: "против; вопреки", example: "It is against the rules.", hint: "/əˈgenst/" },
             { term: "set", translation: "набор", example: "Only the manager has the set of keys.", hint: "/set/" },
           ],
         },
@@ -596,13 +621,13 @@ const module: Module = {
         {
           id: "z1-dopisat-mustnt",
           kind: "gap",
-          prompt: "Трогать аппарат запрещено. Допиши слово.",
+          prompt: "Пользоваться аппаратом запрещено. Допиши слово.",
           before: "You ",
-          after: " touch the machine.",
+          after: " use the machine.",
           answer: "mustn't",
           hint: "Слово must берёт not и сливается с ним.",
           why:
-            "You mustn't touch the machine. Слово don't сюда не встанет: при " +
+            "You mustn't use the machine. Слово don't сюда не встанет: при " +
             "must его не бывает.",
         },
         {
@@ -610,13 +635,13 @@ const module: Module = {
           kind: "choice",
           prompt: "Бегать в помещении запрещено. Как это написать на табличке?",
           options: [
-            { text: "You mustn't to run indoor." },
-            { text: "You don't must run indoor." },
-            { text: "You mustn't run indoor.", correct: true },
+            { text: "You mustn't to run indoors." },
+            { text: "You don't must run indoors." },
+            { text: "You mustn't run indoors.", correct: true },
           ],
           hint: "После mustn't слово to не ставят, и don't при must не бывает.",
           why:
-            "You mustn't run indoor. В первой записи лишнее to, во второй " +
+            "You mustn't run indoors. В первой записи лишнее to, во второй " +
             "лишнее don't.",
         },
         {
@@ -624,11 +649,11 @@ const module: Module = {
           kind: "hottext",
           prompt: "Отметь строки, где сказано о запрете.",
           parts: [
-            { text: "You mustn't touch the machine.", selectable: true, correct: true },
+            { text: "You mustn't use the machine.", selectable: true, correct: true },
             { text: " · " },
             { text: "You must show your ID.", selectable: true },
             { text: " · " },
-            { text: "You mustn't run indoor.", selectable: true, correct: true },
+            { text: "You mustn't run indoors.", selectable: true, correct: true },
             { text: " · " },
             { text: "You have to bring a kit.", selectable: true },
           ],
@@ -640,24 +665,24 @@ const module: Module = {
         {
           id: "z4-sobrat-zapret",
           kind: "order",
-          prompt: "Собери табличку: трогать ключи нельзя.",
-          items: ["touch the keys.", "You", "mustn't"],
+          prompt: "Собери табличку: брать ключи нельзя.",
+          items: ["take the keys.", "You", "mustn't"],
           answer: [1, 2, 0],
           hint: "Глагол идёт сразу после слова о запрете, без to.",
           why:
-            "You mustn't touch the keys. Слово to после mustn't не ставят.",
+            "You mustn't take the keys. Слово to после mustn't не ставят.",
         },
         {
           id: "z5-napisat-zapret",
           kind: "short",
           prompt:
             "Напиши по-английски правило: в помещении бегать нельзя. Начни с You.",
-          answer: "You mustn't run indoor.",
-          accept: ["You mustn't run indoor", "You must not run indoor."],
+          answer: "You mustn't run indoors.",
+          accept: ["You mustn't run indoors", "You must not run indoors."],
           hint: "Слово о запрете стоит сразу после того, к кому обращаются.",
           why:
-            "You mustn't run indoor. Годится и полная запись You must not run " +
-            "indoor: на табличках пишут и так.",
+            "You mustn't run indoors. Годится и полная запись You must not run " +
+            "indoors: на табличках пишут и так.",
         },
       ],
     },
@@ -687,13 +712,13 @@ const module: Module = {
           zvuchat: [
             "You mustn't bring a kit.",
             "You don't have to bring a kit.",
-            "You mustn't touch the machine.",
-            "You don't have to touch the machine.",
+            "You mustn't use the machine.",
+            "You don't have to use the machine.",
           ],
           head: ["Нельзя: запрещено", "Необязательно: как хочешь"],
           rows: [
             ["You mustn't bring a kit.", "You don't have to bring a kit."],
-            ["You mustn't touch the machine.", "You don't have to touch the machine."],
+            ["You mustn't use the machine.", "You don't have to use the machine."],
           ],
         },
         {
@@ -703,8 +728,8 @@ const module: Module = {
             "Слева запрет: принесёшь набор — нарушишь правило.",
             "Справа свобода: набор можно принести, а можно не приносить.",
             "По-русски обе строки часто переводят одинаково, и это сбивает.",
-            "Проверка простая: спроси, накажут ли за это.",
-            "Накажут — mustn't. Не накажут, просто не нужно — don't have to.",
+            "Спроси себя: этого делать НЕЛЬЗЯ или просто НЕ НУЖНО?",
+            "Нельзя — mustn't. Не нужно, а хочешь — делай — don't have to.",
           ],
         },
         {
@@ -733,14 +758,6 @@ const module: Module = {
             "Первая строка о свободе: набор дадут, приносить не нужно. Третья о " +
             "правиле: удостоверение показать обязательно.",
         },
-        {
-          id: "slovar-poezdki-po-pravilam",
-          kind: "vocab",
-          caption: "Слова урока",
-          items: [
-            { term: "outdoor", translation: "на улице, под открытым небом", example: "The outdoor pool is closed today.", hint: "/aʊtˈdɔː/" },
-          ],
-        },
 
         // ---- задания ----
         {
@@ -765,7 +782,7 @@ const module: Module = {
             { text: "You don't have to show your ID.", correct: true },
             { text: "You don't must show your ID." },
           ],
-          hint: "Спроси, накажут ли за это.",
+          hint: "Спроси себя: это нельзя или просто не нужно?",
           why:
             "You don't have to show your ID. Запись с mustn't сказала бы, что " +
             "показывать запрещено, а третья построена неверно.",
@@ -777,13 +794,13 @@ const module: Module = {
           parts: [
             { text: "You don't have to bring a kit.", selectable: true, correct: true },
             { text: " · " },
-            { text: "You mustn't touch the machine.", selectable: true },
+            { text: "You mustn't use the machine.", selectable: true },
             { text: " · " },
             { text: "You don't have to come early.", selectable: true, correct: true },
             { text: " · " },
-            { text: "You mustn't run indoor.", selectable: true },
+            { text: "You mustn't run indoors.", selectable: true },
           ],
-          hint: "Спроси у каждой строки: накажут ли за это?",
+          hint: "Спроси у каждой строки: это нельзя или просто не нужно?",
           why:
             "Первая и третья. Во второй и четвёртой стоит mustn't, а это " +
             "запрет.",
@@ -809,7 +826,7 @@ const module: Module = {
             "You must not go to the outdoor pool.",
             "You must not go to the outdoor pool",
           ],
-          hint: "Это запрет, а не свобода: за нарушение накажут.",
+          hint: "Это нельзя, а не «можно и не делать».",
           why:
             "You mustn't go to the outdoor pool. Запись don't have to сказала " +
             "бы, что ходить просто необязательно.",
@@ -842,8 +859,8 @@ const module: Module = {
           body: [
             "Every pupil must show an ID at the door.",
             "You have to wear a swimming kit in the water.",
-            "You mustn't run indoor: the floor is wet.",
-            "You mustn't touch the machine near the door.",
+            "You mustn't run indoors: the floor is wet.",
+            "You mustn't use the machine near the door.",
             "You don't have to bring a towel: we give one to everybody.",
             "The outdoor pool is closed, so please use the indoor pool.",
           ],
@@ -880,13 +897,13 @@ const module: Module = {
           prompt: "Что в бассейне запрещено?",
           options: [
             { text: "Приносить полотенце." },
-            { text: "Бегать в помещении и трогать аппарат.", correct: true },
+            { text: "Бегать в помещении и пользоваться аппаратом.", correct: true },
             { text: "Пользоваться внутренним бассейном." },
           ],
           hint: "Ищи строки со словом mustn't.",
           why:
-            "Бегать и трогать аппарат: You mustn't run indoor, You mustn't " +
-            "touch the machine.",
+            "Бегать и пользоваться аппаратом: You mustn't run indoors, You mustn't " +
+            "use the machine.",
         },
         {
           id: "z3-chego-mozhno-ne-delat",
@@ -930,8 +947,8 @@ const module: Module = {
           ],
           hint: "Сравни don't have to и mustn't.",
           why:
-            "Про полотенце свобода: его дадут. Про аппарат запрет: трогать " +
-            "нельзя.",
+            "Про полотенце свобода: его дадут. Про аппарат запрет: " +
+            "пользоваться нельзя.",
         },
       ],
     },
@@ -962,7 +979,7 @@ const module: Module = {
           skryt: true,
           transcript:
             "Do I have to bring a towel? — No, you don't have to. We give one " +
-            "to everybody. — And the machine at the door? — You mustn't touch " +
+            "to everybody. — And the machine at the door? — You mustn't use " +
             "it. Only the manager has the keys.",
         },
         {
@@ -993,11 +1010,11 @@ const module: Module = {
           id: "z2-chto-nelzya-v-zapisi",
           about: "zapis-o-pravilah",
           kind: "short",
-          prompt: "Послушай. Что трогать нельзя? Ответь одним словом по-английски.",
+          prompt: "Послушай. Чем нельзя пользоваться? Ответь одним словом по-английски.",
           answer: "machine",
           accept: ["Machine", "the machine"],
           hint: "Об этом говорят в третьей и четвёртой репликах.",
-          why: "And the machine at the door? — You mustn't touch it.",
+          why: "And the machine at the door? — You mustn't use it.",
         },
         {
           id: "z3-u-kogo-klyuchi",
@@ -1017,7 +1034,7 @@ const module: Module = {
           parts: [
             { text: "полотенце выдают всем", selectable: true, correct: true },
             { text: " · " },
-            { text: "аппарат трогать нельзя", selectable: true, correct: true },
+            { text: "аппаратом пользоваться нельзя", selectable: true, correct: true },
             { text: " · " },
             { text: "полотенце приносить запрещено", selectable: true },
             { text: " · " },
@@ -1029,19 +1046,16 @@ const module: Module = {
             "запрет; ключи у заведующего.",
         },
         {
-          id: "z5-chto-znachit-dont-have-to-v-zapisi",
+          id: "z5-skolko-zapretov-v-zapisi",
           about: "zapis-o-pravilah",
-          kind: "choice",
-          prompt: "В записи звучит you don't have to. Что это значит?",
-          options: [
-            { text: "Так делать запрещено." },
-            { text: "Так делать необязательно.", correct: true },
-            { text: "Так делать обязательно." },
-          ],
-          hint: "Спроси, накажут ли за это.",
+          kind: "short",
+          prompt: "Послушай. Сколько запретов прозвучало в записи? Ответь числом.",
+          answer: "1",
+          accept: ["one", "один"],
+          hint: "Считай только строки со словом mustn't.",
           why:
-            "Необязательно. Про запрет сказали бы mustn't, про обязанность — " +
-            "must или have to.",
+            "Один: You mustn't use it. Про полотенце сказано you don't have " +
+            "to, а это не запрет.",
         },
       ],
     },
@@ -1071,14 +1085,14 @@ const module: Module = {
           zvuchat: [
             "Every pupil must bring an ID.",
             "You have to wear a kit.",
-            "You mustn't touch the machine.",
+            "You mustn't use the machine.",
             "You don't have to bring a towel.",
           ],
           head: ["Что сказано", "Пример строки"],
           rows: [
             ["кому правила и что обязательно", "Every pupil must bring an ID."],
             ["что ещё обязательно", "You have to wear a kit."],
-            ["чего нельзя", "You mustn't touch the machine."],
+            ["чего нельзя", "You mustn't use the machine."],
             ["что необязательно", "You don't have to bring a towel."],
           ],
         },
@@ -1090,7 +1104,7 @@ const module: Module = {
             "Вторая добавляет ещё одно обязательное — через have to.",
             "Третья называет запрет, и там mustn't.",
             "Четвёртая говорит о свободе, и там don't have to.",
-            "Строки связывают словами and, but и because: без них выйдет список.",
+            "Строки связывают словом because, когда одна объясняет другую.",
           ],
         },
         {
@@ -1101,10 +1115,10 @@ const module: Module = {
             "Every pupil must bring a camera to the club.",
             "You have to come at four, because we start together.",
             "You mustn't use the machine in the dark room.",
-            "You don't have to buy a set of filters: the club has one.",
+            "You don't have to buy a set of keys: the club has one.",
           ],
           text:
-            "Every pupil must bring a camera to the club.\nYou have to come at four, because we start together.\nYou mustn't use the machine in the dark room.\nYou don't have to buy a set of filters: the club has one.",
+            "Every pupil must bring a camera to the club.\nYou have to come at four, because we start together.\nYou mustn't use the machine in the dark room.\nYou don't have to buy a set of keys: the club has one.",
           explain:
             "Первые две строки об обязательном, третья о запрете, четвёртая о " +
             "свободе. Слово because связывает время с причиной.",
@@ -1143,7 +1157,7 @@ const module: Module = {
           kind: "hottext",
           prompt: "Отметь строки, которые говорят о свободе, а не об обязанности.",
           parts: [
-            { text: "You don't have to buy a set of filters.", selectable: true, correct: true },
+            { text: "You don't have to buy a set of keys.", selectable: true, correct: true },
             { text: " · " },
             { text: "You have to come at four.", selectable: true },
             { text: " · " },
@@ -1177,9 +1191,9 @@ const module: Module = {
           kind: "essay",
           prompt:
             "Напиши правила своего клуба, четырьмя строками. Назови, к кому они, два обязательных дела, один запрет и одну свободу.",
-          minWords: 16,
+          minWords: 14,
           sample:
-            "Every pupil must bring a camera to the club.\nYou have to come at four, because we start together.\nYou mustn't use the machine in the dark room.\nYou don't have to buy a set of filters: the club has one.",
+            "Every pupil must bring a camera to the club.\nYou have to come at four, because we start together.\nYou mustn't use the machine in the dark room.\nYou don't have to buy a set of keys: the club has one.",
           checklist: [
             "сказано, к кому правила",
             "есть строка с must или have to",
@@ -1240,16 +1254,20 @@ const module: Module = {
         outcome: "сказать о чужой обязанности: He has to show his passport",
         prompt:
           "Ученик написал: My brother must to show his ID. Запиши строку без ошибки.",
-        answer: "My brother has to show his ID.",
+        answer: "My brother must show his ID.",
         accept: [
+          "My brother must show his ID",
+          "My brother must show his id.",
+          "My brother must show his id",
+          "My brother has to show his ID.",
           "My brother has to show his ID",
           "My brother has to show his id.",
-          "My brother has to show his id",
         ],
-        hint: "О третьем человеке говорят другим оборотом.",
+        hint: "Одно слово в строке лишнее.",
         why:
-          "My brother has to show his ID. После must слово to не ставят вовсе, " +
-          "а о третьем человеке говорят через has to.",
+          "My brother must show his ID. После must слово to не ставят вовсе. " +
+          "Годится и My brother has to show his ID — оба оборота об " +
+          "обязанности.",
       },
       {
         id: "q-napisat-o-sestre",
@@ -1269,20 +1287,20 @@ const module: Module = {
       {
         id: "q-ispravit-mustnt-to",
         kind: "short",
-        outcome: "сказать, что делать нельзя: You mustn't touch the machine",
+        outcome: "сказать, что делать нельзя: You mustn't use the machine",
         prompt:
-          "Ученик написал: You mustn't to run indoor. Запиши строку без ошибки.",
-        answer: "You mustn't run indoor.",
-        accept: ["You mustn't run indoor", "You must not run indoor."],
+          "Ученик написал: You mustn't to run indoors. Запиши строку без ошибки.",
+        answer: "You mustn't run indoors.",
+        accept: ["You mustn't run indoors", "You must not run indoors."],
         hint: "Одно слово в строке лишнее.",
         why:
-          "You mustn't run indoor. После mustn't слово to не ставят.",
+          "You mustn't run indoors. После mustn't слово to не ставят.",
       },
       {
         id: "q-chto-znachit-mustnt",
         kind: "choice",
-        outcome: "сказать, что делать нельзя: You mustn't touch the machine",
-        prompt: "Табличка: You mustn't touch the machine. Что будет, если тронуть?",
+        outcome: "сказать, что делать нельзя: You mustn't use the machine",
+        prompt: "Табличка: You mustn't use the machine. Что будет, если тронуть?",
         options: [
           { text: "Это нарушение правила.", correct: true },
           { text: "Ничего: это просто совет." },
@@ -1305,7 +1323,7 @@ const module: Module = {
           { text: "Первая строже второй по наказанию." },
           { text: "В первой полотенце запрещено, во второй просто не нужно.", correct: true },
         ],
-        hint: "Спроси у каждой строки: накажут ли за полотенце?",
+        hint: "Спроси у каждой строки: полотенце нельзя или просто не нужно?",
         why:
           "В первой запрещено, во второй просто не нужно. По-русски обе строки " +
           "часто переводят одинаково, и это сбивает.",
@@ -1360,12 +1378,12 @@ const module: Module = {
         id: "q-uslyshat-chto-nelzya",
         kind: "short",
         outcome: "слышать в разговоре, что нельзя и что необязательно",
-        zvuk: "You mustn't run indoor, but you don't have to wear a kit in the hall.",
+        zvuk: "You mustn't run indoors, but you don't have to wear a kit in the hall.",
         prompt: "Послушай. Чего делать нельзя? Ответь одним словом по-английски.",
         answer: "run",
         accept: ["Run"],
         hint: "Ответ стоит сразу после слова о запрете.",
-        why: "You mustn't run indoor.",
+        why: "You mustn't run indoors.",
       },
       {
         id: "q-uslyshat-chto-neobyazatelno",
@@ -1390,7 +1408,7 @@ const module: Module = {
         kind: "choice",
         outcome: "проверять правила: сказано, что надо, чего нельзя и что необязательно",
         prompt:
-          "Правила: Every pupil must bring a camera. You have to come at four. You mustn't use the machine. Какой из четырёх нужных строк здесь нет?",
+          "Правила: Every pupil must bring a camera. You have to come at four. You mustn't use the machine. Какая из четырёх нужных строк здесь нет?",
         options: [
           { text: "Той, что говорит о свободе.", correct: true },
           { text: "Той, что называет запрет." },
@@ -1406,12 +1424,12 @@ const module: Module = {
         kind: "short",
         outcome: "проверять правила: сказано, что надо, чего нельзя и что необязательно",
         prompt:
-          "К правилам допиши строку о свободе: набор фильтров покупать необязательно. Начни с You.",
-        answer: "You don't have to buy a set of filters.",
-        accept: ["You don't have to buy a set of filters"],
+          "К правилам допиши строку о свободе: набор ключей покупать необязательно. Начни с You.",
+        answer: "You don't have to buy a set of keys.",
+        accept: ["You don't have to buy a set of keys"],
         hint: "Три слова о свободе стоят перед глаголом.",
         why:
-          "You don't have to buy a set of filters. Слово mustn't сказало бы, " +
+          "You don't have to buy a set of keys. Слово mustn't сказало бы, " +
           "что покупать запрещено.",
       },
       {
@@ -1419,17 +1437,17 @@ const module: Module = {
         kind: "short",
         outcome: "проверять правила: сказано, что надо, чего нельзя и что необязательно",
         prompt:
-          "К правилам допиши строку о запрете: трогать аппарат нельзя. Начни с You.",
-        answer: "You mustn't touch the machine.",
+          "К правилам допиши строку о запрете: пользоваться аппаратом нельзя. Начни с You.",
+        answer: "You mustn't use the machine.",
         accept: [
-          "You mustn't touch the machine",
-          "You must not touch the machine.",
-          "You must not touch the machine",
+          "You mustn't use the machine",
+          "You must not use the machine.",
+          "You must not use the machine",
         ],
-        hint: "Это запрет: за нарушение накажут.",
+        hint: "За такой строкой стоит табличка, а не совет.",
         why:
-          "You mustn't touch the machine. Запись don't have to сказала бы, что " +
-          "трогать просто необязательно.",
+          "You mustn't use the machine. Запись don't have to сказала бы, что " +
+          "пользоваться им просто необязательно.",
       },
     ],
   },
