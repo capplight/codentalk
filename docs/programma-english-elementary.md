@@ -529,6 +529,34 @@ DETERMINER»), см. разбор модуля 18 выше.
 
 **Проверочная работа части.** Пересказ разговора и обсуждение планов.
 
+**Строка модуля 26 проверена 25 августа 2026, до написания. Она держится лучше
+всех предыдущих: границ у неё нет вовсе.**
+
+**`should` стоит на ПЯТИ графах A2:** MODALITY, should — «FORM: AFFIRMATIVE»
+(пример «You should come at 6 o'clock»), «FORM: NEGATIVE» («You shouldn't miss
+it»), «FORM: QUESTIONS» («Should I wear special clothes?»), «USE: ADVICE» («Can
+use 'should' to give advice») и «USE: SUGGESTIONS» («I think we should meet at
+2 pm»). Ограничения по лицам, как у `must` в модуле 25, тут НЕТ ни в одной
+графе.
+
+**`Why don't we…?` — на ТРЁХ графах A2:** CLAUSES interrogatives, «FORM:
+NEGATIVE 'WH-' INTERROGATIVE» (пример «Why don't we watch a film?»); PRESENT,
+present simple, «USE: SUGGESTIONS» — «Can use the present simple with 'why don't
+you…?', 'Why don't we…?' and 'if you want or if you like' to make suggestions»;
+и QUESTIONS wh-, «FORM/USE: NEGATIVE QUESTONS, SUGGESTIONS» — «Can use negative
+question 'why don't' + pronoun + verb, to make a suggestion or invitation».
+
+**Осторожно с последней графой: `QUESTONS` — опечатка самого источника**, буква
+`I` в слове пропущена. Цитата обязана повторять её как есть, иначе следующий
+проверяющий «исправит» верное. Тот же случай, что двойное `with` в графе
+вопросов Present Perfect (модуль 22).
+
+**Чего в модуле не будет, и всё это B1:** `should have` о прошлом («I should
+have written before»), вопрос-переспрос с `shouldn't we`, `should` о вероятном
+(«It should be a good day»), `should` о желаемом положении дел («British people
+should eat more vegetables»).
+
+
 **Строка модуля 25 проверена 25 августа 2026, до написания. Она самая
 подкреплённая из четырёх последних, и всё обещанное берётся.**
 
