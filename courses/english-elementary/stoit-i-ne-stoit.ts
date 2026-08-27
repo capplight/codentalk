@@ -27,10 +27,45 @@ import type { Module } from "@/lib/content/types";
  * «исправит» верное. Тот же случай, что двойное `with` в графе вопросов
  * Present Perfect (модуль 22).
  *
+ * НО УРОКА ПРО `WHY DON'T WE` ЗДЕСЬ НЕТ, И ЭТО ГЛАВНАЯ ПРАВКА ПО РАЗБОРУ.
+ *
+ * Первая редакция дала ему четвёртый урок правил — а такой урок в курсе уже
+ * есть: модуль 12 «Давай я», урок 4 «Почему бы не: Why don't we meet at the
+ * square?». Совпала не тема, а урок целиком: та же графа источника, та же
+ * формула заголовка, тот же набор заданий по порядку. Нашёл методист.
+ *
+ * Хуже совпадения было расхождение. Модуль 12 режет строку на `why` + `don't
+ * we` + глагол, а здешний урок резал её на `why don't` + местоимение. Ученик
+ * одной ступени получал два несовместимых разбора одной строки.
+ *
+ * Урок снят целиком, вместе с итогом «предложить вместе» и двумя вопросами
+ * работы. `Why don't we` остаётся в письме урока чтения — на узнавание, со
+ * ссылкой на модуль «Давай я» во врезке. Строка программы поправлена там же.
+ *
+ * ЧЕТВЁРТОЙ СТРОКОЙ ПИСЬМА СТАЛ ВОПРОС СО `SHOULD`. Урок письма проверял
+ * четыре вещи, и четвёртой было «предложено вместе» — то есть оборот, которого
+ * модуль больше не учит. На её место встал вопрос `Should I book a room for
+ * you?`: он стоит в письме урока чтения и разобран уроком 3.
+ *
  * ИМЕНИ КЛАССА У `SHOULD` МОДУЛЬ НЕ ДАЁТ. В модуле 25 я написал, что термин
  * «модальный глагол» уже введён в курсе, — и ошибся: его нет в видимом тексте
  * нигде. Вводить его здесь незачем: модуль учит совету, а имя класса ученику
  * ничего не добавит.
+ *
+ * ЧТО МОДУЛЬ БЕРЁТ ВПЕРЁД И ОБЪЯВЛЯЕТ:
+ *
+ * - **`if` + настоящее время** — «You shouldn't go if it is windy». Условным
+ *   предложениям отведён модуль 29, но уровню это не противоречит: English
+ *   Grammar Profile даёт A2 пример «If you agree, we can go shopping after the
+ *   film».
+ * - **`go` + `-ing`** — `go swimming`, `go walking`. English Grammar Profile,
+ *   NOUNS noun phrases, A1, пример «Every Friday I go swimming and play
+ *   computer games». Карточки при этом дают `walking` и `riding`
+ *   существительными, а сама связка нигде не разбирается — она работает как
+ *   готовый оборот.
+ *
+ * Оба заимствования назвал методист. Незаявленное заимствование хуже
+ * заявленного: следующий проверяющий не отличит намерение от недосмотра.
  *
  * ЧЕГО В МОДУЛЕ НЕТ, И ВСЁ ЭТО B1:
  *
@@ -40,27 +75,41 @@ import type { Module } from "@/lib/content/types";
  * - `should` о желаемом положении дел («British people should eat more
  *   vegetables»).
  *
- * СЛОВАРЬ МОДУЛЯ — ДВЕНАДЦАТЬ КАРТОЧЕК, ИЗ НИХ НОВЫХ ДЛЯ СТУПЕНИ ПЯТЬ:
- * `toothache`, `blood`, `brain`, `windsurfing`, `snowboarding`.
+ * СЛОВАРЬ МОДУЛЯ — ПЯТНАДЦАТЬ КАРТОЧЕК.
  *
- * Это четвёртый модуль подряд с недобором до тридцати, и вопрос владельцу
- * открыт — разбор в программе, под таблицей четвёртой части.
+ * Первая редакция дала двенадцать, и две из них — `feelings` и `brain` — не
+ * встречались в модуле нигде, кроме себя самих. Это добор нормы, и уточнение
+ * владельца от 21 августа его запрещает прямо. Методист их и нашёл.
  *
- * ПЕРВАЯ РЕДАКЦИЯ ШАПКИ НАСЧИТАЛА ВОСЕМЬ НОВЫХ. Сверка считает иначе, и она
- * права: `walking`, `riding` и `feelings` она сводит к `walk`, `ride` и
- * `feel`, а их Oxford помечает A1. Слово с окончанием `-ing` или `-s` не
- * становится новым оттого, что у него своя строка в словнике. Это уже
- * четвёртая ошибка на пометах за четыре модуля, и все четыре — разной
- * породы.
+ * `feelings` снят. `brain` оставлен и переставлен в разговор о здоровье, где
+ * работает строкой «it is bad for your blood and your brain».
  *
- * СЕМЬ СЛОВ ИДУТ С ПРОШЛОЙ СТУПЕНИ: `advice`, `health`, `exercise`,
- * `tourist` — Oxford помечает их A1 прямо; `walking`, `riding`, `feelings` —
- * через основы `walk`, `ride`, `feel`. Карточки у них всё же есть: слова
- * опорные и стоят в каждом уроке.
+ * ЧЕТЫРЕ СЛОВА ДОБАВЛЕНЫ, И У КАЖДОГО ЕСТЬ РАБОТА: `explore` (третья пара
+ * таблицы урока 1 и отвлекающий там же), `path` (третья пара таблицы урока 2),
+ * `windy` (разговор о поездке, урок 3), `skateboarding` (задание урока 3).
+ * Все четыре стоят в словнике A2 Key.
  *
- * ДВА СЛОВА A2: `blood`, `brain`. ШЕСТИ OXFORD НЕ ЗНАЕТ ВОВСЕ: `toothache`,
- * `walking`, `riding`, `snowboarding`, `windsurfing`, `feelings` — все шесть
- * стоят в словнике A2 Key.
+ * ТРАНСКРИПЦИЯ ТРЁХ ИЗ НИХ ВЗЯТА ПО СЛОВАРНОЙ НОРМЕ, А НЕ ИЗ ИСТОЧНИКА:
+ * `ipa-en-uk` не знает `windy` и `path` вовсе, а для `explore` даёт
+ * `ɛksplˈɔː` — гласный `ɛ` в первом слоге, тогда как словари пишут
+ * `ɪkˈsplɔː`. Взято словарное. Это тот же ряд, что `r` вместо `ɹ` и `g`
+ * вместо `ɡ`, и владельцу стоит на него взглянуть.
+ *
+ * НОВЫХ ДЛЯ СТУПЕНИ ДЕВЯТЬ: `toothache`, `blood`, `brain`, `windsurfing`,
+ * `snowboarding`, `explore`, `path`, `windy`, `skateboarding`.
+ *
+ * ПЕРВАЯ РЕДАКЦИЯ ШАПКИ НАСЧИТАЛА ВОСЕМЬ НОВЫХ ИЗ ДВЕНАДЦАТИ. Сверка считает
+ * иначе, и она права: `walking`, `riding` и `feelings` она сводит к `walk`,
+ * `ride` и `feel`, а их Oxford помечает A1. Слово с окончанием `-ing` или
+ * `-s` не становится новым оттого, что у него своя строка в словнике. Это уже
+ * четвёртая ошибка на пометах за четыре модуля, и все четыре — разной породы.
+ *
+ * ШЕСТЬ СЛОВ ИДУТ С ПРОШЛОЙ СТУПЕНИ: `advice`, `health`, `exercise`,
+ * `tourist` — Oxford помечает их A1 прямо; `walking` и `riding` — через основы
+ * `walk` и `ride`. Карточки у них есть потому, что все шесть — опорные слова
+ * модуля, а не потому, что они стоят в каждом уроке: `exercise` работает в
+ * двух местах, `blood` — в одном. Первая редакция шапки писала «стоят в каждом
+ * уроке», и это было неверно.
  *
  * ПРОВЕРЕНО ПОСТРОЧНО по `oxford-3000` И `oxford-5000`. За три модуля подряд я
  * ошибся на пометах трижды и по-разному: поверил сверке там, где она сравнила
@@ -75,11 +124,10 @@ const module: Module = {
   outcomes: [
     "советовать сделать: You should try walking",
     "советовать не делать: You shouldn't eat that",
-    "спросить совета: Should I take a map?",
-    "предложить вместе: Why don't we go riding?",
+    "спросить совета и коротко ответить: Should I take a map? — Yes, you should",
     "находить в советах приезжему, что стоит делать, а что нет",
     "слышать в разговоре, что советуют",
-    "проверять советы: сказано, что стоит, чего не стоит и что предложено вместе",
+    "проверять советы: сказано, что стоит, чего не стоит и о чём спрашивают",
   ],
 
   sources: [
@@ -119,11 +167,20 @@ const module: Module = {
     {
       ref: "Cambridge English, A2 Key handbook for teachers",
       section:
-        "с. 52, Language specifications, перечень Modals: `should (advice)` " +
+        "с. 51, Language specifications, перечень Modals: `should (advice)` " +
         "стоит там с тем самым значением, которому учит модуль. " +
         "УРОК 6, ФОРМА ОТВЕТА. с. 29, раздел THE TASK: «The candidates should " +
         "only write ONE word, or a number, or a date, or a time for their " +
-        "answer» — поэтому ответы на слух здесь односложные",
+        "answer» — поэтому ответы на слух здесь односложные. " +
+        "НОМЕР СТРАНИЦЫ ИСПРАВЛЕН ПО РАЗБОРУ: первая редакция писала с. 52, " +
+        "перенеся его с модуля 25, где на 52 стоит `mustn't (prohibition)`. " +
+        "Проверено поиском по разбору источника: `should (advice)` лежит между " +
+        "меткой с. 51 и меткой с. 52. " +
+        "КОРОТКОГО ОТВЕТА `Yes, you should` НИ ОДИН ИСТОЧНИК НЕ ПОДПИРАЕТ: " +
+        "искали в English Grammar Profile по `MODALITY,should`, по `ellipsis` " +
+        "и по самой строке — не нашли. Это не «нет», а «не нашли»; оборот " +
+        "взят по условности курса, который так же отвечает на вопросы с `will` " +
+        "и `can`",
       license: "внутреннее использование, публично не называем",
     },
     {
@@ -144,22 +201,33 @@ const module: Module = {
     {
       ref: "Cambridge English, A2 Key vocabulary list (август 2025)",
       section:
-        "Двенадцать карточек модуля взяты из словника ступени; новых для " +
-        "ступени пять: toothache, blood, brain, windsurfing, snowboarding. " +
-        "Первая редакция насчитала восемь — сверка сводит `walking`, `riding` и " +
-        "`feelings` к `walk`, `ride` и `feel`, которые Oxford помечает A1, и " +
-        "она права. Почему двенадцать, а не тридцать — разобрано в программе: " +
-        "запас ступени подошёл к концу. " +
+        "Пятнадцать карточек модуля взяты из словника ступени; новых для " +
+        "ступени девять: toothache, blood, brain, windsurfing, snowboarding, " +
+        "explore, path, windy, skateboarding. " +
+        "Первая редакция дала двенадцать карточек и насчитала восемь новых. " +
+        "Обе цифры были неверны: сверка сводит `walking`, `riding` и " +
+        "`feelings` к `walk`, `ride` и `feel`, которые Oxford помечает A1, — и " +
+        "она права; а две карточки из двенадцати нигде в модуле не работали. " +
+        "Почему пятнадцать, а не тридцать — разобрано в программе: запас " +
+        "ступени подошёл к концу. " +
         "ЗНАЧЕНИЯ СВЕРЕНЫ С ПОМЕТАМИ СЛОВНИКА: `walking (n)`, `riding (n)`, " +
-        "`snowboarding (n)`, `windsurfing (n)` — названия занятий, и уроки " +
-        "берут именно их; `feelings (n pl)` — только множественное число; " +
-        "`advice (n)` — неисчисляемое, поэтому в модуле стоит `some advice`, а " +
-        "не `an advice`. " +
+        "`snowboarding (n)`, `skateboarding (n)`, `windsurfing (n)` — названия " +
+        "занятий, и уроки берут именно их. " +
+        "ПОМЕТА `(n pl)` У `feelings` В СЛОВНИКЕ НЕ СТОИТ — первая редакция " +
+        "приписала её источнику. В словнике `feelings (n)`; помета `(n pl)` " +
+        "там существует и работает, но у других слов: `chips`, `clothes`, " +
+        "`glasses`, `jeans`, `people`. Само слово из модуля снято по другой " +
+        "причине — ему негде было работать. " +
+        "И ПОМЕТЫ «неисчисляемое» В ЭТОМ СЛОВНИКЕ НЕТ НИ У ОДНОГО СЛОВА: " +
+        "утверждение про `advice` было верно как факт языка, но стояло под " +
+        "заголовком «сверено с пометами словника». Убрано. Оба места нашёл " +
+        "методист. " +
         "ЧЕТЫРЕ СЛОВА OXFORD 3000 ПОМЕЧАЕТ A1: advice, health, exercise, " +
-        "tourist — они с прошлой ступени, но карточки у них есть: слова " +
-        "опорные и стоят в каждом уроке. ДВА СЛОВА A2: blood, brain. ШЕСТИ " +
+        "tourist — они с прошлой ступени, но карточки у них есть: это опорные " +
+        "слова модуля. ДВА СЛОВА A2: blood, brain. ДВА СЛОВА B1: explore, " +
+        "path — взяты по мерке ступени, оба стоят в словнике A2 Key. " +
         "OXFORD НЕ ЗНАЕТ ВОВСЕ: toothache, walking, riding, snowboarding, " +
-        "windsurfing, feelings. " +
+        "skateboarding, windsurfing, windy. " +
         "ПРОВЕРЕНО ПОСТРОЧНО ПО ОБОИМ СПИСКАМ — `oxford-3000` и `oxford-5000`. " +
         "За три модуля подряд я ошибся на пометах трижды и по-разному, и один " +
         "из трёх раз — потому что не заглянул во второй список",
@@ -196,11 +264,14 @@ const module: Module = {
             "You should try walking.",
             "You have to buy a ticket.",
             "You should take a map.",
+            "You have to wait here.",
+            "You should explore the old town.",
           ],
           head: ["Обязан: таковы правила", "Стоит: это мой совет"],
           rows: [
             ["You have to show your ID.", "You should try walking."],
             ["You have to buy a ticket.", "You should take a map."],
+            ["You have to wait here.", "You should explore the old town."],
           ],
         },
         {
@@ -245,6 +316,7 @@ const module: Module = {
             { term: "advice", translation: "совет", example: "Thank you for the advice!", hint: "/ədˈvaɪs/" },
             { term: "walking", translation: "прогулки пешком", example: "You should try walking in the old town.", hint: "/ˈwɔːkɪŋ/" },
             { term: "tourist", translation: "приезжий, турист", example: "Every tourist gets lost there.", hint: "/ˈtɔːrɪst/" },
+            { term: "explore", translation: "осматривать, изучать", example: "You should explore the old town.", hint: "/ɪkˈsplɔː/" },
           ],
         },
 
@@ -286,12 +358,12 @@ const module: Module = {
             { text: " · " },
             { text: "I think you should try walking.", selectable: true, correct: true },
             { text: " · " },
-            { text: "You must show your ID.", selectable: true },
+            { text: "You have to wait here.", selectable: true },
           ],
-          hint: "Совет советуют, а правило не выбирают.",
+          hint: "Ищи слово should — это совет. Слова have to называют обязанность.",
           why:
-            "Первая и третья. Во второй и четвёртой стоят have to и must — это " +
-            "обязанность.",
+            "Первая и третья. Во второй и четвёртой стоит have to: это " +
+            "обязанность, а не совет.",
         },
         {
           id: "z4-sobrat-sovet",
@@ -310,7 +382,13 @@ const module: Module = {
           prompt:
             "Посоветуй гостю взять карту, смягчив совет. Начни с I think.",
           answer: "I think you should take a map.",
-          accept: ["I think you should take a map"],
+          accept: [
+            "I think you should take a map",
+            "I think you should take the map.",
+            "I think you should take the map",
+            "I think that you should take a map.",
+            "I think that you should take a map",
+          ],
           hint: "Оборот I think ставят перед советом целиком.",
           why:
             "I think you should take a map. Слово should при этом не меняется.",
@@ -344,11 +422,14 @@ const module: Module = {
             "You shouldn't eat that.",
             "You should sleep more.",
             "You shouldn't work at night.",
+            "You should take the big road.",
+            "You shouldn't take that path at night.",
           ],
           head: ["Стоит", "Не стоит"],
           rows: [
             ["You should try the soup.", "You shouldn't eat that."],
             ["You should sleep more.", "You shouldn't work at night."],
+            ["You should take the big road.", "You shouldn't take that path at night."],
           ],
         },
         {
@@ -377,10 +458,10 @@ const module: Module = {
           zvuchat: [
             "I have toothache, and my head hurts.",
             "You shouldn't eat so much sugar. It is bad for your health.",
-            "And exercise? You shouldn't sit all day: it is bad for your blood.",
+            "And exercise? You shouldn't sit all day: it is bad for your blood and your brain.",
           ],
           text:
-            "I have toothache, and my head hurts.\nYou shouldn't eat so much sugar. It is bad for your health.\nAnd exercise? You shouldn't sit all day: it is bad for your blood.",
+            "I have toothache, and my head hurts.\nYou shouldn't eat so much sugar. It is bad for your health.\nAnd exercise? You shouldn't sit all day: it is bad for your blood and your brain.",
           explain:
             "В обеих строках с shouldn't дан совет, а не запрет: никто не " +
             "накажет за сахар. Оборот bad for your health значит «вредно для " +
@@ -394,7 +475,9 @@ const module: Module = {
             { term: "health", translation: "здоровье", example: "It is bad for your health.", hint: "/helθ/" },
             { term: "toothache", translation: "зубная боль", example: "I have toothache, and my head hurts.", hint: "/ˈtuːθeɪk/" },
             { term: "exercise", translation: "зарядка, упражнения", example: "And exercise? You shouldn't sit all day.", hint: "/ˈeksəsaɪz/" },
-            { term: "blood", translation: "кровь", example: "It is bad for your blood.", hint: "/blʌd/" },
+            { term: "blood", translation: "кровь", example: "It is bad for your blood and your brain.", hint: "/blʌd/" },
+            { term: "brain", translation: "мозг", example: "It is bad for your blood and your brain.", hint: "/breɪn/" },
+            { term: "path", translation: "тропинка, дорожка", example: "You shouldn't take that path at night.", hint: "/pɑːθ/" },
           ],
         },
 
@@ -474,7 +557,7 @@ const module: Module = {
       slug: "stoit-li",
       title: "Стоит ли: Should I take a map?",
       estimatedMinutes: 14,
-      outcome: "спросить совета: Should I take a map?",
+      outcome: "спросить совета и коротко ответить: Should I take a map? — Yes, you should",
 
       blocks: [
         {
@@ -527,11 +610,11 @@ const module: Module = {
           razgovor: true,
           zvuchat: [
             "Should I try windsurfing there?",
-            "Yes, you should. But you shouldn't go if it is cold.",
+            "Yes, you should. But you shouldn't go if it is windy.",
             "And riding? Should we take the horses?",
           ],
           text:
-            "Should I try windsurfing there?\nYes, you should. But you shouldn't go if it is cold.\nAnd riding? Should we take the horses?",
+            "Should I try windsurfing there?\nYes, you should. But you shouldn't go if it is windy.\nAnd riding? Should we take the horses?",
           explain:
             "В обоих вопросах should стоит первым, а глагол остаётся в обычной " +
             "форме. Короткий ответ повторяет только should: Yes, you should.",
@@ -544,6 +627,8 @@ const module: Module = {
             { term: "windsurfing", translation: "виндсёрфинг", example: "Should I try windsurfing there?", hint: "/ˈwɪndsɜːfɪŋ/" },
             { term: "riding", translation: "верховая езда", example: "And riding? Should we take the horses?", hint: "/ˈraɪdɪŋ/" },
             { term: "snowboarding", translation: "катание на сноуборде", example: "You should try snowboarding in winter.", hint: "/ˈsnəʊbɔːdɪŋ/" },
+            { term: "skateboarding", translation: "катание на скейтборде", example: "Should we try skateboarding?", hint: "/ˈskeɪtbɔːdɪŋ/" },
+            { term: "windy", translation: "ветрено, ветреный", example: "You shouldn't go if it is windy.", hint: "/ˈwɪndi/" },
           ],
         },
 
@@ -551,15 +636,15 @@ const module: Module = {
         {
           id: "z1-vybrat-vopros-o-sovete",
           kind: "choice",
-          prompt: "Спроси, стоит ли брать карту.",
+          prompt: "Спроси, стоит ли брать такси.",
           options: [
-            { text: "Do I should take a map?" },
-            { text: "I should take a map?" },
-            { text: "Should I take a map?", correct: true },
+            { text: "Do I should take a taxi?" },
+            { text: "I should take a taxi?" },
+            { text: "Should I take a taxi?", correct: true },
           ],
           hint: "В начало выходит само слово совета.",
           why:
-            "Should I take a map? Слово do к нему не добавляют, а во второй " +
+            "Should I take a taxi? Слово do к нему не добавляют, а во второй " +
             "записи should осталось на месте совета.",
         },
         {
@@ -601,163 +686,16 @@ const module: Module = {
             "Should I try snowboarding? Глагол остаётся в обычной форме.",
         },
         {
-          id: "z5-sprosit-sovet-o-verhovoy-ezde",
+          id: "z5-sprosit-sovet-o-skeytborde",
           kind: "short",
           prompt:
-            "Спроси, стоит ли вам двоим попробовать верховую езду. Начни с Should.",
-          answer: "Should we try riding?",
-          accept: ["Should we try riding"],
+            "Спроси, стоит ли вам двоим попробовать скейтборд. Начни с Should.",
+          answer: "Should we try skateboarding?",
+          accept: ["Should we try skateboarding"],
           hint: "После слова совета встаёт тот, о ком речь.",
           why:
-            "Should we try riding? Слово we говорит, что советуются двое.",
-        },
-      ],
-    },
-
-    // =====================================================================
-    {
-      slug: "pochemu-by-nam-ne",
-      title: "Почему бы не: Why don't we go riding?",
-      estimatedMinutes: 14,
-      outcome: "предложить вместе: Why don't we go riding?",
-
-      blocks: [
-        {
-          id: "predlozhit-a-ne-posovetovat",
-          kind: "explain",
-          text: [
-            "Есть четвёртый случай: не совет другому, а предложение вместе.",
-            "По-русски говорят «а почему бы нам не…?».",
-            "По-английски это вопрос, который начинается с двух слов.",
-          ],
-        },
-        {
-          id: "sovet-i-predlozhenie",
-          kind: "table",
-          caption: "Совет и предложение",
-          zvuchat: [
-            "You should go riding.",
-            "Why don't we go riding?",
-            "You should try the soup.",
-            "Why don't you try the soup?",
-          ],
-          head: ["Совет тебе", "Предложение"],
-          rows: [
-            ["You should go riding.", "Why don't we go riding?"],
-            ["You should try the soup.", "Why don't you try the soup?"],
-          ],
-        },
-        {
-          id: "kak-ustroeno-predlozhenie",
-          kind: "explain",
-          text: [
-            "Два слова why don't стоят в начале, а за ними — тот, кому предлагают.",
-            "Слово we значит «нам вместе», you — «тебе».",
-            "Глагол после них в обычной форме: go, try.",
-            "Это вопрос по виду, но по смыслу — предложение, и отвечают на него согласием.",
-          ],
-        },
-        {
-          id: "ne-why-we-dont",
-          kind: "note",
-          tone: "mistake",
-          text:
-            "«Why we don't go riding?» — так не предлагают.\n\nСлово don't " +
-            "стоит сразу после why: Why don't we go riding?",
-        },
-        {
-          id: "razgovor-o-vyhodnyh",
-          kind: "example",
-          caption: "Разговор о выходных",
-          razgovor: true,
-          zvuchat: [
-            "Why don't we go riding on Saturday?",
-            "Good idea! And why don't you take your brother?",
-            "He is tired. Why don't we ask him tomorrow?",
-          ],
-          text:
-            "Why don't we go riding on Saturday?\nGood idea! And why don't you take your brother?\nHe is tired. Why don't we ask him tomorrow?",
-          explain:
-            "Во всех трёх строках why don't стоит в начале, а глагол остаётся в " +
-            "обычной форме. Отвечают на такое не «потому что», а согласием: " +
-            "Good idea!",
-        },
-        {
-          id: "slovar-vyhodnyh",
-          kind: "vocab",
-          caption: "Слова урока",
-          items: [
-            { term: "feelings", translation: "чувства", example: "Think about his feelings: he is tired.", hint: "/ˈfiːlɪŋz/" },
-            { term: "brain", translation: "мозг", example: "Walking is good for your brain.", hint: "/breɪn/" },
-          ],
-        },
-
-        // ---- задания ----
-        {
-          id: "z1-dopisat-dont",
-          kind: "gap",
-          prompt: "Это предложение вместе. Допиши слово.",
-          before: "Why ",
-          after: " we go riding?",
-          answer: "don't",
-          hint: "Это слово стоит сразу после why.",
-          why:
-            "Why don't we go riding? Без него вышел бы вопрос о причине: «почему " +
-            "мы едем верхом?».",
-        },
-        {
-          id: "z2-vybrat-predlozhenie",
-          kind: "choice",
-          prompt: "Как предложить вместе пойти на прогулку?",
-          options: [
-            { text: "Why we don't go walking?" },
-            { text: "Why don't we going walking?" },
-            { text: "Why don't we go walking?", correct: true },
-          ],
-          hint: "Слово don't стоит сразу после why, а глагол — в обычной форме.",
-          why:
-            "Why don't we go walking? В первой записи don't ушло за we, во " +
-            "второй глагол взял окончание -ing.",
-        },
-        {
-          id: "z3-otmetit-predlozheniya",
-          kind: "hottext",
-          prompt: "Отметь строки, где предлагают что-то сделать вместе.",
-          parts: [
-            { text: "Why don't we go riding?", selectable: true, correct: true },
-            { text: " · " },
-            { text: "Why don't you try the soup?", selectable: true },
-            { text: " · " },
-            { text: "Why don't we ask him tomorrow?", selectable: true, correct: true },
-            { text: " · " },
-            { text: "You should try snowboarding.", selectable: true },
-          ],
-          hint: "Ищи слово we: оно и значит «вместе».",
-          why:
-            "Первая и третья. Во второй предлагают одному собеседнику, а в " +
-            "четвёртой дан совет.",
-        },
-        {
-          id: "z4-sobrat-predlozhenie",
-          kind: "order",
-          prompt: "Собери предложение: а почему бы нам не спросить его завтра?",
-          items: ["ask him tomorrow?", "Why don't", "we"],
-          answer: [1, 2, 0],
-          hint: "Начни с двух слов, которые стоят вместе.",
-          why:
-            "Why don't we ask him tomorrow? Глагол после them в обычной форме.",
-        },
-        {
-          id: "z5-predlozhit-progulku",
-          kind: "short",
-          prompt:
-            "Предложи собеседнику вместе пойти на прогулку в субботу. Начни с Why.",
-          answer: "Why don't we go walking on Saturday?",
-          accept: ["Why don't we go walking on Saturday"],
-          hint: "Слово we говорит, что предлагаешь вместе.",
-          why:
-            "Why don't we go walking on Saturday? Слово you сказало бы, что " +
-            "идёшь не ты.",
+            "Should we try skateboarding? Слово we говорит, что советуются " +
+            "двое, а не один.",
         },
       ],
     },
@@ -774,7 +712,7 @@ const module: Module = {
           id: "zachem-chitat-sovety",
           kind: "explain",
           text: [
-            "Друг Данияра написал ему письмо перед приездом.",
+            "Данияр написал другу письмо перед его приездом.",
             "В таком письме ищут две вещи: что стоит делать и чего не стоит.",
             "Ниже письмо, и вопросы будут о нём.",
           ],
@@ -804,7 +742,8 @@ const module: Module = {
           tone: "info",
           text:
             "Совет ищут по слову should, а совет наоборот — по " +
-            "shouldn't.\n\nПредложение вместе начинается с why don't.",
+            "shouldn't.\n\nСтрока Why don't we… зовёт вместе: так звали в " +
+            "модуле «Давай я».",
         },
 
         // ---- задания ----
@@ -905,7 +844,7 @@ const module: Module = {
           pace: "slow",
           skryt: true,
           transcript:
-            "I have toothache. Should I take a medicine? — You should go to " +
+            "I have toothache. Should I take the medicine? — You should go to " +
             "the dentist today. And you shouldn't eat sugar. — And exercise? — " +
             "Walking is good, but you shouldn't go swimming.",
         },
@@ -976,7 +915,7 @@ const module: Module = {
           id: "z5-chto-znachit-should-i-take",
           about: "zapis-soveta",
           kind: "choice",
-          prompt: "В записи звучит Should I take a medicine? Что делает Айгуль?",
+          prompt: "В записи звучит Should I take the medicine? Что делает Айгуль?",
           options: [
             { text: "Даёт совет врачу." },
             { text: "Спрашивает совета.", correct: true },
@@ -995,7 +934,7 @@ const module: Module = {
       slug: "pishem-sovety",
       title: "Пишем советы",
       estimatedMinutes: 15,
-      outcome: "проверять советы: сказано, что стоит, чего не стоит и что предложено вместе",
+      outcome: "проверять советы: сказано, что стоит, чего не стоит и о чём спрашивают",
 
       blocks: [
         {
@@ -1003,7 +942,7 @@ const module: Module = {
           kind: "explain",
           text: [
             "Ученик написал другу: «Come. It is nice here.»",
-            "Совета в этом нет: непонятно, что делать и чего избегать.",
+            "Гость прочтёт это и приедет так же, как приехал бы без письма.",
             "В письме с советами пропускают не приглашение, а сами советы.",
             "Проверить своё письмо можно по четырём строкам.",
           ],
@@ -1016,14 +955,14 @@ const module: Module = {
             "Here is some advice before your trip.",
             "You should try walking in the old town.",
             "You shouldn't take a taxi there.",
-            "Why don't we go riding on Saturday?",
+            "Should I book a room for you?",
           ],
           head: ["Что сказано", "Пример строки"],
           rows: [
             ["зачем письмо", "Here is some advice before your trip."],
             ["что стоит делать", "You should try walking in the old town."],
             ["чего не стоит", "You shouldn't take a taxi there."],
-            ["что предложено вместе", "Why don't we go riding on Saturday?"],
+            ["о чём спрашивают", "Should I book a room for you?"],
           ],
         },
         {
@@ -1033,7 +972,7 @@ const module: Module = {
             "Первая строка говорит, зачем письмо: тут будут советы.",
             "Вторая советует сделать — через should.",
             "Третья советует не делать — через shouldn't, и объясняет почему.",
-            "Четвёртая предлагает вместе — через why don't we.",
+            "Четвёртая о чём-то спрашивает — вопросом со Should в начале.",
             "Строки связывают словом because, когда одна объясняет другую.",
           ],
         },
@@ -1042,17 +981,17 @@ const module: Module = {
           kind: "example",
           caption: "Письмо Айгуль",
           zvuchat: [
-            "Hello! Here is some advice before your trip to the mountains.",
-            "You should try snowboarding: every tourist wants it here.",
+            "Hi! Read this before you come to the mountains.",
+            "You should take the small path to the lake: it is quiet there.",
             "You shouldn't go alone, because the weather changes fast.",
-            "Why don't we go together on Sunday? I am free all day.",
+            "Should I meet you at the station?",
           ],
           text:
-            "Hello! Here is some advice before your trip to the mountains.\nYou should try snowboarding: every tourist wants it here.\nYou shouldn't go alone, because the weather changes fast.\nWhy don't we go together on Sunday? I am free all day.",
+            "Hi! Read this before you come to the mountains.\nYou should take the small path to the lake: it is quiet there.\nYou shouldn't go alone, because the weather changes fast.\nShould I meet you at the station?",
           explain:
             "Вторая строка советует, третья советует наоборот и называет " +
-            "причину, четвёртая предлагает вместе. Слово because связывает " +
-            "совет с причиной.",
+            "причину, четвёртая спрашивает. Слово because связывает совет с " +
+            "причиной, а вопрос со Should оставляет выбор за гостем.",
         },
 
         // ---- задания ----
@@ -1088,7 +1027,7 @@ const module: Module = {
           kind: "hottext",
           prompt: "Отметь строки, из которых гость узнаёт, что ему делать.",
           parts: [
-            { text: "You should try snowboarding.", selectable: true, correct: true },
+            { text: "You should take the small path to the lake.", selectable: true, correct: true },
             { text: " · " },
             { text: "The weather is nice today.", selectable: true },
             { text: " · " },
@@ -1121,18 +1060,18 @@ const module: Module = {
           id: "z5-napisat-pismo-s-sovetami",
           kind: "essay",
           prompt:
-            "Напиши другу письмо с советами, четырьмя строками. Скажи, зачем письмо, что стоит делать, чего не стоит и что предлагаешь вместе.",
+            "Напиши другу письмо с советами, четырьмя строками. Скажи, зачем письмо, что стоит делать, чего не стоит, и спроси о чём-нибудь через Should.",
           minWords: 16,
           sample:
-            "Hello! Here is some advice before your trip to the mountains.\nYou should try snowboarding: every tourist wants it here.\nYou shouldn't go alone, because the weather changes fast.\nWhy don't we go together on Sunday? I am free all day.",
+            "Hi! Read this before you come to the mountains.\nYou should take the small path to the lake: it is quiet there.\nYou shouldn't go alone, because the weather changes fast.\nShould I meet you at the station?",
           checklist: [
             "сказано, зачем письмо",
             "есть строка со словом should",
             "есть строка со словом shouldn't и причиной",
-            "есть строка с why don't we",
+            "есть вопрос, который начинается со Should",
           ],
           hint:
-            "Бери обороты, которые знаешь: Here is some advice, You should, You shouldn't … because, Why don't we.",
+            "Бери обороты, которые знаешь: Here is some advice, You should, You shouldn't … because, Should I …?",
           why:
             "Письмо работает, когда гость понимает, что ему делать, ещё до " +
             "приезда.",
@@ -1154,12 +1093,13 @@ const module: Module = {
         kind: "short",
         outcome: "советовать сделать: You should try walking",
         prompt:
-          "Ученик написал: You should to take a map. Запиши строку без ошибки.",
-        answer: "You should take a map.",
-        accept: ["You should take a map"],
-        hint: "Одно слово в строке лишнее.",
+          "Ученик написал: You should takes the bus. Запиши строку без ошибки.",
+        answer: "You should take the bus.",
+        accept: ["You should take the bus"],
+        hint: "Глагол после слова совета стоит в словарной форме.",
         why:
-          "You should take a map. После should слово to не ставят.",
+          "You should take the bus. После should глагол не берёт окончания -s " +
+          "ни при ком.",
       },
       {
         id: "q-otlichit-sovet-ot-obyazannosti",
@@ -1170,7 +1110,7 @@ const module: Module = {
         options: [
           { text: "В первой это совет, во второй — правило.", correct: true },
           { text: "Первая о завтрашнем дне, вторая о сегодняшнем." },
-          { text: "Первая вежливее второй." },
+          { text: "В первой я советую себе, во второй — тебе." },
         ],
         hint: "Спроси: можно ли не послушаться?",
         why:
@@ -1184,41 +1124,42 @@ const module: Module = {
         kind: "short",
         outcome: "советовать не делать: You shouldn't eat that",
         prompt:
-          "Ученик написал: You don't should work at night. Запиши строку без ошибки.",
-        answer: "You shouldn't work at night.",
+          "Ученик написал: You shouldn't to drink coffee at night. Запиши строку без ошибки.",
+        answer: "You shouldn't drink coffee at night.",
         accept: [
-          "You shouldn't work at night",
-          "You should not work at night.",
-          "You should not work at night",
+          "You shouldn't drink coffee at night",
+          "You should not drink coffee at night.",
+          "You should not drink coffee at night",
         ],
-        hint: "Слово совета берёт not само.",
+        hint: "Одно слово в строке лишнее.",
         why:
-          "You shouldn't work at night. Слово don't при should не бывает.",
+          "You shouldn't drink coffee at night. Частица to после should не " +
+          "ставится и в отрицании.",
       },
       {
         id: "q-otlichit-shouldnt-ot-mustnt",
         kind: "choice",
         outcome: "советовать не делать: You shouldn't eat that",
         prompt:
-          "На двери висит табличка. Какая запись на ней уместнее?",
+          "Врач считает, что сахар вреден, но запретить его он не может. Какую строку он скажет?",
         options: [
-          { text: "You shouldn't use this machine." },
-          { text: "You mustn't use this machine.", correct: true },
-          { text: "You don't have to use this machine." },
+          { text: "You mustn't eat sugar." },
+          { text: "You shouldn't eat sugar.", correct: true },
+          { text: "You don't have to eat sugar." },
         ],
-        hint: "Табличка называет правило, а не совет.",
+        hint: "Это совет, а не запрет и не разрешение.",
         why:
-          "You mustn't use this machine. Запись с shouldn't была бы советом, а " +
-          "третья сказала бы, что пользоваться просто необязательно.",
+          "You shouldn't eat sugar. Первая запись была бы запретом, а третья " +
+          "сказала бы, что сахар есть просто необязательно.",
       },
 
       // ---- итог 3 ----
       {
         id: "q-perepisat-sovet-v-vopros",
         kind: "short",
-        outcome: "спросить совета: Should I take a map?",
+        outcome: "спросить совета и коротко ответить: Should I take a map? — Yes, you should",
         prompt:
-          "Строку You should book a room перепиши так, чтобы вышел вопрос о совете от первого лица.",
+          "Строку You should book a room перепиши так, чтобы вышел вопрос: стоит ли мне снять комнату.",
         answer: "Should I book a room?",
         accept: ["Should I book a room"],
         hint: "Слово совета уходит в начало, а за ним встаёт тот, о ком речь.",
@@ -1227,44 +1168,19 @@ const module: Module = {
       },
       {
         id: "q-otvetit-net-na-sovet",
-        kind: "short",
-        outcome: "спросить совета: Should I take a map?",
-        prompt:
-          "Тебя спросили: Should I take a taxi? Ответь коротко — нет, не стоит.",
-        answer: "No, you shouldn't.",
-        accept: ["No, you shouldn't", "No, you should not."],
-        hint: "Короткий ответ строится на первом слове вопроса.",
-        why:
-          "No, you shouldn't. Глагол take в таком ответе не звучит.",
-      },
-
-      // ---- итог 4 ----
-      {
-        id: "q-ispravit-why-we-dont",
-        kind: "short",
-        outcome: "предложить вместе: Why don't we go riding?",
-        prompt:
-          "Ученик написал: Why we don't go walking? Запиши предложение без ошибки.",
-        answer: "Why don't we go walking?",
-        accept: ["Why don't we go walking"],
-        hint: "Два слова в начале стоят вместе.",
-        why:
-          "Why don't we go walking? Слово don't идёт сразу за why.",
-      },
-      {
-        id: "q-chto-znachit-why-dont-we",
         kind: "choice",
-        outcome: "предложить вместе: Why don't we go riding?",
-        prompt: "Строка: Why don't we ask him tomorrow? Что это?",
+        outcome: "спросить совета и коротко ответить: Should I take a map? — Yes, you should",
+        prompt:
+          "Друг спросил: Should I take a taxi? Ты считаешь, что не стоит. Какой ответ верен?",
         options: [
-          { text: "Вопрос о причине: почему мы не спрашиваем." },
-          { text: "Запрет спрашивать." },
-          { text: "Предложение сделать это вместе.", correct: true },
+          { text: "No, you don't." },
+          { text: "No, I'm not." },
+          { text: "No, you shouldn't.", correct: true },
         ],
-        hint: "Отвечают на такое согласием, а не «потому что».",
+        hint: "Короткий ответ повторяет то слово, с которого начался вопрос.",
         why:
-          "Предложение вместе. Про причину спросили бы иначе, а запрет " +
-          "назвали бы через mustn't.",
+          "No, you shouldn't. Слово do в таком ответе не появляется вовсе, а " +
+          "I'm не годится: спрашивают не о тебе.",
       },
 
       // ---- итог 5 ----
@@ -1290,7 +1206,7 @@ const module: Module = {
         prompt:
           "В письме строка: Why don't we go riding on Saturday? Чем занимается автор этой строкой? Ответь одним словом по-русски.",
         answer: "предлагает",
-        accept: ["предложение", "предлагает вместе"],
+        accept: ["Предлагает", "предложение", "приглашает", "зовёт"],
         hint: "Это не совет и не вопрос о причине.",
         why:
           "Предлагает. Оборот why don't we и значит «а почему бы нам не».",
@@ -1301,14 +1217,14 @@ const module: Module = {
         id: "q-uslyshat-sovet",
         kind: "short",
         outcome: "слышать в разговоре, что советуют",
-        zvuk: "You should go to the dentist today, and you shouldn't eat sugar.",
-        prompt: "Послушай. К кому советуют пойти? Ответь одним словом по-английски.",
-        answer: "dentist",
-        accept: ["Dentist", "the dentist"],
-        hint: "Ответ звучит в первой половине записи.",
+        zvuk: "You shouldn't drink coffee at night, and you should try walking in the morning.",
+        prompt:
+          "Послушай. Что советуют делать по утрам? Ответь одним словом по-английски.",
+        answer: "walking",
+        accept: ["Walking"],
+        hint: "Совет сделать стоит во второй половине записи.",
         why:
-          "Dentist. Совет сходить стоит первым, а второй половиной идёт " +
-          "совет наоборот — про сахар.",
+          "Walking. Первой половиной идёт совет наоборот — про кофе на ночь.",
       },
       {
         id: "q-uslyshat-chego-ne-sovetuyut",
@@ -1327,47 +1243,46 @@ const module: Module = {
       {
         id: "q-chego-ne-hvataet-chuzhomu-pismu",
         kind: "choice",
-        outcome: "проверять советы: сказано, что стоит, чего не стоит и что предложено вместе",
+        outcome: "проверять советы: сказано, что стоит, чего не стоит и о чём спрашивают",
         prompt:
           "Письмо: Here is some advice. You should try snowboarding. You shouldn't go alone. Какой из четырёх нужных строк здесь нет?",
         options: [
           { text: "Той, что говорит, зачем письмо." },
-          { text: "Той, что предлагает сделать что-то вместе.", correct: true },
+          { text: "Той, в которой о чём-то спрашивают.", correct: true },
           { text: "Той, что советует не делать." },
         ],
         hint: "Пройди по четырём нужным строкам и вычёркивай найденное.",
         why:
-          "Той, что предлагает вместе. Зачем письмо — сказано, совет есть, " +
-          "совет наоборот тоже — а предложения нет.",
+          "Той, в которой спрашивают. Зачем письмо — сказано, совет есть, " +
+          "совет наоборот тоже — а вопроса нет.",
       },
       {
-        id: "q-dopisat-predlozhenie-v-pismo",
+        id: "q-dopisat-vopros-v-pismo",
         kind: "short",
-        outcome: "проверять советы: сказано, что стоит, чего не стоит и что предложено вместе",
+        outcome: "проверять советы: сказано, что стоит, чего не стоит и о чём спрашивают",
         prompt:
-          "К письму допиши строку с предложением: пойти вместе в воскресенье. Начни с Why.",
-        answer: "Why don't we go together on Sunday?",
-        accept: ["Why don't we go together on Sunday"],
-        hint: "Два слова в начале стоят вместе, а we значит «вместе».",
+          "К письму допиши строку с вопросом: стоит ли тебе брать тёплую одежду. Начни с Should.",
+        answer: "Should I take warm clothes?",
+        accept: ["Should I take warm clothes"],
+        hint: "Слово совета уходит в начало, а за ним встаёт тот, о ком речь.",
         why:
-          "Why don't we go together on Sunday? Два слова в начале стоят " +
-          "вместе, а день идёт в конец.",
+          "Should I take warm clothes? Слово do в такой вопрос не добавляют.",
       },
       {
         id: "q-pochemu-v-pisme-tri-oborota",
         kind: "choice",
-        outcome: "проверять советы: сказано, что стоит, чего не стоит и что предложено вместе",
+        outcome: "проверять советы: сказано, что стоит, чего не стоит и о чём спрашивают",
         prompt:
-          "Отчего в письме с советами нужны все три оборота: should, shouldn't и why don't we?",
+          "Отчего в письме с советами нужны и should, и shouldn't, и вопрос со Should?",
         options: [
           { text: "Чтобы письмо было длиннее." },
+          { text: "Они говорят о разном: что делать, чего избегать и о чём стоит спросить.", correct: true },
           { text: "Так принято начинать письмо." },
-          { text: "Они говорят о разном: что делать, чего избегать и что вместе.", correct: true },
         ],
         hint: "Представь гостя, которому назвали только запреты.",
         why:
-          "Они говорят о разном. Без строки с предложением письмо остаётся " +
-          "списком указаний, а не разговором.",
+          "Они говорят о разном. Без вопроса письмо остаётся списком " +
+          "указаний, а не разговором.",
       },
     ],
   },
