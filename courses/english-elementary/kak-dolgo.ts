@@ -15,13 +15,18 @@ import type { Module } from "@/lib/content/types";
  * всю жизнь, модуль 23 — о делах к сроку, а этот о том, СКОЛЬКО ВРЕМЕНИ дело
  * длится и всё ещё длится: «я живу здесь два года и живу сейчас».
  *
- * СЕРДЦЕВИНА МОДУЛЯ ДЕРЖИТСЯ НА ОДНОМ ИСТОЧНИКЕ ИЗ ДВУХ, И ЭТО НАДО ЗНАТЬ.
+ * СЕРДЦЕВИНА МОДУЛЯ — УРОК 1 — ДЕРЖИТСЯ НА ОДНОМ ИСТОЧНИКЕ ИЗ ДВУХ, И ЭТО
+ * НАДО ЗНАТЬ. У урока 2 подпорок две, см. ниже.
  *
  * - **`How long` даёт руководство прямо.** A2 Key, с. 52, перечень
  *   вопросительных слов: «Who; Whose; Which How; How much; How many; How often;
  *   **How long**; etc.» У English Grammar Profile отдельной графы про `How
  *   long` нет вовсе — искал по графам, дескрипторам и примерам всех уровней до
- *   B1 включительно.
+ *   B1 включительно. НО УСТРОЙСТВО вопроса описывает вторая графа, которую
+ *   первая редакция шапки пропустила: QUESTIONS wh-, A2, «FORM: WITH
+ *   AUXILIARY 'HAVE'» — «Can use 'wh-'words + auxiliary 'have' to form
+ *   'wh-'questions ► present perfect», пример «How have you been?». Нашёл
+ *   методист.
  * - **`for` в ОТРИЦАНИИ подтверждён на A2:** «FORM/USE: TIME WITH 'FOR'» —
  *   «Can use **the negative form** with 'for'…», пример «I haven't eaten
  *   Italian food for a long time».
@@ -86,7 +91,7 @@ import type { Module } from "@/lib/content/types";
  * `comic` OXFORD 3000 НЕ ЗНАЕТ, НО OXFORD 5000 СТАВИТ ЕГО НА B2
  * (`comic adj., n. B2`), и это тоже объявляется.
  *
- * ШЕСТИ СЛОВ НЕ ЗНАЕТ НИ ОДИН ИЗ ДВУХ СПИСКОВ: studies, diploma, beginner,
+ * ПЯТИ СЛОВ НЕ ЗНАЕТ НИ ОДИН ИЗ ДВУХ СПИСКОВ: studies, diploma, beginner,
  * vocabulary, chatroom.
  *
  * А `article` OXFORD ЗНАЕТ И СТАВИТ НА A1 (`article n. A1`), то есть слово

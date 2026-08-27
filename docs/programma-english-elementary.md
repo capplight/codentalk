@@ -529,6 +529,38 @@ DETERMINER»), см. разбор модуля 18 выше.
 
 **Проверочная работа части.** Пересказ разговора и обсуждение планов.
 
+**Строка модуля 25 проверена 25 августа 2026, до написания. Она самая
+подкреплённая из четырёх последних, и всё обещанное берётся.**
+
+**`have to` стоит на четырёх графах A2 сразу.** MODALITY, have (got) to:
+«FORM: AFFIRMATIVE» (пример «This weekend I have to go to a party», и там же
+«my mom **has to** go»), «FORM: NEGATIVE» (пример «You **don't have to** bring
+many things with you»), «FORM: QUESTIONS» («Do you have to wear a skirt?») и
+«USE: OBLIGATION» («Can use 'have (got) to' to talk about obligations»). То
+есть и `don't have to` из строки программы подтверждён прямо примером.
+
+**`must` и `mustn't` — тоже A2.** MODALITY, must: «FORM: AFFIRMATIVE» и «FORM:
+NEGATIVE» (пример «… you **mustn't** forget to buy some strawberry juice for
+us»). Руководство A2 Key называет его в перечне модальных глаголов на с. 52
+прямо: «**mustn't (prohibition)**» — и там же даёт нужное модулю значение,
+запрет.
+
+**ГРАНИЦА ЕСТЬ, И ОНА ТОЛЬКО У `must`.** Графа A2 «USE: OBLIGATION AND
+NECESSITY» говорит: «Can use 'must' with **a limited range of pronouns ('I' and
+'you')** to talk about obligation and necessity». Широкий круг лиц — B1, там же.
+А у `have to` такой оговорки нет вовсе, и пример графы A2 сам показывает третье
+лицо: «my mom has to go».
+
+Отсюда правило, которое модуль обязан провести через все уроки: **о себе и о
+собеседнике годятся оба оборота, а о третьем лице — только `has to`.** Это не
+наша выдумка, а прямое чтение двух граф рядом.
+
+**Чего в модуле не будет:** `must` для приглашения, совета и догадки («it must
+be boring») — всё B1; `must` без подлежащего («Must go now») — B1; `have to` как
+инфинитив («I am going to have to buy») — B1; `need` в значении необходимости
+руководство называет, но графы A2 у него нет — оставляю следующей ступени.
+
+
 **Строка модуля 24 проверена 25 августа 2026, до написания, и она тоньше всех
 предыдущих.**
 
