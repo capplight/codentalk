@@ -71,10 +71,21 @@ function a2key(): Set<string> {
   const naydeno = new Set<string>();
   for (const syraya of syroy.split("\n")) {
     const stroka = syraya.replace(/[‘’ʼ]/g, "'").trim().toLowerCase();
+    // Часть речи бывает и `mv` (модальный глагол), и `phr v` (глагол с
+    // послелогом), а сама запись бывает с косой чертой — `prefer / would
+    // prefer`, `centre/center`. Первая редакция разбора не знала ни того, ни
+    // другого и молча теряла 49 записей, среди них ВСЕ модальные глаголы:
+    // `could`, `would`, `should`, `must`, `might`, `shall`, `have to`, — и все
+    // 25 глаголов с послелогом. Сторож на пятьсот слов этого не видел:
+    // терялось меньше трёх процентов словника.
     const m = stroka.match(
-      /^([a-z][a-z' -]*?) \((n|v|adj|adv|prep|pron|det|conj|exclam|modal|number|abbr)\b/
+      /^([a-z][a-z' \/-]*?) \((n|v|adj|adv|prep|pron|det|conj|exclam|modal|number|abbr|mv|phr)\b/
     );
-    if (m) naydeno.add(m[1].trim());
+    if (m)
+      for (const chast of m[1].split(/\s*\/\s*/)) {
+        const slovo = chast.trim();
+        if (slovo) naydeno.add(slovo);
+      }
   }
   return naydeno;
 }
@@ -154,7 +165,11 @@ for (const syroe of dovody) {
 
   console.log(`\n${slovo}`);
   console.log(`  Oxford 3000:   ${stupen ? stupen.toUpperCase() : "не нашлось (это не значит, что его там нет)"}`);
-  console.log(`  словник A2 Key: ${vSlovnike ? "да" : "нет"}`);
+  // «Нет» здесь говорится с той же оговоркой, что и у Oxford: неудачный
+  // поиск в этом проекте четырежды оказывался неверным выводом.
+  console.log(
+    `  словник A2 Key: ${vSlovnike ? "да" : "не нашлось (это не значит, что его там нет)"}`
+  );
   console.log(`  ipa-en-uk:     ${ipa.get(slovo) ?? "нет записи — спорное слово решает владелец"}`);
   console.log(`  для ступени:   ${novoe ? "НОВОЕ" : "с прошлой ступени"}`);
   if (gde) console.log(`  уже дано:      ${gde}`);

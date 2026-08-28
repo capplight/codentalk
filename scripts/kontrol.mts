@@ -851,10 +851,21 @@ async function zagruzitA2Key(): Promise<Set<string> | null> {
     // Запись словника: слово, потом часть речи в скобках — `earn (v)`,
     // `east (n, adj & adv)`. Строки примеров начинаются с маркера списка и сюда
     // не попадают, пояснения о разновидности языка стоят после части речи.
+    // Часть речи бывает и `mv` (модальный глагол), и `phr v` (глагол с
+    // послелогом), а сама запись бывает с косой чертой — `prefer / would
+    // prefer`, `centre/center`. Первая редакция разбора не знала ни того, ни
+    // другого и молча теряла 49 записей, среди них ВСЕ модальные глаголы:
+    // `could`, `would`, `should`, `must`, `might`, `shall`, `have to`, — и все
+    // 25 глаголов с послелогом. Сторож на пятьсот слов этого не видел:
+    // терялось меньше трёх процентов словника.
     const m = stroka.match(
-      /^([a-z][a-z' -]*?) \((n|v|adj|adv|prep|pron|det|conj|exclam|modal|number|abbr)\b/
+      /^([a-z][a-z' \/-]*?) \((n|v|adj|adv|prep|pron|det|conj|exclam|modal|number|abbr|mv|phr)\b/
     );
-    if (m) naydeno.add(m[1].trim());
+    if (m)
+      for (const chast of m[1].split(/\s*\/\s*/)) {
+        const slovo = chast.trim();
+        if (slovo) naydeno.add(slovo);
+      }
   }
 
   // Сторож против того же молчания в другом обличье: разборщик PDF меняется,
