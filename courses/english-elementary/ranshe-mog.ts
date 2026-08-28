@@ -76,6 +76,13 @@ import type { Module } from "@/lib/content/types";
  * Мир модуля выбран так, чтобы словам было где работать: детство, школьный
  * спектакль, футбол и бейсбол во дворе, первая неудача.
  *
+ * ШЕСТЬ СЛОВ OXFORD СТАВИТ ВЫШЕ СТУПЕНИ, И ВСЕ ШЕСТЬ ВЗЯТЫ ПО МЕРКЕ СТУПЕНИ:
+ * `kick`, `upset`, `channel`, `costume`, `dressed` (B1) и `bat` (B2). Все
+ * шесть стоят в словнике A2 Key. Первая редакция шапки объявляла только два из
+ * них, а про остальные писала, что Oxford их не знает, — неверно; нашёл
+ * методист. Мерка та же, что у самого `could`, и применяется ко всем
+ * одинаково.
+ *
  * ТРАНСКРИПЦИЯ ДВУХ СЛОВ ВЗЯТА ПО СЛОВАРНОЙ НОРМЕ: `ipa-en-uk` не знает
  * `record` и `upset` вовсе. Записано `/ˈrekɔːd/` (существительное, ударение на
  * первом слоге — у глагола оно другое) и `/ʌpˈset/`. Тот же ряд, что `windy` и
@@ -143,6 +150,17 @@ const module: Module = {
         "И СОБСТВЕННЫЙ ТЕКСТ ЭКЗАМЕНА ПИШЕТ УТВЕРДИТЕЛЬНО: с. 10, задание на " +
         "чтение — «Alice's daughter Demi started learning ballet as soon as " +
         "she could walk». " +
+        "САМАЯ СИЛЬНАЯ ОПОРА — ТАМ ЖЕ, НА с. 51, В ПЕРЕЧНЕ «Inventory of " +
+        "functions, notions and communicative tasks»: «expressing (in)ability " +
+        "in the present and in the past». Прошедшее время названо прямо и без " +
+        "оговорки про отрицание. Нашёл методист при разборе; первая редакция " +
+        "опоры её не знала и потому объявляла решение меркой ступени, а оно " +
+        "подпёрто источником напрямую. " +
+        "КОРОТКИЕ ОТВЕТЫ УРОКА 3 — с. 52, перечень Verb forms: «Short " +
+        "questions (Can you?) and answers (No, he doesn't)». " +
+        "СМЫСЛ СЛОВА `costume` — КОСТЮМ ДЛЯ РОЛИ — ТОЖЕ ОТСЮДА: с. 10, " +
+        "«making costumes for the dancers». Словник A2 Key даёт другое " +
+        "значение, купальник, и на него опереться было нельзя. " +
         "РАЗРЕШЕНИЕ ТОЙ ЖЕ СТРОКОЙ ОТДАНО СЛОВУ `can`, А НЕ `could` — поэтому " +
         "модуль его и не берёт: тут оба источника согласны. " +
         "УРОК 5, ФОРМА ОТВЕТА. с. 29, раздел THE TASK: «The candidates should " +
@@ -180,16 +198,32 @@ const module: Module = {
         "встречает впервые. Почему четырнадцать, а не тридцать — разобрано в " +
         "программе: запас ступени подошёл к концу, и добирать счёт мёртвыми " +
         "карточками уточнение владельца от 21 августа запрещает прямо. " +
-        "ЗНАЧЕНИЯ СВЕРЕНЫ С ПОМЕТАМИ СЛОВНИКА: `record (n & v)` — модуль " +
-        "берёт существительное («the school record»); `bat (n)` — бита, а не " +
-        "летучая мышь, и урок показывает её в бейсболе; `pop (n & adj)` — " +
-        "модуль берёт определение, `pop songs`; `dressed (adj)` — только " +
-        "определение, поэтому в уроке стоит `get dressed`, а не `dress`. " +
-        "ЧТО ГОВОРИТ OXFORD: `pop`, `record`, `upset` там есть; `channel` " +
-        "помечен B1, `upset` тоже B1 — оба взяты по мерке ступени, они стоят " +
-        "в словнике A2 Key. Не нашлись в `oxford-3000` и `oxford-5000`: " +
-        "granny, footballer, baseball, dinosaur, costume, clown, kick, bat, " +
-        "fail, dressed — проверено по обоим спискам построчно",
+        "ЧТО ВЗЯТО ИЗ СЛОВНИКА: `bat (n)` — бита, а не летучая мышь, и " +
+        "словник иллюстрирует её как раз бейсбольной («a baseball bat»); " +
+        "`dressed (adj)` — только определение, пример словника «Hurry, you " +
+        "need to get dressed!», поэтому в уроке стоит `get dressed`, а не " +
+        "`dress`. " +
+        "ЧЕГО СЛОВНИК НЕ ДАЁТ, ХОТЯ ПЕРВАЯ РЕДАКЦИЯ ЕМУ ЭТО ПРИПИСАЛА. " +
+        "Существительного `record` в нём нет вовсе: стоит `record (v)` с " +
+        "примером «They're recording a new album», то есть про запись музыки, " +
+        "а не про рекорд. И `pop` помечен там `(n)`, а не `(n & adj)`. Обе " +
+        "пометы на самом деле из Oxford 3000: `record n., v. A2` и `pop n., " +
+        "adj. A2` — источник назван теперь верно. Нашёл методист. " +
+        "СМЫСЛ `costume` СЛОВНИК ТОЖЕ НЕ ПОДТВЕРЖДАЕТ: он иллюстрирует его " +
+        "купальником («I forgot my swimming costume»). Костюм для роли даёт " +
+        "не он, а руководство A2 Key — цитата стоит в опоре на руководство, " +
+        "выше. " +
+        "ШЕСТЬ СЛОВ МОДУЛЯ OXFORD СТАВИТ ВЫШЕ СТУПЕНИ, И ВСЕ ШЕСТЬ ВЗЯТЫ ПО " +
+        "МЕРКЕ СТУПЕНИ: `kick v., n. B1`, `upset adj., v. B1`, `channel n. " +
+        "B1`, `costume n. B1`, `dressed adj. B1` и `bat n. B2` (последнее — в " +
+        "`oxford-5000`). Все шесть стоят в словнике A2 Key, то есть входят в " +
+        "требования экзамена. Мерка та же, что у самого `could` выше, и " +
+        "применяется ко всем одинаково. " +
+        "ПЕРВАЯ РЕДАКЦИЯ ОБЪЯВЛЯЛА ТОЛЬКО ДВА СЛОВА ИЗ ШЕСТИ, а про пять " +
+        "писала, что Oxford их не знает. Это неверно: `baseball n. A2`, " +
+        "`fail v. A2`, `dressed adj. B1`, `costume n. B1`, `kick v., n. B1` " +
+        "там есть. Не нашлись только `granny`, `footballer`, `dinosaur`, " +
+        "`clown` — проверено по обоим спискам построчно",
       license: "внутреннее использование, публично не называем",
     },
   ],
@@ -237,7 +271,7 @@ const module: Module = {
           id: "kak-ustroeno-umenie-v-proshlom",
           kind: "explain",
           text: [
-            "Слово could — это can, сказанное о прошлом.",
+            "Об умении, которое было раньше, говорят словом could.",
             "Оно не меняется ни у одного лица: I could, you could, he could.",
             "Глагол после него стоит в обычной форме, и to не ставят.",
             "Вместо местоимения может стоять имя: my granny could cook, my friends could swim.",
@@ -342,18 +376,13 @@ const module: Module = {
           id: "z5-napisat-o-babushke",
           kind: "short",
           prompt:
-            "Скажи, что твоя бабушка хорошо готовила. Начни с My granny.",
+            "Скажи, что твоя бабушка умела хорошо готовить. Начни с My granny.",
           answer: "My granny could cook well.",
-          accept: [
-            "My granny could cook well",
-            "My granny could cook well.",
-            "My granny cooked well.",
-            "My granny cooked well",
-          ],
+          accept: ["My granny could cook well"],
           hint: "Слово умения стоит между тем, о ком речь, и глаголом.",
           why:
-            "My granny could cook well. Годится и My granny cooked well — но " +
-            "тогда сказано о самом деле, а не об умении.",
+            "My granny could cook well. Запись My granny cooked well сказала " +
+            "бы о самом деле, а не об умении.",
         },
       ],
     },
@@ -402,7 +431,7 @@ const module: Module = {
             "Глагол после него остаётся в обычной форме: ride, catch, write.",
             "Слово did в такую строку не добавляют вовсе.",
             "Тем же оборотом говорят и о единственном случае: I couldn't open the door.",
-            "Причину называют словом because: I couldn't ride a bike because it was too big.",
+            "Причину называют словом because: I couldn't hold the bat because it was heavy.",
           ],
         },
         {
@@ -414,17 +443,16 @@ const module: Module = {
             "берёт not само: I couldn't ride a bike.",
         },
         {
-          id: "razgovor-o-velosipede",
+          id: "rasskaz-o-neudachah",
           kind: "example",
-          caption: "Разговор о велосипеде",
-          razgovor: true,
+          caption: "Данияр о своих неудачах",
           zvuchat: [
             "I couldn't ride a bike at seven. The bike was too big.",
-            "And I couldn't hold the bat: it was heavy.",
+            "I couldn't hold the bat: it was heavy.",
             "I failed my first test at school, and I was upset all day.",
           ],
           text:
-            "I couldn't ride a bike at seven. The bike was too big.\nAnd I couldn't hold the bat: it was heavy.\nI failed my first test at school, and I was upset all day.",
+            "I couldn't ride a bike at seven. The bike was too big.\nI couldn't hold the bat: it was heavy.\nI failed my first test at school, and I was upset all day.",
           explain:
             "В первых двух строках couldn't говорит о том, чего не выходило, и " +
             "рядом названа причина. Третья строка о случае, а не об умении: " +
@@ -503,17 +531,20 @@ const module: Module = {
           id: "z5-nazvat-prichinu",
           kind: "short",
           prompt:
-            "Соедини две строки одним словом: I couldn't ride a bike. The bike was too big. Запиши получившуюся строку целиком.",
-          answer: "I couldn't ride a bike because the bike was too big.",
+            "Скажи одной строкой: ездить на велосипеде не выходило, потому что он был слишком велик. Начни с I couldn't.",
+          answer: "I couldn't ride a bike because it was too big.",
           accept: [
+            "I couldn't ride a bike because it was too big",
+            "I couldn't ride a bike, because it was too big.",
+            "I couldn't ride a bike, because it was too big",
+            "I couldn't ride a bike because the bike was too big.",
             "I couldn't ride a bike because the bike was too big",
             "I couldn't ride a bike, because the bike was too big.",
-            "I couldn't ride a bike, because the bike was too big",
           ],
-          hint: "Вторая строка называет причину первой.",
+          hint: "Причину присоединяют одним словом.",
           why:
-            "I couldn't ride a bike because the bike was too big. Слово " +
-            "because и связывает неудачу с причиной.",
+            "I couldn't ride a bike because it was too big. Годится и because " +
+            "the bike was too big — оба говорят о том же.",
         },
       ],
     },
@@ -582,11 +613,11 @@ const module: Module = {
           zvuchat: [
             "Could you get dressed alone at five?",
             "No, I couldn't. My granny helped me with the costume.",
-            "And could you play the clown?",
+            "Could you play the clown at school?",
             "Yes, I could. Everybody laughed.",
           ],
           text:
-            "Could you get dressed alone at five?\nNo, I couldn't. My granny helped me with the costume.\nAnd could you play the clown?\nYes, I could. Everybody laughed.",
+            "Could you get dressed alone at five?\nNo, I couldn't. My granny helped me with the costume.\nCould you play the clown at school?\nYes, I could. Everybody laughed.",
           explain:
             "В обоих вопросах could стоит первым, а глагол остаётся в обычной " +
             "форме. В коротком ответе глагол не повторяют: No, I couldn't.",
@@ -610,19 +641,20 @@ const module: Module = {
           prompt: "Спроси, умел ли собеседник петь в пять лет.",
           options: [
             { text: "Did you could sing at five?" },
-            { text: "You could sing at five?" },
+            { text: "Could you sang at five?" },
             { text: "Could you sing at five?", correct: true },
           ],
-          hint: "В начало выходит само слово умения.",
+          hint: "В начало выходит само слово умения, а глагол не меняется.",
           why:
             "Could you sing at five? Слово did к нему не добавляют, а во " +
-            "второй записи could осталось на месте рассказа.",
+            "второй записи глагол взял прошедшую форму, хотя о прошлом уже " +
+            "сказало could.",
         },
         {
           id: "z2-otvetit-korotko-da",
           kind: "short",
           prompt:
-            "Тебя спросили: Could you swim at six? Ответь коротко — да, умел.",
+            "Тебя спросили: Could you swim at six? Ответь коротко — да, умение было.",
           answer: "Yes, I could.",
           accept: ["Yes, I could"],
           hint: "В коротком ответе глагол не повторяют.",
@@ -633,7 +665,7 @@ const module: Module = {
           kind: "hottext",
           prompt: "Отметь вопросы, заданные верно.",
           parts: [
-            { text: "Could you play the clown?", selectable: true, correct: true },
+            { text: "Could you play the clown at school?", selectable: true, correct: true },
             { text: " · " },
             { text: "Did he could sing pop songs?", selectable: true },
             { text: " · " },
@@ -707,6 +739,7 @@ const module: Module = {
           glossary: [
             { term: "every Saturday", translation: "каждую субботу" },
             { term: "took me into the game", translation: "брали меня в игру" },
+            { term: "could name", translation: "умел назвать" },
             { term: "Two years later", translation: "через два года" },
           ],
         },
@@ -738,13 +771,14 @@ const module: Module = {
           prompt: "Чего автор не умел?",
           options: [
             { text: "Плавать и называть динозавров." },
-            { text: "Ездить на велосипеде и бить по мячу.", correct: true },
+            { text: "Ездить на велосипеде и хорошо бить по мячу.", correct: true },
             { text: "Играть в бейсбол в девять лет." },
           ],
           hint: "Ищи строки со словом couldn't.",
           why:
-            "Ездить на велосипеде и бить по мячу: I couldn't ride a bike, I " +
-            "couldn't kick a ball well.",
+            "Ездить на велосипеде и хорошо бить по мячу: I couldn't ride a " +
+            "bike, I couldn't kick a ball well. Слово well тут важно: мяч " +
+            "автор бил, но плохо.",
         },
         {
           id: "z3-pochemu-ne-vyhodilo",
@@ -805,8 +839,8 @@ const module: Module = {
           id: "zachem-slushat-o-detstve",
           kind: "explain",
           text: [
-            "Два человека вспоминают школьный спектакль.",
-            "Слушать надо, что у каждого выходило, а что нет.",
+            "Теперь Данияр расспрашивает о том же спектакле Айгуль.",
+            "Слушать надо, что выходило у неё, а что нет.",
             "Ниже запись, а расшифровка спрятана под кнопкой.",
             "Слушай целиком, потом отвечай.",
           ],
@@ -850,7 +884,7 @@ const module: Module = {
           prompt:
             "Послушай. Кто сделал костюм? Ответь одним словом по-английски.",
           answer: "granny",
-          accept: ["Granny", "his granny", "her granny"],
+          accept: ["Granny", "my granny", "My granny", "her granny"],
           hint: "Об этом сказано в самой последней реплике.",
           why: "My granny made it.",
         },
@@ -931,15 +965,15 @@ const module: Module = {
           zvuchat: [
             "At seven I could swim well.",
             "My granny took me to the pool every Saturday.",
-            "But I couldn't ride a bike.",
-            "The bike was too big for me.",
+            "But I couldn't ride a bike, because the bike was too big.",
+            "At nine I started to play baseball.",
           ],
           head: ["Что сказано", "Пример строки"],
           rows: [
             ["сколько было лет и что выходило", "At seven I could swim well."],
             ["кто был рядом", "My granny took me to the pool every Saturday."],
-            ["что не выходило", "But I couldn't ride a bike."],
-            ["отчего не выходило", "The bike was too big for me."],
+            ["что не выходило и отчего", "But I couldn't ride a bike, because the bike was too big."],
+            ["чем дело кончилось", "At nine I started to play baseball."],
           ],
         },
         {
@@ -948,8 +982,8 @@ const module: Module = {
           text: [
             "Первая строка называет возраст и умение: at seven I could swim.",
             "Вторая говорит, кто был рядом, — рассказ становится живым.",
-            "Третья называет то, что не выходило, — через couldn't.",
-            "Четвёртая объясняет причину, и её связывают словом because.",
+            "Третья называет то, что не выходило, и сразу причину — через because.",
+            "Четвёртая говорит, чем дело кончилось.",
             "Оценку вроде nice ставить не нужно: дела говорят сами.",
           ],
         },
@@ -960,15 +994,16 @@ const module: Module = {
           zvuchat: [
             "At five I could sing pop songs, and everybody in the family listened.",
             "My brother taught me the words.",
-            "But I couldn't get dressed alone for the school play.",
-            "The costume had too many buttons, so my granny helped me.",
+            "But I couldn't get dressed alone, because the costume was too hard for me.",
+            "At six I could do it alone, and my granny only watched.",
           ],
           text:
-            "At five I could sing pop songs, and everybody in the family listened.\nMy brother taught me the words.\nBut I couldn't get dressed alone for the school play.\nThe costume had too many buttons, so my granny helped me.",
+            "At five I could sing pop songs, and everybody in the family listened.\nMy brother taught me the words.\nBut I couldn't get dressed alone, because the costume was too hard for me.\nAt six I could do it alone, and my granny only watched.",
           explain:
             "Первая строка называет возраст и умение, вторая — того, кто был " +
-            "рядом. Третья говорит, что не выходило, четвёртая называет " +
-            "причину. Оценки нет ни одной, а рассказ понятен.",
+            "рядом. Третья говорит, что не выходило, и тут же отчего. " +
+            "Четвёртая — чем дело кончилось. Оценки нет ни одной, а рассказ " +
+            "понятен.",
         },
 
         // ---- задания ----
@@ -988,16 +1023,17 @@ const module: Module = {
             "нет вовсе.",
         },
         {
-          id: "z2-dopisat-couldnt-v-rasskaz",
+          id: "z2-dopisat-prichinu-v-rasskaz",
           kind: "gap",
-          prompt: "Одеться сам герой не мог. Допиши слово.",
-          before: "But I ",
-          after: " get dressed alone for the school play.",
-          answer: "couldn't",
-          hint: "Слово умения берёт not и сливается с ним.",
+          prompt:
+            "Одной строкой сказано и что не вышло, и отчего. Допиши слово.",
+          before: "But I couldn't get dressed alone, ",
+          after: " the costume was too hard for me.",
+          answer: "because",
+          hint: "Это слово присоединяет причину к тому, что не вышло.",
           why:
-            "But I couldn't get dressed alone. Слово didn't сюда не ставят: " +
-            "could отрицает себя само.",
+            "But I couldn't get dressed alone, because the costume was too " +
+            "hard for me. Без него вышли бы две отдельные мысли.",
         },
         {
           id: "z3-otmetit-stroki-o-delah",
@@ -1017,38 +1053,33 @@ const module: Module = {
             "Первая и третья. Вторая и четвёртая дают оценку, а не дело.",
         },
         {
-          id: "z4-svyazat-neudachu-s-prichinoy",
-          kind: "short",
+          id: "z4-sobrat-konec-rasskaza",
+          kind: "order",
           prompt:
-            "Соедини две строки одним словом: I couldn't get dressed alone. The costume had too many buttons. Запиши получившуюся строку целиком.",
-          answer:
-            "I couldn't get dressed alone because the costume had too many buttons.",
-          accept: [
-            "I couldn't get dressed alone because the costume had too many buttons",
-            "I couldn't get dressed alone, because the costume had too many buttons.",
-            "I couldn't get dressed alone, because the costume had too many buttons",
-          ],
-          hint: "Вторая строка называет причину первой.",
+            "Собери последнюю строку рассказа: в шесть я уже мог сделать это сам.",
+          items: ["do it alone.", "At six", "I could"],
+          answer: [1, 2, 0],
+          hint: "Возраст стоит в самом начале строки.",
           why:
-            "I couldn't get dressed alone because the costume had too many " +
-            "buttons. Слово because и связывает неудачу с причиной.",
+            "At six I could do it alone. Такая строка и говорит, чем дело " +
+            "кончилось.",
         },
         {
           id: "z5-napisat-rasskaz-o-detstve",
           kind: "essay",
           prompt:
-            "Напиши на школьный сайт рассказ о своём детстве, четырьмя строками. Назови возраст и то, что выходило, скажи, кто был рядом, назови то, что не выходило, и объясни почему.",
+            "Напиши на школьный сайт рассказ о своём детстве, четырьмя строками. Назови возраст и то, что выходило. Скажи, кто был рядом. Одной строкой через because назови то, что не выходило и отчего. Скажи, чем дело кончилось.",
           minWords: 15,
           sample:
-            "At five I could sing pop songs, and everybody in the family listened.\nMy brother taught me the words.\nBut I couldn't get dressed alone for the school play.\nThe costume had too many buttons, so my granny helped me.",
+            "At five I could sing pop songs, and everybody in the family listened.\nMy brother taught me the words.\nBut I couldn't get dressed alone, because the costume was too hard for me.\nAt six I could do it alone, and my granny only watched.",
           checklist: [
-            "назван возраст",
-            "есть строка со словом could",
+            "назван возраст и то, что выходило",
             "сказано, кто был рядом",
-            "есть строка со словом couldn't и причиной",
+            "есть строка со словом couldn't и причиной через because",
+            "сказано, чем дело кончилось",
           ],
           hint:
-            "Бери обороты, которые знаешь: At five I could…, But I couldn't…, because…",
+            "Бери обороты, которые знаешь: At five I could…, But I couldn't… because…",
           why:
             "Рассказ работает, когда читатель видит дело, а не оценку.",
         },
@@ -1120,8 +1151,8 @@ const module: Module = {
           "Запись I didn't could ride a bike неверна. Отчего?",
         options: [
           { text: "Слово could отрицает себя само, и didn't тут лишнее.", correct: true },
-          { text: "Слово bike нельзя ставить после ride." },
-          { text: "Строку надо начинать с When." },
+          { text: "Глагол ride надо поставить в прошедшую форму." },
+          { text: "Слово could должно стоять перед didn't." },
         ],
         hint: "Посмотри, сколько слов в строке говорят «нет».",
         why:
@@ -1144,21 +1175,18 @@ const module: Module = {
           "Could she read at five? Слово did в такой вопрос не добавляют.",
       },
       {
-        id: "q-vybrat-korotkiy-otvet",
-        kind: "choice",
+        id: "q-ispravit-korotkiy-otvet",
+        kind: "short",
         outcome:
           "спрашивать об умении в прошлом и коротко отвечать: Could you swim? — Yes, I could.",
         prompt:
-          "Тебя спросили: Could you ride a bike at seven? Умения не было. Какой ответ верен?",
-        options: [
-          { text: "No, I didn't." },
-          { text: "No, I wasn't." },
-          { text: "No, I couldn't.", correct: true },
-        ],
+          "На вопрос Could you ride a bike at seven? ученик ответил: No, I didn't. Запиши короткий ответ без ошибки.",
+        answer: "No, I couldn't.",
+        accept: ["No, I couldn't", "No, I could not.", "No, I could not"],
         hint: "Короткий ответ повторяет то слово, с которого начался вопрос.",
         why:
-          "No, I couldn't. Слово did в таком ответе не появляется вовсе, а " +
-          "wasn't говорило бы не об умении.",
+          "No, I couldn't. Слово did в таком ответе не появляется вовсе: " +
+          "вопрос начался не с него.",
       },
 
       // ---- итог 4 ----
@@ -1179,16 +1207,20 @@ const module: Module = {
           "у друзей это не выходило.",
       },
       {
-        id: "q-najti-prichinu-v-rasskaze",
-        kind: "short",
+        id: "q-chto-sleduet-iz-stroki-rasskaza",
+        kind: "choice",
         outcome: "находить в рассказе о детстве, что человек умел, а что нет",
         prompt:
-          "В рассказе строка: I couldn't ride a bike: the bike was too big for me. Каким словом это соединили бы в одну мысль? Ответь одним словом по-английски.",
-        answer: "because",
-        accept: ["Because"],
-        hint: "Это слово называет причину.",
+          "В рассказе строка: I couldn't kick a ball well, so the big boys never took me into the game. Что из неё следует?",
+        options: [
+          { text: "Автор не любил футбол." },
+          { text: "В дворовые игры автора не брали.", correct: true },
+          { text: "Мальчики играли без мяча." },
+        ],
+        hint: "Смотри, что стоит после слова so.",
         why:
-          "Because. Оно и связывает то, что не вышло, с причиной.",
+          "В игры автора не брали. Слово so и вводит то, чем обернулось " +
+          "неумение.",
       },
 
       // ---- итог 5 ----
@@ -1199,7 +1231,7 @@ const module: Module = {
         zvuk:
           "I couldn't play the guitar at ten, but I could draw very well.",
         prompt:
-          "Послушай. Чего говорящий не умел в десять лет? Ответь одним словом по-английски.",
+          "Послушай. На чём говорящий не умел играть в десять лет? Ответь одним словом по-английски.",
         answer: "guitar",
         accept: ["Guitar", "the guitar"],
         hint: "Ответ звучит в первой половине записи.",
