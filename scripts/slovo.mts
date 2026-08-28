@@ -69,7 +69,11 @@ function oxford(): Map<string, string> {
 function a2key(): Set<string> {
   const syroy = trebuetsya(join(KESH, "cambridge-vocab-a2-key.txt"), "npm run kontrol -- english-elementary");
   const naydeno = new Set<string>();
-  for (const syraya of syroy.split("\n")) {
+  // Словник кончается приложением «Topic Lists» — там слова стоят столбцами по
+  // четыре в строке, и разбор склеивает соседние («barbecue cook», «bus stop
+  // motorway»). Читаем только алфавитную часть.
+  const doPrilozheniya = syroy.split(/^Appendix 2\s*$/m)[0];
+  for (const syraya of doPrilozheniya.split("\n")) {
     const stroka = syraya.replace(/[‘’ʼ]/g, "'").trim().toLowerCase();
     // Часть речи бывает и `mv` (модальный глагол), и `phr v` (глагол с
     // послелогом), а сама запись бывает с косой чертой — `prefer / would
@@ -136,8 +140,17 @@ if (zapasIndex >= 0) {
   const skolko = Number(dovody[zapasIndex + 1]) || 40;
   // Запас ступени: слово требует экзамен A2, а прошлая ступень его не давала и
   // Oxford не помечает первой ступенью. Уже взятые курсом не показываем.
+  //
+  // ПЕРВАЯ РЕДАКЦИЯ ВЫБРАСЫВАЛА ВСЁ, ГДЕ ЕСТЬ ПРОБЕЛ, — и вместе с мусором
+  // выбрасывала 25 глаголов с послелогом (`look after`, `turn on`, `write
+  // down`), которые словник требует наравне с прочими. Из-за этого запас
+  // ступени выглядел исчерпанным раньше срока, а вопрос владельцу о нехватке
+  // словаря опирался на заниженное число.
+  //
+  // Отбрасываем теперь только то, что словом не является: подписи разделов и
+  // обрывки строк. Признак простой — больше двух слов подряд.
   const zapas = [...a2]
-    .filter((w) => !w.includes(" ") && ox.get(w) !== "a1" && !dano.has(w))
+    .filter((w) => w.split(" ").length <= 2 && ox.get(w) !== "a1" && !dano.has(w))
     .sort();
   console.log(`Запас ступени A2: ${zapas.length} слов, ещё не взятых курсом. Первые ${skolko}:\n`);
   for (const w of zapas.slice(0, skolko)) {

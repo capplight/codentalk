@@ -845,8 +845,11 @@ async function zagruzitA2Key(): Promise<Set<string> | null> {
   const seno = readFileSync(ryadom, "utf8");
 
   // Нормализуем каждую строку по отдельности, а не файл целиком.
+  // Словник кончается приложением «Topic Lists» — там слова стоят столбцами по
+  // четыре в строке, и разбор склеивает соседние («barbecue cook»). Читаем
+  // только алфавитную часть.
   const naydeno = new Set<string>();
-  for (const syraya of seno.split("\n")) {
+  for (const syraya of seno.split(/^Appendix 2\s*$/m)[0].split("\n")) {
     const stroka = syraya.replace(/[\u2018\u2019\u02bc]/g, "'").trim().toLowerCase();
     // Запись словника: слово, потом часть речи в скобках — `earn (v)`,
     // `east (n, adj & adv)`. Строки примеров начинаются с маркера списка и сюда
