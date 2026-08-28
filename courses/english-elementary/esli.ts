@@ -32,29 +32,39 @@ import type { Module } from "@/lib/content/types";
  * приеду» — может, и не приеду. Форма одна, смысл разный. Внутри ступени
  * ссылка на модуль 11 законна и нужна, и урок 3 на ней стоит.
  *
- * РАСХОЖДЕНИЕ ИСТОЧНИКОВ, ТРЕТЬЕ ПОДРЯД.
+ * ПЕРВОЕ УСЛОВНОЕ СТОИТ НА A2 У ОБОИХ ИСТОЧНИКОВ, И ЭТО НАДО ЗНАТЬ ПРО ПЕРВУЮ
+ * РЕДАКЦИЮ ЭТОЙ ШАПКИ.
  *
- * English Grammar Profile ставит первое условное предложение — `if` +
- * настоящее + `will` — на **B1**: «FORM/USE: PRESENT SIMPLE 'IF' CLAUSE +
- * 'WILL', FUTURE, LIKELY OUTCOME (FIRST CONDITIONAL)». На A2 у `if` три графы,
- * и `will` в них не названо: «FORM: 'IF' + PRESENT SIMPLE», «FORM/USE: PRESENT
- * SIMPLE 'IF' CLAUSE, REAL CONDITIONS» (там главная половина — настоящее
- * время, `can` или повелительное) и «FORM: PRESENT SIMPLE 'IF' CLAUSE +
- * IMPERATIVE».
+ * Она объявляла «расхождение источников, третье подряд»: будто English Grammar
+ * Profile ставит первое условное на B1, а берём мы его по руководству A2 Key.
+ * ЭТО НЕВЕРНО, и нашёл методист.
  *
- * А руководство A2 Key даёт первое условное прямо и примером. С. 52, перечень
- * Clause types: «Subordinate clause following **if**, when, where, because:
- * **I'll leave if you do that again.** He'll come when you call.»
+ * У English Grammar Profile `will` после `if` стоит на A2 ДВУМЯ графами, и обе
+ * лежат вне подкатегории `conditional`:
  *
- * РЕШЕНО ПО МЕРКЕ СТУПЕНИ, той же, что у `could` в модуле 27: конструкция
- * названа в Language specifications экзамена — значит входит в ступень.
- * Подкрепление сильнее обычного: руководство не просто называет союз, а даёт
- * готовый пример нужного вида.
+ * - **MODALITY, will, A2, «FORM/USE: AFTER 'IF', FUTURE SITUATIONS»** — «Can
+ *   use 'will' in the main clause after an 'if-' clause to talk about possible
+ *   future situations», примеры «If I need a camera, **I will** use my mobile
+ *   phone», «If you can help me, **I will** be very happy»;
+ * - **PRESENT, present simple, A2, «FORM/USE: REAL AND IMAGINED SITUATIONS
+ *   AFTER 'IF'»** — примеры взяты из самого экзамена: «If you want some help,
+ *   **I will** be free next week» (Key English Test, A2).
  *
- * ОСТОРОЖНО С ГРАФОЙ A2 «FORM: 'IF' + PRESENT SIMPLE»: один из её примеров сам
- * содержит `will` — «if you want to pass it **you will have to** study very
- * hard». Это не доказательство уровня, но и не пустяк: цитата читается вместе
- * с примером, и пример здесь на стороне руководства.
+ * И третья графа, A2, **CLAUSES subordinated, «FORM/USE: 'IF' CLAUSES,
+ * CONDITIONS»** — «Can use a finite subordinate clause with 'if', **before or
+ * after** a main clause», пример «**I will come** see you on Friday **if** it's
+ * ok with you». Она же подпирает обратный порядок половин.
+ *
+ * ПРИЧИНА ОШИБКИ — ПОИСК НЕ ПО ФАЙЛУ, А ПО ПОДКАТЕГОРИИ. Я смотрел строки, где
+ * `SubCategory` равно `conditional`, и нашёл там первое условное на B1. А те
+ * графы, что дают его на A2, лежат в `MODALITY will`, `PRESENT present simple`
+ * и `CLAUSES subordinated`. Ровно эта ловушка записана в CLAUDE.md про модуль
+ * 9: «тот же файл держит ещё 13 строк MODALITY will».
+ *
+ * Руководство A2 Key (с. 52, Clause types: «Subordinate clause following if,
+ * when, where, because: **I'll leave if you do that again.**») остаётся
+ * подкреплением, а не единственным основанием. Мерка ступени здесь не
+ * применялась и не нужна.
  *
  * ЧЕГО В МОДУЛЕ НЕТ, И ВСЁ ЭТО B1: второе условное (`if` + прошедшее +
  * `would`), третье условное, `unless`, `if I were you`, `if so` и `if not`,
@@ -70,10 +80,24 @@ import type { Module } from "@/lib/content/types";
  * подсчёт запаса выбрасывал всё, где есть пробел.
  *
  * ТРАНСКРИПЦИЯ МНОГОСЛОВНЫХ ЗАПИСЕЙ ВЗЯТА ПО СЛОВАРНОЙ НОРМЕ: `ipa-en-uk` их
- * не знает вовсе. Ударение у глагола с послелогом стоит на послелоге — `/weɪk
- * ˈʌp/`, `/tɜːn ˈɒf/`; у составного существительного на первом слове —
- * `/ˈkɑː pɑːk/`, `/əˈlɑːm klɒk/`. Тот же ряд, что `record` в модуле 27;
- * владельцу стоит на него взглянуть.
+ * не знает вовсе. Тот же ряд, что `record` в модуле 27; владельцу стоит на
+ * него взглянуть.
+ *
+ * У составного существительного ударение на первом слове: `/ˈkɑː pɑːk/`,
+ * `/əˈlɑːm klɒk/`, `/ˈkredɪt kɑːd/`.
+ *
+ * У ГЛАГОЛА С ПОСЛЕЛОГОМ ПРАВИЛО ТОНЬШЕ, И ПЕРВАЯ РЕДАКЦИЯ ШАПКИ ЕГО ОГРУБИЛА.
+ * Она писала «ударение стоит на послелоге» — это верно, когда послелог наречие
+ * (`wake up`, `break down`, `turn on`, `turn off`, `find out`: их можно
+ * разорвать — `turn the light on`). Но у `look for` второе слово предлог: «look
+ * it for» невозможно, порядок только `look for it`. Предлог безударен, и
+ * карточка теперь пишет `/ˈlʊk fə/`. Нашёл методист.
+ *
+ * `get on` и `get off` ОСТАВЛЕНЫ С УДАРЕНИЕМ НА ВТОРОМ СЛОВЕ, И ЭТО ВОПРОС
+ * ВЛАДЕЛЬЦУ. Словник даёт их предложными — «to get on the bus», — и по доводу
+ * выше ударение следовало бы снять. Но в речи «get ÓFF» звучит с ударением, а
+ * ни один наш источник многословных записей не размечает вовсе. Решать
+ * преподавателю.
  */
 const module: Module = {
   slug: "esli",
@@ -104,13 +128,31 @@ const module: Module = {
         "«FORM: PRESENT SIMPLE 'IF' CLAUSE + IMPERATIVE», A2 — «Can use 'if' + " +
         "present simple, with an imperative in the main clause», примеры «If " +
         "you find it, call me», «If you want to come, just tell me». " +
-        "ПЕРВОЕ УСЛОВНОЕ У ЭТОГО ИСТОЧНИКА — B1: «FORM/USE: PRESENT SIMPLE " +
-        "'IF' CLAUSE + 'WILL', FUTURE, LIKELY OUTCOME (FIRST CONDITIONAL)». " +
-        "Модуль его всё же берёт, и основание — руководство A2 Key, см. " +
-        "следующую опору. " +
-        "ОСТОРОЖНО С ПРИМЕРОМ ГРАФЫ A2 «FORM: 'IF' + PRESENT SIMPLE»: он сам " +
-        "содержит `will` — «if you want to pass it you will have to study very " +
-        "hard». Уровня это не доказывает, но пример на стороне руководства. " +
+        "`WILL` ПОСЛЕ `IF` СТОИТ НА A2 У ЭТОГО ЖЕ ИСТОЧНИКА, ДВУМЯ ГРАФАМИ " +
+        "ВНЕ ПОДКАТЕГОРИИ `conditional`. MODALITY, will, A2, «FORM/USE: AFTER " +
+        "'IF', FUTURE SITUATIONS» — «Can use 'will' in the main clause after " +
+        "an 'if-' clause to talk about possible future situations», примеры " +
+        "«If I need a camera, I will use my mobile phone», «And if my mum can, " +
+        "she will fetch you», «If you can help me, I will be very happy». " +
+        "PRESENT, present simple, A2, «FORM/USE: REAL AND IMAGINED SITUATIONS " +
+        "AFTER 'IF'» — «Can use the present simple after 'if' to talk about " +
+        "real and imagined situations», примеры взяты из самого экзамена: «If " +
+        "you want some help, I will be free next week» (Key English Test, A2). " +
+        "И ТРЕТЬЯ ГРАФА ПОДПИРАЕТ ОБРАТНЫЙ ПОРЯДОК ПОЛОВИН: CLAUSES " +
+        "subordinated, A2, «FORM/USE: 'IF' CLAUSES, CONDITIONS» — «Can use a " +
+        "finite subordinate clause with 'if', before or after a main clause, " +
+        "to introduce conditions», пример «I will come see you on Friday if " +
+        "it's ok with you». " +
+        "ПЕРВАЯ РЕДАКЦИЯ ЭТОЙ ОПОРЫ ПИСАЛА, ЧТО ПЕРВОЕ УСЛОВНОЕ У ИСТОЧНИКА " +
+        "B1 И ЧТО ИСТОЧНИКИ РАСХОДЯТСЯ. Неверно: графа «FORM/USE: PRESENT " +
+        "SIMPLE 'IF' CLAUSE + 'WILL' … (FIRST CONDITIONAL)» действительно " +
+        "стоит на B1, но она не единственная, а я искал по подкатегории " +
+        "`conditional` вместо всего файла. Нашёл методист. " +
+        "УРОК 3 ОПИРАЕТСЯ НА ОТДЕЛЬНУЮ ГРАФУ: FUTURE, present simple for " +
+        "future use, A2, «FORM: WITH 'WHEN'» — «Can use the present simple " +
+        "with 'when' to refer to the future», примеры «I'll tell you more when " +
+        "I meet you», «Can you, please, call me when you find it?». Первый из " +
+        "них дословно стоит в модуле 11. " +
         "ЧЕГО НЕТ, И ВСЁ ЭТО B1: второе условное («FORM/USE: 'IF' + PAST " +
         "SIMPLE + 'WOULD'»); третье условное («'IF' + PAST PERFECT + 'WOULD " +
         "HAVE'»); `unless` («FORM/USE: 'UNLESS', EXCEPTIONS»); `if I were you`; " +
@@ -124,11 +166,12 @@ const module: Module = {
     {
       ref: "Cambridge English, A2 Key handbook for teachers",
       section:
-        "ОСНОВАНИЕ ДЛЯ ПЕРВОГО УСЛОВНОГО. с. 52, Language specifications, " +
-        "перечень Clause types: «Subordinate clause following if, when, where, " +
-        "because: I'll leave if you do that again. He'll come when you call.» " +
-        "Это ровно `will` в главной половине и настоящее время после `if`. Тот " +
-        "же перечень дал модулю 11 связку с `when`. " +
+        "ПОДКРЕПЛЕНИЕ ДЛЯ ПЕРВОГО УСЛОВНОГО (основание — English Grammar " +
+        "Profile, см. опору выше). с. 52, Language specifications, перечень " +
+        "Clause types: «Subordinate clause following if, when, where, because: " +
+        "I'll leave if you do that again. He'll come when you call.» Это ровно " +
+        "`will` в главной половине и настоящее время после `if`. Тот же " +
+        "перечень дал модулю 11 связку с `when`. " +
         "УРОК 5, ФОРМА ОТВЕТА. с. 29, раздел THE TASK: «The candidates should " +
         "only write ONE word, or a number, or a date, or a time for their " +
         "answer» — поэтому ответы на слух здесь односложные",
@@ -158,18 +201,24 @@ const module: Module = {
         "ДЕСЯТЬ ИЗ НИХ — ГЛАГОЛЫ С ПОСЛЕЛОГОМ И СОСТАВНЫЕ СУЩЕСТВИТЕЛЬНЫЕ: " +
         "`wake up (phr v)`, `break down (phr v)`, `turn off (phr v)`, `turn on " +
         "(phr v)`, `look for (phr v)`, `find out (phr v)`, `get off (phr v)`, " +
-        "`get on (phr v)`, `alarm clock (n)`, `car park (n)`. Ещё три " +
-        "многословных: `credit card (n)`, `at all (adv)`, `because of (prep)`, " +
-        "`by post (prep phr)`. До 28 августа весь этот пласт был для курса " +
+        "`get on (phr v)`, `alarm clock (n)`, `car park (n)`. Ещё четыре " +
+        "многословных: `credit card (n)`, `at all (prep phr)`, `because of " +
+        "(prep phr)`, `by post (prep phr)`. Первая редакция писала «три» и " +
+        "приписывала `at all` помету `(adv)`, а `because of` — `(prep)`; в " +
+        "словнике у обоих `(prep phr)`. Нашёл методист. " +
+        "До 28 августа весь этот пласт был для курса " +
         "невидим: разбор словника не знал помет `(mv)` и `(phr v)`, а подсчёт " +
         "запаса выбрасывал всё, где есть пробел. " +
-        "ЧТО ГОВОРИТ OXFORD: `underground n. A2` — единственное слово модуля, " +
-        "которое там нашлось. Остальные четырнадцать не нашлись ни в " +
-        "`oxford-3000`, ни в `oxford-5000` — это не значит, что их там нет: " +
-        "многословные записи оба списка ведут иначе. Проверено по обоим " +
-        "спискам построчно. " +
-        "`underground` ВЗЯТО В БРИТАНСКОМ ЗНАЧЕНИИ — метро; словник даёт его в " +
-        "тематическом перечне транспорта рядом с `bus stop` и `car park`",
+        "ЧТО ГОВОРИТ OXFORD: `underground adj., adv. A2` — единственное слово " +
+        "модуля, которое там нашлось, и помета у него НЕ существительного. " +
+        "Первая редакция опоры писала `underground n. A2`; ступень названа " +
+        "верно, помета — нет. Нашёл методист. " +
+        "Существительное подпирает словник: `underground (n & adj)` и " +
+        "отдельно перечень транспорта, где оно стоит рядом с `bus stop` и `car " +
+        "park`. Модуль учит именно существительному — метро, британскому. " +
+        "Остальные четырнадцать не нашлись ни в `oxford-3000`, ни в " +
+        "`oxford-5000` — это не значит, что их там нет: многословные записи " +
+        "оба списка ведут иначе. Проверено по обоим спискам построчно",
       license: "внутреннее использование, публично не называем",
     },
   ],
@@ -221,6 +270,7 @@ const module: Module = {
             "А в половине с условием его не ставят: там глагол настоящего времени.",
             "Окончание в этой половине живёт по правилу лица: I wake up, но the bus breaks down.",
             "Половины можно поменять местами: I'll show you the city if you come.",
+            "При обратном порядке запятая не нужна вовсе.",
             "Когда условие стоит впереди, между половинами ставят запятую.",
           ],
         },
@@ -230,7 +280,7 @@ const module: Module = {
           tone: "mistake",
           text:
             "«If you will come, I'll show you the city» — так сказать нельзя." +
-            "\n\nВ половине с условием будущего не ставят: If you come.",
+            "\n\nВ половине с условием будущего не ставят: If you arrive early.",
         },
         {
           id: "razgovor-o-priezde",
@@ -266,10 +316,12 @@ const module: Module = {
         {
           id: "z1-dopisat-nastoyashchee-posle-if",
           kind: "gap",
-          prompt: "В половине с условием стоит настоящее время. Допиши глагол.",
+          prompt:
+            "Друг ещё не решил, приедет ли в мае. Допиши глагол «приезжать» в нужной форме.",
           before: "If you ",
           after: " in May, I'll show you the city.",
           answer: "come",
+          accept: ["arrive"],
           hint: "Слово will сюда не ставят, и окончания у глагола нет.",
           why:
             "If you come in May, I'll show you the city. Запись will come в " +
@@ -355,25 +407,25 @@ const module: Module = {
           ],
         },
         {
-          id: "tri-vida-glavnoy-poloviny",
+          id: "chetyre-vida-glavnoy-poloviny",
           kind: "table",
           caption: "Четыре вида главной половины",
           zvuchat: [
             "If you find it, call me.",
             "If you find it, you can call me.",
-            "If you find it, I'll come at once.",
+            "If you find it, I'll come today.",
             "If you turn off the light, the room is dark.",
           ],
           head: ["Главная половина", "Пример строки"],
           rows: [
             ["просьба", "If you find it, call me."],
             ["можно так", "If you find it, you can call me."],
-            ["обещание", "If you find it, I'll come at once."],
+            ["обещание", "If you find it, I'll come today."],
             ["всегда так", "If you turn off the light, the room is dark."],
           ],
         },
         {
-          id: "kak-ustroeny-tri-vida",
+          id: "kak-ustroeny-chetyre-vida",
           kind: "explain",
           text: [
             "Просьба начинается прямо с глагола: call me, look for it, turn on the light.",
@@ -389,7 +441,7 @@ const module: Module = {
           tone: "mistake",
           text:
             "«If you will find it, call me» — так не просят.\n\nПосле if стоит " +
-            "настоящее время: If you find it.",
+            "настоящее время: If you look for it.",
         },
         {
           id: "zapiska-provodniku",
@@ -398,10 +450,10 @@ const module: Module = {
           zvuchat: [
             "If you find a black bag, call me, please.",
             "If you look for it in the evening, you can turn on the light.",
-            "If you find out something, I'll come at once.",
+            "If you find out something, I'll come today.",
           ],
           text:
-            "If you find a black bag, call me, please.\nIf you look for it in the evening, you can turn on the light.\nIf you find out something, I'll come at once.",
+            "If you find a black bag, call me, please.\nIf you look for it in the evening, you can turn on the light.\nIf you find out something, I'll come today.",
           explain:
             "Три строки, и половина с условием у всех одинаковая. Различаются " +
             "главные половины: просьба, слово can и обещание с will.",
@@ -411,11 +463,11 @@ const module: Module = {
           kind: "vocab",
           caption: "Слова урока",
           items: [
-            { term: "look for", translation: "искать", example: "If you look for it in the evening, you can turn on the light.", hint: "/lʊk ˈfɔː/" },
-            { term: "find out", translation: "выяснить, узнать", example: "If you find out something, I'll come at once.", hint: "/faɪnd ˈaʊt/" },
+            { term: "look for", translation: "искать", example: "If you look for it in the evening, you can turn on the light.", hint: "/ˈlʊk fə/" },
+            { term: "find out", translation: "выяснить, узнать", example: "If you find out something, I'll come today.", hint: "/faɪnd ˈaʊt/" },
             { term: "turn on", translation: "включить", example: "You can turn on the light.", hint: "/tɜːn ˈɒn/" },
             { term: "turn off", translation: "выключить", example: "If you turn off the light, the room is dark.", hint: "/tɜːn ˈɒf/" },
-            { term: "credit card", translation: "кредитная карта", example: "If you find my credit card, call me at once.", hint: "/ˈkredɪt kɑːd/" },
+            { term: "credit card", translation: "кредитная карта", example: "If you find my credit card, call me today.", hint: "/ˈkredɪt kɑːd/" },
           ],
         },
 
@@ -423,10 +475,12 @@ const module: Module = {
         {
           id: "z1-dopisat-prosbu",
           kind: "gap",
-          prompt: "В главной половине стоит просьба. Допиши глагол.",
+          prompt:
+            "В главной половине стоит просьба позвонить. Допиши глагол.",
           before: "If you find a black bag, ",
           after: " me, please.",
           answer: "call",
+          accept: ["phone", "ring"],
           hint: "Просьба начинается прямо с глагола, без will и без you.",
           why:
             "If you find a black bag, call me, please. Запись you will call " +
@@ -452,27 +506,28 @@ const module: Module = {
           kind: "hottext",
           prompt: "Отметь строки, где главная половина говорит «так можно».",
           parts: [
-            { text: "If you look for it, you can turn on the light.", selectable: true, correct: true },
-            { text: " · " },
             { text: "If you find it, call me.", selectable: true },
             { text: " · " },
-            { text: "If you have a credit card, you can pay here.", selectable: true, correct: true },
+            { text: "If you look for it, you can turn on the light.", selectable: true, correct: true },
             { text: " · " },
-            { text: "If you find out something, I'll come.", selectable: true },
+            { text: "If you turn off the light, the room is dark.", selectable: true },
+            { text: " · " },
+            { text: "If you have a credit card, you can pay here.", selectable: true, correct: true },
           ],
           hint: "Ищи слово can в главной половине.",
           why:
-            "Первая и третья. Во второй просьба, в четвёртой обещание с will.",
+            "Вторая и четвёртая. В первой просьба, а в третьей сказано о том, " +
+            "что бывает всегда: там оба глагола в настоящем времени.",
         },
         {
           id: "z4-sobrat-uslovie-s-prosboy",
           kind: "order",
-          prompt: "Собери строку: если найдёшь мою карту, позвони мне сразу.",
-          items: ["at once.", "If you find my credit card,", "call me"],
+          prompt: "Собери строку: если найдёшь мою карту, позвони мне сегодня.",
+          items: ["today.", "If you find my credit card,", "call me"],
           answer: [1, 2, 0],
           hint: "Условие стоит впереди, и после него запятая.",
           why:
-            "If you find my credit card, call me at once. Просьба начинается " +
+            "If you find my credit card, call me today. Просьба начинается " +
             "прямо с глагола.",
         },
         {
@@ -484,6 +539,8 @@ const module: Module = {
           accept: [
             "If you look for it in the evening, you can turn on the light",
             "If you look for it in the evening you can turn on the light.",
+            "If you look for it in the evening, you can turn the light on.",
+            "If you look for it in the evening you can turn the light on.",
           ],
           hint: "Слово can стоит в главной половине, перед глаголом.",
           why:
@@ -552,13 +609,13 @@ const module: Module = {
           caption: "Спор о погоде",
           razgovor: true,
           zvuchat: [
-            "When it rains in the mountains, we'll come back at once.",
+            "When it rains in the mountains, we'll come back early.",
             "If it rains. It doesn't rain there every day!",
             "Fine. If it rains, we'll get on the bus and go home.",
             "And if we come back early because of the rain, I'll cook something.",
           ],
           text:
-            "When it rains in the mountains, we'll come back at once.\nIf it rains. It doesn't rain there every day!\nFine. If it rains, we'll get on the bus and go home.\nAnd if we come back early because of the rain, I'll cook something.",
+            "When it rains in the mountains, we'll come back early.\nIf it rains. It doesn't rain there every day!\nFine. If it rains, we'll get on the bus and go home.\nAnd if we come back early because of the rain, I'll cook something.",
           explain:
             "Первая строка со словом when обещает дождь наверняка. Айгуль " +
             "поправляет одним словом — if, — и дальше уже все строки с ним: " +
@@ -643,6 +700,8 @@ const module: Module = {
           accept: [
             "If I can't come, I'll send it by post",
             "If I can't come I'll send it by post.",
+            "If I can't come, I will send it by post.",
+            "If I can't come, I will send it by post",
           ],
           hint: "Неуверенность называет слово if, а не when.",
           why:
@@ -676,7 +735,7 @@ const module: Module = {
           genre: "notice",
           body: [
             "If you take the bike for a day, it costs 2000 tenge.",
-            "If you pay by credit card, you can take it at once.",
+            "If you pay by credit card, you can take it today.",
             "If the bike breaks down, call us and we'll bring another one.",
             "If you leave the bike in the car park, turn off the light on it.",
             "If you come back after eight, you can get off at the bus stop and leave the bike there.",
@@ -757,7 +816,7 @@ const module: Module = {
           about: "pamyatka-prokata",
           kind: "choice",
           prompt:
-            "Строка: If you pay by credit card, you can take it at once. Что стоит в главной половине?",
+            "Строка: If you pay by credit card, you can take it today. Что стоит в главной половине?",
           options: [
             { text: "Просьба." },
             { text: "Слово can: так можно.", correct: true },
@@ -766,7 +825,7 @@ const module: Module = {
           hint: "Смотри вторую половину строки, после запятой.",
           why:
             "Слово can. Оно и говорит, что при таком условии велосипед дают " +
-            "сразу.",
+            "в тот же день.",
         },
       ],
     },
@@ -848,15 +907,15 @@ const module: Module = {
           why: "Then I'll stay at home.",
         },
         {
-          id: "z4-chto-prosyat-sdelat",
+          id: "z4-gde-ostanetsya",
           about: "zapis-ob-uslovii",
           kind: "short",
           prompt:
-            "Послушай. Когда просят позвонить? Ответь двумя словами по-английски.",
-          answer: "wake up",
-          accept: ["Wake up", "when you wake up"],
-          hint: "Просьба стоит в самом конце записи.",
-          why: "Call me when you wake up.",
+            "Послушай. Где Айгуль останется, если пойдёт дождь? Ответь одним словом по-английски.",
+          answer: "home",
+          accept: ["Home", "at home"],
+          hint: "Ответ звучит сразу после слов Then I'll stay.",
+          why: "Then I'll stay at home.",
         },
         {
           id: "z5-pochemu-when-a-ne-if",
@@ -865,9 +924,9 @@ const module: Module = {
           prompt:
             "В конце звучит Call me when you wake up. Отчего здесь when, а не if?",
           options: [
-            { text: "Проснуться человек в любом случае." , correct: true },
-            { text: "После call всегда ставят when." },
-            { text: "Слово if в просьбах не бывает." },
+            { text: "После when глагол стоит в настоящем времени." },
+            { text: "Проснуться человек в любом случае.", correct: true },
+            { text: "Слово if сделало бы просьбу мягче." },
           ],
           hint: "Спроси: это может не случиться или случится наверняка?",
           why:
@@ -963,12 +1022,13 @@ const module: Module = {
           options: [
             { text: "If it rains we'll go to the cafe." },
             { text: "If it rains, we'll go to the cafe.", correct: true },
-            { text: "If, it rains we'll go to the cafe." },
+            { text: "We'll go to the cafe, if it rains." },
           ],
-          hint: "Запятая делит две половины, когда условие идёт первым.",
+          hint: "Запятая нужна только тогда, когда условие идёт первым.",
           why:
-            "If it rains, we'll go to the cafe. Запятая стоит там, где " +
-            "кончается половина с условием.",
+            "If it rains, we'll go to the cafe. В третьей записи половины " +
+            "переставлены верно, но запятая там не нужна: она делит их только " +
+            "тогда, когда условие стоит впереди.",
         },
         {
           id: "z3-otmetit-stroki-zapiski",
@@ -1004,7 +1064,7 @@ const module: Module = {
           kind: "essay",
           prompt:
             "Напиши другу записку тремя строками. Назови место и время встречи. Скажи, что будет, если пойдёт дождь. Скажи, что сделаешь, если не сможешь прийти.",
-          minWords: 18,
+          minWords: 16,
           sample:
             "We'll meet in the city centre at six.\nIf it rains, we'll go to the museum.\nIf I can't come, I'll send a message.",
           checklist: [
@@ -1071,7 +1131,11 @@ const module: Module = {
         prompt:
           "Строку If you find it, I'll call you перепиши так, чтобы вместо обещания вышла просьба позвонить мне.",
         answer: "If you find it, call me.",
-        accept: ["If you find it, call me", "If you find it, please call me."],
+        accept: [
+          "If you find it, call me",
+          "If you find it, please call me.",
+          "If you find it, call me, please.",
+        ],
         hint: "Просьба начинается прямо с глагола.",
         why:
           "If you find it, call me. В просьбе нет ни will, ни того, к кому " +
@@ -1100,29 +1164,28 @@ const module: Module = {
         kind: "short",
         outcome: "различать условие и срок: if it rains — when it rains",
         prompt:
-          "Автобус приходит по расписанию, опоздания не ждут. Допиши союз к строке: ___ the bus comes, we'll get on. Ответь одним словом по-английски.",
-        answer: "When",
-        accept: ["when"],
-        hint: "Спроси: автобус точно придёт?",
+          "Дождь может пойти, а может и нет. Допиши союз к строке: ___ it rains, we'll take a taxi. Ответь одним словом по-английски.",
+        answer: "If",
+        accept: ["if"],
+        hint: "Спроси: дождь точно будет?",
         why:
-          "When. Автобус придёт наверняка, названо только время; слово if " +
-          "сказало бы, что он может и не прийти.",
+          "If. Дождя может и не быть, а слово when обещало бы его наверняка.",
       },
       {
-        id: "q-nazvat-raznicu-if-when",
+        id: "q-najti-oshibku-v-soyuze",
         kind: "choice",
         outcome: "различать условие и срок: if it rains — when it rains",
         prompt:
-          "Строки If it rains, we'll stay at home и When it rains, we'll stay at home говорят о разном. Чем?",
+          "Собеседник написал: When the shop is closed, I'll come back tomorrow. Что здесь не так?",
         options: [
-          { text: "В первой дождь под вопросом, во второй он будет.", correct: true },
-          { text: "Первая о завтрашнем дне, вторая о сегодняшнем." },
-          { text: "Во второй нет обещания." },
+          { text: "После when не ставят will." },
+          { text: "Магазин может оказаться и открытым — нужно if.", correct: true },
+          { text: "Строку надо начинать с I'll." },
         ],
-        hint: "Спроси у каждой строки: дождь точно будет?",
+        hint: "Спроси: закрытый магазин — дело назначенное или нет?",
         why:
-          "В первой дождь может и не пойти, во второй он назначен, и названо " +
-          "только время.",
+          "Нужно if: магазин может быть и открыт. Слово when говорит о том, " +
+          "что случится наверняка.",
       },
 
       // ---- итог 4 ----
@@ -1143,15 +1206,20 @@ const module: Module = {
           "действии.",
       },
       {
-        id: "q-skolko-polovin-v-stroke",
+        id: "q-perestavit-poloviny",
         kind: "short",
         outcome: "находить в письме, что случится при каком условии",
         prompt:
-          "В памятке строка: If the bike breaks down, call us. Какое слово начинает половину с условием? Ответь одним словом по-английски.",
-        answer: "If",
-        accept: ["if"],
-        hint: "Это самое первое слово строки.",
-        why: "If. С него и начинается половина с условием.",
+          "Строку If you come in May, I'll show you the city перепиши так, чтобы главная половина стояла впереди.",
+        answer: "I'll show you the city if you come in May.",
+        accept: [
+          "I'll show you the city if you come in May",
+          "I will show you the city if you come in May.",
+        ],
+        hint: "При обратном порядке одна вещь из строки уходит.",
+        why:
+          "I'll show you the city if you come in May. Запятая при обратном " +
+          "порядке не нужна.",
       },
 
       // ---- итог 5 ----
