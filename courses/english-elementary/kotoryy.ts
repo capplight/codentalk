@@ -8,9 +8,21 @@ import type { Module } from "@/lib/content/types";
  * и `that` о вещи, место придаточного. Строка проверена 29 августа 2026, до
  * написания; разбор с цитатами — там же.
  *
- * ИМЯ ГЛАВНОЙ ВЕЩИ МОДУЛЯ — «ОПИСАНИЕ». Половина строки, которая описывает,
- * зовётся «описанием», а то, к чему она относится, — «тем, о ком речь». Второе
- * имя курс держит с первых модулей.
+ * ИМЯ ГЛАВНОЙ ВЕЩИ МОДУЛЯ — «ОПИСАНИЕ», а то, к чему оно относится, зовётся
+ * «словом, которое описываешь».
+ *
+ * ПЕРВАЯ РЕДАКЦИЯ БРАЛА ДЛЯ ВТОРОГО ФОРМУЛУ «ТОТ, О КОМ РЕЧЬ» И ПИСАЛА, ЧТО
+ * КУРС ЕЁ УЖЕ ДЕРЖИТ. Курс её держит, но за другой вещью: двадцать шесть
+ * вхождений в двенадцати модулях, и во всех «тот, о ком речь» — это
+ * ПОДЛЕЖАЩЕЕ. Модуль 27: «Слово умения стоит сразу после того, о ком речь».
+ * Модуль 30 пятнадцать раз брал ту же формулу под слово, к которому идёт
+ * описание, — а в трёх строках его же таблицы это слово подлежащим не
+ * является: «I have a friend who…», «This is my sister who…». Ученик,
+ * прошедший двадцать девять модулей, поставил бы `who` за словом `I`.
+ * Нашёл методист.
+ *
+ * И «о КОМ» стояло над сумкой, конвертом и фильмом — в модуле, который как раз
+ * учит различать «кто» и «что». Это заметил редактор.
  *
  * ПРОВЕРКА ПО КУРСУ СДЕЛАНА ПЕРВОЙ — ТАК ТЕПЕРЬ ЗАВЕДЕНО. Придаточных в курсе
  * нет нигде: `who` встречается только вопросительным словом, `which` — только
@@ -71,7 +83,7 @@ const module: Module = {
   outcomes: [
     "описывать человека по тому, что он делает: a friend who lives in Almaty",
     "описывать вещь: the bag which is on the table",
-    "ставить описание сразу после того, о ком речь: The film that I watched was long",
+    "ставить описание сразу за словом, которое описываешь: The film that I watched was long",
     "находить в письме, кого и что описывают",
     "слышать в разговоре, о каком человеке или вещи речь",
     "проверять подпись к снимку: назван человек, дано описание и сказано, чем он важен",
@@ -123,7 +135,17 @@ const module: Module = {
         "STRANDING», B1); оценочное придаточное ко всему предложению (B2). " +
         "ОПУЩЕННОЕ МЕСТОИМЕНИЕ — A2, «FORM: DEFINING, WITHOUT PRONOUN», пример " +
         "«the clothes I wore». В модуль не взято: три способа сказать одно и то " +
-        "же на этой ступени довольно",
+        "же на этой ступени довольно. " +
+        "ДВА ОБОРОТА В МОДУЛЕ ЗВУЧАТ И ПОТОМУ ОБЪЯВЛЯЮТСЯ ЗДЕСЬ, оба A2. " +
+        "`a friend of mine` — PRONOUNS possessive, A2, «FORM: + 'OF MINE'»: " +
+        "«Can use the possessive pronoun 'mine' after 'of' in the phrases 'a " +
+        "friend of mine' and 'friends of mine'». `the one who…` и `the one " +
+        "that…` — PRONOUNS substitution, A2, «FORM: 'ONE'», вместе с графами " +
+        "придаточных; модуль 20 уже дал `the one with silver gates`. " +
+        "ОСТОРОЖНО: графа B1 «FORM/USE: 'THE' + NOUN + 'WHO/THAT', FOCUS» " +
+        "выглядит похоже, но она про выделение — «the person who», «the thing " +
+        "that» вместо простого имени. Здесь `the one` заменяет уже названную " +
+        "вещь, а это подстановка. Оба оборота назвал методист",
       license: "внутреннее использование, публично не называем",
     },
     {
@@ -155,10 +177,21 @@ const module: Module = {
     {
       ref: "Cambridge English, A2 Key vocabulary list (август 2025)",
       section:
-        "Пятнадцать карточек модуля взяты из словника ступени, и все " +
-        "пятнадцать новые для ступени: businesswoman, housewife, shopper, " +
-        "good-looking, beard, grandchild, department store, for sale, " +
-        "discount, envelope, drawer, t-shirt, perfume, selfie, contact. " +
+        "Восемнадцать карточек модуля. Пятнадцать взяты из словника ступени " +
+        "и новы для неё: businesswoman, housewife, shopper, good-looking, " +
+        "beard, grandchild, department store, for sale, discount, envelope, " +
+        "drawer, t-shirt, perfume, selfie, contact. " +
+        "ЕЩЁ ТРИ — `aunt`, `uncle`, `husband` — ДОБАВЛЕНЫ ПО РАЗБОРУ. Oxford " +
+        "помечает их A1, то есть числятся они за прошлой ступенью, но курс не " +
+        "давал их НИ РАЗУ: ни карточкой, ни в текстах Beginner. А модуль " +
+        "ставит их в опору — `husband` вообще ответ задания, которое ученик " +
+        "пишет по-английски. Это та самая дыра между проверками, из-за " +
+        "которой писался docs/dolg-slovarya-elementary.md. Нашёл методист. " +
+        "СВЕРКА СЧИТАЕТ НОВЫХ ОДИННАДЦАТЬ, А НЕ ПЯТНАДЦАТЬ, и это не " +
+        "противоречие: она сводит `shopper` к `shop`, а `drawer` к `draw` и " +
+        "потому числит их за прошлой ступенью, а `good-looking` и `t-shirt` " +
+        "не находит вовсе. Само слово ученик встречает впервые в обоих " +
+        "случаях. " +
         "ДВА СЛОВА OXFORD СТАВИТ ВЫШЕ СТУПЕНИ, И ОБА ВЗЯТЫ ПО МЕРКЕ СТУПЕНИ: " +
         "discount (B1) и contact (B1); оба стоят в словнике A2 Key, то есть " +
         "входят в требования экзамена. " +
@@ -216,7 +249,7 @@ const module: Module = {
           id: "kak-ustroeno-opisanie-cheloveka",
           kind: "explain",
           text: [
-            "Слово who стоит сразу за тем, о ком речь, и начинает описание.",
+            "Слово who стоит сразу за словом, которое описываешь, и начинает описание.",
             "После who идёт глагол: lives, works, knows.",
             "Окончание у глагола живёт по правилу лица: a friend who lives, friends who live.",
             "Слово who берут тогда, когда человек сам что-то делает.",
@@ -259,6 +292,11 @@ const module: Module = {
             { term: "shopper", translation: "покупатель", example: "He is a shopper who knows every discount.", hint: "/ˈʃɒpə/" },
             { term: "grandchild", translation: "внук или внучка", example: "She has a grandchild who lives in Astana.", hint: "/ˈgræntʃaɪld/" },
             { term: "beard", translation: "борода", example: "My uncle, the one who has a beard.", hint: "/bɪəd/" },
+            { term: "department store", translation: "универмаг", example: "A businesswoman who works in a department store.", hint: "/dɪˈpɑːtmənt stɔː/" },
+            { term: "discount", translation: "скидка", example: "He is a shopper who knows every discount.", hint: "/ˈdɪskaʊnt/" },
+            { term: "aunt", translation: "тётя", example: "That is my aunt, a businesswoman who works in a department store.", hint: "/ɑːnt/" },
+            { term: "uncle", translation: "дядя", example: "My uncle, the one who has a beard.", hint: "/ˈʌŋkl/" },
+            { term: "husband", translation: "муж", example: "The man who has a beard is her husband.", hint: "/ˈhʌzbənd/" },
             { term: "good-looking", translation: "привлекательный", example: "And the good-looking man who is next to her?", hint: "/gʊd ˈlʊkɪŋ/" },
           ],
         },
@@ -271,7 +309,7 @@ const module: Module = {
           before: "I have a friend ",
           after: " lives in Almaty.",
           answer: "who",
-          hint: "Это слово ставят сразу за тем, о ком речь.",
+          hint: "Это слово ставят сразу за словом, которое описываешь.",
           why:
             "I have a friend who lives in Almaty. Слово which берут о вещи, а " +
             "здесь речь о человеке.",
@@ -295,18 +333,18 @@ const module: Module = {
           kind: "hottext",
           prompt: "Отметь строки, где описан человек.",
           parts: [
+            { text: "a shopper knows every discount", selectable: true },
+            { text: " · " },
             { text: "a shopper who knows every discount", selectable: true, correct: true },
             { text: " · " },
-            { text: "a bag which is very heavy", selectable: true },
+            { text: "a grandchild lives in Astana", selectable: true },
             { text: " · " },
             { text: "a grandchild who lives in Astana", selectable: true, correct: true },
-            { text: " · " },
-            { text: "a shop which opens at eight", selectable: true },
           ],
-          hint: "Ищи слово who: его берут о людях.",
+          hint: "Описание начинается словом who, а без него выходит целая строка.",
           why:
-            "Первая и третья. Во второй и четвёртой описаны вещи, и там стоит " +
-            "which.",
+            "Вторая и четвёртая. Первая и третья — обычные строки: там просто " +
+            "сказано, что человек делает, а не описан он сам.",
         },
         {
           id: "z4-sobrat-opisanie-cheloveka",
@@ -314,7 +352,7 @@ const module: Module = {
           prompt: "Собери строку: у меня есть тётя, которая работает в универмаге.",
           items: ["works in a department store.", "I have an aunt", "who"],
           answer: [1, 2, 0],
-          hint: "Слово описания стоит сразу за тем, о ком речь.",
+          hint: "Слово описания стоит сразу за словом, которое описываешь.",
           why:
             "I have an aunt who works in a department store. После who сразу " +
             "идёт глагол.",
@@ -415,7 +453,6 @@ const module: Module = {
             { term: "t-shirt", translation: "футболка", example: "A t-shirt which my granny made.", hint: "/ˈtiː ʃɜːt/" },
             { term: "perfume", translation: "духи", example: "The perfume which my sister gave me.", hint: "/ˈpɜːfjuːm/" },
             { term: "drawer", translation: "выдвижной ящик", example: "The drawer which is always open.", hint: "/drɔː/" },
-            { term: "department store", translation: "универмаг", example: "A businesswoman who works in a department store.", hint: "/dɪˈpɑːtmənt stɔː/" },
           ],
         },
 
@@ -500,7 +537,7 @@ const module: Module = {
       title: "Место описания: The film that I watched was long",
       estimatedMinutes: 14,
       outcome:
-        "ставить описание сразу после того, о ком речь: The film that I watched was long",
+        "ставить описание сразу за словом, которое описываешь: The film that I watched was long",
 
       blocks: [
         {
@@ -509,7 +546,7 @@ const module: Module = {
           text: [
             "Айгуль пересказывает Данияру фильм и путается в порядке слов.",
             "По-русски описание можно отодвинуть в конец, и всё понятно.",
-            "По-английски оно стоит вплотную к тому, о ком речь.",
+            "По-английски оно стоит вплотную к слову, которое описываешь.",
           ],
         },
         {
@@ -520,18 +557,18 @@ const module: Module = {
           rows: [
             ["The film", "that I watched", "was long."],
             ["The perfume", "that she gave me", "was very old."],
-            ["The shopper", "that I met", "knows every discount."],
+            ["The t-shirt", "that my granny made", "was new."],
           ],
         },
         {
           id: "kak-ustroeno-mesto",
           kind: "explain",
           text: [
-            "Описание вклинивается в строку сразу за тем, о ком речь.",
+            "Описание вклинивается в строку сразу за словом, которое описываешь.",
             "Главное о нём говорится уже после описания: was long, was very old.",
-            "Слово that берут тогда, когда с вещью действует человек.",
-            "В этом месте вместо that годится и which: The film which I watched was long.",
-            "Отодвинуть описание в конец нельзя: тогда непонятно, к чему оно.",
+            "О вещи описание начинают и словом that, и словом which: оба годятся.",
+            "О человеке в этом месте берут who, как в первом уроке.",
+            "Описание ставят вплотную: отодвинешь в конец — читатель отнесёт его не к тому слову.",
           ],
         },
         {
@@ -548,26 +585,26 @@ const module: Module = {
           caption: "Разговор о фильме",
           razgovor: true,
           zvuchat: [
-            "The film that I watched yesterday was very long.",
+            "The film that I watched was long.",
             "Which one?",
-            "The one about a businesswoman that a friend of mine wrote about.",
+            "The one that a friend of mine made.",
+            "And the perfume that she gave me was very old.",
           ],
           text:
-            "The film that I watched yesterday was very long.\nWhich one?\nThe one about a businesswoman that a friend of mine wrote about.",
+            "The film that I watched was long.\nWhich one?\nThe one that a friend of mine made.\nAnd the perfume that she gave me was very old.",
           explain:
-            "В первой строке описание стоит между фильмом и словами о нём. В " +
-            "последней описание стоит вплотную к businesswoman — и потому " +
-            "понятно, о ком оно.",
+            "В первой и последней строке описание стоит между словом и тем, что " +
+            "о нём сказано. В третьей оно стоит вплотную к the one — и потому " +
+            "понятно, что описывают фильм, а не друга.",
         },
         {
           id: "slovar-opisaniy",
           kind: "vocab",
           caption: "Слова урока",
           items: [
-            { term: "for sale", translation: "продаётся", example: "The drawer that is for sale is very old.", hint: "/fə ˈseɪl/" },
-            { term: "discount", translation: "скидка", example: "The shopper that I met knows every discount.", hint: "/ˈdɪskaʊnt/" },
+            { term: "for sale", translation: "продаётся", example: "The drawer which is for sale is very old.", hint: "/fə ˈseɪl/" },
             { term: "selfie", translation: "селфи", example: "The selfie that she sent me was funny.", hint: "/ˈselfi/" },
-            { term: "contact", translation: "связаться; связь", example: "The shop that I contact every week has a discount.", hint: "/ˈkɒntækt/" },
+            { term: "contact", translation: "связаться; связь", example: "The shop that I contact every week gives a discount.", hint: "/ˈkɒntækt/" },
           ],
         },
 
@@ -579,12 +616,13 @@ const module: Module = {
           options: [
             { text: "The selfie was funny that she sent me." },
             { text: "The selfie that she sent me was funny.", correct: true },
-            { text: "That she sent me the selfie was funny." },
+            { text: "The selfie what she sent me was funny." },
           ],
-          hint: "Описание стоит вплотную к тому, о ком речь.",
+          hint: "Описание стоит вплотную к слову, которое описываешь.",
           why:
             "The selfie that she sent me was funny. В первой записи описание " +
-            "отошло в конец, а в третьей встало впереди всего.",
+            "отошло в конец, а в третьей вместо that стоит what — так описание " +
+            "не начинают.",
         },
         {
           id: "z2-dopisat-that",
@@ -593,7 +631,8 @@ const module: Module = {
           before: "The film ",
           after: " I watched was long.",
           answer: "that",
-          hint: "В этом месте годится и which, но начни с того слова, которому учит урок.",
+          accept: ["which"],
+          hint: "В этом месте годятся оба слова о вещи.",
           why:
             "The film that I watched was long. Запись which I watched тоже " +
             "верна: оба слова берут о вещи.",
@@ -605,13 +644,13 @@ const module: Module = {
           parts: [
             { text: "The perfume was old that she gave me.", selectable: true },
             { text: " · " },
-            { text: "The drawer that is for sale is very old.", selectable: true, correct: true },
+            { text: "The drawer which is for sale is very old.", selectable: true, correct: true },
             { text: " · " },
             { text: "The shop was closed that I contact every week.", selectable: true },
             { text: " · " },
             { text: "The shopper that I met knows every discount.", selectable: true, correct: true },
           ],
-          hint: "Смотри, стоит ли описание вплотную к тому, о ком речь.",
+          hint: "Смотри, стоит ли описание вплотную к слову, которое описываешь.",
           why:
             "Вторая и четвёртая. В первой и третьей описание отошло в конец, и " +
             "непонятно, к чему оно.",
@@ -632,15 +671,15 @@ const module: Module = {
           kind: "short",
           prompt:
             "Строку The drawer was very old that is for sale перепиши так, чтобы описание стояло на своём месте.",
-          answer: "The drawer that is for sale was very old.",
+          answer: "The drawer which is for sale was very old.",
           accept: [
-            "The drawer that is for sale was very old",
+            "The drawer which is for sale was very old",
             "The drawer which is for sale was very old.",
             "The drawer which is for sale was very old",
           ],
-          hint: "Описание переезжает вплотную к тому, о ком речь.",
+          hint: "Описание переезжает вплотную к слову, которое описываешь.",
           why:
-            "The drawer that is for sale was very old. Годится и which: оба " +
+            "The drawer which is for sale was very old. Годится и which: оба " +
             "слова берут о вещи.",
         },
       ],
@@ -687,7 +726,7 @@ const module: Module = {
           tone: "info",
           text:
             "О человеке описание начинается словом who, о вещи — which или " +
-            "that.\n\nОписание всегда стоит сразу за тем, о ком речь.",
+            "that.\n\nОписание всегда стоит сразу за словом, которое описываешь.",
         },
 
         // ---- задания ----
@@ -739,12 +778,12 @@ const module: Module = {
             { text: " · " },
             { text: "футболку купили в универмаге", selectable: true },
             { text: " · " },
-            { text: "селфи прислали в этот же день", selectable: true },
+            { text: "селфи снято в другой вечер", selectable: true },
           ],
           hint: "Про футболку сказано в четвёртой строке, про селфи — в пятой.",
           why:
-            "Верно первое и второе. Футболку сшила бабушка, а селфи прислали " +
-            "на прошлой неделе.",
+            "Верно первое и второе. Футболку сшила бабушка, а селфи снято в тот " +
+            "же вечер, что и остальные снимки.",
         },
         {
           id: "z5-k-chemu-otnositsya-opisanie",
@@ -863,7 +902,7 @@ const module: Module = {
           prompt:
             "В записи звучит a t-shirt that my sister wanted. Отчего здесь that, а не who?",
           options: [
-            { text: "После gave всегда ставят that." },
+            { text: "Описание относится к сестре, а не к футболке." },
             { text: "Описание относится к вещи, а не к человеку.", correct: true },
             { text: "Слово who бывает только в вопросе." },
           ],
@@ -940,16 +979,16 @@ const module: Module = {
           id: "z1-chego-ne-hvataet-podpisi",
           kind: "choice",
           prompt:
-            "Подпись целиком: This is my family. Чего в ней не хватает?",
+            "Подпись целиком: This is my family. Какой из трёх нужных строк здесь нет?",
           options: [
-            { text: "Даты снимка." },
-            { text: "Описания: кто из шестерых кто.", correct: true },
-            { text: "Места, где снимали." },
+            { text: "Той, что называет человека." },
+            { text: "Той, что описывает человека.", correct: true },
+            { text: "Той, что говорит, чем он важен." },
           ],
           hint: "Спроси: узнает ли читатель кого-нибудь на снимке?",
           why:
-            "Описания. Слово family не отличает одного человека от пяти " +
-            "других.",
+            "Той, что описывает. Человек назван — семья, — но кто из шестерых " +
+            "кто, не сказано.",
         },
         {
           id: "z2-dopisat-who-v-podpis",
@@ -966,7 +1005,7 @@ const module: Module = {
         {
           id: "z3-otmetit-stroki-podpisi",
           kind: "hottext",
-          prompt: "Отметь строки, из которых читатель узнаёт, кто на снимке.",
+          prompt: "Отметь строки, из которых читатель узнаёт про ОДНОГО человека на снимке.",
           parts: [
             { text: "The weather was nice that day.", selectable: true },
             { text: " · " },
@@ -976,7 +1015,7 @@ const module: Module = {
             { text: " · " },
             { text: "The man who has a beard is her husband.", selectable: true, correct: true },
           ],
-          hint: "Нужное — это описание человека.",
+          hint: "Нужное — описание одного человека, а не всех разом.",
           why:
             "Вторая и четвёртая. Про погоду читателю знать нечего, а третья " +
             "называет всех разом и никого в отдельности.",
@@ -1000,7 +1039,7 @@ const module: Module = {
             "Напиши подпись к снимку тремя строками. Назови человека. Опиши его через who. Скажи, чем он тебе важен, и опиши какую-нибудь вещь через which или that.",
           minWords: 16,
           sample:
-            "This is my granny.\nShe is a housewife who cooks for six people every Sunday.\nShe made the t-shirt which I am wearing on this photo.",
+            "This is my uncle.\nHe is a shopper who knows every discount in the city.\nHe gave me the drawer which is in my room now.",
           checklist: [
             "назван человек",
             "есть описание со словом who",
@@ -1023,7 +1062,7 @@ const module: Module = {
     passRatio: 0.8,
     questions: [
       // Углы работы нарочно другие, чем у заданий уроков: исправить чужую
-      // запись, назвать причину ошибки, выбрать слово описания по тому, о ком речь.
+      // запись, назвать причину ошибки, выбрать слово описания по слову, которое описываешь.
 
       // ---- итог 1 ----
       {
@@ -1046,7 +1085,7 @@ const module: Module = {
           "описывать человека по тому, что он делает: a friend who lives in Almaty",
         prompt: "Запись a housewife who cook for six people неверна. Отчего?",
         options: [
-          { text: "Слово who нельзя ставить после housewife." },
+          { text: "Слово who тут лишнее: хватило бы a housewife cooks." },
           { text: "У глагола в описании пропало окончание.", correct: true },
           { text: "Нужно поставить that вместо who." },
         ],
@@ -1092,53 +1131,51 @@ const module: Module = {
         id: "q-perestavit-opisanie-na-mesto",
         kind: "short",
         outcome:
-          "ставить описание сразу после того, о ком речь: The film that I watched was long",
+          "ставить описание сразу за словом, которое описываешь: The film that I watched was long",
         prompt:
-          "Ученик написал: The selfie was funny that she sent me. Запиши строку без ошибки.",
-        answer: "The selfie that she sent me was funny.",
+          "Ученик написал: The envelope was empty that my aunt sent. Запиши строку без ошибки.",
+        answer: "The envelope that my aunt sent was empty.",
         accept: [
-          "The selfie that she sent me was funny",
-          "The selfie which she sent me was funny.",
+          "The envelope that my aunt sent was empty",
+          "The envelope which my aunt sent was empty.",
+          "The envelope which my aunt sent was empty",
         ],
         hint: "Описание стоит не там, где ему место.",
         why:
-          "The selfie that she sent me was funny. Описание вклинивается сразу " +
-          "за вещью, а главное о ней говорится после.",
+          "The envelope that my aunt sent was empty. Описание вклинивается " +
+          "сразу за словом, а главное о нём говорится после.",
       },
       {
-        id: "q-pochemu-opisanie-ryadom",
+        id: "q-k-chemu-tyanetsya-opisanie",
         kind: "choice",
         outcome:
-          "ставить описание сразу после того, о ком речь: The film that I watched was long",
+          "ставить описание сразу за словом, которое описываешь: The film that I watched was long",
         prompt:
-          "Отчего описание нельзя отодвинуть в конец строки?",
+          "В строке The bag was heavy which my brother gave me описание стоит в конце. К какому слову его отнесёт читатель?",
         options: [
-          { text: "Строка выйдет слишком длинной." },
-          { text: "Так не принято в объявлениях." },
-          { text: "Станет непонятно, к чему оно относится.", correct: true },
+          { text: "К слову bag." },
+          { text: "К слову heavy.", correct: true },
+          { text: "К слову brother." },
         ],
-        hint: "Сравни: The film was long that I watched.",
+        hint: "Описание тянется к тому слову, рядом с которым оказалось.",
         why:
-          "Станет непонятно, к чему оно. В строке The film was long that I " +
-          "watched описание оказалось рядом со словом long.",
+          "К слову heavy. Оттого описание и ставят вплотную к тому слову, " +
+          "которое описываешь.",
       },
 
       // ---- итог 4 ----
       {
-        id: "q-najti-opisanie-v-pisme",
-        kind: "choice",
+        id: "q-ispravit-which-o-cheloveke",
+        kind: "short",
         outcome: "находить в письме, кого и что описывают",
         prompt:
-          "В письме строка: I met a shopper who knows every discount. Кого описывают?",
-        options: [
-          { text: "Скидку." },
-          { text: "Покупателя.", correct: true },
-          { text: "Магазин." },
-        ],
-        hint: "Найди слово, сразу за которым стоит who.",
+          "Ученик написал: I met a shopper which knows every discount. Запиши строку без ошибки.",
+        answer: "I met a shopper who knows every discount.",
+        accept: ["I met a shopper who knows every discount"],
+        hint: "Одно слово взято не того разряда.",
         why:
-          "Покупателя: описание who knows every discount стоит сразу за " +
-          "словом shopper.",
+          "I met a shopper who knows every discount. Покупатель — человек, а " +
+          "which берут о вещи.",
       },
       {
         id: "q-chto-poteryali",
@@ -1157,13 +1194,13 @@ const module: Module = {
         id: "q-uslyshat-o-kom-rech",
         kind: "short",
         outcome: "слышать в разговоре, о каком человеке или вещи речь",
-        zvuk: "I know a man who has a beard and works in a bookshop.",
+        zvuk: "I know a man who works in a bookshop.",
         prompt:
           "Послушай. Где работает этот человек? Ответь одним словом по-английски.",
         answer: "bookshop",
         accept: ["Bookshop", "a bookshop", "in a bookshop"],
         hint: "Ответ звучит в самом конце записи.",
-        why: "I know a man who has a beard and works in a bookshop.",
+        why: "I know a man who works in a bookshop.",
       },
       {
         id: "q-uslyshat-opisanie-veshchi",
@@ -1183,52 +1220,37 @@ const module: Module = {
 
       // ---- итог 6 ----
       {
-        id: "q-chego-ne-hvataet-chuzhoy-podpisi",
-        kind: "choice",
-        outcome: "проверять подпись к снимку: назван человек, дано описание и сказано, чем он важен",
-        prompt:
-          "Подпись: This is my granny. She is a housewife who cooks for six people. Какой из трёх нужных строк здесь нет?",
-        options: [
-          { text: "Той, что называет человека." },
-          { text: "Той, что описывает человека." },
-          { text: "Той, что говорит, чем он важен.", correct: true },
-        ],
-        hint: "Пройди по трём нужным строкам и вычёркивай найденное.",
-        why:
-          "Той, что говорит, чем он важен. Человек назван, описание есть — а " +
-          "зачем читателю о нём знать, не сказано.",
-      },
-      {
         id: "q-dopisat-tretyu-stroku-podpisi",
         kind: "short",
         outcome: "проверять подпись к снимку: назван человек, дано описание и сказано, чем он важен",
         prompt:
-          "К подписи допиши третью строку: тётя подарила тебе духи, которыми ты пользуешься каждый день. Начни с She gave me.",
-        answer: "She gave me the perfume which I use every day.",
+          "К подписи допиши третью строку: дядя подарил тебе конверт, который ты хранишь до сих пор. Начни с He gave me.",
+        answer: "He gave me the envelope which I still keep.",
         accept: [
-          "She gave me the perfume which I use every day",
-          "She gave me the perfume that I use every day.",
-          "She gave me the perfume that I use every day",
+          "He gave me the envelope which I still keep",
+          "He gave me the envelope that I still keep.",
+          "He gave me the envelope that I still keep",
         ],
         hint: "После слова описания стоит тот, кто действует с вещью.",
         why:
-          "She gave me the perfume which I use every day. Годится и that: " +
-          "оба слова берут о вещи.",
+          "He gave me the envelope which I still keep. Годится и that: оба " +
+          "слова берут о вещи.",
       },
       {
-        id: "q-zachem-v-podpisi-opisanie",
+        id: "q-chego-net-v-podpisi-o-dyade",
         kind: "choice",
         outcome: "проверять подпись к снимку: назван человек, дано описание и сказано, чем он важен",
-        prompt: "Отчего в подписи к снимку нужно описание, а не только имя?",
+        prompt:
+          "В подписи стоит: This is my uncle. He gave me the drawer which is in my room now. Какой из трёх нужных строк здесь нет?",
         options: [
-          { text: "Так подпись выходит длиннее." },
-          { text: "На снимке шесть человек, и читатель их не различает.", correct: true },
-          { text: "Так принято подписывать снимки." },
+          { text: "Той, что описывает человека.", correct: true },
+          { text: "Той, что называет человека." },
+          { text: "Той, что говорит, чем он важен." },
         ],
-        hint: "Представь снимок, где стоят шестеро, а подписано «моя семья».",
+        hint: "Пройди по трём нужным строкам и вычёркивай найденное.",
         why:
-          "Читатель их не различает. Описание и отличает твоего человека от " +
-          "остальных.",
+          "Той, что описывает. Дядя назван, чем важен — сказано, а чем он " +
+          "занят или какой он, не сказано.",
       },
     ],
   },
