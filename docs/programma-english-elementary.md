@@ -522,7 +522,7 @@ DETERMINER»), см. разбор модуля 18 выше.
 | 25 | Надо и не надо | говорить об обязанности и её отсутствии | `have to`, `must`, `mustn't`, `don't have to` | 55 |
 | 26 | Стоит и не стоит | советовать | `should`, `shouldn't`, `Should I…?` | 15 |
 | 27 | Раньше мог | говорить об умении в прошлом | `could`, `couldn't`, `Could you…?` об умении | 15 |
-| 28 | Вежливо | просить, предлагать и отказывать так, чтобы не обидеть | `would like`, `would you`, `could you`; краткое `I'd` | 50 |
+| 28 | Вежливо | вежливо просить, соглашаться, отказываться и выбирать | `Could you…?`; `I'd love to`, `No, thank you`; `I'd prefer` | 15 |
 | 29 | Если | ставить условие | условные предложения с настоящим и `will`; `if` и `when` | 50 |
 | 30 | Который | описывать человека и вещь придаточным | `who`, `which`, `that`; место придаточного | 50 |
 | 31 | Он сказал, что | пересказывать чужие слова и переспрашивать | косвенная речь с `say` и `tell`, сдвиг местоимения; вопрос-переспрос | 50 |
@@ -664,6 +664,79 @@ A2 «FORM: QUESTIONS» — она о форме и о случае не гово
 writing, графа A2: «Can give very short, basic descriptions of events, past
 activities and personal experiences» и «Can tell a simple story». Рассказ о том,
 что умел в детстве, — ровно этот случай.
+
+
+**Строка модуля 28 проверена 28 августа 2026, до написания. ОТ НЕЁ ОСТАЛАСЬ
+ТРЕТЬ, И ПРИЧИНА НЕ В УРОВНЕ, А В ТОМ, ЧТО ОСТАЛЬНОЕ УЖЕ ПРЕПОДАНО.**
+
+Строка обещала `would like`, `would you`, `could you` и краткое `I'd`. Проверка
+по источнику и по курсу — оба вопроса сразу, по правилу, приписанному после
+модуля 26, — дала вот что.
+
+**`would like` — это A1, и ступень Beginner учит его тремя уроками.** English
+Grammar Profile, MODALITY would: «FORM: AFFIRMATIVE WITH 'LIKE'» (пример «I'd
+like to invite you to dinner»), «USE: WISHES AND PREFERENCES WITH 'LIKE'» («I'd
+like to eat some Spanish food»), «USE: INVITATIONS WITH 'LIKE'» («I would like
+to invite you to dinner in my house on Saturday») — все три графы **A1**. А в
+курсе это модуль «Мне нравится», уроки 6 и 7 («Хочу сейчас: I'd like a coffee»,
+«Хочется сделать: I'd like to go home») и модуль «Просьбы и указания», урок
+«Приглашение: Would you like to come?».
+
+Между ступенями ссылок на память нет, и повторить это Elementary имеет право.
+Но повторить три готовых урока — значит потратить модуль на то, что ученик уже
+получил, а владелец как раз просил обратного: больше знаний, а не больше
+повторов.
+
+**`would you` как вежливая просьба — B1.** English Grammar Profile, MODALITY
+would, «USE: POLITE REQUESTS» — «Can use 'would' to make polite requests, often
+in the fixed expression 'would you mind'», примеры «Would you tell me about your
+room in your next letter, please?». И «FORM: QUESTIONS» (общая, не про `like`) —
+тоже B1. Руководство A2 Key в перечне Modals `would (polite requests)` даёт, то
+есть источники расходятся, как и с `could` в модуле 27. Но здесь есть третий
+довод, и он решает: **просьбу курс уже умеет говорить двумя способами** —
+`Can you help?` из Beginner и `Could you…?` из этого самого модуля. Третий
+множит выбор, ничего не прибавляя. Не берём.
+
+**`Could you…?` — берём, и это единственное из строки, что уцелело целиком.**
+English Grammar Profile, MODALITY could, A2, «USE: REQUESTS»: «Can use 'could'
+to make requests», примеры «Could you help me to paint my bedroom?», «Could you
+bring it to school tomorrow, please?»; и A2 «FORM: QUESTIONS» — «Could you help
+me?». Руководство A2 Key, с. 51, перечень Modals: «could (ability; **polite
+requests**)». В курсе оборота нет нигде: ступень Beginner отложила его нарочно и
+записала почему — «`can you` уже покрывает просьбу целиком».
+
+**ЧТО ВСТАЛО НА ОСВОБОДИВШЕЕСЯ МЕСТО — ЧЕТЫРЕ ГРАФЫ A2, КОТОРЫХ СТРОКА НЕ
+НАЗЫВАЛА ВОВСЕ.** У `would` на этой ступени есть своё, и оно не про `like`:
+
+- **A2, «FORM: AFFIRMATIVE»** — примеры «I'd **love** to have a pen-friend in
+  Japan», «I would **prefer** Sunday afternoon»;
+- **A2, «USE: WISHES AND PREFERENCES»** — «Can use 'would' with a **wide range
+  of verbs** to talk about wishes and preferences», примеры «I would prefer to
+  go on Sunday, because on Sunday I have no school», «I'd prefer to see it
+  tomorrow», «I'd love to hear it».
+
+То есть ступень Beginner дала один глагол — `like`, — а A2 добавляет остальные.
+Это и есть настоящая прибавка модуля, а не повтор приглашения.
+
+Руководство A2 Key подтверждает с двух сторон: с. 51, перечень функций —
+«making and granting/refusing simple requests», «giving and responding to
+invitations», «expressing preferences, likes and dislikes»; и словник даёт
+запись `prefer / would prefer (v)`, где нужный оборот назван прямо.
+
+**Отказ подпёрт выпиской, а не соображением.** `docs/istochniki-vezhlivost.md`,
+пункт 3: Longman, статья «no, thank you», пример словаря — «'Would you like some
+more coffee?' 'No, thank you, I'm fine.'» Утверждать, будто голое `No` звучит
+резко, при этом нельзя: словарь про это молчит, и в выписке это оговорено.
+
+**Отсюда три урока правил:** вежливая просьба (`Could you…?`), ответ на
+приглашение (`I'd love to` и `No, thank you`) и выбор (`I'd prefer`).
+Приглашение `Would you like…?` в модуле звучит — иначе отвечать не на что, — но
+разбирается как знакомое, строкой с примером, а не уроком.
+
+**Урок письма опирается на A2.** Описания Совета Европы, с. 83, шкала
+Correspondence, графа A2: «Can compose short, simple notes, e-mails and text
+messages (e.g. **to send or reply to an invitation**, to confirm or change an
+arrangement)». Ответ на приглашение назван там прямо.
 
 
 **Строка модуля 25 проверена 25 августа 2026, до написания. Она самая
