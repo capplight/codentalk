@@ -761,7 +761,42 @@ you prefer`, `if it is windy`. Условия ученику не объясня
 «позвоню, если приеду» — может, и не приеду. Форма одна, смысл разный, и внутри
 ступени ссылка на модуль 11 законна и нужна.
 
-**ТЕПЕРЬ РАСХОЖДЕНИЕ ИСТОЧНИКОВ, И ОНО ТРЕТЬЕ ПОДРЯД.**
+**А ВОТ «РАСХОЖДЕНИЯ ИСТОЧНИКОВ» ЗДЕСЬ НЕТ, И ЭТО ПРАВКА ПО РАЗБОРУ.**
+
+Первая редакция этого разбора объявляла третье расхождение подряд: будто
+English Grammar Profile ставит первое условное на B1, а берём мы его по
+руководству. Неверно. `will` после `if` стоит у English Grammar Profile на
+**A2** двумя графами, и обе лежат ВНЕ подкатегории `conditional`:
+
+- **MODALITY, will, A2, «FORM/USE: AFTER 'IF', FUTURE SITUATIONS»** — «Can use
+  'will' in the main clause after an 'if-' clause to talk about possible future
+  situations», примеры «If I need a camera, **I will** use my mobile phone»,
+  «If you can help me, **I will** be very happy»;
+- **PRESENT, present simple, A2, «FORM/USE: REAL AND IMAGINED SITUATIONS AFTER
+  'IF'»** — примеры взяты из самого экзамена: «If you want some help, **I
+  will** be free next week» (Key English Test, A2).
+
+И третья графа, **CLAUSES subordinated, A2, «FORM/USE: 'IF' CLAUSES,
+CONDITIONS»**, подпирает обратный порядок половин: «Can use a finite
+subordinate clause with 'if', **before or after** a main clause», пример «I
+will come see you on Friday if it's ok with you».
+
+**Причина ошибки — поиск по подкатегории вместо файла.** Я смотрел строки, где
+`SubCategory` равно `conditional`, и нашёл там первое условное на B1. Графы,
+дающие его на A2, лежат в `MODALITY will`, `PRESENT present simple` и `CLAUSES
+subordinated`. Ровно эта ловушка записана в CLAUDE.md про модуль 9: «тот же
+файл держит ещё 13 строк MODALITY will». Нашёл методист.
+
+**Отсюда правило для следующих строк: проверяя оборот, ищи его по всему файлу,
+а не по той подкатегории, в которую он просится по смыслу.** English Grammar
+Profile раскладывает один и тот же оборот по разным разделам — по слову, по
+времени и по виду придаточного, — и любая одна подкатегория даёт неполную
+картину.
+
+Ниже — разбор, который остаётся в силе: он показывает, что говорит каждая
+графа, и почему руководство подпирает решение.
+
+**ЧТО ГОВОРЯТ ГРАФЫ ПОДКАТЕГОРИИ `CONDITIONAL`.**
 
 English Grammar Profile ставит первое условное предложение — `if` + настоящее +
 `will` — на **B1**: «FORM/USE: PRESENT SIMPLE 'IF' CLAUSE + 'WILL', FUTURE,
@@ -784,14 +819,8 @@ Clause types: «Subordinate clause following **if**, when, where, because:
 **I'll leave if you do that again.** **He'll come when you call.**» Это ровно
 `will` в главной половине и настоящее время после `if`.
 
-**Решение: берём по мерке ступени**, той же, что у `could` в модуле 27:
-конструкция названа в Language specifications экзамена — значит входит в
-ступень, даже если English Grammar Profile ставит её выше. Здесь подкрепление
-сильнее обычного: руководство не просто называет союз, а даёт готовый пример
-нужного вида.
-
-Мерка объявляется в шапке модуля и применяется одинаково: то, чего нет ни у
-одного из двух источников, не берётся.
+**Мерка ступени здесь не нужна:** оба источника дают оборот на A2, и
+руководство только подкрепляет то, что уже сказал English Grammar Profile.
 
 **ЧЕГО НЕ БУДЕТ, И ВСЁ ЭТО B1:** второе условное (`if` + прошедшее + `would`),
 третье условное, `unless`, `if I were you`, `if so` и `if not`, `if` +
