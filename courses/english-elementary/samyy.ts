@@ -1098,6 +1098,7 @@ const module: Module = {
           caption: "Разговор после поездки",
           pace: "slow",
           skryt: true,
+          voice: "два голоса",
           transcript:
             "Which place was the most beautiful? — The rainforest. The heart of it " +
             "is the wettest place on earth. — And the hottest? — The south. — What " +

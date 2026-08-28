@@ -1210,6 +1210,7 @@ const module: Module = {
           caption: "Разговор о выходных",
           pace: "slow",
           skryt: true,
+          voice: "два голоса",
           transcript:
             "Did you go to the campsite? — No, I didn't. I took the tram to the " +
             "opera. — Was it good? — It was excellent. The stage was very small. — " +

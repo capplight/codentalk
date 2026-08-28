@@ -1171,6 +1171,7 @@ const module: Module = {
           caption: "Разговор об опыте",
           pace: "slow",
           skryt: true,
+          voice: "два голоса",
           transcript:
             "Have you ever been to a wildlife park? — Yes, I have. I have seen a " +
             "monkey there. — And a dolphin? — No, I have never seen a dolphin. " +

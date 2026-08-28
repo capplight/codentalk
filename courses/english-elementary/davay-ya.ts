@@ -69,8 +69,13 @@ import type { Module } from "@/lib/content/types";
  * - `Would you like…?`. Графа A2 есть — CLAUSES interrogatives, «FORM:
  *   AFFIRMATIVE INTERROGATIVE, WITH MODAL AUXILIARY VERBS», пример «Would you
  *   like to come with me?». Модулю она не нужна: четыре способа позвать и так
- *   лежат в уроках 1–4, а пятый сделал бы урок перечнем. Строка оставлена
- *   следующему модулю нарочно, чтобы её не потеряли.
+ *   лежат в уроках 1–4, а пятый сделал бы урок перечнем.
+ *
+ *   ОБЕЩАНИЕ «оставлено следующему модулю» НЕ ИСПОЛНИЛОСЬ, и это надо знать:
+ *   модуль 13 оборота не взял, а модуль 28 «Вежливо» берёт его только на
+ *   узнавание — там отвечают на приглашение, а не учат приглашать. Учит
+ *   приглашать ступень Beginner, урок «Приглашение: Would you like to come?».
+ *   Нашёл методист при разборе модуля 28.
  * - Имени времени модуль не даёт. `shall` источник кладёт сразу в две
  *   подкатегории — `future simple (with will and shall)` и `MODALITY shall`, — а
  *   имя `Future Simple` курс уже назвал в модуле 9, при первой встрече. Второй
@@ -140,8 +145,10 @@ const module: Module = {
         "C1, там же, «FORM: NEGATIVE 'SHALL'»: «Can use the negative form 'shall " +
         "not'» — отрицание выше ступени, `shan't` в модуле нет. " +
         "A2, CLAUSES interrogatives, «FORM: AFFIRMATIVE INTERROGATIVE, WITH MODAL " +
-        "AUXILIARY VERBS», пример «Would you like to come with me?» — оставлено " +
-        "следующему модулю, чтобы урок не стал перечнем способов",
+        "AUXILIARY VERBS», пример «Would you like to come with me?» — в модуле " +
+        "не взято, чтобы урок не стал перечнем способов. Приглашать учит " +
+        "ступень Beginner, а модуль 28 «Вежливо» берёт оборот на узнавание: " +
+        "там отвечают на приглашение",
       license: "внутреннее использование, публично не называем",
     },
     {
@@ -1148,6 +1155,7 @@ const module: Module = {
           caption: "Разговор о субботе",
           pace: "slow",
           skryt: true,
+          voice: "два голоса",
           transcript:
             "Shall we play golf on Saturday? — Sorry, I can't. My guest arrives at " +
             "noon. — Why don't we meet on Sunday then? — Good idea. Shall I bring a " +

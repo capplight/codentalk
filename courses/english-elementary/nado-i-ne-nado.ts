@@ -977,6 +977,7 @@ const module: Module = {
           caption: "Разговор о правилах",
           pace: "slow",
           skryt: true,
+          voice: "два голоса",
           transcript:
             "Do I have to bring a towel? — No, you don't have to. We give one " +
             "to everybody. — And the machine at the door? — You mustn't use " +

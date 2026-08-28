@@ -1293,6 +1293,7 @@ const module: Module = {
           caption: "Разговор после поездки",
           pace: "slow",
           skryt: true,
+          voice: "два голоса",
           transcript:
             "Whose is this uniform? — It isn't mine. Maybe it's hers. — " +
             "And the skateboard? — That one is theirs. They bought it in May.",

@@ -1283,6 +1283,7 @@ const module: Module = {
           caption: "Разговор о расписании",
           pace: "slow",
           skryt: true,
+          voice: "два голоса",
           transcript:
             "What are you doing on Monday? — I'm meeting my classmate at ten on " +
             "Monday. — And are you coming to the chemistry class? — No, I'm not. I'm " +

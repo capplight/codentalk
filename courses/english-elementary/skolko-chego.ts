@@ -1329,6 +1329,7 @@ const module: Module = {
           caption: "Разговор перед дорогой",
           pace: "slow",
           skryt: true,
+          voice: "два голоса",
           transcript:
             "Do we have much water? — A lot of water, but we don't have many " +
             "apples. — And money? — Not much. We can buy food while we cross the " +

@@ -1175,6 +1175,7 @@ const module: Module = {
           caption: "Разговор о пропаже",
           pace: "slow",
           skryt: true,
+          voice: "два голоса",
           transcript:
             "What were you doing when you lost it? — I was walking to the shop. — " +
             "And where were you then? — Near the roundabout. — Was the purse in your " +

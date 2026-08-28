@@ -47,8 +47,8 @@ import type { Module } from "@/lib/content/types";
  * пункт 3: Longman, статья «no, thank you». Утверждать, будто голое `No` звучит
  * резко, нельзя — словарь про это молчит, и в выписке это оговорено.
  *
- * СЛОВАРЬ МОДУЛЯ — ПЯТНАДЦАТЬ КАРТОЧЕК, И ВПЕРВЫЕ ЗА ПЯТЬ МОДУЛЕЙ ИХ БЫЛО ИЗ
- * ЧЕГО ВЫБИРАТЬ.
+ * СЛОВАРЬ МОДУЛЯ — ЧЕТЫРНАДЦАТЬ КАРТОЧЕК, ИЗ НИХ НОВЫХ ДЛЯ СТУПЕНИ
+ * ТРИНАДЦАТЬ, И ВПЕРВЫЕ ЗА ПЯТЬ МОДУЛЕЙ ИХ БЫЛО ИЗ ЧЕГО ВЫБИРАТЬ.
  *
  * 28 августа нашлось, что `npm run slovo -- --zapas` считал запас ступени вдвое
  * меньше настоящего: разбор словника не знал помет `(mv)` и `(phr v)`, а отбор
@@ -76,7 +76,7 @@ const module: Module = {
 
   outcomes: [
     "вежливо просить: Could you help me?",
-    "соглашаться и отказываться: I'd love to. — No, thank you.",
+    "отвечать на приглашение с радостью и с благодарностью: I'd love to. — No, thank you.",
     "называть, что лучше: I'd prefer Sunday",
     "находить в письме, о чём просят и что предлагают на выбор",
     "слышать в разговоре, согласился человек или отказался",
@@ -141,6 +141,12 @@ const module: Module = {
     {
       ref: "docs/istochniki-vezhlivost.md",
       section:
+        "УРОК 1, `PLEASE`. Пункт 1: Grammarly — «You can make imperative " +
+        "sentences sound a little softer in tone by adding the word please». " +
+        "Там же Википедия, статья «Imperative mood»: «In polite speech, orders " +
+        "or requests are often phrased instead as questions or statements, " +
+        "rather than imperatives: Could you come here for a moment? (more " +
+        "polite than 'Come here!')» — это подпирает и сам оборот урока 1. " +
         "УРОК 2, ОТКАЗ. Пункт 3: Longman Dictionary of Contemporary English, " +
         "статья «no, thank you» — «used to say politely that you do not want " +
         "something», пример словаря: «'Would you like some more coffee?' 'No, " +
@@ -156,8 +162,11 @@ const module: Module = {
       ref: "Council of Europe, CEFR Companion Volume 2020",
       section:
         "УРОК ЧТЕНИЯ «Читаем письмо от хозяев». с. 55, шкала «Reading " +
-        "correspondence», графа A2: «Can understand short, simple personal " +
-        "letters». " +
+        "correspondence», графа A2: «Can understand very simple formal e-mails " +
+        "and letters (e.g. confirmation of a booking or online purchase)». " +
+        "ПЕРВАЯ РЕДАКЦИЯ ЦИТИРОВАЛА СОСЕДНЮЮ СТРОКУ ТОЙ ЖЕ ГРАФЫ — «Can " +
+        "understand short, simple personal letters», — а письмо от гостиницы " +
+        "личным не является. Нашёл методист. " +
         "УРОК ПИСЬМА «Отвечаем на приглашение». с. 83, шкала " +
         "«Correspondence», графа A2: «Can compose short, simple notes, e-mails " +
         "and text messages (e.g. to send or reply to an invitation, to confirm " +
@@ -170,10 +179,17 @@ const module: Module = {
     {
       ref: "Cambridge English, A2 Key vocabulary list (август 2025)",
       section:
-        "Пятнадцать карточек модуля взяты из словника ступени, и все " +
-        "пятнадцать новые для ступени. " +
-        "ЧЕТЫРЕ ИЗ НИХ — ГЛАГОЛЫ С ПОСЛЕЛОГОМ: `pick up (phr v)`, `look after " +
-        "(phr v)`, `fill in (phr v)`, `come back (phr v)`. Курс не давал таких " +
+        "Четырнадцать карточек модуля взяты из словника ступени; новых для " +
+        "ступени тринадцать. Четырнадцатое — `prefer`: Oxford помечает его A1, " +
+        "то есть по помете оно с прошлой ступени, но курс его не давал ни " +
+        "разу, поэтому карточка нужна. " +
+        "ПЕРВАЯ РЕДАКЦИЯ ОПОРЫ ПИСАЛА «пятнадцать» И «все новые» — обе цифры " +
+        "неверны, и вторая противоречила той же опоре двадцатью строками ниже. " +
+        "Нашёл методист. " +
+        "ЧЕТЫРЕ КАРТОЧКИ — ГЛАГОЛЫ С ПОСЛЕЛОГОМ: `pick up (phr v)`, `look " +
+        "after (phr v)`, `fill in (phr v)` и `come back` — последний стоит в " +
+        "словнике с пометой `(v)`, а не `(phr v)`; первая редакция приписала " +
+        "ему чужую помету. Курс не давал таких " +
         "вовсе, и причина оказалась не в отборе, а в разборе: до 28 августа " +
         "`npm run slovo` не знал пометы `(phr v)` и терял все 25 записей этого " +
         "рода, а подсчёт запаса выбрасывал всё, где есть пробел. Запас ступени " +
@@ -181,14 +197,12 @@ const module: Module = {
         "`prefer` НАШЁЛСЯ ПО ТОЙ ЖЕ ПРИЧИНЕ: в словнике он записан как `prefer " +
         "/ would prefer (v)`, то есть нужный модулю оборот источник называет " +
         "прямо, а прежний разбор эту строку не читал. " +
-        "ЧТО ГОВОРИТ OXFORD: `prefer v. A1` — слово с прошлой ступени по " +
-        "помете, но курс его не давал ни разу, поэтому карточка нужна. " +
         "ДВА СЛОВА OXFORD СТАВИТ ВЫШЕ СТУПЕНИ, И ОБА ВЗЯТЫ ПО МЕРКЕ СТУПЕНИ: " +
         "excuse (B2) и afterwards (B2); оба стоят в словнике A2 Key, то есть " +
         "входят в требования экзамена. Не нашлись ни в `oxford-3000`, ни в " +
-        "`oxford-5000`: receptionist, penfriend, chess, board game, city " +
-        "centre, bus stop, each other, as well, pick up, look after, fill in, " +
-        "come back — проверено по обоим спискам построчно",
+        "`oxford-5000`: receptionist, penfriend, board game, city centre, " +
+        "bus stop, each other, as well, pick up, look after, fill in, come " +
+        "back — проверено по обоим спискам построчно",
       license: "внутреннее использование, публично не называем",
     },
   ],
@@ -201,7 +215,7 @@ const module: Module = {
       estimatedMinutes: 15,
       outcome: "вежливо просить: Could you help me?",
 
-      vozvrat: [{ iz: "ranshe-mog", zadanie: "z1-dopisat-could" }],
+      vozvrat: [{ iz: "stoit-i-ne-stoit", zadanie: "z2-vybrat-sovet" }],
 
       blocks: [
         {
@@ -211,6 +225,8 @@ const module: Module = {
             "Айгуль в гостинице, и ей нужно заполнить бланк.",
             "Человека за стойкой она видит впервые.",
             "Просьба к незнакомому звучит мягче, если начать её иначе.",
+            "Слово could уже встречалось в модуле «Раньше мог»: там оно спрашивало об умении — Could you swim at six?",
+            "Здесь то же слово не спрашивает, а просит: Could you help me?",
           ],
         },
         {
@@ -239,8 +255,8 @@ const module: Module = {
             "Вежливый оборот начинается со слова could, а дальше всё как в обычной просьбе.",
             "Глагол после того, к кому обращаются, стоит в обычной форме: help, fill, pick.",
             "Слово please ставят в конец, и просьба звучит ещё мягче.",
-            "Оборот годится и незнакомому, и своим — резким он не бывает.",
-            "Перед просьбой к незнакомому говорят Excuse me: это как русское «простите».",
+            "Оборот годится и незнакомому, и своим.",
+            "Excuse me — обращение к незнакомому, по-русски «простите».",
           ],
         },
         {
@@ -358,10 +374,10 @@ const module: Module = {
 
     // =====================================================================
     {
-      slug: "soglasitsya-i-otkazatsya",
-      title: "Согласиться и отказаться: I'd love to",
+      slug: "radostnoe-soglasie",
+      title: "Радостное согласие: I'd love to",
       estimatedMinutes: 15,
-      outcome: "соглашаться и отказываться: I'd love to. — No, thank you.",
+      outcome: "отвечать на приглашение с радостью и с благодарностью: I'd love to. — No, thank you.",
 
       blocks: [
         {
@@ -369,8 +385,8 @@ const module: Module = {
           kind: "explain",
           text: [
             "Данияр зовёт Айгуль на концерт: Would you like to come with me?",
-            "Так зовут вежливо, и ответить надо тоже вежливо.",
-            "Ответов два: согласие и отказ, и у каждого свой оборот.",
+            "Отвечать на зов ты уже умеешь: в модуле «Давай я» это были Good idea и Sorry, I can't.",
+            "Здесь два других оборота: один показывает радость, другой отказывает с благодарностью.",
           ],
         },
         {
@@ -382,13 +398,13 @@ const module: Module = {
             "I'd love to.",
             "No, thank you.",
             "Would you like some coffee?",
-            "Yes, I'd love some.",
+            "Yes, I'd love some coffee.",
             "No, thank you, I'm fine.",
           ],
           head: ["Зовут", "Согласие", "Отказ"],
           rows: [
             ["Would you like to come with me?", "I'd love to.", "No, thank you."],
-            ["Would you like some coffee?", "Yes, I'd love some.", "No, thank you, I'm fine."],
+            ["Would you like some coffee?", "Yes, I'd love some coffee.", "No, thank you, I'm fine."],
           ],
         },
         {
@@ -396,10 +412,10 @@ const module: Module = {
           kind: "explain",
           text: [
             "Запись I'd — это короткое I would, и читается она в одно слово.",
-            "После I'd love ставят to, а сам глагол не повторяют: I'd love to.",
+            "После I'd love ставят to, а глагол можно не повторять: хватает I'd love to.",
             "Если предлагают вещь, а не занятие, вместо to ставят слово вещи: I'd love some coffee.",
             "Отказ говорят вместе с благодарностью: No, thank you.",
-            "Часто добавляют причину, и тогда отказ не звучит обрывом: No, thank you, I'm busy.",
+            "К отказу можно добавить причину, и тогда он не звучит обрывом: No, thank you, I'm busy.",
           ],
         },
         {
@@ -407,8 +423,8 @@ const module: Module = {
           kind: "note",
           tone: "mistake",
           text:
-            "«I'd love to come to come» — так не отвечают.\n\nГлагол из " +
-            "приглашения не повторяют: хватает I'd love to.",
+            "«I'd love come» — так не отвечают.\n\nПосле love ставят to: I'd " +
+            "love to. Договорить целиком тоже можно — I'd love to come.",
         },
         {
           id: "razgovor-o-koncerte",
@@ -418,24 +434,26 @@ const module: Module = {
           zvuchat: [
             "Would you like to come to the concert with me?",
             "I'd love to! We haven't seen each other for a year.",
-            "Your sister as well? Would you like to eat something afterwards?",
-            "No, thank you, I have to come back early.",
+            "My penfriend from Poland is here. Would she like to come as well?",
+            "Of course. Would you like to eat something afterwards?",
+            "No, thank you, we have to come back early.",
           ],
           text:
-            "Would you like to come to the concert with me?\nI'd love to! We haven't seen each other for a year.\nYour sister as well? Would you like to eat something afterwards?\nNo, thank you, I have to come back early.",
+            "Would you like to come to the concert with me?\nI'd love to! We haven't seen each other for a year.\nMy penfriend from Poland is here. Would she like to come as well?\nOf course. Would you like to eat something afterwards?\nNo, thank you, we have to come back early.",
           explain:
-            "В первом ответе глагол не повторён: хватило I'd love to. Во втором " +
-            "стоит отказ с благодарностью, и рядом названа причина — поэтому он " +
-            "не звучит обрывом.",
+            "В первом ответе глагол не повторён: хватило I'd love to. В " +
+            "последней строке стоит отказ с благодарностью, и рядом названа " +
+            "причина — поэтому он не звучит обрывом.",
         },
         {
           id: "slovar-otveta",
           kind: "vocab",
           caption: "Слова урока",
           items: [
-            { term: "as well", translation: "тоже, также", example: "Your sister as well?", hint: "/əz ˈwel/" },
+            { term: "as well", translation: "тоже, также", example: "Would she like to come as well?", hint: "/əz ˈwel/" },
             { term: "afterwards", translation: "потом, после этого", example: "Would you like to eat something afterwards?", hint: "/ˈɑːftəwədz/" },
-            { term: "come back", translation: "вернуться", example: "I have to come back early.", hint: "/kʌm ˈbæk/" },
+            { term: "come back", translation: "вернуться", example: "We have to come back early.", hint: "/kʌm ˈbæk/" },
+            { term: "penfriend", translation: "друг по переписке", example: "My penfriend from Poland is here.", hint: "/ˈpenfrend/" },
             { term: "each other", translation: "друг друга", example: "We haven't seen each other for a year.", hint: "/iːtʃ ˈʌðə/" },
           ],
         },
@@ -477,7 +495,7 @@ const module: Module = {
             { text: " · " },
             { text: "No, thank you.", selectable: true },
             { text: " · " },
-            { text: "Yes, I'd love some.", selectable: true, correct: true },
+            { text: "Yes, I'd love some coffee.", selectable: true, correct: true },
             { text: " · " },
             { text: "No, thank you, I'm busy.", selectable: true },
           ],
@@ -501,10 +519,16 @@ const module: Module = {
           id: "z5-otvetit-soglasiem",
           kind: "short",
           prompt:
-            "Тебя позвали: Would you like to come to the concert? Ответь согласием, начав с I'd.",
+            "Тебя позвали: Would you like to come to the concert? Ответь так, чтобы была видна радость. Начни с I'd.",
           answer: "I'd love to.",
-          accept: ["I'd love to", "I'd love to!", "I would love to."],
-          hint: "Глагол из приглашения повторять не надо.",
+          accept: [
+            "I'd love to",
+            "I'd love to!",
+            "I would love to.",
+            "I'd love to come.",
+            "I'd love to come!",
+          ],
+          hint: "Радость показывает один глагол, и это не like.",
           why:
             "I'd love to. Годится и полная запись I would love to — она просто " +
             "длиннее.",
@@ -538,14 +562,14 @@ const module: Module = {
             "I'd prefer Sunday.",
             "I'd love to meet at the bus stop.",
             "I'd prefer the city centre.",
-            "I'd love to play chess.",
+            "I'd love to play football.",
             "I'd prefer a board game.",
           ],
           head: ["Согласие", "Выбор: так лучше"],
           rows: [
             ["I'd love to come on Saturday.", "I'd prefer Sunday."],
             ["I'd love to meet at the bus stop.", "I'd prefer the city centre."],
-            ["I'd love to play chess.", "I'd prefer a board game."],
+            ["I'd love to play football.", "I'd prefer a board game."],
           ],
         },
         {
@@ -560,12 +584,12 @@ const module: Module = {
           ],
         },
         {
-          id: "ne-i-prefer-more",
+          id: "ne-i-prefer-to-sunday",
           kind: "note",
           tone: "mistake",
           text:
-            "«I'd prefer more Sunday» — так не выбирают.\n\nСлово more здесь " +
-            "лишнее: I'd prefer Sunday.",
+            "«I'd prefer to Sunday» — так не выбирают.\n\nСлово to ставят " +
+            "только перед глаголом: I'd prefer to meet on Sunday.",
         },
         {
           id: "razgovor-o-dne-vstrechi",
@@ -576,10 +600,10 @@ const module: Module = {
             "Would you like to meet on Saturday?",
             "I'd prefer Sunday, because I work on Saturday.",
             "Fine. And where? At the bus stop?",
-            "I'd prefer the city centre. My penfriend from Poland is there.",
+            "I'd prefer the city centre. There is a nice cafe near the shops.",
           ],
           text:
-            "Would you like to meet on Saturday?\nI'd prefer Sunday, because I work on Saturday.\nFine. And where? At the bus stop?\nI'd prefer the city centre. My penfriend from Poland is there.",
+            "Would you like to meet on Saturday?\nI'd prefer Sunday, because I work on Saturday.\nFine. And where? At the bus stop?\nI'd prefer the city centre. There is a nice cafe near the shops.",
           explain:
             "В обоих ответах после оборота стоит прямо то, что выбирают: день и " +
             "место. В первом рядом названа причина, и потому выбор не звучит " +
@@ -594,7 +618,6 @@ const module: Module = {
             { term: "city centre", translation: "центр города", example: "I'd prefer the city centre.", hint: "/ˈsɪti ˈsentə/" },
             { term: "bus stop", translation: "автобусная остановка", example: "At the bus stop?", hint: "/ˈbʌs stɒp/" },
             { term: "board game", translation: "настольная игра", example: "I'd prefer a board game.", hint: "/ˈbɔːd geɪm/" },
-            { term: "penfriend", translation: "друг по переписке", example: "My penfriend from Poland is there.", hint: "/ˈpenfrend/" },
           ],
         },
 
@@ -614,16 +637,16 @@ const module: Module = {
         {
           id: "z2-vybrat-vernuyu-zapis",
           kind: "choice",
-          prompt: "В какой записи выбор назван верно?",
+          prompt: "Тебе больше подходит пятница. В какой записи выбор назван верно?",
           options: [
-            { text: "I'd prefer more Sunday." },
-            { text: "I'd prefer to Sunday." },
-            { text: "I'd prefer Sunday.", correct: true },
+            { text: "I'd prefer to Friday." },
+            { text: "I'd prefer Friday.", correct: true },
+            { text: "I'd prefer Friday to meet." },
           ],
           hint: "После оборота день ставят прямо, без лишних слов.",
           why:
-            "I'd prefer Sunday. Слово more здесь лишнее, а to ставят только " +
-            "перед глаголом: I'd prefer to meet.",
+            "I'd prefer Friday. Слово to ставят только перед глаголом, и стоит " +
+            "оно сразу за оборотом: I'd prefer to meet on Friday.",
         },
         {
           id: "z3-otmetit-vybor",
@@ -695,9 +718,9 @@ const module: Module = {
           title: "Before you arrive",
           genre: "email",
           body: [
-            "Dear Aigul, thank you for your booking. Here is what we need before you arrive.",
+            "Dear Aigul, thank you for your booking. We need two things before you arrive.",
             "Could you fill in the form on our site? It takes two minutes.",
-            "Could you come back to us with your bus number? The receptionist will meet you.",
+            "Could you send us your bus number? The receptionist will meet you.",
             "We can pick you up at the bus stop at four, or you can walk from the city centre if you prefer.",
             "In the evening our guests play board games in the hall. Would you like to join them?",
           ],
@@ -712,7 +735,7 @@ const module: Module = {
           kind: "note",
           tone: "info",
           text:
-            "Просьбу ищут по обороту could you, а предложение — по would you " +
+            "Просьбу ищут по обороту could you, а приглашение — по would you " +
             "like.\n\nВыбор автор отдаёт словами if you prefer.",
         },
 
@@ -748,7 +771,7 @@ const module: Module = {
           hint: "Просьбы начинаются с оборота could you.",
           why:
             "Заполнить бланк и сообщить номер автобуса. Пешком дойти — это " +
-            "выбор, а игры вечером — предложение.",
+            "выбор, а игры вечером — приглашение.",
         },
         {
           id: "z3-vo-skolko-mogut-vstretit",
@@ -783,7 +806,7 @@ const module: Module = {
             "Кто встретит гостью, если она сообщит номер автобуса? Ответь одним словом по-английски.",
           answer: "receptionist",
           accept: ["Receptionist", "the receptionist"],
-          hint: "Об этом сказано в третьей строке, второй половиной.",
+          hint: "Об этом сказано во второй половине третьей строки.",
           why: "The receptionist will meet you.",
         },
       ],
@@ -801,8 +824,8 @@ const module: Module = {
           id: "zachem-slushat-otvet",
           kind: "explain",
           text: [
-            "Данияр зовёт двух друзей, и отвечают они по-разному.",
-            "Слушать надо, кто согласился, кто отказался и кто выбрал другое.",
+            "Данияр зовёт Айгуль, и она отвечает не сразу согласием.",
+            "Слушать надо, что ей не подходит и что она выбирает взамен.",
             "Ниже запись, а расшифровка спрятана под кнопкой.",
             "Слушай целиком, потом отвечай.",
           ],
@@ -813,10 +836,11 @@ const module: Module = {
           caption: "Разговор о выходных",
           pace: "slow",
           skryt: true,
+          voice: "два голоса",
           transcript:
             "Would you like to come to the city centre on Saturday? — I'd love " +
-            "to! — And you? — No, thank you, I work on Saturday. I'd prefer " +
-            "Sunday. — Fine. Could you pick up the tickets afterwards?",
+            "to, but I work on Saturday. I'd prefer Sunday. — Fine. Could you " +
+            "pick up the tickets afterwards? — Of course.",
         },
         {
           id: "chto-slushat-v-otvete",
@@ -835,7 +859,7 @@ const module: Module = {
           prompt: "Послушай. На какой день зовут? Ответь одним словом по-английски.",
           answer: "Saturday",
           accept: ["saturday", "on Saturday"],
-          hint: "День назван в самой первой реплике.",
+          hint: "День назван в конце самой первой реплики.",
           why: "Would you like to come to the city centre on Saturday?",
         },
         {
@@ -846,23 +870,23 @@ const module: Module = {
             "Послушай. Какой день предпочитает второй собеседник? Ответь одним словом по-английски.",
           answer: "Sunday",
           accept: ["sunday", "on Sunday"],
-          hint: "Ответ звучит сразу после отказа.",
+          hint: "Ответ звучит в конце второй реплики.",
           why: "I'd prefer Sunday.",
         },
         {
           id: "z3-kto-kak-otvetil",
           about: "zapis-otveta",
           kind: "choice",
-          prompt: "Послушай. Как ответили двое?",
+          prompt: "Послушай. Как ответила Айгуль?",
           options: [
-            { text: "Оба согласились." },
-            { text: "Первый согласился, второй выбрал другой день.", correct: true },
-            { text: "Оба отказались." },
+            { text: "Отказалась совсем." },
+            { text: "Пойти рада, но выбрала другой день.", correct: true },
+            { text: "Согласилась на субботу." },
           ],
-          hint: "Первый ответ короткий, во втором названа причина.",
+          hint: "Слушай, что стоит после слова but.",
           why:
-            "Первый согласился (I'd love to), второй отказался от субботы и " +
-            "выбрал воскресенье.",
+            "Пойти рада, но выбрала воскресенье: I'd love to, but I work on " +
+            "Saturday. I'd prefer Sunday.",
         },
         {
           id: "z4-otmetit-uslyshannoe-v-otvete",
@@ -870,18 +894,18 @@ const module: Module = {
           kind: "hottext",
           prompt: "Отметь то, что прозвучало в записи.",
           parts: [
-            { text: "второй собеседник работает в субботу", selectable: true, correct: true },
+            { text: "Айгуль работает в субботу", selectable: true, correct: true },
             { text: " · " },
-            { text: "кого-то просят забрать билеты", selectable: true, correct: true },
+            { text: "её просят забрать билеты", selectable: true, correct: true },
             { text: " · " },
             { text: "встречу назначили на остановке", selectable: true },
             { text: " · " },
-            { text: "первый собеседник отказался", selectable: true },
+            { text: "Айгуль отказалась совсем", selectable: true },
           ],
-          hint: "Про билеты сказано в самой последней реплике.",
+          hint: "Про билеты сказано в предпоследней реплике.",
           why:
             "Прозвучали первое и второе. Место встречи — центр города, а " +
-            "первый собеседник согласился.",
+            "отказа не было: Айгуль выбрала другой день.",
         },
         {
           id: "z5-chto-znachit-prosba-v-konce",
@@ -943,7 +967,7 @@ const module: Module = {
           id: "chem-derzhitsya-otvet",
           kind: "explain",
           text: [
-            "Первая строка благодарит: без неё ответ звучит сухо.",
+            "Первая строка благодарит: приглашавший узнаёт, что письмо дошло.",
             "Вторая говорит главное — придёшь или нет.",
             "Третья называет день и сразу причину — через because.",
             "Четвёртая просит о своём, и просьбу смягчает оборот could you.",
@@ -956,12 +980,12 @@ const module: Module = {
           caption: "Ответ Айгуль",
           zvuchat: [
             "Thank you for the invitation!",
-            "I'd love to come to your birthday.",
+            "I'd love to come to the concert.",
             "I'd prefer Sunday, because I work on Saturday.",
             "Could you pick me up at the bus stop at four?",
           ],
           text:
-            "Thank you for the invitation!\nI'd love to come to your birthday.\nI'd prefer Sunday, because I work on Saturday.\nCould you pick me up at the bus stop at four?",
+            "Thank you for the invitation!\nI'd love to come to the concert.\nI'd prefer Sunday, because I work on Saturday.\nCould you pick me up at the bus stop at four?",
           explain:
             "Первая строка благодарит, вторая отвечает, третья называет день и " +
             "причину, четвёртая просит. Просьба стоит последней и смягчена " +
@@ -984,23 +1008,23 @@ const module: Module = {
             "день.",
         },
         {
-          id: "z2-dopisat-prichinu-v-otvet",
+          id: "z2-dopisat-nachalo-otveta",
           kind: "gap",
-          prompt: "Одной строкой назван и день, и причина. Допиши слово.",
-          before: "I'd prefer Sunday, ",
-          after: " I work on Saturday.",
-          answer: "because",
-          hint: "Это слово присоединяет причину к выбору.",
+          prompt: "С этого начинают ответ на приглашение. Допиши слово.",
+          before: "Thank you for the ",
+          after: "!",
+          answer: "invitation",
+          hint: "Это слово называет то, на что ты отвечаешь.",
           why:
-            "I'd prefer Sunday, because I work on Saturday. Без него вышли бы " +
-            "две отдельные мысли.",
+            "Thank you for the invitation! Так приглашавший сразу видит, что " +
+            "письмо дошло.",
         },
         {
           id: "z3-otmetit-stroki-otveta",
           kind: "hottext",
           prompt: "Отметь строки, из которых приглашавший узнаёт что-то нужное.",
           parts: [
-            { text: "I'd love to come to your birthday.", selectable: true, correct: true },
+            { text: "I'd love to come to the concert.", selectable: true, correct: true },
             { text: " · " },
             { text: "The weather is nice today.", selectable: true },
             { text: " · " },
@@ -1031,7 +1055,7 @@ const module: Module = {
             "Ответь на приглашение четырьмя строками. Поблагодари. Скажи, придёшь или нет. Назови день и через because его причину. Попроси о чём-нибудь через Could you.",
           minWords: 16,
           sample:
-            "Thank you for the invitation!\nI'd love to come to your birthday.\nI'd prefer Sunday, because I work on Saturday.\nCould you pick me up at the bus stop at four?",
+            "Thank you for the invitation!\nI'd love to come to the concert.\nI'd prefer Sunday, because I work on Saturday.\nCould you pick me up at the bus stop at four?",
           checklist: [
             "сказано спасибо за приглашение",
             "сказано, придёшь или нет",
@@ -1071,7 +1095,7 @@ const module: Module = {
       {
         id: "q-otlichit-prosbu-ot-priglasheniya",
         kind: "choice",
-        outcome: "вежливо просить: Could you help me?",
+        outcome: "находить в письме, о чём просят и что предлагают на выбор",
         prompt:
           "Строки Could you come at six? и Would you like to come at six? говорят о разном. Чем?",
         options: [
@@ -1089,9 +1113,9 @@ const module: Module = {
       {
         id: "q-ispravit-povtor-glagola",
         kind: "short",
-        outcome: "соглашаться и отказываться: I'd love to. — No, thank you.",
+        outcome: "отвечать на приглашение с радостью и с благодарностью: I'd love to. — No, thank you.",
         prompt:
-          "Тебя позвали: Would you like to see the new film? Ученик ответил: I'd love it to see. Запиши ответ без ошибки.",
+          "На приглашение Would you like to see the new film? ученик ответил: I'd love it to see. Запиши ответ без ошибки.",
         answer: "I'd love to.",
         accept: ["I'd love to", "I would love to.", "I'd love to see it."],
         hint: "После love стоит to, а дальше можно ничего не говорить.",
@@ -1102,14 +1126,15 @@ const module: Module = {
       {
         id: "q-napisat-vezhlivyy-otkaz",
         kind: "short",
-        outcome: "соглашаться и отказываться: I'd love to. — No, thank you.",
+        outcome: "отвечать на приглашение с радостью и с благодарностью: I'd love to. — No, thank you.",
         prompt:
-          "Тебе предложили: Would you like some more coffee? Больше не хочешь. Ответь вежливо и назови причину — ты сыт.",
+          "Тебе предложили: Would you like some more coffee? Больше не хочется. Ответь вежливо и добавь, что всё в порядке.",
         answer: "No, thank you, I'm fine.",
         accept: [
           "No, thank you, I'm fine",
           "No thank you, I'm fine.",
           "No, thank you. I'm fine.",
+          "No, thank you, I am fine.",
         ],
         hint: "Одним словом «нет» тут не обходятся.",
         why:
@@ -1123,10 +1148,10 @@ const module: Module = {
         kind: "short",
         outcome: "называть, что лучше: I'd prefer Sunday",
         prompt:
-          "Тебя зовут в субботу, но лучше в пятницу. Назови свой выбор одной строкой, начав с I'd.",
+          "Ученик хотел выбрать пятницу и написал: I'd prefer to Friday. Запиши строку без ошибки.",
         answer: "I'd prefer Friday.",
         accept: ["I'd prefer Friday", "I would prefer Friday."],
-        hint: "Между оборотом и днём ничего не вставляют.",
+        hint: "Одно слово в строке лишнее.",
         why:
           "I'd prefer Friday. Слово to тут не нужно: за оборотом стоит день, а " +
           "не глагол.",
@@ -1135,16 +1160,16 @@ const module: Module = {
         id: "q-nazvat-oshibku-v-prefer",
         kind: "choice",
         outcome: "называть, что лучше: I'd prefer Sunday",
-        prompt: "Запись I'd prefer more the city centre неверна. Отчего?",
+        prompt: "Запись I'd prefer to the city centre неверна. Отчего?",
         options: [
-          { text: "Слово more здесь лишнее.", correct: true },
+          { text: "Слово to ставят только перед глаголом.", correct: true },
           { text: "Перед city centre не ставят the." },
           { text: "Оборот I'd prefer бывает только с днями." },
         ],
-        hint: "Посмотри, какое слово можно убрать без потери смысла.",
+        hint: "Вспомни, где в этом обороте место у слова to.",
         why:
-          "Слово more лишнее: I'd prefer the city centre. Артикль там на " +
-          "месте, а оборот годится для любого выбора.",
+          "Слово to ставят только перед глаголом: I'd prefer to meet in the " +
+          "city centre. Артикль на месте, а оборот годится для любого выбора.",
       },
 
       // ---- итог 4 ----
@@ -1169,12 +1194,16 @@ const module: Module = {
         kind: "short",
         outcome: "находить в письме, о чём просят и что предлагают на выбор",
         prompt:
-          "В письме строка: We can play board games, or chess if you prefer. Кто выбирает занятие? Ответь одним словом по-русски.",
-        answer: "гость",
-        accept: ["Гость", "читатель", "приглашённый"],
+          "Хозяева написали гостье: We can play board games, or chess if you prefer. Кто выбирает занятие? Ответь одним словом по-русски.",
+        answer: "гостья",
+        accept: [
+          "Гостья", "гость", "Гость", "она", "Она",
+          "читатель", "получатель", "адресат", "приглашённый",
+        ],
         hint: "Смотри, к кому относится слово prefer.",
         why:
-          "Гость. Оборот if you prefer и отдаёт выбор тому, кого зовут.",
+          "Гостья. Оборот if you prefer и отдаёт выбор тому, кто получил " +
+          "письмо.",
       },
 
       // ---- итог 5 ----
@@ -1183,13 +1212,15 @@ const module: Module = {
         kind: "short",
         outcome: "слышать в разговоре, согласился человек или отказался",
         zvuk:
-          "Would you like to play chess on Friday? — I'd love to!",
+          "Would you like to play football on Friday? — I'd love to!",
         prompt:
-          "Послушай. В какой день зовут играть? Ответь одним словом по-английски.",
-        answer: "Friday",
-        accept: ["friday", "on Friday"],
-        hint: "День назван в конце первой реплики.",
-        why: "Would you like to play chess on Friday?",
+          "Послушай. Каким словом собеседник показал радость? Ответь одним словом по-английски.",
+        answer: "love",
+        accept: ["Love", "I'd love to", "I'd love to."],
+        hint: "Это слово стоит между I'd и to.",
+        why:
+          "Love. Ответ I'd like to тоже был бы согласием, но радости в нём " +
+          "меньше.",
       },
       {
         id: "q-uslyshat-otkaz",
@@ -1245,20 +1276,21 @@ const module: Module = {
           "выбор, потом то, что его объясняет.",
       },
       {
-        id: "q-zachem-v-otvete-spasibo",
+        id: "q-poryadok-strok-otveta",
         kind: "choice",
         outcome:
           "проверять ответ на приглашение: сказано спасибо, дан ответ и назван день",
-        prompt: "Отчего ответ на приглашение начинают с благодарности?",
+        prompt:
+          "В ответе на приглашение своя просьба стоит последней строкой. А какая строка стоит первой?",
         options: [
-          { text: "Так ответ выходит длиннее." },
-          { text: "Иначе даже согласие звучит сухо.", correct: true },
-          { text: "Так принято начинать любое письмо." },
+          { text: "Та, что называет день." },
+          { text: "Та, что благодарит за приглашение.", correct: true },
+          { text: "Та, что говорит, придёшь или нет." },
         ],
-        hint: "Сравни: «I'd love to come» и «Thank you! I'd love to come».",
+        hint: "Вспомни порядок четырёх строк ответа.",
         why:
-          "Иначе даже согласие звучит сухо. Приглашение — это внимание к тебе, " +
-          "и ответ начинают с ответного внимания.",
+          "Та, что благодарит. Дальше идёт ответ, потом день с причиной, и " +
+          "только в конце своя просьба.",
       },
     ],
   },

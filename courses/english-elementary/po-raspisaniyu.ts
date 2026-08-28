@@ -1291,6 +1291,7 @@ const module: Module = {
           caption: "Объявление и разговор",
           pace: "slow",
           skryt: true,
+          voice: "два голоса",
           transcript:
             "Two trains per day leave for the port. The direct train leaves at ten " +
             "from platform four. — What time does it arrive? — At two. — And the next " +

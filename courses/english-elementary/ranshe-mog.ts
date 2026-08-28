@@ -52,9 +52,10 @@ import type { Module } from "@/lib/content/types";
  * написал второй урок про `Why don't we`.
  *
  * ГРАНИЦА С МОДУЛЕМ 28. Вежливая просьба `Could you…?` — A2 и по графе «USE:
- * REQUESTS», и по руководству, но она отдана модулю 28 «Вежливо», где встанет
- * рядом с `would like` и `would you`. Здесь вопросительная форма берётся
- * только об умении: «Could you swim when you were five?». Разрешает её графа
+ * REQUESTS», и по руководству, но она отдана модулю 28 «Вежливо». Там она и
+ * стоит уроком 1; `would like` и `would you` в модуль 28 не вошли — первое
+ * потому, что это A1 и его целиком даёт ступень Beginner, второе потому, что
+ * это B1. Здесь вопросительная форма берётся только об умении: «Could you swim when you were five?». Разрешает её графа
  * A2 «FORM: QUESTIONS» — она о форме, а о случае не говорит ничего.
  *
  * ИМЕНИ КЛАССА У `COULD` МОДУЛЬ НЕ ДАЁТ. Термина «модальный глагол» в видимом
@@ -851,6 +852,7 @@ const module: Module = {
           caption: "Разговор о спектакле",
           pace: "slow",
           skryt: true,
+          voice: "два голоса",
           transcript:
             "Could you play the clown at school? — No, I couldn't. I was too " +
             "shy. But I could sing. — And the costume? — My granny made it. I " +

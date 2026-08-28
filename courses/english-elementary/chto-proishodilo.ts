@@ -1157,6 +1157,7 @@ const module: Module = {
           caption: "Разговор о вчерашнем вечере",
           pace: "slow",
           skryt: true,
+          voice: "два голоса",
           transcript:
             "What were you doing at seven? — I was making pasta in the kitchen. — " +
             "And your brother? — He was still sleeping on the sofa. — Was it quiet? " +

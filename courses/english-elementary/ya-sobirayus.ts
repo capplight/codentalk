@@ -1406,6 +1406,7 @@ const module: Module = {
           caption: "Разговор о выходных",
           pace: "slow",
           skryt: true,
+          voice: "два голоса",
           transcript:
             "What are you going to do at the weekend? — I'm going to play badminton on " +
             "Saturday. — Are you going to be free on Sunday? — No, I'm not. I have an " +

@@ -843,6 +843,7 @@ const module: Module = {
           caption: "Разговор с врачом",
           pace: "slow",
           skryt: true,
+          voice: "два голоса",
           transcript:
             "I have toothache. Should I take the medicine? — You should go to " +
             "the dentist today. And you shouldn't eat sugar. — And exercise? — " +

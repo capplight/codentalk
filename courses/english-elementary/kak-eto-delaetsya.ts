@@ -1173,6 +1173,7 @@ const module: Module = {
           caption: "Разговор об опыте",
           pace: "slow",
           skryt: true,
+          voice: "два голоса",
           transcript:
             "How was the experiment? — It started badly. We worked too slowly. — " +
             "And then? — Then we read the book carefully, and it worked easily. — " +

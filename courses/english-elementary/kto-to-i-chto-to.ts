@@ -1430,6 +1430,7 @@ const module: Module = {
           caption: "Разговор на стойке находок",
           pace: "slow",
           skryt: true,
+          voice: "два голоса",
           transcript:
             "Did anybody find a bag here? — Somebody left a bag yesterday. Is it " +
             "bright red? — Yes, it is! — There is nothing inside. Only a puzzle and " +

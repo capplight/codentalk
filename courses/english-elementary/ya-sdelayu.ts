@@ -1353,6 +1353,7 @@ const module: Module = {
           caption: "Разговор о завтрашнем дне",
           pace: "slow",
           skryt: true,
+          voice: "два голоса",
           transcript:
             "Will you collect the tickets tomorrow? — Yes, I will. I'll go to the " +
             "station at nine. — Good. I suppose the shop will be closed at eight. — " +

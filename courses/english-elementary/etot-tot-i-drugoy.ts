@@ -1214,6 +1214,7 @@ const module: Module = {
           caption: "Разговор о подарке",
           pace: "slow",
           skryt: true,
+          voice: "два голоса",
           transcript:
             "Look at these two albums. This one is about music, and the other one " +
             "is about animals. — I take the music one. — And a keyboard? — No, " +

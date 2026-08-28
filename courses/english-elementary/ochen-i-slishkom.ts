@@ -1273,6 +1273,7 @@ const module: Module = {
           caption: "Разговор в магазине",
           pace: "slow",
           skryt: true,
+          voice: "два голоса",
           transcript:
             "This phone is quite cheap. — But the screen is too small for me. — " +
             "And this one? — The digital camera is really good, and the screen is " +

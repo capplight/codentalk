@@ -1155,6 +1155,7 @@ const module: Module = {
           caption: "Прогноз и разговор о нём",
           pace: "slow",
           skryt: true,
+          voice: "два голоса",
           transcript:
             "The morning is sunny and dry. The rain might be heavy after four. — " +
             "Shall I take a raincoat? — Take a coat, it may be cold. — And the socks? " +

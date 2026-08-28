@@ -1091,6 +1091,7 @@ const module: Module = {
           caption: "Разговор о двух квартирах",
           pace: "slow",
           skryt: true,
+          voice: "два голоса",
           transcript:
             "Flat B is more expensive, but the kitchen is bigger. — And the street? " +
             "— Quieter. The noise level is lower. — Is there transport? — A bigger " +

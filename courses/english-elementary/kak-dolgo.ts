@@ -858,6 +858,7 @@ const module: Module = {
           caption: "Разговор на курсе",
           pace: "slow",
           skryt: true,
+          voice: "два голоса",
           transcript:
             "How long have you studied English? — For three years. And you? — " +
             "I have studied it for a year, but I haven't used it at work yet.",

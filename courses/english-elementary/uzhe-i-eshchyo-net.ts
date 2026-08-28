@@ -1028,6 +1028,7 @@ const module: Module = {
           caption: "Разговор о делах",
           pace: "slow",
           skryt: true,
+          voice: "два голоса",
           transcript:
             "Have you packed the bags yet? — No, not yet. But I have already " +
             "prepared lunch. — And the sink? — I have just washed it. — Good. " +
