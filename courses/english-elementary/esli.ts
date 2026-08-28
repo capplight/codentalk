@@ -351,13 +351,13 @@ const module: Module = {
           text: [
             "Айгуль потеряла в поезде сумку и оставила проводнику записку.",
             "В главной половине у неё не обещание, а просьба: позвони.",
-            "Главная половина бывает трёх видов, и половина с условием при этом не меняется.",
+            "Главная половина бывает четырёх видов, и половина с условием при этом не меняется.",
           ],
         },
         {
           id: "tri-vida-glavnoy-poloviny",
           kind: "table",
-          caption: "Три вида главной половины",
+          caption: "Четыре вида главной половины",
           zvuchat: [
             "If you find it, call me.",
             "If you find it, you can call me.",
@@ -415,7 +415,7 @@ const module: Module = {
             { term: "find out", translation: "выяснить, узнать", example: "If you find out something, I'll come at once.", hint: "/faɪnd ˈaʊt/" },
             { term: "turn on", translation: "включить", example: "You can turn on the light.", hint: "/tɜːn ˈɒn/" },
             { term: "turn off", translation: "выключить", example: "If you turn off the light, the room is dark.", hint: "/tɜːn ˈɒf/" },
-            { term: "credit card", translation: "банковская карта", example: "If you find my credit card, call me at once.", hint: "/ˈkredɪt kɑːd/" },
+            { term: "credit card", translation: "кредитная карта", example: "If you find my credit card, call me at once.", hint: "/ˈkredɪt kɑːd/" },
           ],
         },
 
@@ -533,7 +533,7 @@ const module: Module = {
             "Слово if говорит, что этого может и не случиться.",
             "Слово when говорит, что это случится, и называет только срок.",
             "Устроены обе строки одинаково: настоящее время после союза, will в главной половине.",
-            "Связку со словом when разбирал модуль «По расписанию» — там она называла срок.",
+            "Связку со словом when разбирал модуль «По расписанию» — там она называла время.",
             "Выбирают по смыслу: дождь может не пойти, а магазин закроется в любом случае.",
           ],
         },
@@ -560,9 +560,9 @@ const module: Module = {
           text:
             "When it rains in the mountains, we'll come back at once.\nIf it rains. It doesn't rain there every day!\nFine. If it rains, we'll get on the bus and go home.\nAnd if we come back early because of the rain, I'll cook something.",
           explain:
-            "Первая строка со словом when обещает дождь наверняка, и Айгуль " +
-            "поправляет. В третьей и четвёртой стоит if: дождя может и не " +
-            "быть. Оборот because of называет причину одним словом.",
+            "Первая строка со словом when обещает дождь наверняка. Айгуль " +
+            "поправляет одним словом — if, — и дальше уже все строки с ним: " +
+            "дождя может и не быть. Оборот because of называет причину.",
         },
         {
           id: "slovar-pogody",
@@ -692,9 +692,9 @@ const module: Module = {
           kind: "note",
           tone: "info",
           text:
-            "Каждая строка памятки состоит из двух половин: условие и что " +
-            "будет.\n\nГлавная половина бывает просьбой, обещанием или словом " +
-            "can.",
+            "Каждая строка памятки состоит из половины с условием и главной " +
+            "половины.\n\nГлавная половина бывает просьбой, обещанием, словом " +
+            "can или тем, что бывает всегда.",
         },
 
         // ---- задания ----
@@ -892,7 +892,7 @@ const module: Module = {
           text: [
             "Ученик написал другу: «Maybe we'll meet tomorrow.»",
             "Друг прочтёт это и не будет знать, идти ему завтра или нет.",
-            "В записке с условием пропускают не вежливость, а сам порядок действий.",
+            "В записке с условием главное — сказать, что делать в каждом случае.",
             "Проверить свою записку можно по трём строкам.",
           ],
         },
@@ -928,16 +928,16 @@ const module: Module = {
           kind: "example",
           caption: "Записка Данияра",
           zvuchat: [
-            "We'll meet at the bus stop at four.",
-            "If it rains, we'll go to the cafe near the car park.",
-            "If I can't come, I'll call you at three.",
+            "We'll meet at the car park at five.",
+            "If the bus breaks down, I'll take a taxi.",
+            "If you can't come, send me a message.",
           ],
           text:
-            "We'll meet at the bus stop at four.\nIf it rains, we'll go to the cafe near the car park.\nIf I can't come, I'll call you at three.",
+            "We'll meet at the car park at five.\nIf the bus breaks down, I'll take a taxi.\nIf you can't come, send me a message.",
           explain:
-            "Первая строка называет план, вторая — перемену погоды, третья — " +
-            "запасной ход. В двух последних условие стоит впереди, и после него " +
-            "запятая.",
+            "Первая строка называет план, вторая — что будет, если помешает " +
+            "случай, третья — запасной ход. В главной половине второй строки " +
+            "обещание, а третьей — просьба.",
         },
 
         // ---- задания ----
@@ -1006,7 +1006,7 @@ const module: Module = {
             "Напиши другу записку тремя строками. Назови место и время встречи. Скажи, что будет, если пойдёт дождь. Скажи, что сделаешь, если не сможешь прийти.",
           minWords: 18,
           sample:
-            "We'll meet at the bus stop at four.\nIf it rains, we'll go to the cafe near the car park.\nIf I can't come, I'll call you at three.",
+            "We'll meet in the city centre at six.\nIf it rains, we'll go to the museum.\nIf I can't come, I'll send a message.",
           checklist: [
             "названы место и время",
             "есть строка со словом if про дождь",
