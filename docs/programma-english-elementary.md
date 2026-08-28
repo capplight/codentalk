@@ -524,7 +524,7 @@ DETERMINER»), см. разбор модуля 18 выше.
 | 27 | Раньше мог | говорить об умении в прошлом | `could`, `couldn't`, `Could you…?` об умении | 15 |
 | 28 | Вежливо | вежливо просить, соглашаться, отказываться и выбирать | `Could you…?`; `I'd love to`, `No, thank you`; `I'd prefer` | 14 |
 | 29 | Если | ставить условие | `if` + настоящее время с `will`, с `can` и с повелительным; `if` против `when` | 15 |
-| 30 | Который | описывать человека и вещь придаточным | `who`, `which`, `that`; место придаточного | 50 |
+| 30 | Который | описывать человека и вещь придаточным | `who` о том, кто действует; `which` и `that` о вещи; место придаточного | 15 |
 | 31 | Он сказал, что | пересказывать чужие слова и переспрашивать | косвенная речь с `say` и `tell`, сдвиг местоимения; вопрос-переспрос | 50 |
 
 **Проверочная работа части.** Пересказ разговора и обсуждение планов.
@@ -831,6 +831,63 @@ Clause types: «Subordinate clause following **if**, when, where, because:
 HEDGING» — смягчение просьбы, — и на ней стоят модуль 26 (`if it is windy` не
 отсюда) и модуль 28 (`chess if you prefer`). Здесь она только называется как
 знакомая.
+
+
+**Строка модуля 30 проверена 29 августа 2026, до написания. СНАЧАЛА ПО КУРСУ,
+ПОТОМ ПО ИСТОЧНИКАМ — порядок теперь такой.**
+
+**Придаточных в курсе нет нигде.** Поиск по обоим курсам даёт `who` только
+вопросительным словом, `which` — только внутри цитат из источников, `that` —
+указательным местоимением («that shop», «You shouldn't eat that») и союзом при
+`say` и `hope`. Ни одного описания вроде «a friend who lives here» ученик не
+видел. Строка свободна целиком.
+
+**ИСТОЧНИКИ СОГЛАСНЫ, И МЕРКА СТУПЕНИ НЕ НУЖНА.** Руководство A2 Key, с. 52,
+перечень Pronouns: «**Relative: who, which, that**». English Grammar Profile
+даёт семь граф A2 в подкатегории `CLAUSES relative` — искал по всему файлу, а
+не по одной подкатегории, как в модуле 29.
+
+**НО РАСКЛАДКА У НИХ НЕОЖИДАННАЯ, И ОНА ЗАДАЁТ УСТРОЙСТВО МОДУЛЯ.**
+
+- **`who` — только о том, кто сам действует.** A2 «FORM: DEFINING, SUBJECT,
+  WITH 'WHO'» («It's about a girl **who went** to the war», «I'd like a
+  pen-friend **who really likes** music») и A2 «FORM: NON-DEFINING, SUBJECT,
+  WITH 'WHO'» («my brother **who was** also interested in sports»). А `who` в
+  роли дополнения — **B1**: «FORM: DEFINING, OBJECT, WITH 'WHO/THAT'» («My
+  friends are the people **who I love** most»).
+- **`which` — и о том, что действует, и о том, с чем действуют.** Четыре графы
+  A2: subject defining («a piece of music **which makes** me cry»), subject
+  non-defining («Peter's Mobile shop, **which is** near to my home»), object
+  defining («the computer game **which I borrowed**»), object non-defining
+  («a marble statue **which my aunt gave** me»).
+- **`that` — только о том, с чем действуют.** Одна графа A2: «FORM: DEFINING,
+  OBJECT, WITH 'THAT'» («The team **that I like** is called 'The Monkeys'»).
+  Графы «that как подлежащее» на A2 я не нашёл — искал по всем девятнадцати
+  строкам подкатегории `relative`.
+
+**ОСТОРОЖНО: ИЗ ЭТОГО НЕ СЛЕДУЕТ ЗАПРЕТА.** Графа — разрешение; «the man that
+lives here» английскому не противоречит, и модуль не станет объявлять это
+ошибкой. Он учит своему случаю: о человеке берём `who`, о вещи — `which` или
+`that`.
+
+**«Место придаточного» из строки подпирается отдельно.** English Grammar
+Profile, NOUNS noun phrases, A2: «FORM: WITH RELATIVE CLAUSE AS COMPLEMENT» —
+«Can form complex noun phrases by using a defining relative clause as a
+complement to a noun phrase», примеры «**The mobile phone which I bought
+yesterday** is brilliant», «**The person who gave me it** was my father». И
+«FORM: WITH RELATIVE CLAUSE AS POSTMODIFIER», A2, — про придаточное после
+имени. Это и есть третий урок: придаточное стоит сразу за тем, о ком речь, а не
+в конце строки.
+
+**ЧЕГО НЕ БУДЕТ, И ВСЁ ЭТО ВЫШЕ СТУПЕНИ:** `where` и `when` придаточными (оба
+B1), `whose` (B1 и B2), `the reason why` (B1), `the thing that` для выделения
+(B1), придаточное с предлогом на конце (B1), `whose name` (B1), оценочное
+придаточное ко всему предложению (B2). Проверены по одной.
+
+**Опущенное местоимение («the clothes I wore») — A2**, графа «FORM: DEFINING,
+WITHOUT PRONOUN». В модуль не берётся: три способа сказать одно и то же ученику
+на этой ступени довольно, а четвёртый — это выбор, который нечем обосновать.
+Оговорено в шапке модуля.
 
 
 **Строка модуля 25 проверена 25 августа 2026, до написания. Она самая
