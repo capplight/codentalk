@@ -365,13 +365,15 @@ const module: Module = {
           kind: "table",
           caption: "Вопрос и два ответа",
           zvuchat: ["Do you work on Sunday?", "Yes, I do.", "No, I don't.", "Do you live here?",
-            "Do you drink coffee?",
+            "Do you drink coffee?", "Do you read at the weekend?", "Do you drink coffee in a cafe?",
           ],
           head: ["Вопрос", "Да", "Нет"],
           rows: [
             ["Do you work on Sunday?", "Yes, I do.", "No, I don't."],
             ["Do you live here?", "Yes, I do.", "No, I don't."],
             ["Do you drink coffee?", "Yes, I do.", "No, I don't."],
+            ["Do you read at the weekend?", "Yes, I do.", "No, I don't."],
+            ["Do you drink coffee in a cafe?", "Yes, I do.", "No, I don't."],
           ],
         },
         {
@@ -652,7 +654,7 @@ const module: Module = {
           // Столбец «чем открывается вопрос» отдельных кнопок не получает: Do и
           // Does слышны в самих вопросах, а «форма be» — это русская подпись.
           zvuchat: ["Are you a doctor?", "Do you work here?", "Is she a student?",
-            "Does she study here?",
+            "Does she study here?", "Do you like sport?",
           ],
           head: ["Вопрос", "О чём спрашивает", "Что стоит первым"],
           rows: [
@@ -660,6 +662,7 @@ const module: Module = {
             ["Do you work here?", "что он делает", "Do"],
             ["Is she a student?", "кто она", "форма be"],
             ["Does she study here?", "что она делает", "Does"],
+            ["Do you like sport?", "что он делает", "Do"],
           ],
         },
         {
@@ -800,12 +803,16 @@ const module: Module = {
           caption: "Да или нет — и что именно",
           zvuchat: ["Do you study English?", "What do you study?", "Do you read books?",
             "What do you read?", "Do you eat fish?", "What do you eat?",
+            "Do you watch films?", "What do you watch?", "Do you study languages?",
+            "What language do you study?",
           ],
           head: ["Только да или нет", "Что именно", "Перевод"],
           rows: [
             ["Do you study English?", "What do you study?", "Что ты учишь?"],
             ["Do you read books?", "What do you read?", "Что ты читаешь?"],
             ["Do you eat fish?", "What do you eat?", "Что ты ешь?"],
+            ["Do you watch films?", "What do you watch?", "Что ты смотришь?"],
+            ["Do you study languages?", "What language do you study?", "Какой язык ты учишь?"],
           ],
         },
         {
@@ -1226,7 +1233,8 @@ const module: Module = {
           kind: "table",
           caption: "Из чего складывается разговор",
           zvuchat: ["Do you work here?", "Yes, I do.", "Where do you work?",
-            "I work at a school.",
+            "I work at a school.", "What do you read on holiday?",
+            "I read books about Almaty.",
           ],
           head: ["Шаг", "Пример"],
           rows: [
@@ -1234,6 +1242,8 @@ const module: Module = {
             ["ответить коротко", "Yes, I do."],
             ["спросить подробнее", "Where do you work?"],
             ["ответить целиком", "I work at a school."],
+            ["спросить о другом", "What do you read on holiday?"],
+            ["ответить целиком", "I read books about Almaty."],
           ],
         },
         {

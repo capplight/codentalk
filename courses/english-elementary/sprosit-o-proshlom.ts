@@ -459,19 +459,21 @@ const module: Module = {
             "No, I didn't.",
             "Did you buy it?",
             "Did you see the goal?",
+            "Did you see the score?",
           ],
           head: ["Вопрос", "Да", "Нет"],
           rows: [
             ["Did you go?", "Yes, I did.", "No, I didn't."],
             ["Did you buy it?", "Yes, I did.", "No, I didn't."],
             ["Did you see the goal?", "Yes, I did.", "No, I didn't."],
+            ["Did you see the score?", "Yes, I did.", "No, I didn't."],
           ],
         },
         {
           id: "pochemu-otvet-odin",
           kind: "explain",
           text: [
-            "Правый столбец во всех трёх строках одинаковый, и это не случайность.",
+            "Правый столбец во всех четырёх строках одинаковый, и это не случайность.",
             "В коротком ответе стоит did, а само действие не называют.",
             "Действие уже названо в вопросе, и повторять его незачем.",
             "Поэтому ответ не зависит от того, о чём спросили.",
@@ -644,7 +646,7 @@ const module: Module = {
           caption: "Разговор о вчерашнем вечере",
           razgovor: true,
           text:
-            "— Where did you go yesterday?\n— I went to the cinema.\n— What did you see?\n— A cartoon.",
+            "— Where did you go yesterday?\n— I went to the cinema.\n— What did you see?\n— A cartoon. I liked the character.",
           explain:
             "Вопрос со словом Where или What ждёт подробности, а не слова «да». Второй " +
             "вопрос уже не называет кино: о нём сказал первый ответ, и повторять незачем.",
@@ -1081,8 +1083,9 @@ const module: Module = {
               "and the timetable was wrong: the train came late.",
             "The campsite was near the harbour. In the mornings the sky was grey, but " +
               "the afternoons were dry.",
+            "The morning fog was cold and the clouds were dark, but the season was hot.",
             "I bought a guidebook and went sightseeing. I wrote you a postcard on " +
-              "the last day.",
+              "the last day. We came home on the motorway.",
             "Now tell me about your week. Did you go to the stadium? Was the match " +
               "good? What did you buy at the market?",
             "Aigul",

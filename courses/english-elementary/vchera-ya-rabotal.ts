@@ -293,10 +293,10 @@ const module: Module = {
           id: "primer-vchera",
           kind: "example",
           caption: "Дела вчерашнего дня",
-          zvuchat: ["I worked in the morning.", "I cooked dinner.", "We watched a film.", "She offered tea.", "He entered the room."],
-          text: "I worked in the morning.\nI cooked dinner.\nWe watched a film.\nShe offered tea.\nHe entered the room.",
+          zvuchat: ["I worked in the morning.", "I cooked dinner.", "We watched a film.", "She offered tea.", "He entered the room.", "I borrowed a book.", "My brother shouted in the garden."],
+          text: "I worked in the morning.\nI cooked dinner.\nWe watched a film.\nShe offered tea.\nHe entered the room.\nI borrowed a book.\nMy brother shouted in the garden.",
           explain:
-            "Пять дел подряд, и у каждого глагола окончание -ed. Слово in the morning " +
+            "Семь дел подряд, и у каждого глагола окончание -ed. Слово in the morning " +
             "говорит, когда это было.",
         },
         {
@@ -401,12 +401,12 @@ const module: Module = {
           id: "tri-sluchaya",
           kind: "table",
           caption: "Три случая написания",
-          zvuchat: ["work — worked", "like — liked", "study — studied"],
+          zvuchat: ["work — worked", "like — liked, live — lived, save — saved", "study — studied, worry — worried"],
           head: ["Глагол кончается на", "Что делаем", "Пример"],
           rows: [
             ["любую букву, кроме e и y", "прибавляют -ed", "work — worked"],
-            ["e", "прибавляют только -d", "like — liked"],
-            ["согласную и y", "меняют y на i и прибавляют -ed", "study — studied"],
+            ["e", "прибавляют только -d", "like — liked, live — lived, save — saved"],
+            ["согласную и y", "меняют y на i и прибавляют -ed", "study — studied, worry — worried"],
             ["гласную и y", "прибавляют -ed, y остаётся", "play — played"],
           ],
         },
@@ -547,12 +547,12 @@ const module: Module = {
           id: "tri-chteniya",
           kind: "table",
           caption: "Три чтения окончания",
-          zvuchat: ["worked, watched, cooked, asked", "played, cleaned, opened, called", "wanted, needed, started, invited"],
+          zvuchat: ["worked, watched, cooked, asked, pushed, passed, fixed", "played, cleaned, opened, called", "wanted, needed, started, invited, suggested"],
           head: ["Звучит", "Когда", "Примеры"],
           rows: [
-            ["«т» /t/", "после глухого звука", "worked, watched, cooked, asked"],
+            ["«т» /t/", "после глухого звука", "worked, watched, cooked, asked, pushed, passed, fixed"],
             ["«д» /d/", "после звонкого звука и после гласного", "played, cleaned, opened, called"],
-            ["«ид» /ɪd/", "после звука t и после звука d", "wanted, needed, started, invited"],
+            ["«ид» /ɪd/", "после звука t и после звука d", "wanted, needed, started, invited, suggested"],
           ],
         },
         {
@@ -716,10 +716,10 @@ const module: Module = {
           id: "primer-rasskaza-o-dne",
           kind: "example",
           caption: "День Айгуль",
-          zvuchat: ["First I boiled water.", "Then I cleaned the room.", "After that I helped my mother.", "Then I listened to music.", "After that I packed my bag."],
-          text: "First I boiled water.\nThen I cleaned the room.\nAfter that I helped my mother.\nThen I listened to music.\nAfter that I packed my bag.",
+          zvuchat: ["First I boiled water.", "Then I cleaned the room.", "After that I helped my mother.", "Then I listened to music.", "After that I wanted a snack.", "Then I packed my bag."],
+          text: "First I boiled water.\nThen I cleaned the room.\nAfter that I helped my mother.\nThen I listened to music.\nAfter that I wanted a snack.\nThen I packed my bag.",
           explain:
-            "Пять дел в том порядке, в каком они были. У каждого глагола окончание -ed, " +
+            "Шесть дел в том порядке, в каком они были. У каждого глагола окончание -ed, " +
             "а слово порядка стоит первым.",
         },
         {
@@ -842,6 +842,8 @@ const module: Module = {
             ["She cooked last night.", "Она готовила прошлой ночью."],
             ["We cleaned the room last week.", "Мы убирали комнату на прошлой неделе."],
             ["They visited us two days ago.", "Они навещали нас два дня назад."],
+            ["He answered the letter last night.", "Он ответил на письмо прошлой ночью."],
+            ["We sailed last week.", "Мы плавали под парусом на прошлой неделе."],
           ],
         },
         {

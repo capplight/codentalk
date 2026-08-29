@@ -244,11 +244,11 @@ const module: Module = {
         {
           id: "tablica-glagolov",
           kind: "table",
-          caption: "Пять дел",
+          caption: "Шесть дел",
           // Звучит предложение, а не транскрипция рядом с ним: транскрипцию читают
           // глазами.
           zvuchat: ["I work.", "I live in Astana.", "I study English.", "I read books.",
-            "I play football.",
+            "I play football.", "I drink tea.",
           ],
           head: ["Английский", "Перевод", "Как читается"],
           rows: [
@@ -257,6 +257,7 @@ const module: Module = {
             ["I study English.", "Я учу английский.", "/ˈstʌdi/"],
             ["I read books.", "Я читаю книги.", "/riːd/"],
             ["I play football.", "Я играю в футбол.", "/pleɪ/"],
+            ["I drink tea.", "Я пью чай.", "/drɪŋk/"],
           ],
         },
         {
@@ -418,6 +419,7 @@ const module: Module = {
             ["I live in Astana.", "She lives in Astana.", "Она живёт в Астане."],
             ["I read books.", "He reads books.", "Он читает книги."],
             ["I play football.", "She plays football.", "Она играет в футбол."],
+            ["I write.", "He writes.", "Он пишет."],
           ],
         },
         {
@@ -746,6 +748,7 @@ const module: Module = {
             ["8:00", "I eat breakfast at eight.", "Я завтракаю в восемь."],
             ["9:00", "I start work at nine.", "Я начинаю работу в девять."],
             ["18:00", "I finish at six.", "Я заканчиваю в шесть."],
+            ["19:00", "I eat dinner at seven.", "Я ужинаю в семь."],
             ["20:00", "I watch football in the evening.", "Вечером я смотрю футбол."],
             ["7:00", "He gets up at seven.", "Он встаёт в семь."],
           ],
@@ -1206,10 +1209,11 @@ const module: Module = {
           caption: "О семье и друзьях",
           zvuchat: ["We live in Astana.", "My friends live in Almaty.",
             "They work in a hospital and play football every day.",
+            "We want a new car.",
           ],
           text:
             "We live in Astana.\nMy friends live in Almaty.\n" +
-            "They work in a hospital and play football every day.",
+            "They work in a hospital and play football every day.\nWe want a new car.",
           explain:
             "В третьей строке два действия подряд, соединённые словом and. Оба глагола стоят " +
             "без окончания, потому что речь о нескольких людях.",

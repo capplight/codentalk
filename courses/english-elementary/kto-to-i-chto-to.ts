@@ -1305,7 +1305,6 @@ const module: Module = {
           ],
           glossary: [
             { term: "brought", translation: "принёс" },
-            { term: "was missing", translation: "пропало" },
             { term: "inside", translation: "внутри" },
           ],
         },

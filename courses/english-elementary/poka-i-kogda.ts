@@ -618,13 +618,15 @@ const module: Module = {
             "When the postman called, I was cleaning the stairs.",
             "Unfortunately, I did not open the door.",
             "Immediately I looked for the receipt.",
+            "While they were delivering the parcel, I was waiting at the door.",
+            "Carefully I opened the box.",
           ],
           text:
-            "When the postman called, I was cleaning the stairs.\nUnfortunately, I did not open the door.\nImmediately I looked for the receipt.",
+            "When the postman called, I was cleaning the stairs.\nUnfortunately, I did not open the door.\nImmediately I looked for the receipt.\nWhile they were delivering the parcel, I was waiting at the door.\nCarefully I opened the box.",
           explain:
-            "В первой строке часть с союзом стоит впереди, и потому в середине " +
-            "запятая. Во второй запятая стоит после вводного слова, а в третьей её " +
-            "нет вовсе.",
+            "В первой и четвёртой строках часть с союзом стоит впереди, и потому в " +
+            "середине запятая. Во второй запятая стоит после вводного слова, а в " +
+            "третьей и пятой её нет вовсе.",
         },
         {
           id: "slovar-dostavki",
@@ -1050,7 +1052,7 @@ const module: Module = {
           body: [
             "Yesterday I was walking home from work when I saw an accident near the crossing.",
             "A motorbike stopped very quickly, and the driver dropped his glove on the track.",
-            "While the ambulance was coming, two people were helping him. Luckily, nobody was hurt.",
+            "While the ambulance was coming, two people were helping him. The driver was in danger, but the trouble was over quickly. Luckily, nobody was hurt, and he was safe.",
             "A helicopter was going over the road at that moment. Some children were crying.",
             "When the ambulance arrived, I walked home. Unfortunately, I lost my scarf on the way.",
           ],
@@ -1146,7 +1148,7 @@ const module: Module = {
             { text: "Дети" },
           ],
           hint: "Это сказано в третьей строке, после слова Luckily.",
-          why: "Luckily, nobody was hurt.",
+          why: "Luckily, nobody was hurt, and he was safe.",
         },
       ],
     },
@@ -1179,7 +1181,8 @@ const module: Module = {
           transcript:
             "What were you doing when you lost it? — I was walking to the shop. — " +
             "And where were you then? — Near the roundabout. — Was the purse in your " +
-            "bag? — No, it was in my glove. I dropped it there.",
+            "bag? — No, it was in my glove. I dropped it there. — That was bad " +
+            "luck. Be careful with it.",
         },
         {
           id: "chto-slushat-o-propazhe",

@@ -271,12 +271,14 @@ const module: Module = {
             "Last week I went to Astana.",
             "My colleague came with me.",
             "The train was fast.",
+            "The passengers were tired.",
           ],
           text:
-            "Last week I went to Astana.\nMy colleague came with me.\nThe train was fast.",
+            "Last week I went to Astana.\nMy colleague came with me.\nThe train was fast.\nThe passengers were tired.",
           explain:
-            "В первых двух строках неправильные глаголы, в третьей — was из первого модуля. " +
-            "Рассказ о поездке так и устроен: дела неправильными глаголами, обстановка через was.",
+            "В первых двух строках неправильные глаголы, в двух последних — was и were " +
+            "из первого модуля. Рассказ о поездке так и устроен: дела неправильными " +
+            "глаголами, обстановка через was.",
         },
         {
           id: "slovar-dorogi",

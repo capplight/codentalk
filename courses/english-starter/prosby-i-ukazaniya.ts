@@ -1180,7 +1180,7 @@ const module: Module = {
         {
           id: "primer-razgovora-s-prosboy",
           kind: "example",
-          caption: "Разговор в кафе",
+          caption: "Просьба и предложение подряд",
           razgovor: true,
           text:
             "— Can I sit here?\n— Yes, of course.\n— Would you like a coffee?\n— Yes, please. Thanks!",

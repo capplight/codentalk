@@ -603,7 +603,7 @@ const module: Module = {
         {
           id: "primer-how-much",
           kind: "example",
-          caption: "В магазине",
+          caption: "Сколько чего в магазине",
           razgovor: true,
           text: "— How much bread?\n— Some bread, please.\n— How many books?\n— Two books, please.",
           explain:

@@ -770,7 +770,7 @@ const module: Module = {
         {
           id: "primer-very",
           kind: "example",
-          caption: "В разговоре",
+          caption: "Very в разговоре",
           razgovor: true,
           text:
             "— Is your room big?\n— No, it isn't. It's very small.\n— And the house?\n" +

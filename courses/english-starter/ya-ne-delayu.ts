@@ -903,6 +903,7 @@ const module: Module = {
           // Звучит предложение, а не транскрипция рядом с ним.
           zvuchat: ["I don't eat meat.", "I don't drink coffee.", "I don't drive.",
             "I don't sing.", "I don't swim.", "I don't sleep in the day.",
+            "I don't wash my car on Monday.",
           ],
           head: ["Английский", "Перевод", "Как читается новое слово"],
           rows: [
@@ -912,6 +913,7 @@ const module: Module = {
             ["I don't sing.", "Я не пою.", "/sɪŋ/"],
             ["I don't swim.", "Я не плаваю.", "/swɪm/"],
             ["I don't sleep in the day.", "Днём я не сплю.", "/sliːp/"],
+            ["I don't wash my car on Monday.", "По понедельникам я не мою машину.", "/wɒʃ/"],
           ],
         },
         {
@@ -943,7 +945,7 @@ const module: Module = {
             "Ответить коротким предложением с don't проще, чем объяснять. Слово please " +
             "знакомо по модулю «Приветствие».",
         },
-        // Запись убрана: все шесть предложений звучат в таблице выше.
+        // Запись убрана: все семь предложений звучат в таблице выше.
         {
           id: "slovar-chego-ne",
           kind: "vocab",

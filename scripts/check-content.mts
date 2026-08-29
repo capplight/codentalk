@@ -1015,7 +1015,12 @@ function checkMaterial(block: Block, where: string): void {
         if (blank(item.translation)) fail(at, "нет перевода");
         // Заголовок — часть текста: «LOST AND FOUND» стоит именно в нём, и
         // объяснять его надо, а искать только в теле было ошибкой проверки.
-        if (![...block.body, block.title ?? ""].some((p) => p.includes(item.term))) {
+        // Регистр снимаем: словарик пишет «it opened» строчными, а в тексте это
+        // начало предложения. Из-за этого проверка дважды кричала на верное.
+        const term = item.term.toLowerCase();
+        if (
+          ![...block.body, block.title ?? ""].some((p) => p.toLowerCase().includes(term))
+        ) {
           warn(at, `«${item.term}» объяснено, но в тексте не встречается — проверить`);
         }
       });
@@ -1084,8 +1089,12 @@ function checkPrivyazka(lesson: Lesson, where: string): void {
     // Ответ, которого в тексте нет, ученику не выиграть. Ищем только у заданий с
     // одним словесным ответом: у выбора и сопоставления искать нечего.
     if (istochnik.kind === "text" && (block.kind === "short" || block.kind === "gap")) {
-      const otvet = String((block as { answer?: string }).answer ?? "").trim().toLowerCase();
-      const telo = istochnik.body.join(" ").toLowerCase();
+      // Пробел внутри числа снимаем: в тексте стоит «2 000 tenge», а ответом
+      // ученик пишет «2000». Без этого проверка кричала на верное.
+      const bezProbelovVChisle = (s: string) =>
+        s.toLowerCase().replace(/(?<=\d)[  ](?=\d)/g, "");
+      const otvet = bezProbelovVChisle(String((block as { answer?: string }).answer ?? "").trim());
+      const telo = bezProbelovVChisle(istochnik.body.join(" "));
       // Замечание, а не ошибка: «не нашёл» — это не «нет». В этом проекте вывод
       // об отсутствии строки четырежды оказывался неверным.
       if (otvet.length > 2 && !telo.includes(otvet)) {

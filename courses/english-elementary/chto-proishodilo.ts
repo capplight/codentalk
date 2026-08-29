@@ -85,11 +85,11 @@ import type { Module } from "@/lib/content/types";
  * того же урока говорит «после were идёт человек», а в ней его нет, и ученик
  * читает противоречие. Разбор `Who was there?` живёт в модуле 5, там ему место.
  *
- * СЛОВАРЬ МОДУЛЯ. Тридцать восемь карточек, и все тридцать восемь несут слово,
+ * СЛОВАРЬ МОДУЛЯ. Тридцать шесть карточек, и все тридцать шесть несут слово,
  * которого на прошлой ступени не было.
  *
  *    Oxford 3000 помечает A2: roof, hall, cupboard, lamp, oven, cooker, fridge,
- *    field, grass, ground, insect, smoke, knock, wave, bin, board, brush, bowl,
+ *    field, grass, ground, insect, smoke, knock, bin, board, brush, bowl,
  *    spoon, knife, fork.
  *
  *    Oxford 3000 помечает B1, но словник A2 Key содержит: ceiling, curtain,
@@ -98,7 +98,7 @@ import type { Module } from "@/lib/content/types";
  *
  *    Oxford 3000 не содержит вовсе, а словник A2 Key требует: stairs, sofa,
  *    armchair, wardrobe, exit, playground, thunderstorm, mug, blanket, pillow,
- *    toast, sausage, pasta, cereal.
+ *    toast, sausage, pasta.
  *
  *    Норма ступени — не меньше тридцати карточек и не меньше пятнадцати новых,
  *    считает `npm run kontrol`.
@@ -176,16 +176,13 @@ const module: Module = {
       ref: "Oxford 3000",
       section:
         "новые слова модуля с пометой A2: roof, hall, cupboard, lamp, oven, " +
-        "cooker, fridge, field, grass, ground, insect, smoke, knock, wave, bin, " +
-        "board, brush, bowl, spoon, knife, fork. Слово wave взято " +
-        "СУЩЕСТВИТЕЛЬНЫМ («волна»): Oxford 3000 ставит wave n. A2, а глагол wave " +
-        "— B1, и словника A2 Key в этом слове нет вовсе. Первая редакция дала " +
-        "глагол, нашёл методист. " +
+        "cooker, fridge, field, grass, ground, insect, smoke, knock, bin, " +
+        "board, brush, bowl, spoon, knife, fork. " +
         "Помету B1 Oxford 3000 ставит трём словам — ceiling, curtain, garage, — а " +
         "словник A2 Key их содержит: по правилу ступени они в запасе и потому " +
         "взяты. " +
         "Слов stairs, sofa, armchair, wardrobe, exit, playground, thunderstorm, " +
-        "mug, blanket, pillow, toast, sausage, pasta, cereal Oxford 3000 не " +
+        "mug, blanket, pillow, toast, sausage, pasta Oxford 3000 не " +
         "содержит вовсе, а словник A2 Key требует. " +
         "Подпорки: still, just, always, rain, kitchen, garden, street, window, " +
         "door, wall, floor, outside, together, sit, stand, run, cook, wait, clean, " +
@@ -196,10 +193,10 @@ const module: Module = {
     {
       ref: "Cambridge English, A2 Key vocabulary list (август 2025)",
       section:
-        "словник ступени, по которому проверена новизна: 1637 слов. Слова knock и " +
-        "wave словник не содержит, и взяты они по помете Oxford 3000 (A2) — " +
-        "правило ступени принимает любое из двух оснований. Остальные тридцать " +
-        "шесть карточек в словнике есть",
+        "словник ступени, по которому проверена новизна: 1637 слов. Слова knock " +
+        "словник не содержит, и взято оно по помете Oxford 3000 (A2) — правило " +
+        "ступени принимает любое из двух оснований. Остальные тридцать пять " +
+        "карточек в словнике есть",
       license: "внутреннее использование, публично не называем",
     },
     {
@@ -210,7 +207,7 @@ const module: Module = {
         "cooker /ˈkʊkə/, sofa /ˈsəʊfə/, armchair /ˈɑːmtʃeə/, wardrobe " +
         "/ˈwɔːdrəʊb/, curtain /ˈkɜːtn/, garage /ˈgærɪdʒ/, exit /ˈegzɪt/, " +
         "playground /ˈpleɪgraʊnd/, thunderstorm /ˈθʌndəstɔːm/, insect /ˈɪnsekt/, " +
-        "cereal /ˈsɪəriəl/, pasta /ˈpɑːstə/",
+        "pasta /ˈpɑːstə/",
       license: "внутреннее использование",
     },
   ],
@@ -303,12 +300,13 @@ const module: Module = {
             "I was working in the kitchen.",
             "My sister was cooking.",
             "My parents were watching a film.",
+            "I was reading under the lamp.",
           ],
           text:
-            "I was working in the kitchen.\nMy sister was cooking.\nMy parents were watching a film.",
+            "I was working in the kitchen.\nMy sister was cooking.\nMy parents were watching a film.\nI was reading under the lamp.",
           explain:
-            "Три строки об одном вечере. В первых двух один человек и потому was, в " +
-            "третьей их двое и потому were.",
+            "Четыре строки об одном вечере. Везде, кроме третьей, речь об одном " +
+            "человеке и потому стоит was; в третьей людей двое и потому were.",
         },
         {
           id: "slovar-doma",
@@ -466,12 +464,15 @@ const module: Module = {
             "My brother was writing a message.",
             "The children were running in the hall.",
             "I was making tea.",
+            "My mother was putting a pillow in the wardrobe.",
+            "I was cleaning the ceiling.",
           ],
           text:
-            "My brother was writing a message.\nThe children were running in the hall.\nI was making tea.",
+            "My brother was writing a message.\nThe children were running in the hall.\nI was making tea.\nMy mother was putting a pillow in the wardrobe.\nI was cleaning the ceiling.",
           explain:
-            "Три глагола и три разных случая: в writing и making пропала буква e, в " +
-            "running удвоилась n.",
+            "Пять глаголов и три разных случая. В writing и making пропала буква e, " +
+            "в running и putting удвоилась последняя согласная. В cleaning не " +
+            "изменилось ничего.",
         },
         {
           id: "slovar-komnaty",
@@ -624,12 +625,13 @@ const module: Module = {
             "The rain was falling all day.",
             "At seven the street was empty.",
             "My neighbour was cleaning his garage.",
+            "The horses were running in the field.",
           ],
           text:
-            "The rain was falling all day.\nAt seven the street was empty.\nMy neighbour was cleaning his garage.",
+            "The rain was falling all day.\nAt seven the street was empty.\nMy neighbour was cleaning his garage.\nThe horses were running in the field.",
           explain:
-            "В первой строке промежуток all day, во второй точка at seven. Третья " +
-            "строка времени не называет вовсе.",
+            "В первой строке промежуток all day, во второй точка at seven. Третья и " +
+            "четвёртая строки времени не называют вовсе.",
         },
         {
           id: "slovar-ulicy",
@@ -790,7 +792,6 @@ const module: Module = {
             { term: "thunderstorm", translation: "гроза", example: "The thunderstorm was loud.", hint: "/ˈθʌndəstɔːm/" },
             { term: "smoke", translation: "дым", example: "The smoke was going up.", hint: "/sməʊk/" },
             { term: "knock", translation: "стучать", example: "Somebody was knocking on the door.", hint: "/nɒk/" },
-            { term: "wave", translation: "волна", example: "The waves were big.", hint: "/weɪv/" },
             { term: "insect", translation: "насекомое", example: "An insect was sitting on the grass.", hint: "/ˈɪnsekt/" },
           ],
         },
@@ -918,10 +919,10 @@ const module: Module = {
           caption: "Кто чем был занят",
           razgovor: true,
           text:
-            "— What were you doing at seven?\n— I was making tea.\n— And your sister?\n— She was still sleeping.",
+            "— What were you doing at seven?\n— I was washing a knife and a fork.\n— And your sister?\n— She was still sleeping.\n— And your brother?\n— He was cleaning the floor with a brush.",
           explain:
-            "Первый вопрос полный, второй короткий: чтобы не повторять всё, называют " +
-            "только человека.",
+            "Первый вопрос полный, два следующих короткие: чтобы не повторять всё, " +
+            "называют только человека.",
         },
         {
           id: "slovar-stola",
@@ -1034,6 +1035,7 @@ const module: Module = {
             "The rain was falling on the roof, and the ground was wet.",
             "The children were playing in the playground. My neighbour was cleaning his garage all evening.",
             "An insect was sitting on the grass near the exit. The smoke was going up.",
+            "Somebody was knocking on the garage door. The bin near the exit was full, and the board on the wall was old.",
             "I was just making tea and watching all this.",
           ],
           glossary: [
@@ -1049,8 +1051,8 @@ const module: Module = {
           tone: "info",
           text:
             "Почти всё в сообщении длительное: там стоит was или were и окончание " +
-            "-ing.\n\nСтрока the ground was wet выпадает: она говорит не о " +
-            "действии, а о том, каким было место.",
+            "-ing.\n\nСтроки the ground was wet и the bin near the exit was full " +
+            "выпадают. Они говорят не о действии, а о том, каким было место.",
         },
         {
           id: "slovar-veshchey",
@@ -1159,9 +1161,10 @@ const module: Module = {
           skryt: true,
           voice: "два голоса",
           transcript:
-            "What were you doing at seven? — I was making pasta in the kitchen. — " +
-            "And your brother? — He was still sleeping on the sofa. — Was it quiet? " +
-            "— No. The fridge was making a noise all evening.",
+            "What were you doing at seven? — I was making pasta in the kitchen. The " +
+            "toast and the sausage were on the table. — And your brother? — " +
+            "He was still sleeping on the sofa. — Was it quiet? — No. The fridge " +
+            "was making a noise all evening.",
         },
         {
           id: "chto-slushat-v-opisanii",
@@ -1179,7 +1182,6 @@ const module: Module = {
             { term: "toast", translation: "тост, поджаренный хлеб", example: "I was making toast.", hint: "/təʊst/" },
             { term: "sausage", translation: "сосиска, колбаса", example: "The sausage was hot.", hint: "/ˈsɒsɪdʒ/" },
             { term: "pasta", translation: "макароны", example: "I was making pasta.", hint: "/ˈpɑːstə/" },
-            { term: "cereal", translation: "хлопья на завтрак", example: "The cereal was in the bowl.", hint: "/ˈsɪəriəl/" },
           ],
         },
 

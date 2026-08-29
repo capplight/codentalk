@@ -185,7 +185,7 @@ const module: Module = {
           // Соседние кнопки: окончание s на конце слова короткое, и услышать
           // его вернее всего, включив пару подряд.
           zvuchat: ["a book", "books", "a key", "keys", "a car", "cars", "a pen", "pens",
-            "a friend", "friends",
+            "a friend", "friends", "a thing", "things",
           ],
           head: ["Один", "Несколько", "Перевод"],
           rows: [
@@ -194,6 +194,7 @@ const module: Module = {
             ["a car", "cars", "машина — машины"],
             ["a pen", "pens", "ручка — ручки"],
             ["a friend", "friends", "друг — друзья"],
+            ["a thing", "things", "вещь — вещи"],
           ],
         },
         {
@@ -530,7 +531,7 @@ const module: Module = {
         {
           id: "tablica-is-are",
           kind: "table",
-          caption: "Один и несколько",
+          caption: "Is при одном, are при нескольких",
           zvuchat: ["It is a book.", "They are books.", "It's a key.", "They're keys.",
             "This is my bag.", "These are my bags.", "Is it a car?", "Are they cars?",
           ],

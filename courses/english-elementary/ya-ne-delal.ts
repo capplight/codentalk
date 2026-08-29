@@ -1080,8 +1080,9 @@ const module: Module = {
             "Hi Aigul!",
             "Yesterday was a strange day. I went to the office, but I didn't work: " +
               "the lift was broken, and our department was closed.",
-            "I waited at the gate for an hour. The manager didn't come and the " +
-              "secretary didn't answer my email.",
+            "I waited at the gate for an hour. The seat there was cold, and my bag " +
+              "was on the shelf near the door.",
+            "The manager didn't come and the secretary didn't answer my email.",
             "Then I went to the dentist. It wasn't bad, but I didn't take the " +
               "medicine after that.",
             "In the evening I didn't have a rest. I wrote a message to my boss and " +
@@ -1117,8 +1118,8 @@ const module: Module = {
           ],
           hint: "Причина названа в той же строке, что и лифт.",
           why:
-            "I went to the office, but I didn't work: the lift didn't work either, and " +
-            "our department was closed.",
+            "I went to the office, but I didn't work: the lift was broken, and our " +
+            "department was closed.",
         },
         {
           id: "z2-kto-ne-otvetil",
@@ -1127,7 +1128,7 @@ const module: Module = {
           prompt: "Кто не ответил на почту? Ответь одним английским словом.",
           answer: "secretary",
           accept: ["the secretary", "The secretary"],
-          hint: "Слово стоит рядом с руководителем, в абзаце про ожидание у ворот.",
+          hint: "Слово стоит рядом с руководителем, сразу после строк про ожидание у ворот.",
           why: "The manager didn't come and the secretary didn't answer my email.",
         },
         {

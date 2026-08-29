@@ -1284,7 +1284,6 @@ const module: Module = {
             { term: "details", translation: "подробности", example: "Ask the staff for details.", hint: "/ˈdiːteɪlz/" },
             { term: "weekly", translation: "еженедельный", example: "The weekly game is going to be on Thursday.", hint: "/ˈwiːkli/" },
             { term: "monthly", translation: "ежемесячный", example: "Our monthly meeting is going to be there at ten.", hint: "/ˈmʌnθli/" },
-            { term: "closed", translation: "закрыт", example: "The court is going to be closed on Tuesday.", hint: "/kləʊzd/" },
           ],
         },
 

@@ -1075,7 +1075,7 @@ const module: Module = {
         {
           id: "primer-otricaniya-there",
           kind: "example",
-          caption: "Разговор о квартире",
+          caption: "Разговор о том, чего нет",
           razgovor: true,
           text:
             "— Is there a garden?\n— No, there isn't. There is a park near the house.\n" +

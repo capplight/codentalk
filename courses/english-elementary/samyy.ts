@@ -260,9 +260,11 @@ const module: Module = {
             "The elephant.",
             "What about the tallest?",
             "The giraffe is the tallest animal on land.",
+            "And the fastest fish?",
+            "The shark.",
           ],
           text:
-            "The whale is the biggest animal.\nAnd on land?\nThe elephant.\nWhat about the tallest?\nThe giraffe is the tallest animal on land.",
+            "The whale is the biggest animal.\nAnd on land?\nThe elephant.\nWhat about the tallest?\nThe giraffe is the tallest animal on land.\nAnd the fastest fish?\nThe shark.",
           explain:
             "Каждый раз из всех зверей называют одного. Слово the стоит и перед " +
             "формой выделения, и перед самим зверем — это разные the.",

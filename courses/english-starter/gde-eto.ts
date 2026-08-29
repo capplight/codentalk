@@ -646,7 +646,7 @@ const module: Module = {
         {
           id: "tablica-next-to",
           kind: "table",
-          caption: "Ещё три предлога",
+          caption: "Ещё три оборота",
           zvuchat: ["next to", "The chair is next to the table.", "in front of",
             "The car is in front of the house.", "opposite",
             "The shop is opposite the station.",

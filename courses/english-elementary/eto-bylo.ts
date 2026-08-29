@@ -394,6 +394,8 @@ const module: Module = {
             ["at school", "в школе"],
             ["at the station", "на вокзале"],
             ["at the market", "на рынке"],
+            ["at the gallery", "в картинной галерее"],
+            ["at the circus", "в цирке"],
             ["in Almaty", "в Алматы"],
             ["in a village", "в деревне"],
           ],
@@ -550,6 +552,9 @@ const module: Module = {
             ["The weather was cold.", "Погода была холодная."],
             ["The shops were expensive.", "Магазины были дорогие."],
             ["The lessons were boring.", "Уроки были скучные."],
+            ["The day was cloudy.", "День был облачный."],
+            ["The weather was awful.", "Погода была ужасная."],
+            ["The beach was lovely.", "Пляж был чудесный."],
           ],
         },
         {
@@ -704,6 +709,10 @@ const module: Module = {
             ["She wasn't busy.", "Она не была занята."],
             ["We weren't tired.", "Мы не были усталыми."],
             ["They weren't at school.", "Их не было в школе."],
+            ["My father wasn't angry.", "Отец не был сердит."],
+            ["My sister wasn't worried.", "Сестра не была встревожена."],
+            ["The teacher wasn't pleased.", "Учитель не был доволен."],
+            ["I wasn't alone.", "Я был не один."],
           ],
         },
         {
@@ -865,6 +874,10 @@ const module: Module = {
             ["He was at home.", "Он был дома."],
             ["Was he at home?", "Он был дома?"],
             ["Was the film good?", "Фильм был хороший?"],
+            ["Was the competition long?", "Соревнование было долгое?"],
+            ["Were they at the race?", "Они были на забеге?"],
+            ["Was the picnic good?", "Пикник был хороший?"],
+            ["Was the tour great?", "Экскурсия была отличная?"],
           ],
         },
         {
@@ -1177,6 +1190,7 @@ const module: Module = {
             ["We were in Almaty last week.", "Мы были в Алматы на прошлой неделе."],
             ["She was here two days ago.", "Она была здесь два дня назад."],
             ["They were at school in 2019.", "Они были в школе в 2019 году."],
+            ["Yesterday was a weekday.", "Вчера был будний день."],
           ],
         },
         {
@@ -1329,6 +1343,8 @@ const module: Module = {
             "Hi Dana!",
             "Last week I was in Turkey with my sister. The hotel was cheap and " +
               "very quiet. The weather was hot every day, and the beach was great.",
+            "The beach was crowded, but the forest near the hotel was quiet. The " +
+              "hill behind the forest was a good place for a picnic.",
             "On Friday we were at a big market in the city. The market was noisy, " +
               "but the food was delicious. My sister wasn't happy: the shops were " +
               "expensive.",
