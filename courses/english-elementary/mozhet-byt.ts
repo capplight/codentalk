@@ -71,10 +71,28 @@ import type { Module } from "@/lib/content/types";
  *   поимённо и коротко: «a limited range of adverbs ('maybe', 'perhaps')».
  *   Модуль берёт ровно эти два.
  *
- * СЛОВАРЬ МОДУЛЯ. Тридцать две карточки, из них двадцать девять несут слово,
- * какого на прошлой ступени не было. Норма владельца от 20 августа — не меньше
- * тридцати карточек и не меньше пятнадцати новых. Счёт даёт `npm run kontrol`,
- * и сверяться надо с ним, а не с памятью: за одну правку он менялся трижды.
+ * СЛОВАРЬ МОДУЛЯ. Тридцать две карточки у самого модуля, из них двадцать девять
+ * несут слово, какого на прошлой ступени не было. Норма владельца от 20 августа
+ * — не меньше тридцати карточек и не меньше пятнадцати новых. Счёт даёт `npm
+ * run kontrol`, и сверяться надо с ним, а не с памятью: за одну правку он
+ * менялся трижды.
+ *
+ * ПОСЛЕДНИЙ УРОК — «СЛОВА ЧАСТИ», И ОН НЕ МОДУЛЯ, А ЧАСТИ ВТОРОЙ. Решение
+ * владельца от 29 августа 2026, разбор — в модуле 7, где стоит такой же урок
+ * для части первой.
+ *
+ * Тема части второй — город, дорога и бланки: тридцать записей, все из словника
+ * A2 Key. Названия зданий здесь составные (`post office`, `bus station`), и это
+ * главная мысль урока: первое слово говорит, что там делают, второе — что это
+ * за место.
+ *
+ * ЧЕТЫРЕ СЛОВА ВЗЯТЫ РЯДОМ С УЖЕ ДАННЫМИ, И КАЖДОЕ ОБЪЯВЛЕНО В ПЕРЕВОДЕ:
+ * `aeroplane` при данном раньше `plane`, `no one` при `nobody`, `okay` и `all
+ * right` при `alright`. Это не повтор: ученик встретит все записи, и карточка
+ * прямо говорит, что это второе имя той же вещи.
+ *
+ * ТРАНСКРИПЦИЯ СОСТАВНЫХ ЗАПИСЕЙ СОБРАНА ИЗ ЧАСТЕЙ — как в модуле 7 и как курс
+ * уже делал в `swimming kit`. Вопрос об этом стоит перед владельцем.
  *
  * Слова собраны вокруг случая модуля: вещь потерялась, и о ней приходится
  * гадать. Отсюда и вещи (`handbag`, `necklace`, `headphones`), и места
@@ -101,6 +119,7 @@ const module: Module = {
     "находить в объявлении приметы вещи и время работы",
     "слышать в прогнозе, что обещают наверняка, а что нет",
     "проверять объявление о пропаже: вещь, приметы, место и предположение о ней",
+    "называть места в городе и заполнять бланк: post office, occupation",
   ],
 
   sources: [
@@ -1409,6 +1428,274 @@ const module: Module = {
         },
       ],
     },
+
+    // =====================================================================
+    {
+      slug: "slova-chasti-gorod",
+      title: "Слова части: город и бланки",
+      estimatedMinutes: 15,
+      outcome: "называть места в городе и заполнять бланк: post office, occupation",
+
+      blocks: [
+        {
+          id: "zachem-slova-o-gorode",
+          kind: "explain",
+          text: [
+            "В чужом городе спрашивают дорогу, ищут нужное здание и заполняют бланки.",
+            "Здесь собраны слова для всех трёх дел.",
+            "Названия зданий почти всегда состоят из двух слов: post office, bus station.",
+            "Первое слово говорит, что там делают, второе — что это за место.",
+          ],
+        },
+        {
+          id: "zdaniya-goroda",
+          kind: "table",
+          caption: "Здания и что в них",
+          zvuchat: ["post office", "bus station", "petrol station", "police station", "sports centre"],
+          head: ["Английский", "Перевод", "Что там делают"],
+          rows: [
+            ["post office", "почта", "отправляют письма"],
+            ["bus station", "автовокзал", "садятся на междугородний автобус"],
+            ["petrol station", "заправка", "заливают бензин"],
+            ["police station", "отделение полиции", "заявляют о пропаже"],
+            ["sports centre", "спортивный центр", "занимаются спортом"],
+          ],
+        },
+        {
+          id: "slovar-zdaniy",
+          kind: "vocab",
+          caption: "Слова урока",
+          items: [
+            { term: "post office", translation: "почта", example: "The post office may be closed today.", hint: "/ˈpəʊst ɒfɪs/" },
+            { term: "bus station", translation: "автовокзал", example: "The bus station is close to the market.", hint: "/ˈbʌs steɪʃn/" },
+            { term: "petrol station", translation: "заправка", example: "There is a petrol station near the traffic light.", hint: "/ˈpetrəl steɪʃn/" },
+            { term: "police station", translation: "отделение полиции", example: "The police station is out of the centre.", hint: "/pəˈliːs steɪʃn/" },
+            { term: "sports centre", translation: "спортивный центр", example: "Maybe the sports centre is open on Sunday.", hint: "/ˈspɔːts sentə/" },
+            { term: "shop assistant", translation: "продавец", example: "The shop assistant may know the price.", hint: "/ˈʃɒp əsɪstənt/" },
+            { term: "traffic light", translation: "светофор", example: "There is a petrol station near the traffic light.", hint: "/ˈtræfɪk laɪt/" },
+          ],
+        },
+        {
+          id: "primer-v-gorode",
+          kind: "example",
+          caption: "В незнакомом городе",
+          zvuchat: [
+            "The post office may be closed today.",
+            "The bus station is close to the market.",
+            "There is a petrol station near the traffic light.",
+            "The police station is out of the centre.",
+            "Maybe the sports centre is open on Sunday.",
+            "The shop assistant may know the price.",
+          ],
+          text:
+            "The post office may be closed today.\nThe bus station is close to the market.\nThere is a petrol station near the traffic light.\nThe police station is out of the centre.\nMaybe the sports centre is open on Sunday.\nThe shop assistant may know the price.",
+          explain:
+            "Шесть строк об одном городе. В трёх из них стоит may или maybe: о " +
+            "чужом городе редко знают наверняка.",
+        },
+        {
+          id: "slovar-dorogi",
+          kind: "vocab",
+          caption: "Слова урока",
+          items: [
+            { term: "police officer", translation: "полицейский", example: "A police officer showed us the way.", hint: "/pəˈliːs ɒfɪsə/" },
+            { term: "police car", translation: "полицейская машина", example: "A police car stopped at the traffic light.", hint: "/pəˈliːs kɑː/" },
+            { term: "aeroplane", translation: "самолёт (полное слово вместо plane)", example: "Our aeroplane may be late.", hint: "/ˈeərəpleɪn/" },
+            { term: "driving", translation: "вождение", example: "Driving here is difficult.", hint: "/ˈdraɪvɪŋ/" },
+            { term: "close to", translation: "близко к", example: "The bus station is close to the market.", hint: "/ˈkləʊs tə/" },
+            { term: "out of", translation: "за пределами, из", example: "The police station is out of the centre.", hint: "/ˈaʊt əv/" },
+            { term: "by accident", translation: "случайно", example: "We found the museum by accident.", hint: "/baɪ ˈæksɪdənt/" },
+          ],
+        },
+        {
+          id: "primer-doroga",
+          kind: "example",
+          caption: "Дорога и случай",
+          zvuchat: [
+            "A police officer showed us the way.",
+            "A police car stopped at the traffic light.",
+            "We found the museum by accident.",
+            "Driving here is difficult.",
+            "Our aeroplane may be late.",
+          ],
+          text:
+            "A police officer showed us the way.\nA police car stopped at the traffic light.\nWe found the museum by accident.\nDriving here is difficult.\nOur aeroplane may be late.",
+          explain:
+            "Пять строк о дороге. Оборот by accident значит «не нарочно» и к слову " +
+            "accident из рассказа о происшествии отношения не имеет.",
+        },
+        {
+          id: "ms-kogda-somnevaeshsya",
+          kind: "note",
+          tone: "info",
+          text:
+            "Обращение Ms годится всегда: оно ни о чём не спрашивает.\n\nПоэтому в " +
+            "письме незнакомому человеку берут именно его.",
+        },
+        {
+          id: "slovar-blanka",
+          kind: "vocab",
+          caption: "Слова урока",
+          items: [
+            { term: "nationality", translation: "гражданство", example: "Write your nationality here.", hint: "/ˌnæʃəˈnæləti/" },
+            { term: "occupation", translation: "род занятий", example: "My occupation is teacher.", hint: "/ˌɒkjuˈpeɪʃn/" },
+            { term: "birth", translation: "рождение", example: "The date of birth is on the first line.", hint: "/bɜːθ/" },
+            { term: "identification", translation: "удостоверение личности (полное слово)", example: "Bring identification with you.", hint: "/aɪˌdentɪfɪˈkeɪʃn/" },
+            { term: "Mr", translation: "перед именем мужчины", example: "Mr Petrov may come at five.", hint: "/ˈmɪstə/" },
+            { term: "Mrs", translation: "перед именем замужней женщины", example: "Mrs Petrova is a teacher.", hint: "/ˈmɪsɪz/" },
+            { term: "Ms", translation: "перед именем женщины, когда о семье не спрашивают", example: "Ms Dana is our new manager.", hint: "/mɪz/" },
+          ],
+        },
+        {
+          id: "primer-blank",
+          kind: "example",
+          caption: "Бланк в отделении",
+          zvuchat: [
+            "Write your nationality here.",
+            "My occupation is teacher.",
+            "The date of birth is on the first line.",
+            "Bring identification with you.",
+            "Mr Petrov may come at five.",
+            "Mrs Petrova is a teacher.",
+            "Ms Dana is our new manager.",
+          ],
+          text:
+            "Write your nationality here.\nMy occupation is teacher.\nThe date of birth is on the first line.\nBring identification with you.\nMr Petrov may come at five.\nMrs Petrova is a teacher.\nMs Dana is our new manager.",
+          explain:
+            "Семь строк одного бланка. Обращение стоит перед фамилией и точки после " +
+            "себя не требует.",
+        },
+        {
+          id: "korotkie-slova-goroda",
+          kind: "table",
+          caption: "Короткие слова, которые нужны каждый день",
+          zvuchat: [
+            "Okay, I'll wait here.",
+            "All right, let's meet at six.",
+            "No one knows the way.",
+            "I took the bus instead of the tram.",
+            "She has worked here since May.",
+            "It is minus ten today.",
+            "The market is well known here.",
+            "The post office is on the left-hand side.",
+            "He showed the way with his right hand.",
+          ],
+          head: ["Английский", "Перевод"],
+          rows: [
+            ["Okay, I'll wait here.", "Хорошо, я подожду здесь."],
+            ["All right, let's meet at six.", "Ладно, встретимся в шесть."],
+            ["No one knows the way.", "Никто не знает дороги."],
+            ["I took the bus instead of the tram.", "Я поехал на автобусе вместо трамвая."],
+            ["She has worked here since May.", "Она работает здесь с мая."],
+            ["It is minus ten today.", "Сегодня минус десять."],
+            ["The market is well known here.", "Рынок здесь широко известен."],
+            ["The post office is on the left-hand side.", "Почта по левой стороне."],
+            ["He showed the way with his right hand.", "Он показал дорогу правой рукой."],
+          ],
+        },
+        {
+          id: "slovar-korotkih",
+          kind: "vocab",
+          caption: "Слова урока",
+          items: [
+            { term: "okay", translation: "хорошо, договорились", example: "Okay, I'll wait here.", hint: "/ˌəʊˈkeɪ/" },
+            { term: "all right", translation: "ладно, всё в порядке", example: "All right, let's meet at six.", hint: "/ˌɔːl ˈraɪt/" },
+            { term: "no one", translation: "никто (вторая запись слова nobody)", example: "No one knows the way.", hint: "/ˈnəʊ wʌn/" },
+            { term: "instead of", translation: "вместо чего-то", example: "I took the bus instead of the tram.", hint: "/ɪnˈsted əv/" },
+            { term: "since", translation: "с какого-то времени", example: "She has worked here since May.", hint: "/sɪns/" },
+            { term: "minus", translation: "минус", example: "It is minus ten today.", hint: "/ˈmaɪnəs/" },
+            { term: "well known", translation: "широко известный", example: "The market is well known here.", hint: "/ˌwel ˈnəʊn/" },
+            { term: "left-hand", translation: "левый (о стороне)", example: "The post office is on the left-hand side.", hint: "/ˌleft ˈhænd/" },
+            { term: "right hand", translation: "правая рука", example: "He showed the way with his right hand.", hint: "/ˌraɪt ˈhænd/" },
+          ],
+        },
+        {
+          id: "pochemu-defis",
+          kind: "note",
+          tone: "info",
+          text:
+            "В left-hand дефис есть, а в right hand его нет, и это не " +
+            "описка.\n\nПервое стоит перед словом «сторона» прилагательным, а " +
+            "второе — само название руки.",
+        },
+
+        // ---- задания ----
+        {
+          id: "z1-vybrat-zdanie",
+          kind: "choice",
+          prompt: "Куда идут, чтобы отправить письмо?",
+          options: [
+            { text: "police station" },
+            { text: "post office", correct: true },
+            { text: "petrol station" },
+          ],
+          hint: "Первое слово нужного названия значит «почта».",
+          why:
+            "post office. В police station заявляют о пропаже, а на petrol station " +
+            "заливают бензин.",
+        },
+        {
+          id: "z2-dopisat-storonu",
+          kind: "gap",
+          prompt: "Почта стоит по левой стороне улицы. Допиши пропущенное слово.",
+          before: "The post office is on the ",
+          after: " side.",
+          answer: "left-hand",
+          accept: ["left hand"],
+          hint: "Перед словом «сторона» это слово пишут через дефис.",
+          why: "The post office is on the left-hand side. Дефис здесь на месте.",
+        },
+        {
+          id: "z3-soedinit-blank",
+          kind: "match",
+          prompt: "Соедини строку бланка с тем, что в неё пишут.",
+          left: ["Nationality", "Occupation", "Date of birth", "Ms"],
+          right: [
+            "род занятий",
+            "гражданство",
+            "перед именем женщины",
+            "дата рождения",
+          ],
+          answer: [1, 0, 3, 2],
+          hint: "Слово occupation значит «занятие», а nationality — «страна, чей ты гражданин».",
+          why:
+            "Nationality — гражданство, Occupation — род занятий, Date of birth — " +
+            "дата рождения, Ms — обращение перед именем женщины.",
+        },
+        {
+          id: "z4-skazat-vmesto",
+          kind: "short",
+          prompt: "Скажи по-английски: поездка вышла на автобусе, а не на трамвае. Возьми оборот со словом instead.",
+          answer: "I took the bus instead of the tram.",
+          accept: [
+            "I took the bus instead of the tram",
+            "We took the bus instead of the tram.",
+          ],
+          hint: "После instead стоит короткое слово of, а за ним — то, чего не выбрали.",
+          why:
+            "I took the bus instead of the tram. Оборот instead of ставят перед " +
+            "тем, что осталось в стороне.",
+        },
+        {
+          id: "z5-otmetit-zdaniya",
+          kind: "hottext",
+          prompt: "Отметь названия зданий.",
+          parts: [
+            { text: "bus station", selectable: true, correct: true },
+            { text: " · " },
+            { text: "traffic light", selectable: true },
+            { text: " · " },
+            { text: "sports centre", selectable: true, correct: true },
+            { text: " · " },
+            { text: "by accident", selectable: true },
+          ],
+          hint: "Здание — это место, куда можно войти.",
+          why:
+            "Верны bus station и sports centre. Traffic light — светофор на улице, " +
+            "а by accident — оборот со значением «случайно».",
+        },
+      ],
+    },
   ],
 
   quiz: {
@@ -1722,6 +2009,33 @@ const module: Module = {
         why:
           "I lost a black handbag at the station. Без этих двух добавок объявление " +
           "подходит к любой сумочке.",
+      },
+
+      // ---- итог 9 ----
+      {
+        id: "q-kuda-za-benzinom",
+        kind: "short",
+        outcome: "называть места в городе и заполнять бланк: post office, occupation",
+        prompt: "Назови по-английски место, где заливают бензин. Оно из двух слов.",
+        answer: "petrol station",
+        accept: ["a petrol station", "the petrol station"],
+        hint: "Первое слово — само горючее.",
+        why: "petrol station. Bus station — автовокзал, а police station — отделение полиции.",
+      },
+      {
+        id: "q-chto-pishut-v-occupation",
+        kind: "choice",
+        outcome: "называть места в городе и заполнять бланк: post office, occupation",
+        prompt: "Что пишут в строке бланка Occupation?",
+        options: [
+          { text: "гражданство" },
+          { text: "род занятий", correct: true },
+          { text: "дату рождения" },
+        ],
+        hint: "Строка о том, чем человек занят.",
+        why:
+          "Род занятий. Гражданство пишут в строке Nationality, а дату рождения — " +
+          "в строке Date of birth.",
       },
     ],
   },
