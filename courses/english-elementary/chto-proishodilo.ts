@@ -51,14 +51,31 @@ import type { Module } from "@/lib/content/types";
  * — СВЯЗКИ С ЗАКОНЧЕННЫМ ДЕЙСТВИЕМ через `when` и `while`. Программа отдаёт её
  *   модулю 7, и здесь её нет ни строкой: сперва надо освоить саму форму.
  * — НАРЕЧИЙ СВЕРХ ТРЁХ. Источник говорит «limited range» и числа не задаёт.
- *   Модуль берёт `just`, `still` и `always`, и это НАДО ЧИТАТЬ ТОЧНО. В примере
- *   строки A2 стоит только `just` («I was just watching a football match»).
- *   `still` при этом времени иллюстрирует строку B1 («He was still waiting at
- *   the traffic light»), а `always` — строку B1 «USE: REPEATED EVENTS» и строку
- *   C2 «USE: UNDESIRED EVENTS». Первая редакция шапки написала, что все три
- *   стоят в примерах графы A2, — неверно, нашёл методист. Форма (наречие между
- *   `was` и глаголом) остаётся A2 по строке «FORM: WITH ADVERBS»; набор из трёх
- *   наречий — решение автора, и методисту стоит посмотреть на него отдельно.
+ *   Модуль берёт `just`, `still` и `always`, и это НАДО ЧИТАТЬ ТОЧНО.
+ *
+ *   Правка от 30 августа 2026, и она отменяет прежнюю запись. У графы A2
+ *   «FORM: WITH ADVERBS» примеров ДВА, а не один: «I was just watching a
+ *   football match» и «[talking about wanting to get a kitten] I was always
+ *   dreaming about it» (Russian, A2 WAYSTAGE, Pass, 2004). Значит `always` при
+ *   этом времени графа A2 своим примером и подтверждает.
+ *
+ *   Прежняя запись утверждала обратное — «в примере строки A2 стоит только
+ *   just», — и её повторил второй методист при общем проходе. Оба прочли графу
+ *   по первому примеру и до второго не дошли. Это ровно то правило, которое
+ *   курс держит для себя: к цитате читается ЕЁ ПРИМЕР, и все примеры, а не
+ *   первый.
+ *
+ *   `still` при этом времени в примерах графы A2 не стоит: он иллюстрирует
+ *   строку B1 («He was still waiting at the traffic light»). Графа A2 говорит
+ *   «a limited range of adverbs» и списка не даёт — запрета на `still` нет, но
+ *   и подтверждения его примером тоже.
+ *
+ *   ЧТО ПОПРАВЛЕНО ПО СУЩЕСТВУ. Карточка `always` давала перевод «всегда,
+ *   постоянно» и пример «He was always talking» — а это значение и почти эта
+ *   строка стоят у графы **B1** «USE: REPEATED EVENTS» («He was always talking
+ *   about this prize»); при `always` там же лежит графа C2 об упрёке. Форма
+ *   у нас A2, а значение мы давали B1. Перевод и примеры переписаны по графе
+ *   A2: одно тянувшееся дело, а не повторяющиеся события.
  *
  * ВОПРОС `WHAT WERE YOU DOING?` — МЕСТО, ГДЕ ИСТОЧНИКИ РАСХОДЯТСЯ.
  *
@@ -85,8 +102,15 @@ import type { Module } from "@/lib/content/types";
  * того же урока говорит «после were идёт человек», а в ней его нет, и ученик
  * читает противоречие. Разбор `Who was there?` живёт в модуле 5, там ему место.
  *
- * СЛОВАРЬ МОДУЛЯ. Тридцать шесть карточек, и все тридцать шесть несут слово,
+ * СЛОВАРЬ МОДУЛЯ. Тридцать восемь карточек, из них тридцать семь несут слово,
  * которого на прошлой ступени не было.
+ *
+ *    Счёт поправлен 30 августа 2026 по разбору методиста: в шапке стояло
+ *    «тридцать шесть, и все тридцать шесть новые». Карточек тридцать восемь, и
+ *    две из них — `empty` и `wash` — были заодно названы ниже словами-подпорками,
+ *    то есть «своей карточки не имеют». Имеют. А `wash` Oxford 3000 помечает A1,
+ *    и курс дал его на прошлой ступени (`english-starter → ya-ne-delayu`), —
+ *    значит и «все новые» было неверно.
  *
  *    Oxford 3000 помечает A2: roof, hall, cupboard, lamp, oven, cooker, fridge,
  *    field, grass, ground, insect, smoke, knock, bin, board, brush, bowl,
@@ -106,8 +130,10 @@ import type { Module } from "@/lib/content/types";
  *    СЛОВА-ПОДПОРКИ: still, just, always, rain, kitchen, garden, street, window,
  *    door, wall, floor, outside, together, sit, stand, run, cook, wait, clean,
  *    play, read, write, watch, listen, talk, sleep, dark, cold, hot, long, small,
- *    make, take, come, dance, swim, stop, wash, fall, go, empty, wet, white,
+ *    make, take, come, dance, swim, stop, fall, go, wet, white,
  *    full, horse, quiet, message, film, moment, somebody, move, tea, neighbour —
+ *    слова `empty` и `wash` из этого перечня убраны 30 августа: у обоих в
+ *    модуле своя карточка, а подпорка — это слово БЕЗ карточки. —
  *    все A1 или A2 по Oxford 3000 и все в словнике A2 Key. Первая редакция
  *    списка описывала не тот урок: два десятка работающих слов в неё не попали,
  *    нашёл методист. Плюс слова прошлых модулей этой же ступени, у которых
@@ -445,7 +471,7 @@ const module: Module = {
             "Согласная на конце удваивается, если глагол в один слог и гласная перед ней одна.",
             "Sit, run, swim, stop — везде одна гласная перед последней согласной, и она удваивается.",
             "У wait, sleep, read, cook гласных перед ней две, и удвоения не бывает.",
-            "Буквы w, x и y на конце не удваиваются никогда: play даёт playing.",
+            "Буквы w, x и y на конце не удваиваются никогда: snow даёт snowing.",
           ],
         },
         {
@@ -644,7 +670,7 @@ const module: Module = {
             { term: "playground", translation: "детская площадка", example: "The playground was near the field.", hint: "/ˈpleɪgraʊnd/" },
             { term: "field", translation: "поле", example: "The horses were running in the field.", hint: "/fiːld/" },
             { term: "grass", translation: "трава", example: "The grass was wet.", hint: "/grɑːs/" },
-            { term: "empty", translation: "пустой", example: "The pool is empty in the morning.", hint: "/ˈempti/" },
+            { term: "empty", translation: "пустой", example: "At seven the street was empty.", hint: "/ˈempti/" },
           ],
         },
 
@@ -742,13 +768,13 @@ const module: Module = {
           zvuchat: [
             "I was just watching a film.",
             "I was still working.",
-            "He was always talking.",
+            "I was always dreaming about a bike.",
           ],
           head: ["Наречие", "Что значит", "Пример"],
           rows: [
             ["just", "только что, как раз", "I was just watching a film."],
             ["still", "всё ещё", "I was still working."],
-            ["always", "всегда, постоянно", "He was always talking."],
+            ["always", "всё время", "I was always dreaming about a bike."],
           ],
         },
         {
@@ -765,7 +791,7 @@ const module: Module = {
           kind: "note",
           tone: "mistake",
           text:
-            "«Just I was watching a film» — так не говорят.\n\nМесто у этого " +
+            "«Just I was watching a film» — так не говорят.\n\nОбычное место у этого " +
             "наречия одно: сразу после was.",
         },
         {
@@ -818,8 +844,8 @@ const module: Module = {
           ],
           hint: "Наречие вклинивается между двумя словами длительного действия.",
           why:
-            "I was just watching a film. Место у этого наречия одно — сразу после was, перед " +
-            "глаголом.",
+            "I was just watching a film. Обычное место у этого наречия — сразу после was, " +
+            "перед глаголом.",
         },
         {
           id: "z3-otmetit-vernoe-mesto",
@@ -830,13 +856,13 @@ const module: Module = {
             { text: " · " },
             { text: "She still was sleeping", selectable: true },
             { text: " · " },
-            { text: "He was always talking", selectable: true, correct: true },
+            { text: "I was always dreaming", selectable: true, correct: true },
             { text: " · " },
-            { text: "He was talking always", selectable: true },
+            { text: "I was dreaming always", selectable: true },
           ],
           hint: "Своё место у наречия между was и глаголом.",
           why:
-            "Верны She was still sleeping и He was always talking. В двух других " +
+            "Верны She was still sleeping и I was always dreaming. В двух других " +
             "наречие встало перед was и после глагола, а его место между ними.",
         },
         {
@@ -844,10 +870,10 @@ const module: Module = {
           kind: "match",
           prompt: "Соедини наречие с его значением.",
           left: ["just", "still", "always"],
-          right: ["всегда, постоянно", "только что, как раз", "всё ещё"],
+          right: ["всё время", "только что, как раз", "всё ещё"],
           answer: [1, 2, 0],
-          hint: "Одно говорит о недавнем, другое о непрекращённом, третье о постоянном.",
-          why: "just — только что, still — всё ещё, always — всегда.",
+          hint: "Одно говорит о недавнем, другое о непрекращённом, третье о том, что тянулось всё время.",
+          why: "just — только что, still — всё ещё, always — всё время.",
         },
         {
           id: "z5-napisat-s-narechiem",
@@ -1471,7 +1497,7 @@ const module: Module = {
         prompt: "Исправь ошибку и запиши целиком: «She still was sleeping.»",
         answer: "She was still sleeping.",
         accept: ["She was still sleeping"],
-        why: "She was still sleeping. Место у этого наречия одно — сразу после was.",
+        why: "She was still sleeping. Обычное место у этого наречия — сразу после was.",
       },
       {
         id: "q-narechie-po-smyslu",

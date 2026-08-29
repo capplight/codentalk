@@ -645,7 +645,7 @@ const module: Module = {
         {
           id: "z5-napisat-o-prize",
           kind: "short",
-          prompt: "Расскажи о сестре: вчера она взяла подарок и ушла. Запиши предложение целиком.",
+          prompt: "Расскажи о сестре: вчера она взяла подарок. Запиши предложение целиком.",
           answer: "Yesterday my sister took a gift.",
           accept: ["My sister took a gift yesterday.", "Yesterday my sister took a gift"],
           hint: "Форма неправильного глагола одна на всех: после my sister она не меняется.",
@@ -848,7 +848,6 @@ const module: Module = {
           text: [
             "В отдельном предложении оборот времени стоит в конце, но в рассказе его выносят вперёд.",
             "Так он задаёт время всем строкам сразу, и повторять его в каждой не нужно.",
-            "Повторять его в каждой строке не нужно.",
             "Дальше строки идут по порядку дел, и слова порядка помогают их различить.",
           ],
         },
@@ -1339,7 +1338,7 @@ const module: Module = {
         outcome: "говорить о том, что было и что взял: I had a headache, I took a gift",
         prompt: "Подарок брату вручили вчера. Запиши строку целиком, начав с My brother.",
         answer: "My brother got a gift yesterday.",
-        accept: ["My brother got a gift yesterday", "Yesterday my brother got a gift."],
+        accept: ["My brother got a gift yesterday"],
         why:
           "My brother got a gift yesterday. Глагол get говорит о полученном; took " +
           "сказал бы, что подарок взяли, а не вручили.",

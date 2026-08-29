@@ -984,7 +984,7 @@ const module: Module = {
             { term: "cash", translation: "наличные деньги", example: "I didn't have cash.", hint: "/kæʃ/" },
             { term: "shelf", translation: "полка", example: "The soap was on the shelf.", hint: "/ʃelf/" },
             { term: "message", translation: "сообщение", example: "I wrote a message to my boss.", hint: "/ˈmesɪdʒ/" },
-            { term: "loud", translation: "шумный", example: "We aren't meeting in the cafeteria: it's loud there.", hint: "/laʊd/" },
+            { term: "loud", translation: "шумный", example: "The noise from the street was loud.", hint: "/laʊd/" },
           ],
         },
 

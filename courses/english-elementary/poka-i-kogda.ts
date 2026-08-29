@@ -21,11 +21,25 @@ import type { Module } from "@/lib/content/types";
  * «FORM/USE: TIME» — пример источника «I feel comfortable **when I am wearing**
  * these clothes». Это `when` при длительном действии, на нашей же ступени.
  *
- * Поэтому модуль учит одному правилу и проверяет только его:
- * **после `while` стоит длительное действие.** Слово `while` значит «пока», и
- * этим оно связано. `When` называет тот миг, о котором речь, и после него
- * встречается и то, что случилось, и то, что шло, — так в модуле и сказано.
- * Ни одно задание не объявляет `when` при длительном действии ошибкой.
+ * И ТУ ЖЕ ОШИБКУ МОДУЛЬ ПОВТОРИЛ ДЛЯ `while`. Найдено 30 августа 2026, общим
+ * проходом по ступени. Первая редакция писала «после `while` **всегда**
+ * длительное действие», объявляла ошибкой строки с законченным и требовала их
+ * «исправить» — в задании урока 8 и в двух вопросах работы.
+ *
+ * Опровергает это та самая графа, которую модуль цитирует в опоре: CONJUNCTIONS
+ * subordinating, **A2**, «FORM: SIMPLE». В её собственном перечне примеров
+ * стоит «All of us were dancing **while my father sang** my favourite song».
+ * `while` с законченным действием, на нашей ступени, в нашей же графе.
+ *
+ * Урок этого случая шире `while`: **вылечив выдуманный запрет в одном месте,
+ * я тут же завёл такой же в соседнем** — и написал об этом в шапке, гордясь
+ * первой починкой. Признак один и тот же: слово «всегда» в правиле.
+ *
+ * Поэтому модуль учит теперь ВЫБОРУ ПО СМЫСЛУ, а не проверке формы: тянулось
+ * дело — берут `while` и форму с `-ing`, случилось разом — простую форму
+ * прошедшего. `When` называет тот миг, о котором речь, и после него встречается
+ * и то, и другое. Ни одно задание не объявляет ошибкой ни `when` при
+ * длительном действии, ни `while` при законченном.
  *
  * ЧТО ПРОВЕРЕНО ДО НАПИСАНИЯ.
  *
@@ -479,8 +493,8 @@ const module: Module = {
           ],
           head: ["Союз", "Что стоит после него", "Пример"],
           rows: [
-            ["while", "всегда длительное действие", "while I was walking to the shop"],
-            ["while", "всегда длительное действие", "while she was looking for the wallet"],
+            ["while", "чаще всего длительное действие", "while I was walking to the shop"],
+            ["while", "чаще всего длительное действие", "while she was looking for the wallet"],
             ["when", "то, что случилось", "when I lost my purse"],
             ["when", "или то, что шло", "when I was walking home"],
           ],
@@ -489,9 +503,9 @@ const module: Module = {
           id: "pochemu-while-svyazan",
           kind: "explain",
           text: [
-            "While само значит «пока», и после него всегда стоит то, что тянулось.",
+            "While само значит «пока», и потому после него обычно стоит то, что тянулось.",
             "When называет тот миг, о котором речь, и после него встречается и то, и другое.",
-            "Значит проверять надо одно: после while — длительное действие.",
+            "Выбор идёт по смыслу: тянулось — берут while, случилось разом — when.",
           ],
         },
         {
@@ -499,9 +513,9 @@ const module: Module = {
           kind: "note",
           tone: "info",
           text:
-            "Пара «while и длительное действие» — единственное, что здесь надо " +
-            "держать в голове.\n\nЗа when следить не нужно: он берёт и то, что " +
-            "случилось, и то, что шло.",
+            "While ставят там, где действие тянулось: while I was walking to the " +
+            "shop.\n\nWhen берёт и то, что случилось, и то, что шло, — за ним " +
+            "следить не нужно.",
         },
         {
           id: "primer-o-poteryannom-koshelke",
@@ -1234,7 +1248,7 @@ const module: Module = {
           transcript:
             "What were you doing when you lost it? — I was walking to the shop. — " +
             "And where were you then? — Near the roundabout. — Was the purse in your " +
-            "bag? — No, it was in my glove. I dropped it there. — That was bad " +
+            "bag? — No, it was in my pocket. I dropped it there. — That was bad " +
             "luck. Be careful with it.",
         },
         {
@@ -1285,10 +1299,10 @@ const module: Module = {
           kind: "short",
           about: "zapis-o-propazhe",
           prompt: "Где лежал кошелёк? Ответь одним английским словом.",
-          answer: "glove",
-          accept: ["my glove", "the glove"],
+          answer: "pocket",
+          accept: ["my pocket", "the pocket"],
           hint: "Это слово стоит после слов No, it was in my.",
-          why: "No, it was in my glove.",
+          why: "No, it was in my pocket.",
         },
         {
           id: "z4-byl-li-koshelek-v-sumke",
@@ -1298,10 +1312,10 @@ const module: Module = {
           options: [
             { text: "Да, в сумке" },
             { text: "В записи об этом не сказано" },
-            { text: "Нет, в перчатке", correct: true },
+            { text: "Нет, в кармане", correct: true },
           ],
           hint: "На третий вопрос записи дан отрицательный ответ.",
-          why: "Was the purse in your bag? — No, it was in my glove.",
+          why: "Was the purse in your bag? — No, it was in my pocket.",
         },
         {
           id: "z5-vosstanovit-so-sluha",
@@ -1382,41 +1396,44 @@ const module: Module = {
           kind: "note",
           tone: "info",
           text:
-            "Проверь три вещи. После while стоит длительное действие; в первой строке " +
-            "есть и длительное, и законченное; запятая есть там, где часть с союзом " +
-            "идёт впереди.\n\nЕсли союз пришлось менять, проверь запятую заново.",
+            "Проверь три вещи. Там, где дело тянулось, после while стоит форма was и " +
+            "окончание -ing; в первой строке есть и длительное, и законченное; запятая " +
+            "есть там, где часть с союзом идёт впереди.\n\nЕсли союз пришлось менять, " +
+            "проверь запятую заново.",
         },
 
         // ---- задания ----
         {
-          id: "z1-nayti-nevernyy-while",
-          kind: "hottext",
-          prompt: "Отметь части, где после while стоит НЕ длительное действие.",
-          parts: [
-            { text: "while the bus arrived", selectable: true, correct: true },
-            { text: " · " },
-            { text: "while I was waiting", selectable: true },
-            { text: " · " },
-            { text: "while my colleague came", selectable: true, correct: true },
-            { text: " · " },
-            { text: "while the rain was falling", selectable: true },
+          id: "z1-vybrat-zapis-po-smyslu",
+          kind: "choice",
+          prompt: "Дождь шёл долго, а автобус пришёл разом. Какая запись говорит именно это?",
+          options: [
+            { text: "While the rain fell, the bus was arriving." },
+            { text: "While the rain was falling, the bus arrived.", correct: true },
+            { text: "While the rain was falling, the bus was arriving." },
           ],
-          hint: "Ищи форму was или were и окончание -ing сразу за союзом.",
+          hint: "Форма was и окончание -ing стоят у того дела, которое тянулось.",
           why:
-            "Длительного действия нет в while the bus arrived и while my colleague " +
-            "came: у обоих глаголов нет окончания -ing.",
+            "While the rain was falling, the bus arrived. У дождя was и -ing, потому " +
+            "что он тянулся; у автобуса простая форма прошедшего, потому что он " +
+            "пришёл разом. В третьей записи тянутся оба дела, и это уже другой смысл.",
         },
         {
-          id: "z2-ispravit-posle-while",
+          id: "z2-skazat-o-dlitelnom-posle-while",
           kind: "short",
           prompt:
-            "После while нужно длительное действие. Исправь строку и запиши целиком: «While the ambulance arrived, I called my brother.»",
+            "Скорая ехала долго, и в это время был твой звонок брату. Скажи это по-английски, начав с While the ambulance.",
           answer: "While the ambulance was coming, I called my brother.",
-          accept: ["While the ambulance was coming, I called my brother"],
-          hint: "Глагол после while должен получить форму was и окончание -ing.",
+          accept: [
+            "While the ambulance was coming, I called my brother",
+            "While the ambulance was arriving, I called my brother.",
+            "While the ambulance was arriving, I called my brother",
+          ],
+          hint: "Глагол после while берёт форму was и окончание -ing: поездка тянулась.",
           why:
-            "While the ambulance was coming, I called my brother. После while стоит " +
-            "длительное действие.",
+            "While the ambulance was coming, I called my brother. Форма was и " +
+            "окончание -ing показывают, что поездка скорой тянулась, а звонок " +
+            "случился внутри неё.",
         },
         {
           id: "z3-vybrat-zapyatuyu",
@@ -1741,16 +1758,16 @@ const module: Module = {
 
       // ---- итог 2 ----
       {
-        id: "q-posle-while-ispravit",
+        id: "q-skazat-o-gotovke-sestry",
         kind: "short",
         outcome: "ставить while там, где после союза идёт длительное действие",
         prompt:
-          "После while нужно длительное действие. Исправь и запиши целиком: «While my sister cooked dinner, I helped her.»",
+          "Готовка ужина у сестры тянулась, и посреди неё ты ей помог. Скажи это по-английски, начав с While my sister.",
         answer: "While my sister was cooking dinner, I helped her.",
         accept: ["While my sister was cooking dinner, I helped her"],
         why:
-          "While my sister was cooking dinner, I helped her. После while стоит форма " +
-          "was и окончание -ing.",
+          "While my sister was cooking dinner, I helped her. Форма was и окончание " +
+          "-ing показывают, что готовка тянулась, а помощь случилась внутри неё.",
       },
       {
         id: "q-posle-while-vybrat",
@@ -1907,30 +1924,31 @@ const module: Module = {
 
       // ---- итог 8 ----
       {
-        id: "q-proverka-while",
+        id: "q-skazat-o-dvuh-dlitelnyh",
         kind: "short",
         outcome: "проверять рассказ: там ли стоит while",
         prompt:
-          "В рассказе строка «While the postman called, I was cleaning the stairs.» После while нужно длительное действие. Перепиши строку.",
+          "Почтальон звонил, и всё это время шла твоя уборка лестницы — тянулись оба дела. Скажи это по-английски, начав с While the postman.",
         answer: "While the postman was calling, I was cleaning the stairs.",
         accept: ["While the postman was calling, I was cleaning the stairs"],
         why:
-          "While the postman was calling, I was cleaning the stairs. После while " +
-          "глагол берёт форму was и окончание -ing.",
+          "While the postman was calling, I was cleaning the stairs. Тянулись оба " +
+          "дела, и потому форма was и окончание -ing стоят в обеих половинах.",
       },
       {
         id: "q-proverka-chto-smotret",
         kind: "choice",
         outcome: "проверять рассказ: там ли стоит while",
-        prompt: "Строка начинается словами «While the driver…». Что проверять первым?",
+        prompt:
+          "В рассказе надо сказать, что одно дело тянулось, а другое случилось внутри него. Что проверять в строке с while?",
         options: [
           { text: "Есть ли форма was и окончание -ing сразу за while", correct: true },
           { text: "Сколько слов в первой половине" },
           { text: "Стоит ли в конце строки точка" },
         ],
         why:
-          "После while должно стоять длительное действие. Что идёт перед союзом, для " +
-          "этой проверки значения не имеет.",
+          "Форма was и окончание -ing и говорят, что дело тянулось. Что идёт перед " +
+          "союзом, для этой проверки значения не имеет.",
       },
 
       // ---- итог 9 ----
