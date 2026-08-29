@@ -98,7 +98,7 @@ const module: Module = {
         "«I would prefer Sunday afternoon». И A2, «USE: WISHES AND " +
         "PREFERENCES» — «Can use 'would' with a wide range of verbs to talk " +
         "about wishes and preferences», примеры «I would prefer to go on " +
-        "Sunday, because on Sunday I have no school», «I'd prefer to see it " +
+        "Sunday because on Sunday I have no school», «I'd prefer to see it " +
         "tomorrow», «Bring your new CD! I'd love to hear it». " +
         "ИМЕННО «A WIDE RANGE OF VERBS» И ЕСТЬ ПРИБАВКА СТУПЕНИ: графы с " +
         "`like` — «FORM: AFFIRMATIVE WITH 'LIKE'», «USE: WISHES AND " +
@@ -598,12 +598,12 @@ const module: Module = {
           razgovor: true,
           zvuchat: [
             "Would you like to meet on Saturday?",
-            "I'd prefer Sunday, because I work on Saturday.",
+            "I'd prefer Sunday because I work on Saturday.",
             "Fine. And where? At the bus stop?",
             "I'd prefer the city centre. There is a nice cafe near the shops.",
           ],
           text:
-            "Would you like to meet on Saturday?\nI'd prefer Sunday, because I work on Saturday.\nFine. And where? At the bus stop?\nI'd prefer the city centre. There is a nice cafe near the shops.",
+            "Would you like to meet on Saturday?\nI'd prefer Sunday because I work on Saturday.\nFine. And where? At the bus stop?\nI'd prefer the city centre. There is a nice cafe near the shops.",
           explain:
             "В обоих ответах после оборота стоит прямо то, что выбирают: день и " +
             "место. В первом рядом названа причина, и потому выбор не звучит " +
@@ -673,7 +673,7 @@ const module: Module = {
           answer: [1, 2, 0],
           hint: "Сначала выбор, потом причина.",
           why:
-            "I'd prefer Sunday, because I work on Saturday. Слово because и " +
+            "I'd prefer Sunday because I work on Saturday. Слово because и " +
             "присоединяет причину.",
         },
         {
@@ -952,14 +952,14 @@ const module: Module = {
           zvuchat: [
             "Thank you for the invitation!",
             "I'd love to come.",
-            "I'd prefer Sunday, because I work on Saturday.",
+            "I'd prefer Sunday because I work on Saturday.",
             "Could you pick me up at the bus stop?",
           ],
           head: ["Что сказано", "Пример строки"],
           rows: [
             ["спасибо за приглашение", "Thank you for the invitation!"],
             ["ответ: придёшь или нет", "I'd love to come."],
-            ["день и отчего он", "I'd prefer Sunday, because I work on Saturday."],
+            ["день и отчего он", "I'd prefer Sunday because I work on Saturday."],
             ["своя просьба, если она есть", "Could you pick me up at the bus stop?"],
           ],
         },
@@ -981,11 +981,11 @@ const module: Module = {
           zvuchat: [
             "Thank you for the invitation!",
             "I'd love to come to the concert.",
-            "I'd prefer Sunday, because I work on Saturday.",
+            "I'd prefer Sunday because I work on Saturday.",
             "Could you pick me up at the bus stop at four?",
           ],
           text:
-            "Thank you for the invitation!\nI'd love to come to the concert.\nI'd prefer Sunday, because I work on Saturday.\nCould you pick me up at the bus stop at four?",
+            "Thank you for the invitation!\nI'd love to come to the concert.\nI'd prefer Sunday because I work on Saturday.\nCould you pick me up at the bus stop at four?",
           explain:
             "Первая строка благодарит, вторая отвечает, третья называет день и " +
             "причину, четвёртая просит. Просьба стоит последней и смягчена " +
@@ -1055,7 +1055,7 @@ const module: Module = {
             "Ответь на приглашение четырьмя строками. Поблагодари. Скажи, придёшь или нет. Назови день и через because его причину. Попроси о чём-нибудь через Could you.",
           minWords: 16,
           sample:
-            "Thank you for the invitation!\nI'd love to come to the concert.\nI'd prefer Sunday, because I work on Saturday.\nCould you pick me up at the bus stop at four?",
+            "Thank you for the invitation!\nI'd love to come to the concert.\nI'd prefer Sunday because I work on Saturday.\nCould you pick me up at the bus stop at four?",
           checklist: [
             "сказано спасибо за приглашение",
             "сказано, придёшь или нет",
@@ -1264,15 +1264,16 @@ const module: Module = {
           "проверять ответ на приглашение: сказано спасибо, дан ответ и назван день",
         prompt:
           "К ответу допиши строку с днём и причиной: лучше пятница, потому что в четверг у тебя занятия. Начни с I'd.",
-        answer: "I'd prefer Friday, because I have classes on Thursday.",
+        answer: "I'd prefer Friday because I have classes on Thursday.",
         accept: [
-          "I'd prefer Friday, because I have classes on Thursday",
-          "I'd prefer Friday because I have classes on Thursday.",
           "I'd prefer Friday because I have classes on Thursday",
+          "I'd prefer Friday because I have classes on Thursday.",
+          "I'd prefer Friday, because I have classes on Thursday",
+          "I'd prefer Friday, because I have classes on Thursday.",
         ],
         hint: "Сначала выбор, потом причина через одно слово.",
         why:
-          "I'd prefer Friday, because I have classes on Thursday. Сначала " +
+          "I'd prefer Friday because I have classes on Thursday. Сначала " +
           "выбор, потом то, что его объясняет.",
       },
       {

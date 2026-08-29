@@ -1087,7 +1087,7 @@ const module: Module = {
             "We have two kites. This one is golden, and the other one is striped.",
             "The golden kite is 800 tenge, and the striped one is 1200 tenge.",
             "Some of the books are old, but all of them are cheap.",
-            "Bring your friends, because all of the money goes to our trip!",
+            "Bring your friends because all of the money goes to our trip!",
           ],
           glossary: [
             { term: "hall", translation: "зал" },
@@ -1368,10 +1368,10 @@ const module: Module = {
             "Come to the school library on Friday at four!",
             "We sell two rulers and some rubbers.",
             "This ruler has stripes and it is 200 tenge, but the other one is pale and 300 tenge.",
-            "All of the rubbers are 100 tenge, because they are old.",
+            "All of the rubbers are 100 tenge because they are old.",
           ],
           text:
-            "Come to the school library on Friday at four!\nWe sell two rulers and some rubbers.\nThis ruler has stripes and it is 200 tenge, but the other one is pale and 300 tenge.\nAll of the rubbers are 100 tenge, because they are old.",
+            "Come to the school library on Friday at four!\nWe sell two rulers and some rubbers.\nThis ruler has stripes and it is 200 tenge, but the other one is pale and 300 tenge.\nAll of the rubbers are 100 tenge because they are old.",
           explain:
             "Слово ruler названо один раз, дальше стоит the other one. У каждой " +
             "вещи сказано и какая она, и сколько стоит: 200, 300 и 100 тенге.",
@@ -1437,17 +1437,18 @@ const module: Module = {
           id: "z4-svyazat-stroki",
           kind: "short",
           prompt:
-            "Соедини две строки одним словом: This cap is cheap. It is old. Запиши получившуюся строку целиком.",
-          answer: "This cap is cheap, because it is old.",
+            "Ученик написал: This cap is cheap, it is old. Две мысли стоят рядом, а слова причины между ними нет. Запиши строку без ошибки.",
+          answer: "This cap is cheap because it is old.",
           accept: [
-            "This cap is cheap, because it is old",
-            "This cap is cheap because it is old.",
             "This cap is cheap because it is old",
+            "This cap is cheap because it is old.",
+            "This cap is cheap, because it is old",
+            "This cap is cheap, because it is old.",
           ],
-          hint: "Вторая строка называет причину первой.",
+          hint: "Одной запятой мало: нужно слово, которое назовёт причину.",
           why:
-            "This cap is cheap, because it is old. Слово because и связывает " +
-            "причину со следствием.",
+            "This cap is cheap because it is old. Запятая только разделяет, а " +
+            "причину со следствием связывает слово because.",
         },
         {
           id: "z5-napisat-obyavlenie",
@@ -1456,7 +1457,7 @@ const module: Module = {
             "Напиши объявление о школьной распродаже, четырьмя строками. Позови читателя, назови вещи и их число, различи их и скажи про цену.",
           minWords: 16,
           sample:
-            "Come to the school library on Friday at four!\nWe sell two rulers and some rubbers.\nThis ruler has stripes and it is 200 tenge, but the other one is pale and 300 tenge.\nAll of the rubbers are 100 tenge, because they are old.",
+            "Come to the school library on Friday at four!\nWe sell two rulers and some rubbers.\nThis ruler has stripes and it is 200 tenge, but the other one is pale and 300 tenge.\nAll of the rubbers are 100 tenge because they are old.",
           checklist: [
             "первая строка зовёт: куда и когда прийти",
             "названы вещи и их число",

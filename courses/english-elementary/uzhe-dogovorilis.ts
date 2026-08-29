@@ -175,7 +175,7 @@ const module: Module = {
         "среди них play, которого в модуле нет ни разу; счёт исправлен по разбору " +
         "методиста. " +
         "A1, PRESENT present continuous, «FORM: AFFIRMATIVE»: «Can use the " +
-        "affirmative form», пример — «I am sending you some flowers, because you are " +
+        "affirmative form», пример — «I am sending you some flowers because you are " +
         "not well» — форма урока 1. " +
         "A2, PRESENT present continuous, «FORM: NEGATIVE»: «Can use the negative " +
         "form», пример — «[talking about a computer] I'm not using it any more» — " +

@@ -139,7 +139,7 @@ const module: Module = {
     {
       ref: "Oxford 3000",
       section:
-        "новые слова модуля с пометкой A1: or conj. A1, because conj. A1, why adv. " +
+        "новые слова модуля с пометкой A1: or conj. A1 because conj. A1, why adv. " +
         "A1. Уже введены раньше: and, but",
       license: "внутреннее использование",
     },
@@ -969,7 +969,10 @@ const module: Module = {
             "Напиши, что ты не можешь прийти, потому что работаешь. Прийти — come, " +
             "работать — work.",
           answer: "I can't come because I work.",
-          accept: ["I cannot come because I work."],
+          accept: [
+            "I cannot come because I work.",
+            "I cannot come, because I work.",
+          ],
           hint: "После because идёт полное предложение.",
           why: "I can't come because I work. Обе части полные, у обеих свой глагол.",
         },
@@ -1833,8 +1836,11 @@ const module: Module = {
           "Собеседник спросил, почему ты работаешь здесь. Причина — магазин рядом. " +
           "Ответь целым предложением.",
         answer: "I work here because this shop is near.",
-        accept: ["I work here because it is near."],
-        hint: "Главное стоит первым, because — вторым.",
+        accept: [
+            "I work here because it is near.",
+            "I work here, because it is near.",
+          ],
+        hint: "Главное стоит первым because — вторым.",
         why:
           "I work here because this shop is near. Годится и короткое I work here " +
           "because it is near.",
@@ -1903,7 +1909,10 @@ const module: Module = {
           "Тебя спросили: Why do you live here? Причина — здесь твоя работа. Ответь " +
           "коротко, начав с because.",
         answer: "Because I work here.",
-        accept: ["I live here because I work here."],
+        accept: [
+            "I live here because I work here.",
+            "I live here, because I work here.",
+          ],
         hint: "Ответ на вопрос why начинается с because.",
         why: "Because I work here. Полный ответ I live here because I work here тоже верен.",
       },

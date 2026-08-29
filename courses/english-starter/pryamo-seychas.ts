@@ -78,7 +78,7 @@ const module: Module = {
       ref: "English Grammar Profile",
       section:
         "A1, PRESENT present continuous, «FORM: AFFIRMATIVE»: «Can use the affirmative " +
-        "form», пример источника — «I am sending you some flowers, because you are not " +
+        "form», пример источника — «I am sending you some flowers because you are not " +
         "well». " +
         "A1, PRESENT present continuous, «USE: EVENTS IN PROGRESS»: «Can use the present " +
         "continuous with a limited range of verbs to talk about situations and events in " +

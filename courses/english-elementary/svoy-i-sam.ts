@@ -1441,10 +1441,10 @@ const module: Module = {
             "I found a chain on Monday.",
             "It is long and it isn't new, but it is nice.",
             "It isn't mine, and maybe it is yours.",
-            "The chain is with our teacher indoors, because the table is outdoors.",
+            "The chain is with our teacher indoors because the table is outdoors.",
           ],
           text:
-            "I found a chain on Monday.\nIt is long and it isn't new, but it is nice.\nIt isn't mine, and maybe it is yours.\nThe chain is with our teacher indoors, because the table is outdoors.",
+            "I found a chain on Monday.\nIt is long and it isn't new, but it is nice.\nIt isn't mine, and maybe it is yours.\nThe chain is with our teacher indoors because the table is outdoors.",
           explain:
             "Вещь названа в первой строке, и дальше вместо неё стоят it и mine. " +
             "Приметы, день и место на месте, а строки связаны словами but, and " +
@@ -1500,19 +1500,20 @@ const module: Module = {
         },
         {
           id: "z4-svyazat-stroki-o-nahodke",
-          kind: "short",
+          kind: "order",
           prompt:
-            "Соедини две строки одним словом: The glove is with our teacher. It was outdoors all night. Запиши получившуюся строку целиком.",
-          answer: "The glove is with our teacher, because it was outdoors all night.",
-          accept: [
-            "The glove is with our teacher, because it was outdoors all night",
-            "The glove is with our teacher because it was outdoors all night.",
-            "The glove is with our teacher because it was outdoors all night",
+            "Собери строку объявления: перчатка у преподавателя, и сказано почему.",
+          items: [
+            "it was outdoors all night.",
+            "The glove is",
+            "because",
+            "with our teacher",
           ],
-          hint: "Вторая строка называет причину первой.",
+          answer: [1, 3, 2, 0],
+          hint: "Сначала вещь и где она, потом слово причины, потом сама причина.",
           why:
-            "The glove is with our teacher, because it was outdoors all night. " +
-            "Слово because и связывает причину со следствием.",
+            "The glove is with our teacher because it was outdoors all night. " +
+            "Причина стоит последней, и перед ней слово because.",
         },
         {
           id: "z5-napisat-obyavlenie-o-nahodke",
@@ -1521,7 +1522,7 @@ const module: Module = {
             "Напиши объявление о находке, четырьмя строками. Назови вещь и день, дай приметы, скажи, что вещь не твоя, и назови место.",
           minWords: 16,
           sample:
-            "I found a glove on Friday.\nIt is small and it is purple, but it isn't new.\nIt isn't mine, and maybe it is yours.\nThe glove is with our teacher indoors, because I found it outdoors.",
+            "I found a glove on Friday.\nIt is small and it is purple, but it isn't new.\nIt isn't mine, and maybe it is yours.\nThe glove is with our teacher indoors because I found it outdoors.",
           checklist: [
             "названы вещь и день находки",
             "даны приметы: какая эта вещь",

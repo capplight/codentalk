@@ -999,10 +999,10 @@ const module: Module = {
             "I have played basketball for three years, and I still like it.",
             "I was a beginner, but now I play in the school team.",
             "We train two hours a week, plus a game on Saturday.",
-            "I haven't been to the pool for a month, because basketball takes my evenings.",
+            "I haven't been to the pool for a month because basketball takes my evenings.",
           ],
           text:
-            "I have played basketball for three years, and I still like it.\nI was a beginner, but now I play in the school team.\nWe train two hours a week, plus a game on Saturday.\nI haven't been to the pool for a month, because basketball takes my evenings.",
+            "I have played basketball for three years, and I still like it.\nI was a beginner, but now I play in the school team.\nWe train two hours a week, plus a game on Saturday.\nI haven't been to the pool for a month because basketball takes my evenings.",
           explain:
             "Первая и четвёртая строки стоят на have и for: одна о том, что " +
             "длится, другая о том, чего давно не было. Вторая и третья говорят " +
@@ -1059,16 +1059,17 @@ const module: Module = {
           id: "z4-svyazat-stroki-o-zanyatii",
           kind: "short",
           prompt:
-            "Соедини две строки одним словом: I haven't been to the pool for a month. Basketball takes my evenings. Запиши получившуюся строку целиком.",
-          answer: "I haven't been to the pool for a month, because basketball takes my evenings.",
+            "Тебя спросили: Why haven't you been to the pool? Причина — basketball takes my evenings. Ответь целой строкой, начав с I haven't been to the pool for a month.",
+          answer: "I haven't been to the pool for a month because basketball takes my evenings.",
           accept: [
-            "I haven't been to the pool for a month, because basketball takes my evenings",
-            "I haven't been to the pool for a month because basketball takes my evenings.",
             "I haven't been to the pool for a month because basketball takes my evenings",
+            "I haven't been to the pool for a month because basketball takes my evenings.",
+            "I haven't been to the pool for a month, because basketball takes my evenings",
+            "I haven't been to the pool for a month, because basketball takes my evenings.",
           ],
-          hint: "Вторая строка называет причину первой.",
+          hint: "На вопрос со словом why отвечают частью с because.",
           why:
-            "I haven't been to the pool for a month, because basketball takes " +
+            "I haven't been to the pool for a month because basketball takes " +
             "my evenings. Слово because и связывает причину со следствием.",
         },
         {
@@ -1078,7 +1079,7 @@ const module: Module = {
             "Напиши о своём занятии, четырьмя строками. Назови дело и срок, начало и сегодняшний уровень, время в неделю и то, чего давно не делал.",
           minWords: 16,
           sample:
-            "I have played basketball for three years, and I still like it.\nI was a beginner, but now I play in the school team.\nWe train two hours a week, plus a game on Saturday.\nI haven't been to the pool for a month, because basketball takes my evenings.",
+            "I have played basketball for three years, and I still like it.\nI was a beginner, but now I play in the school team.\nWe train two hours a week, plus a game on Saturday.\nI haven't been to the pool for a month because basketball takes my evenings.",
           checklist: [
             "названо дело и срок: have, третья форма и for",
             "сказано, с чего начал и где сейчас",

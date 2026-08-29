@@ -1114,12 +1114,12 @@ const module: Module = {
           caption: "Правила клуба фотографии",
           zvuchat: [
             "Every pupil must bring a camera to the club.",
-            "You have to come at four, because we start together.",
+            "You have to come at four because we start together.",
             "You mustn't use the machine in the dark room.",
             "You don't have to buy a set of keys: the club has one.",
           ],
           text:
-            "Every pupil must bring a camera to the club.\nYou have to come at four, because we start together.\nYou mustn't use the machine in the dark room.\nYou don't have to buy a set of keys: the club has one.",
+            "Every pupil must bring a camera to the club.\nYou have to come at four because we start together.\nYou mustn't use the machine in the dark room.\nYou don't have to buy a set of keys: the club has one.",
           explain:
             "Первые две строки об обязательном, третья о запрете, четвёртая о " +
             "свободе. Слово because связывает время с причиной.",
@@ -1173,19 +1173,16 @@ const module: Module = {
         },
         {
           id: "z4-svyazat-stroki-pravil",
-          kind: "short",
+          kind: "gap",
           prompt:
-            "Соедини две строки одним словом: You have to come at four. We start together. Запиши получившуюся строку целиком.",
-          answer: "You have to come at four, because we start together.",
-          accept: [
-            "You have to come at four, because we start together",
-            "You have to come at four because we start together.",
-            "You have to come at four because we start together",
-          ],
-          hint: "Вторая строка называет причину первой.",
+            "В правиле осталась дыра: сначала обязательное дело, потом причина. Допиши пропущенное слово.",
+          before: "You have to come at four ",
+          after: " we start together.",
+          answer: "because",
+          hint: "Это слово ставят перед причиной.",
           why:
-            "You have to come at four, because we start together. Слово because " +
-            "и связывает причину со следствием.",
+            "You have to come at four because we start together. Причину в " +
+            "правилах называют часто: с ней требование звучит понятнее.",
         },
         {
           id: "z5-napisat-pravila",
@@ -1194,7 +1191,7 @@ const module: Module = {
             "Напиши правила своего клуба, четырьмя строками. Назови, к кому они, два обязательных дела, один запрет и одну свободу.",
           minWords: 14,
           sample:
-            "Every pupil must bring a camera to the club.\nYou have to come at four, because we start together.\nYou mustn't use the machine in the dark room.\nYou don't have to buy a set of keys: the club has one.",
+            "Every pupil must bring a camera to the club.\nYou have to come at four because we start together.\nYou mustn't use the machine in the dark room.\nYou don't have to buy a set of keys: the club has one.",
           checklist: [
             "сказано, к кому правила",
             "есть строка с must или have to",

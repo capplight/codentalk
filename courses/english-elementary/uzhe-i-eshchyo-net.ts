@@ -1179,10 +1179,10 @@ const module: Module = {
             "Aigul, I have already made the boiled eggs and the fried fish.",
             "I have just cut various slices of bread.",
             "But I haven't found the ingredients for the salad yet.",
-            "Please buy them before lunchtime, because Alim is hungry after the road.",
+            "Please buy them before lunchtime because Alim is hungry after the road.",
           ],
           text:
-            "Aigul, I have already made the boiled eggs and the fried fish.\nI have just cut various slices of bread.\nBut I haven't found the ingredients for the salad yet.\nPlease buy them before lunchtime, because Alim is hungry after the road.",
+            "Aigul, I have already made the boiled eggs and the fried fish.\nI have just cut various slices of bread.\nBut I haven't found the ingredients for the salad yet.\nPlease buy them before lunchtime because Alim is hungry after the road.",
           explain:
             "Сделанное стоит со словами already и just, оставшееся — с haven't " +
             "и yet в конце. Последняя строка называет срок и причину.",
@@ -1238,17 +1238,17 @@ const module: Module = {
           id: "z4-svyazat-stroki-zapiski",
           kind: "short",
           prompt:
-            "Соедини две строки одним словом: Please do the rest before lunchtime. Alim arrives at two. Запиши получившуюся строку целиком.",
-          answer: "Please do the rest before lunchtime, because Alim arrives at two.",
+            "В записке есть просьба — Please do the rest before lunchtime, — но нет причины. Допиши только вторую половину: Алим приходит в два.",
+          answer: "because Alim arrives at two",
           accept: [
-            "Please do the rest before lunchtime, because Alim arrives at two",
-            "Please do the rest before lunchtime because Alim arrives at two.",
-            "Please do the rest before lunchtime because Alim arrives at two",
+            "because Alim arrives at two.",
+            "Because Alim arrives at two",
+            "because Alim arrives at two,",
           ],
-          hint: "Вторая строка называет причину первой.",
+          hint: "Начни со слова причины, а дальше скажи, кто и во сколько приходит.",
           why:
-            "Please do the rest before lunchtime, because Alim arrives at two. " +
-            "Слово because и связывает причину со следствием.",
+            "because Alim arrives at two. Целиком записка звучит так: Please do " +
+            "the rest before lunchtime because Alim arrives at two.",
         },
         {
           id: "z5-napisat-zapisku",
@@ -1257,7 +1257,7 @@ const module: Module = {
             "Напиши записку о делах, четырьмя строками. Назови, кому она, одно сделанное дело, одно законченное только что, одно оставшееся и срок.",
           minWords: 16,
           sample:
-            "Aigul, I have already made the boiled eggs and the fried fish.\nI have just cut various slices of bread.\nBut I haven't found the ingredients for the salad yet.\nPlease buy them before lunchtime, because Alim is hungry after the road.",
+            "Aigul, I have already made the boiled eggs and the fried fish.\nI have just cut various slices of bread.\nBut I haven't found the ingredients for the salad yet.\nPlease buy them before lunchtime because Alim is hungry after the road.",
           checklist: [
             "названо, кому записка",
             "есть строка со словом already или just",

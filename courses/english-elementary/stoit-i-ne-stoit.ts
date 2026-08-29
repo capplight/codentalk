@@ -725,7 +725,7 @@ const module: Module = {
           body: [
             "Hello! Here is some advice before your trip.",
             "You should try walking in the old town: every tourist likes it.",
-            "You shouldn't take a taxi there, because the streets are small.",
+            "You shouldn't take a taxi there because the streets are small.",
             "Why don't we go riding on Saturday? I know a good place.",
             "You shouldn't eat much sugar here: it is bad for your health.",
             "Should I book a room for you, or will you stay with us?",
@@ -984,11 +984,11 @@ const module: Module = {
           zvuchat: [
             "Hi! Read this before you come to the mountains.",
             "You should take the small path to the lake: it is quiet there.",
-            "You shouldn't go alone, because the weather changes fast.",
+            "You shouldn't go alone because the weather changes fast.",
             "Should I meet you at the station?",
           ],
           text:
-            "Hi! Read this before you come to the mountains.\nYou should take the small path to the lake: it is quiet there.\nYou shouldn't go alone, because the weather changes fast.\nShould I meet you at the station?",
+            "Hi! Read this before you come to the mountains.\nYou should take the small path to the lake: it is quiet there.\nYou shouldn't go alone because the weather changes fast.\nShould I meet you at the station?",
           explain:
             "Вторая строка советует, третья советует наоборот и называет " +
             "причину, четвёртая спрашивает. Слово because связывает совет с " +
@@ -1016,7 +1016,7 @@ const module: Module = {
           kind: "gap",
           prompt: "Одному идти не стоит. Допиши слово.",
           before: "You ",
-          after: " go alone, because the weather changes fast.",
+          after: " go alone because the weather changes fast.",
           answer: "shouldn't",
           hint: "Это совет наоборот, а не запрет.",
           why:
@@ -1046,15 +1046,16 @@ const module: Module = {
           kind: "short",
           prompt:
             "Соедини две строки одним словом: You shouldn't go alone. The weather changes fast. Запиши получившуюся строку целиком.",
-          answer: "You shouldn't go alone, because the weather changes fast.",
+          answer: "You shouldn't go alone because the weather changes fast.",
           accept: [
-            "You shouldn't go alone, because the weather changes fast",
-            "You shouldn't go alone because the weather changes fast.",
             "You shouldn't go alone because the weather changes fast",
+            "You shouldn't go alone because the weather changes fast.",
+            "You shouldn't go alone, because the weather changes fast",
+            "You shouldn't go alone, because the weather changes fast.",
           ],
           hint: "Вторая строка называет причину первой.",
           why:
-            "You shouldn't go alone, because the weather changes fast. Слово " +
+            "You shouldn't go alone because the weather changes fast. Слово " +
             "because и связывает совет с причиной.",
         },
         {
@@ -1064,7 +1065,7 @@ const module: Module = {
             "Напиши другу письмо с советами, четырьмя строками. Скажи, зачем письмо, что стоит делать, чего не стоит, и спроси о чём-нибудь через Should.",
           minWords: 16,
           sample:
-            "Hi! Read this before you come to the mountains.\nYou should take the small path to the lake: it is quiet there.\nYou shouldn't go alone, because the weather changes fast.\nShould I meet you at the station?",
+            "Hi! Read this before you come to the mountains.\nYou should take the small path to the lake: it is quiet there.\nYou shouldn't go alone because the weather changes fast.\nShould I meet you at the station?",
           checklist: [
             "сказано, зачем письмо",
             "есть строка со словом should",
@@ -1190,7 +1191,7 @@ const module: Module = {
         kind: "choice",
         outcome: "находить в советах приезжему, что стоит делать, а что нет",
         prompt:
-          "В письме строка: You shouldn't take a taxi there, because the streets are small. Что советует автор?",
+          "В письме строка: You shouldn't take a taxi there because the streets are small. Что советует автор?",
         options: [
           { text: "Такси там лучше не брать.", correct: true },
           { text: "Брать такси только на маленьких улицах." },

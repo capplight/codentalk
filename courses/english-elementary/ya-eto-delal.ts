@@ -1388,17 +1388,18 @@ const module: Module = {
           id: "z4-svyazat-stroki-o-pandah",
           kind: "short",
           prompt:
-            "Соедини две строки одним словом: The pandas were quiet. They ate all day. Запиши получившуюся строку целиком.",
-          answer: "The pandas were quiet, because they ate all day.",
+            "Тебя спросили: Why were the pandas quiet? Причина — they ate all day. Ответь целой строкой.",
+          answer: "The pandas were quiet because they ate all day.",
           accept: [
-            "The pandas were quiet, because they ate all day",
-            "The pandas were quiet because they ate all day.",
             "The pandas were quiet because they ate all day",
+            "The pandas were quiet because they ate all day.",
+            "The pandas were quiet, because they ate all day",
+            "The pandas were quiet, because they ate all day.",
           ],
-          hint: "Вторая строка называет причину первой.",
+          hint: "На вопрос со словом why отвечают частью с because.",
           why:
-            "The pandas were quiet, because they ate all day. Слово because и " +
-            "связывает причину со следствием.",
+            "The pandas were quiet because they ate all day. Ответ повторяет " +
+            "вопрос и добавляет к нему причину.",
         },
         {
           id: "z5-napisat-rasskaz-ob-opyte",

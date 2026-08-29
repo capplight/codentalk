@@ -536,11 +536,13 @@ const module: Module = {
           answer: "I couldn't ride a bike because it was too big.",
           accept: [
             "I couldn't ride a bike because it was too big",
-            "I couldn't ride a bike, because it was too big.",
-            "I couldn't ride a bike, because it was too big",
+            "I couldn't ride a bike because it was too big.",
             "I couldn't ride a bike because the bike was too big.",
             "I couldn't ride a bike because the bike was too big",
+            "I couldn't ride a bike, because it was too big",
+            "I couldn't ride a bike, because it was too big.",
             "I couldn't ride a bike, because the bike was too big.",
+            "I couldn't ride a bike, because the bike was too big",
           ],
           hint: "Причину присоединяют одним словом.",
           why:
@@ -730,7 +732,7 @@ const module: Module = {
           title: "What I could do at seven",
           genre: "article",
           body: [
-            "At seven I could swim well, because my granny took me to the pool every Saturday.",
+            "At seven I could swim well because my granny took me to the pool every Saturday.",
             "I could name every dinosaur in my book, and my friends could not.",
             "But I couldn't ride a bike: the bike was too big for me.",
             "I couldn't kick a ball well, so the big boys never took me into the game: I was not a footballer.",
@@ -967,14 +969,14 @@ const module: Module = {
           zvuchat: [
             "At seven I could swim well.",
             "My granny took me to the pool every Saturday.",
-            "But I couldn't ride a bike, because the bike was too big.",
+            "But I couldn't ride a bike because the bike was too big.",
             "At nine I started to play baseball.",
           ],
           head: ["Что сказано", "Пример строки"],
           rows: [
             ["сколько было лет и что выходило", "At seven I could swim well."],
             ["кто был рядом", "My granny took me to the pool every Saturday."],
-            ["что не выходило и отчего", "But I couldn't ride a bike, because the bike was too big."],
+            ["что не выходило и отчего", "But I couldn't ride a bike because the bike was too big."],
             ["чем дело кончилось", "At nine I started to play baseball."],
           ],
         },
@@ -996,11 +998,11 @@ const module: Module = {
           zvuchat: [
             "At five I could sing pop songs, and everybody in the family listened.",
             "My brother taught me the words.",
-            "But I couldn't get dressed alone, because the costume was too hard for me.",
+            "But I couldn't get dressed alone because the costume was too hard for me.",
             "At six I could do it alone, and my granny only watched.",
           ],
           text:
-            "At five I could sing pop songs, and everybody in the family listened.\nMy brother taught me the words.\nBut I couldn't get dressed alone, because the costume was too hard for me.\nAt six I could do it alone, and my granny only watched.",
+            "At five I could sing pop songs, and everybody in the family listened.\nMy brother taught me the words.\nBut I couldn't get dressed alone because the costume was too hard for me.\nAt six I could do it alone, and my granny only watched.",
           explain:
             "Первая строка называет возраст и умение, вторая — того, кто был " +
             "рядом. Третья говорит, что не выходило, и тут же отчего. " +
@@ -1034,7 +1036,7 @@ const module: Module = {
           answer: "because",
           hint: "Это слово присоединяет причину к тому, что не вышло.",
           why:
-            "But I couldn't get dressed alone, because the costume was too " +
+            "But I couldn't get dressed alone because the costume was too " +
             "hard for me. Без него вышли бы две отдельные мысли.",
         },
         {
@@ -1073,7 +1075,7 @@ const module: Module = {
             "Напиши на школьный сайт рассказ о своём детстве, четырьмя строками. Назови возраст и то, что выходило. Скажи, кто был рядом. Одной строкой через because назови то, что не выходило и отчего. Скажи, чем дело кончилось.",
           minWords: 15,
           sample:
-            "At five I could sing pop songs, and everybody in the family listened.\nMy brother taught me the words.\nBut I couldn't get dressed alone, because the costume was too hard for me.\nAt six I could do it alone, and my granny only watched.",
+            "At five I could sing pop songs, and everybody in the family listened.\nMy brother taught me the words.\nBut I couldn't get dressed alone because the costume was too hard for me.\nAt six I could do it alone, and my granny only watched.",
           checklist: [
             "назван возраст и то, что выходило",
             "сказано, кто был рядом",

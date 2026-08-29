@@ -963,7 +963,10 @@ export const rabotaDelaIRazgovory: Quiz = {
       outcome: "называть причину: because",
       prompt: "Соедини в одно предложение: I like this shop. It is near.",
       answer: "I like this shop because it is near.",
-      accept: ["I like this shop because it is near"],
+      accept: [
+            "I like this shop because it is near",
+            "I like this shop, because it is near",
+          ],
       why:
         "I like this shop because it is near. Причина идёт после главной части, и запятая " +
         "перед because не нужна.",
