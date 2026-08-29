@@ -1078,16 +1078,53 @@ async function proveritNoviznu(mod: Module, course: Course, gde: string): Promis
     (novye.length ? `\n   новые: ${novye.join(", ")}` : "") +
     (staryye.length ? `\n   с прошлой ступени: ${staryye.join(", ")}` : ""));
 
-  if (vse.size < NORMA_KARTOCHEK) {
-    skazat("ВОПРОС", gde,
-      `карточек ${vse.size}, норма ступени — не меньше ${NORMA_KARTOCHEK}`,
-      "добавь слова в уроки: решение владельца от 20 августа — слов должно быть больше");
+  // НОРМУ МЕРИМ ПО ЧАСТИ, ЕСЛИ У КУРСА ЕСТЬ УРОКИ СЛОВ ЧАСТИ.
+  //
+  // Решение владельца от 29 августа 2026. Норма в тридцать карточек на модуль
+  // держалась, пока модули шли по бытовым темам. К концу ступени модули стали
+  // грамматическими — `should`, `could`, `if`, пересказ, — и добирать в них
+  // норму было нечем: слова о еде в модуле про `if` становятся мёртвыми
+  // карточками, а это запрещает уточнение владельца от 21 августа.
+  //
+  // Поэтому словарь ступени выдаётся уроком «Слова части» в конце каждой из
+  // четырёх частей, и спрашивать теперь надо с него, а не с каждого модуля.
+  // Проверка помодульно осталась бы верной по букве и вредной по делу: она
+  // требовала бы ровно того, что владелец запретил.
+  const urokiSlov = course.modules.flatMap((m) =>
+    m.lessons.filter((l) => l.slug.startsWith("slova-chasti"))
+  );
+  const svoiUrokiSlov = mod.lessons.filter((l) => l.slug.startsWith("slova-chasti"));
+
+  if (urokiSlov.length === 0) {
+    if (vse.size < NORMA_KARTOCHEK) {
+      skazat("ВОПРОС", gde,
+        `карточек ${vse.size}, норма ступени — не меньше ${NORMA_KARTOCHEK}`,
+        "добавь слова в уроки: решение владельца от 20 августа — слов должно быть больше");
+    }
+    if (novye.length < NORMA_NOVYH) {
+      skazat("ВОПРОС", gde,
+        `новых для ступени слов ${novye.length} из ${vse.size}, норма — не меньше ` +
+        `${NORMA_NOVYH}; остальные ученик видел на прошлой ступени (перечень в сведениях)`,
+        "бери слова из словника A2 Key, которых нет в Oxford 3000 с пометой A1");
+    }
+    return;
   }
-  if (novye.length < NORMA_NOVYH) {
-    skazat("ВОПРОС", gde,
-      `новых для ступени слов ${novye.length} из ${vse.size}, норма — не меньше ` +
-      `${NORMA_NOVYH}; остальные ученик видел на прошлой ступени (перечень в сведениях)`,
-      "бери слова из словника A2 Key, которых нет в Oxford 3000 с пометой A1");
+
+  // Спрашиваем с самого урока слов части: держит ли он норму.
+  for (const urok of svoiUrokiSlov) {
+    const skolko = new Set<string>();
+    for (const b of urok.blocks as Block[]) {
+      if ((b as any).kind !== "vocab") continue;
+      for (const item of (b as any).items ?? []) {
+        const slovo = privesti(String(item.term)).replace(/[^a-z' ]/g, "").trim();
+        if (slovo) skolko.add(slovo);
+      }
+    }
+    if (skolko.size < NORMA_KARTOCHEK) {
+      skazat("ВОПРОС", `${gde} → ${urok.slug}`,
+        `в уроке слов части ${skolko.size} карточек, норма — не меньше ${NORMA_KARTOCHEK}`,
+        "словарь ступени выдаётся этим уроком: решение владельца от 29 августа");
+    }
   }
 }
 

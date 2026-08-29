@@ -110,6 +110,10 @@ import type { Module } from "@/lib/content/types";
  * чаще всего именно еду, занятия и зверей. Поэтому почти каждая строка примеров
  * здесь идёт со сравнением — оно и есть предмет части.
  *
+ * ДВА СЛОВА УРОКА ЧАСТИ ВЫШЕ СТУПЕНИ ПО OXFORD 3000: bee — B1, creature — B2.
+ * Оба стоят в словнике A2 Key, то есть входят в требования экзамена, и взяты
+ * по мерке ступени.
+ *
  * `wind` В УРОК НЕ ВЗЯТО, ХОТЯ ЛЕЖИТ В ЗАПАСЕ: оба наших источника читают его
  * как глагол «наматывать», а не как «ветер». Такие слова решает владелец как
  * преподаватель — то же решение, что было принято в модуле 13.
@@ -255,6 +259,15 @@ const module: Module = {
       section:
         "Тридцать карточек модуля взяты из словника ступени; новых для ступени " +
         "двадцать девять. " +
+        "УРОК СЛОВ ЧАСТИ ТРЕТЬЕЙ БЕРЁТ ЕЩЁ ТРИДЦАТЬ ЗАПИСЕЙ, и все они тоже " +
+        "стоят в словнике: ice cream, fast food, main course, mineral water, " +
+        "barbecue, stomach ache, gas, table tennis, ice skating, swimming pool, " +
+        "swimming costume, snowboard, surfboard, surf, get fit, tennis player, " +
+        "football player, Olympic, rap, hip hop, digital camera, bee, beetle, " +
+        "jellyfish, polar bear, creature, wildlife, extinct, desert, dead. " +
+        "ДВА СЛОВА ВЫШЕ СТУПЕНИ ПО OXFORD 3000, И ЭТО ОБЪЯВЛЯЕТСЯ: `bee` — B1, " +
+        "`creature` — B2. Оба стоят в словнике A2 Key, то есть входят в " +
+        "требования экзамена, и взяты по мерке ступени. " +
         "ЗНАЧЕНИЯ СВЕРЕНЫ С ПОМЕТАМИ СЛОВНИКА: `mine (pron)`, `ours (pron)`, " +
         "`theirs (pron)` — местоимения, а не определители, и уроки дают именно " +
         "их; `myself (pron) • by myself`, `himself (pron) • by himself`, " +

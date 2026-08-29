@@ -78,6 +78,7 @@ const module: Module = {
     "находить в письме, кто что сказал",
     "слышать в разговоре, чьи слова пересказывают",
     "проверять пересказ: назван говорящий, сдвинуто местоимение, время оставлено",
+    "называть людей, учёбу и чувства: brother, examination, feelings",
   ],
 
   sources: [
@@ -171,6 +172,19 @@ const module: Module = {
         "Одиннадцать карточек модуля взяты из словника ступени, и все " +
         "одиннадцать новые для ступени: advert, wifi, possibly, file, anymore, " +
         "What a shame!, awesome, further, guest-house, hoodie, mad about. " +
+        "УРОК СЛОВ ЧАСТИ ЧЕТВЁРТОЙ БЕРЁТ ЕЩЁ ТРИДЦАТЬ ЗАПИСЕЙ, И ИСТОЧНИКА У " +
+        "НИХ ДВА. Четырнадцать — последнее, что оставалось в словнике A2 Key: " +
+        "business person, aged, get married, grow up, examination, mathematics, " +
+        "maths, web page, feelings, kiss, poor thing, would prefer, shall, " +
+        "itself. Из них `examination` Oxford 3000 ставит на B2, а `kiss` — на " +
+        "B1; оба стоят в словнике, то есть входят в требования экзамена. " +
+        "Остальные шестнадцать — sister, brother, people, love, hope, please, " +
+        "mistake, show, film, key, bag, door, flat, rain, small, new — Oxford " +
+        "3000 помечает A1, И ЭТО НЕ ДОБОР НОРМЫ. Карточки у них не было НИ В " +
+        "ОДНОМ модуле ступени Elementary, а между ступенями нет ссылок на " +
+        "память: человек, пришедший сразу сюда, не получал ни `sister`, ни " +
+        "`key`. Тот же разбор, что в модуле 17 со словами good, bad и easy — " +
+        "там дыру нашёл методист. " +
         "ДВА ЗАГОЛОВКА — СВЯЗКИ, И ЭТО ПО РАЗБОРУ. Первая редакция давала " +
         "`shame` («досада») и `mad` («без ума от чего-то») — но оба слова " +
         "работают только в связке, а главного своего значения (стыд; " +
@@ -1052,6 +1066,244 @@ const module: Module = {
         },
       ],
     },
+
+    // =====================================================================
+    {
+      slug: "slova-chasti-lyudi",
+      title: "Слова части: люди и жизнь",
+      estimatedMinutes: 15,
+      outcome: "называть людей, учёбу и чувства: brother, examination, feelings",
+
+      blocks: [
+        {
+          id: "zachem-slova-o-lyudyah",
+          kind: "explain",
+          text: [
+            "Пересказывают чаще всего то, что сказали люди о своей жизни.",
+            "Здесь собраны слова о родных, об учёбе и о том, что человек чувствует.",
+            "Рядом с ними стоят обычные вещи дня: ключ, сумка, дверь, дождь.",
+            "Без них разговор о жизни не строится, а курс до сих пор их не называл.",
+          ],
+        },
+        {
+          id: "slovar-rodnyh",
+          kind: "vocab",
+          caption: "Слова урока",
+          items: [
+            { term: "sister", translation: "сестра", example: "My sister said that she is busy.", hint: "/ˈsɪstə/" },
+            { term: "brother", translation: "брат", example: "My brother told me that the film is good.", hint: "/ˈbrʌðə/" },
+            { term: "people", translation: "люди", example: "People here say that the market is cheap.", hint: "/ˈpiːpl/" },
+            { term: "business person", translation: "деловой человек", example: "The business person told us that the office is closed.", hint: "/ˈbɪznəs pɜːsn/" },
+            { term: "aged", translation: "в возрасте, стольких-то лет", example: "The class is for children aged ten.", hint: "/eɪdʒd/" },
+            { term: "get married", translation: "пожениться, выйти замуж", example: "She said that they get married in May.", hint: "/get ˈmærid/" },
+            { term: "grow up", translation: "вырасти", example: "He told me that his children grow up fast.", hint: "/grəʊ ˈʌp/" },
+          ],
+        },
+        {
+          id: "primer-o-rodnyh",
+          kind: "example",
+          caption: "Что рассказали родные",
+          zvuchat: [
+            "My sister said that she is busy.",
+            "My brother told me that the film is good.",
+            "People here say that the market is cheap.",
+            "The business person told us that the office is closed.",
+            "She said that they get married in May.",
+            "He told me that his children grow up fast.",
+            "The class is for children aged ten.",
+          ],
+          text:
+            "My sister said that she is busy.\nMy brother told me that the film is good.\nPeople here say that the market is cheap.\nThe business person told us that the office is closed.\nShe said that they get married in May.\nHe told me that his children grow up fast.\nThe class is for children aged ten.",
+          explain:
+            "Шесть первых строк — пересказ, и в каждой назван говорящий. Последняя " +
+            "строка чужих слов не передаёт: она просто о возрасте.",
+        },
+        {
+          id: "slovar-uchyoby",
+          kind: "vocab",
+          caption: "Слова урока",
+          items: [
+            { term: "examination", translation: "экзамен", example: "She told me that the examination is on Friday.", hint: "/ɪgˌzæmɪˈneɪʃn/" },
+            { term: "mathematics", translation: "математика", example: "Mathematics is his best subject.", hint: "/ˌmæθəˈmætɪks/" },
+            { term: "maths", translation: "математика (короткое слово)", example: "He said that maths is easy for him.", hint: "/mæθs/" },
+            { term: "web page", translation: "страница в интернете", example: "The web page said that the club is closed.", hint: "/ˈweb peɪdʒ/" },
+            { term: "show", translation: "показывать; представление", example: "The teacher told us to show our work.", hint: "/ʃəʊ/" },
+            { term: "mistake", translation: "ошибка", example: "He said that the mistake is small.", hint: "/mɪˈsteɪk/" },
+            { term: "film", translation: "фильм", example: "My brother told me that the film is good.", hint: "/fɪlm/" },
+          ],
+        },
+        {
+          id: "dva-imeni-matematiki",
+          kind: "note",
+          tone: "info",
+          text:
+            "У математики два имени: полное mathematics и короткое maths.\n\nВ " +
+            "разговоре берут короткое, в названии предмета на бланке — полное.",
+        },
+        {
+          id: "primer-ob-uchyobe",
+          kind: "example",
+          caption: "Что сказали об учёбе",
+          zvuchat: [
+            "She told me that the examination is on Friday.",
+            "Mathematics is his best subject.",
+            "He said that maths is easy for him.",
+            "The web page said that the club is closed.",
+            "The teacher told us to show our work.",
+            "He said that the mistake is small.",
+          ],
+          text:
+            "She told me that the examination is on Friday.\nMathematics is his best subject.\nHe said that maths is easy for him.\nThe web page said that the club is closed.\nThe teacher told us to show our work.\nHe said that the mistake is small.",
+          explain:
+            "Четвёртая строка показывает, что сказать может не только человек: " +
+            "страница в интернете тоже «said».",
+        },
+        {
+          id: "slovar-chuvstv",
+          kind: "vocab",
+          caption: "Слова урока",
+          items: [
+            { term: "feelings", translation: "чувства", example: "She said that her feelings are the same.", hint: "/ˈfiːlɪŋz/" },
+            { term: "love", translation: "любить; любовь", example: "He told me that they love this city.", hint: "/lʌv/" },
+            { term: "hope", translation: "надеяться; надежда", example: "I hope that the rain stops soon.", hint: "/həʊp/" },
+            { term: "kiss", translation: "поцелуй; целовать", example: "She said that a kiss on the card is normal here.", hint: "/kɪs/" },
+            { term: "poor thing", translation: "бедняга", example: "Poor thing, he told us that he lost the key.", hint: "/ˌpʊə ˈθɪŋ/" },
+            { term: "please", translation: "пожалуйста", example: "Please tell me that the door is open.", hint: "/pliːz/" },
+            { term: "would prefer", translation: "предпочёл бы", example: "She said that she would prefer Sunday.", hint: "/wʊd prɪˈfɜː/" },
+            { term: "shall", translation: "в предложении помощи: Shall I…?", example: "Shall I tell him that the bag is here?", hint: "/ʃæl/" },
+          ],
+        },
+        {
+          id: "primer-o-chuvstvah",
+          kind: "example",
+          caption: "Что сказали о себе",
+          zvuchat: [
+            "She said that her feelings are the same.",
+            "He told me that they love this city.",
+            "I hope that the rain stops soon.",
+            "She said that a kiss on the card is normal here.",
+            "Poor thing, he told us that he lost the key.",
+            "Please tell me that the door is open.",
+            "She said that she would prefer Sunday.",
+            "Shall I tell him that the bag is here?",
+          ],
+          text:
+            "She said that her feelings are the same.\nHe told me that they love this city.\nI hope that the rain stops soon.\nShe said that a kiss on the card is normal here.\nPoor thing, he told us that he lost the key.\nPlease tell me that the door is open.\nShe said that she would prefer Sunday.\nShall I tell him that the bag is here?",
+          explain:
+            "Восемь строк о чувствах и вежливости. Оборот Shall I…? предлагает " +
+            "помощь, а would prefer называет то, что человеку удобнее.",
+        },
+        {
+          id: "veshchi-dnya",
+          kind: "table",
+          caption: "Вещи, которые называют каждый день",
+          zvuchat: [
+            "The key is on the table.",
+            "My bag is small.",
+            "The door is new.",
+            "The flat itself is small.",
+            "The rain stops soon.",
+            "The number of the flat is on the door.",
+          ],
+          head: ["Английский", "Перевод"],
+          rows: [
+            ["The key is on the table.", "Ключ на столе."],
+            ["My bag is small.", "Моя сумка маленькая."],
+            ["The door is new.", "Дверь новая."],
+            ["The flat itself is small.", "Сама квартира маленькая."],
+            ["The rain stops soon.", "Дождь скоро кончится."],
+            ["The number of the flat is on the door.", "Номер квартиры — на двери."],
+          ],
+        },
+        {
+          id: "slovar-veshchey-dnya",
+          kind: "vocab",
+          caption: "Слова урока",
+          items: [
+            { term: "key", translation: "ключ", example: "The key is on the table.", hint: "/kiː/" },
+            { term: "bag", translation: "сумка", example: "My bag is small.", hint: "/bæg/" },
+            { term: "door", translation: "дверь", example: "The door is new.", hint: "/dɔː/" },
+            { term: "flat", translation: "квартира", example: "The flat itself is small.", hint: "/flæt/" },
+            { term: "rain", translation: "дождь", example: "The rain stops soon.", hint: "/reɪn/" },
+            { term: "small", translation: "маленький", example: "My bag is small.", hint: "/smɔːl/" },
+            { term: "new", translation: "новый", example: "The door is new.", hint: "/njuː/" },
+            { term: "itself", translation: "сам, сама (о вещи)", example: "The flat itself is small.", hint: "/ɪtˈself/" },
+            { term: "number", translation: "номер, число", example: "The number of the flat is on the door.", hint: "/ˈnʌmbə/" },
+          ],
+        },
+
+        // ---- задания ----
+        {
+          id: "z1-vybrat-o-matematike",
+          kind: "choice",
+          prompt: "Как назовут математику в разговоре?",
+          options: [
+            { text: "mathematics" },
+            { text: "maths", correct: true },
+            { text: "examination" },
+          ],
+          hint: "В разговоре берут короткое слово.",
+          why:
+            "maths. Полное mathematics пишут в названии предмета, а examination — " +
+            "это экзамен.",
+        },
+        {
+          id: "z2-dopisat-shall",
+          kind: "gap",
+          prompt: "Предложи помощь: сказать ли ему про сумку. Допиши первое слово.",
+          before: "",
+          after: " I tell him that the bag is here?",
+          answer: "Shall",
+          accept: ["shall"],
+          hint: "Это слово стоит впереди и предлагает сделать дело за другого.",
+          why: "Shall I tell him that the bag is here? Так и предлагают помощь.",
+        },
+        {
+          id: "z3-soedinit-chuvstva",
+          kind: "match",
+          prompt: "Соедини слово с переводом.",
+          left: ["feelings", "hope", "poor thing", "would prefer"],
+          right: ["бедняга", "чувства", "предпочёл бы", "надеяться"],
+          answer: [1, 3, 0, 2],
+          hint: "Слово hope о том, чего ждут с надеждой, а feelings — о том, что чувствуют.",
+          why:
+            "feelings — чувства, hope — надеяться, poor thing — бедняга, would " +
+            "prefer — предпочёл бы.",
+        },
+        {
+          id: "z4-pereskazat-o-sestre",
+          kind: "short",
+          prompt: "Сестра сказала, что она занята. Перескажи это по-английски, начав с My sister.",
+          answer: "My sister said that she is busy.",
+          accept: [
+            "My sister said that she is busy",
+            "My sister said she is busy.",
+          ],
+          hint: "После said стоит that, а за ним — сами слова сестры.",
+          why:
+            "My sister said that she is busy. Местоимение сдвинулось с I на she, " +
+            "а время осталось прежним.",
+        },
+        {
+          id: "z5-otmetit-o-lyudyah",
+          kind: "hottext",
+          prompt: "Отметь то, что говорят о человеке, а не о вещи.",
+          parts: [
+            { text: "business person", selectable: true, correct: true },
+            { text: " · " },
+            { text: "web page", selectable: true },
+            { text: " · " },
+            { text: "poor thing", selectable: true, correct: true },
+            { text: " · " },
+            { text: "flat", selectable: true },
+          ],
+          hint: "Две записи называют человека.",
+          why:
+            "Верны business person и poor thing. Web page — страница в интернете, " +
+            "а flat — квартира.",
+        },
+      ],
+    },
   ],
 
   quiz: {
@@ -1263,6 +1515,33 @@ const module: Module = {
         why:
           "Иначе непонятно, чьи это слова. Пересказ и нужен затем, чтобы " +
           "передать чужие слова вместе с их хозяином.",
+      },
+
+      // ---- итог 7 ----
+      {
+        id: "q-nazvat-korotkuyu-matematiku",
+        kind: "short",
+        outcome: "называть людей, учёбу и чувства: brother, examination, feelings",
+        prompt: "Назови по-английски математику так, как её зовут в разговоре. Одно короткое слово.",
+        answer: "maths",
+        accept: ["Maths"],
+        hint: "Полное имя предмета — mathematics.",
+        why: "maths. Полное mathematics остаётся для бланков и названий предметов.",
+      },
+      {
+        id: "q-chto-znachit-poor-thing",
+        kind: "choice",
+        outcome: "называть людей, учёбу и чувства: brother, examination, feelings",
+        prompt: "Что значит poor thing?",
+        options: [
+          { text: "дешёвая вещь" },
+          { text: "бедняга", correct: true },
+          { text: "плохая новость" },
+        ],
+        hint: "Так говорят о человеке, которому не повезло.",
+        why:
+          "Бедняга. Связка целиком не о деньгах и не о вещи: она о сочувствии " +
+          "человеку.",
       },
     ],
   },
