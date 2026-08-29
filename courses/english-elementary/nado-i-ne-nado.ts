@@ -1221,12 +1221,12 @@ const module: Module = {
         kind: "short",
         outcome: "сказать, что делать обязан: I have to wear a uniform",
         prompt:
-          "Ученик написал: I have to wearing a uniform. Запиши строку без ошибки.",
-        answer: "I have to wear a uniform.",
-        accept: ["I have to wear a uniform"],
+          "Ученик написал: I have to bringing my passport. Запиши строку без ошибки.",
+        answer: "I have to bring my passport.",
+        accept: ["I have to bring my passport"],
         hint: "Проверь форму глагола после двух коротких слов.",
         why:
-          "I have to wear a uniform. Форма wearing идёт при is и are.",
+          "I have to bring my passport. Форма bringing идёт при is и are.",
       },
       {
         id: "q-chto-dobavlyaet-have-to",
@@ -1287,12 +1287,12 @@ const module: Module = {
         kind: "short",
         outcome: "сказать, что делать нельзя: You mustn't use the machine",
         prompt:
-          "Ученик написал: You mustn't to run indoors. Запиши строку без ошибки.",
-        answer: "You mustn't run indoors.",
-        accept: ["You mustn't run indoors", "You must not run indoors."],
+          "Ученик написал: You mustn't to take photos here. Запиши строку без ошибки.",
+        answer: "You mustn't take photos here.",
+        accept: ["You mustn't take photos here", "You must not take photos here."],
         hint: "Одно слово в строке лишнее.",
         why:
-          "You mustn't run indoors. После mustn't слово to не ставят.",
+          "You mustn't take photos here. После mustn't слово to не ставят.",
       },
       {
         id: "q-chto-znachit-mustnt",
@@ -1435,17 +1435,17 @@ const module: Module = {
         kind: "short",
         outcome: "проверять правила: сказано, что надо, чего нельзя и что необязательно",
         prompt:
-          "К правилам допиши строку о запрете: пользоваться аппаратом нельзя. Начни с You.",
-        answer: "You mustn't use the machine.",
+          "К правилам допиши строку о запрете: приходить на занятие в мокрых кроссовках нельзя. Начни с You.",
+        answer: "You mustn't come in wet trainers.",
         accept: [
-          "You mustn't use the machine",
-          "You must not use the machine.",
-          "You must not use the machine",
+          "You mustn't come in wet trainers",
+          "You must not come in wet trainers.",
+          "You must not come in wet trainers",
         ],
         hint: "За такой строкой стоит табличка, а не совет.",
         why:
-          "You mustn't use the machine. Запись don't have to сказала бы, что " +
-          "пользоваться им просто необязательно.",
+          "You mustn't come in wet trainers. Запись don't have to сказала бы, что " +
+          "приходить в них просто необязательно.",
       },
     ],
   },

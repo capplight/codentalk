@@ -1815,12 +1815,12 @@ const module: Module = {
         kind: "short",
         outcome: "говорить обо всех и обо всём: everyone is, everything is",
         prompt:
-          "Вся еда уже на столе. Скажи это по-английски, начав со слова о вещах.",
-        answer: "Everything is on the table.",
-        accept: ["Everything is on the table"],
+          "Все вещи уже в сумке. Скажи это по-английски, начав со слова о вещах.",
+        answer: "Everything is in the bag.",
+        accept: ["Everything is in the bag", "Everything is in my bag."],
         hint: "О людях говорят everyone и everybody, а о вещах — другое слово.",
         why:
-          "Everything is on the table. Еда — это вещи, и потому everyone сюда не " +
+          "Everything is in the bag. Вещи — не люди, и потому everyone сюда не " +
           "встанет.",
       },
 

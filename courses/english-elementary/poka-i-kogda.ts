@@ -1551,12 +1551,16 @@ const module: Module = {
         kind: "short",
         outcome: "понимать рассказ, где длительное действие прервано законченным",
         prompt:
-          "В сообщении написано: «Yesterday I was walking home from work when I saw an accident.» Запиши по-английски то, что прервало ходьбу.",
-        answer: "I saw an accident",
-        accept: ["I saw an accident.", "saw an accident"],
+          "Данияр готовил ужин, и в этот миг уронил тарелку. Составь строку целиком: сначала то, что тянулось, потом when и то, что случилось.",
+        answer: "Daniyar was cooking dinner when he dropped a plate.",
+        accept: [
+          "Daniyar was cooking dinner when he dropped a plate",
+          "Daniyar was cooking the dinner when he dropped a plate.",
+          "Daniyar was cooking dinner when he dropped the plate.",
+        ],
         why:
-          "I saw an accident. Ходьба тянулась, а вид происшествия занял миг и потому " +
-          "прервал её.",
+          "Daniyar was cooking dinner when he dropped a plate. Готовка тянулась и " +
+          "потому взяла was cooking, а падение тарелки заняло миг и потому dropped.",
       },
       {
         id: "q-rasskaz-chto-tyanulos",

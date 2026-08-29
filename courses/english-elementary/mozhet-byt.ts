@@ -1487,16 +1487,17 @@ const module: Module = {
         kind: "short",
         outcome: "говорить о возможном через may: It may be in my backpack",
         prompt:
-          "Первое место не подошло: I looked in my handbag. Назови второе — книжный шкаф — одной строкой через may.",
-        answer: "It may be in the bookcase.",
+          "Первое место не подошло: I looked in my handbag. Назови второе — карман — одной строкой через may.",
+        answer: "It may be in my pocket.",
         accept: [
-          "It may be in the bookcase",
-          "It might be in the bookcase.",
-          "Maybe it's in the bookcase.",
+          "It may be in my pocket",
+          "It might be in my pocket.",
+          "Maybe it's in my pocket.",
+          "It may be in the pocket.",
         ],
         hint: "Начни с It, а место поставь в конец строки.",
         why:
-          "It may be in the bookcase. Годятся и might, и maybe — все три говорят о " +
+          "It may be in my pocket. Годятся и might, и maybe — все три говорят о " +
           "возможном.",
       },
 

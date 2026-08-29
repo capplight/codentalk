@@ -1565,7 +1565,7 @@ const module: Module = {
           { text: "Have you ever been to the mountains?", correct: true },
           { text: "You have ever been to the mountains?" },
         ],
-        hint: "Слово о всей жизни стоит сразу за тем, о ком спрашивают.",
+        hint: "Слово о всей жизни стоит сразу за тем, о ком речь.",
         why:
           "Have you ever been to the mountains? В первом ever встало слишком " +
           "рано, а в третьем have осталось на месте рассказа.",

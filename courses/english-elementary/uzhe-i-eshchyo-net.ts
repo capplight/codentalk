@@ -1316,12 +1316,12 @@ const module: Module = {
         kind: "short",
         outcome: "сообщить, что дело ещё не сделано: I haven't packed yet",
         prompt:
-          "Ученик написал: I haven't wash the sink yet. Запиши строку без ошибки.",
-        answer: "I haven't washed the sink yet.",
-        accept: ["I haven't washed the sink yet"],
+          "Ученик написал: I haven't prepare the medicine yet. Запиши строку без ошибки.",
+        answer: "I haven't prepared the medicine yet.",
+        accept: ["I haven't prepared the medicine yet"],
         hint: "После haven't глагол берёт ту же форму, что после have.",
         why:
-          "I haven't washed the sink yet. Отрицание формы глагола не меняет.",
+          "I haven't prepared the medicine yet. Отрицание формы глагола не меняет.",
       },
       {
         id: "q-gde-stoit-yet",
@@ -1375,13 +1375,13 @@ const module: Module = {
         kind: "short",
         outcome: "спросить, сделано ли дело: Have you packed yet?",
         prompt:
-          "Ученик написал: Do you packed the bags yet? Запиши вопрос без ошибки.",
-        answer: "Have you packed the bags yet?",
-        accept: ["Have you packed the bags yet"],
+          "Ученик написал: Do you packed the suitcase yet? Запиши вопрос без ошибки.",
+        answer: "Have you packed the suitcase yet?",
+        accept: ["Have you packed the suitcase yet"],
         hint: "Слово do к этому времени не подходит вовсе.",
         why:
-          "Have you packed the bags yet? В рассказе стоит you have packed, и в " +
-          "вопрос выходит have.",
+          "Have you packed the suitcase yet? В рассказе стоит you have packed, и " +
+          "в вопрос выходит have.",
       },
       {
         id: "q-vybrat-vernyy-korotkiy-otvet",
@@ -1404,19 +1404,16 @@ const module: Module = {
         kind: "short",
         outcome: "спросить, сделано ли дело: Have you packed yet?",
         prompt:
-          "Тебя спросили: Have you found the ingredients yet? Ответь коротко — ещё нет.",
-        answer: "No, not yet.",
+          "Ты хочешь узнать у Данияра, забрал ли он лекарство из аптеки. Составь вопрос со словом yet.",
+        answer: "Have you collected the medicine yet?",
         accept: [
-          "No, not yet",
-          "Not yet.",
-          "Not yet",
-          "No, I haven't.",
-          "No, I haven't",
+          "Have you collected the medicine yet",
+          "Have you collected the medicine from the pharmacy yet?",
         ],
-        hint: "В коротком ответе глагол не звучит вовсе.",
+        hint: "Впереди have, за ним человек, потом третья форма, а yet в конце.",
         why:
-          "No, not yet. Годится и No, I haven't — оба ответа говорят, что дело " +
-          "впереди.",
+          "Have you collected the medicine yet? Слово yet стоит последним и " +
+          "показывает, что дело ждали к этому сроку.",
       },
 
       // ---- итог 5 ----
@@ -1425,12 +1422,12 @@ const module: Module = {
         kind: "short",
         outcome: "находить в списке дел, что сделано, а что нет",
         prompt:
-          "Строку I have already packed the bags перепиши так, чтобы она говорила: дело ещё не сделано.",
-        answer: "I haven't packed the bags yet.",
-        accept: ["I haven't packed the bags yet"],
+          "Строку I have already tidied the flat перепиши так, чтобы она говорила: дело ещё не сделано.",
+        answer: "I haven't tidied the flat yet.",
+        accept: ["I haven't tidied the flat yet"],
         hint: "Слово о сделанном уходит, а в конец встаёт другое.",
         why:
-          "I haven't packed the bags yet. Слово already в отрицании не " +
+          "I haven't tidied the flat yet. Слово already в отрицании не " +
           "остаётся: там его место занимает yet в конце.",
       },
       {
