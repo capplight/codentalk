@@ -53,12 +53,19 @@ import type { Module } from "@/lib/content/types";
  * речь в кавычках; `wonder`; расширенный набор переспросов; тег `right?`;
  * сдвиг слов о времени. Проверены по одной.
  *
- * СЛОВАРЬ МОДУЛЯ — ДВЕНАДЦАТЬ КАРТОЧЕК, ВСЕ НОВЫЕ ДЛЯ СТУПЕНИ. Мир модуля —
+ * СЛОВАРЬ МОДУЛЯ — ОДИННАДЦАТЬ КАРТОЧЕК, ВСЕ НОВЫЕ ДЛЯ СТУПЕНИ. Мир модуля —
  * новости и сообщения: их и пересказывают.
  *
- * ЧЕТЫРЕ СЛОВА OXFORD СТАВИТ ВЫШЕ СТУПЕНИ, И ВСЕ ЧЕТЫРЕ ВЗЯТЫ ПО МЕРКЕ
- * СТУПЕНИ: `possibly` (B1), `mad` (B1), `file` (B1), `shame` (B2); все четыре
- * стоят в словнике A2 Key, то есть входят в требования экзамена.
+ * ПЯТЬ СЛОВ OXFORD СТАВИТ ВЫШЕ СТУПЕНИ, И ВСЕ ПЯТЬ ВЗЯТЫ ПО МЕРКЕ СТУПЕНИ:
+ * `possibly` (B1), `mad` (B1), `file` (B1), `further` наречием (B1), `shame`
+ * (B2); все пять стоят в словнике A2 Key.
+ *
+ * СДВИГ ВРЕМЕНИ МОДУЛЬ НЕ ОБЪЯВЛЯЕТ ОШИБКОЙ, И ЭТО ПРАВКА ПО РАЗБОРУ. Первая
+ * редакция ставила «She said that she had the file» неверным вариантом
+ * задания — а это графа СЛЕДУЮЩЕЙ ступени, то есть разрешение, которого мы не
+ * даём, а не запрет. Заменено настоящей ученической ошибкой. Там же нашлись
+ * ещё два задания, объявлявших ошибкой безупречные строки: ошибкой они
+ * становятся только при известных исходных словах, а условие их не называло.
  */
 const module: Module = {
   slug: "on-skazal-chto",
@@ -95,12 +102,23 @@ const module: Module = {
         "ДИАПАЗОН 1 — «Can use a limited range of question tags», примеры «You " +
         "don't know where I live, do you?», «It's fantastic, isn't it?», «It " +
         "differs from the story which you told me, doesn't it?». " +
-        "СЛОВА «A LIMITED RANGE» ЗДЕСЬ РАБОТАЮТ: расширенный набор лежит на B1 " +
-        "тремя графами — «FORM: AFFIRMATIVE MAIN CLAUSES + NEGATIVE QUESTION " +
-        "TAGS», «FORM: NEGATIVE MAIN CLAUSES + AFFIRMATIVE QUESTION TAGS» (обе " +
-        "с диапазоном 2) и «FORM: AFFIRMATIVE MAIN CLAUSES + AFFIRMATIVE " +
-        "QUESTION TAGS». Модуль берёт три самых ходовых переспроса и правила " +
-        "на все случаи из них не строит. " +
+        "СЛОВА «A LIMITED RANGE» ЗДЕСЬ РАБОТАЮТ: расширенный набор лежит на " +
+        "B1 тремя графами, и у всех трёх диапазон 2 — «FORM: AFFIRMATIVE MAIN " +
+        "CLAUSES + NEGATIVE QUESTION TAGS», «FORM: NEGATIVE MAIN CLAUSES + " +
+        "AFFIRMATIVE QUESTION TAGS», «FORM: AFFIRMATIVE MAIN CLAUSES + " +
+        "AFFIRMATIVE QUESTION TAGS». " +
+        "МОДУЛЬ БЕРЁТ ТРИ ХВОСТИКА, И ВСЕ ТРИ СТОЯТ ПРИМЕРАМИ САМОЙ ГРАФЫ A2: " +
+        "`isn't it` («It's fantastic, isn't it?»), `don't you` (по образцу «You " +
+        "don't know where I live, do you?») и `doesn't it` («It differs from " +
+        "the story which you told me, doesn't it?»). " +
+        "ПЕРВАЯ РЕДАКЦИЯ БРАЛА ТРЕТЬИМ `aren't you` — а он стоит примером " +
+        "графы B1 «AFFIRMATIVE MAIN CLAUSES + NEGATIVE QUESTION TAGS» («And so " +
+        "you're moving to a different area, aren't you?»), и среди примеров A2 " +
+        "его нет. Заменён. Нашёл методист. " +
+        "И ПРАВИЛА НА ВСЕ СЛУЧАИ МОДУЛЬ ИЗ НИХ НЕ СТРОИТ: первая редакция " +
+        "писала «в хвостике отрицание» и «отвечают Yes, it is» — оба " +
+        "утверждения ломает первый же пример графы, «You don't know where I " +
+        "live, do you?». Строки привязаны к своим случаям. " +
         "ПОДДЕРЖКА ДЛЯ ПРИДАТОЧНОГО С `that`: VERBS, patterns_that clauses, " +
         "A2, «FORM: REPORTING VERBS + DIRECT OBJECT 'THAT'-CLAUSE» (пример «My " +
         "mother said that she can help us») и A2, «FORM: VERBS + INDIRECT " +
@@ -137,10 +155,12 @@ const module: Module = {
         "correspondence», графа A2: «Can understand short, simple personal " +
         "letters». " +
         "УРОК ПИСЬМА «Пишем, что сказали другие». с. 83, шкала " +
-        "«Correspondence», графа A2: «Can exchange information by text " +
-        "message, by e-mail or in short letters, responding to questions from " +
-        "the other person» — пересказ чужих слов в сообщении и есть этот " +
-        "случай. " +
+        "«Correspondence», графа A2: «Can compose short, simple notes, " +
+        "e-mails and text messages». " +
+        "ПЕРВАЯ РЕДАКЦИЯ ЦИТИРОВАЛА СОСЕДНЮЮ СТРОКУ ТОЙ ЖЕ ГРАФЫ — «Can " +
+        "exchange information … responding to questions from the other " +
+        "person», — а задание урока ответом на чьи-то вопросы не является. " +
+        "Нашёл методист. " +
         "ОПОРЫ ЧТЕНИЯ И ПИСЬМА РАЗВЕДЕНЫ НАРОЧНО — так подсказал методист при " +
         "разборе модуля 23",
       license: "CC BY-NC-SA 4.0",
@@ -148,15 +168,26 @@ const module: Module = {
     {
       ref: "Cambridge English, A2 Key vocabulary list (август 2025)",
       section:
-        "Двенадцать карточек модуля взяты из словника ступени, и все " +
-        "двенадцать новые для ступени: advert, wifi, possibly, awesome, " +
-        "anymore, further, mad, file, dot, shame, guest-house, hoodie. " +
+        "Одиннадцать карточек модуля взяты из словника ступени, и все " +
+        "одиннадцать новые для ступени: advert, wifi, possibly, file, anymore, " +
+        "What a shame!, awesome, further, guest-house, hoodie, mad about. " +
+        "ДВА ЗАГОЛОВКА — СВЯЗКИ, И ЭТО ПО РАЗБОРУ. Первая редакция давала " +
+        "`shame` («досада») и `mad` («без ума от чего-то») — но оба слова " +
+        "работают только в связке, а главного своего значения (стыд; " +
+        "сумасшедший) карточки не давали. Ученик прочёл бы «Are you mad?» " +
+        "наоборот. Заголовками стали `What a shame!` и `mad about` — курс так " +
+        "уже умеет с `on the way` в модуле 21. Нашёл методист. " +
+        "КАРТОЧКА `dot` СНЯТА: она держалась на строке, которая стояла в " +
+        "примере только затем, чтобы куда-то её деть. " +
         "ЧЕТЫРЕ СЛОВА OXFORD СТАВИТ ВЫШЕ СТУПЕНИ, И ВСЕ ЧЕТЫРЕ ВЗЯТЫ ПО МЕРКЕ " +
         "СТУПЕНИ: `possibly adv. B1`, `mad adj. B1`, `file n. B1`, `shame n. " +
         "B2`; все четыре стоят в словнике A2 Key, то есть входят в требования " +
         "экзамена. " +
-        "`further adv., adj. A2` — единственное, что Oxford помечает нашей " +
-        "ступенью. Остальные семь не нашлись ни в `oxford-3000`, ни в " +
+        "`further adj. A2, adv. B1` — модуль берёт наречие («It is further " +
+        "from here»), то есть и оно выше ступени; слов выше ступени пять, а не " +
+        "четыре. Первая редакция опоры писала `further adv., adj. A2` и " +
+        "числила его нашей ступенью. Нашёл методист. " +
+        "Остальные шесть не нашлись ни в `oxford-3000`, ни в " +
         "`oxford-5000` — это не значит, что их там нет: составные и дефисные " +
         "записи оба списка ведут иначе. Проверено по обоим спискам построчно. " +
         "ПОЧЕМУ ДВЕНАДЦАТЬ, А НЕ ТРИДЦАТЬ — разобрано в программе, под " +
@@ -209,7 +240,7 @@ const module: Module = {
           kind: "explain",
           text: [
             "Ввод — это he said, и после него ставят that.",
-            "Меняется только тот, о ком речь: I становится he, we становится they.",
+            "Меняется тот, о ком речь: I становится he, we становится they.",
             "Вместе с ним меняется и окончание глагола: I know, но she knows.",
             "ВРЕМЯ ОСТАЁТСЯ ТЕМ ЖЕ: было is — останется is.",
             "Слово that можно и опустить: He said he is busy.",
@@ -231,15 +262,16 @@ const module: Module = {
           razgovor: true,
           zvuchat: [
             "What did Alim say?",
-            "He said that he is busy and possibly comes on Sunday.",
+            "He said that he is busy and will possibly come on Sunday.",
             "And the advert? He said that they have a new one on the wifi page.",
           ],
           text:
-            "What did Alim say?\nHe said that he is busy and possibly comes on Sunday.\nAnd the advert? He said that they have a new one on the wifi page.",
+            "What did Alim say?\nHe said that he is busy and will possibly come on Sunday.\nAnd the advert? He said that they have a new one on the wifi page.",
           explain:
-            "В обоих пересказах Алим говорил о себе словом I, а Данияр " +
-            "пересказывает словом he. Время при этом не сдвинуто: is остаётся " +
-            "is, have остаётся have.",
+            "В первом пересказе Алим говорил о себе словом I, а Данияр " +
+            "пересказывает словом he. Во втором Алим говорил we, и Данияр " +
+            "пересказывает they. Время не сдвинуто нигде: is остаётся is, have " +
+            "остаётся have.",
         },
         {
           id: "slovar-pereskaza",
@@ -248,7 +280,7 @@ const module: Module = {
           items: [
             { term: "advert", translation: "объявление, реклама", example: "They said that they have a new advert.", hint: "/ˈædvɜːt/" },
             { term: "wifi", translation: "вайфай, беспроводная сеть", example: "They have a new one on the wifi page.", hint: "/ˈwaɪfaɪ/" },
-            { term: "possibly", translation: "возможно, может быть", example: "He said that he possibly comes on Sunday.", hint: "/ˈpɒsəbli/" },
+            { term: "possibly", translation: "возможно, может быть", example: "He said that he will possibly come on Sunday.", hint: "/ˈpɒsəbli/" },
             { term: "file", translation: "файл; папка", example: "She said that the file is on the table.", hint: "/faɪl/" },
           ],
         },
@@ -258,7 +290,7 @@ const module: Module = {
           id: "z1-dopisat-mestoimenie",
           kind: "gap",
           prompt:
-            "Алим сказал: I am busy. Пересказывая, меняют одно слово. Допиши его.",
+            "Алим сказал: I am busy. Пересказывая, слово I меняют. Допиши то, что встанет на его место.",
           before: "He said that ",
           after: " is busy.",
           answer: "he",
@@ -273,31 +305,33 @@ const module: Module = {
           prompt: "Дана сказала: I have the file. В какой записи пересказ верен?",
           options: [
             { text: "She said that I have the file." },
-            { text: "She said that she had the file." },
+            { text: "She said that she have the file." },
             { text: "She said that she has the file.", correct: true },
           ],
-          hint: "Меняется тот, о ком речь, а время остаётся тем же.",
+          hint: "Меняется тот, о ком речь, а вместе с ним и окончание глагола.",
           why:
             "She said that she has the file. В первой записи не сдвинуто " +
-            "местоимение, а во второй сдвинуто время, хотя мы его оставляем.",
+            "местоимение, а во второй у глагола пропало окончание.",
         },
         {
           id: "z3-otmetit-pereskazy",
           kind: "hottext",
-          prompt: "Отметь строки, где чужие слова пересказаны верно.",
+          prompt:
+            "Айгуль сказала: I know the answer. Отметь строки, где ЕЁ слова пересказаны верно.",
           parts: [
             { text: "She said that I know the answer.", selectable: true },
             { text: " · " },
             { text: "She said that she knows the answer.", selectable: true, correct: true },
             { text: " · " },
-            { text: "They said that we have a new advert.", selectable: true },
+            { text: "She said that she know the answer.", selectable: true },
             { text: " · " },
-            { text: "They said that they have a new advert.", selectable: true, correct: true },
+            { text: "She said she knows the answer.", selectable: true, correct: true },
           ],
-          hint: "Смотри, о ком говорит вторая половина: о говорящем или о тебе.",
+          hint: "Смотри два места: местоимение и окончание глагола.",
           why:
-            "Вторая и четвёртая. В первой и третьей местоимение осталось от " +
-            "слов самого человека.",
+            "Вторая и четвёртая. В первой местоимение осталось от слов самой " +
+            "Айгуль, в третьей у глагола пропало окончание. Слово that можно и " +
+            "опустить.",
         },
         {
           id: "z4-sobrat-pereskaz",
@@ -341,7 +375,7 @@ const module: Module = {
           id: "komu-skazali",
           kind: "explain",
           text: [
-            "Айгуль пересказывает не просто чужие слова, а сказанные ей.",
+            "Данияр пересказывает не просто чужие слова, а сказанные ему.",
             "Тогда в вводе нужен другой глагол, и после него стоит тот, кому сказали.",
             "Остальное устроено так же: местоимение меняется, время остаётся.",
           ],
@@ -368,8 +402,8 @@ const module: Module = {
           text: [
             "Глагол said стоит один: после него сразу идёт that.",
             "Глагол told требует, чтобы за ним стоял тот, кому сказали: told me, told us.",
-            "Без него он не работает: одного told мало.",
-            "И наоборот, said не берёт этого слова: не «said me».",
+            "В таком пересказе одного told мало: без него строка не собирается.",
+            "А said этого слова прямо за собой не берёт: не «said me».",
             "Дальше обе половины устроены одинаково.",
           ],
         },
@@ -391,12 +425,14 @@ const module: Module = {
             "The shop is closed. The guest-house told me that they have no bread anymore.",
             "What a shame! And the market?",
             "Aigul told us that the market is awesome, but it is further from here.",
+            "And Dana told me that my hoodie is in her car.",
           ],
           text:
-            "The shop is closed. The guest-house told me that they have no bread anymore.\nWhat a shame! And the market?\nAigul told us that the market is awesome, but it is further from here.",
+            "The shop is closed. The guest-house told me that they have no bread anymore.\nWhat a shame! And the market?\nAigul told us that the market is awesome, but it is further from here.\nAnd Dana told me that my hoodie is in her car.",
           explain:
-            "В обоих вводах с told сразу за глаголом стоит тот, кому сказали: " +
-            "me и us. Время в пересказанных словах то же, что было сказано.",
+            "Во всех трёх вводах с told сразу за глаголом стоит тот, кому " +
+            "сказали: me, us и снова me. Время в пересказанных словах то же, " +
+            "что было сказано.",
         },
         {
           id: "slovar-novostey",
@@ -404,10 +440,11 @@ const module: Module = {
           caption: "Слова урока",
           items: [
             { term: "anymore", translation: "больше не", example: "They have no bread anymore.", hint: "/ˌeniˈmɔː/" },
-            { term: "shame", translation: "досада; жалость", example: "What a shame!", hint: "/ʃeɪm/" },
+            { term: "What a shame!", translation: "Какая досада!", example: "What a shame! And the market?", hint: "/wɒt ə ˈʃeɪm/" },
             { term: "awesome", translation: "потрясающий", example: "The market is awesome.", hint: "/ˈɔːsəm/" },
             { term: "further", translation: "дальше", example: "It is further from here.", hint: "/ˈfɜːðə/" },
             { term: "guest-house", translation: "гостевой дом, маленькая гостиница", example: "The guest-house told me that they have no bread anymore.", hint: "/ˈgesthaʊs/" },
+            { term: "hoodie", translation: "толстовка с капюшоном", example: "Dana told me that my hoodie is in her car.", hint: "/ˈhʊdi/" },
           ],
         },
 
@@ -428,7 +465,7 @@ const module: Module = {
           id: "z2-otlichit-said-ot-told",
           kind: "choice",
           prompt:
-            "Кому именно сказали, в строке не названо. Какая запись верна?",
+            "Кому именно сказали, в записи не названо. Какая запись верна?",
           options: [
             { text: "She told that the market is awesome." },
             { text: "She said that the market is awesome.", correct: true },
@@ -512,27 +549,27 @@ const module: Module = {
           rows: [
             ["It's fantastic,", "isn't it?"],
             ["You know the answer,", "don't you?"],
-            ["You are mad about football,", "aren't you?"],
+            ["The market opens at eight,", "doesn't it?"],
           ],
         },
         {
           id: "kak-ustroen-hvostik",
           kind: "explain",
           text: [
-            "В хвостике два слова: отрицание и тот, о ком речь.",
-            "После it's берут isn't it, после you are — aren't you.",
-            "Если в строке обычный глагол, берут don't you: You know the answer, don't you?",
-            "Хвостик не спрашивает по-настоящему: он ждёт согласия.",
-            "Отвечают на него коротко: Yes, it is или No, it isn't.",
+            "В хвостике два слова, и второе называет то, о чём строка.",
+            "После it's берут isn't it: It's fantastic, isn't it?",
+            "Если в строке you и обычный глагол — don't you: You know the answer, don't you?",
+            "Если в строке одна вещь и обычный глагол — doesn't it: The market opens at eight, doesn't it?",
+            "Хвостик не спрашивает по-настоящему: он ждёт согласия, и отвечают тем же словом: Yes, it is или Yes, I do.",
           ],
         },
         {
-          id: "ne-hvostik-bez-otricaniya",
+          id: "hvostik-s-otricaniem",
           kind: "note",
-          tone: "mistake",
+          tone: "info",
           text:
-            "«It's fantastic, is it?» — так обычно не переспрашивают." +
-            "\n\nК утвердительной строке берут хвостик с отрицанием: isn't it?",
+            "Когда ждут согласия, к утвердительной строке берут хвостик с " +
+            "отрицанием.\n\nIt's fantastic — и хвостик isn't it?",
         },
         {
           id: "razgovor-s-peresprosom",
@@ -543,24 +580,22 @@ const module: Module = {
             "The market is awesome, isn't it?",
             "Yes, it is. But it is further from here.",
             "You know the way, don't you?",
-            "The dot is at the end of the address, isn't it?",
-            "You are mad about markets, aren't you? My hoodie is in the car.",
+            "Yes, I do. The bus stops at the market, doesn't it?",
           ],
           text:
-            "The market is awesome, isn't it?\nYes, it is. But it is further from here.\nYou know the way, don't you?\nThe dot is at the end of the address, isn't it?\nYou are mad about markets, aren't you? My hoodie is in the car.",
+            "The market is awesome, isn't it?\nYes, it is. But it is further from here.\nYou know the way, don't you?\nYes, I do. The bus stops at the market, doesn't it?",
           explain:
             "В первом переспросе строка держится на is, и хвостик берёт isn't " +
-            "it. Во втором стоит обычный глагол know, и хвостик другой — don't " +
-            "you. В последнем строка держится на are, и хвостик — aren't you.",
+            "it. Во втором стоят you и обычный глагол know — хвостик don't " +
+            "you. В третьем речь об автобусе, и хвостик doesn't it. Ответы " +
+            "повторяют то же слово: Yes, it is и Yes, I do.",
         },
         {
           id: "slovar-peresprosa",
           kind: "vocab",
           caption: "Слова урока",
           items: [
-            { term: "mad", translation: "без ума от чего-то", example: "You are mad about football, aren't you?", hint: "/mæd/" },
-            { term: "hoodie", translation: "толстовка с капюшоном", example: "My hoodie is in the car.", hint: "/ˈhʊdi/" },
-            { term: "dot", translation: "точка", example: "The dot is at the end of the address.", hint: "/dɒt/" },
+            { term: "mad about", translation: "без ума от чего-то", example: "Dana is mad about football.", hint: "/ˈmæd əbaʊt/" },
           ],
         },
 
@@ -585,12 +620,12 @@ const module: Module = {
           options: [
             { text: "isn't it?" },
             { text: "don't you?", correct: true },
-            { text: "aren't you?" },
+            { text: "doesn't it?" },
           ],
-          hint: "Смотри, на каком слове держится строка: на is, are или на обычном глаголе.",
+          hint: "Смотри, о ком строка: об it или о you.",
           why:
-            "don't you? В строке обычный глагол know, а isn't it и aren't you " +
-            "берут к is и are.",
+            "don't you? Строка о тебе, а isn't it и doesn't it берут к строке " +
+            "про вещь.",
         },
         {
           id: "z3-otmetit-vernye-hvostiki",
@@ -599,16 +634,16 @@ const module: Module = {
           parts: [
             { text: "It's fantastic, don't you?", selectable: true },
             { text: " · " },
-            { text: "You are mad about football, aren't you?", selectable: true, correct: true },
+            { text: "The market opens at eight, doesn't it?", selectable: true, correct: true },
             { text: " · " },
             { text: "You know the way, isn't it?", selectable: true },
             { text: " · " },
             { text: "It's awesome, isn't it?", selectable: true, correct: true },
           ],
-          hint: "Хвостик берут по тому слову, на котором держится строка.",
+          hint: "Хвостик берут по тому, о ком или о чём строка.",
           why:
-            "Вторая и четвёртая. В первой к it's взят хвостик для обычного " +
-            "глагола, в третьей наоборот.",
+            "Вторая и четвёртая. В первой к it's взят хвостик для строки о " +
+            "тебе, в третьей наоборот.",
         },
         {
           id: "z4-otvetit-na-perespros",
@@ -616,7 +651,7 @@ const module: Module = {
           prompt:
             "Тебя переспросили: It's awesome, isn't it? Согласись коротко.",
           answer: "Yes, it is.",
-          accept: ["Yes, it is"],
+          accept: ["Yes, it is", "Yes it is."],
           hint: "В коротком ответе повторяют то слово, на котором держится строка.",
           why:
             "Yes, it is. Слово awesome в таком ответе не звучит.",
@@ -662,8 +697,8 @@ const module: Module = {
           title: "What they said at the meeting",
           genre: "message",
           body: [
-            "Hi! Here is what they said at the meeting.",
-            "Alim said that he is busy in May and possibly comes in June.",
+            "Hi! I was at the meeting yesterday.",
+            "Alim said that he is busy in May and will possibly come in June.",
             "The guest-house told us that they have no rooms anymore.",
             "Dana said that the new advert is awesome, but the file is too big for the wifi.",
             "Everybody said that the market is further from the station than we thought.",
@@ -690,9 +725,9 @@ const module: Module = {
           kind: "short",
           prompt: "В каком месяце Алим, возможно, приедет? Ответь одним словом по-английски.",
           answer: "June",
-          accept: ["june", "in June"],
+          accept: ["june"],
           hint: "Про Алима сказано во второй строке.",
-          why: "Alim said that he is busy in May and possibly comes in June.",
+          why: "Alim said that he is busy in May and will possibly come in June.",
         },
         {
           id: "z2-kto-skazal-o-komnatah",
@@ -724,15 +759,16 @@ const module: Module = {
             "Он слишком большой: the file is too big for the wifi.",
         },
         {
-          id: "z4-komu-skazal-gostevoy-dom",
+          id: "z4-skolko-strok-s-told",
           about: "pismo-s-pereskazom",
           kind: "short",
           prompt:
-            "Кому сказал гостевой дом? Ответь одним словом по-английски.",
-          answer: "us",
-          accept: ["Us"],
-          hint: "После told сразу идёт тот, кому сказали.",
-          why: "The guest-house told us that they have no rooms anymore.",
+            "Сколько человек в письме пересказано через told? Ответь числом.",
+          answer: "1",
+          accept: ["one", "One", "один"],
+          hint: "Глагол told стоит не в каждой строке.",
+          why:
+            "Один: The guest-house told us. У остальных стоит said.",
         },
         {
           id: "z5-otmetit-verno-o-pisme",
@@ -852,7 +888,7 @@ const module: Module = {
           parts: [
             { text: "объявление готово", selectable: true, correct: true },
             { text: " · " },
-            { text: "говорящий ждёт согласия в конце", selectable: true, correct: true },
+            { text: "файл слишком большой", selectable: true, correct: true },
             { text: " · " },
             { text: "файл уже отправили", selectable: true },
             { text: " · " },
@@ -891,13 +927,13 @@ const module: Module = {
           zvuchat: [
             "Alim said that he is busy.",
             "Dana told me that the file is too big.",
-            "She said that she possibly comes in June.",
+            "She said that she will possibly come in June.",
           ],
           head: ["Что проверить", "Пример строки"],
           rows: [
             ["назван говорящий", "Alim said that he is busy."],
             ["после told стоит тот, кому сказали", "Dana told me that the file is too big."],
-            ["местоимение сдвинуто, а время оставлено", "She said that she possibly comes in June."],
+            ["местоимение сдвинуто, а время оставлено", "She said that she will possibly come in June."],
           ],
         },
         {
@@ -916,16 +952,18 @@ const module: Module = {
           kind: "example",
           caption: "Письмо Данияра",
           zvuchat: [
-            "Hi! Here is what they said.",
-            "Alim told me that he is busy in May.",
-            "Dana said that the new advert is awesome.",
-            "The guest-house told us that they have no rooms anymore.",
+            "Hi! Three people called me today.",
+            "My brother told me that he has my hoodie.",
+            "Dana said that she is mad about the new film.",
+            "The shop told us that the wifi is free for shoppers.",
           ],
           text:
-            "Hi! Here is what they said.\nAlim told me that he is busy in May.\nDana said that the new advert is awesome.\nThe guest-house told us that they have no rooms anymore.",
+            "Hi! Three people called me today.\nMy brother told me that he has my hoodie.\nDana said that she is mad about the new film.\nThe shop told us that the wifi is free for shoppers.",
           explain:
-            "В каждой строке назван говорящий. После told стоит тот, кому " +
-            "сказали, а после said сразу идёт that. Время нигде не сдвинуто.",
+            "В каждой строке пересказа назван говорящий. После told стоит тот, " +
+            "кому сказали, а после said сразу идёт that. Время нигде не " +
+            "сдвинуто. Первая строка говорит, зачем письмо, и пересказом не " +
+            "является.",
         },
 
         // ---- задания ----
@@ -945,15 +983,17 @@ const module: Module = {
             "что разговор был.",
         },
         {
-          id: "z2-dopisat-vvod",
+          id: "z2-dopisat-vvod-bez-adresata",
           kind: "gap",
-          prompt: "Дальше назван тот, кому сказали. Допиши глагол ввода.",
-          before: "Alim ",
-          after: " me that he is busy in May.",
-          answer: "told",
-          hint: "Глагол said этого слова за собой не берёт.",
+          prompt:
+            "Кому сказала Дана, ты не знаешь. Допиши глагол ввода.",
+          before: "Dana ",
+          after: " that she is mad about the new film.",
+          answer: "said",
+          hint: "Второй глагол ввода без того, кому сказали, не работает.",
           why:
-            "Alim told me that he is busy in May. Запись said me не годится.",
+            "Dana said that she is mad about the new film. Запись told that " +
+            "не собирается: между told и that нужен тот, кому сказали.",
         },
         {
           id: "z3-otmetit-vernye-pereskazy",
@@ -974,16 +1014,19 @@ const module: Module = {
             "третьей местоимение осталось от слов самого Алима.",
         },
         {
-          id: "z4-sobrat-stroku-pereskaza",
-          kind: "order",
+          id: "z4-perepisat-said-v-told",
+          kind: "short",
           prompt:
-            "Собери строку: гостевой дом сказал нам, что комнат больше нет.",
-          items: ["that they have no rooms anymore.", "The guest-house told", "us"],
-          answer: [1, 2, 0],
-          hint: "Тот, кому сказали, стоит сразу за глаголом ввода.",
+            "Строку Dana said that she has my hoodie перепиши так, чтобы стало видно: сказала она это тебе.",
+          answer: "Dana told me that she has my hoodie.",
+          accept: [
+            "Dana told me that she has my hoodie",
+            "Dana told me she has my hoodie.",
+          ],
+          hint: "Меняется глагол ввода, и за ним встаёт новое слово.",
           why:
-            "The guest-house told us that they have no rooms anymore. Время в " +
-            "пересказанных словах остаётся тем же.",
+            "Dana told me that she has my hoodie. Слово said того, кому " +
+            "сказали, за собой не берёт.",
         },
         {
           id: "z5-napisat-pereskaz",
@@ -992,15 +1035,15 @@ const module: Module = {
             "Напиши другу, что сказали трое. Начни строкой о том, зачем письмо. Дальше три пересказа: в одном возьми said, в другом told с тем, кому сказали, и везде сдвинь местоимение.",
           minWords: 18,
           sample:
-            "Hi! Here is what they said.\nAlim told me that he is busy in May.\nDana said that the new advert is awesome.\nThe guest-house told us that they have no rooms anymore.",
+            "Hi! Three people called me today.\nMy brother told me that he has my hoodie.\nDana said that she is mad about the new film.\nThe shop told us that the wifi is free for shoppers.",
           checklist: [
             "сказано, зачем письмо",
-            "в каждой строке назван говорящий",
+            "в каждой строке пересказа назван говорящий",
             "есть строка с said и строка с told",
             "после told стоит тот, кому сказали",
           ],
           hint:
-            "Бери обороты, которые знаешь: Here is what they said, … said that …, … told me that …",
+            "Бери обороты, которые знаешь: … said that …, … told me that …",
           why:
             "Пересказ работает, когда друг знает и кто сказал, и что именно.",
         },
@@ -1017,7 +1060,7 @@ const module: Module = {
 
       // ---- итог 1 ----
       {
-        id: "q-ispravit-sdvig-vremeni",
+        id: "q-pereskazat-bez-sdviga-vremeni",
         kind: "short",
         outcome: "пересказывать чужие слова: He said that he is busy",
         prompt:
@@ -1027,7 +1070,7 @@ const module: Module = {
           "Dana said that she is mad about football",
           "Dana said she is mad about football.",
         ],
-        hint: "Одно слово в строке ушло в прошлое без надобности.",
+        hint: "Дана говорила о себе, а ты говоришь о ней.",
         why:
           "Dana said that she is mad about football. Дана сказала «I am mad», " +
           "и время остаётся тем же.",
@@ -1089,13 +1132,13 @@ const module: Module = {
         kind: "short",
         outcome: "переспрашивать: It's fantastic, isn't it?",
         prompt:
-          "К строке You are mad about football допиши хвостик-переспрос. Ответь двумя словами по-английски.",
-        answer: "aren't you",
-        accept: ["Aren't you", "aren't you?"],
-        hint: "Строка держится на слове are.",
+          "К строке The market opens at eight допиши хвостик-переспрос. Ответь двумя словами по-английски.",
+        answer: "doesn't it",
+        accept: ["Doesn't it", "doesn't it?"],
+        hint: "Строка о рынке, и глагол в ней обычный.",
         why:
-          "aren't you? Хвостик isn't it взяли бы к it's, а don't you — к " +
-          "обычному глаголу.",
+          "doesn't it? Хвостик don't you взяли бы к строке о тебе, а isn't it " +
+          "— к строке со словом is.",
       },
       {
         id: "q-ispravit-hvostik",

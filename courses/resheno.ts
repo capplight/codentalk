@@ -598,6 +598,24 @@ export const resheno: Resheno[] = [
       "нечего.",
   },
   {
+    gde: "english-elementary → on-skazal-chto → chitaem-pereskaz-razgovora",
+    chto: "z5-otmetit-verno-o-pisme",
+    kto: "методист",
+    pochemu:
+      "«Ни одного блока» — ложная тревога: у задания стоит about на текст " +
+      "письма, а куски написаны по-русски, поэтому пересечения по английским " +
+      "словам нет. Все четыре куска сверены с текстом построчно.",
+  },
+  {
+    gde: "english-elementary → on-skazal-chto → pereprosit",
+    chto: "tri-hvostika",
+    kto: "методист",
+    pochemu:
+      "«Без звука вовсе» — так и надо: в ячейках таблицы стоят куски строки " +
+      "(«It's fantastic,» и «isn't it?»), а правило звука такие ячейки прямо " +
+      "исключает. Целиком переспросы звучат в примере ниже.",
+  },
+  {
     chto: "nikogo-ne-videl",
     pochemu:
       "Модуль 19: урок 2 просит узнать `nobody` и `nothing` раньше, чем урок 3 " +
