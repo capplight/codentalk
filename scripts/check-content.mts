@@ -1405,6 +1405,11 @@ function checkPodpisiNePovtoryayutsya(mod: Module, where: string): void {
  */
 const OSOBYE_FORMY: Record<string, string[]> = {
   steal: ["stole", "stolen"],
+  // Три глагола приписаны 29 августа 2026: их принесли карточки-связки урока
+  // слов части — `fall over`, `put on`, `go out`.
+  fall: ["fell", "fallen"],
+  put: ["put"],
+  go: ["went", "gone"],
   buy: ["bought"],
   bring: ["brought"],
   think: ["thought"],
@@ -1498,8 +1503,32 @@ function checkKartochkaRabotaet(mod: Module, where: string): void {
     const nizhnee = slovo.toLowerCase().replace(/[…?!]/g, "").replace(/\.\.\./g, "").trim();
     let rabotaet: boolean;
     if (/\s/.test(nizhnee)) {
-      // Составное имя ищем как есть: окончания к нему не приставляются.
-      rabotaet = tekst.includes(nizhnee);
+      // СОСТАВНАЯ ЗАПИСЬ СКЛОНЯЕТСЯ ТОЖЕ, И ДО 29 АВГУСТА 2026 ПРОВЕРКА ЭТОГО
+      // НЕ ЗНАЛА. Здесь стояло «окончания к составному имени не
+      // приставляются» — неверно сразу с двух сторон: у глагола с послелогом
+      // меняется первое слово (`fall over` → «fell over», `take part` →
+      // «takes part»), у составного существительного — последнее (`video
+      // game` → «video games»). Урок слов части взял таких записей три
+      // десятка, и четыре из них проверка объявила мёртвыми, работавшими в
+      // примере строкой ниже.
+      //
+      // Поэтому меняем первое и последнее слово, а середину оставляем как
+      // есть. Поблажка того же ряда, что и остальные пять: она может
+      // засчитать лишнее, но кричать на верное хуже.
+      const chasti = nizhnee.split(/\s+/);
+      const kusok = (s: string, menyat: boolean): string => {
+        const o = s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+        if (!menyat) return o;
+        const varianty = [`${o}(s|es|ing|ed|d)?`];
+        if (o.endsWith("e")) varianty.push(`${o.slice(0, -1)}(ing|ed)`);
+        if (OSOBYE_FORMY[s]) varianty.push(...OSOBYE_FORMY[s]);
+        return `(?:${varianty.join("|")})`;
+      };
+      const obrazec = chasti
+        .map((c, i) => kusok(c, i === 0 || i === chasti.length - 1))
+        .join("\\s+");
+      rabotaet =
+        tekst.includes(nizhnee) || new RegExp(`\\b${obrazec}\\b`).test(tekst);
     } else {
       const osnova = nizhnee.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
       // Окончания -er и -est стоят здесь ради модулей о сравнении: карточка

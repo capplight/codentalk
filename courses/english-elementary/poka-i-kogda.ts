@@ -83,10 +83,33 @@ import type { Module } from "@/lib/content/types";
  *   вдобавок требовала форм `read` и `fell`, которых курс не давал никогда. Всё
  *   нашёл методист; `read` и `fell` из модуля убраны.
  *
- * СЛОВАРЬ МОДУЛЯ. Тридцать девять карточек, из них тридцать восемь несут слово,
+ * СЛОВАРЬ МОДУЛЯ. Шестьдесят восемь карточек: тридцать восемь у самого модуля и
+ * тридцать у урока слов части, который стоит последним (о нём ниже). Новых для
+ * ступени шестьдесят три.
+ *
+ * У самого модуля тридцать девять карточек, из них тридцать восемь несут слово,
  * которого на прошлой ступени не было. Тридцать девятая — глагол `lose`
  * (Oxford 3000 ставит A1): он взят не ради новизны, а потому что без него нельзя
  * дать форму `lost`.
+ *
+ *    СЛОВА УРОКА ЧАСТИ. Тридцать записей, все из словника A2 Key: living room,
+ *    sitting room, dining room, washing machine, washing-up, wash up, tidy up,
+ *    lie down, sit down, fall over, look out, work out, take part, go out, get
+ *    dressed, put on, take off, try on, write down, get back, bring back, give
+ *    back, make-up, pencil case, text message, video game, social media,
+ *    working hours, a few, lots.
+ *
+ *    Oxford 3000 не знает почти ни одной из них, и это ожидаемо: список ведёт
+ *    отдельные слова, а здесь связки и составные имена. Помету A1 он ставит
+ *    двум — `lots` (от `lot`) и `a few` (от `few`), — и они взяты не ради
+ *    новизны, а потому что бытовая речь без них не строится.
+ *
+ *    ТРАНСКРИПЦИЯ СОСТАВНЫХ ЗАПИСЕЙ СОБРАНА ИЗ ЧАСТЕЙ. Словарь произношения
+ *    `ipa-en-uk` многословных записей не знает вовсе, и курс уже делал так же
+ *    в `swimming kit`, `mad about`, `What a shame!`. Ударение поставлено там,
+ *    где его слышно: у связки с послелогом на послелоге (`wash ˈup`), у
+ *    составного имени на первом слове (`ˈliving room`). Вопрос об этом стоит
+ *    перед владельцем и записан в записке.
  *
  *    Oxford 3000 помечает A2: accident, suddenly, hurt, lost, drop, missing,
  *    carefully, immediately, unfortunately, trouble, engine, petrol, wheel,
@@ -116,6 +139,24 @@ import type { Module } from "@/lib/content/types";
  * из модуля 6 — она и есть левая половина каждой строки этого модуля) и одно в
  * уроке 4 (окончание `-ed` из модуля 2, а оно нужно правой половине). Берутся
  * ссылкой (`vozvrat`), устройство — docs/format-uroka.md.
+ *
+ * ПОСЛЕДНИЙ УРОК — «СЛОВА ЧАСТИ», И ОН НОВОГО ВИДА. Решение владельца от 29
+ * августа 2026, общий проход по ступени.
+ *
+ * Повод: девять поздних модулей ступени держали от 11 до 20 карточек при норме
+ * в тридцать. Добрать норму в самих модулях было нечем — они грамматические, и
+ * слова о еде или спорте в модуле про `if` стали бы мёртвыми карточками, что
+ * запрещает уточнение владельца от 21 августа. Владелец выбрал другое: в конце
+ * каждой из четырёх частей ступени стоит урок слов одной темы.
+ *
+ * Здесь конец части первой, и тема её — дом и день: тридцать карточек, все из
+ * словника A2 Key. Двадцать одна из них — связка из двух слов (`wash up`, `put
+ * on`, `video game`), и это нарочно: бытовая речь на них и держится, а курс их
+ * до сих пор не брал вовсе.
+ *
+ * ПОРЯДОК УРОКОВ ЭТОТ УРОК НЕ ЛОМАЕТ. Правила, чтение, слушание и письмо стоят
+ * до него в обычном порядке; урок слов идёт после письма, потому что он не
+ * модуля, а части.
  */
 const module: Module = {
   slug: "poka-i-kogda",
@@ -233,6 +274,7 @@ const module: Module = {
     "понимать рассказ, где длительное действие прервано законченным",
     "слышать в записи, что шло и что случилось",
     "проверять рассказ: там ли стоит while",
+    "называть дом и дела по дому: wash up, tidy up, put on",
   ],
 
   lessons: [
@@ -1400,6 +1442,251 @@ const module: Module = {
         },
       ],
     },
+
+    // =====================================================================
+    {
+      slug: "slova-chasti-dom",
+      title: "Слова части: дом и день",
+      estimatedMinutes: 15,
+      outcome: "называть дом и дела по дому: wash up, tidy up, put on",
+
+      blocks: [
+        {
+          id: "zachem-slova-o-dome",
+          kind: "explain",
+          text: [
+            "Рассказ о дне держится не на одной грамматике, а на словах о вещах вокруг.",
+            "Здесь собраны слова о доме, о сборах и о делах, которые повторяются каждый день.",
+            "Многие из них состоят из двух слов: wash up, put on, go out.",
+            "Такую пару запоминают целиком, как одно слово: по частям её смысл не собрать.",
+          ],
+        },
+        {
+          id: "tri-komnaty",
+          kind: "table",
+          caption: "Комнаты",
+          zvuchat: ["living room", "sitting room", "dining room"],
+          head: ["Английский", "Перевод"],
+          rows: [
+            ["living room", "гостиная"],
+            ["sitting room", "гостиная, второе имя той же комнаты"],
+            ["dining room", "столовая"],
+          ],
+        },
+        {
+          id: "dva-imeni-odnoy-komnaty",
+          kind: "note",
+          tone: "info",
+          text:
+            "У гостиной два имени, и оба обычные: living room и sitting " +
+            "room.\n\nВыбирать между ними не надо — понятны оба.",
+        },
+        {
+          id: "slovar-doma",
+          kind: "vocab",
+          caption: "Слова урока",
+          items: [
+            { term: "living room", translation: "гостиная", example: "We were in the living room after dinner.", hint: "/ˈlɪvɪŋ ruːm/" },
+            { term: "sitting room", translation: "гостиная (второе имя)", example: "My brother was lying down in the sitting room.", hint: "/ˈsɪtɪŋ ruːm/" },
+            { term: "dining room", translation: "столовая", example: "I was tidying up the dining room.", hint: "/ˈdaɪnɪŋ ruːm/" },
+            { term: "washing machine", translation: "стиральная машина", example: "The washing machine was working all evening.", hint: "/ˈwɒʃɪŋ məʃiːn/" },
+            { term: "washing-up", translation: "мытьё посуды", example: "My sister was doing the washing-up.", hint: "/ˌwɒʃɪŋ ˈʌp/" },
+            { term: "wash up", translation: "мыть посуду", example: "I had to wash up too.", hint: "/wɒʃ ˈʌp/" },
+            { term: "tidy up", translation: "прибираться", example: "I was tidying up the dining room.", hint: "/ˌtaɪdi ˈʌp/" },
+          ],
+        },
+        {
+          id: "primer-vecher-doma",
+          kind: "example",
+          caption: "Вечер дома",
+          zvuchat: [
+            "We were in the living room after dinner.",
+            "My sister was doing the washing-up in the kitchen.",
+            "The washing machine was working all evening.",
+            "I was tidying up the dining room.",
+            "My brother was lying down in the sitting room.",
+            "Then he sat down at the table with us.",
+            "I had to wash up too.",
+          ],
+          text:
+            "We were in the living room after dinner.\nMy sister was doing the washing-up in the kitchen.\nThe washing machine was working all evening.\nI was tidying up the dining room.\nMy brother was lying down in the sitting room.\nThen he sat down at the table with us.\nI had to wash up too.",
+          explain:
+            "Семь строк об одном вечере. Дела по дому чаще всего называют парой " +
+            "слов: wash up, tidy up, lie down, sit down.",
+        },
+        {
+          id: "slovar-del-po-domu",
+          kind: "vocab",
+          caption: "Слова урока",
+          items: [
+            { term: "lie down", translation: "прилечь", example: "My brother was lying down in the sitting room.", hint: "/laɪ ˈdaʊn/" },
+            { term: "sit down", translation: "сесть", example: "Then he sat down at the table with us.", hint: "/sɪt ˈdaʊn/" },
+            { term: "fall over", translation: "упасть", example: "My friend fell over near the door.", hint: "/fɔːl ˈəʊvə/" },
+            { term: "look out", translation: "берегись, осторожно", example: "Look out! The floor is wet.", hint: "/lʊk ˈaʊt/" },
+            { term: "work out", translation: "заниматься спортом", example: "We work out every morning.", hint: "/wɜːk ˈaʊt/" },
+            { term: "take part", translation: "участвовать", example: "Our class takes part in the competition.", hint: "/teɪk ˈpɑːt/" },
+            { term: "go out", translation: "выйти из дома", example: "After that I went out.", hint: "/gəʊ ˈaʊt/" },
+          ],
+        },
+        {
+          id: "primer-utro-pered-vyhodom",
+          kind: "example",
+          caption: "Утро перед выходом",
+          zvuchat: [
+            "I got dressed and put on my coat.",
+            "Then I took off my cap and tried on another one.",
+            "I wrote down the address in my notebook.",
+            "After that I went out.",
+            "I got back at six.",
+          ],
+          text:
+            "I got dressed and put on my coat.\nThen I took off my cap and tried on another one.\nI wrote down the address in my notebook.\nAfter that I went out.\nI got back at six.",
+          explain:
+            "Пять строк по порядку: сборы, выход и возвращение. У каждой пары " +
+            "второе слово короткое — on, off, down, out, back.",
+        },
+        {
+          id: "slovar-sborov",
+          kind: "vocab",
+          caption: "Слова урока",
+          items: [
+            { term: "get dressed", translation: "одеться", example: "I got dressed and put on my coat.", hint: "/get ˈdrest/" },
+            { term: "put on", translation: "надеть", example: "I put on my coat.", hint: "/pʊt ˈɒn/" },
+            { term: "take off", translation: "снять (одежду)", example: "Then I took off my cap.", hint: "/teɪk ˈɒf/" },
+            { term: "try on", translation: "примерить", example: "I tried on another one.", hint: "/traɪ ˈɒn/" },
+            { term: "write down", translation: "записать", example: "I wrote down the address in my notebook.", hint: "/raɪt ˈdaʊn/" },
+            { term: "get back", translation: "вернуться", example: "I got back at six.", hint: "/get ˈbæk/" },
+            { term: "make-up", translation: "косметика", example: "And give back her make-up too.", hint: "/ˈmeɪk ʌp/" },
+          ],
+        },
+        {
+          id: "primer-dnyom",
+          kind: "example",
+          caption: "Днём",
+          zvuchat: [
+            "Look out! The floor is wet.",
+            "My friend fell over near the door.",
+            "We work out every morning.",
+            "Our class takes part in the competition.",
+            "Please bring back my pencil case.",
+            "And give back her make-up too.",
+            "I wrote her a text message about it.",
+          ],
+          text:
+            "Look out! The floor is wet.\nMy friend fell over near the door.\nWe work out every morning.\nOur class takes part in the competition.\nPlease bring back my pencil case.\nAnd give back her make-up too.\nI wrote her a text message about it.",
+          explain:
+            "Семь строк об одном дне. Пары bring back и give back отличаются " +
+            "первым словом: одна о том, чтобы принести, другая — чтобы отдать.",
+        },
+        {
+          id: "den-i-rabota",
+          kind: "table",
+          caption: "День и работа",
+          zvuchat: [
+            "Our working hours are long.",
+            "She reads social media in the evening.",
+            "A few friends came.",
+            "We took lots of photos.",
+            "They played video games.",
+          ],
+          head: ["Английский", "Перевод"],
+          rows: [
+            ["Our working hours are long.", "У нас длинный рабочий день."],
+            ["She reads social media in the evening.", "Вечером она читает социальные сети."],
+            ["A few friends came.", "Пришли несколько друзей."],
+            ["We took lots of photos.", "Мы сделали много фотографий."],
+            ["They played video games.", "Они играли в компьютерные игры."],
+          ],
+        },
+        {
+          id: "slovar-dnya-i-veshchey",
+          kind: "vocab",
+          caption: "Слова урока",
+          items: [
+            { term: "bring back", translation: "принести обратно", example: "Please bring back my pencil case.", hint: "/brɪŋ ˈbæk/" },
+            { term: "give back", translation: "отдать, вернуть чужое", example: "And give back her make-up too.", hint: "/gɪv ˈbæk/" },
+            { term: "pencil case", translation: "пенал", example: "Please bring back my pencil case.", hint: "/ˈpensl keɪs/" },
+            { term: "text message", translation: "сообщение с телефона", example: "I wrote her a text message about it.", hint: "/ˈtekst mesɪdʒ/" },
+            { term: "video game", translation: "компьютерная игра", example: "A few friends play video games here.", hint: "/ˈvɪdiəʊ geɪm/" },
+            { term: "social media", translation: "социальные сети", example: "She reads social media in the evening.", hint: "/ˈsəʊʃl ˈmiːdiə/" },
+            { term: "working hours", translation: "рабочие часы", example: "Our working hours are long.", hint: "/ˈwɜːkɪŋ aʊəz/" },
+            { term: "a few", translation: "несколько", example: "A few friends came.", hint: "/ə ˈfjuː/" },
+            { term: "lots", translation: "много", example: "We took lots of photos.", hint: "/lɒts/" },
+          ],
+        },
+
+        // ---- задания ----
+        {
+          id: "z1-vybrat-o-posude",
+          kind: "choice",
+          prompt: "Какая пара слов говорит о мытье посуды?",
+          options: [
+            { text: "work out" },
+            { text: "wash up", correct: true },
+            { text: "look out" },
+          ],
+          hint: "Первое слово в нужной паре значит «мыть».",
+          why:
+            "wash up. Пара work out о занятиях спортом, а look out — окрик об " +
+            "опасности.",
+        },
+        {
+          id: "z2-dopisat-put-on",
+          kind: "gap",
+          prompt: "Утром надевают пальто. Допиши первое слово пары.",
+          before: "I ",
+          after: " on my coat.",
+          answer: "put",
+          hint: "Это слово значит «класть, помещать», а с on выходит «надеть».",
+          why: "I put on my coat. Вторым словом пары стоит on.",
+        },
+        {
+          id: "z3-soedinit-pary",
+          kind: "match",
+          prompt: "Соедини пару слов с её переводом.",
+          left: ["tidy up", "get back", "try on", "give back"],
+          right: ["вернуться", "примерить", "прибираться", "отдать чужое"],
+          answer: [2, 0, 1, 3],
+          hint: "Смотри на первое слово пары: tidy — «опрятный», get — «получать».",
+          why:
+            "tidy up — прибираться, get back — вернуться, try on — примерить, " +
+            "give back — отдать чужое.",
+        },
+        {
+          id: "z4-napisat-zapisal",
+          kind: "short",
+          prompt: "Скажи по-английски: Данияр записал адрес в блокнот. Возьми пару со словом down.",
+          answer: "Daniyar wrote down the address in his notebook.",
+          accept: [
+            "Daniyar wrote down the address in his notebook",
+            "Daniyar wrote down the address.",
+            "Daniyar wrote down the address",
+          ],
+          hint: "Первое слово пары значит «писать».",
+          why:
+            "Daniyar wrote down the address in his notebook. Пара write down " +
+            "значит не просто «писать», а «записать, чтобы не забыть».",
+        },
+        {
+          id: "z5-otmetit-o-dome",
+          kind: "hottext",
+          prompt: "Отметь то, что говорят о доме, а не о человеке.",
+          parts: [
+            { text: "washing machine", selectable: true, correct: true },
+            { text: " · " },
+            { text: "get dressed", selectable: true },
+            { text: " · " },
+            { text: "dining room", selectable: true, correct: true },
+            { text: " · " },
+            { text: "work out", selectable: true },
+          ],
+          hint: "Две записи называют вещь или комнату, а две — дело человека.",
+          why:
+            "Верны washing machine и dining room: это стиральная машина и " +
+            "столовая. Пары get dressed и work out говорят о человеке.",
+        },
+      ],
+    },
   ],
 
   quiz: {
@@ -1630,6 +1917,33 @@ const module: Module = {
         why:
           "После while должно стоять длительное действие. Что идёт перед союзом, для " +
           "этой проверки значения не имеет.",
+      },
+
+      // ---- итог 9 ----
+      {
+        id: "q-nazvat-paru-o-uborke",
+        kind: "short",
+        outcome: "называть дом и дела по дому: wash up, tidy up, put on",
+        prompt: "Скажи по-английски одной парой слов: прибираться. Первое слово значит «опрятный».",
+        answer: "tidy up",
+        accept: ["tidy up.", "to tidy up"],
+        hint: "Вторым словом пары стоит up.",
+        why: "tidy up. Пара wash up значит другое — мыть посуду.",
+      },
+      {
+        id: "q-chto-znachit-give-back",
+        kind: "choice",
+        outcome: "называть дом и дела по дому: wash up, tidy up, put on",
+        prompt: "Что значит give back?",
+        options: [
+          { text: "принести обратно" },
+          { text: "отдать чужое", correct: true },
+          { text: "вернуться самому" },
+        ],
+        hint: "Первое слово пары значит «давать».",
+        why:
+          "Отдать чужое. Принести обратно — bring back, а вернуться самому — get " +
+          "back.",
       },
     ],
   },
