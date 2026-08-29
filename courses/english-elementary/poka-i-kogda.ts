@@ -633,7 +633,7 @@ const module: Module = {
           kind: "vocab",
           caption: "Слова урока",
           items: [
-            { term: "carefully", translation: "осторожно", example: "She was driving carefully.", hint: "/ˈkeəfəli/" },
+            { term: "carefully", translation: "осторожно, внимательно", example: "She was driving carefully.", hint: "/ˈkeəfəli/" },
             { term: "immediately", translation: "сразу же", example: "Immediately I looked for the receipt.", hint: "/ɪˈmiːdiətli/" },
             { term: "unfortunately", translation: "к сожалению", example: "Unfortunately, I did not open the door.", hint: "/ʌnˈfɔːtʃənətli/" },
             { term: "receipt", translation: "чек", example: "Immediately I looked for the receipt.", hint: "/rɪˈsiːt/" },
@@ -939,7 +939,7 @@ const module: Module = {
           kind: "vocab",
           caption: "Слова урока",
           items: [
-            { term: "lock", translation: "замок", example: "Suddenly the lock opened.", hint: "/lɒk/" },
+            { term: "lock", translation: "замо́к (на двери)", example: "Suddenly the lock opened.", hint: "/lɒk/" },
             { term: "battery", translation: "батарейка", example: "The battery in my phone was new.", hint: "/ˈbætəri/" },
             { term: "glove", translation: "перчатка", example: "I dropped my glove near the lock.", hint: "/glʌv/" },
             { term: "scarf", translation: "шарф", example: "My scarf was in the bag.", hint: "/skɑːf/" },

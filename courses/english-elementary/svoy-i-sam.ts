@@ -346,7 +346,7 @@ const module: Module = {
           caption: "Слова урока",
           items: [
             { term: "mine", translation: "мой, моя, моё", example: "No, it isn't mine.", hint: "/maɪn/" },
-            { term: "stuff", translation: "вещи, барахло", example: "All my stuff is in this bag.", hint: "/stʌf/" },
+            { term: "stuff", translation: "вещи (разговорное слово)", example: "All my stuff is in this bag.", hint: "/stʌf/" },
             { term: "skateboard", translation: "скейтборд", example: "This is my skateboard.", hint: "/ˈskeɪtbɔːd/" },
           ],
         },

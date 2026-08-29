@@ -471,7 +471,7 @@ const module: Module = {
           items: [
             { term: "sink", translation: "раковина", example: "I haven't washed the sink yet.", hint: "/sɪŋk/" },
             { term: "pharmacy", translation: "аптека", example: "I have already been to the pharmacy.", hint: "/ˈfɑːməsi/" },
-            { term: "block", translation: "многоквартирный дом", example: "The pharmacy is in our block.", hint: "/blɒk/" },
+            { term: "block", translation: "дом с квартирами; квартал", example: "The pharmacy is in our block.", hint: "/blɒk/" },
             { term: "lunchtime", translation: "обеденное время", example: "Please do the rest before lunchtime.", hint: "/ˈlʌntʃtaɪm/" },
           ],
         },

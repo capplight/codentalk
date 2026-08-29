@@ -118,7 +118,7 @@ import type { Module } from "@/lib/content/types";
  * меньше пятнадцати новых для ступени.
  *
  * Слова собраны вокруг случая модуля: мера видна там, где вещь меряют — в
- * магазине и дома. Отсюда `fit`, `suit`, `tie`, `trainer`, `furniture`,
+ * магазине и дома. Отсюда `fit`, `suit`, `tie`, `trainers`, `furniture`,
  * `round`, `deep`. Впечатление меряют тоже, отсюда `strange`, `scary`,
  * `serious`, `almost`, `impossible`.
  *
@@ -556,7 +556,7 @@ const module: Module = {
           items: [
             { term: "suit", translation: "костюм", example: "The suit was too expensive.", hint: "/suːt/" },
             { term: "tie", translation: "галстук", example: "I bought a tie.", hint: "/taɪ/" },
-            { term: "trainer", translation: "кроссовок", example: "The trainers are too big.", hint: "/ˈtreɪnə/" },
+            { term: "trainers", translation: "кроссовки", example: "The trainers are too big.", hint: "/ˈtreɪnəz/" },
             { term: "fit", translation: "подходить по размеру", example: "Does the tie fit?", hint: "/fɪt/" },
             { term: "guy", translation: "парень", example: "The guy in the shop helped me.", hint: "/gaɪ/" },
             { term: "serious", translation: "серьёзный", example: "The guy in the shop is very serious.", hint: "/ˈsɪəriəs/" },

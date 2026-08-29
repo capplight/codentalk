@@ -464,7 +464,7 @@ const module: Module = {
           kind: "vocab",
           caption: "Слова урока",
           items: [
-            { term: "bat", translation: "бита", example: "I couldn't hold the bat.", hint: "/bæt/" },
+            { term: "bat", translation: "бита (в игре)", example: "I couldn't hold the bat.", hint: "/bæt/" },
             { term: "fail", translation: "не сдать, провалить", example: "I failed my first test at school.", hint: "/feɪl/" },
             { term: "upset", translation: "расстроенный", example: "I was upset all day.", hint: "/ʌpˈset/" },
             { term: "dinosaur", translation: "динозавр", example: "I could name every dinosaur.", hint: "/ˈdaɪnəsɔː/" },

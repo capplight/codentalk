@@ -97,9 +97,17 @@ import type { Module } from "@/lib/content/types";
  * весь урок 2. Карточки добавлены, и это не добор нормы: без них модуль стоял
  * на словах, которых ученик не получал.
  *
- * Туда же `carefully`: слово стоит в заголовке урока 2, а карточки не имело.
- * Модуль 7 этой ступени даёт его со значением «осторожно» (о вождении), здесь
- * оно работает как «внимательно, аккуратно» — карточка называет оба.
+ * А `carefully` КАРТОЧКИ ЗДЕСЬ НЕ ПОЛУЧАЕТ, И ЭТО ИСПРАВЛЕНИЕ ОТ 29 АВГУСТА
+ * 2026. Слово стоит в заголовке урока 2, и карточку ему завели — а модуль 7
+ * этой ступени уже давал его карточкой. Шапка писала, что здешняя карточка
+ * «называет оба значения», но в ней стояло одно: «внимательно, аккуратно», без
+ * «осторожно». Вышло две карточки одного слова в одном значении, и вторая
+ * говорила ученику, что слово новое.
+ *
+ * Проверка «слово введено карточкой дважды» этого не видела и увидеть не могла:
+ * она сравнивает и перевод, а переводы разошлись словами. Найдено общим
+ * проходом — сличением всех 360 карточек ступени. Теперь оба значения названы
+ * там, где слово встречается впервые, — в модуле 7.
  *
  * ЗНАЧЕНИЯ КАРТОЧЕК СВЕРЕНЫ СО СЛОВНИКОМ — урок модуля 16, где четыре карточки
  * стояли в значениях, которые словник ограничивает другими. Здесь: `rock` —
@@ -472,7 +480,6 @@ const module: Module = {
             { term: "jump", translation: "прыгать", example: "I jump happily.", hint: "/dʒʌmp/" },
             { term: "hit", translation: "ударять, бить", example: "Then hit it carefully.", hint: "/hɪt/" },
             { term: "easy", translation: "лёгкий", example: "The ball is easy for him.", hint: "/ˈiːzi/" },
-            { term: "carefully", translation: "внимательно, аккуратно", example: "Then hit it carefully.", hint: "/ˈkeəfəli/" },
             { term: "happily", translation: "радостно", example: "She jumps happily.", hint: "/ˈhæpɪli/" },
           ],
         },
@@ -1070,7 +1077,7 @@ const module: Module = {
           kind: "vocab",
           caption: "Слова урока",
           items: [
-            { term: "mark", translation: "оценка", example: "The teacher gave every player a good mark.", hint: "/mɑːk/" },
+            { term: "mark", translation: "оценка за работу (то же, что grade)", example: "The teacher gave every player a good mark.", hint: "/mɑːk/" },
             { term: "national", translation: "государственный", example: "The national team came to watch it.", hint: "/ˈnæʃnəl/" },
             { term: "run", translation: "бежать", example: "Our runners ran fast.", hint: "/rʌn/" },
           ],
@@ -1193,7 +1200,7 @@ const module: Module = {
           kind: "vocab",
           caption: "Слова урока",
           items: [
-            { term: "experiment", translation: "опыт", example: "How was the experiment?", hint: "/ɪkˈsperɪmənt/" },
+            { term: "experiment", translation: "опыт на уроке химии, эксперимент", example: "How was the experiment?", hint: "/ɪkˈsperɪmənt/" },
             { term: "discover", translation: "узнавать, открывать", example: "So you discovered it?", hint: "/dɪˈskʌvə/" },
             { term: "invent", translation: "изобретать", example: "People invent things slowly.", hint: "/ɪnˈvent/" },
             { term: "invention", translation: "изобретение", example: "Every invention starts like this.", hint: "/ɪnˈvenʃn/" },

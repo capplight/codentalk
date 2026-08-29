@@ -662,7 +662,7 @@ const module: Module = {
             { term: "skating", translation: "катание на коньках", example: "I'm going to be at the skating club on Friday.", hint: "/ˈskeɪtɪŋ/" },
             { term: "climbing", translation: "лазание по скалам", example: "The climbing club is going to meet in spring.", hint: "/ˈklaɪmɪŋ/" },
             { term: "equipment", translation: "снаряжение", example: "My sister is going to buy skiing equipment.", hint: "/ɪˈkwɪpmənt/" },
-            { term: "spare", translation: "свободный", example: "We're going to have a lot of spare time in January.", hint: "/speə/" },
+            { term: "spare", translation: "свободный (о времени), запасной", example: "We're going to have a lot of spare time in January.", hint: "/speə/" },
           ],
         },
         {

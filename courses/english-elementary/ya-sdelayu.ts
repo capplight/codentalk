@@ -482,7 +482,7 @@ const module: Module = {
             { term: "promise", translation: "обещать", example: "I promise I will reply tomorrow.", hint: "/ˈprɒmɪs/" },
             { term: "reply", translation: "ответить", example: "I promise I will reply tomorrow.", hint: "/rɪˈplaɪ/" },
             { term: "ring", translation: "позвонить", example: "I'll ring you in the evening.", hint: "/rɪŋ/" },
-            { term: "collect", translation: "забрать", example: "My sister will collect the tickets.", hint: "/kəˈlekt/" },
+            { term: "collect", translation: "забрать заказанное; собирать коллекцию", example: "My sister will collect the tickets.", hint: "/kəˈlekt/" },
             { term: "arrange", translation: "устроить, договориться", example: "We'll arrange it before Friday.", hint: "/əˈreɪndʒ/" },
           ],
         },

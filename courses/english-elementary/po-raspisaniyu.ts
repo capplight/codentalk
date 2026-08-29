@@ -904,7 +904,7 @@ const module: Module = {
             { term: "delay", translation: "задержка", example: "The journey continues when the delay finishes.", hint: "/dɪˈleɪ/" },
             { term: "continue", translation: "продолжаться", example: "The journey continues when the delay finishes.", hint: "/kənˈtɪnjuː/" },
             { term: "international", translation: "международный", example: "We'll leave when the international flight arrives.", hint: "/ˌɪntəˈnæʃənəl/" },
-            { term: "change", translation: "пересадка", example: "The change at the port takes an hour.", hint: "/tʃeɪndʒ/" },
+            { term: "change", translation: "пересадка с одного транспорта на другой", example: "The change at the port takes an hour.", hint: "/tʃeɪndʒ/" },
           ],
         },
 

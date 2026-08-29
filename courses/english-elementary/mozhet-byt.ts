@@ -912,7 +912,7 @@ const module: Module = {
             { term: "silver", translation: "серебряный", example: "It may be silver.", hint: "/ˈsɪlvə/" },
             { term: "metal", translation: "металлический", example: "I'm sure it's a metal bracelet.", hint: "/ˈmetl/" },
             { term: "plastic", translation: "пластмассовый", example: "Maybe it's plastic.", hint: "/ˈplɑːstɪk/" },
-            { term: "cover", translation: "чехол", example: "The cover may be plastic.", hint: "/ˈkʌvə/" },
+            { term: "cover", translation: "чехол, обложка", example: "The cover may be plastic.", hint: "/ˈkʌvə/" },
             { term: "bracelet", translation: "браслет", example: "I'm sure it's a metal bracelet.", hint: "/ˈbreɪslət/" },
             { term: "thin", translation: "тонкий", example: "Maybe it's a thin silver bracelet.", hint: "/θɪn/" },
             { term: "soft", translation: "мягкий", example: "Inside there is a soft plastic cover.", hint: "/sɒft/" },

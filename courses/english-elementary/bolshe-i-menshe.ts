@@ -421,7 +421,7 @@ const module: Module = {
             { term: "polite", translation: "вежливый", example: "The people are more polite.", hint: "/pəˈlaɪt/" },
             { term: "clever", translation: "умный", example: "My sister is cleverer than me.", hint: "/ˈklevə/" },
             { term: "engineer", translation: "инженер", example: "An engineer earns more than a painter.", hint: "/ˌendʒɪˈnɪə/" },
-            { term: "experience", translation: "опыт", example: "A pilot needs more experience.", hint: "/ɪkˈspɪəriəns/" },
+            { term: "experience", translation: "опыт, накопленный работой", example: "A pilot needs more experience.", hint: "/ɪkˈspɪəriəns/" },
           ],
         },
 

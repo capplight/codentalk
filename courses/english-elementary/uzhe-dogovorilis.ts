@@ -262,6 +262,11 @@ const module: Module = {
         "Слов cafeteria, pity, pardon, directions, classmate, textbook, " +
         "headteacher, blackboard, schoolchild, instructions, anybody Oxford 3000 не содержит " +
         "вовсе, а словник A2 Key требует. " +
+        "СЛОВО `pity` СТОИТ КАРТОЧКОЙ-СВЯЗКОЙ `What a pity!` — так его даёт и " +
+        "словник: «pity (n) • What a pity!». Порознь оно значит «жалость», и " +
+        "карточка научила бы ученика не тому значению, в котором он слово " +
+        "встретит. Тот же разбор, что у `What a shame!` в модуле 31; поправлено " +
+        "общим проходом 29 августа 2026. " +
         "Слова interview, class, geography, break и telephone Oxford 3000 помечает A1, и новыми " +
         "они не считаются; взяты потому, что курс не давал их карточкой ни разу " +
         "нигде. " +
@@ -287,7 +292,8 @@ const module: Module = {
         "записи приведены к условностям курса (r вместо ɹ, g вместо ɡ, e вместо ɛ, " +
         "ə вместо ɐ, слоговой согласный без ə): available /əˈveɪləbl/, middle " +
         "/ˈmɪdl/, term /tɜːm/, schedule /ˈʃedjuːl/, except /ɪkˈsept/, especially " +
-        "/ɪˈspeʃəli/, loud /laʊd/, cafeteria /ˌkæfɪˈtɪəriə/, pity /ˈpɪti/, pardon " +
+        "/ɪˈspeʃəli/, loud /laʊd/, cafeteria /ˌkæfɪˈtɪəriə/, What a pity! " +
+        "/wɒt ə ˈpɪti/, pardon " +
         "/ˈpɑːdn/, directions /daɪˈrekʃənz/, exactly /ɪgˈzæktli/, physics /ˈfɪzɪks/, " +
         "chemistry /ˈkemɪstri/, biology /baɪˈɒlədʒi/, classmate /ˈklɑːsmeɪt/, " +
         "textbook /ˈtekstbʊk/, whose /huːz/, site /saɪt/, grade /greɪd/, geography " +
@@ -549,10 +555,10 @@ const module: Module = {
             "We aren't meeting in the cafeteria: it's loud there.",
             "I'm free every day except Tuesday.",
             "I'm busy this week, especially on Monday.",
-            "What a pity — Dana isn't coming on Saturday.",
+            "What a pity! Dana isn't coming on Saturday.",
           ],
           text:
-            "I'm not working on Friday.\nWe aren't meeting in the cafeteria: it's loud there.\nI'm free every day except Tuesday.\nI'm busy this week, especially on Monday.\nWhat a pity — Dana isn't coming on Saturday.",
+            "I'm not working on Friday.\nWe aren't meeting in the cafeteria: it's loud there.\nI'm free every day except Tuesday.\nI'm busy this week, especially on Monday.\nWhat a pity! Dana isn't coming on Saturday.",
           explain:
             "Пять строк. В трёх из них стоит отрицание, и слово not везде занимает " +
             "место перед глаголом. Третья и четвёртая строки отрицания не содержат: " +
@@ -564,7 +570,7 @@ const module: Module = {
           caption: "Слова урока",
           items: [
             { term: "except", translation: "кроме", example: "I'm free every day except Tuesday.", hint: "/ɪkˈsept/" },
-            { term: "pity", translation: "жалость, досада", example: "What a pity — Dana isn't coming on Saturday.", hint: "/ˈpɪti/" },
+            { term: "What a pity!", translation: "Какая жалость!", example: "What a pity! Dana isn't coming on Saturday.", hint: "/wɒt ə ˈpɪti/" },
             { term: "exactly", translation: "ровно, точно", example: "We're meeting at exactly five.", hint: "/ɪgˈzæktli/" },
             { term: "especially", translation: "особенно", example: "I'm busy this week, especially on Monday.", hint: "/ɪˈspeʃəli/" },
           ],
@@ -1040,7 +1046,7 @@ const module: Module = {
             { term: "geography", translation: "география", example: "I'm going to read about biology and geography.", hint: "/dʒɪˈɒgrəfi/" },
             { term: "headteacher", translation: "директор школы", example: "The headteacher is coming on Tuesday.", hint: "/ˈhedtiːtʃə/" },
             { term: "anybody", translation: "кто-нибудь", example: "I'm not meeting anybody.", hint: "/ˈenibɒdi/" },
-            { term: "telephone", translation: "звонить по телефону", example: "I'm not telephoning her yet.", hint: "/ˈtelɪfəʊn/" },
+            { term: "telephone", translation: "звонить по телефону; телефон", example: "I'm not telephoning her yet.", hint: "/ˈtelɪfəʊn/" },
             { term: "yet", translation: "пока ещё", example: "I'm not telephoning her yet.", hint: "/jet/" },
           ],
         },
