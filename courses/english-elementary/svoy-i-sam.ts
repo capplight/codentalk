@@ -99,7 +99,22 @@ import type { Module } from "@/lib/content/types";
  * - `itself` — все его графы у источника B2, и в словник оно входит, но ряду
  *   таблицы ничего не добавляет: вещь редко делает что-то с собой.
  *
- * СЛОВАРЬ МОДУЛЯ. Тридцать карточек, из них новых для ступени двадцать девять.
+ * СЛОВАРЬ МОДУЛЯ. Тридцать карточек у самого модуля, из них новых для ступени
+ * двадцать девять.
+ *
+ * ПОСЛЕДНИЙ УРОК — «СЛОВА ЧАСТИ», И ОН НЕ МОДУЛЯ, А ЧАСТИ ТРЕТЬЕЙ. Решение
+ * владельца от 29 августа 2026, разбор — в модуле 7.
+ *
+ * Тема части третьей — еда, спорт и живое вокруг: тридцать записей из словника
+ * A2 Key. Тема выбрана по самой части: её модули учат сравнивать, а сравнивают
+ * чаще всего именно еду, занятия и зверей. Поэтому почти каждая строка примеров
+ * здесь идёт со сравнением — оно и есть предмет части.
+ *
+ * `wind` В УРОК НЕ ВЗЯТО, ХОТЯ ЛЕЖИТ В ЗАПАСЕ: оба наших источника читают его
+ * как глагол «наматывать», а не как «ветер». Такие слова решает владелец как
+ * преподаватель — то же решение, что было принято в модуле 13.
+ *
+ * ТРАНСКРИПЦИЯ СОСТАВНЫХ ЗАПИСЕЙ СОБРАНА ИЗ ЧАСТЕЙ — как в модулях 7 и 13.
  *
  * `yours` и `hers` КАРТОЧЕК ЗДЕСЬ НЕ ПОЛУЧАЮТ, И ЭТО НАРОЧНО: их уже завёл
  * модуль 15 «Больше и меньше» в сравнении — «My flat is smaller than yours».
@@ -138,6 +153,7 @@ const module: Module = {
     "находить в объявлении о находках, что нашли и где забрать",
     "слышать в разговоре, чья вещь",
     "проверять объявление о находке по четырём строкам: вещь и день, приметы, чьё оно, где забрать",
+    "называть еду, занятия спортом и живое вокруг: main course, ice skating, wildlife",
   ],
 
   sources: [
@@ -1537,6 +1553,265 @@ const module: Module = {
         },
       ],
     },
+
+    // =====================================================================
+    {
+      slug: "slova-chasti-eda-i-sport",
+      title: "Слова части: еда, спорт и природа",
+      estimatedMinutes: 15,
+      outcome: "называть еду, занятия спортом и живое вокруг: main course, ice skating, wildlife",
+
+      blocks: [
+        {
+          id: "zachem-slova-o-ede-i-sporte",
+          kind: "explain",
+          text: [
+            "Разговор о жизни быстро сворачивает на три вещи: что ели, чем занимались и что видели.",
+            "Здесь собраны слова для всех трёх.",
+            "Многие из них тоже из двух слов: ice cream, table tennis, polar bear.",
+            "Первое слово уточняет второе: bear — медведь, polar bear — белый медведь.",
+          ],
+        },
+        {
+          id: "chto-na-stole",
+          kind: "table",
+          caption: "Что на столе",
+          zvuchat: ["ice cream", "fast food", "main course", "mineral water", "barbecue"],
+          head: ["Английский", "Перевод"],
+          rows: [
+            ["ice cream", "мороженое"],
+            ["fast food", "быстрая еда"],
+            ["main course", "основное блюдо"],
+            ["mineral water", "минеральная вода"],
+            ["barbecue", "жарка мяса на огне"],
+          ],
+        },
+        {
+          id: "slovar-edy-chasti",
+          kind: "vocab",
+          caption: "Слова урока",
+          items: [
+            { term: "ice cream", translation: "мороженое", example: "The ice cream was better than the cake.", hint: "/ˌaɪs ˈkriːm/" },
+            { term: "fast food", translation: "быстрая еда", example: "Fast food is cheaper here.", hint: "/ˌfɑːst ˈfuːd/" },
+            { term: "main course", translation: "основное блюдо", example: "The main course was the best part.", hint: "/ˌmeɪn ˈkɔːs/" },
+            { term: "mineral water", translation: "минеральная вода", example: "A bottle of mineral water is enough.", hint: "/ˈmɪnərəl wɔːtə/" },
+            { term: "barbecue", translation: "жарка мяса на огне", example: "Our barbecue was longer than usual.", hint: "/ˈbɑːbɪkjuː/" },
+            { term: "stomach ache", translation: "боль в животе", example: "I had a stomach ache after the fast food.", hint: "/ˈstʌmək eɪk/" },
+            { term: "gas", translation: "газ", example: "The gas cooker is older than ours.", hint: "/gæs/" },
+          ],
+        },
+        {
+          id: "primer-za-stolom",
+          kind: "example",
+          caption: "За столом",
+          zvuchat: [
+            "The main course was the best part.",
+            "The ice cream was better than the cake.",
+            "A bottle of mineral water is enough.",
+            "Fast food is cheaper here.",
+            "Our barbecue was longer than usual.",
+            "I had a stomach ache after the fast food.",
+            "The gas cooker is older than ours.",
+          ],
+          text:
+            "The main course was the best part.\nThe ice cream was better than the cake.\nA bottle of mineral water is enough.\nFast food is cheaper here.\nOur barbecue was longer than usual.\nI had a stomach ache after the fast food.\nThe gas cooker is older than ours.",
+          explain:
+            "Семь строк об одном обеде. Почти в каждой стоит сравнение — так о еде " +
+            "и говорят: что вкуснее, что дешевле, что дольше.",
+        },
+        {
+          id: "slovar-sporta-chasti",
+          kind: "vocab",
+          caption: "Слова урока",
+          items: [
+            { term: "table tennis", translation: "настольный теннис", example: "Table tennis is easier than tennis.", hint: "/ˈteɪbl tenɪs/" },
+            { term: "ice skating", translation: "катание на коньках", example: "Ice skating is harder in the morning.", hint: "/ˈaɪs skeɪtɪŋ/" },
+            { term: "swimming pool", translation: "плавательный бассейн", example: "Our swimming pool is bigger than theirs.", hint: "/ˈswɪmɪŋ puːl/" },
+            { term: "swimming costume", translation: "купальник", example: "Take your swimming costume with you.", hint: "/ˈswɪmɪŋ kɒstjuːm/" },
+            { term: "snowboard", translation: "сноуборд", example: "His snowboard is newer than mine.", hint: "/ˈsnəʊbɔːd/" },
+            { term: "surfboard", translation: "доска для сёрфинга", example: "A surfboard is longer than a snowboard.", hint: "/ˈsɜːfbɔːd/" },
+            { term: "surf", translation: "кататься на доске по волнам", example: "They surf here every summer.", hint: "/sɜːf/" },
+            { term: "get fit", translation: "прийти в форму", example: "I want to get fit before the race.", hint: "/get ˈfɪt/" },
+          ],
+        },
+        {
+          id: "primer-vyhodnye",
+          kind: "example",
+          caption: "Выходные",
+          zvuchat: [
+            "Table tennis is easier than tennis.",
+            "Ice skating is harder in the morning.",
+            "Our swimming pool is bigger than theirs.",
+            "Take your swimming costume with you.",
+            "His snowboard is newer than mine.",
+            "A surfboard is longer than a snowboard.",
+            "They surf here every summer.",
+            "I want to get fit before the race.",
+          ],
+          text:
+            "Table tennis is easier than tennis.\nIce skating is harder in the morning.\nOur swimming pool is bigger than theirs.\nTake your swimming costume with you.\nHis snowboard is newer than mine.\nA surfboard is longer than a snowboard.\nThey surf here every summer.\nI want to get fit before the race.",
+          explain:
+            "Восемь строк о занятиях. Слово surf называет само дело, а surfboard — " +
+            "доску, на которой его делают.",
+        },
+        {
+          id: "slovar-lyudey-i-muzyki",
+          kind: "vocab",
+          caption: "Слова урока",
+          items: [
+            { term: "tennis player", translation: "теннисист", example: "This tennis player is younger than the winner.", hint: "/ˈtenɪs pleɪə/" },
+            { term: "football player", translation: "футболист", example: "Our football player is the tallest here.", hint: "/ˈfʊtbɔːl pleɪə/" },
+            { term: "Olympic", translation: "олимпийский", example: "The Olympic race is the longest of all.", hint: "/əˈlɪmpɪk/" },
+            { term: "rap", translation: "рэп", example: "He likes rap more than classical music.", hint: "/ræp/" },
+            { term: "hip hop", translation: "хип-хоп", example: "Hip hop is louder than jazz.", hint: "/ˌhɪp ˈhɒp/" },
+            { term: "digital camera", translation: "цифровой фотоаппарат", example: "Her digital camera is smaller than mine.", hint: "/ˈdɪdʒɪtl kæmərə/" },
+          ],
+        },
+        {
+          id: "primer-o-lyudyah",
+          kind: "example",
+          caption: "О людях и музыке",
+          zvuchat: [
+            "This tennis player is younger than the winner.",
+            "Our football player is the tallest here.",
+            "The Olympic race is the longest of all.",
+            "He likes rap more than classical music.",
+            "Hip hop is louder than jazz.",
+            "Her digital camera is smaller than mine.",
+          ],
+          text:
+            "This tennis player is younger than the winner.\nOur football player is the tallest here.\nThe Olympic race is the longest of all.\nHe likes rap more than classical music.\nHip hop is louder than jazz.\nHer digital camera is smaller than mine.",
+          explain:
+            "Шесть строк, и в каждой сравнение. Имя занятия часто выходит из имени " +
+            "игры: tennis — tennis player, football — football player.",
+        },
+        {
+          id: "zhivoe-vokrug",
+          kind: "table",
+          caption: "Живое вокруг",
+          zvuchat: ["bee", "beetle", "jellyfish", "polar bear", "creature", "wildlife", "extinct", "desert", "dead"],
+          head: ["Английский", "Перевод"],
+          rows: [
+            ["bee", "пчела"],
+            ["beetle", "жук"],
+            ["jellyfish", "медуза"],
+            ["polar bear", "белый медведь"],
+            ["creature", "живое существо"],
+            ["wildlife", "дикая природа"],
+            ["extinct", "вымерший"],
+            ["desert", "пустыня"],
+            ["dead", "мёртвый"],
+          ],
+        },
+        {
+          id: "slovar-zhivogo",
+          kind: "vocab",
+          caption: "Слова урока",
+          items: [
+            { term: "bee", translation: "пчела", example: "A bee is smaller than a beetle.", hint: "/biː/" },
+            { term: "beetle", translation: "жук", example: "A bee is smaller than a beetle.", hint: "/ˈbiːtl/" },
+            { term: "jellyfish", translation: "медуза", example: "The jellyfish was the strangest creature there.", hint: "/ˈdʒelifɪʃ/" },
+            { term: "polar bear", translation: "белый медведь", example: "The polar bear is the heaviest animal here.", hint: "/ˈpəʊlə beə/" },
+            { term: "creature", translation: "живое существо", example: "The jellyfish was the strangest creature there.", hint: "/ˈkriːtʃə/" },
+            { term: "wildlife", translation: "дикая природа", example: "The wildlife park is bigger than the zoo.", hint: "/ˈwaɪldlaɪf/" },
+            { term: "extinct", translation: "вымерший", example: "That bird is extinct now.", hint: "/ɪkˈstɪŋkt/" },
+            { term: "desert", translation: "пустыня", example: "The desert is drier than the coast.", hint: "/ˈdezət/" },
+            { term: "dead", translation: "мёртвый", example: "The tree near the gate is dead.", hint: "/ded/" },
+          ],
+        },
+        {
+          id: "primer-o-zhivom",
+          kind: "example",
+          caption: "В парке и на берегу",
+          zvuchat: [
+            "A bee is smaller than a beetle.",
+            "The jellyfish was the strangest creature there.",
+            "The polar bear is the heaviest animal here.",
+            "The wildlife park is bigger than the zoo.",
+            "That bird is extinct now.",
+            "The desert is drier than the coast.",
+            "The tree near the gate is dead.",
+          ],
+          text:
+            "A bee is smaller than a beetle.\nThe jellyfish was the strangest creature there.\nThe polar bear is the heaviest animal here.\nThe wildlife park is bigger than the zoo.\nThat bird is extinct now.\nThe desert is drier than the coast.\nThe tree near the gate is dead.",
+          explain:
+            "Семь строк о живом. Слово creature годится любому существу, а extinct " +
+            "говорят о тех, кого не осталось вовсе.",
+        },
+
+        // ---- задания ----
+        {
+          id: "z1-vybrat-blyudo",
+          kind: "choice",
+          prompt: "Как называют основное блюдо обеда?",
+          options: [
+            { text: "fast food" },
+            { text: "main course", correct: true },
+            { text: "ice cream" },
+          ],
+          hint: "Первое слово нужной пары значит «главный».",
+          why:
+            "main course. Fast food — быстрая еда, а ice cream — мороженое, и оба " +
+            "основным блюдом не бывают.",
+        },
+        {
+          id: "z2-dopisat-medvedya",
+          kind: "gap",
+          prompt: "Белого медведя называют двумя словами. Допиши первое.",
+          before: "The ",
+          after: " bear is the heaviest animal here.",
+          answer: "polar",
+          hint: "Это слово о полюсе, а не о цвете.",
+          why:
+            "The polar bear. Английский называет его по месту, где он живёт, а не " +
+            "по цвету шерсти.",
+        },
+        {
+          id: "z3-soedinit-sport",
+          kind: "match",
+          prompt: "Соедини занятие с тем, что для него нужно.",
+          left: ["ice skating", "surfing", "swimming", "snowboarding"],
+          right: ["swimming costume", "surfboard", "snowboard", "skates"],
+          answer: [3, 1, 0, 2],
+          hint: "Смотри на первое слово названия: оно и говорит, о чём речь.",
+          why:
+            "Для ice skating нужны skates, для surfing — surfboard, для swimming — " +
+            "swimming costume, для snowboarding — snowboard.",
+        },
+        {
+          id: "z4-skazat-o-meduze",
+          kind: "short",
+          prompt: "Скажи по-английски: медуза оказалась самым странным существом там. Начни с The jellyfish.",
+          answer: "The jellyfish was the strangest creature there.",
+          accept: [
+            "The jellyfish was the strangest creature there",
+            "The jellyfish was the strangest creature.",
+          ],
+          hint: "Существо по-английски — creature.",
+          why:
+            "The jellyfish was the strangest creature there. Слово creature " +
+            "годится и рыбе, и насекомому, и зверю.",
+        },
+        {
+          id: "z5-otmetit-o-ede",
+          kind: "hottext",
+          prompt: "Отметь то, что относится к еде.",
+          parts: [
+            { text: "main course", selectable: true, correct: true },
+            { text: " · " },
+            { text: "table tennis", selectable: true },
+            { text: " · " },
+            { text: "mineral water", selectable: true, correct: true },
+            { text: " · " },
+            { text: "polar bear", selectable: true },
+          ],
+          hint: "Две записи называют то, что подают на стол.",
+          why:
+            "Верны main course и mineral water. Table tennis — игра, а polar bear " +
+            "— зверь.",
+        },
+      ],
+    },
   ],
 
   quiz: {
@@ -1846,6 +2121,33 @@ const module: Module = {
         why:
           "Чтобы хозяин понял, его ли это вещь. Потерявший в другой день сразу " +
           "видит, что вещь не его.",
+      },
+
+      // ---- итог 9 ----
+      {
+        id: "q-nazvat-osnovnoe-blyudo",
+        kind: "short",
+        outcome: "называть еду, занятия спортом и живое вокруг: main course, ice skating, wildlife",
+        prompt: "Назови по-английски основное блюдо обеда. Оно из двух слов.",
+        answer: "main course",
+        accept: ["the main course", "a main course"],
+        hint: "Первое слово значит «главный».",
+        why: "main course. Слово course здесь не о курсе обучения, а о блюде.",
+      },
+      {
+        id: "q-chto-znachit-extinct",
+        kind: "choice",
+        outcome: "называть еду, занятия спортом и живое вокруг: main course, ice skating, wildlife",
+        prompt: "Что значит extinct?",
+        options: [
+          { text: "дикий" },
+          { text: "вымерший", correct: true },
+          { text: "редкий" },
+        ],
+        hint: "Так говорят о тех, кого не осталось вовсе.",
+        why:
+          "Вымерший. Дикую природу называют словом wildlife, а само существо — " +
+          "creature.",
       },
     ],
   },
