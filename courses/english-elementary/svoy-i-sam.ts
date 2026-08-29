@@ -110,9 +110,10 @@ import type { Module } from "@/lib/content/types";
  * чаще всего именно еду, занятия и зверей. Поэтому почти каждая строка примеров
  * здесь идёт со сравнением — оно и есть предмет части.
  *
- * ДВА СЛОВА УРОКА ЧАСТИ ВЫШЕ СТУПЕНИ ПО OXFORD 3000: bee — B1, creature — B2.
- * Оба стоят в словнике A2 Key, то есть входят в требования экзамена, и взяты
- * по мерке ступени.
+ * ТРИ СЛОВА УРОКА ЧАСТИ ВЫШЕ СТУПЕНИ ПО OXFORD 3000: bee — B1, creature — B2,
+ * wildlife — B2. Все три стоят в словнике A2 Key, то есть входят в требования
+ * экзамена, и взяты по мерке ступени. Третье слово дописано 30 августа 2026 по
+ * разбору методиста: оно было пропущено при первом счёте.
  *
  * `wind` В УРОК НЕ ВЗЯТО, ХОТЯ ЛЕЖИТ В ЗАПАСЕ: оба наших источника читают его
  * как глагол «наматывать», а не как «ветер». Такие слова решает владелец как
@@ -265,9 +266,16 @@ const module: Module = {
         "swimming costume, snowboard, surfboard, surf, get fit, tennis player, " +
         "football player, Olympic, rap, hip hop, digital camera, bee, beetle, " +
         "jellyfish, polar bear, creature, wildlife, extinct, desert, dead. " +
-        "ДВА СЛОВА ВЫШЕ СТУПЕНИ ПО OXFORD 3000, И ЭТО ОБЪЯВЛЯЕТСЯ: `bee` — B1, " +
-        "`creature` — B2. Оба стоят в словнике A2 Key, то есть входят в " +
-        "требования экзамена, и взяты по мерке ступени. " +
+        "ТРИ СЛОВА ВЫШЕ СТУПЕНИ ПО OXFORD 3000, И ЭТО ОБЪЯВЛЯЕТСЯ: `bee` — B1, " +
+        "`creature` — B2, `wildlife` — B2 (oxford-3000.txt, строка 2983). Все " +
+        "три стоят в словнике A2 Key, то есть входят в требования экзамена, и " +
+        "взяты по мерке ступени. " +
+        "`gas` СТОИТ В СЛОВНИКЕ С ПОМЕТОЙ (Am Eng), И ЭТО РАЗБИРАЛОСЬ. Алфавитная " +
+        "запись словника — «gas (n) (Am Eng) (Br Eng: petrol)», то есть о горючем; " +
+        "бытовой газ тот же словник даёт в приложении 2 дважды, в перечнях " +
+        "Appliances и House and Home. Карточка взята именно в бытовом значении и " +
+        "так и переведена, а горючее курс зовёт `petrol` (модуль 7 и `petrol " +
+        "station` в модуле 13). Вынесено владельцу вопросом. " +
         "ЗНАЧЕНИЯ СВЕРЕНЫ С ПОМЕТАМИ СЛОВНИКА: `mine (pron)`, `ours (pron)`, " +
         "`theirs (pron)` — местоимения, а не определители, и уроки дают именно " +
         "их; `myself (pron) • by myself`, `himself (pron) • by himself`, " +
@@ -1570,7 +1578,7 @@ const module: Module = {
     // =====================================================================
     {
       slug: "slova-chasti-eda-i-sport",
-      title: "Слова части: еда, спорт и природа",
+      title: "Слова о еде, спорте и природе",
       estimatedMinutes: 15,
       outcome: "называть еду, занятия спортом и живое вокруг: main course, ice skating, wildlife",
 
@@ -1580,7 +1588,7 @@ const module: Module = {
           kind: "explain",
           text: [
             "Разговор о жизни быстро сворачивает на три вещи: что ели, чем занимались и что видели.",
-            "Здесь собраны слова для всех трёх.",
+            "Этот урок даёт слова для всех трёх.",
             "Многие из них тоже из двух слов: ice cream, table tennis, polar bear.",
             "Первое слово уточняет второе: bear — медведь, polar bear — белый медведь.",
           ],
@@ -1610,7 +1618,7 @@ const module: Module = {
             { term: "mineral water", translation: "минеральная вода", example: "A bottle of mineral water is enough.", hint: "/ˈmɪnərəl wɔːtə/" },
             { term: "barbecue", translation: "жарка мяса на огне", example: "Our barbecue was longer than usual.", hint: "/ˈbɑːbɪkjuː/" },
             { term: "stomach ache", translation: "боль в животе", example: "I had a stomach ache after the fast food.", hint: "/ˈstʌmək eɪk/" },
-            { term: "gas", translation: "газ", example: "The gas cooker is older than ours.", hint: "/gæs/" },
+            { term: "gas", translation: "газ (бытовой, в плите)", example: "The gas cooker is older than ours.", hint: "/gæs/" },
           ],
         },
         {
@@ -1629,7 +1637,7 @@ const module: Module = {
           text:
             "The main course was the best part.\nThe ice cream was better than the cake.\nA bottle of mineral water is enough.\nFast food is cheaper here.\nOur barbecue was longer than usual.\nI had a stomach ache after the fast food.\nThe gas cooker is older than ours.",
           explain:
-            "Семь строк об одном обеде. Почти в каждой стоит сравнение — так о еде " +
+            "Семь строк об одном обеде. В пяти из них стоит сравнение — так о еде " +
             "и говорят: что вкуснее, что дешевле, что дольше.",
         },
         {
@@ -1638,9 +1646,9 @@ const module: Module = {
           caption: "Слова урока",
           items: [
             { term: "table tennis", translation: "настольный теннис", example: "Table tennis is easier than tennis.", hint: "/ˈteɪbl tenɪs/" },
-            { term: "ice skating", translation: "катание на коньках", example: "Ice skating is harder in the morning.", hint: "/ˈaɪs skeɪtɪŋ/" },
+            { term: "ice skating", translation: "катание на коньках (полное имя того же skating)", example: "Ice skating is harder in the morning.", hint: "/ˈaɪs skeɪtɪŋ/" },
             { term: "swimming pool", translation: "плавательный бассейн", example: "Our swimming pool is bigger than theirs.", hint: "/ˈswɪmɪŋ puːl/" },
-            { term: "swimming costume", translation: "купальник", example: "Take your swimming costume with you.", hint: "/ˈswɪmɪŋ kɒstjuːm/" },
+            { term: "swimming costume", translation: "купальник (второе имя, рядом со swimsuit)", example: "Take your swimming costume with you.", hint: "/ˈswɪmɪŋ kɒstjuːm/" },
             { term: "snowboard", translation: "сноуборд", example: "His snowboard is newer than mine.", hint: "/ˈsnəʊbɔːd/" },
             { term: "surfboard", translation: "доска для сёрфинга", example: "A surfboard is longer than a snowboard.", hint: "/ˈsɜːfbɔːd/" },
             { term: "surf", translation: "кататься на доске по волнам", example: "They surf here every summer.", hint: "/sɜːf/" },
@@ -1673,7 +1681,7 @@ const module: Module = {
           caption: "Слова урока",
           items: [
             { term: "tennis player", translation: "теннисист", example: "This tennis player is younger than the winner.", hint: "/ˈtenɪs pleɪə/" },
-            { term: "football player", translation: "футболист", example: "Our football player is the tallest here.", hint: "/ˈfʊtbɔːl pleɪə/" },
+            { term: "football player", translation: "футболист (то же, что footballer)", example: "Our football player is the tallest here.", hint: "/ˈfʊtbɔːl pleɪə/" },
             { term: "Olympic", translation: "олимпийский", example: "The Olympic race is the longest of all.", hint: "/əˈlɪmpɪk/" },
             { term: "rap", translation: "рэп", example: "He likes rap more than classical music.", hint: "/ræp/" },
             { term: "hip hop", translation: "хип-хоп", example: "Hip hop is louder than jazz.", hint: "/ˌhɪp ˈhɒp/" },
@@ -1782,14 +1790,19 @@ const module: Module = {
         {
           id: "z3-soedinit-sport",
           kind: "match",
-          prompt: "Соедини занятие с тем, что для него нужно.",
-          left: ["ice skating", "surfing", "swimming", "snowboarding"],
-          right: ["swimming costume", "surfboard", "snowboard", "skates"],
-          answer: [3, 1, 0, 2],
-          hint: "Смотри на первое слово названия: оно и говорит, о чём речь.",
+          prompt: "Соедини вещь с тем, для чего она нужна.",
+          left: ["snowboard", "surfboard", "swimming costume", "table tennis"],
+          right: [
+            "для катания по волнам",
+            "для игры за столом",
+            "для катания по снегу",
+            "для бассейна",
+          ],
+          answer: [2, 0, 3, 1],
+          hint: "Досок здесь две: одна для снега, другая для воды.",
           why:
-            "Для ice skating нужны skates, для surfing — surfboard, для swimming — " +
-            "swimming costume, для snowboarding — snowboard.",
+            "snowboard — для катания по снегу, surfboard — для катания по волнам, " +
+            "swimming costume — для бассейна, table tennis — для игры за столом.",
         },
         {
           id: "z4-skazat-o-meduze",
@@ -1818,7 +1831,7 @@ const module: Module = {
             { text: " · " },
             { text: "polar bear", selectable: true },
           ],
-          hint: "Две записи называют то, что подают на стол.",
+          hint: "Ищи то, что подают на стол.",
           why:
             "Верны main course и mineral water. Table tennis — игра, а polar bear " +
             "— зверь.",
@@ -2138,14 +2151,17 @@ const module: Module = {
 
       // ---- итог 9 ----
       {
-        id: "q-nazvat-osnovnoe-blyudo",
+        id: "q-ispravit-nazvanie-katania",
         kind: "short",
         outcome: "называть еду, занятия спортом и живое вокруг: main course, ice skating, wildlife",
-        prompt: "Назови по-английски основное блюдо обеда. Оно из двух слов.",
-        answer: "main course",
-        accept: ["the main course", "a main course"],
-        hint: "Первое слово значит «главный».",
-        why: "main course. Слово course здесь не о курсе обучения, а о блюде.",
+        prompt:
+          "Ученик написал: Skating on ice is harder in the morning. У этого занятия есть своё имя из двух слов. Запиши строку без ошибки.",
+        answer: "Ice skating is harder in the morning.",
+        accept: ["Ice skating is harder in the morning"],
+        hint: "Оба слова остаются, но лёд встаёт первым.",
+        why:
+          "Ice skating is harder in the morning. Имя занятия складывают из двух " +
+          "слов, и лёд в нём стоит впереди.",
       },
       {
         id: "q-chto-znachit-extinct",

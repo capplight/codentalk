@@ -150,9 +150,13 @@ import type { Module } from "@/lib/content/types";
  * каждой из четырёх частей ступени стоит урок слов одной темы.
  *
  * Здесь конец части первой, и тема её — дом и день: тридцать карточек, все из
- * словника A2 Key. Двадцать одна из них — связка из двух слов (`wash up`, `put
- * on`, `video game`), и это нарочно: бытовая речь на них и держится, а курс их
- * до сих пор не брал вовсе.
+ * словника A2 Key. Двадцать семь из тридцати — запись из двух слов: семнадцать
+ * глаголов с послелогом (`wash up`, `put on`) и девять составных имён (`video
+ * game`, `pencil case`), плюс `a few`. Ещё две пишутся через дефис
+ * (`washing-up`, `make-up`), и однословная запись здесь одна — `lots`.
+ *
+ * Это нарочно: бытовая речь держится на таких связках, а курс их до сих пор не
+ * брал вовсе.
  *
  * ПОРЯДОК УРОКОВ ЭТОТ УРОК НЕ ЛОМАЕТ. Правила, чтение, слушание и письмо стоят
  * до него в обычном порядке; урок слов идёт после письма, потому что он не
@@ -248,7 +252,14 @@ const module: Module = {
         "словник ступени, по которому проверена новизна: 1637 слов. Слов lock и " +
         "track словник не содержит, и взяты они по помете Oxford 3000 (A2) — " +
         "правило ступени принимает любое из двух оснований. Остальные карточки в " +
-        "словнике есть",
+        "словнике есть. " +
+        "УРОК СЛОВ ЧАСТИ ПЕРВОЙ берёт ещё тридцать записей, и все тридцать " +
+        "словник содержит: living room, sitting room, dining room, washing " +
+        "machine, washing-up, wash up, tidy up, lie down, sit down, fall over, " +
+        "look out, work out, take part, go out, get dressed, put on, take off, " +
+        "try on, write down, get back, bring back, give back, make-up, pencil " +
+        "case, text message, video game, social media, working hours, a few, " +
+        "lots",
       license: "внутреннее использование, публично не называем",
     },
     {
@@ -1446,7 +1457,7 @@ const module: Module = {
     // =====================================================================
     {
       slug: "slova-chasti-dom",
-      title: "Слова части: дом и день",
+      title: "Слова о доме и дне",
       estimatedMinutes: 15,
       outcome: "называть дом и дела по дому: wash up, tidy up, put on",
 
@@ -1458,7 +1469,7 @@ const module: Module = {
             "Рассказ о дне держится не на одной грамматике, а на словах о вещах вокруг.",
             "Здесь собраны слова о доме, о сборах и о делах, которые повторяются каждый день.",
             "Многие из них состоят из двух слов: wash up, put on, go out.",
-            "Такую пару запоминают целиком, как одно слово: по частям её смысл не собрать.",
+            "Такую пару запоминают целиком: по частям её смысл виден не всегда.",
           ],
         },
         {
@@ -1478,8 +1489,8 @@ const module: Module = {
           kind: "note",
           tone: "info",
           text:
-            "У гостиной два имени, и оба обычные: living room и sitting " +
-            "room.\n\nВыбирать между ними не надо — понятны оба.",
+            "У гостиной два имени: living room и sitting room.\n\nВыбирать " +
+            "между ними не надо — понятны оба.",
         },
         {
           id: "slovar-doma",
@@ -1487,12 +1498,14 @@ const module: Module = {
           caption: "Слова урока",
           items: [
             { term: "living room", translation: "гостиная", example: "We were in the living room after dinner.", hint: "/ˈlɪvɪŋ ruːm/" },
-            { term: "sitting room", translation: "гостиная (второе имя)", example: "My brother was lying down in the sitting room.", hint: "/ˈsɪtɪŋ ruːm/" },
-            { term: "dining room", translation: "столовая", example: "I was tidying up the dining room.", hint: "/ˈdaɪnɪŋ ruːm/" },
+            { term: "sitting room", translation: "гостиная (второе имя)", example: "My brother wanted to lie down in the sitting room.", hint: "/ˈsɪtɪŋ ruːm/" },
+            { term: "dining room", translation: "столовая (комната в доме)", example: "I was tidying up the dining room.", hint: "/ˈdaɪnɪŋ ruːm/" },
             { term: "washing machine", translation: "стиральная машина", example: "The washing machine was working all evening.", hint: "/ˈwɒʃɪŋ məʃiːn/" },
             { term: "washing-up", translation: "мытьё посуды", example: "My sister was doing the washing-up.", hint: "/ˌwɒʃɪŋ ˈʌp/" },
-            { term: "wash up", translation: "мыть посуду", example: "I had to wash up too.", hint: "/wɒʃ ˈʌp/" },
+            { term: "wash up", translation: "мыть посуду", example: "I washed up too.", hint: "/wɒʃ ˈʌp/" },
             { term: "tidy up", translation: "прибираться", example: "I was tidying up the dining room.", hint: "/ˌtaɪdi ˈʌp/" },
+            { term: "lie down", translation: "прилечь", example: "My brother wanted to lie down in the sitting room.", hint: "/laɪ ˈdaʊn/" },
+            { term: "sit down", translation: "сесть", example: "Then he sat down at the table with us.", hint: "/sɪt ˈdaʊn/" },
           ],
         },
         {
@@ -1504,28 +1517,28 @@ const module: Module = {
             "My sister was doing the washing-up in the kitchen.",
             "The washing machine was working all evening.",
             "I was tidying up the dining room.",
-            "My brother was lying down in the sitting room.",
+            "My brother wanted to lie down in the sitting room.",
             "Then he sat down at the table with us.",
-            "I had to wash up too.",
+            "I washed up too.",
           ],
           text:
-            "We were in the living room after dinner.\nMy sister was doing the washing-up in the kitchen.\nThe washing machine was working all evening.\nI was tidying up the dining room.\nMy brother was lying down in the sitting room.\nThen he sat down at the table with us.\nI had to wash up too.",
+            "We were in the living room after dinner.\nMy sister was doing the washing-up in the kitchen.\nThe washing machine was working all evening.\nI was tidying up the dining room.\nMy brother wanted to lie down in the sitting room.\nThen he sat down at the table with us.\nI washed up too.",
           explain:
             "Семь строк об одном вечере. Дела по дому чаще всего называют парой " +
             "слов: wash up, tidy up, lie down, sit down.",
         },
         {
-          id: "slovar-del-po-domu",
+          id: "slovar-sborov",
           kind: "vocab",
           caption: "Слова урока",
           items: [
-            { term: "lie down", translation: "прилечь", example: "My brother was lying down in the sitting room.", hint: "/laɪ ˈdaʊn/" },
-            { term: "sit down", translation: "сесть", example: "Then he sat down at the table with us.", hint: "/sɪt ˈdaʊn/" },
-            { term: "fall over", translation: "упасть", example: "My friend fell over near the door.", hint: "/fɔːl ˈəʊvə/" },
-            { term: "look out", translation: "берегись, осторожно", example: "Look out! The floor is wet.", hint: "/lʊk ˈaʊt/" },
-            { term: "work out", translation: "заниматься спортом", example: "We work out every morning.", hint: "/wɜːk ˈaʊt/" },
-            { term: "take part", translation: "участвовать", example: "Our class takes part in the competition.", hint: "/teɪk ˈpɑːt/" },
-            { term: "go out", translation: "выйти из дома", example: "After that I went out.", hint: "/gəʊ ˈaʊt/" },
+            { term: "get dressed", translation: "одеться", example: "I got dressed and put on my coat.", hint: "/get ˈdrest/" },
+            { term: "put on", translation: "надеть", example: "I got dressed and put on my coat.", hint: "/pʊt ˈɒn/" },
+            { term: "take off", translation: "снять (одежду)", example: "The room was warm, and I took off my coat.", hint: "/teɪk ˈɒf/" },
+            { term: "try on", translation: "примерить", example: "In the shop I tried on a new coat.", hint: "/traɪ ˈɒn/" },
+            { term: "write down", translation: "записать", example: "I wrote down the address.", hint: "/raɪt ˈdaʊn/" },
+            { term: "get back", translation: "вернуться (то же, что come back)", example: "I got back at six.", hint: "/get ˈbæk/" },
+            { term: "go out", translation: "выйти из дома, отправиться куда-нибудь", example: "After that I went out.", hint: "/gəʊ ˈaʊt/" },
           ],
         },
         {
@@ -1534,29 +1547,32 @@ const module: Module = {
           caption: "Утро перед выходом",
           zvuchat: [
             "I got dressed and put on my coat.",
-            "Then I took off my cap and tried on another one.",
-            "I wrote down the address in my notebook.",
+            "The room was warm, and I took off my coat.",
+            "In the shop I tried on a new coat.",
+            "I wrote down the address.",
             "After that I went out.",
             "I got back at six.",
           ],
           text:
-            "I got dressed and put on my coat.\nThen I took off my cap and tried on another one.\nI wrote down the address in my notebook.\nAfter that I went out.\nI got back at six.",
+            "I got dressed and put on my coat.\nThe room was warm, and I took off my coat.\nIn the shop I tried on a new coat.\nI wrote down the address.\nAfter that I went out.\nI got back at six.",
           explain:
-            "Пять строк по порядку: сборы, выход и возвращение. У каждой пары " +
+            "Шесть строк по порядку: сборы, выход и возвращение. У каждой пары " +
             "второе слово короткое — on, off, down, out, back.",
         },
         {
-          id: "slovar-sborov",
+          id: "slovar-del-po-domu",
           kind: "vocab",
           caption: "Слова урока",
           items: [
-            { term: "get dressed", translation: "одеться", example: "I got dressed and put on my coat.", hint: "/get ˈdrest/" },
-            { term: "put on", translation: "надеть", example: "I put on my coat.", hint: "/pʊt ˈɒn/" },
-            { term: "take off", translation: "снять (одежду)", example: "Then I took off my cap.", hint: "/teɪk ˈɒf/" },
-            { term: "try on", translation: "примерить", example: "I tried on another one.", hint: "/traɪ ˈɒn/" },
-            { term: "write down", translation: "записать", example: "I wrote down the address in my notebook.", hint: "/raɪt ˈdaʊn/" },
-            { term: "get back", translation: "вернуться", example: "I got back at six.", hint: "/get ˈbæk/" },
+            { term: "fall over", translation: "упасть", example: "People often fall over near the door.", hint: "/fɔːl ˈəʊvə/" },
+            { term: "look out", translation: "берегись, осторожно", example: "Look out! The floor is wet.", hint: "/lʊk ˈaʊt/" },
+            { term: "work out", translation: "заниматься спортом", example: "We work out every morning.", hint: "/wɜːk ˈaʊt/" },
+            { term: "take part", translation: "участвовать", example: "Our class takes part in the competition.", hint: "/teɪk ˈpɑːt/" },
+            { term: "bring back", translation: "принести обратно", example: "Please bring back my pencil case.", hint: "/brɪŋ ˈbæk/" },
+            { term: "give back", translation: "отдать, вернуть чужое", example: "And give back her make-up too.", hint: "/gɪv ˈbæk/" },
             { term: "make-up", translation: "косметика", example: "And give back her make-up too.", hint: "/ˈmeɪk ʌp/" },
+            { term: "pencil case", translation: "пенал", example: "Please bring back my pencil case.", hint: "/ˈpensl keɪs/" },
+            { term: "text message", translation: "сообщение с телефона", example: "I wrote her a text message about it.", hint: "/ˈtekst mesɪdʒ/" },
           ],
         },
         {
@@ -1565,7 +1581,7 @@ const module: Module = {
           caption: "Днём",
           zvuchat: [
             "Look out! The floor is wet.",
-            "My friend fell over near the door.",
+            "People often fall over near the door.",
             "We work out every morning.",
             "Our class takes part in the competition.",
             "Please bring back my pencil case.",
@@ -1573,9 +1589,9 @@ const module: Module = {
             "I wrote her a text message about it.",
           ],
           text:
-            "Look out! The floor is wet.\nMy friend fell over near the door.\nWe work out every morning.\nOur class takes part in the competition.\nPlease bring back my pencil case.\nAnd give back her make-up too.\nI wrote her a text message about it.",
+            "Look out! The floor is wet.\nPeople often fall over near the door.\nWe work out every morning.\nOur class takes part in the competition.\nPlease bring back my pencil case.\nAnd give back her make-up too.\nI wrote her a text message about it.",
           explain:
-            "Семь строк об одном дне. Пары bring back и give back отличаются " +
+            "Семь строк с парами слов. Пары bring back и give back отличаются " +
             "первым словом: одна о том, чтобы принести, другая — чтобы отдать.",
         },
         {
@@ -1603,19 +1619,16 @@ const module: Module = {
           kind: "vocab",
           caption: "Слова урока",
           items: [
-            { term: "bring back", translation: "принести обратно", example: "Please bring back my pencil case.", hint: "/brɪŋ ˈbæk/" },
-            { term: "give back", translation: "отдать, вернуть чужое", example: "And give back her make-up too.", hint: "/gɪv ˈbæk/" },
-            { term: "pencil case", translation: "пенал", example: "Please bring back my pencil case.", hint: "/ˈpensl keɪs/" },
-            { term: "text message", translation: "сообщение с телефона", example: "I wrote her a text message about it.", hint: "/ˈtekst mesɪdʒ/" },
-            { term: "video game", translation: "компьютерная игра", example: "A few friends play video games here.", hint: "/ˈvɪdiəʊ geɪm/" },
+            { term: "video game", translation: "компьютерная игра", example: "They played video games.", hint: "/ˈvɪdiəʊ geɪm/" },
             { term: "social media", translation: "социальные сети", example: "She reads social media in the evening.", hint: "/ˈsəʊʃl ˈmiːdiə/" },
             { term: "working hours", translation: "рабочие часы", example: "Our working hours are long.", hint: "/ˈwɜːkɪŋ aʊəz/" },
-            { term: "a few", translation: "несколько", example: "A few friends came.", hint: "/ə ˈfjuː/" },
-            { term: "lots", translation: "много", example: "We took lots of photos.", hint: "/lɒts/" },
+            { term: "a few", translation: "несколько (то же, что several)", example: "A few friends came.", hint: "/ə ˈfjuː/" },
+            { term: "lots", translation: "много (второе имя a lot of)", example: "We took lots of photos.", hint: "/lɒts/" },
           ],
         },
 
         // ---- задания ----
+
         {
           id: "z1-vybrat-o-posude",
           kind: "choice",
@@ -1647,7 +1660,7 @@ const module: Module = {
           left: ["tidy up", "get back", "try on", "give back"],
           right: ["вернуться", "примерить", "прибираться", "отдать чужое"],
           answer: [2, 0, 1, 3],
-          hint: "Смотри на первое слово пары: tidy — «опрятный», get — «получать».",
+          hint: "Смысл пары не складывается из двух слов — вспомни её целиком.",
           why:
             "tidy up — прибираться, get back — вернуться, try on — примерить, " +
             "give back — отдать чужое.",
@@ -1655,17 +1668,18 @@ const module: Module = {
         {
           id: "z4-napisat-zapisal",
           kind: "short",
-          prompt: "Скажи по-английски: Данияр записал адрес в блокнот. Возьми пару со словом down.",
-          answer: "Daniyar wrote down the address in his notebook.",
+          prompt: "Скажи по-английски: Данияр записал адрес. Возьми пару со словом down.",
+          answer: "Daniyar wrote down the address.",
           accept: [
-            "Daniyar wrote down the address in his notebook",
-            "Daniyar wrote down the address.",
             "Daniyar wrote down the address",
+            "Daniyar wrote the address down.",
+            "Daniyar wrote the address down",
           ],
           hint: "Первое слово пары значит «писать».",
           why:
-            "Daniyar wrote down the address in his notebook. Пара write down " +
-            "значит не просто «писать», а «записать, чтобы не забыть».",
+            "Daniyar wrote down the address. Пара write down значит не просто " +
+            "«писать», а «записать, чтобы не забыть». Дополнение стоит и после " +
+            "пары, и между её словами: wrote the address down тоже верно.",
         },
         {
           id: "z5-otmetit-o-dome",
@@ -1680,7 +1694,7 @@ const module: Module = {
             { text: " · " },
             { text: "work out", selectable: true },
           ],
-          hint: "Две записи называют вещь или комнату, а две — дело человека.",
+          hint: "Одни записи называют вещь или комнату, другие — дело человека.",
           why:
             "Верны washing machine и dining room: это стиральная машина и " +
             "столовая. Пары get dressed и work out говорят о человеке.",
@@ -1921,29 +1935,35 @@ const module: Module = {
 
       // ---- итог 9 ----
       {
-        id: "q-nazvat-paru-o-uborke",
+        id: "q-ispravit-poryadok-sit-down",
         kind: "short",
         outcome: "называть дом и дела по дому: wash up, tidy up, put on",
-        prompt: "Скажи по-английски одной парой слов: прибираться. Первое слово значит «опрятный».",
-        answer: "tidy up",
-        accept: ["tidy up.", "to tidy up"],
-        hint: "Вторым словом пары стоит up.",
-        why: "tidy up. Пара wash up значит другое — мыть посуду.",
+        prompt:
+          "Ученик написал: Then he sat at the table down. Запиши строку без ошибки.",
+        answer: "Then he sat down at the table.",
+        accept: ["Then he sat down at the table", "He sat down at the table."],
+        hint: "Слова пары стоят рядом, а место называют после неё.",
+        why:
+          "Then he sat down at the table. Пару sit down не разрывают, и место " +
+          "прибавляют следом.",
       },
       {
-        id: "q-chto-znachit-give-back",
+        id: "q-otlichit-bring-i-give-back",
         kind: "choice",
         outcome: "называть дом и дела по дому: wash up, tidy up, put on",
-        prompt: "Что значит give back?",
+        prompt: "Чем bring back отличается от give back?",
         options: [
-          { text: "принести обратно" },
-          { text: "отдать чужое", correct: true },
-          { text: "вернуться самому" },
+          {
+            text: "bring back — принести вещь обратно, give back — отдать её хозяину",
+            correct: true,
+          },
+          { text: "bring back говорят о вещах, give back — о людях" },
+          { text: "разницы нет, пары заменяют друг друга" },
         ],
-        hint: "Первое слово пары значит «давать».",
+        hint: "Посмотри на первое слово каждой пары: принести и дать — разные дела.",
         why:
-          "Отдать чужое. Принести обратно — bring back, а вернуться самому — get " +
-          "back.",
+          "bring back — принести вещь обратно, give back — отдать её хозяину. " +
+          "Пары различаются первым словом, а не тем, о ком идёт речь.",
       },
     ],
   },

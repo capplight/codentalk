@@ -53,12 +53,24 @@ import type { Module } from "@/lib/content/types";
  * речь в кавычках; `wonder`; расширенный набор переспросов; тег `right?`;
  * сдвиг слов о времени. Проверены по одной.
  *
- * СЛОВАРЬ МОДУЛЯ — ОДИННАДЦАТЬ КАРТОЧЕК, ВСЕ НОВЫЕ ДЛЯ СТУПЕНИ. Мир модуля —
- * новости и сообщения: их и пересказывают.
+ * СЛОВАРЬ — СОРОК ТРИ КАРТОЧКИ: одиннадцать у самого модуля и тридцать две у
+ * урока слов части, который стоит последним (о нём ниже). Мир модуля — новости
+ * и сообщения: их и пересказывают.
  *
- * ПЯТЬ СЛОВ OXFORD СТАВИТ ВЫШЕ СТУПЕНИ, И ВСЕ ПЯТЬ ВЗЯТЫ ПО МЕРКЕ СТУПЕНИ:
- * `possibly` (B1), `mad` (B1), `file` (B1), `further` наречием (B1), `shame`
- * (B2); все пять стоят в словнике A2 Key.
+ * ПОСЛЕДНИЙ УРОК — «СЛОВА О ЛЮДЯХ И ЖИЗНИ», И ОН НЕ МОДУЛЯ, А ЧАСТИ ЧЕТВЁРТОЙ.
+ * Решение владельца от 29 августа 2026, разбор — в модуле 7, где стоит такой же
+ * урок для части первой. Тема здесь — родные, учёба, чувства и вещи дня.
+ *
+ * У СЛОВ ЭТОГО УРОКА ДВА ИСТОЧНИКА, И ЭТО ВАЖНО. Пятнадцать взяты из словника
+ * A2 Key — это последнее, что в нём оставалось годного. Семнадцать взяты по
+ * второму основанию: Oxford 3000 ставит им A1, а карточки у них не было ни в
+ * одном модуле ступени, и между ступенями нет ссылок на память. Перечень обоих
+ * — в опоре о словнике.
+ *
+ * ВОСЕМЬ СЛОВ OXFORD СТАВИТ ВЫШЕ СТУПЕНИ, И ВСЕ ВОСЕМЬ ВЗЯТЫ ПО МЕРКЕ СТУПЕНИ.
+ * У самого модуля пять: `possibly` (B1), `mad` (B1), `file` (B1), `further`
+ * наречием (B1), `shame` (B2). У урока слов ещё три: `examination` (B2), `kiss`
+ * (B1), `aged` (B1). Все восемь стоят в словнике A2 Key.
  *
  * СДВИГ ВРЕМЕНИ МОДУЛЬ НЕ ОБЪЯВЛЯЕТ ОШИБКОЙ, И ЭТО ПРАВКА ПО РАЗБОРУ. Первая
  * редакция ставила «She said that she had the file» неверным вариантом
@@ -172,14 +184,20 @@ const module: Module = {
         "Одиннадцать карточек модуля взяты из словника ступени, и все " +
         "одиннадцать новые для ступени: advert, wifi, possibly, file, anymore, " +
         "What a shame!, awesome, further, guest-house, hoodie, mad about. " +
-        "УРОК СЛОВ ЧАСТИ ЧЕТВЁРТОЙ БЕРЁТ ЕЩЁ ТРИДЦАТЬ ЗАПИСЕЙ, И ИСТОЧНИКА У " +
-        "НИХ ДВА. Четырнадцать — последнее, что оставалось в словнике A2 Key: " +
-        "business person, aged, get married, grow up, examination, mathematics, " +
-        "maths, web page, feelings, kiss, poor thing, would prefer, shall, " +
-        "itself. Из них `examination` Oxford 3000 ставит на B2, а `kiss` — на " +
-        "B1; оба стоят в словнике, то есть входят в требования экзамена. " +
-        "Остальные шестнадцать — sister, brother, people, love, hope, please, " +
-        "mistake, show, film, key, bag, door, flat, rain, small, new — Oxford " +
+        "УРОК СЛОВ ЧАСТИ ЧЕТВЁРТОЙ БЕРЁТ ЕЩЁ ТРИДЦАТЬ ДВЕ ЗАПИСИ, И ИСТОЧНИКА У " +
+        "НИХ ДВА. Пятнадцать — последнее, что оставалось в словнике A2 Key: " +
+        "business person, aged, get married, grow up, since, examination, " +
+        "mathematics, maths, web page, feelings, kiss, poor thing, would prefer, " +
+        "shall, itself. Из них `examination` Oxford 3000 ставит на B2, а `kiss` " +
+        "и `aged` — на B1; все три стоят в словнике, то есть входят в требования " +
+        "экзамена. " +
+        "КАРТОЧКА `since` ПЕРЕНЕСЕНА СЮДА ИЗ МОДУЛЯ 13 по разбору методиста 30 " +
+        "августа 2026: её употребление требует Present Perfect, а это модуль 22 " +
+        "нашей ступени. В части второй такая " +
+        "строка стояла бы за девять модулей до времени, которым написана. " +
+        "Остальные семнадцать — sister, brother, people, love, hope, please, " +
+        "mistake, show, film, key, bag, door, flat, rain, small, new, number — " +
+        "Oxford " +
         "3000 помечает A1, И ЭТО НЕ ДОБОР НОРМЫ. Карточки у них не было НИ В " +
         "ОДНОМ модуле ступени Elementary, а между ступенями нет ссылок на " +
         "память: человек, пришедший сразу сюда, не получал ни `sister`, ни " +
@@ -1070,7 +1088,7 @@ const module: Module = {
     // =====================================================================
     {
       slug: "slova-chasti-lyudi",
-      title: "Слова части: люди и жизнь",
+      title: "Слова о людях и жизни",
       estimatedMinutes: 15,
       outcome: "называть людей, учёбу и чувства: brother, examination, feelings",
 
@@ -1080,9 +1098,9 @@ const module: Module = {
           kind: "explain",
           text: [
             "Пересказывают чаще всего то, что сказали люди о своей жизни.",
-            "Здесь собраны слова о родных, об учёбе и о том, что человек чувствует.",
+            "Значит нужны слова о родных, об учёбе и о том, что человек чувствует.",
             "Рядом с ними стоят обычные вещи дня: ключ, сумка, дверь, дождь.",
-            "Без них разговор о жизни не строится, а курс до сих пор их не называл.",
+            "Без них разговор о жизни не строится.",
           ],
         },
         {
@@ -1094,9 +1112,10 @@ const module: Module = {
             { term: "brother", translation: "брат", example: "My brother told me that the film is good.", hint: "/ˈbrʌðə/" },
             { term: "people", translation: "люди", example: "People here say that the market is cheap.", hint: "/ˈpiːpl/" },
             { term: "business person", translation: "деловой человек", example: "The business person told us that the office is closed.", hint: "/ˈbɪznəs pɜːsn/" },
-            { term: "aged", translation: "в возрасте, стольких-то лет", example: "The class is for children aged ten.", hint: "/eɪdʒd/" },
-            { term: "get married", translation: "пожениться, выйти замуж", example: "She said that they get married in May.", hint: "/get ˈmærid/" },
+            { term: "aged", translation: "такого-то возраста: aged ten — десяти лет", example: "The class is for children aged ten.", hint: "/eɪdʒd/" },
+            { term: "get married", translation: "пожениться, выйти замуж", example: "She said that they are going to get married in May.", hint: "/get ˈmærid/" },
             { term: "grow up", translation: "вырасти", example: "He told me that his children grow up fast.", hint: "/grəʊ ˈʌp/" },
+            { term: "since", translation: "с какого-то времени", example: "My brother said that he has lived here since May.", hint: "/sɪns/" },
           ],
         },
         {
@@ -1108,14 +1127,15 @@ const module: Module = {
             "My brother told me that the film is good.",
             "People here say that the market is cheap.",
             "The business person told us that the office is closed.",
-            "She said that they get married in May.",
+            "She said that they are going to get married in May.",
             "He told me that his children grow up fast.",
+            "My brother said that he has lived here since May.",
             "The class is for children aged ten.",
           ],
           text:
-            "My sister said that she is busy.\nMy brother told me that the film is good.\nPeople here say that the market is cheap.\nThe business person told us that the office is closed.\nShe said that they get married in May.\nHe told me that his children grow up fast.\nThe class is for children aged ten.",
+            "My sister said that she is busy.\nMy brother told me that the film is good.\nPeople here say that the market is cheap.\nThe business person told us that the office is closed.\nShe said that they are going to get married in May.\nHe told me that his children grow up fast.\nMy brother said that he has lived here since May.\nThe class is for children aged ten.",
           explain:
-            "Шесть первых строк — пересказ, и в каждой назван говорящий. Последняя " +
+            "Семь первых строк — пересказ, и в каждой назван говорящий. Последняя " +
             "строка чужих слов не передаёт: она просто о возрасте.",
         },
         {
@@ -1125,7 +1145,7 @@ const module: Module = {
           items: [
             { term: "examination", translation: "экзамен", example: "She told me that the examination is on Friday.", hint: "/ɪgˌzæmɪˈneɪʃn/" },
             { term: "mathematics", translation: "математика", example: "Mathematics is his best subject.", hint: "/ˌmæθəˈmætɪks/" },
-            { term: "maths", translation: "математика (короткое слово)", example: "He said that maths is easy for him.", hint: "/mæθs/" },
+            { term: "maths", translation: "математика (короткое имя того же mathematics)", example: "He said that maths is easy for him.", hint: "/mæθs/" },
             { term: "web page", translation: "страница в интернете", example: "The web page said that the club is closed.", hint: "/ˈweb peɪdʒ/" },
             { term: "show", translation: "показывать; представление", example: "The teacher told us to show our work.", hint: "/ʃəʊ/" },
             { term: "mistake", translation: "ошибка", example: "He said that the mistake is small.", hint: "/mɪˈsteɪk/" },
@@ -1137,8 +1157,8 @@ const module: Module = {
           kind: "note",
           tone: "info",
           text:
-            "У математики два имени: полное mathematics и короткое maths.\n\nВ " +
-            "разговоре берут короткое, в названии предмета на бланке — полное.",
+            "У математики два имени: полное mathematics и короткое maths.\n\nВерны " +
+            "оба, и выбирать между ними не надо — понятны тоже оба.",
         },
         {
           id: "primer-ob-uchyobe",
@@ -1234,18 +1254,18 @@ const module: Module = {
 
         // ---- задания ----
         {
-          id: "z1-vybrat-o-matematike",
+          id: "z1-vybrat-o-vozraste",
           kind: "choice",
-          prompt: "Как назовут математику в разговоре?",
+          prompt: "В объявлении написано: The class is for children aged ten. Что это значит?",
           options: [
-            { text: "mathematics" },
-            { text: "maths", correct: true },
-            { text: "examination" },
+            { text: "занятие для десятилетних детей", correct: true },
+            { text: "занятие идёт десять дней" },
+            { text: "в группе десять детей" },
           ],
-          hint: "В разговоре берут короткое слово.",
+          hint: "Слово aged стоит при детях, а не при занятии.",
           why:
-            "maths. Полное mathematics пишут в названии предмета, а examination — " +
-            "это экзамен.",
+            "Занятие для десятилетних детей. Слово aged называет возраст того, о " +
+            "ком идёт речь, а число после него — сами годы.",
         },
         {
           id: "z2-dopisat-shall",
@@ -1297,7 +1317,7 @@ const module: Module = {
             { text: " · " },
             { text: "flat", selectable: true },
           ],
-          hint: "Две записи называют человека.",
+          hint: "Ищи записи, которые называют человека.",
           why:
             "Верны business person и poor thing. Web page — страница в интернете, " +
             "а flat — квартира.",
@@ -1519,29 +1539,32 @@ const module: Module = {
 
       // ---- итог 7 ----
       {
-        id: "q-nazvat-korotkuyu-matematiku",
+        id: "q-ispravit-o-stranice",
         kind: "short",
         outcome: "называть людей, учёбу и чувства: brother, examination, feelings",
-        prompt: "Назови по-английски математику так, как её зовут в разговоре. Одно короткое слово.",
-        answer: "maths",
-        accept: ["Maths"],
-        hint: "Полное имя предмета — mathematics.",
-        why: "maths. Полное mathematics остаётся для бланков и названий предметов.",
+        prompt:
+          "Ученик написал: The web page wrote that the club is closed. О странице по-английски говорят тем же словом, что и о человеке. Запиши строку без ошибки.",
+        answer: "The web page said that the club is closed.",
+        accept: ["The web page said that the club is closed"],
+        hint: "Нужное слово — то же, каким передают чужие слова.",
+        why:
+          "The web page said that the club is closed. Сказать может не только " +
+          "человек: так же говорят о письме, объявлении и странице в интернете.",
       },
       {
-        id: "q-chto-znachit-poor-thing",
+        id: "q-chto-znachit-since",
         kind: "choice",
         outcome: "называть людей, учёбу и чувства: brother, examination, feelings",
-        prompt: "Что значит poor thing?",
+        prompt: "В строке He has lived here since May слово since говорит…",
         options: [
-          { text: "дешёвая вещь" },
-          { text: "бедняга", correct: true },
-          { text: "плохая новость" },
+          { text: "как долго он собирается остаться" },
+          { text: "с какого времени он здесь живёт", correct: true },
+          { text: "почему он сюда переехал" },
         ],
-        hint: "Так говорят о человеке, которому не повезло.",
+        hint: "После since стоит месяц — значит начало отсчёта.",
         why:
-          "Бедняга. Связка целиком не о деньгах и не о вещи: она о сочувствии " +
-          "человеку.",
+          "С какого времени он здесь живёт. После since называют ту точку, от " +
+          "которой идёт отсчёт, а не срок и не причину.",
       },
     ],
   },

@@ -222,7 +222,23 @@ const module: Module = {
         "`speaker` и `cabinet` без пояснений и почти без примеров, а модуль учит " +
         "их как «чехол», «футляр», «колонка» и «шкафчик». Сами слова ступени " +
         "принадлежат, а смысл выбран нами: методист отметил это как решение " +
-        "владельца как преподавателя",
+        "владельца как преподавателя. " +
+        "УРОК СЛОВ ЧАСТИ ВТОРОЙ берёт ещё тридцать записей, и все тридцать " +
+        "словник содержит: post office, bus station, petrol station, police " +
+        "station, sports centre, shopping centre, shop assistant, traffic light, " +
+        "police officer, police car, aeroplane, driving licence, close to, out " +
+        "of, by accident, nationality, occupation, birth, identification, Mr, " +
+        "Mrs, Ms, okay, all right, no one, instead of, minus, well known, " +
+        "left-hand, right hand. " +
+        "ДВЕ ЗАМЕНЫ ПО РАЗБОРУ МЕТОДИСТА 30 августа 2026. Карточка `driving` " +
+        "стояла отдельной записью, а словник ведёт `driving/driver's licence` — " +
+        "взято `driving licence`; заодно ушёл прежний пример с `-ing` в " +
+        "подлежащем (English Grammar Profile, NOUNS types, B2, «FORM '-ING' " +
+        "FORMS, SUBJECT»). Карточка `since` снята отсюда и перенесена в урок " +
+        "слов части четвёртой: её единственное употребление требует Present " +
+        "Perfect, а это B1 (PAST present perfect simple, «FORM/USE: DURATION " +
+        "WITH 'SINCE'») и модуль 22 нашей ступени. На её место взято `shopping " +
+        "centre` — здание, и тема урока та же",
       license: "внутреннее использование, публично не называем",
     },
     {
@@ -1432,7 +1448,7 @@ const module: Module = {
     // =====================================================================
     {
       slug: "slova-chasti-gorod",
-      title: "Слова части: город и бланки",
+      title: "Слова о городе и бланках",
       estimatedMinutes: 15,
       outcome: "называть места в городе и заполнять бланк: post office, occupation",
 
@@ -1442,8 +1458,8 @@ const module: Module = {
           kind: "explain",
           text: [
             "В чужом городе спрашивают дорогу, ищут нужное здание и заполняют бланки.",
-            "Здесь собраны слова для всех трёх дел.",
-            "Названия зданий почти всегда состоят из двух слов: post office, bus station.",
+            "Слова для всех трёх дел собраны в этом уроке.",
+            "Многие названия зданий состоят из двух слов: post office, bus station.",
             "Первое слово говорит, что там делают, второе — что это за место.",
           ],
         },
@@ -1451,7 +1467,7 @@ const module: Module = {
           id: "zdaniya-goroda",
           kind: "table",
           caption: "Здания и что в них",
-          zvuchat: ["post office", "bus station", "petrol station", "police station", "sports centre"],
+          zvuchat: ["post office", "bus station", "petrol station", "police station", "sports centre", "shopping centre"],
           head: ["Английский", "Перевод", "Что там делают"],
           rows: [
             ["post office", "почта", "отправляют письма"],
@@ -1459,6 +1475,7 @@ const module: Module = {
             ["petrol station", "заправка", "заливают бензин"],
             ["police station", "отделение полиции", "заявляют о пропаже"],
             ["sports centre", "спортивный центр", "занимаются спортом"],
+            ["shopping centre", "торговый центр", "покупают вещи"],
           ],
         },
         {
@@ -1471,6 +1488,7 @@ const module: Module = {
             { term: "petrol station", translation: "заправка", example: "There is a petrol station near the traffic light.", hint: "/ˈpetrəl steɪʃn/" },
             { term: "police station", translation: "отделение полиции", example: "The police station is out of the centre.", hint: "/pəˈliːs steɪʃn/" },
             { term: "sports centre", translation: "спортивный центр", example: "Maybe the sports centre is open on Sunday.", hint: "/ˈspɔːts sentə/" },
+            { term: "shopping centre", translation: "торговый центр", example: "The shopping centre is behind the market.", hint: "/ˈʃɒpɪŋ sentə/" },
             { term: "shop assistant", translation: "продавец", example: "The shop assistant may know the price.", hint: "/ˈʃɒp əsɪstənt/" },
             { term: "traffic light", translation: "светофор", example: "There is a petrol station near the traffic light.", hint: "/ˈtræfɪk laɪt/" },
           ],
@@ -1482,15 +1500,16 @@ const module: Module = {
           zvuchat: [
             "The post office may be closed today.",
             "The bus station is close to the market.",
+            "The shopping centre is behind the market.",
             "There is a petrol station near the traffic light.",
             "The police station is out of the centre.",
             "Maybe the sports centre is open on Sunday.",
             "The shop assistant may know the price.",
           ],
           text:
-            "The post office may be closed today.\nThe bus station is close to the market.\nThere is a petrol station near the traffic light.\nThe police station is out of the centre.\nMaybe the sports centre is open on Sunday.\nThe shop assistant may know the price.",
+            "The post office may be closed today.\nThe bus station is close to the market.\nThe shopping centre is behind the market.\nThere is a petrol station near the traffic light.\nThe police station is out of the centre.\nMaybe the sports centre is open on Sunday.\nThe shop assistant may know the price.",
           explain:
-            "Шесть строк об одном городе. В трёх из них стоит may или maybe: о " +
+            "Семь строк об одном городе. В трёх из них стоит may или maybe: о " +
             "чужом городе редко знают наверняка.",
         },
         {
@@ -1501,7 +1520,7 @@ const module: Module = {
             { term: "police officer", translation: "полицейский", example: "A police officer showed us the way.", hint: "/pəˈliːs ɒfɪsə/" },
             { term: "police car", translation: "полицейская машина", example: "A police car stopped at the traffic light.", hint: "/pəˈliːs kɑː/" },
             { term: "aeroplane", translation: "самолёт (полное слово вместо plane)", example: "Our aeroplane may be late.", hint: "/ˈeərəpleɪn/" },
-            { term: "driving", translation: "вождение", example: "Driving here is difficult.", hint: "/ˈdraɪvɪŋ/" },
+            { term: "driving licence", translation: "водительские права", example: "I always take my driving licence.", hint: "/ˈdraɪvɪŋ laɪsns/" },
             { term: "close to", translation: "близко к", example: "The bus station is close to the market.", hint: "/ˈkləʊs tə/" },
             { term: "out of", translation: "за пределами, из", example: "The police station is out of the centre.", hint: "/ˈaʊt əv/" },
             { term: "by accident", translation: "случайно", example: "We found the museum by accident.", hint: "/baɪ ˈæksɪdənt/" },
@@ -1515,22 +1534,14 @@ const module: Module = {
             "A police officer showed us the way.",
             "A police car stopped at the traffic light.",
             "We found the museum by accident.",
-            "Driving here is difficult.",
+            "I always take my driving licence.",
             "Our aeroplane may be late.",
           ],
           text:
-            "A police officer showed us the way.\nA police car stopped at the traffic light.\nWe found the museum by accident.\nDriving here is difficult.\nOur aeroplane may be late.",
+            "A police officer showed us the way.\nA police car stopped at the traffic light.\nWe found the museum by accident.\nI always take my driving licence.\nOur aeroplane may be late.",
           explain:
-            "Пять строк о дороге. Оборот by accident значит «не нарочно» и к слову " +
-            "accident из рассказа о происшествии отношения не имеет.",
-        },
-        {
-          id: "ms-kogda-somnevaeshsya",
-          kind: "note",
-          tone: "info",
-          text:
-            "Обращение Ms годится всегда: оно ни о чём не спрашивает.\n\nПоэтому в " +
-            "письме незнакомому человеку берут именно его.",
+            "Пять строк о дороге. Здесь accident значит не «происшествие», а " +
+            "«случайность»: by accident — это «не нарочно».",
         },
         {
           id: "slovar-blanka",
@@ -1541,9 +1552,9 @@ const module: Module = {
             { term: "occupation", translation: "род занятий", example: "My occupation is teacher.", hint: "/ˌɒkjuˈpeɪʃn/" },
             { term: "birth", translation: "рождение", example: "The date of birth is on the first line.", hint: "/bɜːθ/" },
             { term: "identification", translation: "удостоверение личности (полное слово)", example: "Bring identification with you.", hint: "/aɪˌdentɪfɪˈkeɪʃn/" },
-            { term: "Mr", translation: "перед именем мужчины", example: "Mr Petrov may come at five.", hint: "/ˈmɪstə/" },
-            { term: "Mrs", translation: "перед именем замужней женщины", example: "Mrs Petrova is a teacher.", hint: "/ˈmɪsɪz/" },
-            { term: "Ms", translation: "перед именем женщины, когда о семье не спрашивают", example: "Ms Dana is our new manager.", hint: "/mɪz/" },
+            { term: "Mr", translation: "перед фамилией мужчины", example: "Mr Petrov may come at five.", hint: "/ˈmɪstə/" },
+            { term: "Mrs", translation: "перед фамилией замужней женщины", example: "Mrs Petrova is a teacher.", hint: "/ˈmɪsɪz/" },
+            { term: "Ms", translation: "перед фамилией женщины, когда о семье не говорят", example: "Ms Bishop is our new manager.", hint: "/mɪz/" },
           ],
         },
         {
@@ -1557,13 +1568,21 @@ const module: Module = {
             "Bring identification with you.",
             "Mr Petrov may come at five.",
             "Mrs Petrova is a teacher.",
-            "Ms Dana is our new manager.",
+            "Ms Bishop is our new manager.",
           ],
           text:
-            "Write your nationality here.\nMy occupation is teacher.\nThe date of birth is on the first line.\nBring identification with you.\nMr Petrov may come at five.\nMrs Petrova is a teacher.\nMs Dana is our new manager.",
+            "Write your nationality here.\nMy occupation is teacher.\nThe date of birth is on the first line.\nBring identification with you.\nMr Petrov may come at five.\nMrs Petrova is a teacher.\nMs Bishop is our new manager.",
           explain:
             "Семь строк одного бланка. Обращение стоит перед фамилией и точки после " +
             "себя не требует.",
+        },
+        {
+          id: "ms-kogda-somnevaeshsya",
+          kind: "note",
+          tone: "info",
+          text:
+            "Mrs говорит, что женщина замужем, а Ms о семье не говорит " +
+            "ничего.\n\nВ этом вся разница между двумя обращениями.",
         },
         {
           id: "korotkie-slova-goroda",
@@ -1574,7 +1593,6 @@ const module: Module = {
             "All right, let's meet at six.",
             "No one knows the way.",
             "I took the bus instead of the tram.",
-            "She has worked here since May.",
             "It is minus ten today.",
             "The market is well known here.",
             "The post office is on the left-hand side.",
@@ -1586,7 +1604,6 @@ const module: Module = {
             ["All right, let's meet at six.", "Ладно, встретимся в шесть."],
             ["No one knows the way.", "Никто не знает дороги."],
             ["I took the bus instead of the tram.", "Я поехал на автобусе вместо трамвая."],
-            ["She has worked here since May.", "Она работает здесь с мая."],
             ["It is minus ten today.", "Сегодня минус десять."],
             ["The market is well known here.", "Рынок здесь широко известен."],
             ["The post office is on the left-hand side.", "Почта по левой стороне."],
@@ -1600,9 +1617,8 @@ const module: Module = {
           items: [
             { term: "okay", translation: "хорошо, договорились", example: "Okay, I'll wait here.", hint: "/ˌəʊˈkeɪ/" },
             { term: "all right", translation: "ладно, всё в порядке", example: "All right, let's meet at six.", hint: "/ˌɔːl ˈraɪt/" },
-            { term: "no one", translation: "никто (вторая запись слова nobody)", example: "No one knows the way.", hint: "/ˈnəʊ wʌn/" },
+            { term: "no one", translation: "никто (то же самое, что nobody)", example: "No one knows the way.", hint: "/ˈnəʊ wʌn/" },
             { term: "instead of", translation: "вместо чего-то", example: "I took the bus instead of the tram.", hint: "/ɪnˈsted əv/" },
-            { term: "since", translation: "с какого-то времени", example: "She has worked here since May.", hint: "/sɪns/" },
             { term: "minus", translation: "минус", example: "It is minus ten today.", hint: "/ˈmaɪnəs/" },
             { term: "well known", translation: "широко известный", example: "The market is well known here.", hint: "/ˌwel ˈnəʊn/" },
             { term: "left-hand", translation: "левый (о стороне)", example: "The post office is on the left-hand side.", hint: "/ˌleft ˈhænd/" },
@@ -1615,11 +1631,12 @@ const module: Module = {
           tone: "info",
           text:
             "В left-hand дефис есть, а в right hand его нет, и это не " +
-            "описка.\n\nПервое стоит перед словом «сторона» прилагательным, а " +
-            "второе — само название руки.",
+            "описка.\n\nТак эти две записи и стоят в словаре: одна с дефисом, " +
+            "другая без него.",
         },
 
         // ---- задания ----
+
         {
           id: "z1-vybrat-zdanie",
           kind: "choice",
@@ -1641,7 +1658,6 @@ const module: Module = {
           before: "The post office is on the ",
           after: " side.",
           answer: "left-hand",
-          accept: ["left hand"],
           hint: "Перед словом «сторона» это слово пишут через дефис.",
           why: "The post office is on the left-hand side. Дефис здесь на месте.",
         },
@@ -1653,23 +1669,24 @@ const module: Module = {
           right: [
             "род занятий",
             "гражданство",
-            "перед именем женщины",
+            "перед фамилией женщины",
             "дата рождения",
           ],
           answer: [1, 0, 3, 2],
           hint: "Слово occupation значит «занятие», а nationality — «страна, чей ты гражданин».",
           why:
             "Nationality — гражданство, Occupation — род занятий, Date of birth — " +
-            "дата рождения, Ms — обращение перед именем женщины.",
+            "дата рождения, Ms — обращение перед фамилией женщины.",
         },
         {
           id: "z4-skazat-vmesto",
           kind: "short",
-          prompt: "Скажи по-английски: поездка вышла на автобусе, а не на трамвае. Возьми оборот со словом instead.",
+          prompt: "Расскажи о своей вчерашней поездке: автобус вместо трамвая. Начни строку с I и возьми оборот со словом instead.",
           answer: "I took the bus instead of the tram.",
           accept: [
             "I took the bus instead of the tram",
-            "We took the bus instead of the tram.",
+            "I took a bus instead of a tram.",
+            "I took a bus instead of a tram",
           ],
           hint: "После instead стоит короткое слово of, а за ним — то, чего не выбрали.",
           why:
@@ -2023,19 +2040,16 @@ const module: Module = {
         why: "petrol station. Bus station — автовокзал, а police station — отделение полиции.",
       },
       {
-        id: "q-chto-pishut-v-occupation",
-        kind: "choice",
+        id: "q-ispravit-obrashchenie-na-blanke",
+        kind: "short",
         outcome: "называть места в городе и заполнять бланк: post office, occupation",
-        prompt: "Что пишут в строке бланка Occupation?",
-        options: [
-          { text: "гражданство" },
-          { text: "род занятий", correct: true },
-          { text: "дату рождения" },
-        ],
-        hint: "Строка о том, чем человек занят.",
+        prompt:
+          "В бланке написали: Mr. Petrov. Точка здесь лишняя. Запиши строку без ошибки.",
+        answer: "Mr Petrov",
+        hint: "Обращение стоит перед фамилией, и точки после себя не требует.",
         why:
-          "Род занятий. Гражданство пишут в строке Nationality, а дату рождения — " +
-          "в строке Date of birth.",
+          "Mr Petrov. Обращения Mr, Mrs и Ms пишут без точки, а стоят они перед " +
+          "фамилией.",
       },
     ],
   },
