@@ -1182,6 +1182,49 @@ function checkVozvrat(course: Course, mod: Module, lesson: Lesson, where: string
  * слово», «последнее слово», «первая строка», «последняя строка». Остальное
  * («сразу после», «в той же реплике») остаётся редактору.
  */
+/**
+ * Вступление обещает английскую строку заголовком и не называет её.
+ *
+ * Найдено 30 августа 2026, когда владелец сказал про ступень Elementary:
+ * «твои объяснения — ужасные непонятные наборы слов». Мерка развела две
+ * ступени резко: на Beginner таких вступлений 2 из 201, на Elementary — 32
+ * из 145.
+ *
+ * Как это читается ученику. Урок называется «Нельзя: You mustn't use the
+ * machine», а вступление говорит: «На стенах висят таблички, и на них стоит
+ * ОДНО КОРОТКОЕ СЛОВО. ОНО значит запрет, а не совет». Слово не названо; оно
+ * появится ниже, в таблице. Ученик читает три предложения и не знает, о чём
+ * урок.
+ *
+ * Это пятое правило понятности в новом виде: раньше местоимение допускало два
+ * прочтения («так пишется только оно» прочли как «только it»), здесь оно не
+ * допускает ни одного.
+ *
+ * Проверка нарочно узкая — молчит везде, кроме самого явного случая: в
+ * заголовке урока латиница ЕСТЬ, а в первом объяснении её нет вовсе. Русское
+ * вступление законно там, где и заголовок русский: урок про счёт или про
+ * порядок слов вправе начинаться случаем без единой английской строки.
+ *
+ * Уровень — вопрос, а не ошибка: бывает вступление, которое ставит случай так,
+ * что строка честно ждёт таблицы. Решает редактор.
+ */
+function checkVstuplenieNazyvaetStroku(lesson: any, where: string): void {
+  const latinica = /[a-zA-Z]{2,}/;
+  if (!latinica.test(lesson.title ?? "")) return;
+
+  const pervoe = (lesson.blocks ?? []).find((b: any) => b.kind === "explain");
+  if (!pervoe) return;
+
+  const tekst = Array.isArray(pervoe.text) ? pervoe.text.join(" ") : String(pervoe.text ?? "");
+  if (latinica.test(tekst)) return;
+
+  warn(
+    `${where} · ${lesson.slug}`,
+    "заголовок обещает английскую строку, а вступление её не называет — " +
+      "ученик читает объяснение о слове, которого не видел"
+  );
+}
+
 function checkPodskazkaObeshchaetMesto(lesson: any, where: string): void {
   const poId = new Map<string, any>();
   for (const b of lesson.blocks) if (b.id) poId.set(b.id, b);
@@ -1311,6 +1354,7 @@ function checkLesson(lesson: Lesson, where: string): void {
   }
 
   checkPrivyazka(lesson, where);
+  checkVstuplenieNazyvaetStroku(lesson, where);
   checkPodskazkaObeshchaetMesto(lesson, where);
   checkTretyeLitsoPriOtveteNaYou(lesson, where);
 
