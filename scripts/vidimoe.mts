@@ -69,6 +69,11 @@ function kuskiBloka(b: any, gde: string): Kusok[] {
       dobavit("подпись примера", b.caption);
       dobavit("пример", b.code ?? b.text);
       dobavit("разбор примера", b.explain);
+      // Перевод стоит рядом со строкой и читается учеником — значит редактор
+      // обязан его видеть.
+      for (const [stroka, perevod] of Object.entries(b.perevod ?? {})) {
+        dobavit("перевод строки", `${stroka} — ${perevod}`);
+      }
       // Звук у строки примера ученик слышит, значит его тоже надо проверять.
       for (const chto of Object.values(zvuchashchee(b))) dobavit("звук строки примера", chto);
       break;

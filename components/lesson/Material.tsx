@@ -23,7 +23,11 @@ import s from "./lesson.module.css";
  * Пустая строка внутри примера отделяет один список от другого — она остаётся
  * промежутком, а не превращается в пустой абзац.
  */
-function lines(text: string, zvuk?: Record<string, string>) {
+function lines(
+  text: string,
+  zvuk?: Record<string, string>,
+  perevod?: Record<string, string>
+) {
   return text.split("\n").map((line, i) =>
     line.trim() === "" ? (
       <span key={i} className={s.exampleGap} aria-hidden="true" />
@@ -36,6 +40,12 @@ function lines(text: string, zvuk?: Record<string, string>) {
           <Zvuk src={adresYacheyki(zvuk[line.trim()])} chto={zvuk[line.trim()]} />
         )}
         {line}
+        {/* Перевод — рядом со строкой, а не под примером. Ученик читает
+            английское и русское одним движением глаз; спрятанный в разбор
+            перевод этого не даёт. Просьба владельца от 30 августа. */}
+        {perevod?.[line.trim()] && (
+          <span className={s.examplePerevod}>{perevod[line.trim()]}</span>
+        )}
       </span>
     )
   );
@@ -72,7 +82,9 @@ export default function Material({ block }: { block: MaterialBlock }) {
               How do you spell that?». Владелец назвал это скороговоркой, и был
               прав: читать такое нельзя. */}
           {block.text && (
-            <div className={s.exampleText}>{lines(block.text, zvuchashchee(block))}</div>
+            <div className={s.exampleText}>
+              {lines(block.text, zvuchashchee(block), block.perevod)}
+            </div>
           )}
           <p className={s.exampleExplain}>{block.explain}</p>
         </div>

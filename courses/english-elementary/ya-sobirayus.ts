@@ -396,15 +396,16 @@ const module: Module = {
           kind: "explain",
           text: [
             "В субботу у Данияра шахматы, и он говорит об этом заранее.",
-            "По-английски это I am going to play chess.",
-            "Так говорят о намерении — о том, что человек решил сделать.",
-            "После I стоит форма am, дальше идут слова going to и сам глагол.",
+            "По-русски мы в таком случае говорим «собираюсь»: собираюсь играть, собираюсь позвонить, собираюсь купить.",
+            "По-английски вместо него стоит am going to.",
+            "I am going to play chess. — Я собираюсь играть в шахматы.",
+            "Английская строка длиннее русской, а составлена так же: I — «я», am going to — «собираюсь», play chess — «играть в шахматы».",
           ],
         },
         {
           id: "formy-po-licam",
           kind: "table",
-          caption: "Кто собирается: формы по лицам",
+          caption: "Кто собирается",
           zvuchat: [
             "I am going to play chess.",
             "You are going to play chess.",
@@ -413,23 +414,25 @@ const module: Module = {
             "We are going to play chess.",
             "They are going to play chess.",
           ],
-          head: ["Кто", "Запись"],
+          head: ["Кто", "По-английски", "По-русски"],
           rows: [
-            ["I", "I am going to play chess."],
-            ["you", "You are going to play chess."],
-            ["he", "He is going to play chess."],
-            ["she", "She is going to play chess."],
-            ["we", "We are going to play chess."],
-            ["they", "They are going to play chess."],
+            ["I", "I am going to play chess.", "Я собираюсь играть в шахматы."],
+            ["you", "You are going to play chess.", "Ты собираешься играть в шахматы."],
+            ["he", "He is going to play chess.", "Он собирается играть в шахматы."],
+            ["she", "She is going to play chess.", "Она собирается играть в шахматы."],
+            ["we", "We are going to play chess.", "Мы собираемся играть в шахматы."],
+            ["they", "They are going to play chess.", "Они собираются играть в шахматы."],
           ],
         },
         {
           id: "pochemu-tri-formy",
           kind: "explain",
           text: [
-            "Меняется в записи одно слово: am, are или is.",
-            "Это формы настоящего времени, и каждому лицу полагается своя: I am, you are, he is, she is, we are, they are.",
-            "Слова going to и сам глагол при этом остаются прежними.",
+            "Посмотри на два правых столбца сразу — они меняются по-разному.",
+            "В русском столбце меняется само слово «собираюсь»: собираешься, собирается, собираемся.",
+            "В английском going to не меняется никогда.",
+            "Меняется только короткое слово перед ним: am, are или is.",
+            "Их всего три, и каждому лицу полагается своё: I am, you are, he is, she is, we are, they are.",
           ],
         },
         {
@@ -438,7 +441,9 @@ const module: Module = {
           tone: "info",
           text:
             "После going to глагол стоит в словарной форме — той, что записана в " +
-            "словаре: play, watch, buy.\n\nОкончаний он не берёт: ни plays, ни played.",
+            "словаре: play, watch, buy.\n\nПо-русски там тоже начальная форма: " +
+            "собираюсь играть, а не собираюсь играю.\n\nОкончаний он не берёт: " +
+            "ни plays, ни played.",
         },
         {
           id: "subbota-daniyara",
@@ -452,10 +457,21 @@ const module: Module = {
           ],
           text:
             "On Saturday I am going to play basketball.\nWe are going to be at the court at ten.\nAfter that I am going to watch a volleyball match.\nOn Monday I am going to join the chess club.",
+          perevod: {
+            "On Saturday I am going to play basketball.":
+              "В субботу я собираюсь играть в баскетбол.",
+            "We are going to be at the court at ten.":
+              "Мы собираемся быть на площадке в десять.",
+            "After that I am going to watch a volleyball match.":
+              "После этого я собираюсь смотреть волейбольный матч.",
+            "On Monday I am going to join the chess club.":
+              "В понедельник я собираюсь вступить в шахматный клуб.",
+          },
           explain:
-            "Четыре строки, и в каждой перед going to стоит форма настоящего времени. " +
-            "Там, где говорящий один, стоит am; во второй строке речь о двоих, и " +
-            "потому are.",
+            "Все четыре дела Данияр решил заранее — потому и going to. " +
+            "Во второй строке речь о двоих, и слово перед going to меняется на are. " +
+            "Там же после going to стоит be: собираться можно не только что-то делать, " +
+            "но и быть где-то.",
         },
         {
           id: "slovar-igr",
@@ -610,14 +626,26 @@ const module: Module = {
             "The court is going to be free at ten.",
             "The courts are going to be free at ten.",
           ],
-          head: ["Кто или что", "Запись"],
+          head: ["Кто или что", "По-английски", "По-русски"],
           rows: [
-            ["Dana", "Dana is going to come."],
-            ["my sister", "My sister is going to come."],
-            ["Dana and Alim", "Dana and Alim are going to come."],
-            ["my parents", "My parents are going to come."],
-            ["the court", "The court is going to be free at ten."],
-            ["the courts", "The courts are going to be free at ten."],
+            ["Dana", "Dana is going to come.", "Дана собирается прийти."],
+            ["my sister", "My sister is going to come.", "Моя сестра собирается прийти."],
+            [
+              "Dana and Alim",
+              "Dana and Alim are going to come.",
+              "Дана и Алим собираются прийти.",
+            ],
+            ["my parents", "My parents are going to come.", "Мои родители собираются прийти."],
+            [
+              "the court",
+              "The court is going to be free at ten.",
+              "Площадка будет свободна в десять.",
+            ],
+            [
+              "the courts",
+              "The courts are going to be free at ten.",
+              "Площадки будут свободны в десять.",
+            ],
           ],
         },
         {
@@ -634,9 +662,11 @@ const module: Module = {
           id: "ne-tolko-o-lyudyah",
           kind: "explain",
           text: [
-            "Две последние строки таблицы говорят о вещи, и считают её так же.",
-            "Одна вещь берёт is, несколько — are.",
+            "Две последние строки говорят о вещи, и форму выбирают так же: одна вещь берёт is, несколько — are.",
             "Про клуб, площадку и выставку говорят is, про билеты и подробности — are.",
+            "А в переводе там уже не «собирается», а «будет»: площадка ничего не решала.",
+            "Английская запись от этого не меняется — going to годится и для решения человека, и для того, что просто ожидается.",
+            "Об ожидаемом будет отдельный урок этого модуля — «Каким это будет».",
           ],
         },
         {
@@ -658,9 +688,18 @@ const module: Module = {
           ],
           text:
             "My sister is going to buy skiing equipment.\nI'm going to be at the skating club on Friday.\nWe're going to have a lot of spare time in January.",
+          perevod: {
+            "My sister is going to buy skiing equipment.":
+              "Моя сестра собирается купить лыжное снаряжение.",
+            "I'm going to be at the skating club on Friday.":
+              "В пятницу я собираюсь быть в клубе катания на коньках.",
+            "We're going to have a lot of spare time in January.":
+              "В январе у нас будет много свободного времени.",
+          },
           explain:
-            "Три строки. В первой стоит имя одного человека, и потому форма is; во " +
-            "второй и третьей запись краткая, и форма приросла к местоимению.",
+            "В первой строке стоит имя одного человека, и потому форма is. " +
+            "Во второй и третьей запись краткая: форма приросла к местоимению. " +
+            "Третья строка снова не о решении, а об ожидаемом — потому в переводе «будет».",
         },
         {
           id: "slovar-zimnih-zanyatiy",
@@ -767,8 +806,11 @@ const module: Module = {
           kind: "explain",
           text: [
             "Алим хочет позвать Дану на бадминтон и сначала спрашивает про её субботу.",
-            "По-английски вопрос начинается с формы: Are you going to play badminton?",
-            "Форма ушла в начало, а всё остальное осталось на прежних местах.",
+            "По-русски вопрос и утверждение составлены одинаково: «Ты собираешься играть» и «Ты собираешься играть?».",
+            "Меняется только голос, слова стоят на своих местах.",
+            "По-английски так нельзя — в вопросе слово переставляют.",
+            "Are you going to play badminton? — Ты собираешься играть в бадминтон?",
+            "Вперёд ушла форма are, а всё остальное осталось на прежних местах.",
           ],
         },
         {
@@ -825,7 +867,9 @@ const module: Module = {
           id: "pochemu-otvet-ne-nachalo-voprosa",
           kind: "explain",
           text: [
-            "В вопросе форма стоит первой, а в ответе — второй: Are you…? — Yes, I am.",
+            "По-русски на такой вопрос отвечают одним словом: «Да» или «Нет».",
+            "По-английски одного слова мало: за yes или no повторяют форму из вопроса.",
+            "В вопросе она стоит первой, а в ответе — второй: Are you…? — Yes, I am.",
             "Меняется и лицо: спрашивают про you, а отвечать надо про I.",
             "Поэтому короткий ответ собирают заново, а не переписывают начало вопроса.",
           ],
@@ -851,9 +895,18 @@ const module: Module = {
           ],
           text:
             "Are you going to play badminton on Saturday?\nYes, I am. Are you going to come?\nNo, I'm not. I'm going to be at the fishing club instead.",
+          perevod: {
+            "Are you going to play badminton on Saturday?":
+              "Ты собираешься играть в бадминтон в субботу?",
+            "Yes, I am. Are you going to come?": "Да. А ты собираешься прийти?",
+            "No, I'm not. I'm going to be at the fishing club instead.":
+              "Нет. Вместо этого я собираюсь быть в клубе рыбалки.",
+          },
           explain:
             "Три реплики. В первой и второй вопрос начинается с формы are, а короткие " +
-            "ответы в двух последних строках повторяют её вторым словом.",
+            "ответы в двух последних строках повторяют её вторым словом. " +
+            "В переводе на их месте стоит одно слово — «да» и «нет»: русскому языку " +
+            "повтор формы не нужен.",
         },
         {
           id: "slovar-kluba",
@@ -957,7 +1010,8 @@ const module: Module = {
             "Айгуль зовёт Алима в воскресенье, но он уже занят, и она хочет знать чем.",
             "Ответ «да» или «нет» тут говорит мало.",
             "Чтобы узнать подробности, к вопросу спереди приставляют вопросительное слово.",
-            "Так выходит What are you going to do on Sunday?",
+            "What are you going to do on Sunday? — Что ты собираешься делать в воскресенье?",
+            "Здесь русский и английский совпадают: «что» и What стоят в начале одинаково.",
           ],
         },
         {
@@ -970,12 +1024,12 @@ const module: Module = {
             "When are you going to come?",
             "How are you going to get to the club?",
           ],
-          head: ["Слово", "О чём спрашивает", "Вопрос"],
+          head: ["Слово", "По-русски", "Вопрос"],
           rows: [
-            ["What", "о деле", "What are you going to do on Sunday?"],
-            ["Where", "о месте", "Where are you going to be at midday?"],
-            ["When", "о времени", "When are you going to come?"],
-            ["How", "о способе", "How are you going to get to the club?"],
+            ["What", "что", "What are you going to do on Sunday?"],
+            ["Where", "где", "Where are you going to be at midday?"],
+            ["When", "когда", "When are you going to come?"],
+            ["How", "как", "How are you going to get to the club?"],
           ],
         },
         {
@@ -1001,9 +1055,18 @@ const module: Module = {
           ],
           text:
             "What are you going to do on Sunday?\nI'm going to be at the exhibition.\nWhen are you going to come?\nThe entrance is open till midday, so I'm going to come at ten. In the evening I'm going to be at the disco.",
+          perevod: {
+            "What are you going to do on Sunday?":
+              "Что ты собираешься делать в воскресенье?",
+            "I'm going to be at the exhibition.": "Я собираюсь быть на выставке.",
+            "When are you going to come?": "Когда ты собираешься прийти?",
+            "The entrance is open till midday, so I'm going to come at ten. In the evening I'm going to be at the disco.":
+              "Вход открыт до полудня, поэтому я собираюсь прийти в десять. Вечером я собираюсь быть на дискотеке.",
+          },
           explain:
             "Четыре реплики. Два вопроса начинаются с вопросительного слова, и оба " +
-            "ответа дают сведение: место и время.",
+            "ответа дают сведение: место и время. " +
+            "Ответом «да» или «нет» здесь не обойтись — потому и спрашивают словом.",
         },
         {
           id: "slovar-vyhodnogo-dnya",
@@ -1099,8 +1162,10 @@ const module: Module = {
           kind: "explain",
           text: [
             "Поездка за город назначена на воскресенье, и Дана заранее говорит о погоде.",
-            "По-английски это It is going to be foggy.",
-            "Так же говорят и о самой поездке: The trip is going to be long.",
+            "It is going to be foggy. — Будет туманно.",
+            "Перевод здесь другой: не «собирается», а «будет».",
+            "Так и должно быть — погода ничего не решала, её просто ожидают.",
+            "А английская запись та же самая: going to годится и для решения человека, и для ожидаемого.",
             "После going to здесь стоит be, а за ним — то, каким что-то будет.",
           ],
         },
@@ -1114,12 +1179,12 @@ const module: Module = {
             "The trip is going to be long.",
             "The exhibition is going to be free.",
           ],
-          head: ["Запись", "О чём речь"],
+          head: ["По-английски", "По-русски"],
           rows: [
-            ["It is going to be foggy tomorrow.", "о погоде"],
-            ["Tonight it is going to be twenty degrees.", "о погоде"],
-            ["The trip is going to be long.", "о поездке"],
-            ["The exhibition is going to be free.", "о выставке"],
+            ["It is going to be foggy tomorrow.", "Завтра будет туманно."],
+            ["Tonight it is going to be twenty degrees.", "Сегодня вечером будет двадцать градусов."],
+            ["The trip is going to be long.", "Поездка будет долгой."],
+            ["The exhibition is going to be free.", "Выставка будет бесплатной."],
           ],
         },
         {
@@ -1129,6 +1194,7 @@ const module: Module = {
             "Во всех четырёх записях после going to стоит одно и то же слово — be.",
             "Меняется только то, что идёт за ним: foggy, twenty degrees, long, free.",
             "Слово перед going to называет то, о чём речь: поездка, выставка, погода.",
+            "А в переводе везде стоит «будет» — русскому языку хватает одного слова.",
           ],
         },
         {
@@ -1152,9 +1218,20 @@ const module: Module = {
           ],
           text:
             "On Sunday we're going to visit the countryside.\nThe trip is going to be nearly four hours.\nIt is going to be foggy, and it is going to be cold.\nFinally, it is going to be a real adventure.",
+          perevod: {
+            "On Sunday we're going to visit the countryside.":
+              "В воскресенье мы собираемся съездить за город.",
+            "The trip is going to be nearly four hours.":
+              "Поездка будет почти четыре часа.",
+            "It is going to be foggy, and it is going to be cold.":
+              "Будет туманно, и будет холодно.",
+            "Finally, it is going to be a real adventure.":
+              "И наконец, это будет настоящее приключение.",
+          },
           explain:
-            "Четыре строки. В первой сказано о намерении, а в остальных — о том, " +
-            "каким всё это будет: там после going to стоит be.",
+            "Четыре строки, и по переводу видно, где что. " +
+            "В первой сказано о намерении — «собираемся», решение приняли сами. " +
+            "В остальных речь об ожидаемом — «будет»: там после going to стоит be.",
         },
         {
           id: "slovar-poezdki",
