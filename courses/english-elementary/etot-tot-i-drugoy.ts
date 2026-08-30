@@ -1368,7 +1368,7 @@ const module: Module = {
           id: "zachem-proveryat-obyavlenie",
           kind: "explain",
           text: [
-            "Ученик написал объявление: «We sell books and toys. Come to the school hall on Saturday.»",
+            "Ученик написал объявление: «We sell books and toys. Come to the school hall on Saturday.» — «Продаём книги и игрушки. Приходите в школьный зал в субботу.»",
             "Никто не пришёл: непонятно, какие книги, какие игрушки и сколько стоят.",
             "В объявлении пропускают не сами вещи, а то, какие они и сколько стоят.",
             "Проверить своё объявление можно по четырём строкам.",

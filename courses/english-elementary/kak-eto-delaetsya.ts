@@ -305,7 +305,7 @@ const module: Module = {
         {
           id: "razgovor-o-brate",
           kind: "example",
-          caption: "Разговор о брате",
+          caption: "Айгуль расспрашивает Алима о брате",
           razgovor: true,
           zvuchat: [
             "Does your brother play well?",
@@ -316,10 +316,10 @@ const module: Module = {
           text:
             "Does your brother play well?\nNo, he plays badly. But he sings loudly!\nAnd your sister?\nShe sings quietly, and she speaks very clearly.",
           perevod: {
-            "Does your brother play well?": "Ваш брат хорошо играет?",
+            "Does your brother play well?": "Твой брат хорошо играет?",
             "No, he plays badly. But he sings loudly!":
               "Нет, играет он плохо. Зато поёт громко!",
-            "And your sister?": "А ваша сестра?",
+            "And your sister?": "А твоя сестра?",
             "She sings quietly, and she speaks very clearly.":
               "Она поёт тихо, а говорит очень внятно.",
           },
@@ -396,7 +396,7 @@ const module: Module = {
           answer: [2, 1, 0],
           hint: "Наречие идёт после действия.",
           why:
-            "My sister sings loudly. Сначала кто, потом действие, потом уже как.",
+            "My sister sings loudly. Слово loudly отвечает на вопрос «как поёт», и потому идёт за самим пением, а не за сестрой.",
         },
         {
           id: "z5-napisat-o-brate",
@@ -428,13 +428,13 @@ const module: Module = {
             "Данияр учится бросать мяч и хочет сказать, что бросает легко.",
             "Прилагательное easy кончается на -y, и вместе с -ly вышло бы easyly.",
             "Так не пишут: буква y меняется на i, и выходит easily.",
-            "Три случая ниже покрывают почти всё, что встретится.",
+            "Два случая ниже покрывают почти всё, что встретится.",
           ],
         },
         {
           id: "tri-sluchaya-napisaniya",
           kind: "table",
-          caption: "Три случая написания",
+          caption: "Два случая написания",
           zvuchat: [
             "He throws the ball easily.",
             "She jumps happily.",
@@ -470,7 +470,7 @@ const module: Module = {
         {
           id: "razgovor-na-trenirovke",
           kind: "example",
-          caption: "Разговор на тренировке",
+          caption: "Данияр и Алим на тренировке",
           razgovor: true,
           zvuchat: [
             "Can you throw the ball?",
@@ -482,12 +482,12 @@ const module: Module = {
           text:
             "Can you throw the ball?\nYes, I throw it easily.\nAnd can you jump?\nI jump happily, but I hit the ball badly.\nThen hit it carefully.",
           perevod: {
-            "Can you throw the ball?": "Вы умеете бросать мяч?",
+            "Can you throw the ball?": "Ты умеешь бросать мяч?",
             "Yes, I throw it easily.": "Да, бросаю легко.",
-            "And can you jump?": "А прыгать умеете?",
+            "And can you jump?": "А прыгать умеешь?",
             "I jump happily, but I hit the ball badly.":
-              "Прыгаю с удовольствием, а вот бью по мячу плохо.",
-            "Then hit it carefully.": "Тогда бейте аккуратно.",
+              "Прыгаю радостно, а вот бью по мячу плохо.",
+            "Then hit it carefully.": "Тогда бей аккуратно.",
           },
           explain:
             "Наречия здесь собраны по-разному: у easily буква y сменилась на i, у " +
@@ -635,7 +635,7 @@ const module: Module = {
         {
           id: "razgovor-o-sporte",
           kind: "example",
-          caption: "Разговор о спорте",
+          caption: "Дана расспрашивает Данияра о друге",
           razgovor: true,
           zvuchat: [
             "Is your friend a good runner?",
@@ -648,7 +648,7 @@ const module: Module = {
           text:
             "Is your friend a good runner?\nYes, he runs well and he works hard.\nDoes he ski?\nHe skis fast, but running is his sport.\nDoes he play hockey too?\nBadly!",
           perevod: {
-            "Is your friend a good runner?": "Ваш друг хороший бегун?",
+            "Is your friend a good runner?": "Твой друг хороший бегун?",
             "Yes, he runs well and he works hard.":
               "Да, бегает он хорошо и тренируется усердно.",
             "Does he ski?": "Он катается на лыжах?",
@@ -803,7 +803,7 @@ const module: Module = {
         {
           id: "razgovor-o-muzyke",
           kind: "example",
-          caption: "Разговор о музыке",
+          caption: "Алим и Дана о музыке",
           razgovor: true,
           zvuchat: [
             "Do you like jazz?",
@@ -815,17 +815,17 @@ const module: Module = {
           text:
             "Do you like jazz?\nI like rock.\nDoes your friend play an instrument?\nHe plays classical music badly, but he sings rock loudly.\nAnd his singing?",
           perevod: {
-            "Do you like jazz?": "Вам нравится джаз?",
+            "Do you like jazz?": "Тебе нравится джаз?",
             "I like rock.": "Мне нравится рок.",
             "Does your friend play an instrument?":
-              "Ваш друг играет на каком-нибудь инструменте?",
+              "Твой друг играет на каком-нибудь инструменте?",
             "He plays classical music badly, but he sings rock loudly.":
               "Классику он играет плохо, зато рок поёт громко.",
             "And his singing?": "А как он поёт?",
           },
           explain:
-            "Наречие каждый раз стоит последним: после instrument, после music, " +
-            "после rock. Вещь всегда идёт раньше него.",
+            "Наречие каждый раз стоит последним: после music, после rock. Вещь всегда " +
+            "идёт раньше него.",
         },
         {
           id: "slovar-muzyki",
@@ -893,7 +893,7 @@ const module: Module = {
           answer: [2, 1, 0],
           hint: "Наречие последнее, а джаз идёт перед ним.",
           why:
-            "She plays jazz well. Порядок один и тот же: кто, действие, вещь, как.",
+            "She plays jazz well. Слово well говорит, как играет, и потому встаёт после того, что играет.",
         },
         {
           id: "z5-napisat-o-klassike",

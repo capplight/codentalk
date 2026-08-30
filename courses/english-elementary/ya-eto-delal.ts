@@ -228,10 +228,18 @@ const module: Module = {
             "We visited the island in May.",
             "We have visited the island.",
           ],
-          head: ["О дне: когда", "Об опыте: было ли"],
+          head: ["О дне: когда", "Об опыте: было ли", "По-русски и то и другое"],
           rows: [
-            ["I saw a dolphin last summer.", "I have seen a dolphin."],
-            ["We visited the island in May.", "We have visited the island."],
+            [
+              "I saw a dolphin last summer.",
+              "I have seen a dolphin.",
+              "Я видел дельфина.",
+            ],
+            [
+              "We visited the island in May.",
+              "We have visited the island.",
+              "Мы были на острове.",
+            ],
           ],
         },
         {
@@ -844,7 +852,7 @@ const module: Module = {
         {
           id: "razgovor-o-sporte",
           kind: "example",
-          caption: "Разговор о спорте",
+          caption: "Алим и Данияр о видах спорта",
           razgovor: true,
           zvuchat: [
             "Have you ever tried surfing?",
@@ -856,12 +864,12 @@ const module: Module = {
             "Have you ever tried surfing?\nNo, I haven't. And you?\nYes, I have. I have tried diving too.\nHave you ever played rugby or cricket?",
           perevod: {
             "Have you ever tried surfing?":
-              "Вы когда-нибудь пробовали сёрфинг?",
-            "No, I haven't. And you?": "Нет. А вы?",
+              "Ты когда-нибудь пробовал сёрфинг?",
+            "No, I haven't. And you?": "Нет. А ты?",
             "Yes, I have. I have tried diving too.":
               "Да. И дайвинг я тоже пробовал.",
             "Have you ever played rugby or cricket?":
-              "А в регби или крикет вы когда-нибудь играли?",
+              "А в регби или крикет ты когда-нибудь играл?",
           },
           explain:
             "В обоих вопросах have стоит первым, а ever — сразу за you. Короткий " +
@@ -998,7 +1006,7 @@ const module: Module = {
         {
           id: "razgovor-o-mestah",
           kind: "example",
-          caption: "Разговор о местах",
+          caption: "Дана расспрашивает Алима о поездках",
           razgovor: true,
           zvuchat: [
             "Have you ever been to the mountains?",
@@ -1010,7 +1018,7 @@ const module: Module = {
             "Have you ever been to the mountains?\nYes, I have. And I have been to a farm with horses and goats.\nA farm? Were there donkeys?\nTwo donkeys and a swan. The swan was very loud!",
           perevod: {
             "Have you ever been to the mountains?":
-              "Вы когда-нибудь бывали в горах?",
+              "Ты когда-нибудь бывал в горах?",
             "Yes, I have. And I have been to a farm with horses and goats.":
               "Да. И на ферме с лошадьми и козами я тоже бывал.",
             "A farm? Were there donkeys?": "На ферме? Ослы там были?",

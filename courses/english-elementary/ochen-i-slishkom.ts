@@ -367,7 +367,7 @@ const module: Module = {
         {
           id: "razgovor-ob-otzyve",
           kind: "example",
-          caption: "Разговор об отзыве",
+          caption: "Дана и Алим об отзыве",
           razgovor: true,
           zvuchat: [
             "Did you read the review on the web?",
@@ -379,7 +379,7 @@ const module: Module = {
             "Did you read the review on the web?\nYes, it is really good.\nIs the jewellery expensive there?\nQuite expensive. Gold is in fashion now, and the shop is very successful.",
           perevod: {
             "Did you read the review on the web?":
-              "Вы читали отзыв в сети?",
+              "Ты читал отзыв в сети?",
             "Yes, it is really good.": "Да, он очень хороший.",
             "Is the jewellery expensive there?":
               "Украшения там дорогие?",
@@ -546,7 +546,7 @@ const module: Module = {
         {
           id: "razgovor-o-pokupkah",
           kind: "example",
-          caption: "Разговор о покупках",
+          caption: "Айгуль расспрашивает Данияра о покупках",
           razgovor: true,
           zvuchat: [
             "Did you buy the jacket?",
@@ -559,8 +559,8 @@ const module: Module = {
           text:
             "Did you buy the jacket?\nNo, it was too small.\nAnd the suit?\nToo expensive. The guy in the shop is very serious, but he helped me. I bought a tie.\nDoes the tie fit?\nYes.",
           perevod: {
-            "Did you buy the jacket?": "Вы купили пиджак?",
-            "No, it was too small.": "Нет, он был слишком мал.",
+            "Did you buy the jacket?": "Ты купил куртку?",
+            "No, it was too small.": "Нет, она была слишком мала.",
             "And the suit?": "А костюм?",
             "Too expensive. The guy in the shop is very serious, but he helped me. I bought a tie.":
               "Слишком дорогой. Парень в магазине очень серьёзный, но он мне помог. Я купил галстук.",
@@ -713,7 +713,7 @@ const module: Module = {
             "После for стоит либо человек: me, us, him, her.",
             "Либо место или вещь: the kitchen, the room, the shelf.",
             "Оборот идёт после прилагательного.",
-            "Порядок такой: is + too + прилагательное + for + кто или что.",
+            "Слово for отвечает на вопрос «для кого мало или много», и потому стоит после самого прилагательного.",
             "Без него слушатель домысливает сам и часто домысливает не то.",
           ],
         },
@@ -892,7 +892,7 @@ const module: Module = {
         {
           id: "razgovor-o-rasprodazhe",
           kind: "example",
-          caption: "Разговор о распродаже",
+          caption: "Алим расспрашивает Дану о распродаже",
           razgovor: true,
           zvuchat: [
             "How was the sale?",
@@ -906,7 +906,7 @@ const module: Module = {
             "How was the sale?": "Как прошла распродажа?",
             "There were too many people. I saw Dana among them.":
               "Народу было слишком много. Я заметил среди них Дану.",
-            "What sort of toy did you want?": "Какую игрушку вы хотели?",
+            "What sort of toy did you want?": "Какую игрушку ты хотел?",
             "A red car. There were so many toys, and I did not choose. It was impossible!":
               "Красную машинку. Игрушек было так много, что я так и не выбрал. Это было невозможно!",
           },
@@ -1057,7 +1057,7 @@ const module: Module = {
         {
           id: "razgovor-o-filme",
           kind: "example",
-          caption: "Разговор о фильме",
+          caption: "Данияр и Айгуль о фильме",
           razgovor: true,
           zvuchat: [
             "How was the film?",
@@ -1073,7 +1073,7 @@ const module: Module = {
             "I liked it a lot. The end is really strange.":
               "Мне очень понравилось. Конец совсем странный.",
             "Was it scary?": "Страшно было?",
-            "Yes, I almost left.": "Да, я чуть не ушёл.",
+            "Yes, I almost left.": "Да, чуть не ушёл из зала.",
             "Thanks so much for the ticket.": "Большое спасибо за билет.",
           },
           explain:

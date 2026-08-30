@@ -970,7 +970,7 @@ const module: Module = {
           id: "zachem-proveryat-pereskaz",
           kind: "explain",
           text: [
-            "Ученик написал другу: «They said something about the advert.»",
+            "Ученик написал другу: «They said something about the advert.» — «Они что-то сказали про объявление.»",
             "Друг не знает ни кто сказал, ни что именно.",
             "Проверить свой пересказ можно по трём вещам.",
           ],
