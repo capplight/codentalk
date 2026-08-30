@@ -78,7 +78,7 @@ import type { Module } from "@/lib/content/types";
  *   нет в словнике A2 Key (Oxford ставит его на B1). Осталось `There is nothing
  *   inside`;
  * - **вопрос `Who called you?` со смысловым глаголом** — B1, CLAUSES
- *   interrogatives, «FORM: 'WH-' INTERROGATIVE, SUBJECT». Модуль 4 этой же
+ *   interrogatives, «FORM: 'WH-' INTERROGATIVE, SUBJECT». Модуль 1 этой же
  *   ступени взял `Who was there?` и только его, с опорой на CEFR с. 79. Здесь
  *   стоит `Did anybody call you today?` — заодно это тот самый оборот, которому
  *   учит урок 2;
@@ -355,6 +355,7 @@ const module: Module = {
             { term: "somebody", translation: "кто-то", example: "Somebody is at the door.", hint: "/ˈsʌmbɒdi/" },
             { term: "something", translation: "что-то", example: "Something is in my pocket.", hint: "/ˈsʌmθɪŋ/" },
             { term: "steal", translation: "красть", example: "Someone stole his bag in the cafe.", hint: "/stiːl/" },
+            { term: "stole", translation: "украл: прошедшее от steal", example: "Someone stole his bag in the cafe.", hint: "/stəʊl/" },
             { term: "document", translation: "документ", example: "My documents are in the bag.", hint: "/ˈdɒkjʊmənt/" },
           ],
         },
@@ -833,12 +834,12 @@ const module: Module = {
           razgovor: true,
           zvuchat: [
             "Is everyone here?",
-            "Yes, everybody is here already.",
+            "Yes, everybody is here.",
             "And the food?",
             "Everything is on the table. Everybody likes burgers and chips.",
           ],
           text:
-            "Is everyone here?\nYes, everybody is here already.\nAnd the food?\nEverything is on the table. Everybody likes burgers and chips.",
+            "Is everyone here?\nYes, everybody is here.\nAnd the food?\nEverything is on the table. Everybody likes burgers and chips.",
           explain:
             "Гостей много, а глагол при everyone и everybody стоит в единственном " +
             "числе: is, likes. Слово everything говорит о еде, то есть о вещах.",
@@ -1432,7 +1433,7 @@ const module: Module = {
           voice: "два голоса",
           transcript:
             "Did anybody find a bag here? — Somebody left a bag yesterday. Is it " +
-            "bright red? — Yes, it is! — There is nothing inside. Only a puzzle and " +
+            "bright red? — Yes, it is! — There is no money inside. Only a puzzle and " +
             "a violin. — The puzzle is my son's. Nobody plays the violin at home, " +
             "but it is my son's too.",
         },
@@ -1477,8 +1478,7 @@ const module: Module = {
           ],
           hint: "Про содержимое говорят после слова Only.",
           why:
-            "Головоломка и скрипка. Больше внутри нет ничего: there is nothing " +
-            "inside.",
+            "Головоломка и скрипка. Денег внутри нет: there is no money inside.",
         },
         {
           id: "z3-chya-golovolomka",

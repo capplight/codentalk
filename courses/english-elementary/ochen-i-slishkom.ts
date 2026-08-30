@@ -1559,13 +1559,13 @@ const module: Module = {
         kind: "short",
         outcome: "говорить, насколько: really good, quite expensive",
         prompt:
-          "Данияр хотел сказать, что отзыв довольно хороший, а написал: The review is very good. Запиши строку без ошибки.",
+          "Данияр написал: The review is very good. Он хотел похвалить сдержаннее — «довольно хороший». Перепиши строку.",
         answer: "The review is quite good.",
         accept: ["The review is quite good"],
-        hint: "Место слова верное, а сила не та.",
+        hint: "Строка верна, но сила слова не та: нужно слово послабее.",
         why:
-          "The review is quite good. Слово very сказало бы «очень», а Данияр " +
-          "хвалил отзыв сдержаннее.",
+          "The review is quite good. Строка с very ошибки не содержит — она " +
+          "говорит «очень», а Данияр хотел сказать сдержаннее.",
       },
       {
         id: "q-kakoe-slovo-slabee",

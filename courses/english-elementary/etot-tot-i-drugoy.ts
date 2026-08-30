@@ -1265,13 +1265,13 @@ const module: Module = {
           id: "z3-pochemu-ne-klaviatura",
           about: "zapis-o-vybore-podarka",
           kind: "choice",
-          prompt: "Послушай. Почему не взяли клавиатуру?",
+          prompt: "Послушай. Почему не взяли синтезатор?",
           options: [
             { text: "Она слишком дорогая." },
             { text: "Её уже подарили в прошлом году.", correct: true },
             { text: "Её не было в магазине." },
           ],
-          hint: "Про клавиатуру говорят в самой последней реплике.",
+          hint: "Про синтезатор говорят в самой последней реплике.",
           why:
             "Её уже подарили: some of my friends gave him a keyboard last year.",
         },
@@ -1283,7 +1283,7 @@ const module: Module = {
           parts: [
             { text: "один альбом про животных", selectable: true, correct: true },
             { text: " · " },
-            { text: "клавиатуру дарили в прошлом году", selectable: true, correct: true },
+            { text: "синтезатор дарили в прошлом году", selectable: true, correct: true },
             { text: " · " },
             { text: "альбомов было три", selectable: true },
             { text: " · " },
@@ -1301,7 +1301,7 @@ const module: Module = {
           prompt:
             "В записи звучит the other one. Про что это?",
           options: [
-            { text: "Про клавиатуру." },
+            { text: "Про синтезатор." },
             { text: "Про третий альбом." },
             { text: "Про второй из двух альбомов.", correct: true },
           ],
@@ -1738,7 +1738,7 @@ const module: Module = {
         kind: "choice",
         outcome: "проверять объявление: о каждой вещи сказано, какая она и сколько стоит",
         prompt:
-          "Объявление: We sell two caps. Come to the hall on Sunday. This cap is leather, but the other one is wool. Какой из четырёх нужных строк здесь нет?",
+          "Объявление: We sell two rulers. Come to the hall on Sunday. This ruler has stripes, but the other one is pale. Какой из четырёх нужных строк здесь нет?",
         options: [
           { text: "Той, что зовёт: куда и когда прийти." },
           { text: "Той, что говорит про цену.", correct: true },
@@ -1747,8 +1747,8 @@ const module: Module = {
         hint: "Пройди по объявлению строку за строкой и вычёркивай найденное.",
         why:
           "Той, что говорит про цену. Зовут в зал в воскресенье, продают две " +
-          "кепки, различают их кожей и шерстью — а сколько они стоят, нигде не " +
-          "сказано.",
+          "линейки, различают их полосками и светлым цветом — а сколько они " +
+          "стоят, нигде не сказано.",
       },
       {
         id: "q-dopisat-stroku-o-cene",

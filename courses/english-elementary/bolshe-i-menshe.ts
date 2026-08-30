@@ -161,7 +161,18 @@ const module: Module = {
         "`photographer` — Oxford 3000 ставит их на B1; `underground` — спорное " +
         "чтение (см. опору о произношении); `article` — слово в словнике есть, но " +
         "курс уже зовёт артиклем служебное слово, и второе значение рядом с первым " +
-        "ученику не нужно",
+        "ученику не нужно. " +
+        "`hers` И `yours` ПОСЛЕ `than` ВЗЯТЫ ВЫШЕ ГРАФЫ, И ЭТО ОБЪЯВЛЯЕТСЯ. " +
+        "Найдено методистом 30 августа 2026. English Grammar Profile даёт ровно " +
+        "наш оборот на B2: PRONOUNS possessive, «FORM: COMPARATIVE CLAUSES WITH " +
+        "'OURS', 'HERS'» — «Can use the possessive pronouns 'hers' and 'ours' in " +
+        "comparative clauses», пример «I told my mother that your Spanish omelette " +
+        "is better than hers». Графа B1 того же ряда, «COMPARATIVE CLAUSES WITH " +
+        "'MINE', 'YOURS'», ограничена оборотом `(not) as … as`; графы A2, " +
+        "покрывающей `than hers`, методист не нашёл. Оба слова стоят в словнике A2 " +
+        "Key (`hers (pron)`, `yours (pron)`), значит берутся по мерке ступени — " +
+        "той же, что в модулях 18–21. Вопрос вынесен владельцу: если решение " +
+        "«не берём», меняются заголовок урока 1 и итог модуля",
       license: "внутреннее использование, публично не называем",
     },
     {
@@ -404,10 +415,10 @@ const module: Module = {
             "Is the pay higher?",
             "No, but the people are more polite.",
             "Who works there?",
-            "An engineer. He is cleverer than me and he has more experience.",
+            "An engineer. He is more careful than me and he has more experience.",
           ],
           text:
-            "This job is more attractive than my old one.\nIs the pay higher?\nNo, but the people are more polite.\nWho works there?\nAn engineer. He is cleverer than me and he has more experience.",
+            "This job is more attractive than my old one.\nIs the pay higher?\nNo, but the people are more polite.\nWho works there?\nAn engineer. He is more careful than me and he has more experience.",
           explain:
             "Длинные прилагательные берут more, короткое high — окончание. В одном " +
             "разговоре встречаются оба способа, и это обычное дело.",
@@ -419,7 +430,7 @@ const module: Module = {
           items: [
             { term: "attractive", translation: "привлекательный", example: "This job is more attractive.", hint: "/əˈtræktɪv/" },
             { term: "polite", translation: "вежливый", example: "The people are more polite.", hint: "/pəˈlaɪt/" },
-            { term: "clever", translation: "умный", example: "My sister is cleverer than me.", hint: "/ˈklevə/" },
+            { term: "clever", translation: "умный", example: "The engineer is clever.", hint: "/ˈklevə/" },
             { term: "engineer", translation: "инженер", example: "An engineer earns more than a painter.", hint: "/ˌendʒɪˈnɪə/" },
             { term: "experience", translation: "опыт, накопленный работой", example: "A pilot needs more experience.", hint: "/ɪkˈspɪəriəns/" },
           ],
@@ -546,7 +557,7 @@ const module: Module = {
             "Удвоение нужно, чтобы гласный остался кратким: без второй g вышло бы biger.",
             "У слов на e второй e не пишут: nice уже кончается на нужную букву.",
             "Слова на y — двусложные: ea-sy, bu-sy. Окончание им годится, а буква меняется.",
-            "Так же ведут себя двусложные слова на -er и -et: clever — cleverer, quiet — quieter.",
+            "Так же ведут себя два слова из этого модуля: clever — cleverer, quiet — quieter.",
             "Остальные короткие слова берут -er без изменений: small — smaller.",
           ],
         },

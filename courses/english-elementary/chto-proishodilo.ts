@@ -79,7 +79,7 @@ import type { Module } from "@/lib/content/types";
  *
  * ВОПРОС `WHAT WERE YOU DOING?` — МЕСТО, ГДЕ ИСТОЧНИКИ РАСХОДЯТСЯ.
  *
- * Записано нарочно, как и `Who was there?` в модуле 5. Строка PAST past
+ * Записано нарочно, как и `Who was there?` в модуле 1. Строка PAST past
  * continuous «FORM: QUESTIONS» относит вопросы этого времени к B1. Но строка
  * QUESTIONS wh-, графа A2, «FORM: WITH AUXILIARY 'BE'» говорит: «Can use
  * 'wh-'words + auxiliary 'be' to form 'wh-'questions», и сам источник помечает
@@ -100,7 +100,7 @@ import type { Module } from "@/lib/content/types";
  *
  * Первая редакция урока 5 давала ещё и `Who was cooking?`. Строка снята: правило
  * того же урока говорит «после were идёт человек», а в ней его нет, и ученик
- * читает противоречие. Разбор `Who was there?` живёт в модуле 5, там ему место.
+ * читает противоречие. Разбор `Who was there?` живёт в модуле 1, там ему место.
  *
  * СЛОВАРЬ МОДУЛЯ. Тридцать восемь карточек, из них тридцать семь несут слово,
  * которого на прошлой ступени не было.

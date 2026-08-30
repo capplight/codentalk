@@ -114,7 +114,9 @@ import type { Module } from "@/lib/content/types";
  *
  * СНЯТО ПРИ ПОДБОРЕ: `gas` — словник помечает его сам, «gas (n) (Am Eng) (Br
  * Eng: petrol)», а курс держит британскую норму; `store` — по той же причине;
- * `a bit` — B1.
+ * ОБОРОТ `a bit of` ПРИ ЭТОМ ВЗЯТ, и прежняя строка «`a bit` — B1» снята
+ * 30 августа 2026: она осталась от первой редакции и спорила с третьим итогом
+ * модуля, на котором стоит весь урок 3.
  */
 const module: Module = {
   slug: "skolko-chego",
@@ -228,7 +230,7 @@ const module: Module = {
         "«The bag belongs to me»; `biscuit (n) (Br Eng) (Am Eng: cookie)` — " +
         "британское слово, курс держит британскую норму. " +
         "СНЯТО ПРИ ПОДБОРЕ: `gas` — словник помечает его сам, «gas (n) (Am Eng) " +
-        "(Br Eng: petrol)»; `store` — по той же причине; `a bit` — B1",
+        "(Br Eng: petrol)»; `store` — по той же причине",
       license: "внутреннее использование, публично не называем",
     },
     {
@@ -535,8 +537,8 @@ const module: Module = {
           ],
           hint: "Смотри на два места: слово of и окончание у вещи.",
           why:
-            "Верны первая и третья записи. У rice множественного числа нет, а во " +
-            "второй записи потерялось of.",
+            "Верны первая и третья записи. У rice множественного числа нет, а в " +
+            "четвёртой потерялось of.",
         },
         {
           id: "z4-sobrat-o-syre",
@@ -1235,11 +1237,13 @@ const module: Module = {
           id: "z1-skolko-hleba",
           about: "soobshchenie-dany",
           kind: "short",
-          prompt: "Сколько буханок хлеба просит Дана? Ответь числом.",
-          answer: "4",
-          accept: ["four", "четыре"],
-          hint: "Число стоит в той же строке, где сказано про хлеб.",
-          why: "There isn't much bread here, so please take four loaves.",
+          prompt: "Каким оборотом Дана просит взять хлеба? Ответь по-английски.",
+          answer: "a lot",
+          accept: ["a lot of", "take a lot"],
+          hint: "Оборот стоит в конце той же строки, где сказано про хлеб.",
+          why:
+            "There isn't much bread here, so please take a lot. Первая половина " +
+            "строки говорит, что хлеба мало, вторая — сколько взять.",
         },
         {
           id: "z2-chego-mnogo",
@@ -1672,16 +1676,19 @@ const module: Module = {
         outcome: "говорить о малом количестве: a few biscuits, a bit of jam",
         prompt:
           "Ученик написал: There is a few jam. Запиши строку без ошибки.",
-        answer: "There is a lot of jam.",
+        answer: "There is a bit of jam.",
         accept: [
+          "There is a bit of jam",
+          "There is a lot of jam.",
           "There is a lot of jam",
           "There is some jam.",
           "There is some jam",
         ],
-        hint: "Варенье поштучно не считают, а оборотов для него у нас два.",
+        hint: "Варенье поштучно не считают, и оборотов для него у нас три.",
         why:
-          "There is a lot of jam или There is some jam. Оборот a few идёт только " +
-          "к тому, что считают.",
+          "There is a bit of jam. Смысл «мало, но есть» у неисчисляемого несёт " +
+          "оборот a bit of. Годятся и a lot of, и some, но они о другом " +
+          "количестве. Оборот a few идёт только к тому, что считают.",
       },
 
       // ---- итог 4 ----

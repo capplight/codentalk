@@ -87,7 +87,11 @@ import type { Module } from "@/lib/content/types";
  * делают на людях — в спорте и в музыке. Отсюда `runner`, `ski`, `hockey`,
  * `throw`, `jump`, `hit` и `jazz`, `rock`, `classical`, `instrument`, `singing`.
  *
- * КАРТОЧЕК СОРОК, А НЕ ТРИДЦАТЬ, И ВОСЕМЬ ИЗ НИХ — ОПОРНЫЕ СЛОВА САМОГО МОДУЛЯ.
+ * КАРТОЧЕК ТРИДЦАТЬ ДЕВЯТЬ, А НЕ ТРИДЦАТЬ, И ДЕВЯТЬ ИЗ НИХ — ОПОРНЫЕ СЛОВА
+ * САМОГО МОДУЛЯ. Счёт поправлен 30 августа 2026 по разбору методиста: здесь
+ * стояло «сорок» и «восемь», а опора того же файла — «сорок» и «девять».
+ * Настоящий счёт даёт `npm run kontrol`: тридцать девять карточек, тридцать
+ * новых для ступени, девять опорных (девятое — `run`, оно завелось в уроке 6).
  * Методист нашёл дыру, которую я бы не увидел: у слов `good`, `bad`, `easy`,
  * `well`, `fast`, `hard`, `sing`, `speak` не было карточки НИ В ОДНОМ модуле
  * ступени Elementary — все они даны только на прошлой ступени. А между
@@ -204,8 +208,8 @@ const module: Module = {
     {
       ref: "Cambridge English, A2 Key vocabulary list (август 2025)",
       section:
-        "Все сорок карточек модуля взяты из словника ступени. Подбор шёл через " +
-        "`npm run slovo -- --zapas`. Новых для ступени тридцать одна; остальные " +
+        "Все тридцать девять карточек модуля взяты из словника ступени. Подбор шёл " +
+        "через `npm run slovo -- --zapas`. Новых для ступени тридцать; остальные " +
         "девять — опорные слова самого модуля (`good`, `bad`, `easy`, `well`, " +
         "`fast`, `hard`, `sing`, `speak`, `run`), которых на ступени Elementary не " +
         "было ни одной карточкой, хотя на них стоят уроки 1–3. Нашёл методист. " +
@@ -320,6 +324,7 @@ const module: Module = {
           items: [
             { term: "badly", translation: "плохо", example: "He plays badly.", hint: "/ˈbædli/" },
             { term: "slowly", translation: "медленно", example: "He speaks slowly.", hint: "/ˈsləʊli/" },
+            { term: "quickly", translation: "быстро", example: "I read the letter quickly.", hint: "/ˈkwɪkli/" },
             { term: "quietly", translation: "тихо", example: "She sings quietly.", hint: "/ˈkwaɪətli/" },
             { term: "loudly", translation: "громко", example: "She sings loudly.", hint: "/ˈlaʊdli/" },
             { term: "clearly", translation: "чётко, ясно", example: "She speaks very clearly.", hint: "/ˈklɪəli/" },
@@ -774,13 +779,13 @@ const module: Module = {
           razgovor: true,
           zvuchat: [
             "Do you like jazz?",
-            "I like rock more.",
+            "I like rock.",
             "Does your friend play an instrument?",
             "He plays classical music badly, but he sings rock loudly.",
             "And his singing?",
           ],
           text:
-            "Do you like jazz?\nI like rock more.\nDoes your friend play an instrument?\nHe plays classical music badly, but he sings rock loudly.\nAnd his singing?",
+            "Do you like jazz?\nI like rock.\nDoes your friend play an instrument?\nHe plays classical music badly, but he sings rock loudly.\nAnd his singing?",
           explain:
             "Наречие каждый раз стоит последним: после instrument, после music, " +
             "после rock. Вещь всегда идёт раньше него.",
@@ -791,7 +796,7 @@ const module: Module = {
           caption: "Слова урока",
           items: [
             { term: "jazz", translation: "джаз", example: "Do you like jazz?", hint: "/dʒæz/" },
-            { term: "rock", translation: "рок", example: "I like rock more.", hint: "/rɒk/" },
+            { term: "rock", translation: "рок", example: "I like rock.", hint: "/rɒk/" },
             { term: "classical", translation: "классический", example: "He plays classical music badly.", hint: "/ˈklæsɪkl/" },
             { term: "instrument", translation: "музыкальный инструмент", example: "Does your friend play an instrument?", hint: "/ˈɪnstrəmənt/" },
             { term: "singing", translation: "пение", example: "And his singing?", hint: "/ˈsɪŋɪŋ/" },
@@ -1730,17 +1735,20 @@ const module: Module = {
           "«когда».",
       },
       {
-        id: "q-perepisat-stroku-zametki",
-        kind: "short",
+        id: "q-otlichit-igroka-ot-igry",
+        kind: "choice",
         outcome: "проверять заметку: у каждого действия сказано, как",
         prompt:
-          "Строку The club works перепиши так, чтобы читатель узнал: клуб работает хорошо. Запиши строку целиком.",
-        answer: "The club works well.",
-        accept: ["The club works well"],
-        hint: "Наречие тут собирается не по общему правилу.",
+          "В заметке строка He is a good player. Что она говорит, а чего не говорит?",
+        options: [
+          { text: "Говорит, что он играет быстро" },
+          { text: "Говорит, какой он игрок, но не говорит, как он играет", correct: true },
+          { text: "Говорит и то, и другое" },
+        ],
+        hint: "Слово good стоит при игроке, а не при игре.",
         why:
-          "The club works well. Без наречия строка сообщает только, что клуб " +
-          "работает, а читателю важно, каково там.",
+          "Говорит, какой он игрок, но не говорит, как он играет. Слово good " +
+          "стоит при игроке; о самой игре сказали бы He plays well.",
       },
     ],
   },
