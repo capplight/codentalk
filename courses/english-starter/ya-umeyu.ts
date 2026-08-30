@@ -1057,7 +1057,7 @@ const module: Module = {
             "— Can you help, please?\n— Yes, I can.\n\n— Can I help you?\n— No, thank you.",
           perevod: {
             "— Can you help, please?": "Помоги, пожалуйста.",
-            "— Yes, I can.": "Да, конечно.",
+            "— Yes, I can.": "Да.",
             "— Can I help you?": "Вам помочь?",
             "— No, thank you.": "Нет, спасибо.",
           },
@@ -1197,7 +1197,7 @@ const module: Module = {
             "I can swim.\nI can't drive.\nMy sister can drive.",
           perevod: {
             "I can swim.": "Я умею плавать.",
-            "I can't drive.": "Водить машину я не умею.",
+            "I can't drive.": "Я не умею водить машину.",
             "My sister can drive.": "А моя сестра умеет.",
           },
           explain:

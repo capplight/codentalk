@@ -1379,6 +1379,7 @@ const module: Module = {
           kind: "example",
           caption: "Объявление Даны",
           perevod: {
+            "LOST: a small black handbag.": "ПОТЕРЯНА маленькая чёрная сумочка.",
             "Inside there is a comb, a toothbrush and a soft plastic cover.":
               "Внутри расчёска, зубная щётка и мягкий пластиковый чехол.",
             "I'm sure I had it at nine. Maybe I lost it on the bus.":

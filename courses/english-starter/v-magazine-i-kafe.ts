@@ -747,8 +747,8 @@ const module: Module = {
           text:
             "— Can I help you?\n— I'd like some bread, please.\n— Anything else?\n— No, thank you. How much is it?",
           perevod: {
-            "— Can I help you?": "Чем могу помочь?",
-            "— I'd like some bread, please.": "Мне хлеба, пожалуйста.",
+            "— Can I help you?": "Тебе помочь?",
+            "— I'd like some bread, please.": "Мне немного хлеба, пожалуйста.",
             "— Anything else?": "Что-нибудь ещё?",
             "— No, thank you. How much is it?": "Нет, спасибо. Сколько с меня?",
           },
@@ -891,7 +891,7 @@ const module: Module = {
           text:
             "— Can I help you?\n— I'd like a coffee and a cake, please.\n— Anything else?\n— No, thanks.",
           perevod: {
-            "— Can I help you?": "Что будете заказывать?",
+            "— Can I help you?": "Тебе помочь?",
             "— I'd like a coffee and a cake, please.": "Мне кофе и пирожное, пожалуйста.",
             "— Anything else?": "Что-нибудь ещё?",
             "— No, thanks.": "Нет, спасибо.",
@@ -1170,9 +1170,9 @@ const module: Module = {
           text:
             "— Can I help you?\n— I'd like some bread and some water, please.\n— Anything else?\n— No, thank you. How much is it?\n— Five hundred tenge.\n— Thanks!",
           perevod: {
-            "— Can I help you?": "Чем могу помочь?",
+            "— Can I help you?": "Тебе помочь?",
             "— I'd like some bread and some water, please.":
-              "Мне хлеба и воды, пожалуйста.",
+              "Мне немного хлеба и воды, пожалуйста.",
             "— Anything else?": "Что-нибудь ещё?",
             "— No, thank you. How much is it?": "Нет, спасибо. Сколько с меня?",
             "— Five hundred tenge.": "Пятьсот тенге.",

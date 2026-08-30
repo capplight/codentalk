@@ -1795,7 +1795,7 @@ const module: Module = {
           perevod: {
             "HOUSE FOR RENT": "СДАЁТСЯ ДОМ",
             "There are three rooms and a kitchen.": "Три комнаты и кухня.",
-            "There is a market near the house.": "Рядом с домом рынок.",
+            "There is a market near the house.": "Рядом с домом есть рынок.",
             "There isn't a bathroom.": "Ванной нет.",
           },
           zvuchat: [

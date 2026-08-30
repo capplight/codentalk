@@ -1631,6 +1631,7 @@ const module: Module = {
           kind: "example",
           caption: "Письмо Нурлана",
           perevod: {
+            "Hi Ali!": "Привет, Али!",
             "Yesterday I lost my umbrella at school.":
               "Вчера я потерял зонт в школе.",
             "Someone took it from the table near the door.":

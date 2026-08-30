@@ -630,7 +630,7 @@ const module: Module = {
             "Would you like to meet on Saturday?":
               "Не хотите встретиться в субботу?",
             "I'd prefer Sunday because I work on Saturday.":
-              "Я бы предпочёл воскресенье, потому что в субботу работаю.",
+              "Мне бы лучше воскресенье, потому что в субботу я работаю.",
             "Fine. And where? At the bus stop?":
               "Хорошо. А где? На остановке?",
             "I'd prefer the city centre. There is a nice cafe near the shops.":
@@ -749,7 +749,7 @@ const module: Module = {
         {
           id: "z4-sobrat-vybor-s-prichinoy",
           kind: "order",
-          prompt: "Собери строку: я бы предпочёл воскресенье, потому что в субботу работаю.",
+          prompt: "Собери строку: мне бы лучше воскресенье, потому что в субботу я работаю.",
           items: ["because I work on Saturday.", "I'd prefer", "Sunday,"],
           answer: [1, 2, 0],
           hint: "Сначала выбор, потом причина.",

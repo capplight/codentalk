@@ -10,6 +10,13 @@
  *    объяснения. Ищется в видимом тексте, а не в комментариях: комментарии
  *    ученик не читает, а «модуль» в шапке файла стоит в каждом.
  *
+ * 3. ОДНА СТРОКА — ДВА РАЗНЫХ ПЕРЕВОДА В ОДНОМ МОДУЛЕ. Ученик читает их подряд
+ *    и ищет разницу, которой нет. Проверка написана 31 августа 2026 по находке
+ *    редактора: `Can I help you?` переводилось в модуле 23 тремя способами —
+ *    «Чем могу помочь?», «Что будете заказывать?» и «Тебе помочь?» в собственном
+ *    разборе того же модуля. Это сведения, а не ошибка: расхождение бывает и
+ *    нарочным, когда урок показывает два русских соответствия одной строке.
+ *
  * Ярлыков в сводах здесь НЕТ нарочно, хотя они и были третьей мыслью. Их уже
  * ищет `npm run yazyk` во всём видимом тексте, а отличить свод от обычной
  * таблицы скрипт не может: у пяти сводов ступени Elementary общего имени нет.
@@ -73,6 +80,8 @@ interface Schyot {
   strok: number;
   sPerevodom: number;
   ssylki: number;
+  /** Одна и та же строка, переведённая в модуле двумя разными способами. */
+  raznoboy: number;
 }
 
 /** Строки примера: у примера они разделены переводом строки. */
@@ -93,7 +102,10 @@ function strokiPrimera(text: string): string[] {
 const SSYLKA = /модул[еяию](?![А-Яа-яЁё])/i;
 
 function razobrat(m: Module, chego: string[]): Schyot {
-  const s: Schyot = { strok: 0, sPerevodom: 0, ssylki: 0 };
+  const s: Schyot = { strok: 0, sPerevodom: 0, ssylki: 0, raznoboy: 0 };
+  // Разнобой ищется ВНУТРИ модуля, а не по курсу: между модулями одна строка
+  // законно переводится по-разному, потому что стоит в разных сценах.
+  const vstrechalos = new Map<string, string>();
 
   for (const lesson of m.lessons) {
     for (const b of lesson.blocks as Block[]) {
@@ -103,8 +115,22 @@ function razobrat(m: Module, chego: string[]): Schyot {
         for (const stroka of strokiPrimera(b.text)) {
           if (!nuzhenPerevod(stroka)) continue;
           s.strok += 1;
-          if (b.perevod?.[stroka]) s.sPerevodom += 1;
-          else chego.push(`${m.slug} · ${lesson.slug} · без перевода: ${stroka}`);
+          const perevod = b.perevod?.[stroka];
+          if (perevod) {
+            s.sPerevodom += 1;
+            const bylo = vstrechalos.get(stroka);
+            if (bylo && bylo !== perevod) {
+              s.raznoboy += 1;
+              chego.push(
+                `${m.slug} · ${lesson.slug} · один перевод на двоих: «${stroka}» — ` +
+                  `«${bylo}» и «${perevod}»`
+              );
+            } else if (!bylo) {
+              vstrechalos.set(stroka, perevod);
+            }
+          } else {
+            chego.push(`${m.slug} · ${lesson.slug} · без перевода: ${stroka}`);
+          }
         }
       }
 
@@ -124,7 +150,7 @@ for (const course of courses) {
   if (kursSlug && course.slug !== kursSlug) continue;
 
   const chego: string[] = [];
-  const itog: Schyot = { strok: 0, sPerevodom: 0, ssylki: 0 };
+  const itog: Schyot = { strok: 0, sPerevodom: 0, ssylki: 0, raznoboy: 0 };
   const poModulyam: Array<[string, Schyot]> = [];
 
   for (const m of course.modules) {
@@ -133,6 +159,7 @@ for (const course of courses) {
     itog.strok += s.strok;
     itog.sPerevodom += s.sPerevodom;
     itog.ssylki += s.ssylki;
+    itog.raznoboy += s.raznoboy;
   }
 
   const dolya = itog.strok ? Math.round((itog.sPerevodom / itog.strok) * 100) : 100;
@@ -140,6 +167,7 @@ for (const course of courses) {
   console.log(`Строк примеров по-английски: ${itog.strok}`);
   console.log(`Из них с переводом рядом:    ${itog.sPerevodom} (${dolya}%)`);
   console.log(`Ссылок на другие модули:     ${itog.ssylki}`);
+  console.log(`Строк с двумя переводами:    ${itog.raznoboy}`);
 
   console.log(`\nПо модулям (строк / с переводом / ссылок):`);
   poModulyam.forEach(([slug, s], i) => {

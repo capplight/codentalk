@@ -1394,6 +1394,7 @@ const module: Module = {
           text:
             "Hi Daniyar!\nYes, I went camping last week.\nThe campsite was quiet, but the mornings were cold.\nI took a tent and a guidebook.\nAlim",
           perevod: {
+            "Hi Daniyar!": "Привет, Данияр!",
             "Yes, I went camping last week.":
               "Да, на прошлой неделе я ездил с палаткой.",
             "The campsite was quiet, but the mornings were cold.":

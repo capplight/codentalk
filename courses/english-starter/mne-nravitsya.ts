@@ -1028,8 +1028,8 @@ const module: Module = {
           ],
           text: "I'd like to go home.\nI'd like to see this film.\nMy sister would like to swim.",
           perevod: {
-            "I'd like to go home.": "Я хотел бы пойти домой.",
-            "I'd like to see this film.": "Я хотел бы посмотреть этот фильм.",
+            "I'd like to go home.": "Мне хотелось бы пойти домой.",
+            "I'd like to see this film.": "Мне хотелось бы посмотреть этот фильм.",
             "My sister would like to swim.": "Моя сестра хотела бы поплавать.",
           },
           explain:
@@ -1173,7 +1173,7 @@ const module: Module = {
           perevod: {
             "I like reading, and I really like sport.":
               "Я люблю читать, а спорт люблю очень.",
-            "I don't like waiting.": "Не люблю ждать.",
+            "I don't like waiting.": "Я не люблю ждать.",
             "My favourite food is bread.": "Моя любимая еда — хлеб.",
           },
           explain:
@@ -1298,7 +1298,7 @@ const module: Module = {
           kind: "note",
           tone: "info",
           text:
-            "Кроме I like в письмах встречается I'd like — «я хотел бы». Отличаются " +
+            "Кроме I like в письмах встречается I'd like — «мне хотелось бы». Отличаются " +
               "они одной буквой d, а говорят о разном: первое о вкусе вообще, второе о " +
               "желании на сейчас.",
         },
@@ -1356,7 +1356,7 @@ const module: Module = {
           ],
           hint: "Последняя строка начинается с I'd like — это про желание, а не про вкус.",
           why:
-            "I'd like to go to the cinema on Sunday. I'd like — «хотел бы», это о " +
+            "I'd like to go to the cinema on Sunday. I'd like — «хотелось бы», это о " +
             "намерении на воскресенье.",
         },
         {
@@ -1515,7 +1515,7 @@ const module: Module = {
             "Скажи вслух два предложения: что тебе нравится вообще и чего хочется " +
             "прямо сейчас.",
           phrase: "I really like tea. I'd like a coffee now.",
-          translation: "Я очень люблю чай. Сейчас я хотел бы кофе.",
+          translation: "Я очень люблю чай. А сейчас мне кофе.",
           hint: "Во втором не проглатывай звук d — от него весь смысл.",
           why:
             "Проглоченное d превращает желание во вкус: собеседник услышит «я люблю " +
@@ -1557,8 +1557,8 @@ const module: Module = {
             "I'd like to see this film.",
           perevod: {
             "I like reading and music.": "Я люблю читать и слушать музыку.",
-            "I don't like waiting.": "Не люблю ждать.",
-            "I'd like to see this film.": "Я хотел бы посмотреть этот фильм.",
+            "I don't like waiting.": "Я не люблю ждать.",
+            "I'd like to see this film.": "Мне хотелось бы посмотреть этот фильм.",
           },
           zvuchat: [
             "I like reading and music.",
