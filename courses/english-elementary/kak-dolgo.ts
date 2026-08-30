@@ -234,8 +234,10 @@ const module: Module = {
           text: [
             "Айгуль учит английский. Начала два года назад и учит до сих пор.",
             "Тут важны сразу две вещи: дело началось раньше и не кончилось.",
-            "По-русски говорят просто: «я учу английский два года».",
-            "По-английски для этого берут have и третью форму глагола.",
+            "I have studied English for two years. — Я учу английский два года.",
+            "Присмотрись к переводу: по-русски глагол стоит в настоящем времени — «учу».",
+            "По-английски там have и третья форма, а не просто study.",
+            "Отсюда и частая ошибка I study English for two years: рука пишет по русскому образцу.",
           ],
         },
         {
@@ -308,6 +310,14 @@ const module: Module = {
           ],
           text:
             "I have studied English for two years.\nAnd your vocabulary is good! I haven't had such a good teacher before.\nI have used this software for a year, and it helps.",
+          perevod: {
+            "I have studied English for two years.":
+              "Я учу английский два года.",
+            "And your vocabulary is good! I haven't had such a good teacher before.":
+              "И словарный запас у вас хороший! У меня раньше не было такого хорошего преподавателя.",
+            "I have used this software for a year, and it helps.":
+              "Я пользуюсь этой программой год, и она помогает.",
+          },
           explain:
             "В первой и третьей строках после have стоит третья форма, а за ней " +
             "отрезок времени с for. Обе говорят, что дело идёт и сейчас. Во " +
@@ -467,6 +477,14 @@ const module: Module = {
           ],
           text:
             "How long have you studied photography?\nFor a year. I have taken photos of the moon!\nI have read comics for six years, but that isn't studying!",
+          perevod: {
+            "How long have you studied photography?":
+              "Сколько вы уже занимаетесь фотографией?",
+            "For a year. I have taken photos of the moon!":
+              "Год. Я снимал луну!",
+            "I have read comics for six years, but that isn't studying!":
+              "Я читаю комиксы шесть лет, но это не занятия!",
+          },
           explain:
             "В вопросе how long стоит первым, а отрезок времени не называют. " +
             "Короткий ответ For a year повторяет только отрезок, без глагола, " +
@@ -613,6 +631,14 @@ const module: Module = {
           ],
           text:
             "I haven't seen Alim for a long time.\nWe have talked in a chatroom for two years, and that is all.\nI haven't watched a horror film with him for a year!",
+          perevod: {
+            "I haven't seen Alim for a long time.":
+              "Я давно не видел Алима.",
+            "We have talked in a chatroom for two years, and that is all.":
+              "Мы два года общаемся в чате, и только.",
+            "I haven't watched a horror film with him for a year!":
+              "Я год не смотрел с ним ужастиков!",
+          },
           explain:
             "В первой и третьей строках стоит haven't: дела не случалось всё " +
             "это время. Во второй строке отрицания нет, и там дело идёт до сих " +
@@ -1000,6 +1026,16 @@ const module: Module = {
           id: "obrazec-rasskaza-o-zanyatii",
           kind: "example",
           caption: "Рассказ Данияра",
+          perevod: {
+            "I have played basketball for three years, and I still like it.":
+              "Я играю в баскетбол три года, и мне до сих пор нравится.",
+            "I was a beginner, but now I play in the school team.":
+              "Я был новичком, а теперь играю за школьную команду.",
+            "We train two hours a week, plus a game on Saturday.":
+              "Мы тренируемся два часа в неделю плюс игра в субботу.",
+            "I haven't been to the pool for a month because basketball takes my evenings.":
+              "В бассейне я не был месяц, потому что баскетбол занимает все вечера.",
+          },
           zvuchat: [
             "I have played basketball for three years, and I still like it.",
             "I was a beginner, but now I play in the school team.",
