@@ -279,8 +279,12 @@ const module: Module = {
           text: [
             "Данияр отошёл к стойке, вернулся к столику — а сумки нет.",
             "Он не видел, кто её взял, и назвать человека по имени не может.",
-            "По-английски он скажет Someone took my bag.",
+            "Someone took my bag. — Кто-то взял мою сумку.",
             "Слово someone и значит «кто-то»: человек есть, а имени у него нет.",
+            "Собрано оно из двух частей, и первая уже знакома.",
+            "В модуле «Сколько чего» слово some значило «сколько-то»: some water, some bread.",
+            "Здесь оно значит то же самое неопределённое «какой-то», только приросло к слову one.",
+            "По-русски вышло бы так же: «кто» плюс «-то» даёт «кто-то».",
           ],
         },
         {
@@ -341,6 +345,14 @@ const module: Module = {
           ],
           text:
             "Someone took my bag!\nAre you sure?\nYes. And something is missing from the table too.\nLet me call somebody from the office.",
+          perevod: {
+            "Someone took my bag!": "Кто-то взял мою сумку!",
+            "Are you sure?": "Вы уверены?",
+            "Yes. And something is missing from the table too.":
+              "Да. И со стола что-то тоже пропало.",
+            "Let me call somebody from the office.":
+              "Давайте я позову кого-нибудь из конторы.",
+          },
           explain:
             "Данияр не знает ни человека, ни вещи, и потому берёт someone и " +
             "something. В последней строке somebody стоит после глагола call — эти " +
@@ -513,6 +525,15 @@ const module: Module = {
           ],
           text:
             "Did you see anyone near my table?\nNo, I didn't see anyone.\nAnd did you find anything there?\nI looked, but I didn't find anything. I asked the manager too.",
+          perevod: {
+            "Did you see anyone near my table?":
+              "Вы видели кого-нибудь у моего столика?",
+            "No, I didn't see anyone.": "Нет, я никого не видел.",
+            "And did you find anything there?":
+              "А вы там что-нибудь нашли?",
+            "I looked, but I didn't find anything. I asked the manager too.":
+              "Я смотрел, но ничего не нашёл. Управляющего я тоже спросил.",
+          },
           explain:
             "И в вопросах, и в ответах стоят слова на any-. В ответах отрицание " +
             "несут didn't see и didn't find, а второго отрицания в строке нет.",
@@ -619,8 +640,10 @@ const module: Module = {
           text: [
             "Данияр вернулся домой и обзванивает друзей: не видел ли кто сумку.",
             "Никто ничего не знает, и отвечать полной строкой каждый раз долго.",
-            "Все отвечают одинаково коротко: Nobody knows.",
-            "Одно слово nobody встало на место целой строки «никто не знает».",
+            "Nobody knows. — Никто не знает.",
+            "И вот главное расхождение: по-русски отрицание сказано дважды — «никто НЕ знает».",
+            "По-английски оно сказано один раз, словом nobody, а глагол остаётся без «не».",
+            "Оттого Nobody doesn't know и звучит для англичанина странно: отрицание там задвоено.",
           ],
         },
         {
@@ -682,6 +705,14 @@ const module: Module = {
           ],
           text:
             "Did anybody call you today?\nNobody.\nAnd the bookshelf? Is anything there?\nThere is nothing on the bookshelf. There are only scissors and two old books in the cupboard.",
+          perevod: {
+            "Did anybody call you today?": "Вам сегодня кто-нибудь звонил?",
+            "Nobody.": "Никто.",
+            "And the bookshelf? Is anything there?":
+              "А книжная полка? Там что-нибудь есть?",
+            "There is nothing on the bookshelf. There are only scissors and two old books in the cupboard.":
+              "На полке ничего нет. В шкафу только ножницы и две старые книги.",
+          },
           explain:
             "Короткий ответ Nobody стоит вместо целой строки. В последней строке " +
             "nothing стоит после there is — так говорят о том, чего нет вовсе.",
@@ -840,6 +871,13 @@ const module: Module = {
           ],
           text:
             "Is everyone here?\nYes, everybody is here.\nAnd the food?\nEverything is on the table. Everybody likes burgers and chips.",
+          perevod: {
+            "Is everyone here?": "Все на месте?",
+            "Yes, everybody is here.": "Да, все здесь.",
+            "And the food?": "А еда?",
+            "Everything is on the table. Everybody likes burgers and chips.":
+              "Всё на столе. Бургеры и картошку любят все.",
+          },
           explain:
             "Гостей много, а глагол при everyone и everybody стоит в единственном " +
             "числе: is, likes. Слово everything говорит о еде, то есть о вещах.",
@@ -995,6 +1033,15 @@ const module: Module = {
           ],
           text:
             "I can't find my bag anywhere.\nWe looked everywhere. Under the sofa too?\nYes. And beside the door. We walked along the street too.\nLook in the big box! Your bag is here, at the bottom.",
+          perevod: {
+            "I can't find my bag anywhere.": "Я нигде не могу найти сумку.",
+            "We looked everywhere. Under the sofa too?":
+              "Мы искали везде. Под диваном тоже?",
+            "Yes. And beside the door. We walked along the street too.":
+              "Да. И у двери. По улице мы тоже прошли.",
+            "Look in the big box! Your bag is here, at the bottom.":
+              "Посмотри в большой коробке! Сумка здесь, на дне.",
+          },
           explain:
             "После can't идёт anywhere, а в строке без отрицания стоит everywhere. " +
             "Обороты beside the door, along the street и at the bottom называют " +
@@ -1183,6 +1230,13 @@ const module: Module = {
           ],
           text:
             "Would you like something to drink?\nYes, something cold, please.\nAnything else?\nSomething to eat — a burger or something. And I think my glasses are here somewhere!",
+          perevod: {
+            "Would you like something to drink?": "Хотите чего-нибудь выпить?",
+            "Yes, something cold, please.": "Да, что-нибудь холодное, пожалуйста.",
+            "Anything else?": "Что-нибудь ещё?",
+            "Something to eat — a burger or something. And I think my glasses are here somewhere!":
+              "Что-нибудь поесть — бургер или вроде того. И, кажется, мои очки где-то здесь!",
+          },
           explain:
             "В каждой строке уточнение стоит после местоимения: to drink, cold, " +
             "else, to eat.",
@@ -1577,6 +1631,16 @@ const module: Module = {
           id: "obrazets-pisma-o-propazhe",
           kind: "example",
           caption: "Письмо Нурлана",
+          perevod: {
+            "Yesterday I lost my umbrella at school.":
+              "Вчера я потерял зонт в школе.",
+            "Someone took it from the table near the door.":
+              "Кто-то взял его со стола у двери.",
+            "I asked the teacher, but she didn't see anyone there.":
+              "Я спросил учительницу, но она никого там не видела.",
+            "Nobody found it, and I looked everywhere.":
+              "Никто его не нашёл, а я искал везде.",
+          },
           zvuchat: [
             "Hi Ali!",
             "Yesterday I lost my umbrella at school.",
