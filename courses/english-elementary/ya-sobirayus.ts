@@ -125,20 +125,23 @@ import type { Module } from "@/lib/content/types";
  *
  * — «ПЕРЕДАЙ ПО-АНГЛИЙСКИ»: русский текст в условии, ответ английским словом.
  *   Опора — описания Совета Европы, с. 95, шкала Relaying specific information,
- *   ПИСЬМЕННАЯ колонка, графа A2: «Can relay (in Language B) specific, relevant
- *   information contained in short, simple texts, labels and notices (in
- *   Language A) on familiar subjects». Там же, A2: «Can list (in Language B)
- *   specific information contained in simple texts (in Language A) on everyday
- *   subjects of immediate interest or need». Источник разрешает ПЕРЕЧИСЛИТЬ
- *   сведение, а не пересказать, — поэтому ответ здесь всегда одно слово. Два
+ *   колонка RELAYING SPECIFIC INFORMATION IN WRITING, графа A2: «Can relay in
+ *   writing (in Language B) specific information contained in short simple
+ *   informational texts (in Language A), provided the texts concern concrete,
+ *   familiar subjects and are composed in simple everyday language». Ученик
+ *   пишет ответ — значит подпирает задание именно письменная колонка. Два
  *   таких задания: урок 4 и урок 6.
  *
- *   ССЫЛКА ЗДЕСЬ БЫЛА НЕ ТА, и это нашёл методист. Первая редакция сослалась на
- *   графу A1 той же страницы, а она вся про устный исходник: «in oral texts»,
- *   «provided the articulation is very slow and clear». У нас исходник
- *   письменный — записка по-русски, — и шкала эту колонку держит отдельно.
- *   Верная графа оказалась не ниже ступени, а ровно на ней, и она прямо
- *   называет объявления.
+ *   ССЫЛКУ ЗДЕСЬ ПРАВИЛИ ДВАЖДЫ, И ОБА РАЗА ПО РАЗБОРУ МЕТОДИСТА. Первая
+ *   редакция сослалась на графу A1. Вторая взяла графу A2, но дескрипторы из
+ *   УСТНОЙ колонки, назвав их письменными.
+ *
+ *   ПОЧЕМУ ОШИБЛИСЬ ВТОРОЙ РАЗ, и это стоит запомнить: шкала разведена по тому,
+ *   ЧЕМ ученик отвечает, а не по тому, что он получает на вход. Рассуждение
+ *   «графа A1 про устный исходник, а у нас исходник письменный» читало её
+ *   наоборот и потому увело в ту же колонку. Признак письменной колонки виден в
+ *   самих строках: у каждой стоит «Can relay IN WRITING», и так на всех
+ *   ступенях от A1 до B2.
  *
  * — «ВОССТАНОВИ УСЛЫШАННОЕ»: задание на сборку вместе с полем `zvuk`. Ученик
  *   слушает фразу и собирает её из карточек-слов. Одно такое задание, урок 7.
@@ -157,7 +160,10 @@ import type { Module } from "@/lib/content/types";
  *   обороту там. Здесь его нет, поэтому разговор в уроке 7 договаривается о
  *   встрече без него.
  *
- * СЛОВАРЬ МОДУЛЯ. Тридцать девять карточек. Проверка новизны засчитывает
+ * СЛОВАРЬ МОДУЛЯ. Тридцать восемь карточек. Счёт поправлен 30 августа 2026 по
+ * разбору методиста: стояло «тридцать девять», а лишним оказалось слово
+ * `closed` — оно числилось здесь новой карточкой A2, но карточки в модуле нет,
+ * она стоит в модуле 4 (`ya-ne-delal.ts`). Проверка новизны засчитывает
  * новыми тридцать пять; `climbing` и `details` она относит к прошлой ступени по
  * основам `climb` и `detail`, хотя словник A2 Key даёт их отдельными входами, а
  * `tonight` и `join` Oxford 3000 и правда помечает A1 — они взяты не ради
@@ -265,17 +271,20 @@ const module: Module = {
         "a series of simple phrases and sentences linked with simple connectors " +
         "like \"and\", \"but\" and \"because\"» — отсюда размер объявления. " +
         "ЗАДАНИЕ «ПЕРЕДАЙ ПО-АНГЛИЙСКИ» (уроки 4 и 6). с. 95, шкала Relaying " +
-        "specific information, ПИСЬМЕННАЯ колонка, A2: «Can relay (in Language B) " +
-        "specific, relevant information contained in short, simple texts, labels " +
-        "and notices (in Language A) on familiar subjects»; там же, A2: «Can list " +
-        "(in Language B) specific information contained in simple texts (in " +
-        "Language A) on everyday subjects of immediate interest or need». Источник " +
-        "разрешает перечислить сведение, а не пересказать, поэтому ответ там всегда " +
-        "одно слово. ГРАФА ИСПРАВЛЕНА ПО РАЗБОРУ МЕТОДИСТА: первая редакция " +
-        "сослалась на A1 той же страницы, а вся графа A1 про устный исходник («in " +
-        "oral texts», «provided the articulation is very slow and clear»), тогда " +
-        "как у нас исходник письменный. Шкала держит устную и письменную колонки " +
-        "порознь, и верная графа оказалась ровно на нашей ступени. " +
+        "specific information, колонка Relaying specific information IN WRITING, " +
+        "A2: «Can relay in writing (in Language B) specific information contained " +
+        "in short simple informational texts (in Language A), provided the texts " +
+        "concern concrete, familiar subjects and are composed in simple everyday " +
+        "language». Задание требует написать, и подпирает его именно этот " +
+        "дескриптор. " +
+        "КОЛОНКА ИСПРАВЛЕНА 30 августа 2026 по разбору методиста, и это вторая " +
+        "правка той же ссылки. Первая редакция сослалась на графу A1; вторая " +
+        "взяла графу A2, но из УСТНОЙ колонки, назвав её письменной. Шкала " +
+        "разведена по тому, ЧЕМ ученик отвечает, а не по тому, что он получает на " +
+        "вход: у каждого дескриптора письменной колонки стоит «Can relay IN " +
+        "WRITING», и признак этот сплошной от A1 до B2. Прежнее рассуждение — " +
+        "«графа A1 про устный исходник, а у нас исходник письменный» — читало " +
+        "шкалу наоборот. " +
         "УРОК 7, СЛУШАНИЕ. с. 48, Overall oral comprehension, A2: «Can understand " +
         "phrases and expressions related to areas of most immediate priority… " +
         "provided people articulate clearly and slowly» — отсюда pace: \"slow\", и " +

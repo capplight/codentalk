@@ -119,10 +119,13 @@ import type { Module } from "@/lib/content/types";
  * you arrive?`). Модуль говорит «в половине со словом when», и так же надо
  * говорить дальше.
  *
- * СЛОВАРЬ МОДУЛЯ. Тридцать три карточки, из них семнадцать несут слово,
- * которого на прошлой ступени не было.
+ * СЛОВАРЬ МОДУЛЯ. Тридцать две карточки, из них шестнадцать несут слово,
+ * которого на прошлой ступени не было. Счёт поправлен 30 августа 2026 по
+ * разбору методиста: стояло «тридцать три, из них семнадцать», а лишним
+ * оказалось слово `empty` — оно числилось здесь новой карточкой A2, но карточки
+ * в модуле нет, она стоит в модуле 6 (`chto-proishodilo.ts`).
  *
- *    Oxford 3000 помечает A2: direct, international, comfortable, empty,
+ *    Oxford 3000 помечает A2: direct, international, comfortable,
  *    continue, least, simple, recently, less, single, per.
  *
  *    Oxford 3000 помечает выше A2, а словник A2 Key содержит: port (B1),
@@ -1046,11 +1049,11 @@ const module: Module = {
           zvuchat: [
             "I hope you enjoy the journey.",
             "I hope the flight arrives at ten tomorrow.",
-            "I hope the total is not too big.",
+            "I hope the total is small.",
             "I hope you like the new bookshop: it opened recently and the timetable there is simple.",
           ],
           text:
-            "I hope you enjoy the journey.\nI hope the flight arrives at ten tomorrow.\nI hope the total is not too big.\nI hope you like the new bookshop: it opened recently and the timetable there is simple.",
+            "I hope you enjoy the journey.\nI hope the flight arrives at ten tomorrow.\nI hope the total is small.\nI hope you like the new bookshop: it opened recently and the timetable there is simple.",
           explain:
             "Четыре строки. После I hope везде стоит настоящее время. Окончание же " +
             "зависит от лица: you enjoy без него, а the flight arrives с ним.\n\nВ " +
@@ -1062,7 +1065,7 @@ const module: Module = {
           kind: "vocab",
           caption: "Слова урока",
           items: [
-            { term: "total", translation: "итог, общая сумма", example: "I hope the total is not too big.", hint: "/ˈtəʊtl/" },
+            { term: "total", translation: "итог, общая сумма", example: "I hope the total is small.", hint: "/ˈtəʊtl/" },
             { term: "simple", translation: "простой", example: "The timetable there is simple.", hint: "/ˈsɪmpl/" },
             { term: "recently", translation: "недавно", example: "It opened recently and the timetable there is simple.", hint: "/ˈriːsəntli/" },
           ],
@@ -1458,18 +1461,18 @@ const module: Module = {
           kind: "hottext",
           prompt: "Отметь строки, где час не назван.",
           parts: [
-            { text: "The bookshop opens", selectable: true, correct: true },
+            { text: "The museum closes", selectable: true, correct: true },
             { text: " · " },
-            { text: "The plane leaves at six tomorrow", selectable: true },
+            { text: "The train arrives at seven", selectable: true },
             { text: " · " },
             { text: "The taxi comes", selectable: true, correct: true },
             { text: " · " },
-            { text: "The chemist opens at nine", selectable: true },
+            { text: "The film starts at eight", selectable: true },
           ],
-          hint: "Ищи час: at six, at nine.",
+          hint: "Ищи час: at seven, at eight.",
           why:
-            "Часа нет в The bookshop opens и The taxi comes. В двух других строках " +
-            "стоят at six и at nine.",
+            "Часа нет в The museum closes и The taxi comes. В двух других строках " +
+            "стоят at seven и at eight.",
         },
         {
           id: "z2-dopisat-chas-v-stroku",
@@ -1692,13 +1695,13 @@ const module: Module = {
 
       // ---- итог 7 ----
       {
-        id: "q-na-sluh-s-kakogo-puti",
+        id: "q-na-sluh-kuda-poezd",
         kind: "short",
         outcome: "слышать в объявлении время и место",
         zvuk: "The train to the airport leaves at nine from platform two.",
-        prompt: "Послушай и запиши одним английским словом, с какого пути уходит поезд.",
-        answer: "two",
-        accept: ["platform two", "from platform two"],
+        prompt: "Послушай и запиши одним английским словом, куда идёт поезд.",
+        answer: "airport",
+        accept: ["the airport", "to the airport"],
         why: "The train to the airport leaves at nine from platform two.",
       },
       {

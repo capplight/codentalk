@@ -768,13 +768,13 @@ const module: Module = {
           zvuchat: [
             "I was just watching a film.",
             "I was still working.",
-            "I was always dreaming about a bike.",
+            "I was always waiting for the bus.",
           ],
           head: ["Наречие", "Что значит", "Пример"],
           rows: [
             ["just", "только что, как раз", "I was just watching a film."],
             ["still", "всё ещё", "I was still working."],
-            ["always", "всё время", "I was always dreaming about a bike."],
+            ["always", "всё время", "I was always waiting for the bus."],
           ],
         },
         {
@@ -856,13 +856,13 @@ const module: Module = {
             { text: " · " },
             { text: "She still was sleeping", selectable: true },
             { text: " · " },
-            { text: "I was always dreaming", selectable: true, correct: true },
+            { text: "I was always waiting", selectable: true, correct: true },
             { text: " · " },
-            { text: "I was dreaming always", selectable: true },
+            { text: "I was waiting always", selectable: true },
           ],
           hint: "Своё место у наречия между was и глаголом.",
           why:
-            "Верны She was still sleeping и I was always dreaming. В двух других " +
+            "Верны She was still sleeping и I was always waiting. В двух других " +
             "наречие встало перед was и после глагола, а его место между ними.",
         },
         {

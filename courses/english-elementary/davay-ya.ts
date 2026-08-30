@@ -287,7 +287,7 @@ const module: Module = {
           text:
             "Shall I cut the bread?\nYes, please.\nShall I serve the tea?\nNot yet, the guests are late.\nShall I help you with the plates?\nThank you!",
           explain:
-            "Каждый раз предлагается одно дело и каждый раз одним человеком: slice, " +
+            "Каждый раз предлагается одно дело и каждый раз одним человеком: cut, " +
             "serve, help. Хозяйка отвечает коротко, и о том, как отвечают, — урок 5.",
         },
         {
@@ -423,7 +423,7 @@ const module: Module = {
           caption: "Суббота у Алима и Данияра",
           razgovor: true,
           zvuchat: [
-            "Shall we play golf on Saturday?",
+            "Shall we play tennis on Saturday?",
             "I don't have a racket.",
             "Shall we go sailing?",
             "The lake is far.",
@@ -431,9 +431,9 @@ const module: Module = {
             "Now that's a good day.",
           ],
           text:
-            "Shall we play golf on Saturday?\nI don't have a racket.\nShall we go sailing?\nThe lake is far.\nShall we skate at the square?\nNow that's a good day.",
+            "Shall we play tennis on Saturday?\nI don't have a racket.\nShall we go sailing?\nThe lake is far.\nShall we skate at the square?\nNow that's a good day.",
           explain:
-            "Каждый раз зовут вместе, и каждый раз с новым делом: golf, sailing, " +
+            "Каждый раз зовут вместе, и каждый раз с новым делом: tennis, sailing, " +
             "skate. Друг отвечает не «да» и не «нет», а называет причину.",
         },
         {
@@ -989,6 +989,10 @@ const module: Module = {
             "Sorry, I can't. The guest arrives on Sunday.",
             "Sorry, I can't. My guest arrives on Sunday.",
             "Sorry, I can't. Our guest arrives on Sunday",
+            "Sorry, I can't. Our guest comes on Sunday.",
+            "Sorry, I can't. Our guest comes on Sunday",
+            "Sorry, I can't. My guest comes on Sunday.",
+            "Sorry, I can't. The guest comes on Sunday.",
           ],
           hint: "Сначала короткий отказ, потом причина обычным настоящим временем.",
           why:
@@ -1177,7 +1181,7 @@ const module: Module = {
           items: [
             { term: "grape", translation: "виноградина", example: "Bring grapes, please.", hint: "/greɪp/" },
             { term: "pear", translation: "груша", example: "And a pear for Dana.", hint: "/peə/" },
-            { term: "noon", translation: "полдень", example: "My guest arrives at noon.", hint: "/nuːn/" },
+            { term: "noon", translation: "полдень (второе имя, рядом с midday)", example: "My guest arrives at noon.", hint: "/nuːn/" },
           ],
         },
 
@@ -1568,20 +1572,18 @@ const module: Module = {
       // ---- итог 5 ----
       {
         id: "q-otvet-na-pomoshch-ili-zov",
-        kind: "match",
+        kind: "choice",
         outcome: "отвечать на зов: согласиться, отказать или отложить",
-        prompt: "Соедини реплику и ответ, который к ней подходит.",
-        left: [
-          "Shall I serve the tea? Чай нужен сейчас.",
-          "Shall we play golf? В субботу ты работаешь.",
-          "Shall we bake a pizza? Затея нравится.",
+        prompt:
+          "На зов «Shall we bake a pizza?» отвечают «Sorry, I can't. I work on Saturday.» Чего в этом ответе не хватает по правилу урока?",
+        options: [
+          { text: "Ничего: отказ полон" },
+          { text: "Слова please" },
+          { text: "Причина названа, но не сказано, когда получится", correct: true },
         ],
-        right: ["Good idea.", "Sorry, I can't. I work on Saturday.", "Yes, please."],
-        answer: [2, 1, 0],
-        hint: "В каждой строке слева сказано, как обстоит дело у тебя.",
         why:
-          "Помощь принимают словами Yes, please. Работа в субботу закрывает гольф, " +
-          "поэтому там отказ с причиной, а понравившаяся затея берёт Good idea.",
+          "Отказ назвал причину, но не отложил дело на другой день. Полный отказ " +
+          "звучит так: Sorry, I can't. I work on Saturday. Shall we bake it on Sunday?",
       },
       {
         id: "q-chto-daet-prichina",

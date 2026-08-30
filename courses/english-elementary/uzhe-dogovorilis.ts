@@ -105,8 +105,10 @@ import type { Module } from "@/lib/content/types";
  * (CLAUDE.md, решения владельца от 16 августа, пункт 4). Урок 1 напоминает
  * правило одной строкой и отсылает к модулю 6.
  *
- * СЛОВАРЬ МОДУЛЯ. Тридцать карточек, из них двадцать шесть несут слово,
- * которого на прошлой ступени не было.
+ * СЛОВАРЬ МОДУЛЯ. Тридцать одна карточка, из них двадцать пять несут слово,
+ * которого на прошлой ступени не было. Счёт поправлен 30 августа 2026 по
+ * разбору методиста: в перечни ниже не попала карточка `yet`, хотя слово
+ * законно — `yet (adv)` стоит в словнике A2 Key.
  *
  *    Oxford 3000 помечает A2: available, middle, term, schedule, except,
  *    exactly, especially, loud, physics, chemistry, biology, whose, site,
@@ -145,8 +147,12 @@ import type { Module } from "@/lib/content/types";
  *
  *    ПЕРЕЧЕНЬ ВЫВЕРЕН ПОИСКОМ, а не памятью: первая редакция называла здесь
  *    девять слов, которых в модуле нет ни разу (lesson, teacher, station, next,
- *    notebook, sheet, appointment, calendar, exhibition), и глагол play, тоже
- *    отсутствующий. Нашёл методист.
+ *    notebook, sheet, appointment, calendar, exhibition). Нашёл методист.
+ *
+ *    А ГЛАГОЛ `play` ТОГДА СНЯЛИ ЗРЯ, и это нашёл второй методист 30 августа
+ *    2026: он работает дважды в видимом тексте — в подсказке урока 8 и в
+ *    вопросе работы, который требует произвести строку We are playing chess.
+ *    Возвращён и в перечень подпорок, и в список глаголов для записей о будущем.
  *
  * ВОЗВРАЩЕНИЕ. Два задания из пройденного. В уроке 1 — окончание `-ing` из
  * модуля 6, урок 2: именно оно нужно правой половине каждой записи этого
@@ -170,10 +176,11 @@ const module: Module = {
         "continuous with a limited range of verbs to ask about future plans», пример " +
         "— «[talking about a Rolling Stones concert] Are you coming?» — урок 3. " +
         "ОГРАНИЧЕНИЕ «LIMITED RANGE OF VERBS»: списка глаголов источник не даёт, и в " +
-        "записях о будущем модуль держится десяти — meet, come, go, leave, work, " +
-        "start, stay, take, do, send. Первая редакция заявляла восемь и называла " +
-        "среди них play, которого в модуле нет ни разу; счёт исправлен по разбору " +
-        "методиста. " +
+        "записях о будущем модуль держится одиннадцати — meet, come, go, leave, " +
+        "work, play, start, stay, take, do, send. Счёт правился дважды: первая " +
+        "редакция заявляла восемь, вторая сняла `play` как отсутствующий, а он в " +
+        "модуле есть — работа требует произвести строку We are playing chess. " +
+        "Возвращён 30 августа 2026 по разбору методиста. " +
         "A1, PRESENT present continuous, «FORM: AFFIRMATIVE»: «Can use the " +
         "affirmative form», пример — «I am sending you some flowers because you are " +
         "not well» — форма урока 1. " +
@@ -273,8 +280,14 @@ const module: Module = {
         "Слова schedule словник A2 Key не содержит, и ступень ему подтверждает " +
         "Oxford 3000 (A2). " +
         "Подпорки: meet, come, go, leave, work, play, start, stay, week, weekend, " +
-        "day, time, five, six, ten, morning, evening, room, class, lesson, teacher, " +
-        "school, station, shop, free, busy, new, full — все A1",
+        "day, time, five, six, ten, morning, evening, room, school, shop, free, " +
+        "busy, new, full — все A1. " +
+        "ПЕРЕЧЕНЬ ВЫВЕРЕН ПОИСКОМ 30 августа 2026, и он расходился с шапкой: " +
+        "здесь оставался прежний список. Сняты `lesson`, `teacher`, `station` — " +
+        "их в теле модуля нет ни разу; снято `class` — подпорка это слово БЕЗ " +
+        "карточки, а карточка `class` в модуле есть. Глагол `play` при этом " +
+        "оставлен: он работает дважды в видимом тексте — в подсказке урока 8 и в " +
+        "вопросе работы `q-odin-raz-ili-vsegda`",
       license: "внутреннее использование",
     },
     {
@@ -414,7 +427,7 @@ const module: Module = {
             { term: "term", translation: "учебная четверть", example: "We're starting a new term on Monday.", hint: "/tɜːm/" },
             { term: "available", translation: "свободен, доступен", example: "The room is available in the middle of the week.", hint: "/əˈveɪləbl/" },
             { term: "middle", translation: "середина", example: "The room is available in the middle of the week.", hint: "/ˈmɪdl/" },
-            { term: "schedule", translation: "расписание", example: "My schedule is full this week.", hint: "/ˈʃedjuːl/" },
+            { term: "schedule", translation: "расписание (второе имя, рядом с timetable)", example: "My schedule is full this week.", hint: "/ˈʃedjuːl/" },
             { term: "interview", translation: "собеседование", example: "On Tuesday I'm going to an interview at nine.", hint: "/ˈɪntəvjuː/" },
           ],
         },
@@ -1187,7 +1200,7 @@ const module: Module = {
           items: [
             { term: "blackboard", translation: "школьная доска", example: "We're starting the term with a new blackboard.", hint: "/ˈblækbɔːd/" },
             { term: "schoolchild", translation: "школьник", example: "Every schoolchild is coming at eight.", hint: "/ˈskuːltʃaɪld/" },
-            { term: "normal", translation: "обычный", example: "This isn't a normal week.", hint: "/ˈnɔːməl/" },
+            { term: "normal", translation: "обычный (то же, что usual)", example: "This isn't a normal week.", hint: "/ˈnɔːməl/" },
             { term: "instructions", translation: "указания", example: "The headteacher is coming with new instructions.", hint: "/ɪnˈstrʌkʃənz/" },
             { term: "break", translation: "перемена, перерыв", example: "The break is at eleven.", hint: "/breɪk/" },
             { term: "site", translation: "площадка, участок", example: "I'm going to the site of the new school.", hint: "/saɪt/" },
@@ -1466,8 +1479,8 @@ const module: Module = {
           accept: ["I'm meeting my classmate at six", "I am meeting my classmate at six.", "I am meeting my classmate at six"],
           hint: "Час ставят в конце строки со словом at.",
           why:
-            "I'm meeting my classmate at six. Названный час и делает строку " +
-            "договорённостью.",
+            "I'm meeting my classmate at six. Без часа читатель не узнает, когда " +
+            "встреча, и записка своего дела не делает.",
         },
         {
           id: "z3-vybrat-mesto-not",
@@ -1655,8 +1668,8 @@ const module: Module = {
           "We are staying at school till six",
         ],
         why:
-          "We're staying at school till six. Названный час и показывает, что об " +
-          "этом уже условились.",
+          "We're staying at school till six. Без часа читатель не узнает, до " +
+          "которого времени ждать.",
       },
 
       // ---- итог 6 ----
@@ -1700,13 +1713,13 @@ const module: Module = {
           "Названы два часа: до шести не остаётся, а уходит в four. Нужен второй.",
       },
       {
-        id: "q-na-sluh-vo-skolko-vstrecha",
+        id: "q-na-sluh-kakim-slovom-tochno",
         kind: "short",
         outcome: "слышать в записи, что и когда назначено",
         zvuk: "When are we meeting? — We're meeting at exactly five.",
-        prompt: "Послушай и запиши одним английским словом, во сколько встреча.",
-        answer: "five",
-        accept: ["at five"],
+        prompt:
+          "Послушай и запиши одним английским словом, которым сказано, что час назван точно.",
+        answer: "exactly",
         why: "When are we meeting? — We're meeting at exactly five.",
       },
 

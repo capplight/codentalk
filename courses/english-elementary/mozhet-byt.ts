@@ -114,7 +114,7 @@ const module: Module = {
     "говорить о возможном: It might rain tomorrow",
     "говорить о возможном через may: It may be in my backpack",
     "ставить maybe перед строкой: Maybe it's in the car",
-    "говорить об уверенности: I'm sure it's in the drawer",
+    "говорить об уверенности: I'm sure it's in the cabinet",
     "отличать уверенность от предположения",
     "находить в объявлении приметы вещи и время работы",
     "слышать в прогнозе, что обещают наверняка, а что нет",
@@ -197,7 +197,8 @@ const module: Module = {
     {
       ref: "Cambridge English, A2 Key vocabulary list (август 2025)",
       section:
-        "Все тридцать две карточки модуля взяты из словника ступени: umbrella, " +
+        "Все тридцать три карточки модуля взяты из словника ступени: might, " +
+        "umbrella, " +
         "heavy, handbag, backpack, cabinet, bookcase, carpet, app, download, " +
         "upload, folder, headphones, speaker, case, password, silver, metal, " +
         "plastic, cover, bracelet, thin, soft, necklace, earring, belt, raincoat, " +
@@ -733,9 +734,9 @@ const module: Module = {
     // =====================================================================
     {
       slug: "ya-uveren",
-      title: "Я уверен: I'm sure it's in the drawer",
+      title: "Я уверен: I'm sure it's in the cabinet",
       estimatedMinutes: 14,
-      outcome: "говорить об уверенности: I'm sure it's in the drawer",
+      outcome: "говорить об уверенности: I'm sure it's in the cabinet",
 
       blocks: [
         {
@@ -1092,7 +1093,7 @@ const module: Module = {
           caption: "Слова урока",
           items: [
             { term: "necklace", translation: "ожерелье", example: "We have a silver necklace.", hint: "/ˈnekləs/" },
-            { term: "sock", translation: "носок", example: "And the socks? Maybe two pairs.", hint: "/sɒk/" },
+            { term: "sock", translation: "носок", example: "We have two grey socks.", hint: "/sɒk/" },
             { term: "earring", translation: "серьга", example: "We also have an earring.", hint: "/ˈɪərɪŋ/" },
             { term: "belt", translation: "ремень", example: "We have a black belt.", hint: "/belt/" },
             { term: "raincoat", translation: "плащ", example: "We also have a green raincoat.", hint: "/ˈreɪnkəʊt/" },
@@ -1221,7 +1222,7 @@ const module: Module = {
           kind: "short",
           prompt: "Каким обещают утро? Ответь одним словом по-английски.",
           answer: "sunny",
-          accept: ["Bright", "dry"],
+          accept: ["dry"],
           hint: "Об утре сказано двумя словами, и любое из них годится.",
           why:
             "The morning is sunny and dry. Об утре говорят наверняка, без слов " +
@@ -1843,7 +1844,7 @@ const module: Module = {
       {
         id: "q-ispravit-propushchennyy-glagol",
         kind: "short",
-        outcome: "говорить об уверенности: I'm sure it's in the drawer",
+        outcome: "говорить об уверенности: I'm sure it's in the cabinet",
         prompt:
           "Ученик написал: I sure the belt is in the cabinet. Запиши строку без ошибки.",
         answer: "I'm sure the belt is in the cabinet.",
@@ -1856,7 +1857,7 @@ const module: Module = {
       {
         id: "q-okonchanie-posle-sure",
         kind: "choice",
-        outcome: "говорить об уверенности: I'm sure it's in the drawer",
+        outcome: "говорить об уверенности: I'm sure it's in the cabinet",
         prompt:
           "Почему в строке I'm sure Dana knows the password у глагола осталось окончание?",
         options: [
@@ -1975,12 +1976,12 @@ const module: Module = {
         zvuk:
           "The rain may be heavy after six. — Then I'll come at five.",
         prompt:
-          "Послушай. После скольки возможен сильный дождь? Ответь числом.",
-        answer: "six",
-        accept: ["6", "Six", "after six"],
-        hint: "Чисел в записи два, и нужное стоит рядом с дождём.",
+          "Послушай. Во сколько собеседник обещает прийти? Ответь числом.",
+        answer: "five",
+        accept: ["5", "Five", "at five"],
+        hint: "Чисел в записи два, и нужное стоит рядом с обещанием прийти.",
         why:
-          "Six. Второе число — час, к которому собеседник хочет успеть, и к дождю " +
+          "Five. Второе число — час, после которого возможен дождь, и к приходу " +
           "оно не относится.",
       },
 
