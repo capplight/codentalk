@@ -176,9 +176,11 @@ const module: Module = {
           kind: "explain",
           text: [
             "Сказать, что дело было, ты уже умеешь: I worked, I went.",
+            "I didn't work yesterday. — Вчера я не работал.",
             "Чтобы сказать, что дела не было, перед глаголом ставят didn't.",
             "Само слово didn't ничего не значит по отдельности — оно только отрицает.",
-            "Русское «не» стоит перед глаголом, и didn't стоит там же.",
+            "Русское «не» стоит перед глаголом, и didn't стоит там же: здесь языки совпадают.",
+            "А расходятся они в другом, и об этом следующий урок.",
           ],
         },
         {
@@ -219,6 +221,11 @@ const module: Module = {
             "The printer was broken.",
           ],
           text: "Yesterday I didn't work.\nThe manager didn't call.\nThe printer was broken.",
+          perevod: {
+            "Yesterday I didn't work.": "Вчера я не работал.",
+            "The manager didn't call.": "Управляющий не позвонил.",
+            "The printer was broken.": "Принтер был сломан.",
+          },
           explain:
             "Три строки: в первых двух дела не было, и в обеих стоит didn't. Третья " +
             "описывает вещь через was — это форма из первого модуля, и отрицание её " +
@@ -329,6 +336,8 @@ const module: Module = {
             "После didn't глагол возвращается к словарной форме — той, что стоит в словаре.",
             "I went, но I didn't go. I saw, но I didn't see.",
             "О прошлом уже сказало слово didn't, и второй раз его не называют.",
+            "По-русски выходит иначе: в «я не ходил» прошедшее слышно в самом глаголе, хотя рядом стоит «не».",
+            "Отсюда и самая частая ошибка — I didn't went: по русскому образцу хочется сказать о прошлом дважды.",
           ],
         },
         {
@@ -381,6 +390,11 @@ const module: Module = {
           ],
           text:
             "I didn't go to the dentist.\nI didn't take the medicine.\nThe pain was strong.",
+          perevod: {
+            "I didn't go to the dentist.": "Я не пошёл к зубному врачу.",
+            "I didn't take the medicine.": "Я не принял лекарство.",
+            "The pain was strong.": "Боль была сильная.",
+          },
           explain:
             "В первых двух строках после didn't стоят словарные формы go и take, хотя о " +
             "прошлом. В третьей строке отрицания нет, и там обычное was.",
@@ -526,6 +540,11 @@ const module: Module = {
           ],
           text:
             "I didn't receive the email.\nThe secretary did not send it.\nThe assistant was on holiday.",
+          perevod: {
+            "I didn't receive the email.": "Я не получил письмо.",
+            "The secretary did not send it.": "Секретарь его не отправил.",
+            "The assistant was on holiday.": "Помощник был в отпуске.",
+          },
           explain:
             "В первой строке краткая запись, во второй полная, и обе говорят одно и то " +
             "же. Третья строка описывает человека через was и отрицания не несёт.",
@@ -680,6 +699,11 @@ const module: Module = {
             "The bridge was closed.",
           ],
           text: "The lorry didn't come.\nWe didn't wait at the gate.\nThe bridge was closed.",
+          perevod: {
+            "The lorry didn't come.": "Грузовик не приехал.",
+            "We didn't wait at the gate.": "Мы не стали ждать у ворот.",
+            "The bridge was closed.": "Мост был закрыт.",
+          },
           explain:
             "В первой строке подлежащее — название вещи, во второй — we, и didn't в " +
             "обеих одинаковое. Третья строка описывает мост через was.",
@@ -823,6 +847,13 @@ const module: Module = {
           ],
           text:
             "I cleaned the room, but I didn't wash the towel.\nI bought soap, but I didn't buy a mirror.\nThe uniform was in the pocket.",
+          perevod: {
+            "I cleaned the room, but I didn't wash the towel.":
+              "Я убрал комнату, но не постирал полотенце.",
+            "I bought soap, but I didn't buy a mirror.":
+              "Я купил мыло, но не купил зеркало.",
+            "The uniform was in the pocket.": "Форма была в кармане.",
+          },
           explain:
             "В первых двух строках по две части: сделанное и несделанное, между ними " +
             "but. Третья строка описывает, где лежала вещь, и отрицания не несёт.",
@@ -969,6 +1000,14 @@ const module: Module = {
           ],
           text:
             "Yesterday I worked at home.\nFirst I cleaned the room, but I didn't wash the floor.\nThen I wrote a message to my boss.\nThe noise from the street was loud.",
+          perevod: {
+            "Yesterday I worked at home.": "Вчера я работал дома.",
+            "First I cleaned the room, but I didn't wash the floor.":
+              "Сначала я убрал комнату, но не помыл пол.",
+            "Then I wrote a message to my boss.":
+              "Потом я написал сообщение начальнику.",
+            "The noise from the street was loud.": "Шум с улицы был громкий.",
+          },
           explain:
             "Четыре строки: первая называет время и место, две следующие — дела по " +
             "порядку, и в первой из них рядом стоят сделанное и несделанное. " +
