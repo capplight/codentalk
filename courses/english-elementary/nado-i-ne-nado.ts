@@ -279,8 +279,8 @@ const module: Module = {
           kind: "note",
           tone: "mistake",
           text:
-            "«I have to wearing a uniform» — так не говорят.\n\nПосле have to " +
-            "глагол берёт обычную форму: I have to wear a uniform.",
+            "«I have to wearing a uniform» — так не говорят.\n\nВерно: I have to " +
+            "wear a uniform.",
         },
         {
           id: "razgovor-o-shkolnyh-pravilah",

@@ -543,8 +543,8 @@ const module: Module = {
           id: "gde-most-a-gde-est",
           kind: "explain",
           text: [
-            "Длинным считают прилагательное из двух слогов и больше: beau-ti-ful, ex-pen-sive.",
             "Слог — это часть слова с одним гласным звуком: big один слог, ea-sy два.",
+            "Длинным считают прилагательное из двух слогов и больше: beau-ti-ful, ex-pen-sive.",
             "Слова на -y — исключение: они двусложные, но берут окончание, а не most.",
             "Так же ведут себя clever и quiet: the easiest, the busiest, the cleverest, the quietest.",
             "Слово the стоит перед most, а не после: the most beautiful.",
@@ -1658,7 +1658,7 @@ const module: Module = {
         kind: "choice",
         outcome: "проверять заметку: у каждого самого названо, среди кого",
         prompt:
-          "Заметка целиком: I saw a park. It is the biggest. Чего не хватает самому сравнению?",
+          "Заметка целиком: I saw a park. It is the biggest. Чего не хватает самому выделению?",
         options: [
           { text: "Круга: не сказано, среди каких парков он самый большой.", correct: true },
           { text: "Слова the перед biggest." },

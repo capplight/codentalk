@@ -221,7 +221,7 @@ const module: Module = {
             "cheap — cheaper",
             "low — lower",
           ],
-          head: ["Обычная форма", "Форма сравнения"],
+          head: ["Слово и его форма сравнения", "Пример"],
           rows: [
             ["small — smaller", "My flat is smaller."],
             ["old — older", "My phone is older."],
@@ -391,8 +391,8 @@ const module: Module = {
           id: "kakoe-slovo-dlinnoe",
           kind: "explain",
           text: [
-            "Длинным считают прилагательное из двух слогов и больше: po-lite, at-trac-tive.",
             "Слог — это часть слова с одним гласным звуком: cheap один слог, po-lite два.",
+            "Длинным считают прилагательное из двух слогов и больше: po-lite, at-trac-tive.",
             "У длинных слов форма сравнения собирается из двух слов: more и само прилагательное.",
             "Слово than после неё стоит так же, как после короткой формы.",
           ],
