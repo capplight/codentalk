@@ -334,9 +334,11 @@ const module: Module = {
           kind: "explain",
           text: [
             "Поезд уходит завтра в шесть, и никто из говорящих на это не влияет.",
-            "По-английски это The train leaves at six tomorrow.",
-            "Так говорят о расписании — о том, что назначено заведённым порядком.",
-            "Речь при этом о завтрашнем дне, а глагол стоит в настоящем времени.",
+            "The train leaves at six tomorrow. — Поезд уходит завтра в шесть.",
+            "И снова русский перевод стоит в настоящем времени, а речь о завтрашнем дне.",
+            "Так мы говорим о расписании: «магазин открывается в девять», «сеанс начинается в семь».",
+            "По-английски делают то же самое.",
+            "Так говорят о том, что назначено заведённым порядком и от людей не зависит.",
             "Время, в котором стоит The train leaves, называется Present Simple.",
             "Им же говорят о том, что бывает всегда: The train leaves at six every day.",
           ],
@@ -354,22 +356,24 @@ const module: Module = {
             "We leave at six tomorrow.",
             "They leave at six tomorrow.",
           ],
-          head: ["Кто", "Запись"],
+          head: ["Кто", "По-английски", "По-русски"],
           rows: [
-            ["I", "I leave at six tomorrow."],
-            ["you", "You leave at six tomorrow."],
-            ["he", "He leaves at six tomorrow."],
-            ["she", "She leaves at six tomorrow."],
-            ["it", "It leaves at six tomorrow."],
-            ["we", "We leave at six tomorrow."],
-            ["they", "They leave at six tomorrow."],
+            ["I", "I leave at six tomorrow.", "Я уезжаю завтра в шесть."],
+            ["you", "You leave at six tomorrow.", "Ты уезжаешь завтра в шесть."],
+            ["he", "He leaves at six tomorrow.", "Он уезжает завтра в шесть."],
+            ["she", "She leaves at six tomorrow.", "Она уезжает завтра в шесть."],
+            ["it", "It leaves at six tomorrow.", "Он уходит завтра в шесть."],
+            ["we", "We leave at six tomorrow.", "Мы уезжаем завтра в шесть."],
+            ["they", "They leave at six tomorrow.", "Они уезжают завтра в шесть."],
           ],
         },
         {
           id: "otkuda-beretsya-s",
           kind: "explain",
           text: [
-            "Окончание -s появляется у трёх лиц: he, she, it.",
+            "Посмотри на два правых столбца сразу.",
+            "В русском окончание меняется у всех: уезжаю, уезжаешь, уезжает, уезжаем, уезжают.",
+            "В английском оно появляется только у трёх лиц: he, she, it.",
             "У остальных глагол остаётся без окончания: I leave, you leave, we leave, they leave.",
             "Вместо местоимения часто стоит имя или название вещи, и тогда смотрят, чем его заменить.",
             "Один поезд — это it, значит The train leaves. Несколько поездов — это they, значит The trains leave.",
@@ -396,10 +400,50 @@ const module: Module = {
           ],
           text:
             "The train leaves at six tomorrow morning.\nThe journey takes four hours.\nWe arrive at the port at ten.\nThe bookshop at the airport opens at nine on Monday.",
+          perevod: {
+            "The train leaves at six tomorrow morning.":
+              "Поезд уходит завтра в шесть утра.",
+            "The journey takes four hours.": "Дорога занимает четыре часа.",
+            "We arrive at the port at ten.": "В порт мы приезжаем в десять.",
+            "The bookshop at the airport opens at nine on Monday.":
+              "Книжный магазин в аэропорту открывается в понедельник в девять.",
+          },
           explain:
             "Четыре строки, и все о завтрашнем дне и понедельнике. Окончание -s стоит " +
             "у leaves, takes и opens: поезд, поездка и магазин — это it. У arrive " +
             "окончания нет, потому что we — не третье лицо.",
+        },
+        {
+          id: "chetyre-sposoba-o-budushchem",
+          kind: "table",
+          caption: "Четыре способа сказать о будущем",
+          zvuchat: [
+            "I am going to cook dinner.",
+            "I will cook dinner.",
+            "I am cooking dinner for Dana at six.",
+            "The train leaves at six.",
+          ],
+          head: ["По-английски", "По-русски", "О чём речь"],
+          rows: [
+            ["I am going to cook dinner.", "Я собираюсь готовить ужин.", "намерение"],
+            ["I will cook dinner.", "Я приготовлю ужин.", "обещание"],
+            [
+              "I am cooking dinner for Dana at six.",
+              "Я готовлю ужин для Даны в шесть.",
+              "договорённость",
+            ],
+            ["The train leaves at six.", "Поезд уходит в шесть.", "расписание"],
+          ],
+        },
+        {
+          id: "kak-razlichat-chetyre-sposoba",
+          kind: "explain",
+          text: [
+            "Это четыре способа сказать о будущем, и все они уже разобраны.",
+            "Проще всего различать их по русскому переводу: «собираюсь готовить», «приготовлю», «готовлю», «уходит».",
+            "Каждому отведён свой модуль: «Я собираюсь», «Я сделаю», «Уже договорились» и этот.",
+            "Правила «здесь только так» тут нет: часто годятся два способа, и выбирают по случаю.",
+          ],
         },
         {
           id: "slovar-poezdki-po-raspisaniyu",
@@ -501,8 +545,10 @@ const module: Module = {
           kind: "explain",
           text: [
             "В воскресенье аптека закрыта, и об этом надо предупредить заранее.",
-            "По-английски это The chemist doesn't open on Sunday.",
-            "Отрицание собирают из слова doesn't или don't и глагола без окончания.",
+            "The chemist doesn't open on Sunday. — В воскресенье аптека не открывается.",
+            "По-русски отрицание — всё то же «не» перед глаголом, и больше ничего не меняется.",
+            "По-английски приходится добавить целое слово: doesn't или don't.",
+            "Глагол при этом остаётся без окончания.",
           ],
         },
         {
@@ -517,14 +563,14 @@ const module: Module = {
             "We don't leave on Sunday.",
             "They don't leave on Sunday.",
           ],
-          head: ["Кто", "Запись"],
+          head: ["Кто", "По-английски", "По-русски"],
           rows: [
-            ["I", "I don't leave on Sunday."],
-            ["you", "You don't leave on Sunday."],
-            ["he", "He doesn't leave on Sunday."],
-            ["it", "It doesn't leave on Sunday."],
-            ["we", "We don't leave on Sunday."],
-            ["they", "They don't leave on Sunday."],
+            ["I", "I don't leave on Sunday.", "В воскресенье я не уезжаю."],
+            ["you", "You don't leave on Sunday.", "В воскресенье ты не уезжаешь."],
+            ["he", "He doesn't leave on Sunday.", "В воскресенье он не уезжает."],
+            ["it", "It doesn't leave on Sunday.", "В воскресенье он не уходит."],
+            ["we", "We don't leave on Sunday.", "В воскресенье мы не уезжаем."],
+            ["they", "They don't leave on Sunday.", "В воскресенье они не уезжают."],
           ],
         },
         {
@@ -556,6 +602,16 @@ const module: Module = {
           ],
           text:
             "The chemist doesn't open on Sunday.\nThe direct flight doesn't leave next week.\nThe shops in the port don't close at six on Monday.\nThe pool doesn't open in the morning: it is empty then.",
+          perevod: {
+            "The chemist doesn't open on Sunday.":
+              "В воскресенье аптека не открывается.",
+            "The direct flight doesn't leave next week.":
+              "На следующей неделе прямой рейс не летит.",
+            "The shops in the port don't close at six on Monday.":
+              "В понедельник магазины в порту не закрываются в шесть.",
+            "The pool doesn't open in the morning: it is empty then.":
+              "Утром бассейн не открывается: в это время он пустой.",
+          },
           explain:
             "Четыре строки. В трёх речь об одной вещи — это it, и там стоит " +
             "doesn't. В третьей магазинов несколько: они заменяются словом they, и " +
@@ -667,8 +723,11 @@ const module: Module = {
           kind: "explain",
           text: [
             "Айгуль зовёт в кино завтра, но времени начала не знает.",
-            "По-английски она спрашивает: What time does the film start tomorrow?",
-            "Вопрос собирают из слова does или do и глагола без окончания.",
+            "What time does the film start tomorrow? — Во сколько завтра начинается фильм?",
+            "В прошлых модулях вопрос строился перестановкой: вперёд уходило will или форма am, is, are.",
+            "Здесь переставлять нечего — в строке нет ничего, кроме самого глагола.",
+            "Поэтому в вопрос добавляют отдельное слово: does или do.",
+            "Глагол при этом теряет окончание.",
           ],
         },
         {
@@ -722,7 +781,8 @@ const module: Module = {
           id: "otvet-povtoryaet-does",
           kind: "explain",
           text: [
-            "В коротком ответе повторяется то же слово, с которого начался вопрос.",
+            "Правило короткого ответа то же, что и в прошлых модулях: за yes или no повторяют слово, с которого начался вопрос.",
+            "Здесь этим словом будет does или do.",
             "Вместо названия одной вещи встаёт it, вместо нескольких — they.",
             "Глагол в ответе не повторяется: строка обрывается сразу после does или do.",
           ],
@@ -739,6 +799,14 @@ const module: Module = {
           ],
           text:
             "What time does the film start tomorrow?\nAt eight. Does the theatre open at seven?\nYes, it does. The seats there are comfortable.",
+          perevod: {
+            "What time does the film start tomorrow?":
+              "Во сколько завтра начинается фильм?",
+            "At eight. Does the theatre open at seven?":
+              "В восемь. Театр открывается в семь?",
+            "Yes, it does. The seats there are comfortable.":
+              "Да. Там удобные места.",
+          },
           explain:
             "Три реплики. В первой вопрос начинается с what time, во второй — со " +
             "слова does, и короткий ответ повторяет его вторым словом.",
@@ -842,8 +910,10 @@ const module: Module = {
           kind: "explain",
           text: [
             "Алим уезжает завтра и обещает позвонить сразу после приезда.",
-            "По-английски это I'll call you when I arrive.",
-            "Оба дела впереди, но в половине со словом when глагол стоит в настоящем времени.",
+            "I'll call you when I arrive. — Я позвоню, когда приеду.",
+            "Присмотрись к русской строке: «позвоню» и «приеду» — оба слова о будущем.",
+            "По-английски так не выходит: будущее стоит только в первой половине.",
+            "Во второй, со словом when, глагол берут в настоящем времени: arrive.",
           ],
         },
         {
@@ -872,6 +942,8 @@ const module: Module = {
             "В главной половине стоит will — то самое слово обещания.",
             "А в половине со словом when его не ставят: там глагол настоящего времени.",
             "Окончание в этой половине живёт по правилу лица: I arrive, но the shop closes.",
+            "По-русски будущее стоит в обеих половинах — «позвоню, когда приеду».",
+            "Здесь и ошибаются чаще всего: пишут will дважды, по русскому образцу.",
           ],
         },
         {
@@ -894,6 +966,16 @@ const module: Module = {
           ],
           text:
             "I'll call you when I arrive at the airport tomorrow.\nI'll tell you more when I meet you.\nWe'll leave when the international flight arrives.\nThe journey continues when the delay finishes: the change at the port takes an hour.",
+          perevod: {
+            "I'll call you when I arrive at the airport tomorrow.":
+              "Я позвоню тебе, когда завтра приеду в аэропорт.",
+            "I'll tell you more when I meet you.":
+              "Я расскажу подробнее, когда встречу тебя.",
+            "We'll leave when the international flight arrives.":
+              "Мы уедем, когда прилетит международный рейс.",
+            "The journey continues when the delay finishes: the change at the port takes an hour.":
+              "Дорога продолжится, когда закончится задержка: пересадка в порту занимает час.",
+          },
           explain:
             "Четыре строки. В первых трёх главная половина держится на will, а в " +
             "половине со словом when стоит настоящее время. В четвёртой will нет " +
@@ -1002,8 +1084,10 @@ const module: Module = {
           kind: "explain",
           text: [
             "Дана дарит книгу и хочет пожелать, чтобы она понравилась.",
-            "По-английски это I hope you like it.",
-            "Речь о том, что ещё впереди, а после hope идёт обычная строка настоящего времени.",
+            "I hope you like it. — Надеюсь, тебе понравится.",
+            "По-русски после «надеюсь» стоит будущее — «понравится».",
+            "По-английски после hope хватает настоящего времени: like.",
+            "О будущем строка говорить не перестаёт — на это указывает само слово hope.",
           ],
         },
         {
@@ -1034,15 +1118,6 @@ const module: Module = {
           ],
         },
         {
-          id: "hope-i-pozhelanie",
-          kind: "note",
-          tone: "info",
-          text:
-            "По-русски I hope you enjoy the journey — это «надеюсь, поездка " +
-            "понравится».\n\nПо-английски глагол там стоит в настоящем времени, хотя " +
-            "речь о будущем.",
-        },
-        {
           id: "pozhelaniya-v-pisme",
           kind: "example",
           caption: "Пожелания в письме",
@@ -1054,6 +1129,14 @@ const module: Module = {
           ],
           text:
             "I hope you enjoy the journey.\nI hope the flight arrives at ten tomorrow.\nI hope the total is small.\nI hope you like the new bookshop: it opened recently and the timetable there is simple.",
+          perevod: {
+            "I hope you enjoy the journey.": "Надеюсь, поездка тебе понравится.",
+            "I hope the flight arrives at ten tomorrow.":
+              "Надеюсь, завтра рейс прилетит в десять.",
+            "I hope the total is small.": "Надеюсь, сумма будет небольшой.",
+            "I hope you like the new bookshop: it opened recently and the timetable there is simple.":
+              "Надеюсь, тебе понравится новый книжный: он недавно открылся, и расписание там простое.",
+          },
           explain:
             "Четыре строки. После I hope везде стоит настоящее время. Окончание же " +
             "зависит от лица: you enjoy без него, а the flight arrives с ним.\n\nВ " +
