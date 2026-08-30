@@ -226,7 +226,10 @@ const module: Module = {
             "Человека за стойкой она видит впервые.",
             "Просьба к незнакомому звучит мягче, если начать её иначе.",
             "Слово could уже встречалось в модуле «Раньше мог»: там оно спрашивало об умении — Could you swim at six?",
-            "Здесь то же слово не спрашивает, а просит: Could you help me?",
+            "Здесь то же слово не спрашивает, а просит.",
+            "Could you help me? — Не могли бы вы мне помочь?",
+            "По-русски вежливость тоже делают прошедшей формой: не «можете», а «не могли бы».",
+            "Приём один и тот же в обоих языках — отодвинуть просьбу подальше от прямого требования.",
           ],
         },
         {
@@ -279,6 +282,13 @@ const module: Module = {
           ],
           text:
             "Excuse me, could you help me, please?\nOf course. What can I do for you?\nCould you fill in this form for me? And could you look after my bag?",
+          perevod: {
+            "Excuse me, could you help me, please?":
+              "Простите, не могли бы вы мне помочь?",
+            "Of course. What can I do for you?": "Конечно. Чем могу помочь?",
+            "Could you fill in this form for me? And could you look after my bag?":
+              "Не могли бы вы заполнить за меня этот бланк? И не присмотрите за моей сумкой?",
+          },
           explain:
             "В трёх просьбах подряд стоит один и тот же оборот, и глагол после " +
             "него не меняется: help, fill, look. Слово please стоит в конце " +
@@ -440,6 +450,18 @@ const module: Module = {
           ],
           text:
             "Would you like to come to the concert with me?\nI'd love to! We haven't seen each other for a year.\nMy penfriend from Poland is here. Would she like to come as well?\nOf course. Would you like to eat something afterwards?\nNo, thank you, we have to come back early.",
+          perevod: {
+            "Would you like to come to the concert with me?":
+              "Не хотите сходить со мной на концерт?",
+            "I'd love to! We haven't seen each other for a year.":
+              "С удовольствием! Мы не виделись целый год.",
+            "My penfriend from Poland is here. Would she like to come as well?":
+              "У меня в гостях подруга по переписке из Польши. Она тоже захочет пойти?",
+            "Of course. Would you like to eat something afterwards?":
+              "Конечно. А потом не хотите чего-нибудь поесть?",
+            "No, thank you, we have to come back early.":
+              "Нет, спасибо, нам надо вернуться пораньше.",
+          },
           explain:
             "В первом ответе глагол не повторён: хватило I'd love to. В " +
             "последней строке стоит отказ с благодарностью, и рядом названа " +
@@ -604,10 +626,57 @@ const module: Module = {
           ],
           text:
             "Would you like to meet on Saturday?\nI'd prefer Sunday because I work on Saturday.\nFine. And where? At the bus stop?\nI'd prefer the city centre. There is a nice cafe near the shops.",
+          perevod: {
+            "Would you like to meet on Saturday?":
+              "Не хотите встретиться в субботу?",
+            "I'd prefer Sunday because I work on Saturday.":
+              "Я бы предпочёл воскресенье, потому что в субботу работаю.",
+            "Fine. And where? At the bus stop?":
+              "Хорошо. А где? На остановке?",
+            "I'd prefer the city centre. There is a nice cafe near the shops.":
+              "Я бы предпочёл центр города. У магазинов есть хорошее кафе.",
+          },
           explain:
             "В обоих ответах после оборота стоит прямо то, что выбирают: день и " +
             "место. В первом рядом названа причина, и потому выбор не звучит " +
             "отказом.",
+        },
+        {
+          // Свод связки «Модальные глаголы». Их на ступени шесть, и разбросаны
+          // они по шестнадцати модулям: shall в 12-м, may и might в 13-м, must и
+          // have to в 25-м, should в 26-м, could в 27-м и здесь. Ученик собирает
+          // их впервые.
+          id: "modalnye-svod",
+          kind: "table",
+          caption: "Слова перед глаголом: что каждое из них делает",
+          zvuchat: [
+            "Shall I help you?",
+            "It might rain.",
+            "You must show your ID.",
+            "You should take a map.",
+            "I could swim at six.",
+            "Could you help me?",
+          ],
+          head: ["По-английски", "По-русски", "Что делает"],
+          rows: [
+            ["Shall I help you?", "Давай я помогу?", "предлагает помощь"],
+            ["It might rain.", "Может быть, пойдёт дождь.", "сомневается"],
+            ["You must show your ID.", "Пропуск надо показать.", "обязывает"],
+            ["You should take a map.", "Тебе стоит взять карту.", "советует"],
+            ["I could swim at six.", "В шесть лет я умела плавать.", "говорит об умении"],
+            ["Could you help me?", "Не могли бы вы мне помочь?", "просит вежливо"],
+          ],
+        },
+        {
+          id: "chto-obshchego-u-modalnyh",
+          kind: "explain",
+          text: [
+            "Шесть слов из шести разных модулей, а устроены все одинаково.",
+            "Каждое стоит перед глаголом, и глагол после него остаётся словарным: help, rain, show, take.",
+            "Ни одно из них не берёт окончания -s даже при he и she.",
+            "Различает их не устройство, а работа — правый столбец.",
+            "И заметь: одно и то же could работает в двух последних строках по-разному.",
+          ],
         },
         {
           id: "slovar-vybora",
@@ -978,6 +1047,15 @@ const module: Module = {
           id: "obrazec-otveta",
           kind: "example",
           caption: "Ответ Айгуль",
+          perevod: {
+            "Thank you for the invitation!": "Спасибо за приглашение!",
+            "I'd love to come to the concert.":
+              "Я с удовольствием схожу на концерт.",
+            "I'd prefer Sunday because I work on Saturday.":
+              "Я бы предпочла воскресенье, потому что в субботу работаю.",
+            "Could you pick me up at the bus stop at four?":
+              "Не могли бы вы забрать меня с остановки в четыре?",
+          },
           zvuchat: [
             "Thank you for the invitation!",
             "I'd love to come to the concert.",
