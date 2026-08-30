@@ -331,8 +331,11 @@ const module: Module = {
           text: [
             "В раздевалке две одинаковые сумки, и Данияр берёт не свою.",
             "Айгуль надо сказать: эта сумка моя.",
-            "Слово «моя» она уже знает — my.",
+            "It's mine. — Она моя.",
+            "Слово «моя» Айгуль уже знает — my.",
             "Но сказать It's my по-английски нельзя, и вот почему.",
+            "По-русски «моя» годится и с вещью, и без неё: «моя сумка» и просто «моя».",
+            "По-английски на эти два случая два разных слова: my и mine.",
           ],
         },
         {
@@ -384,6 +387,12 @@ const module: Module = {
           ],
           text:
             "Is this your bag?\nNo, it isn't mine. My bag is black.\nThen it's mine! Sorry.",
+          perevod: {
+            "Is this your bag?": "Это ваша сумка?",
+            "No, it isn't mine. My bag is black.":
+              "Нет, не моя. Моя сумка чёрная.",
+            "Then it's mine! Sorry.": "Тогда она моя! Простите.",
+          },
           explain:
             "В первой строке вещь названа — your bag. Во второй её уже назвали, " +
             "и вместо неё стоит mine. А следом идёт My bag is black, потому что " +
@@ -543,6 +552,14 @@ const module: Module = {
           ],
           text:
             "Is this Daniyar's uniform?\nNo, his is black. This one is hers.\nAnd the big bag near the door?\nThat one is ours. All our stuff is in it.",
+          perevod: {
+            "Is this Daniyar's uniform?": "Это форма Данияра?",
+            "No, his is black. This one is hers.":
+              "Нет, его чёрная. Эта её.",
+            "And the big bag near the door?": "А большая сумка у двери?",
+            "That one is ours. All our stuff is in it.":
+              "Та наша. В ней все наши вещи.",
+          },
           explain:
             "Костюм назвали в первой строке, и дальше вещь не повторяют: his, " +
             "hers, ours. В последней строке стоит our stuff — там вещь названа " +
@@ -556,6 +573,10 @@ const module: Module = {
             "My grandpa rents this flat, and the heating isn't ours.",
           ],
           text: "My grandpa rents this flat, and the heating isn't ours.",
+          perevod: {
+            "My grandpa rents this flat, and the heating isn't ours.":
+              "Мой дед снимает эту квартиру, и отопление не наше.",
+          },
           explain:
             "Квартира снята, и потому отопление чужое. В конце строки стоит " +
             "ours, а не our: вещь названа раньше и второй раз не звучит.",
@@ -735,6 +756,13 @@ const module: Module = {
           ],
           text:
             "Whose is this backpack?\nIt isn't mine. Maybe it's Aigul's.\nNo, hers is purple. This one is a friend of mine.",
+          perevod: {
+            "Whose is this backpack?": "Чей это рюкзак?",
+            "It isn't mine. Maybe it's Aigul's.":
+              "Не мой. Может быть, Айгуль.",
+            "No, hers is purple. This one is a friend of mine.":
+              "Нет, у неё фиолетовый. Этот — моего друга.",
+          },
           explain:
             "Вещь названа один раз, в вопросе, и дальше не повторяется: mine, " +
             "Aigul's, hers. В последней строке стоит a friend of mine — друг по " +
@@ -749,6 +777,10 @@ const module: Module = {
             "The chain is her granddaughter's.",
           ],
           text: "The skateboard is her grandson's.\nThe chain is her granddaughter's.",
+          perevod: {
+            "The skateboard is her grandson's.": "Скейтборд её внука.",
+            "The chain is her granddaughter's.": "Цепочка её внучки.",
+          },
           explain:
             "С именем хозяина работает та же запись, что с местоимением: к " +
             "хозяину добавляют 's, а вещь после него не называют.",
@@ -854,7 +886,8 @@ const module: Module = {
           kind: "explain",
           text: [
             "Данияр упал со скейтборда и ушиб палец.",
-            "Он говорит I hurt myself, и палец этот его собственный.",
+            "I hurt myself. — Я ушибся.",
+            "Палец этот его собственный, и потому в строке стоит myself.",
             "По-русски это «себя», и слово одно на все лица.",
             "По-английски у каждого лица своё слово, и ниже весь ряд.",
           ],
@@ -929,6 +962,16 @@ const module: Module = {
           ],
           text:
             "What happened? Did you hurt yourself?\nYes, I hurt myself. My finger, my toe and my stomach.\nAnd Daniyar? Did he enjoy himself?\nHe enjoyed himself, but now his neck hurts too.",
+          perevod: {
+            "What happened? Did you hurt yourself?":
+              "Что случилось? Вы ушиблись?",
+            "Yes, I hurt myself. My finger, my toe and my stomach.":
+              "Да, ушибся. Палец на руке, палец на ноге и живот.",
+            "And Daniyar? Did he enjoy himself?":
+              "А Данияр? Ему понравилось?",
+            "He enjoyed himself, but now his neck hurts too.":
+              "Ему понравилось, но теперь у него ещё и шея болит.",
+          },
           explain:
             "В каждой строке действующий и тот, на кого действуют, — одно лицо. " +
             "Слово подобрано под него: yourself к you, myself к I, himself к he. " +
@@ -1089,6 +1132,15 @@ const module: Module = {
           ],
           text:
             "Did your grandma go with you?\nNo, I went by myself. I wasn't frightened.\nAnd the photographer? Did he work by himself?\nYes, and he did not hurry at all.",
+          perevod: {
+            "Did your grandma go with you?": "Бабушка поехала с вами?",
+            "No, I went by myself. I wasn't frightened.":
+              "Нет, я поехал сам. Мне не было страшно.",
+            "And the photographer? Did he work by himself?":
+              "А фотограф? Он работал один?",
+            "Yes, and he did not hurry at all.":
+              "Да, и совсем не торопился.",
+          },
           explain:
             "Оборот by myself говорит, что бабушка не поехала и помощи не было. " +
             "К третьему лицу берётся своё слово: by himself. Ушибов и падений " +
@@ -1487,6 +1539,15 @@ const module: Module = {
           id: "obrazec-obyavleniya-o-nahodke",
           kind: "example",
           caption: "Объявление Данияра",
+          perevod: {
+            "I found a chain on Monday.": "В понедельник я нашёл цепочку.",
+            "It is long and it isn't new, but it is nice.":
+              "Она длинная и не новая, но красивая.",
+            "It isn't mine, and maybe it is yours.":
+              "Она не моя, и, может быть, ваша.",
+            "The chain is with our teacher indoors because the table is outdoors.":
+              "Цепочка у нашего учителя внутри, потому что стол на улице.",
+          },
           zvuchat: [
             "I found a chain on Monday.",
             "It is long and it isn't new, but it is nice.",
