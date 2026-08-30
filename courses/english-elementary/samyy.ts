@@ -227,9 +227,11 @@ const module: Module = {
           kind: "explain",
           text: [
             "Данияр читает про зверей и хочет назвать самого большого из всех.",
-            "По-английски это the biggest animal.",
+            "The whale is the biggest animal. — Кит — самое большое животное.",
             "Так делают выделение: из многих называют одно.",
-            "Прилагательное для этого встаёт в форму выделения, и перед ней стоит the.",
+            "По-русски для этого хватает слова «самый», и больше ничего не нужно.",
+            "По-английски меняется само прилагательное — big становится biggest, — и перед ним обязательно встаёт the.",
+            "Вот это the и забывают чаще всего: в русском ему ничего не отвечает.",
           ],
         },
         {
@@ -284,6 +286,16 @@ const module: Module = {
           ],
           text:
             "The whale is the biggest animal.\nAnd on land?\nThe elephant.\nWhat about the tallest?\nThe giraffe is the tallest animal on land.\nAnd the fastest fish?\nThe shark.",
+          perevod: {
+            "The whale is the biggest animal.": "Кит — самое большое животное.",
+            "And on land?": "А на суше?",
+            "The elephant.": "Слон.",
+            "What about the tallest?": "А самое высокое?",
+            "The giraffe is the tallest animal on land.":
+              "Жираф — самое высокое животное на суше.",
+            "And the fastest fish?": "А самая быстрая рыба?",
+            "The shark.": "Акула.",
+          },
           explain:
             "Каждый раз из всех зверей называют одного. Слово the стоит и перед " +
             "формой выделения, и перед самим зверем — это разные the.",
@@ -572,6 +584,16 @@ const module: Module = {
           ],
           text:
             "This is the most beautiful place in the country.\nAnd the oldest?\nThe palace of the king and the queen.\nWas it the most expensive trip?\nNo, the cheapest. The square there is a circle, and the environment is the cleanest here.",
+          perevod: {
+            "This is the most beautiful place in the country.":
+              "Это самое красивое место в стране.",
+            "And the oldest?": "А самое старое?",
+            "The palace of the king and the queen.": "Дворец короля и королевы.",
+            "Was it the most expensive trip?":
+              "Это была самая дорогая поездка?",
+            "No, the cheapest. The square there is a circle, and the environment is the cleanest here.":
+              "Нет, самая дешёвая. Площадь там круглая, и природа здесь самая чистая.",
+          },
           explain:
             "Длинные прилагательные берут the most, короткие — окончание. В одном " +
             "разговоре встречаются оба способа, и это обычное дело.",
@@ -723,6 +745,16 @@ const module: Module = {
           ],
           text:
             "It is the biggest zoo in the country.\nWhich animal is the tallest?\nThe giraffe.\nAnd the oldest of all?\nThe tortoise. She is fifty.\nThe funniest?\nThe penguin.",
+          perevod: {
+            "It is the biggest zoo in the country.":
+              "Это самый большой зоопарк в стране.",
+            "Which animal is the tallest?": "Какое животное самое высокое?",
+            "The giraffe.": "Жираф.",
+            "And the oldest of all?": "А самое старое из всех?",
+            "The tortoise. She is fifty.": "Черепаха. Ей пятьдесят.",
+            "The funniest?": "А самое смешное?",
+            "The penguin.": "Пингвин.",
+          },
           explain:
             "Про зоопарк круг назван местом — in the country. Про черепаху кругом " +
             "стал набор зверей — of all.",
@@ -884,6 +916,15 @@ const module: Module = {
           ],
           text:
             "My friends gave me presents, but the computer game was the best.\nAnd the worst?\nA duck for the bath.\nWho gave it?\nMy youngest brother. He has a puppy, a kitten and a rabbit: three pets in one flat.",
+          perevod: {
+            "My friends gave me presents, but the computer game was the best.":
+              "Друзья надарили подарков, но лучшим оказалась компьютерная игра.",
+            "And the worst?": "А худшим?",
+            "A duck for the bath.": "Уточка для ванной.",
+            "Who gave it?": "Кто подарил?",
+            "My youngest brother. He has a puppy, a kitten and a rabbit: three pets in one flat.":
+              "Мой младший брат. У него щенок, котёнок и кролик: три питомца в одной квартире.",
+          },
           explain:
             "В первой строке вещь после the best не названа: ясно, что речь о " +
             "подарках. В последней перед формой выделения стоит my.",
@@ -1265,6 +1306,16 @@ const module: Module = {
           id: "obrazets-zametki",
           kind: "example",
           caption: "Заметка Даны",
+          perevod: {
+            "My city is the oldest in the country.":
+              "Мой город самый старый в стране.",
+            "The quietest side of it is behind the market, and the noise level there is the lowest.":
+              "Самая тихая его сторона за рынком, и шума там меньше всего.",
+            "The most beautiful place is the old square.":
+              "Самое красивое место — старая площадь.",
+            "My best photo is from the top of the hill.":
+              "Лучший мой снимок — с вершины холма.",
+          },
           zvuchat: [
             "My city is the oldest in the country.",
             "The quietest side of it is behind the market, and the noise level there is the lowest.",
