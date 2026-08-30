@@ -9,7 +9,9 @@ import type { Module } from "@/lib/content/types";
  * проверена 29 августа 2026, до написания; разбор с цитатами — там же.
  *
  * ИМЯ ГЛАВНОЙ ВЕЩИ МОДУЛЯ — «ПЕРЕСКАЗ». Половина строки, где стоит `say` или
- * `tell`, зовётся «вводом», вторая — «пересказанными словами».
+ * `tell`, зовётся «словами автора», вторая — «пересказанными словами».
+ * ОСТОРОЖНО: до 30 августа 2026 первая звалась «вводом» — придуманный ярлык,
+ * нашёл редактор. Настоящее имя этой вещи — слова автора.
  *
  * ЭТО ПОСЛЕДНИЙ МОДУЛЬ СТУПЕНИ. После него по решению владельца от 20 августа
  * идёт общий проход по всей ступени: круг на модуль был один, а мелкое,
@@ -277,7 +279,7 @@ const module: Module = {
           id: "kak-ustroen-pereskaz",
           kind: "explain",
           text: [
-            "Ввод — это he said, и после него ставят that.",
+            "Слова автора — это he said, и после них ставят that.",
             "Меняется тот, о ком речь: I становится he, we становится they.",
             "Вместе с ним меняется и окончание глагола: I know, но she knows.",
             "Слово that можно и опустить: He said he is busy.",
@@ -383,7 +385,7 @@ const module: Module = {
           prompt: "Собери пересказ: она сказала, что файл на столе.",
           items: ["the file is on the table.", "She said", "that"],
           answer: [1, 2, 0],
-          hint: "Сначала ввод, потом слово that, потом сами слова.",
+          hint: "Сначала слова автора, потом that, потом сами слова.",
           why:
             "She said that the file is on the table. Время в пересказанных " +
             "словах остаётся тем же.",
@@ -420,14 +422,14 @@ const module: Module = {
           kind: "explain",
           text: [
             "Данияр пересказывает не просто чужие слова, а сказанные ему.",
-            "Тогда ввод другой: She told me that the shop is closed.",
+            "Тогда слова автора другие: She told me that the shop is closed.",
             "Остальное устроено так же: местоимение меняется, время остаётся.",
           ],
         },
         {
           id: "said-i-told",
           kind: "table",
-          caption: "Два ввода",
+          caption: "Двое слов автора: said и told",
           zvuchat: [
             "He said that the shop is closed.",
             "He told me that the shop is closed.",
@@ -483,7 +485,7 @@ const module: Module = {
               "А Дана сказала мне, что моя толстовка у неё в машине.",
           },
           explain:
-            "Во всех трёх вводах с told сразу за глаголом стоит тот, кому " +
+            "Во всех трёх строках с told сразу за глаголом стоит тот, кому " +
             "сказали: me, us и снова me. Время в пересказанных словах то же, " +
             "что было сказано.",
         },
@@ -506,7 +508,7 @@ const module: Module = {
         {
           id: "z1-dopisat-told",
           kind: "gap",
-          prompt: "Дальше назван тот, кому сказали. Допиши глагол ввода.",
+          prompt: "Дальше назван тот, кому сказали. Допиши глагол.",
           before: "He ",
           after: " me that the shop is closed.",
           answer: "told",
@@ -543,10 +545,10 @@ const module: Module = {
             { text: " · " },
             { text: "Aigul told us that the market is further.", selectable: true, correct: true },
           ],
-          hint: "Ищи слово сразу после глагола ввода.",
+          hint: "Ищи слово сразу после said или told.",
           why:
             "Вторая и четвёртая: там стоят me и us. В первой и третьей после " +
-            "ввода сразу идёт that.",
+            "глаголом сразу идёт that.",
         },
         {
           id: "z4-sobrat-pereskaz-s-told",
@@ -554,7 +556,7 @@ const module: Module = {
           prompt: "Собери пересказ: Айгуль сказала нам, что рынок потрясающий.",
           items: ["that the market is awesome.", "Aigul told", "us"],
           answer: [1, 2, 0],
-          hint: "Тот, кому сказали, стоит сразу за глаголом ввода.",
+          hint: "Тот, кому сказали, стоит сразу за said или told.",
           why:
             "Aigul told us that the market is awesome. Между told и that " +
             "обязательно стоит тот, кому сказали.",
@@ -591,8 +593,9 @@ const module: Module = {
           kind: "explain",
           text: [
             "Данияр не уверен, что расслышал Айгуль, и хочет проверить.",
-            "Целый вопрос ради этого не задают: It's fantastic, isn't it?",
-            "Хвостик короткий, стоит после запятой и добавляется к своей же строке.",
+            "Целый вопрос ради этого не задают: It's fantastic, isn't it? — «Отлично, правда?»",
+            "Такую строку называют переспросом, а её короткий конец — хвостиком.",
+            "Хвостик стоит после запятой и добавляется к своей же строке.",
           ],
         },
         {
@@ -794,7 +797,7 @@ const module: Module = {
             { text: "Гостевой дом.", correct: true },
             { text: "Дана." },
           ],
-          hint: "Говорящий стоит перед вводом.",
+          hint: "Говорящий стоит перед said или told.",
           why:
             "Гостевой дом: The guest-house told us that they have no rooms " +
             "anymore.",
@@ -881,7 +884,7 @@ const module: Module = {
           kind: "note",
           tone: "info",
           text:
-            "Говорящий стоит перед вводом, а после told — тот, кому " +
+            "Говорящий стоит перед said или told, а после told — тот, кому " +
             "сказали.\n\nХвостик в конце — это переспрос, а не новый вопрос.",
         },
 
@@ -1051,11 +1054,11 @@ const module: Module = {
           id: "z2-dopisat-vvod-bez-adresata",
           kind: "gap",
           prompt:
-            "Кому сказала Дана, ты не знаешь. Допиши глагол ввода.",
+            "Кому сказала Дана, ты не знаешь. Допиши глагол.",
           before: "Dana ",
           after: " that she is mad about the new film.",
           answer: "said",
-          hint: "Второй глагол ввода без того, кому сказали, не работает.",
+          hint: "Глагол told без того, кому сказали, не работает.",
           why:
             "Dana said that she is mad about the new film. Запись told that " +
             "не собирается: между told и that нужен тот, кому сказали.",
@@ -1073,7 +1076,7 @@ const module: Module = {
             { text: " · " },
             { text: "Alim said that he is busy.", selectable: true, correct: true },
           ],
-          hint: "Проверь два места: глагол ввода и местоимение.",
+          hint: "Проверь два места: сам глагол и местоимение.",
           why:
             "Вторая и четвёртая. В первой said взял того, кому сказали, а в " +
             "третьей местоимение осталось от слов самого Алима.",
@@ -1088,7 +1091,7 @@ const module: Module = {
             "Dana told me that she has my hoodie",
             "Dana told me she has my hoodie.",
           ],
-          hint: "Меняется глагол ввода, и за ним встаёт новое слово.",
+          hint: "Меняется глагол, и за ним встаёт новое слово.",
           why:
             "Dana told me that she has my hoodie. Слово said того, кому " +
             "сказали, за собой не берёт.",
@@ -1205,7 +1208,7 @@ const module: Module = {
           tone: "info",
           text:
             "У математики два имени: полное mathematics и короткое maths.\n\nВерны " +
-            "оба, и выбирать между ними не надо — понятны тоже оба.",
+            "оба, и выбирать между ними не надо: оба понятны.",
         },
         {
           id: "primer-ob-uchyobe",
@@ -1456,7 +1459,7 @@ const module: Module = {
           "Dana told me that the advert is ready",
           "Dana told me the advert is ready.",
         ],
-        hint: "Тот, кому сказали, требует другого глагола ввода.",
+        hint: "Тот, кому сказали, требует другого глагола.",
         why:
           "Dana told me that the advert is ready. Глагол said этого слова за " +
           "собой не берёт.",
@@ -1517,7 +1520,7 @@ const module: Module = {
           { text: "Мы." },
           { text: "В строке это не названо." },
         ],
-        hint: "Говорящий стоит перед вводом, а не после него.",
+        hint: "Говорящий стоит перед said или told, а не после.",
         why:
           "Гостевой дом. Слово us стоит после told — это тот, кому сказали.",
       },
@@ -1529,7 +1532,7 @@ const module: Module = {
           "В письме строка: Alim told me that he is busy. Кому сказал Алим? Ответь одним словом по-английски.",
         answer: "me",
         accept: ["Me"],
-        hint: "Это слово стоит сразу за глаголом ввода.",
+        hint: "Это слово стоит сразу за told.",
         why: "Alim told me that he is busy.",
       },
 
@@ -1542,7 +1545,7 @@ const module: Module = {
         prompt: "Послушай. Кто это сказал? Ответь одним словом по-английски.",
         answer: "Aigul",
         accept: ["aigul"],
-        hint: "Имя звучит раньше глагола ввода.",
+        hint: "Имя звучит раньше said или told.",
         why: "Aigul told me that the market is further from the station.",
       },
       {
@@ -1592,7 +1595,7 @@ const module: Module = {
           "Dana said that she has the file.",
           "Dana said she has the file.",
         ],
-        hint: "Проверь два места: глагол ввода и слово, которым Дана звала себя.",
+        hint: "Проверь два места: сам глагол и слово, которым Дана звала себя.",
         why:
           "Dana told me that she has the file. Годится и said, если не " +
           "называть того, кому сказали.",

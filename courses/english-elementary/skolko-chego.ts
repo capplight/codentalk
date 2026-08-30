@@ -652,7 +652,7 @@ const module: Module = {
           perevod: {
             "What is left?": "Что осталось?",
             "A few biscuits and a few beans.":
-              "Несколько печений и немного фасоли.",
+              "Несколько печений и несколько фасолин.",
             "And the jam?": "А варенье?",
             "Only a bit of jam. Take a few lemons too.":
               "Варенья чуть-чуть. Возьми ещё несколько лимонов.",

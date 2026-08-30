@@ -238,7 +238,7 @@ const module: Module = {
             "По-английски меняется само прилагательное: big становится biggest.",
             "И перед этой формой встаёт короткое слово the.",
             "Вот его и забывают чаще всего: в русском ему не отвечает ничего.",
-            "Иногда на месте the стоит другое слово — my best friend, — и об этом будет отдельный урок модуля.",
+            "Иногда на месте the стоит другое слово — my best friend, — и об этом урок «Моё самое: my best friend».",
           ],
         },
         {
@@ -305,7 +305,7 @@ const module: Module = {
           },
           explain:
             "Каждый раз из всех зверей называют одного. Слово the стоит и перед " +
-            "формой выделения, и перед самим зверем — это разные the.",
+            "формой выделения, и перед самим зверем: одно открывает оборот выделения, другое стоит при звере.",
         },
         {
           id: "slovar-zverey",
@@ -925,7 +925,7 @@ const module: Module = {
             "My friends gave me presents, but the computer game was the best.\nAnd the worst?\nA duck for the bath.\nWho gave it?\nMy youngest brother. He has a puppy, a kitten and a rabbit: three pets in one flat.",
           perevod: {
             "My friends gave me presents, but the computer game was the best.":
-              "Друзья надарили подарков, но лучшим оказалась компьютерная игра.",
+              "Друзья надарили подарков, но лучшей оказалась компьютерная игра.",
             "And the worst?": "А худшим?",
             "A duck for the bath.": "Уточка для ванной.",
             "Who gave it?": "Кто подарил?",

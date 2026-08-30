@@ -526,8 +526,8 @@ const module: Module = {
           ],
           hint: "Длинное прилагательное берёт more, а вторую вещь вводит than.",
           why:
-            "The people here are more polite than there. Слово here и слово there " +
-            "и есть две сравниваемые конторы.",
+            "The people here are more polite than there. Слова here и there и есть " +
+            "два места, которые сравнивают.",
         },
       ],
     },
@@ -1285,7 +1285,7 @@ const module: Module = {
           caption: "Записка Даны",
           perevod: {
             "Alim, I saw two phones today.":
-              "Алим, я сегодня посмотрел два телефона.",
+              "Алим, я сегодня посмотрела два телефона.",
             "The black one is more expensive than the grey one, but the memory is bigger.":
               "Чёрный дороже серого, зато память больше.",
             "The photos are wider and the price of the cover is lower.":

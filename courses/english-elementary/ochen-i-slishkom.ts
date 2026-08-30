@@ -1057,7 +1057,7 @@ const module: Module = {
         {
           id: "razgovor-o-filme",
           kind: "example",
-          caption: "Данияр и Айгуль о фильме",
+          caption: "Айгуль расспрашивает Данияра о фильме",
           razgovor: true,
           zvuchat: [
             "How was the film?",
@@ -1073,7 +1073,7 @@ const module: Module = {
             "I liked it a lot. The end is really strange.":
               "Мне очень понравилось. Конец совсем странный.",
             "Was it scary?": "Страшно было?",
-            "Yes, I almost left.": "Да, чуть не ушёл из зала.",
+            "Yes, I almost left.": "Да, я чуть не ушёл из зала.",
             "Thanks so much for the ticket.": "Большое спасибо за билет.",
           },
           explain:
@@ -1109,7 +1109,7 @@ const module: Module = {
             [
               "My flat is too small.",
               "Моя квартира слишком маленькая.",
-              "что этого слишком много",
+              "что жить в ней тесно",
             ],
           ],
         },

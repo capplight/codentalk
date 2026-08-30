@@ -358,10 +358,10 @@ const module: Module = {
           id: "chem-otlichayutsya-my-i-mine",
           kind: "explain",
           text: [
-            "Слово my стоит ПЕРЕД вещью и без неё не работает: my bag.",
-            "Слово mine стоит ВМЕСТО вещи, и вещь после него не нужна.",
+            "Слово my стоит перед вещью и без неё не работает: my bag.",
+            "Слово mine стоит вместо вещи, и вещь после него не нужна.",
             "По-русски и там, и там «моя», поэтому их легко перепутать.",
-            "Спроси себя: названы ли после слова вещь или человек?",
+            "Спроси себя: стоит ли после слова вещь или человек?",
             "Названы — нужно my: my bag, my friend.",
             "Не названы, потому что о них сказали раньше, — нужно mine.",
             "Местоимения, которые говорят о хозяине вещи, называют притяжательными.",
@@ -918,7 +918,7 @@ const module: Module = {
           id: "kak-ustroeno-sebya",
           kind: "explain",
           text: [
-            "Такое слово ставят, когда действующий и тот, на кого действуют, — одно лицо.",
+            "Такое слово ставят, когда действует и получает действие один и тот же человек.",
             "I hurt myself — ушиб себя, а не кого-то другого.",
             "У четырёх лиц слово кончается на -self, у двух на -selves.",
             "Местоимения, которые возвращают действие к самому действующему, называют возвратными.",
@@ -1672,13 +1672,13 @@ const module: Module = {
           kind: "table",
           caption: "Что на столе",
           zvuchat: ["ice cream", "fast food", "main course", "mineral water", "barbecue"],
-          head: ["Английский", "Перевод"],
+          head: ["Английский", "Перевод", "Из чего собрано"],
           rows: [
-            ["ice cream", "мороженое"],
-            ["fast food", "быстрая еда"],
-            ["main course", "основное блюдо"],
-            ["mineral water", "минеральная вода"],
-            ["barbecue", "жарка мяса на огне"],
+            ["ice cream", "мороженое", "лёд и сливки"],
+            ["fast food", "быстрая еда", "быстрая и еда"],
+            ["main course", "основное блюдо", "главное и блюдо"],
+            ["mineral water", "минеральная вода", "минеральная и вода"],
+            ["barbecue", "жарка мяса на огне", "одно слово, не два"],
           ],
         },
         {
@@ -1712,14 +1712,14 @@ const module: Module = {
             "The main course was the best part.\nThe ice cream was better than the cake.\nA bottle of mineral water is enough.\nFast food is cheaper here.\nOur barbecue was longer than usual.\nI had a stomach ache after the fast food.\nThe gas cooker is older than ours.",
           perevod: {
             "The main course was the best part.":
-              "Горячее было лучшей частью обеда.",
+              "Основное блюдо было лучшей частью обеда.",
             "The ice cream was better than the cake.":
               "Мороженое было лучше торта.",
             "A bottle of mineral water is enough.":
               "Бутылки минеральной воды хватит.",
             "Fast food is cheaper here.": "Быстрая еда здесь дешевле.",
             "Our barbecue was longer than usual.":
-              "Наш шашлык затянулся дольше обычного.",
+              "Жарка мяса на огне затянулась у нас дольше обычного.",
             "I had a stomach ache after the fast food.":
               "После быстрой еды у меня заболел живот.",
             "The gas cooker is older than ours.":
@@ -1777,7 +1777,7 @@ const module: Module = {
             "They surf here every summer.":
               "Они катаются здесь на волнах каждое лето.",
             "I want to get fit before the race.":
-              "Я хочу набрать форму до забега.",
+              "Я хочу прийти в форму до забега.",
           },
           explain:
             "Восемь строк о занятиях. Слово surf называет само дело, а surfboard — " +
@@ -1833,17 +1833,17 @@ const module: Module = {
           kind: "table",
           caption: "Живое вокруг",
           zvuchat: ["bee", "beetle", "jellyfish", "polar bear", "creature", "wildlife", "extinct", "desert", "dead"],
-          head: ["Английский", "Перевод"],
+          head: ["Английский", "Перевод", "Что это за слово"],
           rows: [
-            ["bee", "пчела"],
-            ["beetle", "жук"],
-            ["jellyfish", "медуза"],
-            ["polar bear", "белый медведь"],
-            ["creature", "живое существо"],
-            ["wildlife", "дикая природа"],
-            ["extinct", "вымерший"],
-            ["desert", "пустыня"],
-            ["dead", "мёртвый"],
+            ["bee", "пчела", "насекомое"],
+            ["beetle", "жук", "насекомое"],
+            ["jellyfish", "медуза", "морское животное"],
+            ["polar bear", "белый медведь", "зверь"],
+            ["creature", "живое существо", "общее слово"],
+            ["wildlife", "дикая природа", "общее слово"],
+            ["extinct", "вымерший", "каким бывает"],
+            ["desert", "пустыня", "место"],
+            ["dead", "мёртвый", "каким бывает"],
           ],
         },
         {
@@ -1884,11 +1884,11 @@ const module: Module = {
             "The polar bear is the heaviest animal here.":
               "Белый медведь здесь самое тяжёлое животное.",
             "The wildlife park is bigger than the zoo.":
-              "Природный парк больше зоопарка.",
+              "Парк дикой природы больше зоопарка.",
             "That bird is extinct now.": "Эта птица теперь вымерла.",
             "The desert is drier than the coast.":
               "В пустыне суше, чем на побережье.",
-            "The tree near the gate is dead.": "Дерево у ворот засохло.",
+            "The tree near the gate is dead.": "Дерево у ворот мёртвое.",
           },
           explain:
             "Семь строк о живом. Слово creature годится любому существу, а extinct " +
