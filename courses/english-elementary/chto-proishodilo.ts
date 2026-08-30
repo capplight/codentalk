@@ -264,8 +264,12 @@ const module: Module = {
           text: [
             "Вчера в семь вечера у тебя шла работа. Она занимала время, а не случилась в один миг.",
             "Такое действие называют длительным: оно занимает время.",
-            "По-английски о нём говорят так: I was working.",
-            "Рядом стоят два слова: was и глагол с окончанием -ing.",
+            "I was working. — Я работал.",
+            "А в модуле «Вчера я работал» точно так же переводилось I worked.",
+            "Два разных английских способа, а по-русски выходит одно и то же слово.",
+            "Значит выбирать между ними придётся не по переводу, а по смыслу — об этом весь модуль.",
+            "Рядом с глаголом здесь стоит was — та самая форма из модуля «Это было».",
+            "К ней прибавляется глагол с окончанием -ing.",
             "Время, в котором стоит I was working, называется Past Continuous.",
           ],
         },
@@ -297,6 +301,7 @@ const module: Module = {
           text: [
             "Форм две, и выбирают их так же, как в рассказе о том, каким что-то было.",
             "Was стоит при I, he, she и it. Were — при you, we и they.",
+            "Это те же самые was и were, что говорили «я был дома». Здесь они не стоят сами по себе, а берут себе глагол.",
             "Глагол при этом не меняется вовсе: окончание -ing одно на все лица.",
           ],
         },
@@ -330,6 +335,12 @@ const module: Module = {
           ],
           text:
             "I was working in the kitchen.\nMy sister was cooking.\nMy parents were watching a film.\nI was reading under the lamp.",
+          perevod: {
+            "I was working in the kitchen.": "Я работал на кухне.",
+            "My sister was cooking.": "Моя сестра готовила.",
+            "My parents were watching a film.": "Мои родители смотрели фильм.",
+            "I was reading under the lamp.": "Я читал под лампой.",
+          },
           explain:
             "Четыре строки об одном вечере. Везде, кроме третьей, речь об одном " +
             "человеке и потому стоит was; в третьей людей двое и потому were.",
@@ -495,6 +506,14 @@ const module: Module = {
           ],
           text:
             "My brother was writing a message.\nThe children were running in the hall.\nI was making tea.\nMy mother was putting a pillow in the wardrobe.\nI was cleaning the ceiling.",
+          perevod: {
+            "My brother was writing a message.": "Мой брат писал сообщение.",
+            "The children were running in the hall.": "Дети бегали в прихожей.",
+            "I was making tea.": "Я заваривал чай.",
+            "My mother was putting a pillow in the wardrobe.":
+              "Мама убирала подушку в шкаф.",
+            "I was cleaning the ceiling.": "Я мыл потолок.",
+          },
           explain:
             "Пять глаголов и три разных случая. В writing и making пропала буква e, " +
             "в running и putting удвоилась последняя согласная. В cleaning не " +
@@ -655,6 +674,12 @@ const module: Module = {
           ],
           text:
             "The rain was falling all day.\nAt seven the street was empty.\nMy neighbour was cleaning his garage.\nThe horses were running in the field.",
+          perevod: {
+            "The rain was falling all day.": "Дождь шёл весь день.",
+            "At seven the street was empty.": "В семь улица была пустая.",
+            "My neighbour was cleaning his garage.": "Мой сосед убирал в гараже.",
+            "The horses were running in the field.": "Лошади бегали в поле.",
+          },
           explain:
             "В первой строке промежуток all day, во второй точка at seven. Третья и " +
             "четвёртая строки времени не называют вовсе.",
@@ -805,6 +830,11 @@ const module: Module = {
           ],
           text:
             "I was just making tea.\nMy sister was still sleeping.\nThe fridge was always making a noise.",
+          perevod: {
+            "I was just making tea.": "Я как раз заваривал чай.",
+            "My sister was still sleeping.": "Моя сестра ещё спала.",
+            "The fridge was always making a noise.": "Холодильник всё время шумел.",
+          },
           explain:
             "Три строки и три наречия, и все три стоят на одном месте — сразу после " +
             "was.",
@@ -946,6 +976,14 @@ const module: Module = {
           razgovor: true,
           text:
             "— What were you doing at seven?\n— I was washing a knife and a fork.\n— And your sister?\n— She was still sleeping.\n— And your brother?\n— He was cleaning the floor with a brush.",
+          perevod: {
+            "— What were you doing at seven?": "— Что вы делали в семь?",
+            "— I was washing a knife and a fork.": "— Я мыл нож и вилку.",
+            "— And your sister?": "— А ваша сестра?",
+            "— She was still sleeping.": "— Она ещё спала.",
+            "— And your brother?": "— А ваш брат?",
+            "— He was cleaning the floor with a brush.": "— Он тёр пол щёткой.",
+          },
           explain:
             "Первый вопрос полный, два следующих короткие: чтобы не повторять всё, " +
             "называют только человека.",
@@ -1312,6 +1350,16 @@ const module: Module = {
           id: "obrazets-opisaniya",
           kind: "example",
           caption: "Образец описания",
+          perevod: {
+            "Yesterday at nine I was sitting on the blanket.":
+              "Вчера в девять я сидел на покрывале.",
+            "My brother was washing a bowl in the kitchen.":
+              "Мой брат мыл миску на кухне.",
+            "The curtain was moving near the window.":
+              "Занавеска колыхалась у окна.",
+            "My sister was looking for a spoon in the cupboard.":
+              "Моя сестра искала ложку в шкафу.",
+          },
           zvuchat: [
             "Yesterday at nine I was sitting on the blanket.",
             "My brother was washing a bowl in the kitchen.",
