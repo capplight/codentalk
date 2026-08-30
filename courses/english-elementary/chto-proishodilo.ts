@@ -956,7 +956,7 @@ const module: Module = {
           id: "pochemu-was-menyaetsya",
           kind: "explain",
           text: [
-            "Форма was или were выбирается по тому, кто действует.",
+            "Форма was или were выбирается по тому, о ком речь.",
             "При you стоит were, при your sister — was.",
             "Глагол с окончанием -ing уходит в самый конец и не меняется.",
           ],
@@ -972,16 +972,16 @@ const module: Module = {
         {
           id: "razgovor-o-vechere-vchera",
           kind: "example",
-          caption: "Кто чем был занят",
+          caption: "Айгуль расспрашивает Данияра о вечере",
           razgovor: true,
           text:
             "— What were you doing at seven?\n— I was washing a knife and a fork.\n— And your sister?\n— She was still sleeping.\n— And your brother?\n— He was cleaning the floor with a brush.",
           perevod: {
-            "— What were you doing at seven?": "— Что вы делали в семь?",
+            "— What were you doing at seven?": "— Что ты делал в семь?",
             "— I was washing a knife and a fork.": "— Я мыл нож и вилку.",
-            "— And your sister?": "— А ваша сестра?",
+            "— And your sister?": "— А твоя сестра?",
             "— She was still sleeping.": "— Она ещё спала.",
-            "— And your brother?": "— А ваш брат?",
+            "— And your brother?": "— А твой брат?",
             "— He was cleaning the floor with a brush.": "— Он тёр пол щёткой.",
           },
           explain:
@@ -1349,7 +1349,7 @@ const module: Module = {
         {
           id: "obrazets-opisaniya",
           kind: "example",
-          caption: "Образец описания",
+          caption: "Образец: что написал Данияр",
           perevod: {
             "Yesterday at nine I was sitting on the blanket.":
               "Вчера в девять я сидел на покрывале.",

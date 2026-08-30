@@ -475,7 +475,7 @@ const module: Module = {
           text: [
             "Обе строки в таблице говорят, что говорящий не уверен.",
             "Обе годятся и о сегодняшнем дне, и о завтрашнем.",
-            "Значит на этом месте годится любое из двух слов: бери то, которое вспомнилось.",
+            "Значит на этом месте годится любое из двух слов: бери любое: они годятся одинаково.",
           ],
         },
         {
@@ -494,7 +494,7 @@ const module: Module = {
           perevod: {
             "Where is the key?": "Где ключ?",
             "It may be in my handbag.": "Может быть, он у меня в сумке.",
-            "I looked there.": "Я там смотрел.",
+            "I looked there.": "Я там смотрела.",
             "Then it might be in the cabinet, or under the carpet.":
               "Тогда, может быть, он в шкафчике или под ковром.",
           },
@@ -602,7 +602,7 @@ const module: Module = {
           text: [
             "Дана ищет ключ дальше и вспоминает про машину.",
             "Maybe it's in the car. — Может быть, он в машине.",
-            "Слово maybe встаёт перед всей строкой, а не внутрь неё.",
+            "Слово maybe встаёт перед всей строкой, а не внутри неё.",
             "Поэтому глагол остаётся обычным: it's, а не it may be.",
             "Так же работает слово perhaps: Perhaps it's in the car.",
           ],
@@ -658,7 +658,7 @@ const module: Module = {
           perevod: {
             "I can't find the song.": "Не могу найти песню.",
             "Maybe the download stopped.": "Может быть, загрузка оборвалась.",
-            "Perhaps it's in another folder.": "Возможно, она в другой папке.",
+            "Perhaps it's in another folder.": "Может быть, она в другой папке.",
             "Or maybe the app is old.": "Или, может быть, приложение старое.",
           },
           explain:
@@ -814,7 +814,7 @@ const module: Module = {
           perevod: {
             "Where are my headphones?": "Где мои наушники?",
             "I'm sure they're in the black case.":
-              "Я уверен, что они в чёрном чехле.",
+              "Я точно знаю, что они в чёрном чехле.",
             "The case is empty.": "Чехол пустой.",
             "Then maybe the speaker is on the shelf with them.":
               "Тогда, может быть, колонка лежит на полке вместе с ними.",
@@ -970,7 +970,7 @@ const module: Module = {
           perevod: {
             "What is it?": "Что это за вещь?",
             "I'm sure it's a metal bracelet.":
-              "Я уверен, что это металлический браслет.",
+              "Я точно знаю, что это металлический браслет.",
             "Silver or not?": "Серебряный или нет?",
             "It may be silver, I don't remember.":
               "Может быть, серебряный, я не помню.",
@@ -1382,7 +1382,7 @@ const module: Module = {
             "Inside there is a comb, a toothbrush and a soft plastic cover.":
               "Внутри расчёска, зубная щётка и мягкий пластиковый чехол.",
             "I'm sure I had it at nine. Maybe I lost it on the bus.":
-              "Я уверена, что в девять она у меня была. Может быть, я потеряла её в автобусе.",
+              "Я точно знаю, что в девять она у меня была. Может быть, я потеряла её в автобусе.",
             "Please call me. The bag may be at the lost property office.":
               "Позвоните мне, пожалуйста. Сумка, может быть, в бюро находок.",
           },

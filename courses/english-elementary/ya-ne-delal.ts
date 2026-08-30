@@ -674,7 +674,7 @@ const module: Module = {
           id: "vmesto-mestoimeniya-imya",
           kind: "explain",
           text: [
-            "Тот, кто делает, стоит перед отрицанием: его называют подлежащим.",
+            "Тот, о ком речь, стоит перед отрицанием. У него есть настоящее имя: подлежащее.",
             "В The lorry didn't come подлежащее — the lorry, в My sister didn't call — my sister.",
             "Вместо местоимения может стоять имя или название, и запись та же.",
             "My sister didn't call. The lorry didn't come.",
@@ -701,7 +701,7 @@ const module: Module = {
           text: "The lorry didn't come.\nWe didn't wait at the gate.\nThe bridge was closed.",
           perevod: {
             "The lorry didn't come.": "Грузовик не приехал.",
-            "We didn't wait at the gate.": "Мы не стали ждать у ворот.",
+            "We didn't wait at the gate.": "Мы не ждали у ворот.",
             "The bridge was closed.": "Мост был закрыт.",
           },
           explain:
@@ -800,7 +800,7 @@ const module: Module = {
           text: [
             "Чаще всего отрицание стоит не одно, а рядом с тем, что было сделано.",
             "Две части соединяют словом but.",
-            "I worked, but I didn't finish — работа была, а конца у неё не было.",
+            "I worked, but I didn't finish — поработал, но не закончил.",
           ],
         },
         {
@@ -823,7 +823,7 @@ const module: Module = {
           id: "zapyataya-pered-but",
           kind: "explain",
           text: [
-            "Перед but ставят запятую, если после него идёт вторая часть со своим подлежащим — с тем, кто делает.",
+            "Перед but ставят запятую, если после него идёт вторая часть со своим подлежащим.",
             "I worked, but I didn't finish — две части, запятая нужна.",
             "Каждая часть построена по своим правилам: в первой обычное прошедшее, во второй didn't.",
           ],
@@ -852,7 +852,7 @@ const module: Module = {
               "Я убрал комнату, но не постирал полотенце.",
             "I bought soap, but I didn't buy a mirror.":
               "Я купил мыло, но не купил зеркало.",
-            "The uniform was in the pocket.": "Форма была в кармане.",
+            "The uniform was in the pocket.": "Спецодежда лежала в кармане.",
           },
           explain:
             "В первых двух строках по две части: сделанное и несделанное, между ними " +

@@ -1047,7 +1047,7 @@ const module: Module = {
         {
           id: "dve-zapisi-ryadom",
           kind: "table",
-          caption: "Один случай — одна запись",
+          caption: "Какой случай — такая запись",
           zvuchat: [
             "I'm meeting Dana at five.",
             "I'm going to meet Dana.",

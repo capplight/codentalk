@@ -280,7 +280,7 @@ const module: Module = {
             "Last week I went to Astana.\nMy colleague came with me.\nThe train was fast.\nThe passengers were tired.",
           perevod: {
             "Last week I went to Astana.": "На прошлой неделе я ездил в Астану.",
-            "My colleague came with me.": "Мой коллега поехал со мной.",
+            "My colleague came with me.": "Мой сослуживец поехал со мной.",
             "The train was fast.": "Поезд был быстрый.",
             "The passengers were tired.": "Пассажиры были усталые.",
           },
@@ -535,8 +535,7 @@ const module: Module = {
           id: "zachem-imel",
           kind: "explain",
           text: [
-            "Три глагола об одном и том же, но с разных сторон.",
-            "Что у тебя было, что тебе дали, что оказалось у тебя в руках.",
+            "Три глагола об одном и том же, но с разных сторон: что у человека было, что ему дали и что оказалось у него в руках.",
             "Все три неправильные.",
             "Have — это «есть у меня»: I have a car — машина у меня есть.",
           ],

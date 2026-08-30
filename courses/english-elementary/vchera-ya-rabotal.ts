@@ -413,7 +413,7 @@ const module: Module = {
         {
           id: "tri-sluchaya",
           kind: "table",
-          caption: "Три случая написания",
+          caption: "Четыре случая написания",
           zvuchat: ["work — worked", "like — liked, live — lived, save — saved", "study — studied, worry — worried"],
           head: ["Глагол кончается на", "Что делаем", "Пример"],
           rows: [
@@ -427,7 +427,7 @@ const module: Module = {
           id: "pro-y",
           kind: "explain",
           text: [
-            "В третьей строке важно, что стоит перед y.",
+            "В двух последних строках важно, что стоит перед y.",
             "Согласная — y уступает место i: study — studied. Гласная — y остаётся на " +
               "месте, и прибавляется целое окончание: play — played.",
           ],
@@ -558,7 +558,7 @@ const module: Module = {
           text: [
             "Пишется окончание одинаково, а звучит по-разному — тремя способами.",
             "Это слышно сразу: worked кончается на «т», played на «д», а wanted " +
-              "получает целый лишний слог.",
+              "становится длиннее на слог — wan-ted.",
             "Какой звук выйдет, решает последний звук самого глагола — глухой он или " +
               "звонкий.",
             "Глухой звук произносят без голоса, звонкий — с голосом: приложи пальцы к " +
@@ -905,7 +905,7 @@ const module: Module = {
             "I worked yesterday.": "Вчера я работал.",
             "I visited my friend two days ago.": "Два дня назад я навестил друга.",
             "We danced at a party last week.": "На прошлой неделе мы танцевали на празднике.",
-            "We cycled last night.": "Прошлым вечером мы катались на велосипедах.",
+            "We cycled last night.": "Прошлой ночью мы катались на велосипедах.",
             "We camped a month ago.": "Месяц назад мы жили в палатке.",
           },
           explain:
@@ -1224,7 +1224,7 @@ const module: Module = {
         {
           id: "obrazec-pisma",
           kind: "example",
-          caption: "Образец: четыре строки о дне",
+          caption: "Образец: что написал Данияр",
           zvuchat: ["First I studied English.", "Then I helped my sister.", "After that I walked in the park.", "It was a busy day."],
           text:
             "First I studied English.\nThen I helped my sister.\nAfter that I walked in the park.\nIt was a busy day.",

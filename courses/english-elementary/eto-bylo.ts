@@ -956,14 +956,14 @@ const module: Module = {
         {
           id: "razgovor-o-prazdnike",
           kind: "example",
-          caption: "Короткий разговор",
+          caption: "Алим спрашивает Дану о вчерашнем празднике",
           // Разговор звучит одной кнопкой и на два голоса: вопрос и ответ
           // должны звучать разговором, а не одним длинным предложением.
           razgovor: true,
           text: "— Were you at the party?\n— No, I wasn't. I was at home.\n— Was it good?\n— Yes, it was.",
           perevod: {
-            "— Were you at the party?": "— Вы были на празднике?",
-            "— No, I wasn't. I was at home.": "— Нет. Я был дома.",
+            "— Were you at the party?": "— Ты была на празднике?",
+            "— No, I wasn't. I was at home.": "— Нет, не была. Я была дома.",
             "— Was it good?": "— Хорошо было?",
             "— Yes, it was.": "— Да.",
           },
@@ -1109,13 +1109,13 @@ const module: Module = {
         {
           id: "primer-rassprosa",
           kind: "example",
-          caption: "Расспрос о выходном",
+          caption: "Данияр расспрашивает Алима о выходном",
           zvuchat: ["Where were you on Sunday?", "How was the weather?", "Who was with you?", "Where was the lake?"],
           text: "Where were you on Sunday?\nHow was the weather?\nWho was with you?\nWhere was the lake?",
           perevod: {
-            "Where were you on Sunday?": "Где вы были в воскресенье?",
+            "Where were you on Sunday?": "Где ты был в воскресенье?",
             "How was the weather?": "Какая была погода?",
-            "Who was with you?": "Кто был с вами?",
+            "Who was with you?": "Кто был с тобой?",
             "Where was the lake?": "Где было озеро?",
           },
           explain:
@@ -1288,7 +1288,7 @@ const module: Module = {
             "Yesterday I was at work.": "Вчера я был на работе.",
             "Last week I was on holiday.": "На прошлой неделе я был в отпуске.",
             "A month ago I was in a village.": "Месяц назад я был в деревне.",
-            "Two days ago I was at the castle.": "Два дня назад я был у крепости.",
+            "Two days ago I was at the castle.": "Два дня назад я был у замка.",
           },
           explain:
             "Во всех четырёх строках оборот времени стоит в начале. Так удобнее, " +

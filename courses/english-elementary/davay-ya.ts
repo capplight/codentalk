@@ -262,7 +262,7 @@ const module: Module = {
             "Слово shall стоит первым, потому что это вопрос.",
             "Глагол после I не берёт никаких окончаний: carry, help, serve, pull, call.",
             "Слово to между I и глаголом не ставят.",
-            "Про кого дело — говорят после глагола: your bag, the tea, the door.",
+            "А что именно сделать — говорят после глагола: your bag, the tea, the door.",
           ],
         },
         {
@@ -289,11 +289,11 @@ const module: Module = {
           text:
             "Shall I cut the bread?\nYes, please.\nShall I serve the tea?\nNot yet, the guests are late.\nShall I help you with the plates?\nThank you!",
           perevod: {
-            "Shall I cut the bread?": "Давай я нарежу хлеб?",
+            "Shall I cut the bread?": "Давай я нарежу хлеб.",
             "Yes, please.": "Да, пожалуйста.",
-            "Shall I serve the tea?": "Давай я подам чай?",
+            "Shall I serve the tea?": "Давай я подам чай.",
             "Not yet, the guests are late.": "Пока не надо, гости опаздывают.",
-            "Shall I help you with the plates?": "Давай я помогу с тарелками?",
+            "Shall I help you with the plates?": "Давай я помогу с тарелками.",
             "Thank you!": "Спасибо!",
           },
           explain:
@@ -446,9 +446,9 @@ const module: Module = {
             "Shall we play tennis on Saturday?":
               "Давай сыграем в теннис в субботу?",
             "I don't have a racket.": "У меня нет ракетки.",
-            "Shall we go sailing?": "Давай сходим под парусом?",
+            "Shall we go sailing?": "Давай покатаемся на лодке под парусом?",
             "The lake is far.": "До озера далеко.",
-            "Shall we skate at the square?": "Давай покатаемся на площади?",
+            "Shall we skate at the square?": "Давай покатаемся на коньках на площади?",
             "Now that's a good day.": "Вот это будет хороший день.",
           },
           explain:
@@ -561,7 +561,7 @@ const module: Module = {
             "Вечером дома скучно, и Дана предлагает брату занятие.",
             "Let's bake a pizza. — Давай испечём пиццу.",
             "Русское «давай» и английское let's тут совпадают почти буквально.",
-            "Это тоже зов вместе, но короче: вопроса здесь нет, есть готовое дело на двоих.",
+            "Это тоже приглашение сделать что-то вместе, но короче: вопроса здесь нет, есть готовое дело на двоих.",
             "После let's глагол стоит без окончания: bake, mix, go, watch.",
           ],
         },
@@ -749,7 +749,7 @@ const module: Module = {
           text: [
             "Строку собирают из трёх частей: why, потом don't we, потом глагол.",
             "Глагол и здесь стоит без окончания: meet, go, bake, invite.",
-            "Ответить на неё можно так же, как на любой зов, и об этом следующий урок.",
+            "Ответить на неё можно так же, как на любое приглашение, и об этом следующий урок.",
           ],
         },
         {
@@ -889,7 +889,7 @@ const module: Module = {
         {
           id: "chem-otvechayut",
           kind: "table",
-          caption: "Чем отвечают на зов",
+          caption: "Чем отвечают на приглашение",
           zvuchat: [
             "Good idea.",
             "Certainly.",
@@ -943,11 +943,11 @@ const module: Module = {
           perevod: {
             "Shall we play golf?": "Давай сыграем в гольф?",
             "Sorry, I can't. I work on Saturday.":
-              "Прости, не получится. В субботу я работаю.",
+              "Извини, не могу. В субботу я работаю.",
             "Why don't we meet on Sunday?":
               "А почему бы не встретиться в воскресенье?",
             "Good idea.": "Хорошая мысль.",
-            "Let's go sailing then.": "Тогда давай сходим под парусом.",
+            "Let's go sailing then.": "Тогда давай покатаемся на лодке под парусом.",
             "Certainly, the lake is relaxing.":
               "Конечно, на озере спокойно.",
           },
