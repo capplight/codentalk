@@ -350,8 +350,10 @@ const module: Module = {
           kind: "explain",
           text: [
             "Алим и Дана условились встретиться в пятницу, и час уже назначен.",
-            "По-английски это I'm meeting Dana at five.",
-            "Так говорят о договорённости — о том, о чём уже условились.",
+            "I'm meeting Dana at five. — Я встречаюсь с Даной в пять.",
+            "Присмотрись к переводу: «встречаюсь» — это настоящее время, а речь о будущем.",
+            "По-русски так говорят постоянно: «завтра я работаю», «в субботу мы уезжаем».",
+            "По-английски делают ровно то же самое — берут настоящее время и говорят им о назначенном.",
             "Запись собирают из формы am, is или are и глагола с окончанием -ing.",
             "Время, в котором стоит I'm meeting, называется Present Continuous.",
             "Им же говорят о том, что идёт прямо сейчас: I'm working.",
@@ -369,14 +371,14 @@ const module: Module = {
             "We are meeting Dana at five.",
             "They are meeting Dana at five.",
           ],
-          head: ["Кто", "Запись"],
+          head: ["Кто", "По-английски", "По-русски"],
           rows: [
-            ["I", "I am meeting Dana at five."],
-            ["you", "You are meeting Dana at five."],
-            ["he", "He is meeting Dana at five."],
-            ["she", "She is meeting Dana at five."],
-            ["we", "We are meeting Dana at five."],
-            ["they", "They are meeting Dana at five."],
+            ["I", "I am meeting Dana at five.", "Я встречаюсь с Даной в пять."],
+            ["you", "You are meeting Dana at five.", "Ты встречаешься с Даной в пять."],
+            ["he", "He is meeting Dana at five.", "Он встречается с Даной в пять."],
+            ["she", "She is meeting Dana at five.", "Она встречается с Даной в пять."],
+            ["we", "We are meeting Dana at five.", "Мы встречаемся с Даной в пять."],
+            ["they", "They are meeting Dana at five.", "Они встречаются с Даной в пять."],
           ],
         },
         {
@@ -385,6 +387,7 @@ const module: Module = {
           text: [
             "Меняется одно слово: am, are или is — по лицу.",
             "Глагол с окончанием -ing остаётся прежним у всех.",
+            "И в переводе везде настоящее время: встречаюсь, встречаешься, встречается.",
             "Такая запись говорит об одном назначенном разе, а не о том, что бывает всегда.",
             "We are meeting on Friday — про одну пятницу, We meet on Fridays — про каждую.",
             "Как пишется это окончание, разобрано в модуле «Что происходило», урок 2.",
@@ -413,6 +416,17 @@ const module: Module = {
           ],
           text:
             "I'm meeting Alim in the cafeteria at five.\nWe're starting a new term on Monday.\nOn Tuesday I'm going to an interview at nine.\nThe room is available in the middle of the week.\nMy schedule is full this week.",
+          perevod: {
+            "I'm meeting Alim in the cafeteria at five.":
+              "В пять я встречаюсь с Алимом в столовой.",
+            "We're starting a new term on Monday.":
+              "В понедельник мы начинаем новый семестр.",
+            "On Tuesday I'm going to an interview at nine.":
+              "Во вторник в девять я иду на собеседование.",
+            "The room is available in the middle of the week.":
+              "Комната свободна в середине недели.",
+            "My schedule is full this week.": "На этой неделе у меня всё расписано.",
+          },
           explain:
             "Пять строк. В первых трёх стоит договорённость: форма, глагол с -ing " +
             "и названное время. Две последние говорят о нынешнем положении дел, и " +
@@ -518,8 +532,10 @@ const module: Module = {
           kind: "explain",
           text: [
             "Дану зовут в пятницу, а пятница у неё свободна от работы.",
-            "По-английски она отвечает: I'm not working on Friday.",
-            "Отрицание ставят сразу после формы: слово not встаёт между ней и глаголом.",
+            "I'm not working on Friday. — В пятницу я не работаю.",
+            "По-русски «не» снова стоит перед самим глаголом.",
+            "По-английски not встаёт после формы am, is или are — там же, где в модуле «Я сделаю» оно вставало после will.",
+            "Правило тут одно: not идёт сразу за словом, которое стоит перед глаголом.",
           ],
         },
         {
@@ -572,6 +588,17 @@ const module: Module = {
           ],
           text:
             "I'm not working on Friday.\nWe aren't meeting in the cafeteria: it's loud there.\nI'm free every day except Tuesday.\nI'm busy this week, especially on Monday.\nWhat a pity! Dana isn't coming on Saturday.",
+          perevod: {
+            "I'm not working on Friday.": "В пятницу я не работаю.",
+            "We aren't meeting in the cafeteria: it's loud there.":
+              "Мы не встречаемся в столовой: там шумно.",
+            "I'm free every day except Tuesday.":
+              "У меня занят только вторник.",
+            "I'm busy this week, especially on Monday.":
+              "На этой неделе у меня много дел, особенно в понедельник.",
+            "What a pity! Dana isn't coming on Saturday.":
+              "Какая жалость! Дана не придёт в субботу.",
+          },
           explain:
             "Пять строк. В трёх из них стоит отрицание, и слово not везде занимает " +
             "место перед глаголом. Третья и четвёртая строки отрицания не содержат: " +
@@ -676,8 +703,10 @@ const module: Module = {
           kind: "explain",
           text: [
             "Айгуль назначила встречу и хочет знать, будет ли Алим.",
-            "По-английски она спрашивает: Are you coming?",
-            "Форма уходит в начало строки, глагол с окончанием -ing остаётся на месте.",
+            "Are you coming on Friday? — Ты придёшь в пятницу?",
+            "Вопрос строят уже знакомым способом: вперёд уходит форма am, is или are.",
+            "Так же было в модуле «Я собираюсь», а в модуле «Я сделаю» вперёд уходило will.",
+            "Глагол с окончанием -ing при этом остаётся на месте.",
           ],
         },
         {
@@ -730,7 +759,8 @@ const module: Module = {
           id: "otvet-obryvaetsya-na-forme",
           kind: "explain",
           text: [
-            "В вопросе форма стоит первой, а в ответе — второй: Are you…? — Yes, I am.",
+            "Короткий ответ собирают по тому же правилу: за yes или no повторяют слово из вопроса.",
+            "Здесь этим словом будет форма: Are you…? — Yes, I am.",
             "Меняется и лицо: спрашивают про you, а отвечать надо про I.",
             "Глагол в коротком ответе не повторяется: строка обрывается сразу после формы.",
           ],
@@ -747,6 +777,12 @@ const module: Module = {
           ],
           text:
             "Are you coming on Friday?\nYes, I am. Are you sending me the directions?\nPardon? I didn't hear you.",
+          perevod: {
+            "Are you coming on Friday?": "Ты придёшь в пятницу?",
+            "Yes, I am. Are you sending me the directions?":
+              "Да. А ты пришлёшь мне, как добраться?",
+            "Pardon? I didn't hear you.": "Прости, что? Не слышно.",
+          },
           explain:
             "Три реплики. Оба вопроса начинаются с формы are, а короткий ответ " +
             "повторяет её вторым словом и на этом обрывается.",
@@ -845,7 +881,9 @@ const module: Module = {
           text: [
             "Дана хочет позвать Алима в субботу, но сначала узнаёт, чем он занят.",
             "Ответ «да» или «нет» тут ничего не даст.",
-            "Поэтому к вопросу спереди приставляют вопросительное слово: What are you doing on Saturday?",
+            "Поэтому к вопросу спереди приставляют вопросительное слово.",
+            "What are you doing on Saturday? — Что ты делаешь в субботу?",
+            "Здесь русский и английский снова совпадают: «что» и What стоят первыми одинаково.",
           ],
         },
         {
@@ -858,12 +896,12 @@ const module: Module = {
             "When are you leaving?",
             "Whose textbook are you taking?",
           ],
-          head: ["Слово", "О чём спрашивает", "Вопрос"],
+          head: ["Слово", "По-русски", "Вопрос"],
           rows: [
-            ["What", "о деле", "What are you doing on Saturday?"],
-            ["Where", "о месте", "Where are we meeting?"],
-            ["When", "о времени", "When are you leaving?"],
-            ["Whose", "о хозяине вещи", "Whose textbook are you taking?"],
+            ["What", "что", "What are you doing on Saturday?"],
+            ["Where", "где", "Where are we meeting?"],
+            ["When", "когда", "When are you leaving?"],
+            ["Whose", "чей", "Whose textbook are you taking?"],
           ],
         },
         {
@@ -889,6 +927,15 @@ const module: Module = {
           ],
           text:
             "What are you doing on Saturday?\nI'm going to a physics class at ten.\nAnd where are you meeting your classmate?\nIn the cafeteria. We're taking one textbook for two.",
+          perevod: {
+            "What are you doing on Saturday?": "Что ты делаешь в субботу?",
+            "I'm going to a physics class at ten.":
+              "В десять я иду на занятие по физике.",
+            "And where are you meeting your classmate?":
+              "А где ты встречаешься с однокурсником?",
+            "In the cafeteria. We're taking one textbook for two.":
+              "В столовой. Мы берём один учебник на двоих.",
+          },
           explain:
             "Четыре реплики. Оба вопроса начинаются с вопросительного слова, и оба " +
             "ответа дают сведение: дело и место.",
@@ -989,8 +1036,11 @@ const module: Module = {
           kind: "explain",
           text: [
             "Про субботу можно сказать двумя записями, и обе верны.",
-            "I'm meeting Dana at five говорит, что с Даной условились и она этого ждёт.",
-            "I'm going to meet Dana говорит, что человек так решил, а Дана может ещё и не знать.",
+            "I'm meeting Dana at five. — Я встречаюсь с Даной в пять.",
+            "I'm going to meet Dana. — Я собираюсь встретиться с Даной.",
+            "По-русски разница слышна сразу, и делается она теми же двумя способами.",
+            "«Встречаюсь» значит, что с Даной условились и она этого ждёт.",
+            "«Собираюсь встретиться» значит, что решение принято, а Дана может ещё и не знать.",
             "Решение без договорённости называют намерением — о нём модуль «Я собираюсь».",
           ],
         },
@@ -1004,12 +1054,28 @@ const module: Module = {
             "We're leaving on Monday.",
             "We're going to leave on Monday.",
           ],
-          head: ["Случай", "Как об этом пишут"],
+          head: ["Случай", "По-английски", "По-русски"],
           rows: [
-            ["с Даной условились, она ждёт", "I'm meeting Dana at five."],
-            ["решил сам, Дана ещё не знает", "I'm going to meet Dana."],
-            ["билеты куплены, поезд в понедельник", "We're leaving on Monday."],
-            ["решили ехать, билетов ещё нет", "We're going to leave on Monday."],
+            [
+              "с Даной условились, она ждёт",
+              "I'm meeting Dana at five.",
+              "Я встречаюсь с Даной в пять.",
+            ],
+            [
+              "решение принято, Дана ещё не знает",
+              "I'm going to meet Dana.",
+              "Я собираюсь встретиться с Даной.",
+            ],
+            [
+              "билеты куплены, поезд в понедельник",
+              "We're leaving on Monday.",
+              "Мы уезжаем в понедельник.",
+            ],
+            [
+              "решили ехать, билетов ещё нет",
+              "We're going to leave on Monday.",
+              "Мы собираемся уехать в понедельник.",
+            ],
           ],
         },
         {
@@ -1043,6 +1109,16 @@ const module: Module = {
           ],
           text:
             "I'm meeting my classmate at ten on Saturday: we're taking one textbook.\nAfter that I'm going to read about biology and geography, but I'm not meeting anybody.\nIn the evening we're leaving for the village: my parents are meeting us at the station.\nMy grade for biology is coming on Monday, and my parents know about it.",
+          perevod: {
+            "I'm meeting my classmate at ten on Saturday: we're taking one textbook.":
+              "В субботу в десять я встречаюсь с однокурсницей: мы берём один учебник.",
+            "After that I'm going to read about biology and geography, but I'm not meeting anybody.":
+              "После этого я собираюсь почитать про биологию и географию, но ни с кем не встречаюсь.",
+            "In the evening we're leaving for the village: my parents are meeting us at the station.":
+              "Вечером мы уезжаем в село: родители встречают нас на вокзале.",
+            "My grade for biology is coming on Monday, and my parents know about it.":
+              "Оценку по биологии объявят в понедельник, и родители об этом знают.",
+          },
           explain:
             "Четыре строки. В первой, третьей и четвёртой рядом стоит второй человек: " +
             "одноклассник ждёт, родители встречают и знают об оценке. Во второй " +
