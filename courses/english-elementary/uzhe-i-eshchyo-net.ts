@@ -249,7 +249,9 @@ const module: Module = {
             "Утром Данияр и Айгуль собираются к приезду Алима — он приедет к двум.",
             "У них список дел, и каждое надо успеть до обеда.",
             "Про такие дела говорят не «когда сделал», а «сделано или нет».",
-            "Сумки готовы раньше срока: I have already packed the bags.",
+            "I have already packed the bags. — Я уже собрал сумки.",
+            "Русское «уже» и английское already значат одно и то же.",
+            "А вот стоят они по-разному, и это здесь главное.",
           ],
         },
         {
@@ -272,8 +274,9 @@ const module: Module = {
           id: "chto-dobavlyaet-already",
           kind: "explain",
           text: [
-            "Слово already значит «уже», и место у него строгое.",
-            "Оно встаёт между have и третьей формой глагола.",
+            "Место у слова already строгое: оно встаёт между have и третьей формой глагола.",
+            "По-русски «уже» так не привязано — «я уже собрал» и «уже я собрал» оба годятся.",
+            "По-английски место одно, и запомнить надо именно его.",
             "Оно говорит, что дело сделано, и часто — раньше, чем ждали.",
             "Без него строка просто сообщает о сделанном, без этого оттенка.",
           ],
@@ -299,6 +302,13 @@ const module: Module = {
           ],
           text:
             "I have already prepared lunch.\nGood! And the accommodation for Alim?\nI have already booked a double room.",
+          perevod: {
+            "I have already prepared lunch.": "Обед я уже приготовил.",
+            "Good! And the accommodation for Alim?":
+              "Хорошо! А где Алим остановится?",
+            "I have already booked a double room.":
+              "Двухместный номер я уже забронировал.",
+          },
           explain:
             "В обеих строках already стоит между have и третьей формой. Гостя " +
             "зовут Алим, и комната для него заказана заранее — потому и already.",
@@ -472,6 +482,12 @@ const module: Module = {
           ],
           text:
             "I haven't washed the sink yet.\nAnd the bags?\nI haven't packed them yet. But I have already been to the pharmacy.",
+          perevod: {
+            "I haven't washed the sink yet.": "Раковину я ещё не помыл.",
+            "And the bags?": "А сумки?",
+            "I haven't packed them yet. But I have already been to the pharmacy.":
+              "Их я ещё не собрал. Зато в аптеку уже сходил.",
+          },
           explain:
             "В строках о несделанном стоит haven't, а yet идёт в конец. В " +
             "последней строке рядом обе записи: одно дело ещё впереди, другое " +
@@ -624,6 +640,14 @@ const module: Module = {
           ],
           text:
             "I have just fried the fish.\nAnd the roast meat?\nI have just taken it out. The boiled eggs are ready too.\nYou have prepared various dishes!",
+          perevod: {
+            "I have just fried the fish.": "Я только что пожарил рыбу.",
+            "And the roast meat?": "А запечённое мясо?",
+            "I have just taken it out. The boiled eggs are ready too.":
+              "Я только что его вынул. Варёные яйца тоже готовы.",
+            "You have prepared various dishes!":
+              "Вы приготовили целых несколько блюд!",
+          },
           explain:
             "В первой и третьей строках just стоит между have и третьей формой: " +
             "оба дела кончились минуту назад. Во второй строке глагола нет " +
@@ -798,6 +822,14 @@ const module: Module = {
           ],
           text:
             "Have you packed the bags yet?\nYes, I have. And you?\nNo, not yet. I have just finished the washing.\nThat isn't fair! Will you be able to help me?",
+          perevod: {
+            "Have you packed the bags yet?": "Вы уже собрали сумки?",
+            "Yes, I have. And you?": "Да. А вы?",
+            "No, not yet. I have just finished the washing.":
+              "Нет, ещё нет. Я только что закончил со стиркой.",
+            "That isn't fair! Will you be able to help me?":
+              "Так нечестно! Вы сможете мне помочь?",
+          },
           explain:
             "В вопросе have стоит первым, а yet — последним. Короткий ответ " +
             "повторяет только have, а No, not yet говорит, что дело впереди. В " +
@@ -1188,6 +1220,16 @@ const module: Module = {
           id: "obrazec-zapiski",
           kind: "example",
           caption: "Записка Данияра",
+          perevod: {
+            "Aigul, I have already made the boiled eggs and the fried fish.":
+              "Айгуль, варёные яйца и жареную рыбу я уже сделал.",
+            "I have just cut various slices of bread.":
+              "Я только что нарезал хлеба разных сортов.",
+            "But I haven't found the ingredients for the salad yet.":
+              "А вот продукты для салата я ещё не нашёл.",
+            "Please buy them before lunchtime because Alim is hungry after the road.":
+              "Купи их, пожалуйста, до обеда: Алим после дороги голодный.",
+          },
           zvuchat: [
             "Aigul, I have already made the boiled eggs and the fried fish.",
             "I have just cut various slices of bread.",
