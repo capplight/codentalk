@@ -963,10 +963,10 @@ const module: Module = {
           razgovor: true,
           text: "— Were you at the party?\n— No, I wasn't. I was at home.\n— Was it good?\n— Yes, it was.",
           perevod: {
-            "— Were you at the party?": "— Ты была на празднике?",
-            "— No, I wasn't. I was at home.": "— Нет, не была. Я была дома.",
-            "— Was it good?": "— Хорошо было?",
-            "— Yes, it was.": "— Да.",
+            "— Were you at the party?": "Ты была на празднике?",
+            "— No, I wasn't. I was at home.": "Нет, не была. Я была дома.",
+            "— Was it good?": "Хорошо было?",
+            "— Yes, it was.": "Да.",
           },
           explain:
             "Спрашивают перестановкой, отвечают короткой формой. Второй вопрос — о " +

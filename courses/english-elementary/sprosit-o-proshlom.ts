@@ -508,10 +508,10 @@ const module: Module = {
           text:
             "— Did you go to the stadium?\n— Yes, I did. The match was long.\n— Did you see the goal?\n— No, I didn't.",
           perevod: {
-            "— Did you go to the stadium?": "— Вы ходили на стадион?",
-            "— Yes, I did. The match was long.": "— Да. Матч был долгий.",
-            "— Did you see the goal?": "— Вы видели гол?",
-            "— No, I didn't.": "— Нет.",
+            "— Did you go to the stadium?": "Вы ходили на стадион?",
+            "— Yes, I did. The match was long.": "Да. Матч был долгий.",
+            "— Did you see the goal?": "Вы видели гол?",
+            "— No, I didn't.": "Нет.",
           },
           explain:
             "Два вопроса и два ответа. В первом ответе после коротких слов добавлена " +
@@ -659,11 +659,11 @@ const module: Module = {
           text:
             "— Where did you go yesterday?\n— I went to the cinema.\n— What did you see?\n— A cartoon. I liked the character.",
           perevod: {
-            "— Where did you go yesterday?": "— Куда вы вчера ходили?",
-            "— I went to the cinema.": "— Я ходил в кино.",
-            "— What did you see?": "— Что вы смотрели?",
+            "— Where did you go yesterday?": "Куда вы вчера ходили?",
+            "— I went to the cinema.": "Я ходил в кино.",
+            "— What did you see?": "Что вы смотрели?",
             "— A cartoon. I liked the character.":
-              "— Мультфильм. Мне понравился герой.",
+              "Мультфильм. Мне понравился герой.",
           },
           explain:
             "Вопрос со словом Where или What ждёт подробности, а не слова «да». Второй " +
@@ -832,10 +832,10 @@ const module: Module = {
           text:
             "— Did you go to the concert?\n— Yes, I did.\n— Was it good?\n— It was brilliant.",
           perevod: {
-            "— Did you go to the concert?": "— Вы ходили на концерт?",
-            "— Yes, I did.": "— Да.",
-            "— Was it good?": "— Хорошо было?",
-            "— It was brilliant.": "— Было великолепно.",
+            "— Did you go to the concert?": "Вы ходили на концерт?",
+            "— Yes, I did.": "Да.",
+            "— Was it good?": "Хорошо было?",
+            "— It was brilliant.": "Было великолепно.",
           },
           explain:
             "Первый вопрос о действии и потому берёт did. Второй о самом концерте и " +
@@ -988,15 +988,15 @@ const module: Module = {
           text:
             "— Where was the concert?\n— At the stadium.\n— When did it start?\n— At seven.\n— Who was there?\n— My colleague and my sister.\n— Was it good?\n— The sky was grey, but the concert was excellent.",
           perevod: {
-            "— Where was the concert?": "— Где был концерт?",
-            "— At the stadium.": "— На стадионе.",
-            "— When did it start?": "— Когда он начался?",
-            "— At seven.": "— В семь.",
-            "— Who was there?": "— Кто там был?",
-            "— My colleague and my sister.": "— Мой коллега и моя сестра.",
-            "— Was it good?": "— Хорошо было?",
+            "— Where was the concert?": "Где был концерт?",
+            "— At the stadium.": "На стадионе.",
+            "— When did it start?": "Когда он начался?",
+            "— At seven.": "В семь.",
+            "— Who was there?": "Кто там был?",
+            "— My colleague and my sister.": "Мой коллега и моя сестра.",
+            "— Was it good?": "Хорошо было?",
             "— The sky was grey, but the concert was excellent.":
-              "— Небо было серое, но концерт был отличный.",
+              "Небо было серое, но концерт был отличный.",
           },
           explain:
             "Восемь строк: четыре вопроса и четыре ответа. Вопросы идут в том же " +

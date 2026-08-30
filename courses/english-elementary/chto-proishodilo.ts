@@ -977,12 +977,12 @@ const module: Module = {
           text:
             "— What were you doing at seven?\n— I was washing a knife and a fork.\n— And your sister?\n— She was still sleeping.\n— And your brother?\n— He was cleaning the floor with a brush.",
           perevod: {
-            "— What were you doing at seven?": "— Что ты делал в семь?",
-            "— I was washing a knife and a fork.": "— Я мыл нож и вилку.",
-            "— And your sister?": "— А твоя сестра?",
-            "— She was still sleeping.": "— Она ещё спала.",
-            "— And your brother?": "— А твой брат?",
-            "— He was cleaning the floor with a brush.": "— Он тёр пол щёткой.",
+            "— What were you doing at seven?": "Что ты делал в семь?",
+            "— I was washing a knife and a fork.": "Я мыл нож и вилку.",
+            "— And your sister?": "А твоя сестра?",
+            "— She was still sleeping.": "Она ещё спала.",
+            "— And your brother?": "А твой брат?",
+            "— He was cleaning the floor with a brush.": "Он тёр пол щёткой.",
           },
           explain:
             "Первый вопрос полный, два следующих короткие: чтобы не повторять всё, " +
