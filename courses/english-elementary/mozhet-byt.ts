@@ -272,9 +272,12 @@ const module: Module = {
           kind: "explain",
           text: [
             "Алим смотрит на небо и не знает, будет ли завтра дождь.",
-            "По-английски он говорит It might rain tomorrow.",
+            "It might rain tomorrow. — Завтра, может быть, пойдёт дождь.",
             "Так делают предположение: говорят о том, в чём не уверены.",
-            "Перед глаголом ставят слово might, и глагол остаётся без окончаний.",
+            "По-русски для этого хватает вставленных слов — «может быть», «наверное».",
+            "Сам глагол при этом не меняется: «пойдёт» остаётся «пойдёт».",
+            "По-английски меняется как раз глагольная часть: вместо will встаёт might.",
+            "В модуле «Я сделаю» строка It will rain tomorrow говорила то же о завтрашнем дожде, только без сомнения.",
           ],
         },
         {
@@ -332,6 +335,13 @@ const module: Module = {
           ],
           text:
             "What is the weather tomorrow?\nIt might rain tomorrow.\nThen I'll take an umbrella.\nThe morning might be sunny, but take it anyway.",
+          perevod: {
+            "What is the weather tomorrow?": "Какая завтра погода?",
+            "It might rain tomorrow.": "Завтра, может быть, пойдёт дождь.",
+            "Then I'll take an umbrella.": "Тогда я возьму зонт.",
+            "The morning might be sunny, but take it anyway.":
+              "Утро, может быть, будет солнечным, но всё равно возьми.",
+          },
           explain:
             "Оба предположения о завтрашнем дне, и оба стоят со словом might. " +
             "Между ними обычное будущее — I'll take, — потому что зонт человек " +
@@ -481,6 +491,13 @@ const module: Module = {
           ],
           text:
             "Where is the key?\nIt may be in my handbag.\nI looked there.\nThen it might be in the cabinet, or under the carpet.",
+          perevod: {
+            "Where is the key?": "Где ключ?",
+            "It may be in my handbag.": "Может быть, он у меня в сумке.",
+            "I looked there.": "Я там смотрел.",
+            "Then it might be in the cabinet, or under the carpet.":
+              "Тогда, может быть, он в шкафчике или под ковром.",
+          },
           explain:
             "Первое место названо через may, второе через might, и разницы между " +
             "ними нет. Оба раза говорящий гадает, а не знает.",
@@ -638,6 +655,12 @@ const module: Module = {
           ],
           text:
             "I can't find the song.\nMaybe the download stopped.\nPerhaps it's in another folder.\nOr maybe the app is old.",
+          perevod: {
+            "I can't find the song.": "Не могу найти песню.",
+            "Maybe the download stopped.": "Может быть, загрузка оборвалась.",
+            "Perhaps it's in another folder.": "Возможно, она в другой папке.",
+            "Or maybe the app is old.": "Или, может быть, приложение старое.",
+          },
           explain:
             "Все три предположения стоят словом снаружи, и глаголы внутри строк " +
             "обычные: stopped, is. Слово or перед maybe просто присоединяет " +
@@ -788,6 +811,14 @@ const module: Module = {
           ],
           text:
             "Where are my headphones?\nI'm sure they're in the black case.\nThe case is empty.\nThen maybe the speaker is on the shelf with them.",
+          perevod: {
+            "Where are my headphones?": "Где мои наушники?",
+            "I'm sure they're in the black case.":
+              "Я уверен, что они в чёрном чехле.",
+            "The case is empty.": "Чехол пустой.",
+            "Then maybe the speaker is on the shelf with them.":
+              "Тогда, может быть, колонка лежит на полке вместе с ними.",
+          },
           explain:
             "Первая строка обещает наверняка, и обещание не сбылось. Второе " +
             "предположение сказано осторожнее — со словом maybe.",
@@ -936,6 +967,16 @@ const module: Module = {
           ],
           text:
             "What is it?\nI'm sure it's a metal bracelet.\nSilver or not?\nIt may be silver, I don't remember.\nThin or heavy?\nMaybe it's thin.",
+          perevod: {
+            "What is it?": "Что это за вещь?",
+            "I'm sure it's a metal bracelet.":
+              "Я уверен, что это металлический браслет.",
+            "Silver or not?": "Серебряный или нет?",
+            "It may be silver, I don't remember.":
+              "Может быть, серебряный, я не помню.",
+            "Thin or heavy?": "Тонкий или массивный?",
+            "Maybe it's thin.": "Может быть, тонкий.",
+          },
           explain:
             "О самой вещи хозяин говорит уверенно, а о серебре и о толщине — нет. " +
             "Три разных способа стоят в одном разговоре и не мешают друг другу.",
@@ -1509,6 +1550,22 @@ const module: Module = {
           ],
           text:
             "The post office may be closed today.\nThe bus station is close to the market.\nThe shopping centre is behind the market.\nThere is a petrol station near the traffic light.\nThe police station is out of the centre.\nMaybe the sports centre is open on Sunday.\nThe shop assistant may know the price.",
+          perevod: {
+            "The post office may be closed today.":
+              "Почта сегодня, может быть, закрыта.",
+            "The bus station is close to the market.":
+              "Автовокзал рядом с рынком.",
+            "The shopping centre is behind the market.":
+              "Торговый центр за рынком.",
+            "There is a petrol station near the traffic light.":
+              "У светофора есть заправка.",
+            "The police station is out of the centre.":
+              "Отделение полиции не в центре.",
+            "Maybe the sports centre is open on Sunday.":
+              "Может быть, спортивный центр открыт в воскресенье.",
+            "The shop assistant may know the price.":
+              "Продавец, может быть, знает цену.",
+          },
           explain:
             "Семь строк об одном городе. В трёх из них стоит may или maybe: о " +
             "чужом городе редко знают наверняка.",
