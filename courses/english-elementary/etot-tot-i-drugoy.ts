@@ -265,8 +265,10 @@ const module: Module = {
           text: [
             "Дана и Данияр пришли в торговый центр за подарком.",
             "Дана держит в руках кепку, а другую видит далеко, на витрине.",
+            "This cap is nice. — Эта кепка красивая.",
             "Ту, что в руках, зовут this cap, а дальнюю — that cap.",
-            "Этими словами и показывают: вот эта и вон та.",
+            "По-русски это ровно «эта» и «та», и делят они мир так же: что ближе, что дальше.",
+            "Единственная новость — что по-английски вещь при них стоит в единственном числе.",
           ],
         },
         {
@@ -328,6 +330,14 @@ const module: Module = {
           ],
           text:
             "Look at this cap. It is leather.\nAnd that cap in the window?\nThat one is for a child.\nThen I take this one. That's a good idea!",
+          perevod: {
+            "Look at this cap. It is leather.":
+              "Посмотри на эту кепку. Она кожаная.",
+            "And that cap in the window?": "А та кепка на витрине?",
+            "That one is for a child.": "Та детская.",
+            "Then I take this one. That's a good idea!":
+              "Тогда беру эту. Хорошая мысль!",
+          },
           explain:
             "Кепка в руках — this cap, кепка на витрине — that cap. В последней " +
             "строке That's a good idea стоит без вещи: так отвечают на сказанное.\n\n" +
@@ -488,6 +498,13 @@ const module: Module = {
           ],
           text:
             "These tights are cheap.\nAnd those shorts?\nThose shorts are striped. I like them.\nI like these caps too.",
+          perevod: {
+            "These tights are cheap.": "Эти колготки дешёвые.",
+            "And those shorts?": "А те шорты?",
+            "Those shorts are striped. I like them.":
+              "Те шорты в полоску. Мне они нравятся.",
+            "I like these caps too.": "Эти кепки мне тоже нравятся.",
+          },
           explain:
             "Колготки рядом — these tights, шорты подальше — those shorts. У всех " +
             "трёх вещей множественное число: tights, shorts, caps.",
@@ -653,6 +670,14 @@ const module: Module = {
           ],
           text:
             "Do you like this striped blouse?\nNo, I like the pale one.\nAnd the wool one?\nThe wool one is warm, but it is not my size.",
+          perevod: {
+            "Do you like this striped blouse?":
+              "Тебе нравится эта полосатая блузка?",
+            "No, I like the pale one.": "Нет, мне нравится светлая.",
+            "And the wool one?": "А шерстяная?",
+            "The wool one is warm, but it is not my size.":
+              "Шерстяная тёплая, но не моего размера.",
+          },
           explain:
             "Слово blouse прозвучало один раз, в первой строке. Дальше вместо него " +
             "стоит one, а слово перед ним меняется: pale, wool.",
@@ -812,6 +837,14 @@ const module: Module = {
           ],
           text:
             "Here are two swimsuits. This one is golden.\nAnd the other one?\nThe other one is pale. Take it.\nCan I see another swimsuit? These two are not my size.",
+          perevod: {
+            "Here are two swimsuits. This one is golden.":
+              "Вот два купальника. Этот золотистый.",
+            "And the other one?": "А второй?",
+            "The other one is pale. Take it.": "Второй светлый. Бери его.",
+            "Can I see another swimsuit? These two are not my size.":
+              "Можно посмотреть другой купальник? Эти два не моего размера.",
+          },
           explain:
             "Купальников на столе два, и потому the other one — второй из них. В " +
             "последней строке просят ещё один, из всех остальных, и там стоит " +
@@ -968,6 +1001,15 @@ const module: Module = {
           ],
           text:
             "I spent all of my money today.\nOn what?\nSome of these mangoes, a litre of cola and shampoo.\nBoth of the shops were open, and I went to both.",
+          perevod: {
+            "I spent all of my money today.":
+              "Сегодня я потратил все свои деньги.",
+            "On what?": "На что?",
+            "Some of these mangoes, a litre of cola and shampoo.":
+              "На несколько таких манго, литр колы и шампунь.",
+            "Both of the shops were open, and I went to both.":
+              "Оба магазина были открыты, и я зашёл в оба.",
+          },
           explain:
             "После all, some и both стоит of, потому что дальше идут my, these и " +
             "the. Слово shampoo стоит само по себе: при нём никакого of нет.",
@@ -1364,6 +1406,16 @@ const module: Module = {
           id: "obrazec-obyavleniya",
           kind: "example",
           caption: "Объявление Айгуль",
+          perevod: {
+            "Come to the school library on Friday at four!":
+              "Приходите в школьную библиотеку в пятницу в четыре!",
+            "We sell two rulers and some rubbers.":
+              "Продаём две линейки и несколько ластиков.",
+            "This ruler has stripes and it is 200 tenge, but the other one is pale and 300 tenge.":
+              "Эта линейка в полоску и стоит 200 тенге, а вторая светлая и стоит 300 тенге.",
+            "All of the rubbers are 100 tenge because they are old.":
+              "Все ластики по 100 тенге, потому что они старые.",
+          },
           zvuchat: [
             "Come to the school library on Friday at four!",
             "We sell two rulers and some rubbers.",
