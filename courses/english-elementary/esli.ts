@@ -239,8 +239,12 @@ const module: Module = {
           kind: "explain",
           text: [
             "Данияр зовёт друга в Алматы, но тот ещё не решил.",
-            "Он обещает не просто так, а при условии: If you come, I'll show you the city.",
+            "Он обещает не просто так, а при условии.",
+            "If you come, I'll show you the city. — Если приедешь, я покажу тебе город.",
             "Строка распадается на две половины, и в каждой своё время.",
+            "И тут та же ловушка, что была со словом when: по-русски будущее стоит в обеих половинах.",
+            "«Если приедешь» — это уже будущее, а по-английски там настоящее: if you come.",
+            "Строка из трёх модулей подряд устроена одинаково: главная половина плюс приставленная к ней вторая.",
           ],
         },
         {
@@ -294,6 +298,13 @@ const module: Module = {
           ],
           text:
             "If you come in May, I'll show you the city.\nAnd if my flight is late?\nThen I'll meet you at the airport. If the bus breaks down, we'll take the underground.",
+          perevod: {
+            "If you come in May, I'll show you the city.":
+              "Если приедешь в мае, я покажу тебе город.",
+            "And if my flight is late?": "А если мой рейс задержится?",
+            "Then I'll meet you at the airport. If the bus breaks down, we'll take the underground.":
+              "Тогда я встречу тебя в аэропорту. Если автобус сломается, поедем на метро.",
+          },
           explain:
             "В обеих строках с will главная половина обещает, а половина с " +
             "условием стоит в настоящем времени. Запятая стоит там, где условие " +
@@ -454,6 +465,14 @@ const module: Module = {
           ],
           text:
             "If you find a black bag, call me, please.\nIf you look for it in the evening, you can turn on the light.\nIf you find out something, I'll come today.",
+          perevod: {
+            "If you find a black bag, call me, please.":
+              "Если найдёте чёрную сумку, позвоните мне, пожалуйста.",
+            "If you look for it in the evening, you can turn on the light.":
+              "Если будете искать её вечером, можете включить свет.",
+            "If you find out something, I'll come today.":
+              "Если что-нибудь узнаете, я приеду сегодня.",
+          },
           explain:
             "Три строки, и половина с условием у всех одинаковая. Различаются " +
             "главные половины: просьба, слово can и обещание с will.",
@@ -616,6 +635,16 @@ const module: Module = {
           ],
           text:
             "When it rains in the mountains, we'll come back early.\nIf it rains. It doesn't rain there every day!\nFine. If it rains, we'll get on the bus and go home.\nAnd if we come back early because of the rain, I'll cook something.",
+          perevod: {
+            "When it rains in the mountains, we'll come back early.":
+              "Когда в горах пойдёт дождь, мы вернёмся пораньше.",
+            "If it rains. It doesn't rain there every day!":
+              "Если пойдёт. Дождь там не каждый день!",
+            "Fine. If it rains, we'll get on the bus and go home.":
+              "Хорошо. Если пойдёт дождь, сядем в автобус и поедем домой.",
+            "And if we come back early because of the rain, I'll cook something.":
+              "А если из-за дождя вернёмся пораньше, я что-нибудь приготовлю.",
+          },
           explain:
             "Первая строка со словом when обещает дождь наверняка. Айгуль " +
             "поправляет одним словом — if, — и дальше уже все строки с ним: " +
@@ -986,6 +1015,14 @@ const module: Module = {
           id: "obrazec-zapiski",
           kind: "example",
           caption: "Записка Данияра",
+          perevod: {
+            "We'll meet at the car park at five.":
+              "Встретимся на стоянке в пять.",
+            "If the bus breaks down, I'll take a taxi.":
+              "Если автобус сломается, я возьму такси.",
+            "If you can't come, send me a message.":
+              "Если не сможешь прийти, напиши мне.",
+          },
           zvuchat: [
             "We'll meet at the car park at five.",
             "If the bus breaks down, I'll take a taxi.",
