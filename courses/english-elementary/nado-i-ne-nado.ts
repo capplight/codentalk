@@ -244,8 +244,10 @@ const module: Module = {
           kind: "explain",
           text: [
             "В школе есть правила, и их не выбирают.",
-            "Форму носить обязательно, и по-английски это I have to wear a uniform.",
+            "I have to wear a uniform. — Я должен носить форму.",
             "Оборот have to говорит об обязанности — о том, что решил не ты.",
+            "По-русски для этого есть «должен», «надо», «приходится».",
+            "По-английски все три случая закрывает один оборот have to.",
           ],
         },
         {
@@ -294,6 +296,14 @@ const module: Module = {
           ],
           text:
             "I have to wear a uniform every day.\nAnd we have to bring a kit for the pool.\nDo you have to show your ID at the door?",
+          perevod: {
+            "I have to wear a uniform every day.":
+              "Я должен носить форму каждый день.",
+            "And we have to bring a kit for the pool.":
+              "А ещё мы должны приносить вещи для бассейна.",
+            "Do you have to show your ID at the door?":
+              "Вам надо показывать пропуск на входе?",
+          },
           explain:
             "Во всех трёх строках стоит have to, и после него глагол в обычной " +
             "форме. В вопросе перед have выходит do: Do you have to…?",
@@ -481,6 +491,14 @@ const module: Module = {
           ],
           text:
             "I must show my passport here.\nAnd your brother? He has to show his ID.\nThe driver has to show a licence too.",
+          perevod: {
+            "I must show my passport here.":
+              "Здесь я должен показать паспорт.",
+            "And your brother? He has to show his ID.":
+              "А ваш брат? Он должен показать удостоверение.",
+            "The driver has to show a licence too.":
+              "Водитель тоже должен показать права.",
+          },
           explain:
             "В первой строке речь о себе, и там стоит must. Во второй и третьей " +
             "речь о других людях, и там has to — о них так и говорят.",
@@ -629,6 +647,13 @@ const module: Module = {
           ],
           text:
             "You mustn't run indoors, and you mustn't dive here. It is against the rules.\nAnd the machine at the door?\nYou mustn't use it. Only the manager has the set of keys.",
+          perevod: {
+            "You mustn't run indoors, and you mustn't dive here. It is against the rules.":
+              "Здесь нельзя бегать и нельзя нырять. Это против правил.",
+            "And the machine at the door?": "А автомат у двери?",
+            "You mustn't use it. Only the manager has the set of keys.":
+              "Им пользоваться нельзя. Связка ключей только у управляющего.",
+          },
           explain:
             "В каждой строке с mustn't стоит запрет, и глагол после него в " +
             "обычной форме. Оборот against the rules значит «вопреки " +
@@ -732,8 +757,10 @@ const module: Module = {
           kind: "explain",
           text: [
             "Есть третий случай, и по-русски он звучит похоже на запрет.",
+            "You don't have to bring a kit. — Приносить вещи не обязательно.",
+            "Русское «не надо» коварно: оно значит и «нельзя», и «не обязательно».",
             "«Форму приносить не надо» — это не запрет, а свобода.",
-            "По-английски это You don't have to bring a kit.",
+            "По-английски эти два случая разведены разными словами: mustn't запрещает, don't have to освобождает.",
             "Хочешь — принеси, не хочешь — не приноси: don't have to ничего не запрещает.",
           ],
         },
@@ -786,6 +813,15 @@ const module: Module = {
           ],
           text:
             "You don't have to bring a kit. We give one to every pupil.\nAnd the ID?\nYou must show it at the door. That is a rule.\nSo the kit is free, but the ID isn't.",
+          perevod: {
+            "You don't have to bring a kit. We give one to every pupil.":
+              "Приносить вещи не обязательно. Мы выдаём их каждому ученику.",
+            "And the ID?": "А пропуск?",
+            "You must show it at the door. That is a rule.":
+              "Его надо показать на входе. Это правило.",
+            "So the kit is free, but the ID isn't.":
+              "Значит вещи не обязательны, а пропуск обязателен.",
+          },
           explain:
             "Первая строка о свободе: набор дадут, приносить не нужно. Третья о " +
             "правиле: удостоверение показать обязательно.",
@@ -1144,6 +1180,16 @@ const module: Module = {
           id: "obrazec-pravil",
           kind: "example",
           caption: "Правила клуба фотографии",
+          perevod: {
+            "Every pupil must bring a camera to the club.":
+              "Каждый ученик должен приносить в клуб фотоаппарат.",
+            "You have to come at four because we start together.":
+              "Приходить надо к четырём, потому что начинаем мы вместе.",
+            "You mustn't use the machine in the dark room.":
+              "Пользоваться аппаратом в тёмной комнате нельзя.",
+            "You don't have to buy a set of keys: the club has one.":
+              "Покупать связку ключей не обязательно: у клуба она есть.",
+          },
           zvuchat: [
             "Every pupil must bring a camera to the club.",
             "You have to come at four because we start together.",
