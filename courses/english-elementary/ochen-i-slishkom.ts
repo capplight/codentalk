@@ -315,7 +315,11 @@ const module: Module = {
             "Дана рассказывает о новом магазине и говорит: It is good.",
             "Слушателю этого мало: хорош он немного или очень?",
             "Ответ на этот вопрос и есть мера: насколько вещь такая, как о ней сказали.",
-            "По-английски меру называют лишним словом перед прилагательным: It is really good.",
+            "The shop is very good. — Магазин очень хороший.",
+            "По-русски мера тоже стоит отдельным словом перед прилагательным: очень, довольно, слишком.",
+            "И место у неё то же самое, что в английской строке.",
+            "Два прошлых модуля отвечали на другой вопрос — какая из двух вещей больше.",
+            "Здесь вещь одна, и вопрос к ней: насколько.",
           ],
         },
         {
@@ -373,6 +377,15 @@ const module: Module = {
           ],
           text:
             "Did you read the review on the web?\nYes, it is really good.\nIs the jewellery expensive there?\nQuite expensive. Gold is in fashion now, and the shop is very successful.",
+          perevod: {
+            "Did you read the review on the web?":
+              "Вы читали отзыв в сети?",
+            "Yes, it is really good.": "Да, он очень хороший.",
+            "Is the jewellery expensive there?":
+              "Украшения там дорогие?",
+            "Quite expensive. Gold is in fashion now, and the shop is very successful.":
+              "Довольно дорогие. Золото сейчас в моде, и у магазина дела идут очень хорошо.",
+          },
           explain:
             "Наречия меры стоят перед прилагательным каждый раз: really good, " +
             "quite expensive, very successful. Меняется слово, а место не меняется.",
@@ -545,6 +558,15 @@ const module: Module = {
           ],
           text:
             "Did you buy the jacket?\nNo, it was too small.\nAnd the suit?\nToo expensive. The guy in the shop is very serious, but he helped me. I bought a tie.\nDoes the tie fit?\nYes.",
+          perevod: {
+            "Did you buy the jacket?": "Вы купили пиджак?",
+            "No, it was too small.": "Нет, он был слишком мал.",
+            "And the suit?": "А костюм?",
+            "Too expensive. The guy in the shop is very serious, but he helped me. I bought a tie.":
+              "Слишком дорогой. Парень в магазине очень серьёзный, но он мне помог. Я купил галстук.",
+            "Does the tie fit?": "Галстук подходит?",
+            "Yes.": "Да.",
+          },
           explain:
             "Каждое too здесь стоит перед прилагательным. Первое объясняет, почему " +
             "куртку не купили, второе — почему остался в магазине костюм.",
@@ -717,6 +739,14 @@ const module: Module = {
           ],
           text:
             "We bought new furniture. The round table is too big for the kitchen.\nAnd the wooden shelf?\nToo heavy for me.\nIs the cupboard deep?\nYes, but inside it is empty.",
+          perevod: {
+            "We bought new furniture. The round table is too big for the kitchen.":
+              "Мы купили новую мебель. Круглый стол слишком велик для кухни.",
+            "And the wooden shelf?": "А деревянная полка?",
+            "Too heavy for me.": "Слишком тяжёлая для меня.",
+            "Is the cupboard deep?": "Шкаф глубокий?",
+            "Yes, but inside it is empty.": "Да, но внутри пусто.",
+          },
           explain:
             "Первое for называет место, второе — человека. Оба стоят в конце " +
             "строки, сразу после прилагательного.",
@@ -872,6 +902,14 @@ const module: Module = {
           ],
           text:
             "How was the sale?\nThere were too many people. I saw Dana among them.\nWhat sort of toy did you want?\nA red car. There were so many toys, and I did not choose. It was impossible!",
+          perevod: {
+            "How was the sale?": "Как прошла распродажа?",
+            "There were too many people. I saw Dana among them.":
+              "Народу было слишком много. Я заметил среди них Дану.",
+            "What sort of toy did you want?": "Какую игрушку вы хотели?",
+            "A red car. There were so many toys, and I did not choose. It was impossible!":
+              "Красную машинку. Игрушек было так много, что я так и не выбрал. Это было невозможно!",
+          },
           explain:
             "Too many стоит там, где число мешало, а so many — там, где просто " +
             "было много. Вещь после обоих оборотов во множественном числе.",
@@ -1030,9 +1068,60 @@ const module: Module = {
           ],
           text:
             "How was the film?\nI liked it a lot. The end is really strange.\nWas it scary?\nYes, I almost left.\nThanks so much for the ticket.",
+          perevod: {
+            "How was the film?": "Как фильм?",
+            "I liked it a lot. The end is really strange.":
+              "Мне очень понравилось. Конец совсем странный.",
+            "Was it scary?": "Страшно было?",
+            "Yes, I almost left.": "Да, я чуть не ушёл.",
+            "Thanks so much for the ticket.": "Большое спасибо за билет.",
+          },
           explain:
             "Обороты a lot и so much стоят после действия, а really — перед " +
             "прилагательным strange. Место зависит от слова, а не от настроения.",
+        },
+        {
+          // Свод связки «Сравнение и мера» — модули 14–16. Их путают, и модуль 17
+          // это уже находил у себя. Три строки об одной квартире разводят три
+          // разных вопроса: какая из двух, какая из многих, насколько.
+          id: "sravnenie-vydelenie-mera-svod",
+          kind: "table",
+          caption: "Три разных вопроса об одной квартире",
+          zvuchat: [
+            "My flat is smaller than yours.",
+            "This is the smallest flat.",
+            "My flat is very small.",
+            "My flat is too small.",
+          ],
+          head: ["По-английски", "По-русски", "О чём вопрос"],
+          rows: [
+            [
+              "My flat is smaller than yours.",
+              "Моя квартира меньше твоей.",
+              "какая из двух",
+            ],
+            [
+              "This is the smallest flat.",
+              "Это самая маленькая квартира.",
+              "какая из многих",
+            ],
+            ["My flat is very small.", "Моя квартира очень маленькая.", "насколько"],
+            [
+              "My flat is too small.",
+              "Моя квартира слишком маленькая.",
+              "насколько, и это мешает",
+            ],
+          ],
+        },
+        {
+          id: "chem-razlichat-tri-voprosa",
+          kind: "explain",
+          text: [
+            "Три первых модуля этой части отвечали на разные вопросы, и путать их не надо.",
+            "Модуль «Больше и меньше» сравнивает две вещи, «Самый» выделяет одну из многих.",
+            "Этот модуль не сравнивает вовсе: вещь одна, и сказано только, насколько она такая.",
+            "Различить их проще всего по переводу: «меньше», «самая маленькая», «очень маленькая».",
+          ],
         },
         {
           id: "slovar-vpechatleniy",
@@ -1421,6 +1510,16 @@ const module: Module = {
           id: "obrazets-pisma",
           kind: "example",
           caption: "Письмо Данияра",
+          perevod: {
+            "I was at the phone shop on Friday.":
+              "В пятницу я был в магазине телефонов.",
+            "There were too many people, so I did not stay.":
+              "Народу было слишком много, и я не стал задерживаться.",
+            "The first phone was too expensive for me, and I was unhappy.":
+              "Первый телефон был для меня слишком дорогой, и я расстроился.",
+            "The second phone is quite small. I like the screen a lot.":
+              "Второй телефон довольно маленький. Экран мне очень нравится.",
+          },
           zvuchat: [
             "I was at the phone shop on Friday.",
             "There were too many people, so I did not stay.",
