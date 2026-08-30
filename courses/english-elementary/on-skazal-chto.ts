@@ -247,8 +247,11 @@ const module: Module = {
           kind: "explain",
           text: [
             "Данияр звонил Алиму, и Айгуль спрашивает, что тот ответил.",
-            "Алим сказал I am busy, а Данияр передаёт: He said that he is busy.",
-            "Строка распадается на две половины: ввод и пересказанные слова.",
+            "Алим сказал I am busy, а Данияр передаёт эти слова дальше.",
+            "He said that he is busy. — Он сказал, что занят.",
+            "Устройство знакомо по двум прошлым модулям: главная половина и приставленная к ней вторая.",
+            "Связывает их слово that — русское «что».",
+            "И по-русски запятая перед «что» обязательна, а по-английски запятой там нет.",
           ],
         },
         {
@@ -301,6 +304,13 @@ const module: Module = {
           ],
           text:
             "What did Alim say?\nHe said that he is busy and will possibly come on Sunday.\nAnd the advert? He said that they have a new one on the wifi page.",
+          perevod: {
+            "What did Alim say?": "Что сказал Алим?",
+            "He said that he is busy and will possibly come on Sunday.":
+              "Он сказал, что занят и, возможно, придёт в воскресенье.",
+            "And the advert? He said that they have a new one on the wifi page.":
+              "А объявление? Он сказал, что у них новое на странице с вайфаем.",
+          },
           explain:
             "В первом пересказе Алим говорил о себе словом I, а Данияр " +
             "пересказывает словом he. Во втором Алим говорил we, и Данияр " +
@@ -463,6 +473,15 @@ const module: Module = {
           ],
           text:
             "The shop is closed. The guest-house told me that they have no bread anymore.\nWhat a shame! And the market?\nAigul told us that the market is awesome, but it is further from here.\nAnd Dana told me that my hoodie is in her car.",
+          perevod: {
+            "The shop is closed. The guest-house told me that they have no bread anymore.":
+              "Магазин закрыт. В гостевом доме мне сказали, что хлеба у них больше нет.",
+            "What a shame! And the market?": "Какая досада! А рынок?",
+            "Aigul told us that the market is awesome, but it is further from here.":
+              "Айгуль сказала нам, что рынок замечательный, только он дальше отсюда.",
+            "And Dana told me that my hoodie is in her car.":
+              "А Дана сказала мне, что моя толстовка у неё в машине.",
+          },
           explain:
             "Во всех трёх вводах с told сразу за глаголом стоит тот, кому " +
             "сказали: me, us и снова me. Время в пересказанных словах то же, " +
@@ -619,6 +638,15 @@ const module: Module = {
           ],
           text:
             "The market is awesome, isn't it?\nYes, it is. But it is further from here.\nYou know the way, don't you?\nYes, I do. The bus stops at the market, doesn't it?",
+          perevod: {
+            "The market is awesome, isn't it?":
+              "Рынок замечательный, правда?",
+            "Yes, it is. But it is further from here.":
+              "Да. Только он дальше отсюда.",
+            "You know the way, don't you?": "Ты ведь знаешь дорогу?",
+            "Yes, I do. The bus stops at the market, doesn't it?":
+              "Знаю. Автобус ведь останавливается у рынка?",
+          },
           explain:
             "В первом переспросе строка держится на is, и хвостик берёт isn't " +
             "it. Во втором стоят you и обычный глагол know — хвостик don't " +
@@ -978,6 +1006,16 @@ const module: Module = {
           id: "obrazec-pereskaza",
           kind: "example",
           caption: "Письмо Данияра",
+          perevod: {
+            "Hi! Three people called me today.":
+              "Привет! Сегодня мне звонили трое.",
+            "My brother told me that he has my hoodie.":
+              "Брат сказал мне, что моя толстовка у него.",
+            "Dana said that she is mad about the new film.":
+              "Дана сказала, что без ума от нового фильма.",
+            "The shop told us that the wifi is free for shoppers.":
+              "В магазине нам сказали, что вайфай для покупателей бесплатный.",
+          },
           zvuchat: [
             "Hi! Three people called me today.",
             "My brother told me that he has my hoodie.",
@@ -1126,6 +1164,23 @@ const module: Module = {
           ],
           text:
             "My sister said that she is busy.\nMy brother told me that the film is good.\nPeople here say that the market is cheap.\nThe business person told us that the office is closed.\nShe said that they are going to get married in May.\nHe told me that his children grow up fast.\nMy brother said that he has lived here since May.\nThe class is for children aged ten.",
+          perevod: {
+            "My sister said that she is busy.": "Сестра сказала, что занята.",
+            "My brother told me that the film is good.":
+              "Брат сказал мне, что фильм хороший.",
+            "People here say that the market is cheap.":
+              "Здесь говорят, что рынок дешёвый.",
+            "The business person told us that the office is closed.":
+              "Деловой человек сказал нам, что контора закрыта.",
+            "She said that they are going to get married in May.":
+              "Она сказала, что в мае они собираются пожениться.",
+            "He told me that his children grow up fast.":
+              "Он сказал мне, что его дети быстро растут.",
+            "My brother said that he has lived here since May.":
+              "Брат сказал, что живёт здесь с мая.",
+            "The class is for children aged ten.":
+              "Занятие для детей десяти лет.",
+          },
           explain:
             "Семь первых строк — пересказ, и в каждой назван говорящий. Последняя " +
             "строка чужих слов не передаёт: она просто о возрасте.",
@@ -1166,6 +1221,20 @@ const module: Module = {
           ],
           text:
             "She told me that the examination is on Friday.\nMathematics is his best subject.\nHe said that maths is easy for him.\nThe web page said that the club is closed.\nThe teacher told us to show our work.\nHe said that the mistake is small.",
+          perevod: {
+            "She told me that the examination is on Friday.":
+              "Она сказала мне, что экзамен в пятницу.",
+            "Mathematics is his best subject.":
+              "Математика — его лучший предмет.",
+            "He said that maths is easy for him.":
+              "Он сказал, что математика даётся ему легко.",
+            "The web page said that the club is closed.":
+              "На странице сайта было сказано, что клуб закрыт.",
+            "The teacher told us to show our work.":
+              "Учитель велел нам показать свою работу.",
+            "He said that the mistake is small.":
+              "Он сказал, что ошибка небольшая.",
+          },
           explain:
             "Четвёртая строка показывает, что сказать может не только человек: " +
             "страница в интернете тоже «said».",
@@ -1199,6 +1268,24 @@ const module: Module = {
           ],
           text:
             "She said that her feelings are the same.\nHe told me that they love this city.\nI hope that the rain stops soon.\nShe said that a kiss on the card is normal here.\nPoor thing, he told us that he lost the key.\nPlease tell me that the door is open.\nShe said that she would prefer Sunday.\nShall I tell him that the bag is here?",
+          perevod: {
+            "She said that her feelings are the same.":
+              "Она сказала, что чувства у неё прежние.",
+            "He told me that they love this city.":
+              "Он сказал мне, что они любят этот город.",
+            "I hope that the rain stops soon.":
+              "Надеюсь, дождь скоро кончится.",
+            "She said that a kiss on the card is normal here.":
+              "Она сказала, что поцелуй на открытке здесь дело обычное.",
+            "Poor thing, he told us that he lost the key.":
+              "Бедняга, он сказал нам, что потерял ключ.",
+            "Please tell me that the door is open.":
+              "Скажи мне, пожалуйста, что дверь открыта.",
+            "She said that she would prefer Sunday.":
+              "Она сказала, что предпочла бы воскресенье.",
+            "Shall I tell him that the bag is here?":
+              "Давай я скажу ему, что сумка здесь?",
+          },
           explain:
             "Восемь строк о чувствах и вежливости. Оборот Shall I…? предлагает " +
             "помощь, а would prefer называет то, что человеку удобнее.",
