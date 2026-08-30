@@ -228,9 +228,12 @@ const module: Module = {
           id: "zachem-osobye",
           kind: "explain",
           text: [
-            "Вчера я работал — это worked: к глаголу прибавилось окончание -ed.",
-            "Но у части глаголов окончания нет вовсе. Для прошлого у них другое слово: go — went.",
+            "Предмет здесь тот же, что в прошлом модуле: как выглядит глагол, когда речь о прошлом.",
+            "Там к нему прибавлялось окончание: work — worked.",
+            "Но у части глаголов окончания нет вовсе, и для прошлого у них другое слово.",
+            "I went to Astana. — Я ездил в Астану.",
             "Такие глаголы называются неправильными.",
+            "В русском они тоже есть, и их тоже приходится помнить: «идти — шёл», «есть — ел».",
             "Правильный глагол берёт -ed, неправильный — свою форму, и её не вывести по правилу.",
             "Неправильных глаголов немного, зато они нужны чаще других: go, come, see, have.",
           ],
@@ -275,6 +278,12 @@ const module: Module = {
           ],
           text:
             "Last week I went to Astana.\nMy colleague came with me.\nThe train was fast.\nThe passengers were tired.",
+          perevod: {
+            "Last week I went to Astana.": "На прошлой неделе я ездил в Астану.",
+            "My colleague came with me.": "Мой коллега поехал со мной.",
+            "The train was fast.": "Поезд был быстрый.",
+            "The passengers were tired.": "Пассажиры были усталые.",
+          },
           explain:
             "В первых двух строках неправильные глаголы, в двух последних — was и were " +
             "из первого модуля. Рассказ о поездке так и устроен: дела неправильными " +
@@ -421,6 +430,11 @@ const module: Module = {
             "The guests were friendly.",
           ],
           text: "I saw a big crowd.\nThen I met my guide.\nThe guests were friendly.",
+          perevod: {
+            "I saw a big crowd.": "Я увидел большую толпу.",
+            "Then I met my guide.": "Потом я встретил своего экскурсовода.",
+            "The guests were friendly.": "Гости были приветливые.",
+          },
           explain:
             "Первая строка о том, что попало на глаза, вторая — о встрече, третья " +
             "описывает людей через were. Порядок обычный: кто, дело, остальное.",
@@ -569,6 +583,11 @@ const module: Module = {
           ],
           text:
             "I had a headache in the morning.\nThen I got an invitation.\nI took a gift and went to the party.",
+          perevod: {
+            "I had a headache in the morning.": "Утром у меня болела голова.",
+            "Then I got an invitation.": "Потом я получил приглашение.",
+            "I took a gift and went to the party.": "Я взял подарок и пошёл на праздник.",
+          },
           explain:
             "Три строки об одном дне: сначала состояние, потом полученное, потом дело. " +
             "В последней строке два дела сразу, и оба глагола неправильные: took и went.",
@@ -713,6 +732,11 @@ const module: Module = {
           ],
           text:
             "I ate fish with sauce.\nThen I bought a poster at the sale.\nIn the evening I wrote in my diary.",
+          perevod: {
+            "I ate fish with sauce.": "Я съел рыбу с соусом.",
+            "Then I bought a poster at the sale.": "Потом я купил плакат на распродаже.",
+            "In the evening I wrote in my diary.": "Вечером я написал в дневнике.",
+          },
           explain:
             "Три дела одного дня, и все три глагола неправильные. Слово порядка Then и " +
             "оборот времени In the evening стоят в начале своих строк — как и раньше.",
@@ -873,6 +897,12 @@ const module: Module = {
           ],
           text:
             "Last week I went to the coast.\nFirst I saw a big ship.\nThen I ate fish and watched the sea.\nThe view was beautiful.",
+          perevod: {
+            "Last week I went to the coast.": "На прошлой неделе я ездил на побережье.",
+            "First I saw a big ship.": "Сначала я увидел большой корабль.",
+            "Then I ate fish and watched the sea.": "Потом я поел рыбы и смотрел на море.",
+            "The view was beautiful.": "Вид был красивый.",
+          },
           explain:
             "Четыре строки: первая называет время и место, две следующие — дела по " +
             "порядку, последняя описывает увиденное через was.\n\nВ третьей строке " +
@@ -1200,6 +1230,12 @@ const module: Module = {
           ],
           text:
             "Last week I went to the lake.\nFirst I saw a big ship.\nThen I ate fish.\nThe lake was quiet.",
+          perevod: {
+            "Last week I went to the lake.": "На прошлой неделе я ездил на озеро.",
+            "First I saw a big ship.": "Сначала я увидел большой корабль.",
+            "Then I ate fish.": "Потом я поел рыбы.",
+            "The lake was quiet.": "На озере было тихо.",
+          },
           explain:
             "Первая строка называет время и место, две следующие — дела по порядку, " +
             "последняя описывает озеро через was. Неправильных глаголов в образце " +
