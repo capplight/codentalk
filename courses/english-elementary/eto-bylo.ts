@@ -314,11 +314,14 @@ const module: Module = {
           kind: "explain",
           text: [
             "Разговор о вчерашнем дне быстро доходит до простого: где человек был.",
-            "«Я был дома», «Мы были на работе», «Она была в школе».",
-            "В английском для этого две формы — was и were. Какая с кем — ниже.",
+            "I was at home. — Я был дома.",
+            "Слово was здесь отвечает русскому «был».",
+            "А теперь скажи то же о сегодняшнем дне: по-русски выйдет просто «я дома».",
+            "Никакого «есть» мы не добавляем, и слова там нет вовсе.",
+            "По-английски оно есть всегда: I am at home.",
+            "Это первое, на чём спотыкаются, и потому таблица ниже показывает оба " +
+              "времени рядом.",
             "Время, в котором стоят was и were, называется Past Simple.",
-            "В таблице они стоят рядом с теми формами, которыми о том же говорят " +
-              "сейчас: I was — I am.",
           ],
         },
         {
@@ -344,6 +347,10 @@ const module: Module = {
           id: "pravilo-vybora",
           kind: "explain",
           text: [
+            "Правый столбец — то же самое о сегодняшнем дне, и в переводе он почти пустой.",
+            "I am at home по-русски будет «я дома»: между «я» и «дома» нет ничего.",
+            "Потому это слово и забывают чаще всего — в родном языке его там просто нет.",
+            "А в левом столбце оно есть и по-русски: «я был дома».",
             "Was — когда речь об одном: I was, he was, she was, it was.",
             "Were — когда о нескольких: we were, they were. И с you тоже were: это " +
               "слово берёт were всегда, даже когда обращаются к одному человеку.",
@@ -433,6 +440,12 @@ const module: Module = {
           caption: "Вчерашний вечер",
           zvuchat: ["I was at home.", "My sister was at school.", "My parents were at the station.", "We were at the zoo."],
           text: "I was at home.\nMy sister was at school.\nMy parents were at the station.\nWe were at the zoo.",
+          perevod: {
+            "I was at home.": "Я был дома.",
+            "My sister was at school.": "Моя сестра была в школе.",
+            "My parents were at the station.": "Мои родители были на вокзале.",
+            "We were at the zoo.": "Мы были в зоопарке.",
+          },
           explain:
             "В первых двух строках речь об одном человеке — стоит was. В третьей " +
             "людей двое, и форма меняется на were.\n\nВ четвёртой стоит we — это " +
@@ -535,9 +548,12 @@ const module: Module = {
           kind: "explain",
           text: [
             "Назвать место — половина рассказа. Вторая половина — каким это было.",
-            "«Фильм был хороший», «Погода была холодная», «Еда была вкусная».",
+            "The film was great. — Фильм был отличный.",
             "Формы те же самые, was и were, а после них встаёт слово, отвечающее на " +
-              "вопрос «какой»: good, cold, delicious. Такие слова зовут прилагательными.",
+              "вопрос «какой». Такие слова зовут прилагательными: good, cold, delicious.",
+            "И тут русский с английским расходятся.",
+            "По-русски прилагательное меняется: «хороший фильм», «хорошая погода», «хорошие уроки».",
+            "По-английски good остаётся good во всех трёх случаях.",
           ],
         },
         {
@@ -562,8 +578,8 @@ const module: Module = {
           kind: "note",
           tone: "info",
           text:
-            "Английское прилагательное не меняется ни по роду, ни по числу.\n\nThe " +
-            "film was great и the films were great — слово great одно и то же.",
+            "The film was great и the films were great — слово great одно и то " +
+            "же.\n\nМеняется только форма перед ним: was или were.",
         },
         {
           id: "it-o-pogode",
@@ -590,6 +606,13 @@ const module: Module = {
           caption: "Два дня на море",
           zvuchat: ["The hotel was cheap.", "The beach was quiet.", "The days were hot.", "The mornings were sunny.", "The bread was fresh."],
           text: "The hotel was cheap.\nThe beach was quiet.\nThe days were hot.\nThe mornings were sunny.\nThe bread was fresh.",
+          perevod: {
+            "The hotel was cheap.": "Отель был дешёвый.",
+            "The beach was quiet.": "Пляж был тихий.",
+            "The days were hot.": "Дни были жаркие.",
+            "The mornings were sunny.": "Утра были солнечные.",
+            "The bread was fresh.": "Хлеб был свежий.",
+          },
           explain:
             "Пять отдельных строк — так и выглядит короткий рассказ о поездке: не " +
             "длинный текст, а несколько простых предложений подряд.",
@@ -694,7 +717,10 @@ const module: Module = {
           text: [
             "Ответ о вчерашнем дне часто отрицательный: «меня там не было», «я не был " +
               "занят», «погода была не холодная».",
-            "Отрицание строится одинаково для обеих форм: после was или were встаёт not.",
+            "I wasn't at work. — Я не был на работе.",
+            "По-русски «не» стоит перед словом «был».",
+            "По-английски not встаёт после was или were, а не перед ними.",
+            "Место у него одно и то же при обеих формах.",
           ],
         },
         {
@@ -757,6 +783,13 @@ const module: Module = {
           caption: "Ответ на вопрос о вчера",
           zvuchat: ["I wasn't at the party.", "I was at home.", "I wasn't free.", "I wasn't ill.", "I wasn't nervous."],
           text: "I wasn't at the party.\nI was at home.\nI wasn't free.\nI wasn't ill.\nI wasn't nervous.",
+          perevod: {
+            "I wasn't at the party.": "Меня не было на празднике.",
+            "I was at home.": "Я был дома.",
+            "I wasn't free.": "У меня не было свободного времени.",
+            "I wasn't ill.": "Я не болел.",
+            "I wasn't nervous.": "Я не волновался.",
+          },
           explain:
             "В четырёх строках сказано, чего не было, и в одной — что было. " +
             "Отрицание и утверждение так и стоят вместе в обычном ответе.",
@@ -857,7 +890,9 @@ const module: Module = {
           kind: "explain",
           text: [
             "О чужом вчерашнем дне спрашивают не реже, чем рассказывают о своём.",
-            "Вопрос делается перестановкой: форма глагола выходит вперёд, а тот, о " +
+            "Was he at home? — Он был дома?",
+            "По-русски слова остались на своих местах, и вопрос слышен только по голосу.",
+            "По-английски так не выходит: форма глагола выходит вперёд, а тот, о " +
               "ком речь, встаёт за ней.",
             "Was he at home? Were you at the party?",
           ],
@@ -899,8 +934,9 @@ const module: Module = {
           id: "korotkiy-otvet",
           kind: "explain",
           text: [
-            "На такой вопрос отвечают двумя-тремя словами: Yes, I was. No, I wasn't. " +
-              "Это и называют коротким ответом.",
+            "По-русски на такой вопрос хватает одного слова: «да» или «нет».",
+            "По-английски за yes или no повторяют форму из вопроса: Yes, I was. No, I wasn't.",
+            "Это и называют коротким ответом.",
             "В нём берут ту же форму, что стояла в вопросе, но ставят её обратно.",
             "Was he at home? — Yes, he was: в вопросе форма впереди, в ответе — после " +
               "того, о ком речь.",
@@ -925,6 +961,12 @@ const module: Module = {
           // должны звучать разговором, а не одним длинным предложением.
           razgovor: true,
           text: "— Were you at the party?\n— No, I wasn't. I was at home.\n— Was it good?\n— Yes, it was.",
+          perevod: {
+            "— Were you at the party?": "— Вы были на празднике?",
+            "— No, I wasn't. I was at home.": "— Нет. Я был дома.",
+            "— Was it good?": "— Хорошо было?",
+            "— Yes, it was.": "— Да.",
+          },
           explain:
             "Спрашивают перестановкой, отвечают короткой формой. Второй вопрос — о " +
             "самом празднике, и в нём стоит it.",
@@ -1024,8 +1066,9 @@ const module: Module = {
           text: [
             "Ответ «да» или «нет» разговор не поддержит. Дальше спрашивают где, как, " +
               "кто и почему.",
-            "Такой вопрос собирается из трёх частей: вопросительное слово, потом " +
-              "форма глагола, потом тот, о ком речь.",
+            "Where were you? — Где вы были?",
+            "Вопросительное слово стоит первым и по-русски, и по-английски — тут языки совпадают.",
+            "А дальше расходятся: по-английски за ним сразу идёт форма глагола, и только потом тот, о ком речь.",
             "Where were you? How was the film?",
           ],
         },
@@ -1069,6 +1112,12 @@ const module: Module = {
           caption: "Расспрос о выходном",
           zvuchat: ["Where were you on Sunday?", "How was the weather?", "Who was with you?", "Where was the lake?"],
           text: "Where were you on Sunday?\nHow was the weather?\nWho was with you?\nWhere was the lake?",
+          perevod: {
+            "Where were you on Sunday?": "Где вы были в воскресенье?",
+            "How was the weather?": "Какая была погода?",
+            "Who was with you?": "Кто был с вами?",
+            "Where was the lake?": "Где было озеро?",
+          },
           explain:
             "Четыре вопроса подряд об одном дне: первый о месте, второй о погоде, " +
             "третий о людях, четвёртый снова о месте. Так и выглядит разговор о " +
@@ -1174,6 +1223,9 @@ const module: Module = {
           text: [
             "Форма глагола говорит, что дело в прошлом. Но собеседнику важно и другое: " +
               "когда именно.",
+            "I was at home yesterday. — Я был дома вчера.",
+            "Русское «вчера» и английское yesterday — одно слово и там и там.",
+            "А вот «на прошлой неделе» по-английски короче: last week, без предлога и без артикля.",
             "Для этого есть готовые слова и сочетания, и их немного: yesterday, last week, " +
               "two days ago, in 2019. Дальше зовём их оборотами времени.",
           ],
@@ -1232,6 +1284,12 @@ const module: Module = {
           caption: "Одна неделя",
           zvuchat: ["Yesterday I was at work.", "Last week I was on holiday.", "A month ago I was in a village.", "Two days ago I was at the castle."],
           text: "Yesterday I was at work.\nLast week I was on holiday.\nA month ago I was in a village.\nTwo days ago I was at the castle.",
+          perevod: {
+            "Yesterday I was at work.": "Вчера я был на работе.",
+            "Last week I was on holiday.": "На прошлой неделе я был в отпуске.",
+            "A month ago I was in a village.": "Месяц назад я был в деревне.",
+            "Two days ago I was at the castle.": "Два дня назад я был у крепости.",
+          },
           explain:
             "Во всех четырёх строках оборот времени стоит в начале. Так удобнее, " +
             "когда рассказываешь по порядку: сначала когда, потом что.",
