@@ -258,7 +258,9 @@ const module: Module = {
             "Брат Даны играет на гитаре, и Дана хочет рассказать об этом другу.",
             "Сказать He plays мало: слушатель не знает, хорошо он играет или плохо.",
             "То, как идёт действие, называют образом действия.",
-            "По-английски его называют отдельным словом после действия: He plays badly.",
+            "He plays badly. — Он играет плохо.",
+            "По-русски такое слово делают из прилагательного: «плохой» даёт «плохо», «быстрый» — «быстро».",
+            "По-английски делают ровно то же, только окончание другое: bad даёт badly, quick — quickly.",
           ],
         },
         {
@@ -313,6 +315,14 @@ const module: Module = {
           ],
           text:
             "Does your brother play well?\nNo, he plays badly. But he sings loudly!\nAnd your sister?\nShe sings quietly, and she speaks very clearly.",
+          perevod: {
+            "Does your brother play well?": "Ваш брат хорошо играет?",
+            "No, he plays badly. But he sings loudly!":
+              "Нет, играет он плохо. Зато поёт громко!",
+            "And your sister?": "А ваша сестра?",
+            "She sings quietly, and she speaks very clearly.":
+              "Она поёт тихо, а говорит очень внятно.",
+          },
           explain:
             "Каждое наречие здесь стоит после действия и отвечает на вопрос «как». " +
             "Слово very перед наречием работает так же, как перед прилагательным.",
@@ -471,6 +481,14 @@ const module: Module = {
           ],
           text:
             "Can you throw the ball?\nYes, I throw it easily.\nAnd can you jump?\nI jump happily, but I hit the ball badly.\nThen hit it carefully.",
+          perevod: {
+            "Can you throw the ball?": "Вы умеете бросать мяч?",
+            "Yes, I throw it easily.": "Да, бросаю легко.",
+            "And can you jump?": "А прыгать умеете?",
+            "I jump happily, but I hit the ball badly.":
+              "Прыгаю с удовольствием, а вот бью по мячу плохо.",
+            "Then hit it carefully.": "Тогда бейте аккуратно.",
+          },
           explain:
             "Наречия здесь собраны по-разному: у easily буква y сменилась на i, у " +
             "carefully сошлись две l, а badly не поменяло ничего.",
@@ -629,6 +647,16 @@ const module: Module = {
           ],
           text:
             "Is your friend a good runner?\nYes, he runs well and he works hard.\nDoes he ski?\nHe skis fast, but running is his sport.\nDoes he play hockey too?\nBadly!",
+          perevod: {
+            "Is your friend a good runner?": "Ваш друг хороший бегун?",
+            "Yes, he runs well and he works hard.":
+              "Да, бегает он хорошо и тренируется усердно.",
+            "Does he ski?": "Он катается на лыжах?",
+            "He skis fast, but running is his sport.":
+              "На лыжах он ходит быстро, но его вид спорта — бег.",
+            "Does he play hockey too?": "А в хоккей он тоже играет?",
+            "Badly!": "Плохо!",
+          },
           explain:
             "Слово good стоит при человеке, а well при действии. Слова fast и hard " +
             "не поменялись, и место в строке говорит, чем они здесь работают.",
@@ -786,6 +814,15 @@ const module: Module = {
           ],
           text:
             "Do you like jazz?\nI like rock.\nDoes your friend play an instrument?\nHe plays classical music badly, but he sings rock loudly.\nAnd his singing?",
+          perevod: {
+            "Do you like jazz?": "Вам нравится джаз?",
+            "I like rock.": "Мне нравится рок.",
+            "Does your friend play an instrument?":
+              "Ваш друг играет на каком-нибудь инструменте?",
+            "He plays classical music badly, but he sings rock loudly.":
+              "Классику он играет плохо, зато рок поёт громко.",
+            "And his singing?": "А как он поёт?",
+          },
           explain:
             "Наречие каждый раз стоит последним: после instrument, после music, " +
             "после rock. Вещь всегда идёт раньше него.",
@@ -940,6 +977,15 @@ const module: Module = {
           ],
           text:
             "Is he a good singer?\nHe sings well, but he acts badly.\nAnd the musical family next door?\nThe son is a quiet journalist, and he speaks very quietly. His fan club is small.",
+          perevod: {
+            "Is he a good singer?": "Он хороший певец?",
+            "He sings well, but he acts badly.":
+              "Поёт он хорошо, а играет плохо.",
+            "And the musical family next door?":
+              "А музыкальная семья по соседству?",
+            "The son is a quiet journalist, and he speaks very quietly. His fan club is small.":
+              "Сын — тихий журналист, и говорит он очень тихо. Клуб поклонников у него небольшой.",
+          },
           explain:
             "Слова good, quiet и musical стоят при людях и вещах, а well, badly и " +
             "quietly — при действиях. Один и тот же смысл, две разные формы.",
@@ -1333,6 +1379,15 @@ const module: Module = {
           id: "obrazets-zametki-o-kruzhke",
           kind: "example",
           caption: "Заметка Данияра",
+          perevod: {
+            "Our drawing club meets on Friday.":
+              "Наш кружок рисования собирается в пятницу.",
+            "We draw slowly and carefully, and we talk quietly.":
+              "Мы рисуем медленно и аккуратно, а разговариваем тихо.",
+            "The teacher speaks quietly and shows everything clearly.":
+              "Преподаватель говорит тихо и всё показывает понятно.",
+            "New people learn fast here.": "Новички здесь учатся быстро.",
+          },
           zvuchat: [
             "Our drawing club meets on Friday.",
             "We draw slowly and carefully, and we talk quietly.",
