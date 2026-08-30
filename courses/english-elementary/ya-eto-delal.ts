@@ -212,7 +212,10 @@ const module: Module = {
             "Айгуль спрашивает Данияра, видел ли он когда-нибудь дельфина.",
             "Ей неважно, когда это было: вчера, три года назад или в детстве.",
             "Важно одно — было это в его жизни или не было.",
-            "Данияр отвечает I have seen a dolphin, не называя дня.",
+            "I have seen a dolphin. — Я видел дельфина.",
+            "А в модуле «Вчера я работал» так же переводилась строка I saw a dolphin.",
+            "По-русски обе — «я видел дельфина», и различить их переводом нельзя.",
+            "Различает их другое, и об этом весь модуль.",
           ],
         },
         {
@@ -235,11 +238,13 @@ const module: Module = {
           id: "iz-chego-sostoit",
           kind: "explain",
           text: [
-            "Слева стоит день: last summer, in May — и это уже знакомое время.",
+            "Слева стоит день: last summer, in May. Это Past Simple — время из модулей о прошлом.",
             "Справа дня нет вовсе, и вместо него появилось слово have.",
             "После have идёт особая форма глагола: seen, visited.",
-            "Это время называется Present Perfect.",
-            "Оно говорит не о дне, а о том, случалось ли это в жизни.",
+            "Перевод у левой и правой строки одинаковый, значит выбирают не по нему.",
+            "Смотрят на одно: названо ли, когда это было.",
+            "Названо — берут Past Simple. Не названо и неважно — берут другое время.",
+            "Оно называется Present Perfect и говорит не о дне, а о том, случалось ли это в жизни.",
           ],
         },
         {
@@ -293,6 +298,12 @@ const module: Module = {
           ],
           text:
             "I have seen a dolphin!\nWow! Where?\nWe have visited a big island, and the dolphins were near the boat.",
+          perevod: {
+            "I have seen a dolphin!": "Я видел дельфина!",
+            "Wow! Where?": "Ого! Где?",
+            "We have visited a big island, and the dolphins were near the boat.":
+              "Мы были на большом острове, и дельфины плавали у лодки.",
+          },
           explain:
             "Первая строка говорит об опыте: дня в ней нет, и потому have seen. " +
             "В третьей строке рядом стоят оба времени: have visited — об опыте, " +
@@ -504,6 +515,14 @@ const module: Module = {
           ],
           text:
             "I have tried this curry.\nAnd I have eaten a grilled steak here.\nWith garlic?\nWith garlic and chilli. It was very hot!",
+          perevod: {
+            "I have tried this curry.": "Я пробовал это карри.",
+            "And I have eaten a grilled steak here.":
+              "А я ел здесь стейк на гриле.",
+            "With garlic?": "С чесноком?",
+            "With garlic and chilli. It was very hot!":
+              "С чесноком и перцем чили. Было очень остро!",
+          },
           explain:
             "Глагол try берёт -ed, как большинство: tried. А eat берёт свою " +
             "форму: eaten. В последней строке стоит was — там речь уже о том " +
@@ -658,6 +677,15 @@ const module: Module = {
           ],
           text:
             "Look, a kangaroo!\nI have never seen a kangaroo before!\nAnd a crocodile? There is one near the water.\nI have never seen a crocodile before. This is a good day!",
+          perevod: {
+            "Look, a kangaroo!": "Смотри, кенгуру!",
+            "I have never seen a kangaroo before!":
+              "Я никогда раньше не видел кенгуру!",
+            "And a crocodile? There is one near the water.":
+              "А крокодила? Вон он у воды.",
+            "I have never seen a crocodile before. This is a good day!":
+              "Крокодила я тоже никогда раньше не видел. Хороший день!",
+          },
           explain:
             "В обеих строках never стоит между have и третьей формой. Слово not " +
             "рядом не появляется ни разу: одного отрицания довольно. А before в " +
@@ -826,6 +854,15 @@ const module: Module = {
           ],
           text:
             "Have you ever tried surfing?\nNo, I haven't. And you?\nYes, I have. I have tried diving too.\nHave you ever played rugby or cricket?",
+          perevod: {
+            "Have you ever tried surfing?":
+              "Вы когда-нибудь пробовали сёрфинг?",
+            "No, I haven't. And you?": "Нет. А вы?",
+            "Yes, I have. I have tried diving too.":
+              "Да. И дайвинг я тоже пробовал.",
+            "Have you ever played rugby or cricket?":
+              "А в регби или крикет вы когда-нибудь играли?",
+          },
           explain:
             "В обоих вопросах have стоит первым, а ever — сразу за you. Короткий " +
             "ответ повторяет только have: Yes, I have. No, I haven't.",
@@ -971,6 +1008,15 @@ const module: Module = {
           ],
           text:
             "Have you ever been to the mountains?\nYes, I have. And I have been to a farm with horses and goats.\nA farm? Were there donkeys?\nTwo donkeys and a swan. The swan was very loud!",
+          perevod: {
+            "Have you ever been to the mountains?":
+              "Вы когда-нибудь бывали в горах?",
+            "Yes, I have. And I have been to a farm with horses and goats.":
+              "Да. И на ферме с лошадьми и козами я тоже бывал.",
+            "A farm? Were there donkeys?": "На ферме? Ослы там были?",
+            "Two donkeys and a swan. The swan was very loud!":
+              "Два осла и лебедь. Лебедь был очень громкий!",
+          },
           explain:
             "В первых двух строках речь об опыте, и потому have been to. В " +
             "третьей и четвёртой разговор перешёл на тот самый день, и там уже " +
@@ -1369,6 +1415,16 @@ const module: Module = {
           id: "obrazec-rasskaza-ob-opyte",
           kind: "example",
           caption: "Рассказ Данияра",
+          perevod: {
+            "I have been to a wildlife park near the mountains.":
+              "Я бывал в природном парке у гор.",
+            "I have seen a zebra, two pandas and a very old crocodile.":
+              "Я видел зебру, двух панд и очень старого крокодила.",
+            "I was amazed by the pandas, but the crocodile was very quiet.":
+              "Панды меня поразили, а крокодил был очень тихий.",
+            "I have never seen a swan so close before. It came to the path!":
+              "Так близко лебедя я раньше никогда не видел. Он вышел на дорожку!",
+          },
           zvuchat: [
             "I have been to a wildlife park near the mountains.",
             "I have seen a zebra, two pandas and a very old crocodile.",
