@@ -237,6 +237,11 @@ const module: Module = {
           zvuchat: ["I worked yesterday.", "She played football.", "We watched a film.",
           ],
           text: "I worked yesterday.\nShe played football.\nWe watched a film.",
+          perevod: {
+            "I worked yesterday.": "Вчера я работал.",
+            "She played football.": "Она играла в футбол.",
+            "We watched a film.": "Мы смотрели фильм.",
+          },
           explain:
             "Во всех трёх у глагола окончание -ed, и оно одинаково для I, she и we. " +
             "Слово yesterday показывает, что дело было вчера.",
@@ -511,6 +516,11 @@ const module: Module = {
           zvuchat: ["I went to work.", "I saw my friend.", "I had a good day.",
           ],
           text: "I went to work.\nI saw my friend.\nI had a good day.",
+          perevod: {
+            "I went to work.": "Я ходил на работу.",
+            "I saw my friend.": "Я видел друга.",
+            "I had a good day.": "День вышел хороший.",
+          },
           explain:
             "Ни в одном из трёх нет окончания -ed. Форма взята из таблицы целиком, " +
             "как отдельное слово.",
@@ -649,6 +659,11 @@ const module: Module = {
           zvuchat: ["I was at home.", "She was at work.", "They were at school.",
           ],
           text: "I was at home.\nShe was at work.\nThey were at school.",
+          perevod: {
+            "I was at home.": "Я был дома.",
+            "She was at work.": "Она была на работе.",
+            "They were at school.": "Они были в школе.",
+          },
           explain:
             "В первых двух стоит was — речь об одном человеке. В третьем were, " +
             "потому что людей несколько.",
@@ -782,6 +797,11 @@ const module: Module = {
             "We were at home last Friday.",
           ],
           text: "I worked yesterday.\nShe came last week.\nWe were at home last Friday.",
+          perevod: {
+            "I worked yesterday.": "Вчера я работал.",
+            "She came last week.": "Она приезжала на прошлой неделе.",
+            "We were at home last Friday.": "В прошлую пятницу мы были дома.",
+          },
           explain:
             "Во всех трёх оборот времени стоит в конце. Глагол при этом в прошедшей " +
             "форме: worked, came, were.",
@@ -913,6 +933,11 @@ const module: Module = {
           zvuchat: ["I will work tomorrow.", "She will come at six.", "We will be at home.",
           ],
           text: "I will work tomorrow.\nShe will come at six.\nWe will be at home.",
+          perevod: {
+            "I will work tomorrow.": "Завтра я буду работать.",
+            "She will come at six.": "Она придёт в шесть.",
+            "We will be at home.": "Мы будем дома.",
+          },
           explain:
             "Во всех трёх will стоит перед глаголом, а глагол — без окончания. В " +
             "третьем после will идёт be: она тоже не меняется.",
@@ -1043,6 +1068,10 @@ const module: Module = {
           caption: "Разговор о планах",
           razgovor: true,
           text: "— Would you like to come to my party?\n— Yes, I'd like to. I'll come at six.",
+          perevod: {
+            "— Would you like to come to my party?": "Придёшь ко мне на праздник?",
+            "— Yes, I'd like to. I'll come at six.": "Да, с удовольствием. Приду в шесть.",
+          },
           explain:
             "Сначала приглашение из модуля «Просьбы и указания», потом согласие и " +
             "план: I'll come at six.",
@@ -1177,6 +1206,11 @@ const module: Module = {
           ],
           text:
             "I worked yesterday.\nI am reading a book now.\nI will come to your party tomorrow.",
+          perevod: {
+            "I worked yesterday.": "Вчера я работал.",
+            "I am reading a book now.": "Сейчас я читаю книгу.",
+            "I will come to your party tomorrow.": "Завтра приду к тебе на праздник.",
+          },
           explain:
             "Три предложения — три времени. В первом окончание -ed, во втором форма " +
             "be и -ing, в третьем will.",
@@ -1549,6 +1583,13 @@ const module: Module = {
           text:
             "Hello from Rome!\nYesterday I saw the Colosseum.\n" +
             "Now I am reading in a cafe.\nI will come home on Friday.\nSee you!",
+          perevod: {
+            "Hello from Rome!": "Привет из Рима!",
+            "Yesterday I saw the Colosseum.": "Вчера я видел Колизей.",
+            "Now I am reading in a cafe.": "Сейчас сижу в кафе и читаю.",
+            "I will come home on Friday.": "Домой вернусь в пятницу.",
+            "See you!": "До встречи!",
+          },
           zvuchat: [
             "Hello from Rome!",
             "Yesterday I saw the Colosseum.",

@@ -290,6 +290,12 @@ const module: Module = {
           text:
             "— Are you a student?\n— No, I'm not. I work in a shop.\n— And your English?\n" +
             "— I study English every day.",
+          perevod: {
+            "— Are you a student?": "Ты студент?",
+            "— No, I'm not. I work in a shop.": "Нет. Я работаю в магазине.",
+            "— And your English?": "А английский?",
+            "— I study English every day.": "Я учу английский каждый день.",
+          },
           explain:
             "Во второй строке два предложения рядом: одно с формой be, другое с обычным " +
               "глаголом. " +
@@ -451,6 +457,11 @@ const module: Module = {
           text:
             "This is my brother. He lives in Almaty.\nHe works in a hospital.\n" +
             "He plays football every day.",
+          perevod: {
+            "This is my brother. He lives in Almaty.": "Это мой брат. Он живёт в Алматы.",
+            "He works in a hospital.": "Он работает в больнице.",
+            "He plays football every day.": "Он играет в футбол каждый день.",
+          },
           explain:
             "Три предложения об одном человеке, и в каждом у глагола стоит -s. Первое " +
             "предложение — с формой be, потому что в нём называют, кто это.",
@@ -626,6 +637,11 @@ const module: Module = {
           text:
             "My brother goes to work at eight.\nHe finishes at five.\n" +
             "He watches football in the evening.",
+          perevod: {
+            "My brother goes to work at eight.": "Мой брат уходит на работу в восемь.",
+            "He finishes at five.": "Заканчивает он в пять.",
+            "He watches football in the evening.": "Вечером он смотрит футбол.",
+          },
           explain:
             "Три глагола с окончанием es. Время названо предлогом at, а часть суток — " +
             "оборотом in the evening из модуля «Дни, даты, время».",
@@ -782,6 +798,12 @@ const module: Module = {
           text:
             "I get up at seven.\nI go to work at eight.\nI eat lunch at one.\n" +
             "I read in the evening.",
+          perevod: {
+            "I get up at seven.": "Я встаю в семь.",
+            "I go to work at eight.": "В восемь я ухожу на работу.",
+            "I eat lunch at one.": "В час я обедаю.",
+            "I read in the evening.": "Вечером я читаю.",
+          },
           explain:
             "Четыре предложения по порядку часов. В каждом сначала действие, потом время: " +
             "время в таких предложениях идёт в конец.",
@@ -924,6 +946,11 @@ const module: Module = {
           razgovor: true,
           text:
             "— I like football. And you?\n— I like music.\n— My brother likes football too.",
+          perevod: {
+            "— I like football. And you?": "Я люблю футбол. А ты?",
+            "— I like music.": "Я люблю музыку.",
+            "— My brother likes football too.": "Мой брат тоже любит футбол.",
+          },
           explain:
             "В третьей строке речь о брате — одном человеке, поэтому likes с окончанием. " +
             "Слово too значит «тоже» и стоит в конце.",
@@ -1067,6 +1094,11 @@ const module: Module = {
           text:
             "The shop opens at nine.\nThe bus goes to the station every day.\n" +
             "My brother works there.",
+          perevod: {
+            "The shop opens at nine.": "Магазин открывается в девять.",
+            "The bus goes to the station every day.": "Автобус ходит до вокзала каждый день.",
+            "My brother works there.": "Мой брат работает там.",
+          },
           explain:
             "Первые два предложения — о том, что верно всегда. Третье о человеке, и глагол " +
             "в нём устроен так же: works с окончанием.",
@@ -1214,6 +1246,13 @@ const module: Module = {
           text:
             "We live in Astana.\nMy friends live in Almaty.\n" +
             "They work in a hospital and play football every day.\nWe want a new car.",
+          perevod: {
+            "We live in Astana.": "Мы живём в Астане.",
+            "My friends live in Almaty.": "Мои друзья живут в Алматы.",
+            "They work in a hospital and play football every day.":
+              "Они работают в больнице и каждый день играют в футбол.",
+            "We want a new car.": "Мы хотим новую машину.",
+          },
           explain:
             "В третьей строке два действия подряд, соединённые словом and. Оба глагола стоят " +
             "без окончания, потому что речь о нескольких людях.",
@@ -1348,6 +1387,12 @@ const module: Module = {
           text:
             "I get up at seven.\nI study English at school.\nI finish at three.\n" +
             "I play football in the evening.",
+          perevod: {
+            "I get up at seven.": "Я встаю в семь.",
+            "I study English at school.": "Я учу английский в школе.",
+            "I finish at three.": "Заканчиваю в три.",
+            "I play football in the evening.": "Вечером я играю в футбол.",
+          },
           explain:
             "Четыре предложения, четыре глагола, и все без окончания: речь о себе. " +
             "Если бы речь шла о брате, в каждом появилось бы -s.",
@@ -1362,6 +1407,12 @@ const module: Module = {
           text:
             "He gets up at seven.\nHe studies English at school.\nHe finishes at three.\n" +
             "He plays football in the evening.",
+          perevod: {
+            "He gets up at seven.": "Он встаёт в семь.",
+            "He studies English at school.": "Он учит английский в школе.",
+            "He finishes at three.": "Заканчивает он в три.",
+            "He plays football in the evening.": "Вечером он играет в футбол.",
+          },
           explain:
             "Тот же рассказ, только о брате: в каждом глаголе появилось окончание. " +
             "У studies и finishes оно длиннее, и у studies буква y уступила место i.",

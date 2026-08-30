@@ -448,7 +448,7 @@ const module: Module = {
               "слово a: a city, a street, a doctor. Оно значит примерно «один из таких», " +
               "а отдельного перевода у него нет.",
             "Это слово называют артиклем. В русском артиклей нет вовсе — вот первое, чему " +
-              "в нашем языке не находится пары. Дальше в курсе так и будем его называть.",
+              "в нашем языке не находится пары. Дальше в курсе это слово так и будет называться артиклем.",
             "Пропускать артикль нельзя: «I'm doctor» звучит по-английски так же " +
               "неправильно, как «я есть врачом» по-русски. Правильно — I'm a doctor.",
           ],
@@ -473,8 +473,8 @@ const module: Module = {
           tone: "info",
           text:
             "Артиклей в английском не два, а три: кроме a и an есть the. Он значит " +
-            "другое — «тот самый», о котором уже речь. Разберём его в модуле про дни " +
-            "и время, в уроке «A и the». Пока хватит a и an.",
+            "другое — «тот самый», о котором уже речь. Разберём его в модуле " +
+            "«Дни, даты, время», в уроке «A и the». Пока хватит a и an.",
         },
         {
           id: "tablica-a-an",
@@ -543,7 +543,7 @@ const module: Module = {
             // Сами артикли в словаре не стояли: урок о них есть, а слова в
             // тренажёр повторения не попадали. Нашлось сквозной проверкой
             // курса — `npm run chain`.
-            { term: "a", translation: "один из таких, называют впервые", example: "I'm a student.", hint: "/ə/" },
+            { term: "a", translation: "один из таких", example: "I'm a student.", hint: "/ə/" },
             { term: "an", translation: "то же перед гласным звуком", example: "She's an artist.", hint: "/ən/" },
             { term: "artist", translation: "художник", example: "She's an artist.", hint: "/ˈɑːtɪst/" },
             { term: "actor", translation: "актёр", example: "He's an actor.", hint: "/ˈæktə/" },
@@ -584,7 +584,7 @@ const module: Module = {
             { text: " · " },
             { text: "egg", selectable: true, correct: true },
           ],
-          hint: "Произнеси каждое слово и послушай, гласный там первый звук или согласный.",
+          hint: "Послушай обе строки таблицы выше и сравни начало слов.",
           why:
             "Actor и egg начинаются с гласного звука — перед ними an. Teacher и city " +
             "начинаются с согласного, перед ними a.",
@@ -695,6 +695,10 @@ const module: Module = {
           kind: "example",
           caption: "Три предложения о себе",
           text: "Hello! I'm Dana. I'm from Almaty. I'm a student.",
+          perevod: {
+            "Hello! I'm Dana. I'm from Almaty. I'm a student.":
+              "Здравствуйте! Я Дана. Я из Алматы. Я студентка.",
+          },
           zvuchat: ["Hello! I'm Dana. I'm from Almaty. I'm a student.",
           ],
           explain:
@@ -939,8 +943,8 @@ const module: Module = {
           id: "zachem-poryadok",
           kind: "explain",
           text: [
-            "Все предложения этого модуля построены одинаково: сначала тот, о ком речь, " +
-              "потом глагол, потом всё остальное. I'm a student. She's from Turkey. " +
+            "Все предложения этого модуля построены одинаково: сначала тот, о ком речь, — " +
+              "его называют подлежащим, — потом глагол, потом всё остальное. I'm a student. She's from Turkey. " +
               "He's in Astana.",
             "В русском слова можно переставлять почти как угодно: «я студент», «студент я» — " +
               "смысл держится на окончаниях. В английском окончаний почти нет, и смысл " +
@@ -988,6 +992,12 @@ const module: Module = {
           caption: "Те же четыре предложения подряд",
           text:
             "I am a student.\nShe is from Turkey.\nHe is in Astana.\nYou are a teacher.",
+          perevod: {
+            "I am a student.": "Я студент.",
+            "She is from Turkey.": "Она из Турции.",
+            "He is in Astana.": "Он в Астане.",
+            "You are a teacher.": "Ты преподаватель.",
+          },
           zvuchat: ["I am a student.", "She is from Turkey.", "He is in Astana.",
             "You are a teacher.",
           ],
@@ -1111,6 +1121,11 @@ const module: Module = {
           razgovor: true,
           text:
             "— Hello! I'm Dana. Where are you from?\n— I'm from Turkey. And you?\n— I'm from Kazakhstan.",
+          perevod: {
+            "— Hello! I'm Dana. Where are you from?": "Здравствуй! Я Дана. Откуда ты?",
+            "— I'm from Turkey. And you?": "Я из Турции. А ты?",
+            "— I'm from Kazakhstan.": "Я из Казахстана.",
+          },
           explain:
             "And you? возвращает вопрос собеседнику — тот же приём, что и в модуле про " +
             "приветствие. Повторять весь вопрос не нужно.",
@@ -1245,6 +1260,10 @@ const module: Module = {
           kind: "example",
           caption: "Тот же рассказ подряд",
           text: "Hello! I'm Dana. I'm from Almaty. I'm in Astana. I'm a student. Nice to meet you.",
+          perevod: {
+            "Hello! I'm Dana. I'm from Almaty. I'm in Astana. I'm a student. Nice to meet you.":
+              "Здравствуйте! Я Дана. Я из Алматы. Я в Астане. Я студентка. Приятно познакомиться.",
+          },
           zvuchat: ["Hello! I'm Dana. I'm from Almaty. I'm in Astana. I'm a student. Nice to meet you.",
           ],
           explain:
@@ -1395,7 +1414,7 @@ const module: Module = {
           kind: "note",
           tone: "info",
           text:
-            "Все четыре предложения начинаются одинаково — с I am. Читать надо не их, " +
+            "Каждое предложение о себе начинается одинаково — с I am. Читать надо не его, а то, что идёт следом: имя, from, in или a. Читать надо не их, " +
               "а то, что идёт следом: имя, from, in или a.",
         },
         {
@@ -1623,7 +1642,7 @@ const module: Module = {
             "Расскажи вслух о себе тремя предложениями: откуда ты, где сейчас и чем " +
             "занят.",
           phrase: "I'm from Kazakhstan. I'm in Almaty. I'm a student.",
-          translation: "Я из Казахстана. Я в Алматы. Я студент.",
+          translation: "Я из ... . Я в ... . Я ... .",
           hint: "Все три начинаются одинаково, разница в том, что идёт после I'm.",
           why:
             "Слушающий разбирает рассказ по словам from, in и a. Пропустишь их — " +
@@ -1672,6 +1691,12 @@ const module: Module = {
           // ни другому. Образец, который не проходит собственную проверку,
           // сбивает ученика. Нашёл методист.
           text: "I'm Aigul.\nI'm from Kazakhstan.\nI'm in Almaty.\nI'm a nurse.",
+          perevod: {
+            "I'm Aigul.": "Я Айгуль.",
+            "I'm from Kazakhstan.": "Я из Казахстана.",
+            "I'm in Almaty.": "Я в Алматы.",
+            "I'm a nurse.": "Я медсестра.",
+          },
           zvuchat: [
             "I'm Aigul.",
             "I'm from Kazakhstan.",

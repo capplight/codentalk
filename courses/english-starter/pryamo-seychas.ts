@@ -230,6 +230,11 @@ const module: Module = {
           zvuchat: ["I am working now.", "I am reading a book.", "I am waiting.",
           ],
           text: "I am working now.\nI am reading a book.\nI am waiting.",
+          perevod: {
+            "I am working now.": "Я сейчас работаю.",
+            "I am reading a book.": "Я читаю книгу.",
+            "I am waiting.": "Я жду.",
+          },
           explain:
             "Во всех трёх после I стоит am, а глагол оканчивается на -ing. Слово now " +
             "можно и не говорить: сама запись уже сообщает, что дело идёт сейчас.",
@@ -379,6 +384,11 @@ const module: Module = {
           zvuchat: ["He is working now.", "She is reading.", "My brother is waiting.",
           ],
           text: "He is working now.\nShe is reading.\nMy brother is waiting.",
+          perevod: {
+            "He is working now.": "Он сейчас работает.",
+            "She is reading.": "Она читает.",
+            "My brother is waiting.": "Мой брат ждёт.",
+          },
           explain:
             "Во всех трёх стоит is, потому что речь об одном другом человеке. Глагол " +
             "везде с окончанием -ing и без -s.",
@@ -673,6 +683,12 @@ const module: Module = {
           ],
           text:
             "I work in a shop.\nBut now I am sitting at home.\nMy sister sings well.\nShe is singing now.",
+          perevod: {
+            "I work in a shop.": "Я работаю в магазине.",
+            "But now I am sitting at home.": "Но сейчас я сижу дома.",
+            "My sister sings well.": "Моя сестра хорошо поёт.",
+            "She is singing now.": "Сейчас она поёт.",
+          },
           explain:
             "Первая и третья строки — о том, что вообще так. Вторая и четвёртая — о том, " +
             "что идёт в эту минуту. Разницу задаёт сама запись, а слова now и but эту " +
@@ -835,6 +851,11 @@ const module: Module = {
           zvuchat: ["We are waiting.", "They are working now.", "My friends are sitting here.",
           ],
           text: "We are waiting.\nThey are working now.\nMy friends are sitting here.",
+          perevod: {
+            "We are waiting.": "Мы ждём.",
+            "They are working now.": "Они сейчас работают.",
+            "My friends are sitting here.": "Мои друзья сидят здесь.",
+          },
           explain:
             "Во всех трёх стоит are, потому что речь о нескольких. Глагол с окончанием " +
             "-ing и без всяких добавок.",
@@ -960,6 +981,11 @@ const module: Module = {
           zvuchat: ["I am not working now.", "She isn't reading.", "They aren't waiting.",
           ],
           text: "I am not working now.\nShe isn't reading.\nThey aren't waiting.",
+          perevod: {
+            "I am not working now.": "Сейчас я не работаю.",
+            "She isn't reading.": "Она не читает.",
+            "They aren't waiting.": "Они не ждут.",
+          },
           explain:
             "Во всех трёх not стоит сразу после формы be. В двух последних форма и not " +
             "слились в короткую запись.",
@@ -1098,6 +1124,12 @@ const module: Module = {
           razgovor: true,
           text:
             "— Are you working?\n— No, I'm not. I am sitting at home.\n— What are you doing?\n— I am reading a book.",
+          perevod: {
+            "— Are you working?": "Ты работаешь?",
+            "— No, I'm not. I am sitting at home.": "Нет. Я сижу дома.",
+            "— What are you doing?": "А что ты делаешь?",
+            "— I am reading a book.": "Я читаю книгу.",
+          },
           explain:
             "Сначала вопрос на да или нет, потом короткий ответ, потом вопрос с " +
             "вопросительным словом и ответ целым предложением.",
@@ -1234,6 +1266,13 @@ const module: Module = {
           ],
           text:
             "I am sitting at home.\nI am reading a book.\nMy sister is singing.\nMy friends are waiting outside.\nIt is raining.",
+          perevod: {
+            "I am sitting at home.": "Я сижу дома.",
+            "I am reading a book.": "Я читаю книгу.",
+            "My sister is singing.": "Моя сестра поёт.",
+            "My friends are waiting outside.": "Мои друзья ждут на улице.",
+            "It is raining.": "Идёт дождь.",
+          },
           explain:
             "Пять предложений и три разные формы be. Окончание -ing во всех пяти одно и " +
             "то же.",

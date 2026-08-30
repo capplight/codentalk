@@ -182,6 +182,10 @@ const module: Module = {
           kind: "example",
           caption: "Ещё два примера",
           text: "I am a doctor. → Am I a doctor?\nWe are in Almaty. → Are we in Almaty?",
+          perevod: {
+            "I am a doctor. → Am I a doctor?": "Я врач. → Я врач?",
+            "We are in Almaty. → Are we in Almaty?": "Мы в Алматы. → Мы в Алматы?",
+          },
           // Стрелка не звучит: она наша разметка, а не слово. Строка читается
           // как пара — сообщение, потом вопрос.
           zvuk: {
@@ -190,7 +194,10 @@ const module: Module = {
           },
           explain:
             "Правило одно для всех: что стоит первым, уходит на второе место, а глагол " +
-            "выходит вперёд. Больше в предложении ничего не меняется.",
+            "выходит вперёд. Больше в предложении ничего не меняется.\n\n" +
+            "Посмотри на переводы. По-русски обе половины пары записаны одними и теми же " +
+            "словами в том же порядке. Вопрос от сообщения отличает только знак в конце " +
+            "да голос. По-английски одного знака мало: слова меняются местами.",
         },
         // Запись убрана: те же четыре предложения звучат в таблице выше, каждое
         // своей кнопкой, — а сравнить сообщение с вопросом так даже проще.
@@ -711,6 +718,12 @@ const module: Module = {
           razgovor: true,
           text:
             "— Is she from Turkey?\n— No, she isn't. She's from Spain.\n— Is she a teacher?\n— Yes, she is.",
+          perevod: {
+            "— Is she from Turkey?": "Она из Турции?",
+            "— No, she isn't. She's from Spain.": "Нет. Она из Испании.",
+            "— Is she a teacher?": "Она учительница?",
+            "— Yes, she is.": "Да.",
+          },
           explain:
             "После краткого «нет» часто добавляют, как на самом деле: No, she isn't. She's " +
             "from Spain. Так разговор не обрывается на отрицании.",
@@ -737,7 +750,7 @@ const module: Module = {
             { text: "Is he doctor?", correct: true },
             { text: "Is he an artist?" },
           ],
-          hint: "Перед названием занятия всегда стоит короткое слово.",
+          hint: "Когда человек один, перед названием занятия стоит короткое слово.",
           why: "«Is he doctor?» — пропущено a. Правильно: Is he a doctor?",
         },
         {
@@ -1054,6 +1067,13 @@ const module: Module = {
           text:
             "— Hello! I'm Dana. Are you a student?\n— No, I'm not. I'm a teacher. And you?\n" +
             "— Yes, I am. Are you from Astana?\n— No, I'm not. I'm from Almaty.\n— Nice to meet you!",
+          perevod: {
+            "— Hello! I'm Dana. Are you a student?": "Здравствуйте! Я Дана. Вы студент?",
+            "— No, I'm not. I'm a teacher. And you?": "Нет. Я учитель. А вы?",
+            "— Yes, I am. Are you from Astana?": "Да. Вы из Астаны?",
+            "— No, I'm not. I'm from Almaty.": "Нет. Я из Алматы.",
+            "— Nice to meet you!": "Приятно познакомиться!",
+          },
           explain:
             "Каждый ответ «нет» дополнен тем, как на самом деле. And you? возвращает вопрос " +
             "собеседнику — приём из модуля про приветствие.",

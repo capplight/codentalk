@@ -723,6 +723,11 @@ const module: Module = {
           caption: "Зачем это нужно",
           razgovor: true,
           text: "— Have you got a pen?\n— Yes, I have.\n— Thank you!",
+          perevod: {
+            "— Have you got a pen?": "У тебя есть ручка?",
+            "— Yes, I have.": "Да.",
+            "— Thank you!": "Спасибо!",
+          },
           explain:
             // Было «Этим вопросом просят одолжить вещь» — утверждение о том, как
             // говорят, а источника у него нет. Теперь сказано о показанном разговоре,
@@ -1091,6 +1096,11 @@ const module: Module = {
             "I'm Dana. I've got a sister. Her name is Aliya. I haven't got a brother. " +
               "My sister is a student. I've got a cat.",
           ],
+          perevod: {
+            "I'm Dana. I've got a sister. Her name is Aliya. I haven't got a brother. My sister is a student. I've got a cat.":
+              "Я Дана. У меня есть сестра. Её зовут Алия. Брата у меня нет. " +
+              "Моя сестра — студентка. У меня есть кошка.",
+          },
           explain:
             "Второе и третье предложения соединяют слово о принадлежности с оборотом из " +
             "модуля про приветствие: her name — «её имя». Слово her здесь о сестре, о " +

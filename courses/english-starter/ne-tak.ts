@@ -175,6 +175,10 @@ const module: Module = {
           caption: "Зачем это нужно в разговоре",
           razgovor: true,
           text: "— Is she a nurse?\n— No, she is not a nurse. She is a doctor.",
+          perevod: {
+            "— Is she a nurse?": "Она медсестра?",
+            "— No, she is not a nurse. She is a doctor.": "Нет, она не медсестра. Она врач.",
+          },
           explain:
             "Краткого «нет» часто мало: собеседник узнал только то, чего нет. Полное " +
             "отрицание позволяет сказать, что именно не так, а следующим предложением — " +
@@ -335,6 +339,11 @@ const module: Module = {
           kind: "example",
           caption: "Короткое отрицание в предложении",
           text: "I'm not a student.\nShe isn't from Turkey.\nThey aren't in Astana.",
+          perevod: {
+            "I'm not a student.": "Я не студент.",
+            "She isn't from Turkey.": "Она не из Турции.",
+            "They aren't in Astana.": "Они не в Астане.",
+          },
           zvuchat: ["I'm not a student.", "She isn't from Turkey.", "They aren't in Astana.",
           ],
           explain:
@@ -606,6 +615,11 @@ const module: Module = {
           razgovor: true,
           text:
             "— Hello! Are you Dana?\n— Sorry, I'm not Dana. I'm Aigul.\n— Sorry! Nice to meet you, Aigul.",
+          perevod: {
+            "— Hello! Are you Dana?": "Здравствуйте! Вы Дана?",
+            "— Sorry, I'm not Dana. I'm Aigul.": "Простите, я не Дана. Я Айгуль.",
+            "— Sorry! Nice to meet you, Aigul.": "Простите! Приятно познакомиться, Айгуль.",
+          },
           explain:
             "Собеседник обознался. Ответ строится теми же двумя шагами: сначала что не " +
             "так — I'm not Dana, потом как есть — I'm Aigul.",
@@ -1016,6 +1030,11 @@ const module: Module = {
           razgovor: true,
           text:
             "— Are you from Astana?\n— No, I'm not. I'm from Almaty. And you?\n— I'm from Astana.",
+          perevod: {
+            "— Are you from Astana?": "Вы из Астаны?",
+            "— No, I'm not. I'm from Almaty. And you?": "Нет. Я из Алматы. А вы?",
+            "— I'm from Astana.": "Я из Астаны.",
+          },
           explain:
             "Ответ из двух предложений и встречный вопрос — разговор идёт дальше сам. " +
             "Оборот And you? знаком по модулю про приветствие.",
@@ -1123,6 +1142,13 @@ const module: Module = {
             "— Hello! Are you Dana?\n— Sorry, I'm not Dana. I'm Aigul.\n" +
             "— Sorry! Are you a student, Aigul?\n— No, I'm not. I'm a teacher. And you?\n" +
             "— I'm a student. Nice to meet you!",
+          perevod: {
+            "— Hello! Are you Dana?": "Здравствуйте! Вы Дана?",
+            "— Sorry, I'm not Dana. I'm Aigul.": "Простите, я не Дана. Я Айгуль.",
+            "— Sorry! Are you a student, Aigul?": "Простите! Вы студентка, Айгуль?",
+            "— No, I'm not. I'm a teacher. And you?": "Нет. Я учительница. А вы?",
+            "— I'm a student. Nice to meet you!": "Я студент. Приятно познакомиться!",
+          },
           explain:
             "Две поправки подряд, и разговор не разваливается: каждая состоит из двух " +
             "шагов, а после второй идёт встречный вопрос.",

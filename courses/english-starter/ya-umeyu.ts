@@ -214,6 +214,11 @@ const module: Module = {
           zvuchat: ["I can swim.", "I can ride a bike.", "I can speak English.",
           ],
           text: "I can swim.\nI can ride a bike.\nI can speak English.",
+          perevod: {
+            "I can swim.": "Я умею плавать.",
+            "I can ride a bike.": "Я умею ездить на велосипеде.",
+            "I can speak English.": "Я умею говорить по-английски.",
+          },
           explain:
             "Во всех трёх can стоит перед глаголом, а глагол — без окончания. " +
             "После глагола идёт всё остальное: a bike, English.",
@@ -356,6 +361,11 @@ const module: Module = {
             "They can speak English.",
           ],
           text: "She can drive.\nMy brother can play football.\nThey can speak English.",
+          perevod: {
+            "She can drive.": "Она умеет водить машину.",
+            "My brother can play football.": "Мой брат умеет играть в футбол.",
+            "They can speak English.": "Они умеют говорить по-английски.",
+          },
           explain:
             "Во всех трёх can стоит без окончания, и глагол после него — тоже. " +
             "Меняется только то, о ком речь.",
@@ -491,6 +501,11 @@ const module: Module = {
           zvuchat: ["I can't drive.", "My brother can't cook.", "They can't speak English.",
           ],
           text: "I can't drive.\nMy brother can't cook.\nThey can't speak English.",
+          perevod: {
+            "I can't drive.": "Я не умею водить машину.",
+            "My brother can't cook.": "Мой брат не умеет готовить.",
+            "They can't speak English.": "Они не умеют говорить по-английски.",
+          },
           explain:
             "Во всех трёх стоит can't, а глагол после него — без окончания, как и в " +
             "утверждении.",
@@ -623,6 +638,12 @@ const module: Module = {
           caption: "Короткий разговор",
           razgovor: true,
           text: "— Can you swim?\n— Yes, I can.\n— Can you drive?\n— No, I can't.",
+          perevod: {
+            "— Can you swim?": "Ты умеешь плавать?",
+            "— Yes, I can.": "Да.",
+            "— Can you drive?": "А водить машину?",
+            "— No, I can't.": "Нет.",
+          },
           explain:
             "В обоих вопросах can стоит первым. В ответах повторяется только can — " +
             "с yes или с no.",
@@ -752,6 +773,12 @@ const module: Module = {
           caption: "Разговор при знакомстве",
           razgovor: true,
           text: "— What can you do?\n— I can swim.\n— What can your sister do?\n— She can drive.",
+          perevod: {
+            "— What can you do?": "Что ты умеешь?",
+            "— I can swim.": "Я умею плавать.",
+            "— What can your sister do?": "А что умеет твоя сестра?",
+            "— She can drive.": "Она умеет водить машину.",
+          },
           explain:
             "В обоих вопросах can стоит вторым, сразу после What. Дальше идёт тот, о " +
             "ком речь, и только потом глагол.",
@@ -887,6 +914,11 @@ const module: Module = {
             "You can't buy bread there.",
           ],
           text: "The shop is next to the school.\nYou can buy milk there.\nYou can't buy bread there.",
+          perevod: {
+            "The shop is next to the school.": "Магазин рядом со школой.",
+            "You can buy milk there.": "Там можно купить молоко.",
+            "You can't buy bread there.": "А хлеб там купить нельзя.",
+          },
           explain:
             "Первое предложение говорит, где магазин. Второе и третье — что там " +
             "можно и чего нельзя. Про умение здесь нет ни слова.",
@@ -1023,6 +1055,12 @@ const module: Module = {
           razgovor: true,
           text:
             "— Can you help, please?\n— Yes, I can.\n\n— Can I help you?\n— No, thank you.",
+          perevod: {
+            "— Can you help, please?": "Помоги, пожалуйста.",
+            "— Yes, I can.": "Да, конечно.",
+            "— Can I help you?": "Вам помочь?",
+            "— No, thank you.": "Нет, спасибо.",
+          },
           explain:
             "Во втором разговоре ответ не повторяет can, и это не оговорка: " +
             "отказываются не от умения, а от самой помощи. " +
@@ -1157,6 +1195,11 @@ const module: Module = {
           ],
           text:
             "I can swim.\nI can't drive.\nMy sister can drive.",
+          perevod: {
+            "I can swim.": "Я умею плавать.",
+            "I can't drive.": "Водить машину я не умею.",
+            "My sister can drive.": "А моя сестра умеет.",
+          },
           explain:
             "Первое предложение о том, что умеешь, второе — об обратном, третье — о " +
             "другом человеке. Соединять их в одно длинное пока не нужно.",

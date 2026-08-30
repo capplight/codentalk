@@ -230,6 +230,12 @@ const module: Module = {
           zvuchat: ["Open the door.", "Close the window.", "Come here.", "Sit here.",
           ],
           text: "Open the door.\nClose the window.\nCome here.\nSit here.",
+          perevod: {
+            "Open the door.": "Открой дверь.",
+            "Close the window.": "Закрой окно.",
+            "Come here.": "Иди сюда.",
+            "Sit here.": "Садись здесь.",
+          },
           explain:
             "Все четыре начинаются прямо с глагола. После него идёт то, к чему " +
             "указание относится: дверь, окно, место.",
@@ -364,6 +370,11 @@ const module: Module = {
           zvuchat: ["Don't open the window.", "Don't wait here.", "Don't come tomorrow.",
           ],
           text: "Don't open the window.\nDon't wait here.\nDon't come tomorrow.",
+          perevod: {
+            "Don't open the window.": "Не открывай окно.",
+            "Don't wait here.": "Не жди здесь.",
+            "Don't come tomorrow.": "Не приходи завтра.",
+          },
           explain:
             "Во всех трёх don't стоит первым, а глагол — сразу за ним и без " +
             "окончания.",
@@ -498,6 +509,11 @@ const module: Module = {
           zvuchat: ["Open the door.", "Open the door, please.", "Please open the door.",
           ],
           text: "Open the door.\nOpen the door, please.\nPlease open the door.",
+          perevod: {
+            "Open the door.": "Открой дверь.",
+            "Open the door, please.": "Открой дверь, пожалуйста.",
+            "Please open the door.": "Пожалуйста, открой дверь.",
+          },
           explain:
             "Первое — голое указание. Второе и третье значат одно и то же: разница " +
             "только в том, где стоит please.",
@@ -628,6 +644,11 @@ const module: Module = {
           zvuchat: ["Can you help, please?", "Can you open the door?", "Can you come tomorrow?",
           ],
           text: "Can you help, please?\nCan you open the door?\nCan you come tomorrow?",
+          perevod: {
+            "Can you help, please?": "Помоги, пожалуйста.",
+            "Can you open the door?": "Откроешь дверь?",
+            "Can you come tomorrow?": "Придёшь завтра?",
+          },
           explain:
             "Во всех трёх can стоит первым, глагол — без окончания. Слово please " +
             "ставят в конце.",
@@ -758,6 +779,12 @@ const module: Module = {
           caption: "Разговор в кафе",
           razgovor: true,
           text: "— Can I sit here?\n— Yes, of course.\n— Can I open the window?\n— Sorry, I'm cold.",
+          perevod: {
+            "— Can I sit here?": "Можно я сяду здесь?",
+            "— Yes, of course.": "Да, конечно.",
+            "— Can I open the window?": "А окно можно открыть?",
+            "— Sorry, I'm cold.": "Извини, мне холодно.",
+          },
           explain:
             "В обоих вопросах после can стоит I: разрешения просит тот, кто " +
             "спрашивает. Ответ бывает и отказом.",
@@ -900,6 +927,10 @@ const module: Module = {
           caption: "Приглашение на вечеринку",
           razgovor: true,
           text: "— Would you like to come to my party?\n— Yes, I'd like to. Thanks!",
+          perevod: {
+            "— Would you like to come to my party?": "Придёшь ко мне на праздник?",
+            "— Yes, I'd like to. Thanks!": "Да, с удовольствием. Спасибо!",
+          },
           explain:
             "Вопрос начинается с would. В ответе тот же оборот, только утверждением: " +
             "I'd like to.",
@@ -1045,6 +1076,12 @@ const module: Module = {
           razgovor: true,
           text:
             "— Would you like a coffee?\n— Yes, please.\n\n— Would you like to come tomorrow?\n— Sorry, I can't.",
+          perevod: {
+            "— Would you like a coffee?": "Хочешь кофе?",
+            "— Yes, please.": "Да, пожалуйста.",
+            "— Would you like to come tomorrow?": "Придёшь завтра?",
+            "— Sorry, I can't.": "Извини, не могу.",
+          },
           explain:
             "В первом разговоре предлагают вещь — ответ Yes, please. Во втором зовут " +
             "прийти, и отказ идёт со словом sorry.",
@@ -1184,6 +1221,12 @@ const module: Module = {
           razgovor: true,
           text:
             "— Can I sit here?\n— Yes, of course.\n— Would you like a coffee?\n— Yes, please. Thanks!",
+          perevod: {
+            "— Can I sit here?": "Можно я сяду здесь?",
+            "— Yes, of course.": "Да, конечно.",
+            "— Would you like a coffee?": "Хочешь кофе?",
+            "— Yes, please. Thanks!": "Да, пожалуйста. Спасибо!",
+          },
           explain:
             "Первый вопрос — разрешение себе. Второй — предложение собеседнику. " +
             "Ответы короткие, и в конце стоит благодарность.",

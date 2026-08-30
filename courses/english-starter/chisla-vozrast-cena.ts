@@ -1221,6 +1221,14 @@ const module: Module = {
           text:
             "— Hello! How old are you?\n— I'm nineteen. And you?\n— I'm twenty.\n" +
             "— How many books have you got?\n— A lot of books. How much is it?\n— Ten tenge.",
+          perevod: {
+            "— Hello! How old are you?": "Здравствуй! Сколько тебе лет?",
+            "— I'm nineteen. And you?": "Мне девятнадцать. А тебе?",
+            "— I'm twenty.": "Мне двадцать.",
+            "— How many books have you got?": "Сколько у тебя книг?",
+            "— A lot of books. How much is it?": "Много книг. Сколько это стоит?",
+            "— Ten tenge.": "Десять тенге.",
+          },
           explain:
             "Ответ на вопрос о цене называют вместе с деньгами: Ten tenge. Одно число без " +
             "названия денег можно принять и за количество.",

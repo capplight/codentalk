@@ -289,6 +289,13 @@ const module: Module = {
           text:
             "— Where is your flat?\n— It's near the station.\n— Is it a good flat?\n" +
             "— Yes, it is. There is a park behind the house.",
+          perevod: {
+            "— Where is your flat?": "Где твоя квартира?",
+            "— It's near the station.": "Рядом с вокзалом.",
+            "— Is it a good flat?": "Квартира хорошая?",
+            "— Yes, it is. There is a park behind the house.":
+              "Да. За домом есть парк.",
+          },
           explain:
             "В первых строках знакомые вопросы из прежних модулей. Новое только последнее " +
             "предложение: оно не говорит, где парк, а сообщает, что парк вообще есть.",
@@ -435,6 +442,12 @@ const module: Module = {
           text:
             "— Is your flat big?\n— No, it isn't. There are two rooms.\n— And a garden?\n" +
             "— Yes, there is a garden behind the house.",
+          perevod: {
+            "— Is your flat big?": "У тебя большая квартира?",
+            "— No, it isn't. There are two rooms.": "Нет. В ней две комнаты.",
+            "— And a garden?": "А сад?",
+            "— Yes, there is a garden behind the house.": "Да, за домом есть сад.",
+          },
           explain:
             "Во второй строке о комнатах говорят there are — их две. В четвёртой сад один, " +
             "и потому there is.",
@@ -598,6 +611,11 @@ const module: Module = {
           text:
             "There are two rooms in my flat.\nThere is a bed and a table in the bedroom.\n" +
             "There is a TV on the table.",
+          perevod: {
+            "There are two rooms in my flat.": "В моей квартире две комнаты.",
+            "There is a bed and a table in the bedroom.": "В спальне есть кровать и стол.",
+            "There is a TV on the table.": "На столе стоит телевизор.",
+          },
           explain:
             "Три предложения об одной квартире. В первом комнат несколько — there are. Во " +
             "втором два предмета соединены словом and, но форма be одна: is.",
@@ -748,6 +766,13 @@ const module: Module = {
           text:
             "— Is the room big?\n— Yes, it is. There is a table and some chairs.\n" +
             "— And a TV?\n— Yes, there is a TV on the table.",
+          perevod: {
+            "— Is the room big?": "Комната большая?",
+            "— Yes, it is. There is a table and some chairs.":
+              "Да. В ней есть стол и несколько стульев.",
+            "— And a TV?": "А телевизор?",
+            "— Yes, there is a TV on the table.": "Да, на столе стоит телевизор.",
+          },
           explain:
             "Во второй строке стол один — перед ним a, стульев несколько — перед ними some. " +
             "Форма be одна на оба предмета, и выбирают её по первому: стол один, значит is.",
@@ -918,6 +943,11 @@ const module: Module = {
           text:
             "— Excuse me. Is there a shop near here?\n— Yes, there is. It's opposite the " +
             "park.\n— Thank you.",
+          perevod: {
+            "— Excuse me. Is there a shop near here?": "Извините. Здесь рядом есть магазин?",
+            "— Yes, there is. It's opposite the park.": "Да, есть. Он напротив парка.",
+            "— Thank you.": "Спасибо.",
+          },
           explain:
             "Сначала спрашивают, есть ли магазин, и только потом — где он. Слова Excuse me " +
             "и Thank you знакомы по прежним модулям.",
@@ -1080,6 +1110,13 @@ const module: Module = {
           text:
             "— Is there a garden?\n— No, there isn't. There is a park near the house.\n" +
             "— And a bathroom?\n— Yes, there is.",
+          perevod: {
+            "— Is there a garden?": "Сад есть?",
+            "— No, there isn't. There is a park near the house.":
+              "Нет. Зато рядом с домом есть парк.",
+            "— And a bathroom?": "А ванная?",
+            "— Yes, there is.": "Да, есть.",
+          },
           explain:
             "Ответ идёт в два шага, как в модуле «Не так»: сначала чего нет, потом что " +
             "есть вместо этого.",
@@ -1224,6 +1261,12 @@ const module: Module = {
           text:
             "There is a cinema in my street.\nThere are two markets near the station.\n" +
             "There isn't a library, but there is a school.",
+          perevod: {
+            "There is a cinema in my street.": "На моей улице есть кинотеатр.",
+            "There are two markets near the station.": "Рядом с вокзалом два рынка.",
+            "There isn't a library, but there is a school.":
+              "Библиотеки нет, зато есть школа.",
+          },
           explain:
             "Три предложения об одном городе. В третьем сначала сказано, чего нет, потом — " +
             "что есть. Соединяет две части слово but — «но».",
@@ -1366,6 +1409,12 @@ const module: Module = {
           text:
             "I live in a flat.\nThere are two rooms and a kitchen.\n" +
             "There is a TV in the big room.\nThere is a market near the house.",
+          perevod: {
+            "I live in a flat.": "Я живу в квартире.",
+            "There are two rooms and a kitchen.": "В ней две комнаты и кухня.",
+            "There is a TV in the big room.": "В большой комнате стоит телевизор.",
+            "There is a market near the house.": "Рядом с домом есть рынок.",
+          },
           explain:
             "Четыре предложения, и три из них построены одним оборотом. Во втором комнат " +
             "несколько, поэтому are; в третьем и четвёртом предмет один, поэтому is.",
@@ -1743,6 +1792,12 @@ const module: Module = {
           text:
             "HOUSE FOR RENT\nThere are three rooms and a kitchen.\n" +
             "There is a market near the house.\nThere isn't a bathroom.",
+          perevod: {
+            "HOUSE FOR RENT": "СДАЁТСЯ ДОМ",
+            "There are three rooms and a kitchen.": "Три комнаты и кухня.",
+            "There is a market near the house.": "Рядом с домом рынок.",
+            "There isn't a bathroom.": "Ванной нет.",
+          },
           zvuchat: [
             "There are three rooms and a kitchen.",
             "There is a market near the house.",

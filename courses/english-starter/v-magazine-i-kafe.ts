@@ -478,6 +478,11 @@ const module: Module = {
           zvuchat: ["I'd like some bread.", "I'd like some water.", "I'd like some rice.",
           ],
           text: "I'd like some bread.\nI'd like some water.\nI'd like some rice.",
+          perevod: {
+            "I'd like some bread.": "Мне немного хлеба.",
+            "I'd like some water.": "Мне немного воды.",
+            "I'd like some rice.": "Мне немного риса.",
+          },
           explain:
             "Во всех трёх стоит оборот I'd like из модуля «Мне нравится», а после " +
             "него — some и слово без всяких добавок.",
@@ -606,6 +611,12 @@ const module: Module = {
           caption: "Сколько чего в магазине",
           razgovor: true,
           text: "— How much bread?\n— Some bread, please.\n— How many books?\n— Two books, please.",
+          perevod: {
+            "— How much bread?": "Сколько хлеба?",
+            "— Some bread, please.": "Немного, пожалуйста.",
+            "— How many books?": "Сколько книг?",
+            "— Two books, please.": "Две, пожалуйста.",
+          },
           explain:
             "В первом вопросе слово bread не считают — стоит much. Во втором книги " +
             "считают — стоит many.",
@@ -735,6 +746,12 @@ const module: Module = {
           razgovor: true,
           text:
             "— Can I help you?\n— I'd like some bread, please.\n— Anything else?\n— No, thank you. How much is it?",
+          perevod: {
+            "— Can I help you?": "Чем могу помочь?",
+            "— I'd like some bread, please.": "Мне хлеба, пожалуйста.",
+            "— Anything else?": "Что-нибудь ещё?",
+            "— No, thank you. How much is it?": "Нет, спасибо. Сколько с меня?",
+          },
           explain:
             "Покупатель просит хлеб, отказывается от добавки и спрашивает цену. " +
             "Все три шага уложились в две реплики.",
@@ -873,6 +890,12 @@ const module: Module = {
           razgovor: true,
           text:
             "— Can I help you?\n— I'd like a coffee and a cake, please.\n— Anything else?\n— No, thanks.",
+          perevod: {
+            "— Can I help you?": "Что будете заказывать?",
+            "— I'd like a coffee and a cake, please.": "Мне кофе и пирожное, пожалуйста.",
+            "— Anything else?": "Что-нибудь ещё?",
+            "— No, thanks.": "Нет, спасибо.",
+          },
           explain:
             "Два заказа соединены словом and. Отказ от добавки — коротким No, thanks.",
         },
@@ -1008,6 +1031,11 @@ const module: Module = {
             "There isn't any water.",
           ],
           text: "I haven't got any bread.\nI haven't got any money.\nThere isn't any water.",
+          perevod: {
+            "I haven't got any bread.": "У меня нет хлеба.",
+            "I haven't got any money.": "У меня нет денег.",
+            "There isn't any water.": "Воды нет.",
+          },
           explain:
             "Во всех трёх стоит any, и слово после него — без всяких добавок: ни a, " +
             "ни -s.",
@@ -1141,6 +1169,15 @@ const module: Module = {
           razgovor: true,
           text:
             "— Can I help you?\n— I'd like some bread and some water, please.\n— Anything else?\n— No, thank you. How much is it?\n— Five hundred tenge.\n— Thanks!",
+          perevod: {
+            "— Can I help you?": "Чем могу помочь?",
+            "— I'd like some bread and some water, please.":
+              "Мне хлеба и воды, пожалуйста.",
+            "— Anything else?": "Что-нибудь ещё?",
+            "— No, thank you. How much is it?": "Нет, спасибо. Сколько с меня?",
+            "— Five hundred tenge.": "Пятьсот тенге.",
+            "— Thanks!": "Спасибо!",
+          },
           explain:
             "Два товара соединены словом and. Дальше отказ от добавки, вопрос о цене " +
             "и благодарность. Разговор закончен.",

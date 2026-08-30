@@ -208,6 +208,11 @@ const module: Module = {
           zvuchat: ["I like to read.", "I like to cook.", "My sister likes to swim.",
           ],
           text: "I like to read.\nI like to cook.\nMy sister likes to swim.",
+          perevod: {
+            "I like to read.": "Я люблю читать.",
+            "I like to cook.": "Я люблю готовить.",
+            "My sister likes to swim.": "Моя сестра любит плавать.",
+          },
           explain:
             "В третьем предложении у like стоит -s, потому что речь о сестре. А глагол " +
             "после to остаётся без окончания всегда.",
@@ -343,6 +348,10 @@ const module: Module = {
           zvuchat: ["I like reading. I like to read.", "I am reading now.",
           ],
           text: "I like reading. I like to read.\nI am reading now.",
+          perevod: {
+            "I like reading. I like to read.": "Я люблю читать. Я люблю читать.",
+            "I am reading now.": "Сейчас я читаю.",
+          },
           explain:
             "Первые два предложения значат одно: мне нравится читать. Третье — о том, " +
             "что идёт сейчас, и в нём стоит форма be.",
@@ -476,6 +485,11 @@ const module: Module = {
             "My brother doesn't like cooking.",
           ],
           text: "I don't like waiting.\nI don't like to wait.\nMy brother doesn't like cooking.",
+          perevod: {
+            "I don't like waiting.": "Я не люблю ждать.",
+            "I don't like to wait.": "Я не люблю ждать.",
+            "My brother doesn't like cooking.": "Мой брат не любит готовить.",
+          },
           explain:
             "Первые два предложения значат одно: отрицание не отменяет ни одного из " +
             "двух форм. В третьем стоит doesn't, потому что речь о брате.",
@@ -606,6 +620,11 @@ const module: Module = {
           zvuchat: ["I like music.", "I really like music.", "I like music very much.",
           ],
           text: "I like music.\nI really like music.\nI like music very much.",
+          perevod: {
+            "I like music.": "Мне нравится музыка.",
+            "I really like music.": "Мне очень нравится музыка.",
+            "I like music very much.": "Музыка мне очень нравится.",
+          },
           explain:
             "Вторая и третья строки значат одно и то же. Разница только в том, где " +
             "стоит усиление: really — перед глаголом, very much — в конце.",
@@ -738,6 +757,12 @@ const module: Module = {
           caption: "Разговор о вкусах",
           razgovor: true,
           text: "— Do you like coffee?\n— No, I don't. I like tea.\n— What do you like doing?\n— I like reading.",
+          perevod: {
+            "— Do you like coffee?": "Ты любишь кофе?",
+            "— No, I don't. I like tea.": "Нет. Я люблю чай.",
+            "— What do you like doing?": "А что ты любишь делать?",
+            "— I like reading.": "Я люблю читать.",
+          },
           explain:
             "В первом вопросе после like стоит название вещи. В третьем — вопрос о " +
             "занятии, и там же форма с -ing: doing и reading с окончанием.",
@@ -861,6 +886,11 @@ const module: Module = {
           caption: "В кафе",
           razgovor: true,
           text: "— I'd like a coffee, please.\n— And you?\n— I'd like a tea.",
+          perevod: {
+            "— I'd like a coffee, please.": "Мне кофе, пожалуйста.",
+            "— And you?": "А вам?",
+            "— I'd like a tea.": "А мне чай.",
+          },
           explain:
             "В обоих ответах стоит I'd like и название того, чего хочет человек. " +
             "Слово please делает просьбу мягче и ставится в конце.",
@@ -997,6 +1027,11 @@ const module: Module = {
             "My sister would like to swim.",
           ],
           text: "I'd like to go home.\nI'd like to see this film.\nMy sister would like to swim.",
+          perevod: {
+            "I'd like to go home.": "Я хотел бы пойти домой.",
+            "I'd like to see this film.": "Я хотел бы посмотреть этот фильм.",
+            "My sister would like to swim.": "Моя сестра хотела бы поплавать.",
+          },
           explain:
             "В третьем предложении оборот стоит полностью: would like. Он одинаков " +
             "для всех, и окончание -s к нему не приходит.",
@@ -1135,6 +1170,12 @@ const module: Module = {
           ],
           text:
             "I like reading, and I really like sport.\nI don't like waiting.\nMy favourite food is bread.",
+          perevod: {
+            "I like reading, and I really like sport.":
+              "Я люблю читать, а спорт люблю очень.",
+            "I don't like waiting.": "Не люблю ждать.",
+            "My favourite food is bread.": "Моя любимая еда — хлеб.",
+          },
           explain:
             "Первое предложение соединяет два вкуса словом and. Второе говорит " +
             "обратное. Третье называет любимое — через favourite.",
@@ -1514,6 +1555,11 @@ const module: Module = {
           text:
             "I like reading and music.\nI don't like waiting.\n" +
             "I'd like to see this film.",
+          perevod: {
+            "I like reading and music.": "Я люблю читать и слушать музыку.",
+            "I don't like waiting.": "Не люблю ждать.",
+            "I'd like to see this film.": "Я хотел бы посмотреть этот фильм.",
+          },
           zvuchat: [
             "I like reading and music.",
             "I don't like waiting.",

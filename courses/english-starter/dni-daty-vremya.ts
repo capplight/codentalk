@@ -318,6 +318,11 @@ const module: Module = {
           text:
             "— Are you free on Monday?\n— No, I'm not. I'm free on Tuesday.\n" +
             "— Tuesday is OK.",
+          perevod: {
+            "— Are you free on Monday?": "У тебя есть время в понедельник?",
+            "— No, I'm not. I'm free on Tuesday.": "Нет. А во вторник есть.",
+            "— Tuesday is OK.": "Вторник подходит.",
+          },
           explain:
             "Слово on ставят перед днём недели: on Monday, on Tuesday. Почему именно on, " +
             "разберём в уроке «At, in, on: какой предлог когда». Пока запомни пару целиком.",
@@ -473,6 +478,11 @@ const module: Module = {
           ],
           text:
             "Date of birth: 12 March 2001\nDate: 5 May\nMy birthday is in May.",
+          perevod: {
+            "Date of birth: 12 March 2001": "Дата рождения: 12 марта 2001",
+            "Date: 5 May": "Дата: 5 мая",
+            "My birthday is in May.": "У меня день рождения в мае.",
+          },
           explain:
             "В бланке дату пишут цифрой и названием месяца: 12 March. Название месяца " +
             "с заглавной буквы. Год, если он нужен, идёт последним. А когда называют только месяц, " +
@@ -644,6 +654,11 @@ const module: Module = {
           caption: "Как спрашивают время",
           razgovor: true,
           text: "— What time is it?\n— It's eight o'clock.\n— Thank you.",
+          perevod: {
+            "— What time is it?": "Сколько времени?",
+            "— It's eight o'clock.": "Восемь часов.",
+            "— Thank you.": "Спасибо.",
+          },
           explain:
             "What time is it? — «сколько времени». Отвечают через it: здесь оно ни на какой предмет не показывает, а просто открывает ответ о времени. Как в модуле про " +
             "предметы: It's eight o'clock. Сам вопрос разберём в уроке «Когда и во сколько», пока " +
@@ -809,6 +824,12 @@ const module: Module = {
           text:
             "— What time is it?\n— It's half past six.\n— And your bus?\n" +
             "— At a quarter to seven.",
+          perevod: {
+            "— What time is it?": "Сколько времени?",
+            "— It's half past six.": "Половина седьмого.",
+            "— And your bus?": "А твой автобус?",
+            "— At a quarter to seven.": "Без четверти семь.",
+          },
           explain:
             "Half past six — это 6:30. A quarter to seven — 6:45, четверть до семи. " +
             "Время автобуса стоит после at: перед точным временем ставят именно at.\n\n" +
@@ -1004,6 +1025,11 @@ const module: Module = {
           text:
             "— I've got a meeting.\n— Is the meeting on Monday?\n— No, it isn't. " +
             "It's on Friday.",
+          perevod: {
+            "— I've got a meeting.": "У меня встреча.",
+            "— Is the meeting on Monday?": "Встреча в понедельник?",
+            "— No, it isn't. It's on Friday.": "Нет. Она в пятницу.",
+          },
           explain:
             "В первой строке встреча названа впервые — a meeting. Во второй собеседник " +
             "спрашивает уже о ней же, поэтому the meeting. Вопрос построен перестановкой, " +
@@ -1157,6 +1183,11 @@ const module: Module = {
           text:
             "— The meeting is at seven.\n— At seven in the morning?\n" +
             "— No, at seven in the evening.",
+          perevod: {
+            "— The meeting is at seven.": "Встреча в семь.",
+            "— At seven in the morning?": "В семь утра?",
+            "— No, at seven in the evening.": "Нет, в семь вечера.",
+          },
           explain:
             "Часть суток ставят после времени: at seven in the morning. Так и " +
             "переспрашивают, если непонятно: сначала время, потом часть суток.",
@@ -1304,6 +1335,11 @@ const module: Module = {
           text:
             "The meeting is at seven.\nThe meeting is on Friday.\n" +
             "The meeting is in May.",
+          perevod: {
+            "The meeting is at seven.": "Встреча в семь.",
+            "The meeting is on Friday.": "Встреча в пятницу.",
+            "The meeting is in May.": "Встреча в мае.",
+          },
           explain:
             "Речь об одной и той же встрече, а предлог каждый раз другой. Его выбирает " +
             "не встреча, а то слово, которое идёт следом: seven, Friday, May.",
@@ -1483,6 +1519,12 @@ const module: Module = {
           text:
             "— When is the lesson?\n— On Wednesday.\n— And what time?\n" +
             "— At a quarter past four.",
+          perevod: {
+            "— When is the lesson?": "Когда занятие?",
+            "— On Wednesday.": "В среду.",
+            "— And what time?": "А во сколько?",
+            "— At a quarter past four.": "В четверть пятого.",
+          },
           explain:
             "Сначала спросили про день, потом про время. Во втором вопросе слово is не " +
             "повторяют: «And what time?» — этого достаточно, потому что речь всё ещё об " +
@@ -1625,6 +1667,14 @@ const module: Module = {
             "— Hello! Are you free on Friday?\n— Yes, I am. What time?\n" +
             "— At six.\n— In the morning?\n— No, in the evening.\n" +
             "— OK. See you on Friday!",
+          perevod: {
+            "— Hello! Are you free on Friday?": "Здравствуй! У тебя есть время в пятницу?",
+            "— Yes, I am. What time?": "Да. Во сколько?",
+            "— At six.": "В шесть.",
+            "— In the morning?": "Утра?",
+            "— No, in the evening.": "Нет, вечера.",
+            "— OK. See you on Friday!": "Хорошо. До встречи в пятницу!",
+          },
           explain:
             "Каждая реплика добавляет одно сведение: день, время, часть суток. Вопрос «What " +
             "time?» здесь короткий — из модуля про вопросы известно, что повторять всю " +
@@ -2048,6 +2098,11 @@ const module: Module = {
           text:
             "Hi! Are you free on Friday?\nThe lesson is at six in the evening.\n" +
             "See you on Friday!",
+          perevod: {
+            "Hi! Are you free on Friday?": "Привет! У тебя есть время в пятницу?",
+            "The lesson is at six in the evening.": "Занятие в шесть вечера.",
+            "See you on Friday!": "До встречи в пятницу!",
+          },
           zvuchat: [
             "Hi! Are you free on Friday?",
             "The lesson is at six in the evening.",

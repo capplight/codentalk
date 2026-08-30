@@ -175,6 +175,12 @@ const module: Module = {
             "I see her every day.",
           ],
           text: "Alim works in a shop.\nI know him.\nDana is a teacher.\nI see her every day.",
+          perevod: {
+            "Alim works in a shop.": "Алим работает в магазине.",
+            "I know him.": "Я его знаю.",
+            "Dana is a teacher.": "Дана преподаватель.",
+            "I see her every day.": "Я вижу её каждый день.",
+          },
           explain:
             "В первой паре имя Alim во втором предложении заменено на him. Во второй " +
             "паре имя Dana заменено на her. Оба слова стоят после глагола.",
@@ -316,6 +322,12 @@ const module: Module = {
           zvuchat: ["She knows me.", "I know you.", "We know them.", "They know us.",
           ],
           text: "She knows me.\nI know you.\nWe know them.\nThey know us.",
+          perevod: {
+            "She knows me.": "Она меня знает.",
+            "I know you.": "Я тебя знаю.",
+            "We know them.": "Мы их знаем.",
+            "They know us.": "Они нас знают.",
+          },
           explain:
             "В каждом предложении первое слово — то, что стоит перед глаголом, а " +
             "второе — то, что после него. Перепутать их местами нельзя.",
@@ -454,6 +466,12 @@ const module: Module = {
           zvuchat: ["This is her book.", "I know her.", "This is his book.", "I know him.",
           ],
           text: "This is her book.\nI know her.\nThis is his book.\nI know him.",
+          perevod: {
+            "This is her book.": "Это её книга.",
+            "I know her.": "Я её знаю.",
+            "This is his book.": "Это его книга.",
+            "I know him.": "Я его знаю.",
+          },
           explain:
             "Слева от книги стоят her и his. После глагола — her и him. У женского " +
             "рода слово одно, у мужского — два разных.",
@@ -590,6 +608,10 @@ const module: Module = {
           zvuchat: ["This is my bike. I like it.", "This is her book. I can see it.",
           ],
           text: "This is my bike. I like it.\nThis is her book. I can see it.",
+          perevod: {
+            "This is my bike. I like it.": "Это мой велосипед. Он мне нравится.",
+            "This is her book. I can see it.": "Это её книга. Я её вижу.",
+          },
           explain:
             "В обеих парах вещь названа в первом предложении, а во втором заменена " +
             "на it. Слово it стоит после глагола, как him и her.",
@@ -726,6 +748,11 @@ const module: Module = {
           zvuchat: ["This is for me.", "I work with him.", "This book is for them.",
           ],
           text: "This is for me.\nI work with him.\nThis book is for them.",
+          perevod: {
+            "This is for me.": "Это для меня.",
+            "I work with him.": "Я работаю с ним.",
+            "This book is for them.": "Эта книга для них.",
+          },
           explain:
             "После for и with стоят me, him и them — те же слова, что после глагола. " +
             "Предлог их не меняет.",
@@ -866,6 +893,12 @@ const module: Module = {
             "They are looking at us.",
           ],
           text: "I listen to her.\nShe is listening to me.\nI look at them.\nThey are looking at us.",
+          perevod: {
+            "I listen to her.": "Я её слушаю.",
+            "She is listening to me.": "Она слушает меня.",
+            "I look at them.": "Я смотрю на них.",
+            "They are looking at us.": "Они смотрят на нас.",
+          },
           explain:
             "Предлог остаётся на месте и в рассказе о происходящем: listening to me, " +
             "looking at us. Меняется только форма глагола.",
@@ -1001,6 +1034,13 @@ const module: Module = {
           text:
             "— Do you know Dana?\n— Yes, I do. I see her every day.\n— Can you call her?\n" +
             "— Yes, I can. I ask her about the lesson.",
+          perevod: {
+            "— Do you know Dana?": "Ты знаешь Дану?",
+            "— Yes, I do. I see her every day.": "Да. Я вижу её каждый день.",
+            "— Can you call her?": "Можешь ей позвонить?",
+            "— Yes, I can. I ask her about the lesson.":
+              "Могу. Спрошу её про занятие.",
+          },
           explain:
             "Имя названо в первом вопросе, а дальше идёт her — четыре раза подряд. В " +
             "ответах повторяется только do или can.",
@@ -1131,6 +1171,12 @@ const module: Module = {
             "I like it.",
           ],
           text: "Dana is my friend.\nI see her every day.\nShe has got a bike.\nI like it.",
+          perevod: {
+            "Dana is my friend.": "Дана моя подруга.",
+            "I see her every day.": "Я вижу её каждый день.",
+            "She has got a bike.": "У неё есть велосипед.",
+            "I like it.": "Он мне нравится.",
+          },
           explain:
             "Имя Dana названо один раз. Дальше идут her и she — о ней, и it — о " +
             "велосипеде, названном в третьем предложении.",
@@ -1144,6 +1190,12 @@ const module: Module = {
             "Dana is my friend. I see her every day.",
           ],
           text: "Dana is my friend. I see Dana every day.\nDana is my friend. I see her every day.",
+          perevod: {
+            "Dana is my friend. I see Dana every day.":
+              "Дана моя подруга. Я вижу Дану каждый день.",
+            "Dana is my friend. I see her every day.":
+              "Дана моя подруга. Я вижу её каждый день.",
+          },
           explain:
             "В первой записи имя звучит дважды подряд и цепляет слух. Во второй оно " +
             "названо один раз, а дальше стоит her. Значение то же, а читается легче.",

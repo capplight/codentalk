@@ -244,6 +244,11 @@ const module: Module = {
           razgovor: true,
           text:
             "— Do you work on Sunday?\n— No. I don't work on Sunday. I read books.",
+          perevod: {
+            "— Do you work on Sunday?": "Ты работаешь по воскресеньям?",
+            "— No. I don't work on Sunday. I read books.":
+              "Нет. По воскресеньям я не работаю. Я читаю книги.",
+          },
           explain:
             "Вопрос в первой строке пока бери целиком: его разберём в модуле «Спросить о " +
             "делах». Важен ответ: сначала что не так, потом как на самом деле — так же, " +
@@ -396,6 +401,11 @@ const module: Module = {
           text:
             "My brother works in a shop.\nHe doesn't work on Sunday.\n" +
             "He doesn't drive, he walks.",
+          perevod: {
+            "My brother works in a shop.": "Мой брат работает в магазине.",
+            "He doesn't work on Sunday.": "По воскресеньям он не работает.",
+            "He doesn't drive, he walks.": "Он не водит машину, он ходит пешком.",
+          },
           explain:
             "В первой строке утверждение: окончание у works. Во второй строке и в начале " +
             "третьей окончание стоит у doesn't, а сам глагол без него. В конце третьей " +
@@ -538,6 +548,10 @@ const module: Module = {
           ],
           text:
             "The shop does not open on Sunday.\n\n— Sorry, we don't open on Sunday.",
+          perevod: {
+            "The shop does not open on Sunday.": "По воскресеньям магазин не работает.",
+            "— Sorry, we don't open on Sunday.": "Извините, по воскресеньям мы не работаем.",
+          },
           explain:
             "Одно и то же двумя записями: на двери полная запись, в разговоре короткая.",
         },
@@ -664,6 +678,14 @@ const module: Module = {
           text:
             "— Are you a doctor?\n— No, I'm not a doctor. I don't work in a hospital.\n" +
             "— And your brother?\n— He isn't a doctor. He doesn't work in a hospital.",
+          perevod: {
+            "— Are you a doctor?": "Ты врач?",
+            "— No, I'm not a doctor. I don't work in a hospital.":
+              "Нет, я не врач. Я не работаю в больнице.",
+            "— And your brother?": "А твой брат?",
+            "— He isn't a doctor. He doesn't work in a hospital.":
+              "Он не врач. Он не работает в больнице.",
+          },
           explain:
             "В каждом ответе два предложения: одно с формой be, другое с глаголом. " +
             "Отрицание в них разное, и путать их нельзя.",
@@ -800,6 +822,12 @@ const module: Module = {
           text:
             "— You drink coffee.\n— No, I don't drink coffee. I drink tea.\n" +
             "— And your brother?\n— He doesn't drink tea. He drinks water.",
+          perevod: {
+            "— You drink coffee.": "Ты пьёшь кофе.",
+            "— No, I don't drink coffee. I drink tea.": "Нет, я не пью кофе. Я пью чай.",
+            "— And your brother?": "А твой брат?",
+            "— He doesn't drink tea. He drinks water.": "Он не пьёт чай. Он пьёт воду.",
+          },
           explain:
             "Оба ответа устроены одинаково: сначала что не так, потом как на самом деле. В " +
             "последней строке окончание вернулось к drinks.",
@@ -941,6 +969,12 @@ const module: Module = {
           text:
             "— Tea or coffee?\n— Tea, please. I don't drink coffee.\n— And meat?\n" +
             "— I don't eat meat. I eat fish.",
+          perevod: {
+            "— Tea or coffee?": "Чай или кофе?",
+            "— Tea, please. I don't drink coffee.": "Чай, пожалуйста. Кофе я не пью.",
+            "— And meat?": "А мясо?",
+            "— I don't eat meat. I eat fish.": "Мясо я не ем. Я ем рыбу.",
+          },
           explain:
             "Ответить коротким предложением с don't проще, чем объяснять. Слово please " +
             "знакомо по модулю «Приветствие».",
@@ -1079,6 +1113,11 @@ const module: Module = {
           text:
             "My friends don't live in Astana. They live in Almaty.\n" +
             "They don't work on Sunday.",
+          perevod: {
+            "My friends don't live in Astana. They live in Almaty.":
+              "Мои друзья живут не в Астане. Они живут в Алматы.",
+            "They don't work on Sunday.": "По воскресеньям они не работают.",
+          },
           explain:
             "Оба предложения о нескольких людях, поэтому don't. Во втором предложении вместо " +
             "my friends стоит they: повторять их не нужно.",
@@ -1207,6 +1246,12 @@ const module: Module = {
           text:
             "I get up at nine on Sunday.\nI don't work.\nI cook and read books.\n" +
             "I don't watch football.",
+          perevod: {
+            "I get up at nine on Sunday.": "По воскресеньям я встаю в девять.",
+            "I don't work.": "Я не работаю.",
+            "I cook and read books.": "Я готовлю и читаю книги.",
+            "I don't watch football.": "Футбол я не смотрю.",
+          },
           explain:
             "Четыре предложения, два из них с don't. В третьем два действия соединены " +
             "словом and, и оба стоят без изменений.",
@@ -1221,6 +1266,12 @@ const module: Module = {
           text:
             "He gets up at nine on Sunday.\nHe doesn't work.\nHe cooks and reads books.\n" +
             "He doesn't watch football.",
+          perevod: {
+            "He gets up at nine on Sunday.": "По воскресеньям он встаёт в девять.",
+            "He doesn't work.": "Он не работает.",
+            "He cooks and reads books.": "Он готовит и читает книги.",
+            "He doesn't watch football.": "Футбол он не смотрит.",
+          },
           explain:
             "В утверждениях окончание стоит у глаголов: gets, cooks, reads. В отрицаниях " +
             "оно перешло к doesn't.",

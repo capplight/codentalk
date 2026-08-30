@@ -291,6 +291,12 @@ const module: Module = {
           razgovor: true,
           text:
             "— What's this?\n— It's a book. It's new.\n— And that?\n— It's a car. It's old.",
+          perevod: {
+            "— What's this?": "Что это?",
+            "— It's a book. It's new.": "Это книга. Она новая.",
+            "— And that?": "А то?",
+            "— It's a car. It's old.": "Это машина. Она старая.",
+          },
           explain:
             "Сначала называют предмет, потом говорят, какой он. Двумя короткими предложениями. " +
             "Во фразе It's new слово it показывает на ту же книгу, которую только что " +
@@ -459,6 +465,12 @@ const module: Module = {
           razgovor: true,
           text:
             "— What's this?\n— It's a new book.\n— And that?\n— It's an old car.",
+          perevod: {
+            "— What's this?": "Что это?",
+            "— It's a new book.": "Это новая книга.",
+            "— And that?": "А то?",
+            "— It's an old car.": "Это старая машина.",
+          },
           explain:
             "Прилагательное встало внутрь ответа: It's a new book вместо It's a book. It's new. " +
             "Одно предложение вместо двух.",
@@ -596,6 +608,12 @@ const module: Module = {
           razgovor: true,
           text:
             "— What colour is your car?\n— It's blue.\n— And your bag?\n— It's black.",
+          perevod: {
+            "— What colour is your car?": "Какого цвета твоя машина?",
+            "— It's blue.": "Синяя.",
+            "— And your bag?": "А сумка?",
+            "— It's black.": "Чёрная.",
+          },
           explain:
             "What colour is…? — «какого цвета». В ответе слово colour не повторяют: хватает " +
             "It's blue. Вопрос устроен как When и What time из модуля «Дни, даты, время»: сначала " +
@@ -775,6 +793,12 @@ const module: Module = {
           text:
             "— Is your room big?\n— No, it isn't. It's very small.\n— And the house?\n" +
             "— It's a very big house.",
+          perevod: {
+            "— Is your room big?": "У тебя большая комната?",
+            "— No, it isn't. It's very small.": "Нет. Она очень маленькая.",
+            "— And the house?": "А дом?",
+            "— It's a very big house.": "Дом очень большой.",
+          },
           explain:
             "Very работает в обоих местах: и после формы be — it's very small, и перед " +
             "названием предмета — a very big house. Порядок во втором случае такой: " +
@@ -921,6 +945,12 @@ const module: Module = {
           text:
             "— Is your room big?\n— No, it isn't. It's small and clean.\n— And the house?\n" +
             "— It's very big and beautiful.",
+          perevod: {
+            "— Is your room big?": "У тебя большая комната?",
+            "— No, it isn't. It's small and clean.": "Нет. Она маленькая и чистая.",
+            "— And the house?": "А дом?",
+            "— It's very big and beautiful.": "Он очень большой и красивый.",
+          },
           explain:
             "Два прилагательных через and говорят о предмете больше, чем одно. Вопрос здесь " +
             "знакомый, из модуля «Вопрос и краткий ответ». Новое только and между " +
@@ -1066,6 +1096,11 @@ const module: Module = {
           text:
             "— That's Dana. She's my teacher.\n— Is she young?\n" +
             "— Yes, she is. She's young and very nice.",
+          perevod: {
+            "— That's Dana. She's my teacher.": "Это Дана. Она моя учительница.",
+            "— Is she young?": "Она молодая?",
+            "— Yes, she is. She's young and very nice.": "Да. Она молодая и очень славная.",
+          },
           explain:
             "О человеке спрашивают так же, как о предмете: Is she young? И отвечают так же — " +
             "краткое «да», а за ним два прилагательных через and.",
@@ -1220,6 +1255,11 @@ const module: Module = {
           text:
             "— What's your favourite colour?\n— It's green. And yours?\n" +
             "— My favourite colour is blue.",
+          perevod: {
+            "— What's your favourite colour?": "Какой у тебя любимый цвет?",
+            "— It's green. And yours?": "Зелёный. А у тебя?",
+            "— My favourite colour is blue.": "Мой любимый цвет — синий.",
+          },
           explain:
             "Вопрос строится как все вопросы с be: сначала вопросительное слово, потом " +
             "форма be. Ответить можно коротко — It's green — или целым предложением.",
@@ -1367,6 +1407,11 @@ const module: Module = {
           text:
             "This is Alim. He's my teacher.\nHe's young and very nice.\n" +
             "His favourite colour is blue.",
+          perevod: {
+            "This is Alim. He's my teacher.": "Это Алим. Он мой учитель.",
+            "He's young and very nice.": "Он молодой и очень славный.",
+            "His favourite colour is blue.": "Его любимый цвет — синий.",
+          },
           explain:
             "Тот же порядок: кто это, какой он, что-то ещё о нём. Слово his в третьей " +
             "строке показывает, что речь по-прежнему об Алиме.",
@@ -1381,6 +1426,11 @@ const module: Module = {
           text:
             "This is my bag. It's new.\nIt's black and very big.\n" +
             "It's an expensive bag.",
+          perevod: {
+            "This is my bag. It's new.": "Это моя сумка. Она новая.",
+            "It's black and very big.": "Она чёрная и очень большая.",
+            "It's an expensive bag.": "Это дорогая сумка.",
+          },
           explain:
             "В первой строке два коротких предложения: что это и какое оно. Во второй — два " +
             "прилагательных через and. В третьей прилагательное стоит перед названием: an expensive bag.",
@@ -1776,6 +1826,12 @@ const module: Module = {
           // повторял тот текст слово в слово — нашёл методист.
           text:
             "FOR SALE\nA phone. It is old but it is cheap.\nIt is grey.\nPrice: 20.",
+          perevod: {
+            "FOR SALE": "ПРОДАЁТСЯ",
+            "A phone. It is old but it is cheap.": "Телефон. Старый, но дешёвый.",
+            "It is grey.": "Он серый.",
+            "Price: 20.": "Цена: 20.",
+          },
           zvuchat: [
             "A phone. It is old but it is cheap.",
             "It is grey.",

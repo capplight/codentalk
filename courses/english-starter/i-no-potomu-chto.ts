@@ -171,8 +171,11 @@ const module: Module = {
           id: "zachem-and",
           kind: "explain",
           text: [
-            "До сих пор весь курс шёл отдельными предложениями: I work. I study.",
-            "Так говорят редко: два коротких предложения подряд звучат рублено.",
+            "До сих пор весь курс шёл отдельными предложениями: I work. I study. " +
+              "Так рассказано и о делах в модуле «Что я делаю», и о вкусах в модуле " +
+              "«Мне нравится».",
+            "Два коротких предложения подряд звучат рублено, будто между ними " +
+              "запнулись.",
             "Их соединяют словом and: I work, and I study.",
           ],
         },
@@ -217,6 +220,11 @@ const module: Module = {
             "I like music, and I like sport.",
           ],
           text: "I work, and I study.\nShe can swim, and she can drive.\nI like music, and I like sport.",
+          perevod: {
+            "I work, and I study.": "Я работаю и учусь.",
+            "She can swim, and she can drive.": "Она умеет плавать и водить машину.",
+            "I like music, and I like sport.": "Мне нравится музыка и нравится спорт.",
+          },
           explain:
             "В каждом предложении слово and стоит посередине, а по бокам от него — " +
             "две полные мысли. Ни одна из них не меняется.",
@@ -308,7 +316,7 @@ const module: Module = {
           kind: "explain",
           text: [
             "В магазине редко берут одну вещь: обычно их три или четыре.",
-            "Ставить and между каждыми двумя нельзя — выйдет длинно и неуклюже.",
+            "Ставить and между каждыми двумя не нужно — выйдет длинно и неуклюже.",
             "Перечисление строят так: между вещами запятые, а перед последней — and.",
           ],
         },
@@ -350,6 +358,11 @@ const module: Module = {
             "I like tea, coffee and milk.",
           ],
           text: "I'd like some bread, some water and some rice.\nI like tea, coffee and milk.",
+          perevod: {
+            "I'd like some bread, some water and some rice.":
+              "Мне хлеба, воды и риса.",
+            "I like tea, coffee and milk.": "Я люблю чай, кофе и молоко.",
+          },
           explain:
             "В каждом перечислении одна запятая и одно and — перед последней вещью. " +
             "Слово some повторяется перед каждой вещью.",
@@ -484,6 +497,12 @@ const module: Module = {
           ],
           text:
             "I work, but I don't study.\nShe can drive, but she can't swim.\nI like tea, but I don't like coffee.",
+          perevod: {
+            "I work, but I don't study.": "Я работаю, но не учусь.",
+            "She can drive, but she can't swim.":
+              "Она умеет водить машину, но не умеет плавать.",
+            "I like tea, but I don't like coffee.": "Я люблю чай, а кофе не люблю.",
+          },
           explain:
             "Во всех трёх вторая часть — отрицание. Это самый частый случай для but, " +
             "но не единственный.",
@@ -623,6 +642,12 @@ const module: Module = {
           zvuchat: ["tea or coffee", "tea, coffee or water", "I work on Monday or on Tuesday.",
           ],
           text: "tea or coffee\ntea, coffee or water\nI work on Monday or on Tuesday.",
+          perevod: {
+            "tea or coffee": "чай или кофе",
+            "tea, coffee or water": "чай, кофе или вода",
+            "I work on Monday or on Tuesday.":
+              "Я работаю в понедельник или во вторник.",
+          },
           explain:
             "В первых двух строках выбирают напиток, в третьей — день. Всюду or " +
             "стоит перед последним из вариантов.",
@@ -760,6 +785,11 @@ const module: Module = {
           zvuchat: ["I work, and I study.", "I work and study.", "I work, and she studies.",
           ],
           text: "I work, and I study.\nI work and study.\nI work, and she studies.",
+          perevod: {
+            "I work, and I study.": "Я работаю и учусь.",
+            "I work and study.": "Я работаю и учусь.",
+            "I work, and she studies.": "Я работаю, а она учится.",
+          },
           explain:
             "Первые две строки значат одно. Третью сокращать нельзя: во второй части " +
             "другой человек — she, и это слово не убрать, иначе непонятно, кто " +
@@ -896,6 +926,13 @@ const module: Module = {
           ],
           text:
             "I like this shop because it is near.\nI can't come because I work.\nShe is happy because she has got a bike.",
+          perevod: {
+            "I like this shop because it is near.":
+              "Мне нравится этот магазин, потому что он рядом.",
+            "I can't come because I work.": "Я не могу прийти, потому что работаю.",
+            "She is happy because she has got a bike.":
+              "Она рада, потому что у неё есть велосипед.",
+          },
           explain:
             "В каждом предложении две части. Первая — что происходит, вторая — " +
             "почему. Обе полные, у обеих свой глагол.",
@@ -1039,6 +1076,13 @@ const module: Module = {
           razgovor: true,
           text:
             "— Why do you work here?\n— Because I like this shop.\n— Why does Dana work here?\n— Because she likes this shop too.",
+          perevod: {
+            "— Why do you work here?": "Почему ты здесь работаешь?",
+            "— Because I like this shop.": "Потому что мне нравится этот магазин.",
+            "— Why does Dana work here?": "А почему здесь работает Дана?",
+            "— Because she likes this shop too.":
+              "Потому что ей этот магазин тоже нравится.",
+          },
           explain:
             "В первом вопросе после why стоит do, во втором — does: речь о Dana. В " +
             "ответах because стоит первым — так отвечают коротко.",
@@ -1183,6 +1227,14 @@ const module: Module = {
           ],
           text:
             "I work in a shop, and I study at a university.\nI like my work, but I don't like early mornings.\nI study because I want a good job.",
+          perevod: {
+            "I work in a shop, and I study at a university.":
+              "Я работаю в магазине и учусь в университете.",
+            "I like my work, but I don't like early mornings.":
+              "Работа мне нравится, а вот вставать рано — нет.",
+            "I study because I want a good job.":
+              "Я учусь, потому что хочу хорошую работу.",
+          },
           explain:
             "Первое предложение добавляет, второе возражает, третье объясняет. Три " +
             "слова — и рассказ держится вместе.",

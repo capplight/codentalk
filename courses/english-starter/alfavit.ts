@@ -344,6 +344,8 @@ const module: Module = {
           kind: "note",
           tone: "info",
           text:
+            "Буква — то, что написано, а звук — то, что слышно. Это не одно и то же: в " +
+            "слове tea три буквы, а звука два.\n\n" +
             "Гласными в английском алфавите называют пять букв: A, E, I, O, U. Остальные " +
             "считают согласными, и только Y стоит особняком: в слове yes она даёт согласный " +
             "звук, а в слове my — гласный.\n\nНазвания этих пяти букв похожи между " +
@@ -368,8 +370,13 @@ const module: Module = {
           razgovor: true,
           text:
             "— What's your name?\n— Alim.\n— How do you spell that?\n— A-L-I-M.",
+          perevod: {
+            "— What's your name?": "Как тебя зовут?",
+            "— How do you spell that?": "Как это пишется?",
+          },
           explain:
-            "What's your name? — «как тебя зовут». Этот вопрос разберём в следующем модуле, " +
+            "What's your name? — «как тебя зовут». Этот вопрос разберём в модуле " +
+            "«Приветствие», " +
             "а пока запомни его целиком. How do you spell that? — «как это пишется». Так " +
             "спрашивают, когда слово можно расслышать неверно. В ответ буквы называют одну " +
             "за другой, а на письме их разделяют дефисом — короткой чёрточкой, как в A-L-I-M.",
@@ -683,9 +690,13 @@ const module: Module = {
         {
           id: "primer-zaglavnyh",
           kind: "example",
-          caption: "Сравни",
+          caption: "Где заглавная в английском и где была бы в русском",
           text:
             "My name is Alim. I am from Kazakhstan.\nI speak Kazakh, Russian and English.",
+          perevod: {
+            "My name is Alim. I am from Kazakhstan.": "Меня зовут Алим. Я из Казахстана.",
+            "I speak Kazakh, Russian and English.": "Я говорю по-казахски, по-русски и по-английски.",
+          },
           zvuchat: ["My name is Alim. I am from Kazakhstan.",
             "I speak Kazakh, Russian and English.",
           ],
@@ -841,6 +852,10 @@ const module: Module = {
           razgovor: true,
           text:
             "— What's your name?\n— Dana.\n— How do you spell that?\n— D-A-N-A.",
+          perevod: {
+            "— What's your name?": "Как тебя зовут?",
+            "— How do you spell that?": "Как это пишется?",
+          },
           explain:
             "Четыре реплики: вопрос об имени, имя, просьба продиктовать, буквы одна за " +
               "другой. Выучи их целиком — собирать фразу по словам у стойки будет некогда.",
@@ -1093,6 +1108,10 @@ const module: Module = {
           razgovor: true,
           text:
             "— What's your name?\n— Aigul.\n— How do you spell your name?\n— A-I-G-U-L.",
+          perevod: {
+            "— What's your name?": "Как тебя зовут?",
+            "— How do you spell your name?": "Как пишется твоё имя?",
+          },
           explain:
             "Вопрос тот же, что в уроке о просьбе продиктовать, только теперь спрашивают " +
             "именно об имени: How do you spell your name? В ответ буквы называют по одной. " +
@@ -1236,6 +1255,11 @@ const module: Module = {
             "First name: Dana. D-A-N-A.\n" +
             "Surname: Nurlanova. N-U-R-L-A-N-O-V-A.\n" +
             "Country: Kazakhstan.",
+          perevod: {
+            "First name: Dana. D-A-N-A.": "Личное имя: Дана.",
+            "Surname: Nurlanova. N-U-R-L-A-N-O-V-A.": "Фамилия: Нурланова.",
+            "Country: Kazakhstan.": "Страна: Казахстан.",
+          },
           zvuchat: ["First name: Dana. D-A-N-A.", "Surname: Nurlanova. N-U-R-L-A-N-O-V-A.",
             "Country: Kazakhstan.",
           ],

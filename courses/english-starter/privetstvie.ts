@@ -262,9 +262,7 @@ const module: Module = {
           text: [
             "Прощаются словом goodbye или коротким bye. Ещё говорят see you — " +
               "дословно «увидимся». Все три подходят для повседневного разговора.",
-            "Отдельно стоит good night. Это не приветствие: его говорят, расставаясь поздно " +
-              "вечером или уходя спать, как русское «спокойной ночи». Здороваться вечером " +
-              "нужно словами good evening.",
+            "Отдельно стоит good night — о нём во врезке выше.",
           ],
         },
         // Здесь стояла запись всех семи приветствий подряд. Убрана: таблица
@@ -413,12 +411,12 @@ const module: Module = {
           id: "primer-i-am",
           kind: "example",
           caption: "Как это выглядит",
-          text: "I am Alim. — Я Алим.\nI am Dana. — Я Дана.",
-          // Звучит только английская часть строки: перевод стоит рядом глазами.
-          zvuk: {
-            "I am Alim. — Я Алим.": "I am Alim.",
-            "I am Dana. — Я Дана.": "I am Dana.",
+          text: "I am Alim.\nI am Dana.",
+          perevod: {
+            "I am Alim.": "Я Алим.",
+            "I am Dana.": "Я Дана.",
           },
+          zvuchat: ["I am Alim.", "I am Dana."],
           explain:
             "Порядок слов один и тот же: сначала I, потом am, потом имя. Имя пишется " +
             "с заглавной буквы — как и в русском.",
@@ -472,6 +470,12 @@ const module: Module = {
           razgovor: true,
           text:
             "— Hello! What's your name?\n— I'm Dana. And you?\n— I'm Alim. Nice to meet you.\n— Nice to meet you too.",
+          perevod: {
+            "— Hello! What's your name?": "Здравствуй! Как тебя зовут?",
+            "— I'm Dana. And you?": "Я Дана. А тебя?",
+            "— I'm Alim. Nice to meet you.": "Я Алим. Приятно познакомиться.",
+            "— Nice to meet you too.": "Мне тоже приятно познакомиться.",
+          },
           explain:
             "And you? — «а ты?»: так возвращают вопрос, не повторяя его целиком. " +
             "Nice to meet you — «приятно познакомиться», а too в ответе значит «тоже».",
@@ -622,6 +626,11 @@ const module: Module = {
           caption: "Как это звучит целиком",
           razgovor: true,
           text: "— Good morning! How are you?\n— I'm fine, thank you. And you?\n— I'm fine too, thanks.",
+          perevod: {
+            "— Good morning! How are you?": "Доброе утро! Как дела?",
+            "— I'm fine, thank you. And you?": "Хорошо, спасибо. А у тебя?",
+            "— I'm fine too, thanks.": "У меня тоже хорошо, спасибо.",
+          },
           explain:
             "Обмен укладывается в три коротких реплики и почти не меняется. Выучи его " +
             "целиком, как одну фразу: тогда в разговоре не придётся собирать его по словам.",
@@ -997,7 +1006,7 @@ const module: Module = {
           head: ["Подлежащее", "Форма", "Пример", "Перевод"],
           rows: [
             ["I", "am", "I am Alim.", "Я Алим."],
-            ["he, she, it", "is", "She is fine.", "У неё хорошо."],
+            ["he, she, it", "is", "She is fine.", "У неё всё хорошо."],
             ["you, we, they", "are", "They are Dana and Aigul.", "Они Дана и Айгуль."],
           ],
         },
@@ -1024,6 +1033,11 @@ const module: Module = {
           caption: "Три формы в одном разговоре",
           razgovor: true,
           text: "— How are you?\n— I am fine, thank you. Dana and Aigul are fine too.",
+          perevod: {
+            "— How are you?": "Как дела?",
+            "— I am fine, thank you. Dana and Aigul are fine too.":
+              "У меня всё хорошо, спасибо. У Даны и Айгуль тоже всё хорошо.",
+          },
           explain:
             "Are — потому что you. Am — потому что I. Are во второй раз — потому что Dana " +
             "and Aigul это те же «они», they. Форму выбирает подлежащее, то есть слово " +
@@ -1178,13 +1192,25 @@ const module: Module = {
           kind: "example",
           caption: "Короткая форма в предложении",
           text:
-            "I'm Alim.\nYou're Dana.\nHe's Nurlan.\nShe's Aigul.\nIt's OK.\nWe're fine.",
+            "I'm Alim.\nYou're Dana.\nHe's Nurlan.\nShe's Aigul.\nIt's OK.\n" +
+            "We're Alim and Dana.",
+          perevod: {
+            "I'm Alim.": "Я Алим.",
+            "You're Dana.": "Ты Дана.",
+            "He's Nurlan.": "Он Нурлан.",
+            "She's Aigul.": "Она Айгуль.",
+            "It's OK.": "Всё нормально.",
+            "We're Alim and Dana.": "Мы Алим и Дана.",
+          },
           zvuchat: ["I'm Alim.", "You're Dana.", "He's Nurlan.", "She's Aigul.", "It's OK.",
-            "We're fine.",
+            "We're Alim and Dana.",
           ],
           explain:
             "В речи короткая форма звучит одним словом, а не двумя: I'm — это /aɪm/. " +
-            "Послушай строки по одной и повтори за записью.",
+            "Послушай строки по одной и повтори за записью.\n\n" +
+            "Посмотри на переводы: в каждой строке видно, какое местоимение слилось с " +
+            "формой be. Кроме одной — у It's русского местоимения нет вовсе, по-русски " +
+            "говорят просто «всё нормально».",
         },
 
         // ---- задания ----
@@ -1309,7 +1335,7 @@ const module: Module = {
         {
           id: "please-v-konce",
           kind: "note",
-          tone: "mistake",
+          tone: "info",
           text:
             "В «Again, please» слово please стоит в конце и отделено запятой. Само по себе " +
             "please — ещё не просьба, оно её только смягчает: просьбу несёт слово again.",
@@ -1321,6 +1347,11 @@ const module: Module = {
           razgovor: true,
           text:
             "— Hello! I'm Aigerim.\n— Sorry?\n— Aigerim. A-I-G-E-R-I-M.\n— Nice to meet you, Aigerim.",
+          perevod: {
+            "— Hello! I'm Aigerim.": "Здравствуй! Я Айгерим.",
+            "— Sorry?": "Простите?",
+            "— Nice to meet you, Aigerim.": "Приятно познакомиться, Айгерим.",
+          },
           explain:
             "Переспрос не обрывает разговор, а спасает его. В ответ имя называют ещё раз и " +
             "сразу диктуют по буквам — так же, как в первом модуле.",
@@ -1434,6 +1465,8 @@ const module: Module = {
           text: [
             "Тебя знакомят с новым человеком. Дальше всё идёт подряд и быстро: " +
               "поздороваться, назвать себя, спросить, как дела, попрощаться.",
+            "Разговор начинается приветствием — hello или good morning, — а кончается " +
+              "прощанием: bye или goodbye. Между ними умещается всё остальное.",
             "Каждая часть такого разговора уже встречалась по отдельности. Новое здесь " +
               "одно: теперь они идут друг за другом, и времени подбирать слова нет.",
             "Ниже — один из возможных порядков. Он не единственный: живой разговор " +
@@ -1469,6 +1502,15 @@ const module: Module = {
           text:
             "— Good morning! What's your name?\n— I'm Dana. And you?\n— I'm Alim. Nice to meet you.\n" +
             "— Nice to meet you too. How are you?\n— I'm fine, thank you. And you?\n— Fine, thanks. Goodbye!\n— Bye!",
+          perevod: {
+            "— Good morning! What's your name?": "Доброе утро! Как тебя зовут?",
+            "— I'm Dana. And you?": "Я Дана. А тебя?",
+            "— I'm Alim. Nice to meet you.": "Я Алим. Приятно познакомиться.",
+            "— Nice to meet you too. How are you?": "Мне тоже приятно познакомиться. Как дела?",
+            "— I'm fine, thank you. And you?": "Хорошо, спасибо. А у тебя?",
+            "— Fine, thanks. Goodbye!": "Хорошо, спасибо. До свидания!",
+            "— Bye!": "Пока!",
+          },
           explain:
             "Каждая реплика опирается на предыдущую: вопрос — ответ, ответ — встречный " +
             "вопрос. Слово too в «Nice to meet you too» значит «тоже»: оно возвращает " +
@@ -1485,7 +1527,7 @@ const module: Module = {
         {
           id: "gde-rvyotsya-razgovor",
           kind: "note",
-          tone: "mistake",
+          tone: "info",
           text:
             "У разговора есть место, где он легко останавливается: ответ прозвучал, а " +
             "встречный вопрос — нет. «I'm fine» — и тишина. Ответить так не ошибка, но " +
@@ -1719,7 +1761,7 @@ const module: Module = {
             "Произнеси вслух переспрос и ответ на него: сначала одно слово, потом имя " +
             "и его буквы.",
           phrase: "Sorry? Nurlan. N-U-R-L-A-N.",
-          translation: "Извините? Нурлан. Н-У-Р-Л-А-Н.",
+          translation: "Простите? Нурлан.",
           hint: "После каждой буквы делай короткую остановку.",
           why:
             "Так переспрос и закрывают: имя повторяют целиком, а потом диктуют по " +
@@ -1784,7 +1826,7 @@ const module: Module = {
           kind: "note",
           tone: "info",
           text:
-            "Две последние строки почти одинаковы. Это не ошибка и не повтор от " +
+            "Последняя строка почти повторяет ту, что стоит через одну выше. Это не ошибка и не повтор от " +
             "рассеянности: одну строку не разобрали, попросили повторить — и её " +
             "повторили.",
         },

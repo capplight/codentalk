@@ -153,8 +153,8 @@ const module: Module = {
           id: "zachem-chastota",
           kind: "explain",
           text: [
-            "Ты умеешь сказать I work on Monday — по понедельникам я работаю. Но так " +
-              "бывает не у всех и не всегда.",
+            "После модуля «Что я делаю» ты умеешь сказать I work on Monday — по " +
+              "понедельникам я работаю. Но так бывает не у всех и не всегда.",
             "У одного это каждый понедельник без исключения. У другого — через раз. " +
               "Сказать об этом можно одним словом.",
             "Такое слово называется наречием: оно стоит рядом с глаголом и говорит, как " +
@@ -187,7 +187,7 @@ const module: Module = {
             // Утверждение спорило с собственными ответами. Нашёл методист.
             "По-русски порядок свободнее: «я всегда работаю» и «я работаю всегда» — оба " +
               "годятся. По-английски держись места между тем, о ком речь, и глаголом: " +
-              "оно подходит всегда.",
+              "так строится любое предложение с обычным глаголом. С формой be место другое, и об этом урок «Наречие и форма be» в этом же модуле.",
           ],
         },
         {
@@ -218,6 +218,11 @@ const module: Module = {
             "I always work in the morning.",
           ],
           text: "I always get up at seven.\nI sometimes read in the evening.\nI always work in the morning.",
+          perevod: {
+            "I always get up at seven.": "Я всегда встаю в семь.",
+            "I sometimes read in the evening.": "Иногда я читаю по вечерам.",
+            "I always work in the morning.": "По утрам я всегда работаю.",
+          },
           explain:
             "В каждом предложении наречие стоит на одном и том же месте: после I и до " +
             "глагола. Дальше идёт всё остальное — at seven, in the evening, in the morning.",
@@ -363,6 +368,12 @@ const module: Module = {
           ],
           text:
             "I usually get up at seven.\nI often read in the morning.\nI sometimes go to the gym in the evening.",
+          perevod: {
+            "I usually get up at seven.": "Обычно я встаю в семь.",
+            "I often read in the morning.": "По утрам я часто читаю.",
+            "I sometimes go to the gym in the evening.":
+              "Иногда по вечерам я хожу в спортзал.",
+          },
           explain:
             "Три предложения — три разные частоты. Место наречия во всех трёх одно, " +
             "меняется только слово.",
@@ -506,6 +517,11 @@ const module: Module = {
             "I never go to bed late.",
           ],
           text: "I never drink coffee.\nI never work on Sunday.\nI never go to bed late.",
+          perevod: {
+            "I never drink coffee.": "Я никогда не пью кофе.",
+            "I never work on Sunday.": "По воскресеньям я никогда не работаю.",
+            "I never go to bed late.": "Я никогда не ложусь поздно.",
+          },
           explain:
             "Во всех трёх предложениях нет ни don't, ни not. Never делает всю работу " +
             "само и стоит на обычном месте наречия.",
@@ -646,6 +662,12 @@ const module: Module = {
           ],
           text:
             "I am always busy on Monday.\nI always work on Monday.\nShe is never late.\nShe never comes late.",
+          perevod: {
+            "I am always busy on Monday.": "По понедельникам у меня всегда много дел.",
+            "I always work on Monday.": "По понедельникам я всегда работаю.",
+            "She is never late.": "Она никогда не опаздывает.",
+            "She never comes late.": "Она никогда не приходит поздно.",
+          },
           explain:
             "Первое и третье — с формой be, наречие после неё. Второе и четвёртое — с " +
             "глаголом-действием, наречие перед ним. Смысл близкий, а порядок разный.",
@@ -801,6 +823,12 @@ const module: Module = {
           ],
           text:
             "I don't usually work on Sunday.\nI don't often go to the gym.\nI don't usually drink coffee in the evening.",
+          perevod: {
+            "I don't usually work on Sunday.": "По воскресеньям я обычно не работаю.",
+            "I don't often go to the gym.": "В спортзал я хожу нечасто.",
+            "I don't usually drink coffee in the evening.":
+              "По вечерам я обычно не пью кофе.",
+          },
           explain:
             "Во всех трёх сначала идёт don't, потом наречие, потом глагол. Всё остальное — " +
             "в конце.",
@@ -937,6 +965,12 @@ const module: Module = {
           ],
           text:
             "My brother always works late.\nHe usually gets up at six.\nHe never drinks coffee.\nHe is often busy at the weekend.",
+          perevod: {
+            "My brother always works late.": "Мой брат всегда работает допоздна.",
+            "He usually gets up at six.": "Обычно он встаёт в шесть.",
+            "He never drinks coffee.": "Кофе он никогда не пьёт.",
+            "He is often busy at the weekend.": "По выходным у него часто много дел.",
+          },
           explain:
             "В первых трёх предложениях глагол с окончанием, наречие перед ним. В " +
             "четвёртом форма be, и наречие идёт после неё.",
@@ -1071,6 +1105,13 @@ const module: Module = {
           razgovor: true,
           text:
             "— Do you always work on Monday?\n— Yes, I do.\n— Does your brother usually get up early?\n— No, he doesn't.",
+          perevod: {
+            "— Do you always work on Monday?": "Ты всегда работаешь по понедельникам?",
+            "— Yes, I do.": "Да.",
+            "— Does your brother usually get up early?":
+              "Твой брат обычно встаёт рано?",
+            "— No, he doesn't.": "Нет.",
+          },
           explain:
             "В обоих вопросах наречие стоит перед глаголом. Ответы короткие, а наречие в " +
             "них не повторяется.",
@@ -1213,6 +1254,14 @@ const module: Module = {
           ],
           text:
             "I usually get up at seven.\nI always work on Monday.\nI sometimes go to the gym in the evening.\nI never work at the weekend.\nI am always busy on Friday.",
+          perevod: {
+            "I usually get up at seven.": "Обычно я встаю в семь.",
+            "I always work on Monday.": "По понедельникам я всегда работаю.",
+            "I sometimes go to the gym in the evening.":
+              "Иногда по вечерам я хожу в спортзал.",
+            "I never work at the weekend.": "По выходным я никогда не работаю.",
+            "I am always busy on Friday.": "По пятницам у меня всегда много дел.",
+          },
           explain:
             "Пять предложений и четыре разные частоты. В последнем стоит форма be, " +
             "поэтому наречие идёт после неё.",

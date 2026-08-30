@@ -1008,6 +1008,11 @@ const module: Module = {
             "I'm Alim. I've got sisters. These are my books. Those aren't my books. " +
               "My friends are students.",
           ],
+          perevod: {
+            "I'm Alim. I've got sisters. These are my books. Those aren't my books. My friends are students.":
+              "Я Алим. У меня есть сёстры. Это мои книги. Те книги не мои. " +
+              "Мои друзья — студенты.",
+          },
           explain:
             "Сколько именно сестёр, здесь не сказано: числа идут в следующем модуле. " +
             "Книги рядом — These are my books, книги подальше — Those aren't my books. " +

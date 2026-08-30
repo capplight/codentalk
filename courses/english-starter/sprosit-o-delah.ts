@@ -262,6 +262,12 @@ const module: Module = {
           text:
             "— Do you work on Sunday?\n— No. I don't work on Sunday.\n— Do you live here?\n" +
             "— Yes. I live near the office.",
+          perevod: {
+            "— Do you work on Sunday?": "Ты работаешь по воскресеньям?",
+            "— No. I don't work on Sunday.": "Нет. По воскресеньям я не работаю.",
+            "— Do you live here?": "Ты здесь живёшь?",
+            "— Yes. I live near the office.": "Да. Я живу рядом с офисом.",
+          },
           explain:
             "Оба вопроса устроены одинаково: Do, потом you, потом глагол. Ответы ты уже " +
             "умеешь строить с модуля «Я не делаю».",
@@ -401,6 +407,12 @@ const module: Module = {
           text:
             "— Do you live in Almaty?\n— Yes, I do.\n— Do you work in an office?\n" +
             "— No, I don't. I work at a school.",
+          perevod: {
+            "— Do you live in Almaty?": "Ты живёшь в Алматы?",
+            "— Yes, I do.": "Да.",
+            "— Do you work in an office?": "Ты работаешь в офисе?",
+            "— No, I don't. I work at a school.": "Нет. Я работаю в школе.",
+          },
           explain:
             "После короткого «нет» добавляют, как на самом деле. Тот же порядок был " +
             "в модуле «Я не делаю».",
@@ -544,6 +556,12 @@ const module: Module = {
           text:
             "— Does your brother work here?\n— No, he doesn't. He works at a company.\n" +
             "— Does he like his job?\n— Yes, he does.",
+          perevod: {
+            "— Does your brother work here?": "Твой брат работает здесь?",
+            "— No, he doesn't. He works at a company.": "Нет. Он работает в фирме.",
+            "— Does he like his job?": "Ему нравится его работа?",
+            "— Yes, he does.": "Да.",
+          },
           explain:
             "Короткий ответ устроен как в прошлом уроке, только вместо do стоит does: " +
             "Yes, he does. No, he doesn't.",
@@ -691,6 +709,12 @@ const module: Module = {
           text:
             "— Are you a teacher?\n— Yes, I am.\n— Do you work at a school?\n" +
             "— No, I don't. I work at a college.",
+          perevod: {
+            "— Are you a teacher?": "Ты преподаватель?",
+            "— Yes, I am.": "Да.",
+            "— Do you work at a school?": "Ты работаешь в школе?",
+            "— No, I don't. I work at a college.": "Нет. Я работаю в колледже.",
+          },
           explain:
             "Первый вопрос о том, кто человек, второй — о том, что он делает. И ответы " +
             "разные: на первый Yes, I am, на второй No, I don't.",
@@ -841,6 +865,12 @@ const module: Module = {
           text:
             "— What do you study?\n— I study English.\n— And what does your sister study?\n" +
             "— She studies music.",
+          perevod: {
+            "— What do you study?": "Что ты изучаешь?",
+            "— I study English.": "Я изучаю английский.",
+            "— And what does your sister study?": "А что изучает твоя сестра?",
+            "— She studies music.": "Она изучает музыку.",
+          },
           explain:
             "На такой вопрос отвечают не да и не нет, а полным предложением. И заметь: в " +
             "ответе окончание вернулось к глаголу — She studies music, — потому что в ответе нет does.",
@@ -972,6 +1002,12 @@ const module: Module = {
           caption: "Спросить о человеке",
           razgovor: true,
           text: "— Who is your teacher?\n— Dana is my teacher.\n— Who is that?\n— That's Alim.",
+          perevod: {
+            "— Who is your teacher?": "Кто твой преподаватель?",
+            "— Dana is my teacher.": "Мой преподаватель — Дана.",
+            "— Who is that?": "А это кто?",
+            "— That's Alim.": "Это Алим.",
+          },
           explain:
             "В обоих вопросах после who стоит форма be. Отвечают именем, а не да или нет.",
         },
@@ -991,6 +1027,14 @@ const module: Module = {
           text:
             "— Where do you work?\n— I work at a school.\n— When do you start?\n" +
             "— I start at nine.\n— Who is your teacher?\n— Dana is my teacher.",
+          perevod: {
+            "— Where do you work?": "Где ты работаешь?",
+            "— I work at a school.": "Я работаю в школе.",
+            "— When do you start?": "Когда ты начинаешь?",
+            "— I start at nine.": "Я начинаю в девять.",
+            "— Who is your teacher?": "Кто твой преподаватель?",
+            "— Dana is my teacher.": "Мой преподаватель — Дана.",
+          },
           explain:
             "Первые два вопроса устроены одинаково: слово, Do, you, глагол. Третий — с " +
             "формой be, потому что дальше идёт не действие, а человек.",
@@ -1133,6 +1177,12 @@ const module: Module = {
           text:
             "— Do your friends live in this city?\n— Yes, they do.\n" +
             "— Do they work together?\n— No, they don't.",
+          perevod: {
+            "— Do your friends live in this city?": "Твои друзья живут в этом городе?",
+            "— Yes, they do.": "Да.",
+            "— Do they work together?": "Они работают вместе?",
+            "— No, they don't.": "Нет.",
+          },
           explain:
             "Короткий ответ о нескольких устроен так же: Yes, they do. No, they don't.",
         },
@@ -1254,6 +1304,14 @@ const module: Module = {
           text:
             "— Do you work in this city?\n— Yes, I do.\n— Where do you work?\n" +
             "— I work at a school. And you?\n— I don't work. I study at a university.",
+          perevod: {
+            "— Do you work in this city?": "Ты работаешь в этом городе?",
+            "— Yes, I do.": "Да.",
+            "— Where do you work?": "Где ты работаешь?",
+            "— I work at a school. And you?": "Я работаю в школе. А ты?",
+            "— I don't work. I study at a university.":
+              "Я не работаю. Я учусь в университете.",
+          },
           explain:
             "Сначала вопрос на да или нет, потом подробность. В конце собеседник " +
             "рассказывает о себе — и вопросительное слово там уже не нужно.",
@@ -1266,6 +1324,12 @@ const module: Module = {
           text:
             "— Does your sister live in Almaty?\n— No, she doesn't. She lives in Astana.\n" +
             "— What does she do?\n— She's a doctor.",
+          perevod: {
+            "— Does your sister live in Almaty?": "Твоя сестра живёт в Алматы?",
+            "— No, she doesn't. She lives in Astana.": "Нет. Она живёт в Астане.",
+            "— What does she do?": "А чем она занимается?",
+            "— She's a doctor.": "Она врач.",
+          },
           explain:
             "Тот же порядок, только об одном другом человеке: Does в вопросе и doesn't в " +
             "коротком ответе.",

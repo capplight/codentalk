@@ -261,6 +261,12 @@ const module: Module = {
           text:
             "— Where is my key?\n— It's in your bag.\n— And my phone?\n" +
             "— It's on the table.",
+          perevod: {
+            "— Where is my key?": "Где мой ключ?",
+            "— It's in your bag.": "У тебя в сумке.",
+            "— And my phone?": "А телефон?",
+            "— It's on the table.": "На столе.",
+          },
           explain:
             "Where is…? — «где». Отвечают через it и предлог: It's in your bag. Сам вопрос " +
             "разберём в уроке «Где это: вопрос», пока запомни его целиком.",
@@ -403,6 +409,11 @@ const module: Module = {
           text:
             "The station is near my house.\nThe park is behind the school.\n" +
             "The shop is between the park and the station.",
+          perevod: {
+            "The station is near my house.": "Вокзал рядом с моим домом.",
+            "The park is behind the school.": "Парк за школой.",
+            "The shop is between the park and the station.": "Магазин между парком и вокзалом.",
+          },
           explain:
             "Все три предложения устроены одинаково: предмет, форма be, предлог, второе " +
             "место. В последнем мест два, и между ними and.",
@@ -544,6 +555,12 @@ const module: Module = {
           razgovor: true,
           text:
             "— Where is the shop?\n— It's there.\n— And your car?\n— It's here.",
+          perevod: {
+            "— Where is the shop?": "Где магазин?",
+            "— It's there.": "Вон там.",
+            "— And your car?": "А твоя машина?",
+            "— It's here.": "Здесь.",
+          },
           explain:
             "Отвечают целым предложением: It's there, а не просто There. Показать рукой " +
             "при этом можно, но слово о месте всё равно ставят в конец.",
@@ -684,6 +701,11 @@ const module: Module = {
           text:
             "The chair is next to the table.\nThe car is in front of the house.\n" +
             "The shop is opposite the station.",
+          perevod: {
+            "The chair is next to the table.": "Стул рядом со столом.",
+            "The car is in front of the house.": "Машина перед домом.",
+            "The shop is opposite the station.": "Магазин напротив вокзала.",
+          },
           explain:
             "Три предлога — три разных положения. Next to — вплотную, in front of — перед " +
             "входом, opposite — с другой стороны улицы.",
@@ -829,6 +851,12 @@ const module: Module = {
           text:
             "— Where are my keys?\n— They're on the table.\n— And my phone?\n" +
             "— It's in your bag.",
+          perevod: {
+            "— Where are my keys?": "Где мои ключи?",
+            "— They're on the table.": "На столе.",
+            "— And my phone?": "А телефон?",
+            "— It's in your bag.": "У тебя в сумке.",
+          },
           explain:
             "В первом ответе стоит they're — ключей несколько. Во втором it's — телефон " +
             "один. Слово о предмете выбирает и форму be, и местоимение в ответе.",
@@ -993,6 +1021,11 @@ const module: Module = {
           text:
             "The hotel is opposite the station.\nThe bus stop is in front of the hotel.\n" +
             "The park is behind the school.",
+          perevod: {
+            "The hotel is opposite the station.": "Гостиница напротив вокзала.",
+            "The bus stop is in front of the hotel.": "Остановка перед гостиницей.",
+            "The park is behind the school.": "Парк за школой.",
+          },
           explain:
             "Три предложения, три предлога из прошлых уроков. Слова о местах ведут себя " +
             "как любые другие предметы: перед ними стоит the. Дальше всё как раньше — " +
@@ -1145,6 +1178,12 @@ const module: Module = {
           text:
             "— Where is the hospital?\n— Go straight. Turn left. It's opposite the park.\n" +
             "— Thank you!",
+          perevod: {
+            "— Where is the hospital?": "Где больница?",
+            "— Go straight. Turn left. It's opposite the park.":
+              "Идите прямо. Поверните налево. Она напротив парка.",
+            "— Thank you!": "Спасибо!",
+          },
           explain:
             "Дорогу объясняют по шагам: сначала куда идти, потом где повернуть, потом где " +
             "искать. Последнее предложение уже знакомое — предмет, форма be, предлог.",
@@ -1273,6 +1312,14 @@ const module: Module = {
           text:
             "— Excuse me! Where is the hotel?\n— Go straight. Turn right.\n" +
             "— And then?\n— It's next to the bus stop.\n— Thank you!\n— You're welcome.",
+          perevod: {
+            "— Excuse me! Where is the hotel?": "Извините! Где гостиница?",
+            "— Go straight. Turn right.": "Идите прямо. Поверните направо.",
+            "— And then?": "А потом?",
+            "— It's next to the bus stop.": "Она рядом с остановкой.",
+            "— Thank you!": "Спасибо!",
+            "— You're welcome.": "Пожалуйста.",
+          },
           explain:
             "Excuse me — «извините», так начинают разговор с незнакомым человеком. " +
             "And then? — «а потом?»: так просят продолжить, если указаний оказалось мало.",

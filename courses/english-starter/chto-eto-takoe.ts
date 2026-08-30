@@ -1046,6 +1046,12 @@ const module: Module = {
           caption: "Два вопроса подряд",
           razgovor: true,
           text: "— What is this?\n— It's a key.\n— Is this a key?\n— Yes, it is.",
+          perevod: {
+            "— What is this?": "Что это?",
+            "— It's a key.": "Это ключ.",
+            "— Is this a key?": "Это ключ?",
+            "— Yes, it is.": "Да.",
+          },
           explain:
             "Первый вопрос спрашивает название, и в ответ его называют. Второй проверяет " +
             "догадку, и в ответ говорят «да». Слова в вопросах почти одни и те же — решает " +
@@ -1158,6 +1164,14 @@ const module: Module = {
           text:
             "— What's this?\n— It's a ticket.\n— Is that a ticket too?\n— No, it isn't. It's a map.\n" +
             "— Sorry! And what is that?\n— It's money.",
+          perevod: {
+            "— What's this?": "Что это?",
+            "— It's a ticket.": "Это билет.",
+            "— Is that a ticket too?": "То тоже билет?",
+            "— No, it isn't. It's a map.": "Нет. Это карта.",
+            "— Sorry! And what is that?": "Простите! А что это там?",
+            "— It's money.": "Это деньги.",
+          },
           explain:
             "Слово too значит «тоже» — оно знакомо по модулю про приветствие. Заметь " +
             "последний ответ: перед money артикль не ставят.",

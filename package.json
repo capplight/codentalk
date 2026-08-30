@@ -29,7 +29,8 @@
     "zapas": "tsx scripts/zapas.mts",
     "pamyat": "tsx scripts/pamyat.mts",
     "slovo": "tsx scripts/slovo.mts",
-    "sosedi": "tsx scripts/sosedi.mts"
+    "sosedi": "tsx scripts/sosedi.mts",
+    "perevody": "tsx scripts/perevody.mts"
   },
   "dependencies": {
     "@auth/prisma-adapter": "^2.11.3",
