@@ -30,7 +30,8 @@
     "pamyat": "tsx scripts/pamyat.mts",
     "slovo": "tsx scripts/slovo.mts",
     "sosedi": "tsx scripts/sosedi.mts",
-    "perevody": "tsx scripts/perevody.mts"
+    "perevody": "tsx scripts/perevody.mts",
+    "bliznetsy": "tsx scripts/bliznetsy.mts"
   },
   "dependencies": {
     "@auth/prisma-adapter": "^2.11.3",
