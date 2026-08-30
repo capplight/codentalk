@@ -262,6 +262,8 @@ const module: Module = {
             "Данияр собирается за город и пишет, что взять.",
             "Книги он считает поштучно: a book, two books.",
             "А воду не считает: он берёт не «две воды», а просто water.",
+            "По-русски это деление тоже есть: «две книги» сказать можно, «две воды» — нет.",
+            "Значит вид вещи ты и так различаешь; ново тут одно — по-английски от вида зависит выбор слов.",
             "Слова, которые называют вещи, называют существительными.",
             "Существительные бывают двух видов, и от вида зависит многое.",
           ],
@@ -327,6 +329,13 @@ const module: Module = {
           ],
           text:
             "What do we take?\nSome water and some bread.\nAnd books?\nTwo books and a ticket. Food is in the bag.",
+          perevod: {
+            "What do we take?": "Что берём?",
+            "Some water and some bread.": "Немного воды и немного хлеба.",
+            "And books?": "А книги?",
+            "Two books and a ticket. Food is in the bag.":
+              "Две книги и билет. Еда в сумке.",
+          },
           explain:
             "Перед water и bread стоит some, и числа при них нет. А книги и билет " +
             "сосчитаны: two books, a ticket.",
@@ -479,6 +488,14 @@ const module: Module = {
           ],
           text:
             "Is there food at home?\nThere is a lot of food. A lot of cheese and a lot of milk.\nAnd eggs?\nA lot of eggs, but the rice is finished.",
+          perevod: {
+            "Is there food at home?": "Дома есть еда?",
+            "There is a lot of food. A lot of cheese and a lot of milk.":
+              "Еды много. Много сыра и много молока.",
+            "And eggs?": "А яйца?",
+            "A lot of eggs, but the rice is finished.":
+              "Яиц много, а рис кончился.",
+          },
           explain:
             "Оборот повторяется четыре раза и ни разу не меняется. Меняется только " +
             "вещь после него: eggs во множественном числе, cheese и milk без него.",
@@ -632,6 +649,14 @@ const module: Module = {
           ],
           text:
             "What is left?\nA few biscuits and a few beans.\nAnd the jam?\nOnly a bit of jam. Take a few lemons too.",
+          perevod: {
+            "What is left?": "Что осталось?",
+            "A few biscuits and a few beans.":
+              "Несколько печений и немного фасоли.",
+            "And the jam?": "А варенье?",
+            "Only a bit of jam. Take a few lemons too.":
+              "Варенья чуть-чуть. Возьми ещё несколько лимонов.",
+          },
           explain:
             "Оборот a few стоит перед печеньем, фасолью и лимонами — всё это " +
             "считают. А перед вареньем стоит a bit of, и вещь после него без " +
@@ -731,9 +756,10 @@ const module: Module = {
           kind: "explain",
           text: [
             "Данияр говорит, что времени у него мало.",
-            "По-английски это I don't have much time.",
-            "В отрицании к количеству часто берут два других слова — much и many.",
-            "Какое из двух — решает вид существительного.",
+            "I don't have much time. — У меня мало времени.",
+            "Здесь языки расходятся заметно.",
+            "По-русски «мало» одно на всё: мало времени, мало билетов, мало денег.",
+            "По-английски слов два — much и many, — и какое взять, решает вид существительного.",
           ],
         },
         {
@@ -783,6 +809,13 @@ const module: Module = {
           ],
           text:
             "Can you come?\nI don't have much time today.\nAnd tomorrow?\nThere aren't many tickets left. We didn't have much money for two.",
+          perevod: {
+            "Can you come?": "Вы сможете прийти?",
+            "I don't have much time today.": "Сегодня у меня мало времени.",
+            "And tomorrow?": "А завтра?",
+            "There aren't many tickets left. We didn't have much money for two.":
+              "Билетов осталось немного. Денег на двоих у нас было мало.",
+          },
           explain:
             "Слово much стоит перед time и money, а many перед tickets. Выбор " +
             "каждый раз сделан по виду вещи, а не по слуху.",
@@ -936,6 +969,14 @@ const module: Module = {
           ],
           text:
             "How much bread do we need?\nA lot.\nAnd how many eggs?\nSix.\nIs there wood somewhere?\nYes, near the river.",
+          perevod: {
+            "How much bread do we need?": "Сколько хлеба нам нужно?",
+            "A lot.": "Много.",
+            "And how many eggs?": "А сколько яиц?",
+            "Six.": "Шесть.",
+            "Is there wood somewhere?": "Дрова где-нибудь есть?",
+            "Yes, near the river.": "Да, у реки.",
+          },
           explain:
             "Оба вопроса начинаются одинаково, а второе слово разное. Отвечают на " +
             "них числом или оборотом количества.",
@@ -1088,6 +1129,14 @@ const module: Module = {
           ],
           text:
             "Do we have enough food?\nThere is a lot of rice, so we have enough.\nAnd tickets?\nWe don't have enough tickets for four.",
+          perevod: {
+            "Do we have enough food?": "Еды нам хватит?",
+            "There is a lot of rice, so we have enough.":
+              "Риса много, так что хватит.",
+            "And tickets?": "А билеты?",
+            "We don't have enough tickets for four.":
+              "Билетов на четверых не хватает.",
+          },
           explain:
             "Слово enough стоит и при неисчисляемом, и при счётном, и вещь после " +
             "него не меняется. Первый ответ говорит «много, и потому хватает» — это " +
@@ -1478,6 +1527,16 @@ const module: Module = {
           id: "obrazets-prosby",
           kind: "example",
           caption: "Сообщение Данияра",
+          perevod: {
+            "Hi! Can you buy some food today?":
+              "Привет! Купишь сегодня немного еды?",
+            "We need a lot of bread and four eggs.":
+              "Нам нужно много хлеба и четыре яйца.",
+            "There isn't much tea at home, so please take some tea too.":
+              "Чая дома мало, так что возьми, пожалуйста, ещё и чай.",
+            "A few lemons would be a nice surprise.":
+              "Несколько лимонов были бы приятной неожиданностью.",
+          },
           zvuchat: [
             "Hi! Can you buy some food today?",
             "We need a lot of bread and four eggs.",
