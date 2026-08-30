@@ -246,7 +246,9 @@ const module: Module = {
           text: [
             "Данияр и Айгуль смотрят старые снимки и вспоминают детство.",
             "Айгуль на снимке в бассейне: ей шесть лет, и она уже плавает.",
-            "Она говорит I could swim at six: в шесть лет она это уже умела.",
+            "I could swim at six. — В шесть лет я умела плавать.",
+            "Русское «умел» и «мог» — это одно слово could.",
+            "И заметь: по-русски прошедшее слышно в самом глаголе, а по-английски его несёт could, а swim остаётся как в словаре.",
           ],
         },
         {
@@ -299,6 +301,14 @@ const module: Module = {
           ],
           text:
             "I could swim at six. My granny took me to the pool.\nAnd I could kick a ball at four.\nMy brother could play baseball, and he broke the school record.",
+          perevod: {
+            "I could swim at six. My granny took me to the pool.":
+              "В шесть лет я умела плавать. Бабушка водила меня в бассейн.",
+            "And I could kick a ball at four.":
+              "А я в четыре года умел бить по мячу.",
+            "My brother could play baseball, and he broke the school record.":
+              "Мой брат умел играть в бейсбол и побил школьный рекорд.",
+          },
           explain:
             "Во всех трёх строках после could стоит обычная форма глагола: " +
             "swim, kick, play. В третьей вместо местоимения стоит my brother, " +
@@ -454,6 +464,14 @@ const module: Module = {
           ],
           text:
             "I couldn't ride a bike at seven. The bike was too big.\nI couldn't hold the bat: it was heavy.\nI failed my first test at school, and I was upset all day.",
+          perevod: {
+            "I couldn't ride a bike at seven. The bike was too big.":
+              "В семь лет я не умел ездить на велосипеде. Велосипед был слишком большой.",
+            "I couldn't hold the bat: it was heavy.":
+              "Я не мог удержать биту: она была тяжёлая.",
+            "I failed my first test at school, and I was upset all day.":
+              "Первую контрольную в школе я завалил и весь день расстраивался.",
+          },
           explain:
             "В первых двух строках couldn't говорит о том, чего не выходило, и " +
             "рядом названа причина. Третья строка о случае, а не об умении: " +
@@ -621,6 +639,15 @@ const module: Module = {
           ],
           text:
             "Could you get dressed alone at five?\nNo, I couldn't. My granny helped me with the costume.\nCould you play the clown at school?\nYes, I could. Everybody laughed.",
+          perevod: {
+            "Could you get dressed alone at five?":
+              "Вы умели одеваться сами в пять лет?",
+            "No, I couldn't. My granny helped me with the costume.":
+              "Нет. С костюмом мне помогала бабушка.",
+            "Could you play the clown at school?":
+              "Вы умели играть клоуна в школе?",
+            "Yes, I could. Everybody laughed.": "Да. Все смеялись.",
+          },
           explain:
             "В обоих вопросах could стоит первым, а глагол остаётся в обычной " +
             "форме. В коротком ответе глагол не повторяют: No, I couldn't.",
@@ -996,6 +1023,15 @@ const module: Module = {
           id: "obrazec-rasskaza",
           kind: "example",
           caption: "Рассказ Айгуль",
+          perevod: {
+            "At five I could sing pop songs, and everybody in the family listened.":
+              "В пять лет я умела петь эстрадные песни, и вся семья слушала.",
+            "My brother taught me the words.": "Слова мне выучил брат.",
+            "But I couldn't get dressed alone because the costume was too hard for me.":
+              "А одеваться сама я не умела, потому что костюм был мне не по силам.",
+            "At six I could do it alone, and my granny only watched.":
+              "В шесть я справлялась сама, и бабушка только смотрела.",
+          },
           zvuchat: [
             "At five I could sing pop songs, and everybody in the family listened.",
             "My brother taught me the words.",
