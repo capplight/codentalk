@@ -205,9 +205,11 @@ const module: Module = {
           kind: "explain",
           text: [
             "Алим снял новую квартиру и рассказывает о ней Данияру.",
-            "По-английски он говорит My flat is smaller than yours.",
+            "My flat is smaller than yours. — Моя квартира меньше твоей.",
             "Так делают сравнение: называют две вещи и говорят, какая из них какая.",
             "Прилагательное для этого встаёт в особую форму: small становится smaller.",
+            "По-русски то же самое: «маленький» становится «меньше», «дешёвый» — «дешевле».",
+            "И в обоих языках меняется конец слова, а не начало.",
           ],
         },
         {
@@ -263,6 +265,13 @@ const module: Module = {
           ],
           text:
             "My flat is smaller than yours.\nBut the price is lower?\nYes, and the kitchen is bigger.\nWhat about the size of the rooms?\nThey are smaller.",
+          perevod: {
+            "My flat is smaller than yours.": "Моя квартира меньше твоей.",
+            "But the price is lower?": "Но цена ниже?",
+            "Yes, and the kitchen is bigger.": "Да, и кухня больше.",
+            "What about the size of the rooms?": "А размер комнат?",
+            "They are smaller.": "Комнаты меньше.",
+          },
           explain:
             "Каждая строка сравнивает одну вещь с другой. В первой вторая вещь " +
             "названа после than, в остальных она уже известна из разговора.",
@@ -369,7 +378,9 @@ const module: Module = {
           kind: "explain",
           text: [
             "Дане предложили другую работу, и она сравнивает её с прежней.",
-            "По-английски она говорит This job is more attractive.",
+            "This job is more attractive. — Эта работа привлекательнее.",
+            "И тут снова как по-русски: «привлекательнее» можно сказать и «более привлекательная».",
+            "Русский выбирает между окончанием и словом «более», английский — между -er и more.",
             "К длинному прилагательному окончание -er не прибавляют.",
             "Вместо него перед прилагательным ставят слово more, а само оно не меняется.",
           ],
@@ -419,6 +430,16 @@ const module: Module = {
           ],
           text:
             "This job is more attractive than my old one.\nIs the pay higher?\nNo, but the people are more polite.\nWho works there?\nAn engineer. He is more careful than me and he has more experience.",
+          perevod: {
+            "This job is more attractive than my old one.":
+              "Эта работа привлекательнее прежней.",
+            "Is the pay higher?": "Платят больше?",
+            "No, but the people are more polite.":
+              "Нет, зато люди вежливее.",
+            "Who works there?": "Кто там работает?",
+            "An engineer. He is more careful than me and he has more experience.":
+              "Инженер. Он аккуратнее меня, и опыта у него больше.",
+          },
           explain:
             "Длинные прилагательные берут more, короткое high — окончание. В одном " +
             "разговоре встречаются оба способа, и это обычное дело.",
@@ -708,6 +729,15 @@ const module: Module = {
           ],
           text:
             "What colour do you think is better?\nThe black one.\nAnd the memory?\nThe black one is better, but the price is worse.\nHow much worse?\nA penny. Forty pence.",
+          perevod: {
+            "What colour do you think is better?": "Какой цвет, по-твоему, лучше?",
+            "The black one.": "Чёрный.",
+            "And the memory?": "А память?",
+            "The black one is better, but the price is worse.":
+              "У чёрного память лучше, зато цена хуже.",
+            "How much worse?": "Насколько хуже?",
+            "A penny. Forty pence.": "На пенни. Сорок пенсов.",
+          },
           explain:
             "Слово better стоит дважды и оба раза без than: с чем сравнивают, ясно " +
             "из разговора. Слово worse собрано так же.",
@@ -858,6 +888,15 @@ const module: Module = {
           ],
           text:
             "I want a quieter job.\nA painter works in a quieter place than a mechanic.\nAnd a pilot?\nA pilot has a harder job.\nWhat about a waitress?\nLonger hours and lower pay.",
+          perevod: {
+            "I want a quieter job.": "Мне хочется работу потише.",
+            "A painter works in a quieter place than a mechanic.":
+              "У маляра место потише, чем у механика.",
+            "And a pilot?": "А у лётчика?",
+            "A pilot has a harder job.": "У лётчика работа тяжелее.",
+            "What about a waitress?": "А у официантки?",
+            "Longer hours and lower pay.": "Часы длиннее, а платят меньше.",
+          },
           explain:
             "Формы сравнения здесь стоят перед самими вещами и называют их: " +
             "a quieter job, a harder job, longer hours. В строке про маляра вторая " +
@@ -1244,6 +1283,16 @@ const module: Module = {
           id: "obrazets-zapiski",
           kind: "example",
           caption: "Записка Даны",
+          perevod: {
+            "Alim, I saw two phones today.":
+              "Алим, я сегодня посмотрел два телефона.",
+            "The black one is more expensive than the grey one, but the memory is bigger.":
+              "Чёрный дороже серого, зато память больше.",
+            "The photos are wider and the price of the cover is lower.":
+              "Снимки шире, и чехол дешевле.",
+            "I take the black one. The second cover is half-price.":
+              "Беру чёрный. Второй чехол за полцены.",
+          },
           zvuchat: [
             "Alim, I saw two phones today.",
             "The black one is more expensive than the grey one, but the memory is bigger.",
