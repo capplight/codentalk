@@ -695,11 +695,16 @@ const module: Module = {
             "I haven't been in a chatroom for a long time",
             "I haven't been in the chatroom for a long time.",
             "I haven't been in the chatroom for a long time",
+            "I haven't been to a chatroom for a long time.",
+            "I haven't been to a chatroom for a long time",
+            "I haven't been to the chatroom for a long time.",
+            "I haven't been to the chatroom for a long time",
           ],
           hint: "Третья форма глагола be — been, а отрезок времени идёт в конец.",
           why:
-            "I haven't been in a chatroom for a long time. Здесь стоит in, " +
-            "потому что речь о нахождении внутри, а не о поездке.",
+            "I haven't been in a chatroom for a long time. Речь о том, сколько " +
+            "времени человека там не было, и потому стоит in. Строка с to — про " +
+            "то, что он туда не заходил, — тоже верна и засчитывается.",
         },
       ],
     },
@@ -1158,15 +1163,15 @@ const module: Module = {
         outcome: "спросить о длительности: How long have you studied English?",
         prompt:
           "Спроси по-английски, сколько времени человек работает в этой школе. Начни с How long.",
-        answer: "How long have you worked in this school?",
+        answer: "How long have you worked at this school?",
         accept: [
-          "How long have you worked in this school",
+          "How long have you worked at this school",
           "How long have you worked at this school?",
           "How long have you worked at this school",
         ],
         hint: "Глагол work берёт -ed, как большинство.",
         why:
-          "How long have you worked in this school? Ни одного числа в вопросе " +
+          "How long have you worked at this school? Ни одного числа в вопросе " +
           "нет: число и есть то, чего ждут в ответ.",
       },
 

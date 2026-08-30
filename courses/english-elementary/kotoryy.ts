@@ -63,9 +63,13 @@ import type { Module } from "@/lib/content/types";
  * WITHOUT PRONOUN». В модуль не взято: три способа сказать одно и то же на этой
  * ступени довольно, а четвёртый — выбор, который нечем обосновать.
  *
- * СЛОВАРЬ МОДУЛЯ — ПЯТНАДЦАТЬ КАРТОЧЕК, ВСЕ НОВЫЕ ДЛЯ СТУПЕНИ. Мир модуля —
+ * СЛОВАРЬ МОДУЛЯ — ВОСЕМНАДЦАТЬ КАРТОЧЕК, ВСЕ НОВЫЕ ДЛЯ СТУПЕНИ. Мир модуля —
  * люди и вещи: их и надо описывать придаточным, поэтому слова тут работают
  * сами собой, а не подбираются под счёт.
+ *
+ * Пятнадцать карточек взяты из словника, ещё три — `aunt`, `uncle`, `husband` —
+ * добавлены по разбору. Счёт в шапке стоял «пятнадцать» и не пережил этой
+ * добавки; поправлен 30 августа 2026 по разбору методиста.
  *
  * ДВА СЛОВА OXFORD СТАВИТ ВЫШЕ СТУПЕНИ, И ОБА ВЗЯТЫ ПО МЕРКЕ СТУПЕНИ: discount
  * (B1) и contact (B1); оба стоят в словнике A2 Key, то есть входят в
@@ -577,7 +581,8 @@ const module: Module = {
           tone: "mistake",
           text:
             "«The film was long that I watched» — так строку не строят." +
-            "\n\nОписание отошло от фильма, и кажется, что оно про длину.",
+            "\n\nОписание оторвалось от фильма и повисло в конце: читателю " +
+            "приходится возвращаться назад и искать, к чему оно.",
         },
         {
           id: "razgovor-o-filme",
@@ -671,16 +676,16 @@ const module: Module = {
           kind: "short",
           prompt:
             "Строку The drawer was very old that is for sale перепиши так, чтобы описание стояло на своём месте.",
-          answer: "The drawer which is for sale was very old.",
+          answer: "The drawer that is for sale was very old.",
           accept: [
-            "The drawer which is for sale was very old",
+            "The drawer that is for sale was very old",
             "The drawer which is for sale was very old.",
             "The drawer which is for sale was very old",
           ],
           hint: "Описание переезжает вплотную к слову, которое описываешь.",
           why:
-            "The drawer which is for sale was very old. Годится и which: оба " +
-            "слова берут о вещи.",
+            "The drawer that is for sale was very old. Слово описания осталось " +
+            "прежним, переехало само описание. Годится и which: о вещи берут оба.",
         },
       ],
     },
@@ -1151,16 +1156,17 @@ const module: Module = {
         outcome:
           "ставить описание сразу за словом, которое описываешь: The film that I watched was long",
         prompt:
-          "В строке The bag was heavy which my brother gave me описание стоит в конце. К какому слову его отнесёт читатель?",
+          "В строке The bag was heavy which my brother gave me описание стоит в конце. Что с ней не так?",
         options: [
-          { text: "К слову bag." },
-          { text: "К слову heavy.", correct: true },
-          { text: "К слову brother." },
+          { text: "Слово which здесь взято неверно: о вещи говорят that" },
+          { text: "Описание оторвалось от сумки, и строку приходится перечитывать", correct: true },
+          { text: "После heavy нужна запятая" },
         ],
-        hint: "Описание тянется к тому слову, рядом с которым оказалось.",
+        hint: "Посмотри, далеко ли описание от слова, к которому относится.",
         why:
-          "К слову heavy. Оттого описание и ставят вплотную к тому слову, " +
-          "которое описываешь.",
+          "Описание оторвалось от сумки. Понять его можно, но читатель " +
+          "возвращается назад и ищет, к чему оно. Поэтому описание ставят " +
+          "вплотную: The bag which my brother gave me was heavy.",
       },
 
       // ---- итог 4 ----

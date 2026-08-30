@@ -32,9 +32,18 @@ import type { Module } from "@/lib/content/types";
  *   **just** seen your notice». Тот же случай, что с `been` в модуле 22:
  *   дескриптор говорит «a limited range of adverbs», а какие именно — показывает
  *   пример.
- * - **`already` — B1 у English Grammar Profile и A2 у руководства.** Графа
- *   «FORM/USE: WITH 'ALREADY'» стоит на B1. Берём по руководству и словнику,
- *   мерка та же, что в модулях 18–22.
+ * - **`already` стоит на A2, и объявленного расхождения источников нет.**
+ *   Правка от 30 августа 2026 по разбору методиста. Здесь было написано
+ *   «B1 у English Grammar Profile и A2 у руководства»: графа `present perfect
+ *   simple, FORM/USE: WITH 'ALREADY'` и правда B1. Но в том же файле есть
+ *   графа **A2** — `ADVERBS adverbs and adverb phrases: types and meanings,
+ *   USE: TIME`: «Can use a limited range of adverbs ('yesterday', 'just',
+ *   'now', 'already',)…», и её собственный пример — «[talking about a film]
+ *   I've already seen it», то есть ровно наш случай.
+ *
+ *   Это та же ловушка, что подвела модуль 29: искать надо по всему файлу, а не
+ *   по одной подкатегории. Решение брать `already` от этого не меняется, а
+ *   основание становится прямым вместо мерки.
  *
  * ГРАНИЦА ЛИЦ — ТРЕТИЙ МОДУЛЬ ПОДРЯД, И У ОТРИЦАНИЯ ОНА УЖЕ.
  *
@@ -88,9 +97,12 @@ import type { Module } from "@/lib/content/types";
  * `yet` КАРТОЧКИ ЗДЕСЬ НЕ ПОЛУЧАЕТ, И ЭТО НАРОЧНО: её завёл модуль 10 «Уже
  * договорились». Вторая карточка сказала бы ученику, что слово новое.
  *
- * ВОСЕМЬ СЛОВ ВЫШЕ СТУПЕНИ ПО OXFORD 3000: accommodation, block,
- * ingredient, slice, various, kiss, ad, length — B1. Все восемь стоят в
- * словнике A2 Key.
+ * ПЯТЬ СЛОВ ВЫШЕ СТУПЕНИ ПО OXFORD 3000: accommodation, block, ingredient,
+ * slice, various — B1. Все пять стоят в словнике A2 Key.
+ *
+ * Счёт поправлен 30 августа 2026 по разбору методиста: здесь стояло «восемь»
+ * и назывались `kiss`, `ad`, `length`. Карточек этих слов в модуле нет: `ad` и
+ * `length` переехали в модуль 24, `kiss` — в модуль 31, и там они объявлены.
  *
  * ШЕСТИ СЛОВ OXFORD 3000 НЕ ЗНАЕТ ВОВСЕ: pharmacy, boiled, fried, roast,
  * lunchtime, sink. Это не «выше ступени», а отсутствие пометы.
@@ -204,9 +216,10 @@ const module: Module = {
         "(adj)`, `roast (adj)` — прилагательные при еде. `sink (n)` — раковина, " +
         "а не глагол. `record (n)` в модуль не берётся: `ipa-en-uk` о нём " +
         "молчит. " +
-        "ВОСЕМЬ СЛОВ ВЫШЕ СТУПЕНИ ПО OXFORD 3000, И ЭТО ОБЪЯВЛЯЕТСЯ " +
-        "НАРОЧНО: accommodation, block, ingredient, slice, various, kiss, " +
-        "ad, length — B1. Все восемь стоят в словнике A2 Key. " +
+        "ПЯТЬ СЛОВ ВЫШЕ СТУПЕНИ ПО OXFORD 3000, И ЭТО ОБЪЯВЛЯЕТСЯ " +
+        "НАРОЧНО: accommodation, block, ingredient, slice, various — B1. Все " +
+        "пять стоят в словнике A2 Key. Прежняя запись называла восемь, считая " +
+        "`kiss`, `ad` и `length`, — их карточки стоят в других модулях. " +
         "ШЕСТИ СЛОВ OXFORD 3000 НЕ ЗНАЕТ ВОВСЕ: pharmacy, boiled, fried, " +
         "roast, lunchtime, sink — у последних двух Oxford знает ГЛАГОЛЫ " +
         "(`fry v. B1`, `sink v. B1`), а карточки дают прилагательное и " +
@@ -1291,8 +1304,8 @@ const module: Module = {
         accept: ["I have already booked a room"],
         hint: "Обычное место этого слова — между have и глаголом.",
         why:
-          "I have already booked a room. В начале строки already встречается " +
-          "редко, и записка так не пишется.",
+          "I have already booked a room. Обычное место already — между have и " +
+          "третьей формой глагола, и записку так и пишут.",
       },
       {
         id: "q-chto-govorit-already",

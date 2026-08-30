@@ -475,6 +475,7 @@ const module: Module = {
           caption: "Слова урока",
           items: [
             { term: "anymore", translation: "больше не", example: "They have no bread anymore.", hint: "/ˌeniˈmɔː/" },
+            { term: "mad about", translation: "без ума от чего-то", example: "She said that she is mad about football.", hint: "/ˈmæd əbaʊt/" },
             { term: "What a shame!", translation: "Какая досада!", example: "What a shame! And the market?", hint: "/wɒt ə ˈʃeɪm/" },
             { term: "awesome", translation: "потрясающий", example: "The market is awesome.", hint: "/ˈɔːsəm/" },
             { term: "further", translation: "дальше", example: "It is further from here.", hint: "/ˈfɜːðə/" },
@@ -624,14 +625,6 @@ const module: Module = {
             "it. Во втором стоят you и обычный глагол know — хвостик don't " +
             "you. В третьем речь об автобусе, и хвостик doesn't it. Ответы " +
             "повторяют то же слово: Yes, it is и Yes, I do.",
-        },
-        {
-          id: "slovar-peresprosa",
-          kind: "vocab",
-          caption: "Слова урока",
-          items: [
-            { term: "mad about", translation: "без ума от чего-то", example: "Dana is mad about football.", hint: "/ˈmæd əbaʊt/" },
-          ],
         },
 
         // ---- задания ----
@@ -1189,8 +1182,6 @@ const module: Module = {
             { term: "kiss", translation: "поцелуй; целовать", example: "She said that a kiss on the card is normal here.", hint: "/kɪs/" },
             { term: "poor thing", translation: "бедняга", example: "Poor thing, he told us that he lost the key.", hint: "/ˌpʊə ˈθɪŋ/" },
             { term: "please", translation: "пожалуйста", example: "Please tell me that the door is open.", hint: "/pliːz/" },
-            { term: "would prefer", translation: "предпочёл бы", example: "She said that she would prefer Sunday.", hint: "/wʊd prɪˈfɜː/" },
-            { term: "shall", translation: "в предложении помощи: Shall I…?", example: "Shall I tell him that the bag is here?", hint: "/ʃæl/" },
           ],
         },
         {

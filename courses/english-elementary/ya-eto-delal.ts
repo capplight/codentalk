@@ -35,7 +35,7 @@ import type { Module } from "@/lib/content/types";
  * графы, а он подтверждён на A2.
  *
  * `EVER` И `NEVER` ДАЁТ РУКОВОДСТВО, И ЭТО ПРОВЕРЕНО ПО ОБОИМ РАЗБОРАМ.
- * Руководство A2 Key, с. 49, перечень Tenses: «Present perfect simple: recent
+ * Руководство A2 Key, с. 52, перечень Tenses: «Present perfect simple: recent
  * past with just, indefinite past with yet, already, never, ever; unfinished
  * past with for and since». Строка цела и в разборе `.md`, и в разборе
  * `.text` — двухколоночная вёрстка её не разорвала. English Grammar Profile
@@ -69,7 +69,7 @@ import type { Module } from "@/lib/content/types";
  * - Present Perfect Continuous — B1 целиком.
  *
  * СЛОВАРЬ МОДУЛЯ. Тридцать карточек, из них новых для ступени двадцать
- * шесть: `island`, `mountain`, `ever` и `horse` Oxford помечает A1, то есть
+ * пять: `island`, `mountain`, `ever`, `horse` и `bird` Oxford помечает A1, то есть
  * они с прошлой ступени. Норма (тридцать карточек, пятнадцать новых)
  * выдержана с запасом. Первая редакция шапки писала «все тридцать» — цифра
  * была ложной, нашёл методист.
@@ -173,7 +173,7 @@ const module: Module = {
       ref: "Cambridge English, A2 Key vocabulary list (август 2025)",
       section:
         "Тридцать карточек модуля взяты из словника ступени; новых для ступени " +
-        "двадцать шесть, а `island`, `mountain`, `ever` и `horse` Oxford " +
+        "двадцать пять, а `island`, `mountain`, `ever`, `horse` и `bird` Oxford " +
         "помечает A1. " +
         "ЗНАЧЕНИЯ СВЕРЕНЫ С ПОМЕТАМИ СЛОВНИКА: `diving (n)` и `surfing (n)` — " +
         "названия занятий, и уроки берут именно их; `grilled (adj)` — " +
@@ -430,9 +430,56 @@ const module: Module = {
           text: [
             "У большинства глаголов вторая и третья формы одинаковы: visited, tried.",
             "Они берут окончание -ed, как в разговоре о прошлом дне.",
-            "А у тех глаголов, которые в модуле «Неправильные глаголы» брали своё прошедшее, третья форма тоже своя.",
-            "See — saw — seen, eat — ate — eaten, be — was и were — been.",
-            "Такие формы не выводятся правилом, их запоминают.",
+            "У глаголов из модуля «Неправильные глаголы» третья форма бывает двух видов.",
+            "Своя, третья по счёту: see — saw — seen, eat — ate — eaten, be — was и were — been.",
+            "Или та же, что вторая: meet — met — met, buy — bought — bought, have — had — had.",
+            "Такие формы не выводятся правилом, их запоминают вместе со второй.",
+          ],
+        },
+        {
+          id: "tretya-forma-desyati-glagolov",
+          kind: "table",
+          caption: "Третья форма у глаголов из модуля «Неправильные глаголы»",
+          zvuchat: [
+            "see — saw — seen",
+            "eat — ate — eaten",
+            "go — went — gone",
+            "take — took — taken",
+            "write — wrote — written",
+            "do — did — done",
+            "meet — met — met",
+            "buy — bought — bought",
+            "have — had — had",
+            "get — got — got",
+            "come — came — come",
+          ],
+          // Три одинаковых написания читаются по-разному, и синтез сам этого не
+          // различит: первая форма /riːd/, вторая и третья /red/. Поэтому здесь
+          // не `zvuchat`, а `zvuk` — произносится не то, что напечатано.
+          zvuk: { "read — read — read": "reed — red — red" },
+          head: ["Глагол", "Три формы"],
+          rows: [
+            ["видеть", "see — saw — seen"],
+            ["есть", "eat — ate — eaten"],
+            ["идти, ехать", "go — went — gone"],
+            ["брать", "take — took — taken"],
+            ["писать", "write — wrote — written"],
+            ["делать", "do — did — done"],
+            ["встречать", "meet — met — met"],
+            ["покупать", "buy — bought — bought"],
+            ["иметь", "have — had — had"],
+            ["получать", "get — got — got"],
+            ["приходить", "come — came — come"],
+            ["читать", "read — read — read"],
+          ],
+        },
+        {
+          id: "chto-vidno-po-tablice",
+          kind: "explain",
+          text: [
+            "В шести строках сверху третья форма своя, ниже — та же, что вторая.",
+            "У come третья форма совпала с первой, а у read совпали все три.",
+            "Read при этом читается по-разному: первая /riːd/, вторая и третья /red/.",
           ],
         },
         {
@@ -1051,6 +1098,8 @@ const module: Module = {
             { term: "wildlife park", translation: "парк дикой природы" },
             { term: "thick", translation: "густой" },
             { term: "bird", translation: "птица" },
+            { term: "monkey", translation: "обезьяна" },
+            { term: "path", translation: "тропинка" },
           ],
         },
         {
@@ -1486,16 +1535,16 @@ const module: Module = {
         id: "q-pochemu-tretya-forma",
         kind: "choice",
         outcome: "строить третью форму глагола: visited, seen, been",
-        prompt: "У каких глаголов вторая и третья формы совпадают?",
+        prompt: "У глагола see третья форма seen, а у buy — bought, как и вторая. Что это значит?",
         options: [
-          { text: "У тех, что берут окончание -ed.", correct: true },
-          { text: "У тех, что называют движение." },
-          { text: "У тех, что стоят после have." },
+          { text: "У неправильных глаголов третья форма бывает и своя, и та же, что вторая", correct: true },
+          { text: "У buy третьей формы нет вовсе" },
+          { text: "Слово bought здесь стоит по ошибке" },
         ],
-        hint: "Сравни try — tried — tried и see — saw — seen.",
+        hint: "Сравни see — saw — seen и buy — bought — bought.",
         why:
-          "У тех, что берут -ed. У глаголов со своей формой прошедшего третья " +
-          "тоже своя: see — saw — seen.",
+          "У неправильных глаголов третья форма бывает и своя, и та же, что " +
+          "вторая. Обе запоминают вместе со второй.",
       },
 
       // ---- итог 3 ----
@@ -1598,8 +1647,8 @@ const module: Module = {
         accept: ["I have been to a horse farm"],
         hint: "При been стоит другое короткое слово.",
         why:
-          "I have been to a horse farm. Запись have been in сказала бы, что " +
-          "человек там сейчас.",
+          "I have been to a horse farm. Про побывал где-то говорят have been to; " +
+          "have been in — о том, сколько времени человек где-то пробыл.",
       },
 
       // ---- итог 6 ----
