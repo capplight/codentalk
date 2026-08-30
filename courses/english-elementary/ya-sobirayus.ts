@@ -1637,6 +1637,14 @@ const module: Module = {
           ],
           text:
             "TRIP TO THE COUNTRYSIDE\nOur club is going to visit the countryside on Sunday.\nWe are going to be at the station at nine.\nI'm going to bring the tickets.",
+          perevod: {
+            "Our club is going to visit the countryside on Sunday.":
+              "В воскресенье наш клуб собирается съездить за город.",
+            "We are going to be at the station at nine.":
+              "В девять мы собираемся быть на вокзале.",
+            "I'm going to bring the tickets.":
+              "Билеты я собираюсь принести.",
+          },
           explain:
             "Заголовок и три строки. Перед going to везде стоит форма — is, are и " +
             "приросшая к I, — а названы и день, и время.",

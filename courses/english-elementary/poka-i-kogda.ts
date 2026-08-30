@@ -1714,6 +1714,19 @@ const module: Module = {
           ],
           text:
             "Look out! The floor is wet.\nPeople often fall over near the door.\nWe work out every morning.\nOur class takes part in the competition.\nPlease bring back my pencil case.\nAnd give back her make-up too.\nI wrote her a text message about it.",
+          perevod: {
+            "Look out! The floor is wet.": "Осторожно! Пол мокрый.",
+            "People often fall over near the door.":
+              "У двери часто спотыкаются.",
+            "We work out every morning.": "Мы занимаемся спортом каждое утро.",
+            "Our class takes part in the competition.":
+              "Наш класс участвует в соревновании.",
+            "Please bring back my pencil case.":
+              "Верни, пожалуйста, мой пенал.",
+            "And give back her make-up too.": "И косметику ей тоже отдай.",
+            "I wrote her a text message about it.":
+              "Я написал ей об этом сообщение.",
+          },
           explain:
             "Семь строк с парами слов. Пары bring back и give back отличаются " +
             "первым словом: одна о том, чтобы принести, другая — чтобы отдать.",

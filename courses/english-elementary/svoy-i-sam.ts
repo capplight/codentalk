@@ -1710,6 +1710,21 @@ const module: Module = {
           ],
           text:
             "The main course was the best part.\nThe ice cream was better than the cake.\nA bottle of mineral water is enough.\nFast food is cheaper here.\nOur barbecue was longer than usual.\nI had a stomach ache after the fast food.\nThe gas cooker is older than ours.",
+          perevod: {
+            "The main course was the best part.":
+              "Горячее было лучшей частью обеда.",
+            "The ice cream was better than the cake.":
+              "Мороженое было лучше торта.",
+            "A bottle of mineral water is enough.":
+              "Бутылки минеральной воды хватит.",
+            "Fast food is cheaper here.": "Быстрая еда здесь дешевле.",
+            "Our barbecue was longer than usual.":
+              "Наш шашлык затянулся дольше обычного.",
+            "I had a stomach ache after the fast food.":
+              "После быстрой еды у меня заболел живот.",
+            "The gas cooker is older than ours.":
+              "Газовая плита старше нашей.",
+          },
           explain:
             "Семь строк об одном обеде. В пяти из них стоит сравнение — так о еде " +
             "и говорят: что вкуснее, что дешевле, что дольше.",
@@ -1745,6 +1760,24 @@ const module: Module = {
           ],
           text:
             "Table tennis is easier than tennis.\nIce skating is harder in the morning.\nOur swimming pool is bigger than theirs.\nTake your swimming costume with you.\nHis snowboard is newer than mine.\nA surfboard is longer than a snowboard.\nThey surf here every summer.\nI want to get fit before the race.",
+          perevod: {
+            "Table tennis is easier than tennis.":
+              "Настольный теннис легче большого.",
+            "Ice skating is harder in the morning.":
+              "Утром кататься на коньках труднее.",
+            "Our swimming pool is bigger than theirs.":
+              "Наш бассейн больше, чем у них.",
+            "Take your swimming costume with you.":
+              "Возьми с собой купальник.",
+            "His snowboard is newer than mine.":
+              "Его сноуборд новее моего.",
+            "A surfboard is longer than a snowboard.":
+              "Доска для сёрфинга длиннее сноуборда.",
+            "They surf here every summer.":
+              "Они катаются здесь на волнах каждое лето.",
+            "I want to get fit before the race.":
+              "Я хочу набрать форму до забега.",
+          },
           explain:
             "Восемь строк о занятиях. Слово surf называет само дело, а surfboard — " +
             "доску, на которой его делают.",
@@ -1776,6 +1809,19 @@ const module: Module = {
           ],
           text:
             "This tennis player is younger than the winner.\nOur football player is the tallest here.\nThe Olympic race is the longest of all.\nHe likes rap more than classical music.\nHip hop is louder than jazz.\nHer digital camera is smaller than mine.",
+          perevod: {
+            "This tennis player is younger than the winner.":
+              "Этот теннисист моложе победителя.",
+            "Our football player is the tallest here.":
+              "Наш футболист здесь самый высокий.",
+            "The Olympic race is the longest of all.":
+              "Олимпийский забег самый длинный из всех.",
+            "He likes rap more than classical music.":
+              "Рэп ему нравится больше классики.",
+            "Hip hop is louder than jazz.": "Хип-хоп громче джаза.",
+            "Her digital camera is smaller than mine.":
+              "Её цифровой фотоаппарат меньше моего.",
+          },
           explain:
             "Шесть строк, и в каждой сравнение. Имя занятия часто выходит из имени " +
             "игры: tennis — tennis player, football — football player.",
@@ -1829,6 +1875,19 @@ const module: Module = {
           ],
           text:
             "A bee is smaller than a beetle.\nThe jellyfish was the strangest creature there.\nThe polar bear is the heaviest animal here.\nThe wildlife park is bigger than the zoo.\nThat bird is extinct now.\nThe desert is drier than the coast.\nThe tree near the gate is dead.",
+          perevod: {
+            "A bee is smaller than a beetle.": "Пчела меньше жука.",
+            "The jellyfish was the strangest creature there.":
+              "Медуза была самым странным существом там.",
+            "The polar bear is the heaviest animal here.":
+              "Белый медведь здесь самое тяжёлое животное.",
+            "The wildlife park is bigger than the zoo.":
+              "Природный парк больше зоопарка.",
+            "That bird is extinct now.": "Эта птица теперь вымерла.",
+            "The desert is drier than the coast.":
+              "В пустыне суше, чем на побережье.",
+            "The tree near the gate is dead.": "Дерево у ворот засохло.",
+          },
           explain:
             "Семь строк о живом. Слово creature годится любому существу, а extinct " +
             "говорят о тех, кого не осталось вовсе.",

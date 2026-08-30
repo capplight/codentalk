@@ -1378,6 +1378,14 @@ const module: Module = {
           id: "obrazets-obyavleniya",
           kind: "example",
           caption: "Объявление Даны",
+          perevod: {
+            "Inside there is a comb, a toothbrush and a soft plastic cover.":
+              "Внутри расчёска, зубная щётка и мягкий пластиковый чехол.",
+            "I'm sure I had it at nine. Maybe I lost it on the bus.":
+              "Я уверена, что в девять она у меня была. Может быть, я потеряла её в автобусе.",
+            "Please call me. The bag may be at the lost property office.":
+              "Позвоните мне, пожалуйста. Сумка, может быть, в бюро находок.",
+          },
           zvuchat: [
             "LOST: a small black handbag.",
             "Inside there is a comb, a toothbrush and a soft plastic cover.",
@@ -1597,6 +1605,18 @@ const module: Module = {
           ],
           text:
             "A police officer showed us the way.\nA police car stopped at the traffic light.\nWe found the museum by accident.\nI always take my driving licence.\nOur aeroplane may be late.",
+          perevod: {
+            "A police officer showed us the way.":
+              "Полицейский показал нам дорогу.",
+            "A police car stopped at the traffic light.":
+              "У светофора остановилась полицейская машина.",
+            "We found the museum by accident.":
+              "Музей мы нашли случайно.",
+            "I always take my driving licence.":
+              "Я всегда беру с собой водительские права.",
+            "Our aeroplane may be late.":
+              "Наш самолёт, может быть, задержится.",
+          },
           explain:
             "Пять строк о дороге. Здесь accident значит не «происшествие», а " +
             "«случайность»: by accident — это «не нарочно».",
@@ -1630,6 +1650,20 @@ const module: Module = {
           ],
           text:
             "Write your nationality here.\nMy occupation is teacher.\nThe date of birth is on the first line.\nBring identification with you.\nMr Petrov may come at five.\nMrs Petrova is a teacher.\nMs Bishop is our new manager.",
+          perevod: {
+            "Write your nationality here.":
+              "Гражданство впишите здесь.",
+            "My occupation is teacher.": "Род занятий у меня — преподаватель.",
+            "The date of birth is on the first line.":
+              "Дата рождения стоит на первой строке.",
+            "Bring identification with you.":
+              "Удостоверение личности нужно иметь при себе.",
+            "Mr Petrov may come at five.":
+              "Господин Петров, может быть, придёт в пять.",
+            "Mrs Petrova is a teacher.": "Госпожа Петрова — преподаватель.",
+            "Ms Bishop is our new manager.":
+              "Госпожа Бишоп — наш новый управляющий.",
+          },
           explain:
             "Семь строк одного бланка. Обращение стоит перед фамилией и точки после " +
             "себя не требует.",

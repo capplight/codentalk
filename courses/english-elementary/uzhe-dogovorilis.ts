@@ -1503,6 +1503,15 @@ const module: Module = {
           id: "obrazets-pisma-o-nedele",
           kind: "example",
           caption: "Образец письма",
+          perevod: {
+            "Hi Dana! About Saturday: I'm not coming at ten.":
+              "Привет, Дана! Насчёт субботы: в десять я не приду.",
+            "The headteacher is coming to us at nine, so I'm staying at school.":
+              "В девять к нам приходит директор, поэтому я остаюсь в школе.",
+            "Are you meeting me at one instead?":
+              "Может, встретимся в час вместо этого?",
+            "Whose textbook are we taking?": "Чей учебник мы берём?",
+          },
           zvuchat: [
             "Hi Dana! About Saturday: I'm not coming at ten.",
             "The headteacher is coming to us at nine, so I'm staying at school.",

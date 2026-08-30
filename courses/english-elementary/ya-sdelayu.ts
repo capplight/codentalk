@@ -528,6 +528,15 @@ const module: Module = {
           ],
           text:
             "I promise I will reply tomorrow.\nI'll ring you in the evening.\nMy sister will collect the tickets.\nWe'll arrange it before Friday.",
+          perevod: {
+            "I promise I will reply tomorrow.":
+              "Обещаю, что отвечу завтра.",
+            "I'll ring you in the evening.": "Я позвоню тебе вечером.",
+            "My sister will collect the tickets.":
+              "Билеты заберёт моя сестра.",
+            "We'll arrange it before Friday.":
+              "Мы всё устроим до пятницы.",
+          },
           explain:
             "Четыре строки, и в каждой стоит will — то полностью, то кратко. Глагол " +
             "после него везде в словарной форме: reply, ring, collect, arrange.",
@@ -1597,6 +1606,18 @@ const module: Module = {
           ],
           text:
             "Hi Dana! I'll be at the station at nine.\nI promise I won't forget the tickets.\nMy sister will collect the notebook.\nAre you sure you will be free at nine?\nWill you bring the sheet, please?",
+          perevod: {
+            "Hi Dana! I'll be at the station at nine.":
+              "Привет, Дана! Я буду на вокзале в девять.",
+            "I promise I won't forget the tickets.":
+              "Обещаю, что не забуду билеты.",
+            "My sister will collect the notebook.":
+              "Тетрадь заберёт моя сестра.",
+            "Are you sure you will be free at nine?":
+              "Ты точно сможешь в девять?",
+            "Will you bring the sheet, please?":
+              "Принесёшь лист, пожалуйста?",
+          },
           explain:
             "Пять строк. В каждой глагол после will стоит в словарной форме, а " +
             "последняя строка — просьба со словом please.",

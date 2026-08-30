@@ -1507,6 +1507,16 @@ const module: Module = {
           id: "obrazets-zapiski",
           kind: "example",
           caption: "Образец записки",
+          perevod: {
+            "Hi Dana! The plane leaves at six tomorrow, so the taxi comes at four.":
+              "Привет, Дана! Самолёт улетает завтра в шесть, поэтому такси приходит в четыре.",
+            "The change at the port takes at least an hour.":
+              "Пересадка в порту занимает не меньше часа.",
+            "The chemist at the airport doesn't open before nine.":
+              "Аптека в аэропорту не открывается раньше девяти.",
+            "I'll call you when I arrive. I hope you enjoy the journey!":
+              "Я позвоню, когда приеду. Надеюсь, поездка тебе понравится!",
+          },
           zvuchat: [
             "Hi Dana! The plane leaves at six tomorrow, so the taxi comes at four.",
             "The change at the port takes at least an hour.",
