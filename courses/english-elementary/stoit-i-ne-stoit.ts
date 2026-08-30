@@ -251,8 +251,11 @@ const module: Module = {
           kind: "explain",
           text: [
             "К Данияру приехал друг из другого города, и всё для него ново.",
-            "Данияр не приказывает, а советует: You should try walking.",
-            "Совет и обязанность — разные вещи, и слова у них разные.",
+            "You should try walking. — Тебе стоит пройтись пешком.",
+            "Данияр не приказывает, а советует.",
+            "По-русски совет слышен по словам «стоит», «лучше», «советую».",
+            "По-английски его несёт одно слово should, и стоит оно перед глаголом.",
+            "Совет и обязанность — разные вещи: в модуле «Надо и не надо» было have to, и оно не советовало, а обязывало.",
           ],
         },
         {
@@ -304,6 +307,13 @@ const module: Module = {
           ],
           text:
             "I think you should try walking in the old town.\nAnd the river?\nYou should take a map: every tourist gets lost there.",
+          perevod: {
+            "I think you should try walking in the old town.":
+              "По-моему, тебе стоит пройтись пешком по старому городу.",
+            "And the river?": "А река?",
+            "You should take a map: every tourist gets lost there.":
+              "Тебе стоит взять карту: там теряется каждый приезжий.",
+          },
           explain:
             "В обеих строках с should глагол стоит в обычной форме. Оборот I " +
             "think в начале делает совет мягче, но само слово should не меняет.",
@@ -462,6 +472,14 @@ const module: Module = {
           ],
           text:
             "I have toothache, and my head hurts.\nYou shouldn't eat so much sugar. It is bad for your health.\nAnd exercise? You shouldn't sit all day: it is bad for your blood and your brain.",
+          perevod: {
+            "I have toothache, and my head hurts.":
+              "У меня болит зуб, и голова болит.",
+            "You shouldn't eat so much sugar. It is bad for your health.":
+              "Тебе не стоит есть столько сахара. Это вредно для здоровья.",
+            "And exercise? You shouldn't sit all day: it is bad for your blood and your brain.":
+              "А зарядка? Не стоит сидеть весь день: это вредно для сосудов и для головы.",
+          },
           explain:
             "В обеих строках с shouldn't дан совет, а не запрет: никто не " +
             "накажет за сахар. Оборот bad for your health значит «вредно для " +
@@ -615,6 +633,14 @@ const module: Module = {
           ],
           text:
             "Should I try windsurfing there?\nYes, you should. But you shouldn't go if it is windy.\nAnd riding? Should we take the horses?",
+          perevod: {
+            "Should I try windsurfing there?":
+              "Стоит мне попробовать там виндсёрфинг?",
+            "Yes, you should. But you shouldn't go if it is windy.":
+              "Да, стоит. Но не стоит выходить, если ветрено.",
+            "And riding? Should we take the horses?":
+              "А верховая езда? Стоит нам взять лошадей?",
+          },
           explain:
             "В обоих вопросах should стоит первым, а глагол остаётся в обычной " +
             "форме. Короткий ответ повторяет только should: Yes, you should.",
@@ -981,6 +1007,16 @@ const module: Module = {
           id: "obrazec-pisma-s-sovetami",
           kind: "example",
           caption: "Письмо Айгуль",
+          perevod: {
+            "Hi! Read this before you come to the mountains.":
+              "Привет! Прочитай это перед поездкой в горы.",
+            "You should take the small path to the lake: it is quiet there.":
+              "Тебе стоит пойти к озеру по маленькой тропе: там тихо.",
+            "You shouldn't go alone because the weather changes fast.":
+              "Не стоит идти одному, потому что погода быстро меняется.",
+            "Should I meet you at the station?":
+              "Мне встретить тебя на вокзале?",
+          },
           zvuchat: [
             "Hi! Read this before you come to the mountains.",
             "You should take the small path to the lake: it is quiet there.",
