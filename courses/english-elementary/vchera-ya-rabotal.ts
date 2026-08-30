@@ -248,8 +248,11 @@ const module: Module = {
           kind: "explain",
           text: [
             "Прошлый модуль отвечал на вопрос, где человек был. Этот — на вопрос, что он делал.",
-            "«Я работал», «Она готовила», «Мы смотрели фильм».",
+            "I worked in the morning. — Я работал утром.",
             "У глагола для этого есть своя форма: к нему прибавляется окончание -ed.",
+            "По-русски прошедшее тоже узнают по концу слова — «работал», «готовила», «смотрели».",
+            "Но по-русски конец меняется: работал, работала, работали.",
+            "По-английски worked остаётся worked при любом лице.",
             "Was — форма из прошлого модуля, worked — форма этого урока.",
             "Оба слова стоят в одном времени, и оно называется Past Simple.",
           ],
@@ -275,7 +278,8 @@ const module: Module = {
           kind: "explain",
           text: [
             "Окончание -ed одно на всех: I worked, he worked, they worked.",
-            "Форма глагола здесь не зависит от того, о ком речь.",
+            "Форма глагола здесь не зависит от того, о ком речь, — это и есть вся простота прошедшего времени.",
+            "По-русски так не выходит: «он работал», но «она работала», «они работали».",
             "В настоящем времени у he и she появляется -s, а в прошедшем его нет ни у кого.",
             "Вместо местоимения может стоять имя, и окончание то же: my sister cooked, " +
               "my parents watched a film.",
@@ -295,6 +299,15 @@ const module: Module = {
           caption: "Дела вчерашнего дня",
           zvuchat: ["I worked in the morning.", "I cooked dinner.", "We watched a film.", "She offered tea.", "He entered the room.", "I borrowed a book.", "My brother shouted in the garden."],
           text: "I worked in the morning.\nI cooked dinner.\nWe watched a film.\nShe offered tea.\nHe entered the room.\nI borrowed a book.\nMy brother shouted in the garden.",
+          perevod: {
+            "I worked in the morning.": "Утром я работал.",
+            "I cooked dinner.": "Я приготовил ужин.",
+            "We watched a film.": "Мы посмотрели фильм.",
+            "She offered tea.": "Она предложила чай.",
+            "He entered the room.": "Он вошёл в комнату.",
+            "I borrowed a book.": "Я взял книгу почитать.",
+            "My brother shouted in the garden.": "Мой брат кричал в саду.",
+          },
           explain:
             "Семь дел подряд, и у каждого глагола окончание -ed. Слово in the morning " +
             "говорит, когда это было.",
@@ -433,6 +446,13 @@ const module: Module = {
           caption: "Пять глаголов рядом",
           zvuchat: ["I worked at home.", "I liked the film.", "She studied English.", "We celebrated at home.", "She tidied the desk."],
           text: "I worked at home.\nI liked the film.\nShe studied English.\nWe celebrated at home.\nShe tidied the desk.",
+          perevod: {
+            "I worked at home.": "Я работал дома.",
+            "I liked the film.": "Мне понравился фильм.",
+            "She studied English.": "Она учила английский.",
+            "We celebrated at home.": "Мы отмечали дома.",
+            "She tidied the desk.": "Она прибрала на столе.",
+          },
           explain:
             "У work окончание целиком.\n\nУ like и celebrate — одна буква: конечное e " +
             "уже есть.\n\nУ study и tidy вместо y стоит i.\n\nСмысл у всех пяти один: " +
@@ -719,6 +739,14 @@ const module: Module = {
           caption: "День Айгуль",
           zvuchat: ["First I boiled water.", "Then I cleaned the room.", "After that I helped my mother.", "Then I listened to music.", "After that I wanted a snack.", "Then I packed my bag."],
           text: "First I boiled water.\nThen I cleaned the room.\nAfter that I helped my mother.\nThen I listened to music.\nAfter that I wanted a snack.\nThen I packed my bag.",
+          perevod: {
+            "First I boiled water.": "Сначала я вскипятил воду.",
+            "Then I cleaned the room.": "Потом я убрал комнату.",
+            "After that I helped my mother.": "После этого я помог маме.",
+            "Then I listened to music.": "Потом я послушал музыку.",
+            "After that I wanted a snack.": "После этого мне захотелось перекусить.",
+            "Then I packed my bag.": "Потом я собрал сумку.",
+          },
           explain:
             "Шесть дел в том порядке, в каком они были. У каждого глагола окончание -ed, " +
             "а слово порядка стоит первым.",
@@ -853,6 +881,8 @@ const module: Module = {
           text: [
             "Оборот времени встаёт в конец предложения, после глагола.",
             "Если дела идут по порядку, оборот выносят и в самое начало: Yesterday I worked.",
+            "А вот в середину его не ставят — и это место трудное, потому что по-русски там как раз обычное место.",
+            "«Я вчера работал» звучит по-русски совершенно нормально, а I yesterday worked — нет.",
             "Между делом и временем ничего не вставляют: I worked yesterday, а не I " +
               "yesterday worked.",
           ],
@@ -871,6 +901,13 @@ const module: Module = {
           caption: "Дела Данияра",
           zvuchat: ["I worked yesterday.", "I visited my friend two days ago.", "We danced at a party last week.", "We cycled last night.", "We camped a month ago."],
           text: "I worked yesterday.\nI visited my friend two days ago.\nWe danced at a party last week.\nWe cycled last night.\nWe camped a month ago.",
+          perevod: {
+            "I worked yesterday.": "Вчера я работал.",
+            "I visited my friend two days ago.": "Два дня назад я навестил друга.",
+            "We danced at a party last week.": "На прошлой неделе мы танцевали на празднике.",
+            "We cycled last night.": "Прошлым вечером мы катались на велосипедах.",
+            "We camped a month ago.": "Месяц назад мы жили в палатке.",
+          },
           explain:
             "Пять дел, и у каждого свой оборот времени. Каждый стоит в конце своего " +
             "предложения.",
@@ -1191,6 +1228,12 @@ const module: Module = {
           zvuchat: ["First I studied English.", "Then I helped my sister.", "After that I walked in the park.", "It was a busy day."],
           text:
             "First I studied English.\nThen I helped my sister.\nAfter that I walked in the park.\nIt was a busy day.",
+          perevod: {
+            "First I studied English.": "Сначала я учил английский.",
+            "Then I helped my sister.": "Потом я помог сестре.",
+            "After that I walked in the park.": "После этого я гулял в парке.",
+            "It was a busy day.": "День вышел хлопотный.",
+          },
           explain:
             "Три дела по порядку и одна строка о том, каким день вышел. Последняя строка " +
             "берёт was — это форма из прошлого модуля, глагола с окончанием в ней нет.",
