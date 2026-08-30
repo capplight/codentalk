@@ -228,9 +228,11 @@ const module: Module = {
           kind: "explain",
           text: [
             "Дана несёт две тяжёлые сумки, и Алим видит это с другой стороны улицы.",
-            "По-английски он говорит Shall I carry your bag?",
+            "Shall I carry your bag? — Давай я понесу твою сумку?",
             "Так предлагают помощь: дело сделает один — тот, кто предложил.",
-            "Сначала идёт слово shall, за ним I, а после него сам глагол.",
+            "По-русски это «давай я», и знак вопроса здесь не обязателен: «Давай я понесу».",
+            "По-английски строка обязательно вопрос — оттого shall и стоит первым.",
+            "За ним идёт I, а после него сам глагол.",
           ],
         },
         {
@@ -286,6 +288,14 @@ const module: Module = {
           ],
           text:
             "Shall I cut the bread?\nYes, please.\nShall I serve the tea?\nNot yet, the guests are late.\nShall I help you with the plates?\nThank you!",
+          perevod: {
+            "Shall I cut the bread?": "Давай я нарежу хлеб?",
+            "Yes, please.": "Да, пожалуйста.",
+            "Shall I serve the tea?": "Давай я подам чай?",
+            "Not yet, the guests are late.": "Пока не надо, гости опаздывают.",
+            "Shall I help you with the plates?": "Давай я помогу с тарелками?",
+            "Thank you!": "Спасибо!",
+          },
           explain:
             "Каждый раз предлагается одно дело и каждый раз одним человеком: cut, " +
             "serve, help. Хозяйка отвечает коротко, и о том, как отвечают, — урок 5.",
@@ -432,6 +442,15 @@ const module: Module = {
           ],
           text:
             "Shall we play tennis on Saturday?\nI don't have a racket.\nShall we go sailing?\nThe lake is far.\nShall we skate at the square?\nNow that's a good day.",
+          perevod: {
+            "Shall we play tennis on Saturday?":
+              "Давай сыграем в теннис в субботу?",
+            "I don't have a racket.": "У меня нет ракетки.",
+            "Shall we go sailing?": "Давай сходим под парусом?",
+            "The lake is far.": "До озера далеко.",
+            "Shall we skate at the square?": "Давай покатаемся на площади?",
+            "Now that's a good day.": "Вот это будет хороший день.",
+          },
           explain:
             "Каждый раз зовут вместе, и каждый раз с новым делом: tennis, sailing, " +
             "skate. Друг отвечает не «да» и не «нет», а называет причину.",
@@ -540,7 +559,8 @@ const module: Module = {
           kind: "explain",
           text: [
             "Вечером дома скучно, и Дана предлагает брату занятие.",
-            "По-английски она говорит Let's bake a pizza.",
+            "Let's bake a pizza. — Давай испечём пиццу.",
+            "Русское «давай» и английское let's тут совпадают почти буквально.",
             "Это тоже зов вместе, но короче: вопроса здесь нет, есть готовое дело на двоих.",
             "После let's глагол стоит без окончания: bake, mix, go, watch.",
           ],
@@ -586,6 +606,14 @@ const module: Module = {
           ],
           text:
             "Let's bake a pizza.\nWe don't have a recipe.\nLet's mix eggs and cheese then.\nAn omelette with mushrooms?\nYes.",
+          perevod: {
+            "Let's bake a pizza.": "Давай испечём пиццу.",
+            "We don't have a recipe.": "У нас нет рецепта.",
+            "Let's mix eggs and cheese then.":
+              "Тогда давай смешаем яйца и сыр.",
+            "An omelette with mushrooms?": "Омлет с грибами?",
+            "Yes.": "Да.",
+          },
           explain:
             "Первый зов не прошёл — рецепта нет, — и тогда зовут иначе. Слово then " +
             "значит «тогда» и связывает второй зов с помехой.",
@@ -739,6 +767,16 @@ const module: Module = {
           ],
           text:
             "Why don't we meet at the station?\nIt's noisy there.\nWhy don't we meet at the square?\nPerfect.\nAnd supper?\nLet's cook at home.",
+          perevod: {
+            "Why don't we meet at the station?":
+              "А почему бы не встретиться на вокзале?",
+            "It's noisy there.": "Там шумно.",
+            "Why don't we meet at the square?":
+              "А почему бы не встретиться на площади?",
+            "Perfect.": "Отлично.",
+            "And supper?": "А ужин?",
+            "Let's cook at home.": "Давай приготовим дома.",
+          },
           explain:
             "Первое место не подошло, и тогда зовут в другое. Последний зов сказан " +
             "коротко — способ выбирают по ходу разговора.",
@@ -902,6 +940,17 @@ const module: Module = {
           ],
           text:
             "Shall we play golf?\nSorry, I can't. I work on Saturday.\nWhy don't we meet on Sunday?\nGood idea.\nLet's go sailing then.\nCertainly, the lake is relaxing.",
+          perevod: {
+            "Shall we play golf?": "Давай сыграем в гольф?",
+            "Sorry, I can't. I work on Saturday.":
+              "Прости, не получится. В субботу я работаю.",
+            "Why don't we meet on Sunday?":
+              "А почему бы не встретиться в воскресенье?",
+            "Good idea.": "Хорошая мысль.",
+            "Let's go sailing then.": "Тогда давай сходим под парусом.",
+            "Certainly, the lake is relaxing.":
+              "Конечно, на озере спокойно.",
+          },
           explain:
             "Отказ идёт с причиной, и разговор не обрывается: собеседник зовёт на " +
             "другой день. Дальше согласие звучит дважды и разными словами.",
@@ -1312,6 +1361,15 @@ const module: Module = {
           ],
           text:
             "Hi! Why don't we play golf at the club at ten on Saturday?\nLet's take the early bus — the road is long.\nBring your racket if you have one. The club is expensive, but the golf is good.\nShall I book the seats today?",
+          perevod: {
+            "Hi! Why don't we play golf at the club at ten on Saturday?":
+              "Привет! А почему бы не сыграть в гольф в клубе в субботу в десять?",
+            "Let's take the early bus — the road is long.":
+              "Давай поедем ранним автобусом: дорога долгая.",
+            "Bring your racket if you have one. The club is expensive, but the golf is good.":
+              "Возьми ракетку, если есть. Клуб дорогой, зато гольф хороший.",
+            "Shall I book the seats today?": "Давай я забронирую места сегодня?",
+          },
           explain:
             "Место, час и день стоят в первой же строке. Дальше названо дело, потом " +
             "просьба принести, и в конце — предложенная помощь.",
