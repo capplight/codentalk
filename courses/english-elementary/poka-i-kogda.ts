@@ -318,7 +318,9 @@ const module: Module = {
           text: [
             "Вчера шла готовка, и посреди неё пришёл сослуживец.",
             "Одно действие тянулось, другое случилось разом — и оба в одной строке.",
-            "По-английски это I was cooking when my colleague came.",
+            "I was cooking when my colleague came. — Я готовил, когда пришёл сослуживец.",
+            "Русская строка различает эти два дела не хуже английской: «готовил» тянулось, «пришёл» случилось разом.",
+            "Только по-русски разницу несёт сам глагол, а по-английски — время.",
             "Длительное действие берёт was и окончание -ing, законченное — форму прошедшего.",
             "У этих двух времён есть имена: длительное — Past Continuous, законченное — Past Simple.",
           ],
@@ -348,7 +350,8 @@ const module: Module = {
           text: [
             "Левая половина показывает, что уже шло к тому мигу.",
             "Правая называет то, что случилось и заняло один миг.",
-            "Поэтому формы разные, и поменять их местами нельзя.",
+            "Поэтому формы у них разные.",
+            "Поменяешь местами — строка останется верной, но скажет другое: об этом врезка ниже.",
           ],
         },
         {
@@ -371,6 +374,12 @@ const module: Module = {
           ],
           text:
             "I was walking home when I saw an accident.\nA car stopped near the crossing.\nThe ambulance arrived very quickly.",
+          perevod: {
+            "I was walking home when I saw an accident.":
+              "Я шёл домой, когда увидел аварию.",
+            "A car stopped near the crossing.": "У перехода остановилась машина.",
+            "The ambulance arrived very quickly.": "Скорая приехала очень быстро.",
+          },
           explain:
             "В первой строке две половины: ходьба уже шла, а вид происшествия случился " +
             "разом. Во второй и третьей строках названо только то, что случилось.",
@@ -528,6 +537,12 @@ const module: Module = {
           ],
           text:
             "While I was walking to the shop, I lost my purse.\nI dropped it near the roundabout.\nThe wallet was missing too.",
+          perevod: {
+            "While I was walking to the shop, I lost my purse.":
+              "Пока я шёл в магазин, я потерял кошелёк.",
+            "I dropped it near the roundabout.": "Я обронил его у кольца.",
+            "The wallet was missing too.": "Бумажника тоже не было.",
+          },
           explain:
             "В первой строке после while стоит длительное действие, и это его " +
             "обычное место. Вторая и третья строки союза не берут вовсе.",
@@ -690,6 +705,15 @@ const module: Module = {
           ],
           text:
             "When the postman called, I was cleaning the stairs.\nUnfortunately, I did not open the door.\nImmediately I looked for the receipt.\nWhile they were delivering the parcel, I was waiting at the door.\nCarefully I opened the box.",
+          perevod: {
+            "When the postman called, I was cleaning the stairs.":
+              "Когда пришёл почтальон, я мыл лестницу.",
+            "Unfortunately, I did not open the door.": "К сожалению, я не открыл дверь.",
+            "Immediately I looked for the receipt.": "Я сразу же стал искать квитанцию.",
+            "While they were delivering the parcel, I was waiting at the door.":
+              "Пока посылку несли, я ждал у двери.",
+            "Carefully I opened the box.": "Я осторожно открыл коробку.",
+          },
           explain:
             "В первой и четвёртой строках часть с союзом стоит впереди, и потому в " +
             "середине запятая. Во второй запятая стоит после вводного слова, а в " +
@@ -843,6 +867,13 @@ const module: Module = {
           ],
           text:
             "My brother was cleaning the engine while I was checking the wheel.\nThe scooter was old, and the tyre was broken.\nWe bought petrol near the motorway.",
+          perevod: {
+            "My brother was cleaning the engine while I was checking the wheel.":
+              "Мой брат чистил двигатель, пока я проверял колесо.",
+            "The scooter was old, and the tyre was broken.":
+              "Мопед был старый, и шина была пробита.",
+            "We bought petrol near the motorway.": "Бензин мы купили у трассы.",
+          },
           explain:
             "В первой строке оба действия тянулись, и между ними стоит while. Во " +
             "второй сказано, каким что-то было, а в третьей — что случилось.",
@@ -997,9 +1028,51 @@ const module: Module = {
           ],
           text:
             "I was looking for my key while my sister was waiting outside.\nSuddenly the lock opened.\nLuckily, the battery in my phone was new.",
+          perevod: {
+            "I was looking for my key while my sister was waiting outside.":
+              "Я искал ключ, пока сестра ждала снаружи.",
+            "Suddenly the lock opened.": "Вдруг замок открылся.",
+            "Luckily, the battery in my phone was new.":
+              "К счастью, батарея в телефоне была новая.",
+          },
           explain:
             "Три строки и три хода: сперва два длительных действия, потом то, что " +
             "случилось, потом оценка того, чем всё кончилось.",
+        },
+        {
+          // Свод связки «Прошедшее» — модули 1–7. Стоит здесь, в последнем уроке
+          // правил части: дальше идут чтение, слушание и письмо, а к ним ученик
+          // подходит, уже имея всё прошедшее в одном месте.
+          id: "vsyo-o-proshlom-svod",
+          kind: "table",
+          caption: "Всё о прошлом в одном месте",
+          zvuchat: [
+            "The film was good.",
+            "I worked yesterday.",
+            "I went to Astana.",
+            "I didn't work.",
+            "Did you work?",
+            "I was working at seven.",
+          ],
+          head: ["По-английски", "По-русски", "О чём речь"],
+          rows: [
+            ["The film was good.", "Фильм был хороший.", "каким что-то было"],
+            ["I worked yesterday.", "Вчера я работал.", "дело было"],
+            ["I went to Astana.", "Я ездил в Астану.", "дело было, глагол особый"],
+            ["I didn't work.", "Я не работал.", "дела не было"],
+            ["Did you work?", "Вы работали?", "спросить о деле"],
+            ["I was working at seven.", "В семь я работал.", "дело шло в тот миг"],
+          ],
+        },
+        {
+          id: "chem-derzhitsya-vsyo-proshloe",
+          kind: "explain",
+          text: [
+            "Шесть строк — это весь рассказ о прошлом, какой даёт эта часть курса.",
+            "Посмотри на средний столбец: по-русски прошедшее у всех шести показано одинаково — «был», «работал», «ездил».",
+            "По-английски способов шесть, и выбирают их по тому, о чём речь.",
+            "Каждому отведён свой модуль: «Это было», «Вчера я работал», «Неправильные глаголы», «Я не делал», «Спросить о прошлом», «Что происходило».",
+          ],
         },
         {
           id: "slovar-melochey",
@@ -1379,6 +1452,16 @@ const module: Module = {
           id: "obrazets-rasskaza",
           kind: "example",
           caption: "Образец рассказа",
+          perevod: {
+            "Yesterday I was waiting at the gate when a scooter stopped near me.":
+              "Вчера я ждал у ворот, когда рядом остановился мопед.",
+            "While the driver was looking at the wheel, I called my brother.":
+              "Пока водитель смотрел на колесо, я позвонил брату.",
+            "Unfortunately, my phone was cold and it stopped.":
+              "К сожалению, телефон замёрз и выключился.",
+            "Luckily, the bus arrived and I got home.":
+              "К счастью, пришёл автобус, и я добрался домой.",
+          },
           zvuchat: [
             "Yesterday I was waiting at the gate when a scooter stopped near me.",
             "While the driver was looking at the wheel, I called my brother.",
@@ -1540,6 +1623,20 @@ const module: Module = {
           ],
           text:
             "We were in the living room after dinner.\nMy sister was doing the washing-up in the kitchen.\nThe washing machine was working all evening.\nI was tidying up the dining room.\nMy brother wanted to lie down in the sitting room.\nThen he sat down at the table with us.\nI washed up too.",
+          perevod: {
+            "We were in the living room after dinner.":
+              "После ужина мы были в гостиной.",
+            "My sister was doing the washing-up in the kitchen.":
+              "Моя сестра мыла посуду на кухне.",
+            "The washing machine was working all evening.":
+              "Стиральная машина работала весь вечер.",
+            "I was tidying up the dining room.": "Я прибирал в столовой.",
+            "My brother wanted to lie down in the sitting room.":
+              "Мой брат хотел прилечь в гостиной.",
+            "Then he sat down at the table with us.":
+              "Потом он сел за стол вместе с нами.",
+            "I washed up too.": "Я тоже помыл посуду.",
+          },
           explain:
             "Семь строк об одном вечере. Дела по дому чаще всего называют парой " +
             "слов: wash up, tidy up, lie down, sit down.",
@@ -1572,6 +1669,16 @@ const module: Module = {
           ],
           text:
             "I got dressed and put on my coat.\nThe room was warm, and I took off my coat.\nIn the shop I tried on a new coat.\nI wrote down the address.\nAfter that I went out.\nI got back at six.",
+          perevod: {
+            "I got dressed and put on my coat.": "Я оделся и надел пальто.",
+            "The room was warm, and I took off my coat.":
+              "В комнате было тепло, и я снял пальто.",
+            "In the shop I tried on a new coat.":
+              "В магазине я примерил новое пальто.",
+            "I wrote down the address.": "Я записал адрес.",
+            "After that I went out.": "После этого я вышел из дома.",
+            "I got back at six.": "Я вернулся в шесть.",
+          },
           explain:
             "Шесть строк по порядку: сборы, выход и возвращение. У каждой пары " +
             "второе слово короткое — on, off, down, out, back.",
