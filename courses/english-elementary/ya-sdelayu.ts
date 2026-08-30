@@ -630,8 +630,9 @@ const module: Module = {
           kind: "explain",
           text: [
             "Дана опаздывала в прошлый раз и хочет сказать, что теперь этого не будет.",
-            "По-английски это I won't be late.",
-            "Отрицание собирают из will и слова not.",
+            "I won't be late. — Я не опоздаю.",
+            "По-русски отрицание — это короткое «не», и стоит оно перед самим глаголом.",
+            "По-английски оно к глаголу не приставляется: not встаёт после will.",
           ],
         },
         {
@@ -659,6 +660,7 @@ const module: Module = {
           text: [
             "Сжатая запись will not выглядит неожиданно: won't, а не willn't.",
             "Гласная в ней меняется, и запомнить это придётся отдельно.",
+            "По-русски сжимать нечего — «не» и так одно короткое слово.",
             "Глагол после won't остаётся в словарной форме, как и после will: Don't worry, it won't matter.",
           ],
         },
@@ -682,10 +684,18 @@ const module: Module = {
           ],
           text:
             "I won't be late tomorrow.\nI won't bother you in the evening.\nI won't shut the door.\nDon't worry, the bus won't be delayed.",
+          perevod: {
+            "I won't be late tomorrow.": "Завтра я не опоздаю.",
+            "I won't bother you in the evening.": "Вечером я не буду тебя беспокоить.",
+            "I won't shut the door.": "Я не закрою дверь.",
+            "Don't worry, the bus won't be delayed.":
+              "Не волнуйся, автобус не задержится.",
+          },
           explain:
             "Четыре строки, и в каждой стоит won't. Глагол после него везде в " +
             "словарной форме: be, bother, shut, be. Первые три говорят о самом " +
-            "говорящем, а четвёртая успокаивает собеседника.",
+            "говорящем, а четвёртая успокаивает собеседника. " +
+            "В переводе везде одно и то же «не», а в английском — одно и то же won't.",
         },
         {
           id: "slovar-zaderzhek",
@@ -783,8 +793,10 @@ const module: Module = {
           kind: "explain",
           text: [
             "Айгуль собирает друзей и хочет знать, придёт ли Алим.",
-            "По-английски она спрашивает: Will you come?",
-            "Слово will уходит в начало строки, всё остальное остаётся на прежних местах.",
+            "Will you come? — Ты придёшь?",
+            "По-русски слова остались на своих местах, и вопрос слышен только по голосу.",
+            "По-английски вперёд ушло will — так же, как в модуле «Я собираюсь» вперёд уходило am, are или is.",
+            "Всё остальное осталось на прежних местах.",
           ],
         },
         {
@@ -837,7 +849,9 @@ const module: Module = {
           id: "otvet-povtoryaet-will",
           kind: "explain",
           text: [
-            "В вопросе will стоит первым, а в ответе — вторым: Will you come? — Yes, I will.",
+            "Короткий ответ устроен так же, как в модуле «Я собираюсь»: по-русски хватает «да», а по-английски за yes повторяют слово из вопроса.",
+            "Здесь этим словом будет will: Will you come? — Yes, I will.",
+            "В вопросе оно стоит первым, а в ответе — вторым.",
             "Меняется и лицо: спрашивают про you, а отвечать надо про I.",
             "Глагол в коротком ответе не повторяется вовсе — строка обрывается сразу после will.",
           ],
@@ -854,9 +868,17 @@ const module: Module = {
           ],
           text:
             "Will you come on Friday?\nYes, I will. Several friends will come. Will Dana come too?\nNo, she won't. She seems busy this week.",
+          perevod: {
+            "Will you come on Friday?": "Ты придёшь в пятницу?",
+            "Yes, I will. Several friends will come. Will Dana come too?":
+              "Да. Придут несколько друзей. Дана тоже придёт?",
+            "No, she won't. She seems busy this week.":
+              "Нет. На этой неделе она, кажется, занята.",
+          },
           explain:
             "Три реплики. Оба вопроса начинаются со слова will, а короткие ответы " +
-            "повторяют его вторым словом и на этом обрываются.",
+            "повторяют его вторым словом и на этом обрываются. " +
+            "В переводе на их месте стоит «да» и «нет» — одного слова хватает.",
         },
         {
           id: "slovar-vstrechi",
@@ -953,9 +975,10 @@ const module: Module = {
           kind: "explain",
           text: [
             "У Даны заняты руки, и она просит друга подержать сумку.",
-            "По-английски это Will you hold my bag, please?",
-            "Устроена просьба ровно так же, как вопрос: слово will впереди, потом you.",
-            "Отличают их два заметных слова, и урок учит их искать.",
+            "Will you hold my bag, please? — Подержишь мою сумку, пожалуйста?",
+            "По-русски вопрос и просьба выглядят по-разному: «Ты подержишь сумку?» спрашивает, а «Подержи сумку» просит.",
+            "По-английски запись у них одна и та же: слово will впереди, потом you.",
+            "Различают их два заметных слова, и урок учит их искать.",
           ],
         },
         {
@@ -1006,7 +1029,14 @@ const module: Module = {
           ],
           text:
             "Will you hold my bag, please?\nWill you lend me your notebook?\nWill you sign this sheet, please?\nMy colleague is very helpful, so he will help.",
-            explain:
+          perevod: {
+            "Will you hold my bag, please?": "Подержишь мою сумку, пожалуйста?",
+            "Will you lend me your notebook?": "Одолжишь мне свою тетрадь?",
+            "Will you sign this sheet, please?": "Подпишешь этот лист, пожалуйста?",
+            "My colleague is very helpful, so he will help.":
+              "Мой коллега очень отзывчивый, так что он поможет.",
+          },
+          explain:
             "Три первые строки — просьбы, и в каждой стоит либо me или my, либо " +
             "please. Четвёртая строка просьбой не является: она говорит о согласии " +
             "другого человека.",
@@ -1116,9 +1146,10 @@ const module: Module = {
           kind: "explain",
           text: [
             "Айгуль везёт коробки на вокзал и не знает, как их довезти.",
-            "Алим отвечает: My brother will drive us there.",
-            "Так говорят о чужой готовности помочь — о том, что другой человек согласен.",
-            "Слово will при этом то же самое, что и в обещании.",
+            "My brother will drive us there. — Мой брат нас туда отвезёт.",
+            "По-русски здесь снова одно слово — «отвезёт», как и в обещании.",
+            "Разница в том, кто берётся за дело: обещает сам говорящий, а тут согласен другой человек.",
+            "Слово will при этом то же самое.",
           ],
         },
         {
@@ -1131,12 +1162,12 @@ const module: Module = {
             "The staff will post the tickets.",
             "My parents will allow it.",
           ],
-          head: ["Кто", "Чем поможет"],
+          head: ["Кто", "По-английски", "По-русски"],
           rows: [
-            ["my brother", "My brother will drive us there."],
-            ["my colleague", "My colleague will repair it."],
-            ["the staff", "The staff will post the tickets."],
-            ["my parents", "My parents will allow it."],
+            ["my brother", "My brother will drive us there.", "Мой брат нас туда отвезёт."],
+            ["my colleague", "My colleague will repair it.", "Мой коллега это починит."],
+            ["the staff", "The staff will post the tickets.", "Сотрудники отправят билеты почтой."],
+            ["my parents", "My parents will allow it.", "Мои родители это разрешат."],
           ],
         },
         {
@@ -1169,6 +1200,16 @@ const module: Module = {
           ],
           text:
             "My colleague will repair the car on Tuesday.\nI'm glad: my parents will allow it.\nThe staff will post all the tickets.\nIt is not the usual way, but it will work.",
+          perevod: {
+            "My colleague will repair the car on Tuesday.":
+              "Мой коллега починит машину во вторник.",
+            "I'm glad: my parents will allow it.":
+              "Хорошая новость: мои родители это разрешат.",
+            "The staff will post all the tickets.":
+              "Сотрудники отправят все билеты почтой.",
+            "It is not the usual way, but it will work.":
+              "Это не обычный способ, но он сработает.",
+          },
           explain:
             "Четыре строки, и в каждой will стоит перед глаголом в словарной форме. " +
             "В первых трёх речь о согласии других людей, в четвёртой — о самом деле.",
