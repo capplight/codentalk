@@ -6,6 +6,20 @@ import type { Module } from "@/lib/content/types";
  * Программа: docs/programma-english-elementary.md, модуль 20 — «указывать и не
  * повторять названное».
  *
+ * ЗАПРЕТ «К TIGHTS И SHORTS THIS И THAT НЕ ПОДХОДЯТ» — НАСТОЯЩИЙ, ПРОВЕРЕН
+ * 31 августа 2026.
+ *
+ * Он выглядит как выдуманный: «всегда», «вовсе», «только» в одном месте — три
+ * признака сразу. Методист проверил и подтвердил двумя источниками:
+ *
+ * - `materials/cambridge-vocab-a2-key.pdf` помечает сами слова: `shorts (n pl)`,
+ *   `tights (n pl)`, `jeans (n pl)`, `trousers (n pl)`, `glasses (n pl)`. Помета
+ *   `pl plural` — собственная помета словника, а не наш вывод;
+ * - `English Grammar Profile Online.csv`: A1 «FORM: 'THIS' WITH SINGULAR NOUNS»,
+ *   A2 «FORM: 'THAT'» — с единственным; A2 `these`/`those` — с множественным.
+ *
+ * Модуль себя не нарушает: `this shorts` стоит только неверным вариантом.
+ *
  * ИМЯ ГЛАВНОЙ ВЕЩИ — «УКАЗАТЕЛЬНОЕ МЕСТОИМЕНИЕ».
  *
  * Так эти слова зовут и русские учебники, и руководство A2 Key: «Demonstrative:
@@ -1574,7 +1588,11 @@ const module: Module = {
         prompt:
           "Ученик написал: I like this shorts. Запиши строку без ошибки.",
         answer: "I like these shorts.",
-        accept: ["I like these shorts"],
+        accept: [
+          "I like these shorts",
+          "I like those shorts.",
+          "I like those shorts",
+        ],
         hint: "Шорты в английском всегда несколько.",
         why:
           "I like these shorts. Годится и those, если шорты подальше, но this не " +

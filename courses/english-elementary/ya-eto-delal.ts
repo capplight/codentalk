@@ -1163,7 +1163,7 @@ const module: Module = {
           tone: "info",
           text:
             "Опыт ищут по слову have и третьей форме глагола.\n\nА рассказ о " +
-            "том самом дне — по словам was и were.",
+            "том самом дне — по глаголу, при котором have нет: opened, said, was.",
         },
         {
           id: "slovar-dikoy-prirody",
@@ -1707,13 +1707,17 @@ const module: Module = {
         kind: "short",
         outcome: "рассказать о посещённых местах: I have been to the mountains",
         prompt:
-          "Ученик написал: I have been in a horse farm. Запиши строку без ошибки.",
+          "Ученик хотел сказать, что бывал на ферме, и написал: I was in a horse farm. Запиши это оборотом об опыте.",
         answer: "I have been to a horse farm.",
-        accept: ["I have been to a horse farm"],
-        hint: "При been стоит другое короткое слово.",
+        accept: [
+          "I have been to a horse farm",
+          "I have been on a horse farm.",
+          "I have been on a horse farm",
+        ],
+        hint: "Оборот об опыте начинается со слова have.",
         why:
-          "I have been to a horse farm. Про побывал где-то говорят have been to; " +
-          "have been in — о том, сколько времени человек где-то пробыл.",
+          "I have been to a horse farm. Оборот об опыте собирают из have been, а " +
+          "место при нём вводит to. Строка have been on здесь годится так же.",
       },
 
       // ---- итог 6 ----
