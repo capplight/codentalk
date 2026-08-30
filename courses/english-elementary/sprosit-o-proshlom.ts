@@ -280,8 +280,10 @@ const module: Module = {
           kind: "explain",
           text: [
             "Твой сослуживец ездил на побережье, и тебе хочется расспросить его о поездке.",
-            "По-английски первый вопрос звучит так: Did you go to the coast?",
-            "Вопрос о прошлом начинается со слова did, и оно берёт на себя прошедшее время.",
+            "Did you go to the coast? — Вы ездили на побережье?",
+            "По-русски вопрос отличается от утверждения только голосом: «Вы ездили» и «Вы ездили?».",
+            "По-английски в вопросе появляется целое новое слово — did.",
+            "Оно берёт на себя прошедшее время, а в русском ему ничего не отвечает.",
           ],
         },
         {
@@ -348,6 +350,11 @@ const module: Module = {
           ],
           text:
             "Did you go to the coast?\nDid you take a suitcase?\nDid you buy a postcard?",
+          perevod: {
+            "Did you go to the coast?": "Вы ездили на побережье?",
+            "Did you take a suitcase?": "Вы брали чемодан?",
+            "Did you buy a postcard?": "Вы купили открытку?",
+          },
           explain:
             "Три вопроса об одной поездке. В каждом did стоит первым, а действие — go, " +
             "take, buy — в словарной форме.",
@@ -502,6 +509,12 @@ const module: Module = {
           razgovor: true,
           text:
             "— Did you go to the stadium?\n— Yes, I did. The match was long.\n— Did you see the goal?\n— No, I didn't.",
+          perevod: {
+            "— Did you go to the stadium?": "— Вы ходили на стадион?",
+            "— Yes, I did. The match was long.": "— Да. Матч был долгий.",
+            "— Did you see the goal?": "— Вы видели гол?",
+            "— No, I didn't.": "— Нет.",
+          },
           explain:
             "Два вопроса и два ответа. В первом ответе после коротких слов добавлена " +
             "подробность, во втором её нет — и так тоже можно.",
@@ -647,6 +660,13 @@ const module: Module = {
           razgovor: true,
           text:
             "— Where did you go yesterday?\n— I went to the cinema.\n— What did you see?\n— A cartoon. I liked the character.",
+          perevod: {
+            "— Where did you go yesterday?": "— Куда вы вчера ходили?",
+            "— I went to the cinema.": "— Я ходил в кино.",
+            "— What did you see?": "— Что вы смотрели?",
+            "— A cartoon. I liked the character.":
+              "— Мультфильм. Мне понравился главный герой.",
+          },
           explain:
             "Вопрос со словом Where или What ждёт подробности, а не слова «да». Второй " +
             "вопрос уже не называет кино: о нём сказал первый ответ, и повторять незачем.",
@@ -756,8 +776,10 @@ const module: Module = {
           kind: "explain",
           text: [
             "О вчерашнем концерте спрашивают двумя разными вопросами.",
-            "Did you go to the concert? — о действии: ездил или нет.",
-            "Was the concert good? — о самом концерте: каким он вышел.",
+            "Did you go to the concert? — Вы ходили на концерт?",
+            "Was the concert good? — Концерт был хороший?",
+            "Первый спрашивает о действии: ходил или нет.",
+            "Второй — о самом концерте: каким он вышел.",
             "Слово выбирают по тому, о чём спрашиваешь.",
           ],
         },
@@ -814,6 +836,12 @@ const module: Module = {
           razgovor: true,
           text:
             "— Did you go to the concert?\n— Yes, I did.\n— Was it good?\n— It was brilliant.",
+          perevod: {
+            "— Did you go to the concert?": "— Вы ходили на концерт?",
+            "— Yes, I did.": "— Да.",
+            "— Was it good?": "— Хорошо было?",
+            "— It was brilliant.": "— Было великолепно.",
+          },
           explain:
             "Первый вопрос о действии и потому берёт did. Второй о самом концерте и " +
             "потому берёт was.",
@@ -964,6 +992,17 @@ const module: Module = {
           razgovor: true,
           text:
             "— Where was the concert?\n— At the stadium.\n— When did it start?\n— At seven.\n— Who was there?\n— My colleague and my sister.\n— Was it good?\n— The sky was grey, but the concert was excellent.",
+          perevod: {
+            "— Where was the concert?": "— Где был концерт?",
+            "— At the stadium.": "— На стадионе.",
+            "— When did it start?": "— Когда он начался?",
+            "— At seven.": "— В семь.",
+            "— Who was there?": "— Кто там был?",
+            "— My colleague and my sister.": "— Мой коллега и моя сестра.",
+            "— Was it good?": "— Хорошо было?",
+            "— The sky was grey, but the concert was excellent.":
+              "— Небо было серое, но концерт был отличный.",
+          },
           explain:
             "Восемь строк: четыре вопроса и четыре ответа. Вопросы идут в том же " +
             "порядке, что и в таблице выше.",
@@ -1359,6 +1398,13 @@ const module: Module = {
           ],
           text:
             "Hi Daniyar!\nYes, I went camping last week.\nThe campsite was quiet, but the mornings were cold.\nI took a tent and a guidebook.\nAlim",
+          perevod: {
+            "Yes, I went camping last week.":
+              "Да, на прошлой неделе я ездил с палаткой.",
+            "The campsite was quiet, but the mornings were cold.":
+              "На стоянке было тихо, но утра были холодные.",
+            "I took a tent and a guidebook.": "Я взял палатку и путеводитель.",
+          },
           explain:
             "Пять строк: обращение, три ответа и подпись. Ответы идут в том же порядке, " +
             "в каком стояли вопросы, и найти нужный поэтому легко.",
