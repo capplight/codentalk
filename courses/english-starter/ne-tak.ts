@@ -616,9 +616,9 @@ const module: Module = {
           text:
             "— Hello! Are you Dana?\n— Sorry, I'm not Dana. I'm Aigul.\n— Sorry! Nice to meet you, Aigul.",
           perevod: {
-            "— Hello! Are you Dana?": "Здравствуйте! Вы Дана?",
-            "— Sorry, I'm not Dana. I'm Aigul.": "Простите, я не Дана. Я Айгуль.",
-            "— Sorry! Nice to meet you, Aigul.": "Простите! Приятно познакомиться, Айгуль.",
+            "— Hello! Are you Dana?": "Привет! Ты Дана?",
+            "— Sorry, I'm not Dana. I'm Aigul.": "Прости, я не Дана. Я Айгуль.",
+            "— Sorry! Nice to meet you, Aigul.": "Прости! Приятно познакомиться, Айгуль.",
           },
           explain:
             "Собеседник обознался. Ответ строится теми же двумя шагами: сначала что не " +
@@ -1031,8 +1031,8 @@ const module: Module = {
           text:
             "— Are you from Astana?\n— No, I'm not. I'm from Almaty. And you?\n— I'm from Astana.",
           perevod: {
-            "— Are you from Astana?": "Вы из Астаны?",
-            "— No, I'm not. I'm from Almaty. And you?": "Нет. Я из Алматы. А вы?",
+            "— Are you from Astana?": "Ты из Астаны?",
+            "— No, I'm not. I'm from Almaty. And you?": "Нет. Я из Алматы. А ты?",
             "— I'm from Astana.": "Я из Астаны.",
           },
           explain:
@@ -1143,11 +1143,11 @@ const module: Module = {
             "— Sorry! Are you a student, Aigul?\n— No, I'm not. I'm a teacher. And you?\n" +
             "— I'm a student. Nice to meet you!",
           perevod: {
-            "— Hello! Are you Dana?": "Здравствуйте! Вы Дана?",
-            "— Sorry, I'm not Dana. I'm Aigul.": "Простите, я не Дана. Я Айгуль.",
-            "— Sorry! Are you a student, Aigul?": "Простите! Вы студентка, Айгуль?",
-            "— No, I'm not. I'm a teacher. And you?": "Нет. Я учительница. А вы?",
-            "— I'm a student. Nice to meet you!": "Я студент. Приятно познакомиться!",
+            "— Hello! Are you Dana?": "Привет! Ты Дана?",
+            "— Sorry, I'm not Dana. I'm Aigul.": "Прости, я не Дана. Я Айгуль.",
+            "— Sorry! Are you a student, Aigul?": "Прости! Ты студентка, Айгуль?",
+            "— No, I'm not. I'm a teacher. And you?": "Нет. Я преподавательница. А ты?",
+            "— I'm a student. Nice to meet you!": "Я учусь. Приятно познакомиться!",
           },
           explain:
             "Две поправки подряд, и разговор не разваливается: каждая состоит из двух " +

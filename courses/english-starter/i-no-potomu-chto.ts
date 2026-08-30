@@ -1680,7 +1680,7 @@ const module: Module = {
         id: "q-dva-cheloveka-v-odnom",
         kind: "choice",
         outcome: "соединять два предложения: I work, and I study",
-        prompt: "Она учительница, он врач. Как сказать это одним предложением?",
+        prompt: "Она преподаватель, он врач. Как сказать это одним предложением?",
         options: [
           { text: "She is a teacher, and he is a doctor.", correct: true },
           { text: "She is a teacher and doctor." },

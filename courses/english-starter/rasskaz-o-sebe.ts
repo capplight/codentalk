@@ -108,7 +108,7 @@ const module: Module = {
       ref: "Oxford 3000",
       section:
         "слова модуля с пометкой A1: from, in, country, city, town, capital, street, home, " +
-        "student, teacher, doctor, driver, nurse, artist, actor, job, work, where. " +
+        "student, teacher, doctor, driver, nurse, artist, actor, job, work, where, apple, egg. " +
         "Артикль там же отдельной записью: «a, an indefinite article A1». " +
         "ПРОВЕРЕНО ОТДЕЛЬНО: engineer стоит на A2 и в модуль не взят, хотя для правила " +
         "про `an` подошёл бы; вместо него artist и actor, оба A1",
@@ -298,7 +298,7 @@ const module: Module = {
             "Правило написания при этом одно, и оно уже знакомо по модулю про алфавит. " +
               "Название страны или города пишется с заглавной буквы, где бы оно ни стояло.",
             "Столицу называют словом capital: Astana is a capital city.",
-            "Небольшой город — это town, крупный — city: Almaty is a city, not a town.",
+            "Небольшой город — это town, крупный — city: Almaty is a city.",
           ],
         },
         {
@@ -449,8 +449,9 @@ const module: Module = {
               "а отдельного перевода у него нет.",
             "Это слово называют артиклем. В русском артиклей нет вовсе — вот первое, чему " +
               "в нашем языке не находится пары. Дальше в курсе это слово так и будет называться артиклем.",
-            "Пропускать артикль нельзя: «I'm doctor» звучит по-английски так же " +
-              "неправильно, как «я есть врачом» по-русски. Правильно — I'm a doctor.",
+            "Перед названием занятия или предмета, когда он один, артикль нужен: " +
+              "«I'm doctor» звучит по-английски так же неправильно, как «я есть врачом» " +
+              "по-русски. Правильно — I'm a doctor.",
           ],
         },
         {
@@ -697,7 +698,7 @@ const module: Module = {
           text: "Hello! I'm Dana. I'm from Almaty. I'm a student.",
           perevod: {
             "Hello! I'm Dana. I'm from Almaty. I'm a student.":
-              "Здравствуйте! Я Дана. Я из Алматы. Я студентка.",
+              "Здравствуй! Я Дана. Я из Алматы. Я студентка.",
           },
           zvuchat: ["Hello! I'm Dana. I'm from Almaty. I'm a student.",
           ],
@@ -851,8 +852,6 @@ const module: Module = {
           caption: "Слова урока",
           items: [
             { term: "in", translation: "в", example: "I'm in Astana.", hint: "/ɪn/" },
-            { term: "home", translation: "дом, родной дом", example: "I'm at home.", hint: "/həʊm/" },
-            { term: "work", translation: "работа", example: "I'm at work.", hint: "/wɜːk/" },
           ],
         },
 
@@ -1262,7 +1261,7 @@ const module: Module = {
           text: "Hello! I'm Dana. I'm from Almaty. I'm in Astana. I'm a student. Nice to meet you.",
           perevod: {
             "Hello! I'm Dana. I'm from Almaty. I'm in Astana. I'm a student. Nice to meet you.":
-              "Здравствуйте! Я Дана. Я из Алматы. Я в Астане. Я студентка. Приятно познакомиться.",
+              "Здравствуй! Я Дана. Я из Алматы. Я в Астане. Я студентка. Приятно познакомиться.",
           },
           zvuchat: ["Hello! I'm Dana. I'm from Almaty. I'm in Astana. I'm a student. Nice to meet you.",
           ],
@@ -1358,7 +1357,7 @@ const module: Module = {
           kind: "speak",
           prompt: "Произнеси вслух рассказ о себе: имя, откуда, где сейчас, чем занят.",
           phrase: "Hello! I'm ... . I'm from ... . I'm in ... . I'm a ... .",
-          translation: "Здравствуйте! Я ... . Я из ... . Я в ... . Я ... .",
+          translation: "Здравствуй! Я ... . Я из ... . Я в ... . Я ... .",
           hint: "Между предложениями делай паузу — это четыре отдельных сообщения.",
           why:
             "Это весь модуль в одном упражнении. Если четыре предложения идут одно за " +
@@ -1414,8 +1413,8 @@ const module: Module = {
           kind: "note",
           tone: "info",
           text:
-            "Каждое предложение о себе начинается одинаково — с I am. Читать надо не его, а то, что идёт следом: имя, from, in или a. Читать надо не их, " +
-              "а то, что идёт следом: имя, from, in или a.",
+            "Каждое предложение о себе начинается одинаково — с I am. Читать надо не " +
+              "его, а то, что идёт следом: имя, from, in или a.",
         },
         {
           id: "rasskaz-nurlana",
@@ -1767,7 +1766,7 @@ const module: Module = {
           minWords: 11,
           sample: "I'm Alim. I'm from Kazakhstan. I'm in Astana. I'm a student.",
           checklist: [
-            "В каждом предложении есть I'm или I am.",
+            "В каждом предложении есть форма be: I'm, I am или is.",
             "Перед названием занятия стоит a или an: I'm a student, а не I'm student.",
             "Имя, страна и город написаны с заглавной буквы.",
             "Каждое предложение кончается точкой — как в уроке о порядке слов.",
@@ -1965,16 +1964,16 @@ const module: Module = {
         why: "She is a teacher. Кто, глагол, остальное.",
       },
       {
-        id: "q-poryadok-najti",
-        kind: "choice",
+        id: "q-poryadok-perepisat",
+        kind: "short",
         outcome: "строить предложение в порядке «кто — глагол — остальное»",
-        prompt: "В какой строке порядок слов нарушен?",
-        options: [
-          { text: "I am a driver." },
-          { text: "From Spain she is.", correct: true },
-          { text: "He is in Almaty." },
-        ],
-        why: "«From Spain she is» — первым стоит не тот, о ком речь. Правильно: She is from Spain.",
+        prompt: "Ученик написал: «From Spain she is.» Запиши строку в правильном порядке.",
+        answer: "She is from Spain.",
+        exact: true,
+        accept: ["She is from Spain", "She's from Spain.", "She's from Spain"],
+        why:
+          "She is from Spain. Первое место занимает тот, о ком речь, второе — глагол, " +
+          "остальное идёт следом.",
       },
       {
         id: "q-sprosit-otkuda-quiz",
@@ -2006,21 +2005,18 @@ const module: Module = {
         why: "I'm Alim. I'm from Almaty. I'm a doctor.",
       },
       {
-        id: "q-rasskaz-oshibka",
-        kind: "hottext",
+        id: "q-chego-ne-hvataet",
+        kind: "choice",
         outcome: "строить предложение в порядке «кто — глагол — остальное»",
-        prompt: "Отметь предложения с ошибкой.",
-        parts: [
-          { text: "I'm a nurse.", selectable: true },
-          { text: " · " },
-          { text: "I from Spain.", selectable: true, correct: true },
-          { text: " · " },
-          { text: "I'm in Rome.", selectable: true },
-          { text: " · " },
-          { text: "I'm teacher.", selectable: true, correct: true },
+        prompt: "Ученик написал: «I'm teacher.» Чего не хватает в этой строке?",
+        options: [
+          { text: "Формы be." },
+          { text: "Артикля перед названием занятия.", correct: true },
+          { text: "Заглавной буквы." },
         ],
         why:
-          "«I from Spain» — нет формы be. «I'm teacher» — нет артикля перед занятием.",
+          "Правильно I'm a teacher. Форма be здесь есть — она спряталась в I'm; " +
+          "заглавная тоже на месте. Не хватает артикля, а он перед занятием нужен.",
       },
       {
         id: "q-vopros-otvet-match",
@@ -2036,16 +2032,19 @@ const module: Module = {
         id: "q-artikl-pered-imenem",
         kind: "choice",
         outcome: "называть своё занятие: I'm a doctor, I'm a student",
-        prompt: "В какой строке артикль лишний?",
-        // Прежние отвлекающие варианты повторяли урочные, а «It's a city.» стояло
-        // в обоих местах знак в знак. Взяты другие предложения, притом одно — с
-        // названием города, чтобы разница между именем и занятием была видна.
+        // Прежде вопрос повторял рамку задания урока 3 — «В какой строке артикль
+        // лишний?» — и ученик отвечал узнаванием вида задания. Теперь спрашивается
+        // само правило: строку найти проще, чем назвать, к чему оно относится.
+        prompt: "Перед каким словом артикль не ставят?",
         options: [
-          { text: "I'm a student." },
-          { text: "He's an artist." },
-          { text: "She's a Dana.", correct: true },
+          { text: "Перед названием занятия." },
+          { text: "Перед именем человека.", correct: true },
+          { text: "Перед названием предмета." },
         ],
-        why: "Перед именем a не ставят: правильно She's Dana. Артикль нужен занятию, а не человеку.",
+        why:
+          "Перед именем: имя и так одно-единственное, выделять его незачем. Правильно " +
+          "She's Dana, а не «She's a Dana». А занятию и предмету артикль нужен: " +
+          "I'm a student, It's a city.",
       },
 
       // ---- письмо -----------------------------------------------------

@@ -1226,7 +1226,7 @@ const module: Module = {
             "— I'm nineteen. And you?": "Мне девятнадцать. А тебе?",
             "— I'm twenty.": "Мне двадцать.",
             "— How many books have you got?": "Сколько у тебя книг?",
-            "— A lot of books. How much is it?": "Много книг. Сколько это стоит?",
+            "— A lot of books. How much is it?": "Много. А эта сколько стоит?",
             "— Ten tenge.": "Десять тенге.",
           },
           explain:
@@ -1238,13 +1238,13 @@ const module: Module = {
           kind: "table",
           caption: "Три вопроса с how",
           zvuchat: ["How old are you?", "How many books?", "How much is it?", "I'm twenty.",
-            "Three.", "Ten.",
+            "Three.", "Ten tenge.",
           ],
           head: ["Вопрос", "О чём", "Ответ"],
           rows: [
             ["How old are you?", "возраст", "I'm twenty."],
             ["How many books?", "количество", "Three."],
-            ["How much is it?", "цена", "Ten."],
+            ["How much is it?", "цена", "Ten tenge."],
           ],
         },
         {

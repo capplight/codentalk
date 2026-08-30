@@ -721,7 +721,7 @@ const module: Module = {
           perevod: {
             "— Is she from Turkey?": "Она из Турции?",
             "— No, she isn't. She's from Spain.": "Нет. Она из Испании.",
-            "— Is she a teacher?": "Она учительница?",
+            "— Is she a teacher?": "Она преподаватель?",
             "— Yes, she is.": "Да.",
           },
           explain:
@@ -1068,9 +1068,9 @@ const module: Module = {
             "— Hello! I'm Dana. Are you a student?\n— No, I'm not. I'm a teacher. And you?\n" +
             "— Yes, I am. Are you from Astana?\n— No, I'm not. I'm from Almaty.\n— Nice to meet you!",
           perevod: {
-            "— Hello! I'm Dana. Are you a student?": "Здравствуйте! Я Дана. Вы студент?",
-            "— No, I'm not. I'm a teacher. And you?": "Нет. Я учитель. А вы?",
-            "— Yes, I am. Are you from Astana?": "Да. Вы из Астаны?",
+            "— Hello! I'm Dana. Are you a student?": "Привет! Я Дана. Ты студент?",
+            "— No, I'm not. I'm a teacher. And you?": "Нет. Я преподаватель. А ты?",
+            "— Yes, I am. Are you from Astana?": "Да. Ты из Астаны?",
             "— No, I'm not. I'm from Almaty.": "Нет. Я из Алматы.",
             "— Nice to meet you!": "Приятно познакомиться!",
           },

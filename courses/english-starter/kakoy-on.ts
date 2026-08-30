@@ -294,7 +294,7 @@ const module: Module = {
           perevod: {
             "— What's this?": "Что это?",
             "— It's a book. It's new.": "Это книга. Она новая.",
-            "— And that?": "А то?",
+            "— And that?": "А вон то?",
             "— It's a car. It's old.": "Это машина. Она старая.",
           },
           explain:
@@ -468,7 +468,7 @@ const module: Module = {
           perevod: {
             "— What's this?": "Что это?",
             "— It's a new book.": "Это новая книга.",
-            "— And that?": "А то?",
+            "— And that?": "А вон то?",
             "— It's an old car.": "Это старая машина.",
           },
           explain:
@@ -797,7 +797,7 @@ const module: Module = {
             "— Is your room big?": "У тебя большая комната?",
             "— No, it isn't. It's very small.": "Нет. Она очень маленькая.",
             "— And the house?": "А дом?",
-            "— It's a very big house.": "Дом очень большой.",
+            "— It's a very big house.": "Это очень большой дом.",
           },
           explain:
             "Very работает в обоих местах: и после формы be — it's very small, и перед " +
@@ -937,7 +937,7 @@ const module: Module = {
         {
           id: "primer-dvuh",
           kind: "example",
-          caption: "Описание в две строки",
+          caption: "Два прилагательных в одном ответе",
           razgovor: true,
           // Здесь стоял оборот What's your room like? Методист показал, что он
           // A2 сразу по трём строкам источника и нигде не был объявлен. Заменён
@@ -1065,7 +1065,7 @@ const module: Module = {
           rows: [
             ["tall", "высокий", "She is tall."],
             ["young", "молодой", "He is young."],
-            ["nice", "приятный, славный", "She's a nice woman."],
+            ["nice", "приятный", "She's a nice woman."],
             ["interesting", "интересный", "He's an interesting man."],
           ],
         },
@@ -1097,9 +1097,9 @@ const module: Module = {
             "— That's Dana. She's my teacher.\n— Is she young?\n" +
             "— Yes, she is. She's young and very nice.",
           perevod: {
-            "— That's Dana. She's my teacher.": "Это Дана. Она моя учительница.",
+            "— That's Dana. She's my teacher.": "Это Дана. Она мой преподаватель.",
             "— Is she young?": "Она молодая?",
-            "— Yes, she is. She's young and very nice.": "Да. Она молодая и очень славная.",
+            "— Yes, she is. She's young and very nice.": "Да. Она молодая и очень приятная.",
           },
           explain:
             "О человеке спрашивают так же, как о предмете: Is she young? И отвечают так же — " +
@@ -1113,7 +1113,7 @@ const module: Module = {
           items: [
             { term: "tall", translation: "высокий", example: "She is tall.", hint: "/tɔːl/" },
             { term: "young", translation: "молодой", example: "He is young.", hint: "/jʌŋ/" },
-            { term: "nice", translation: "приятный, славный", example: "a nice woman", hint: "/naɪs/" },
+            { term: "nice", translation: "приятный", example: "a nice woman", hint: "/naɪs/" },
             { term: "interesting", translation: "интересный", example: "an interesting man", hint: "/ˈɪntrəstɪŋ/" },
           ],
         },
@@ -1408,8 +1408,8 @@ const module: Module = {
             "This is Alim. He's my teacher.\nHe's young and very nice.\n" +
             "His favourite colour is blue.",
           perevod: {
-            "This is Alim. He's my teacher.": "Это Алим. Он мой учитель.",
-            "He's young and very nice.": "Он молодой и очень славный.",
+            "This is Alim. He's my teacher.": "Это Алим. Он мой преподаватель.",
+            "He's young and very nice.": "Он молодой и очень приятный.",
             "His favourite colour is blue.": "Его любимый цвет — синий.",
           },
           explain:

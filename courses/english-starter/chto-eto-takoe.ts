@@ -1167,9 +1167,9 @@ const module: Module = {
           perevod: {
             "— What's this?": "Что это?",
             "— It's a ticket.": "Это билет.",
-            "— Is that a ticket too?": "То тоже билет?",
+            "— Is that a ticket too?": "А вон то — тоже билет?",
             "— No, it isn't. It's a map.": "Нет. Это карта.",
-            "— Sorry! And what is that?": "Простите! А что это там?",
+            "— Sorry! And what is that?": "Прости! А что это вон там?",
             "— It's money.": "Это деньги.",
           },
           explain:

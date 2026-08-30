@@ -263,7 +263,7 @@ const module: Module = {
             "— It's on the table.",
           perevod: {
             "— Where is my key?": "Где мой ключ?",
-            "— It's in your bag.": "У тебя в сумке.",
+            "— It's in your bag.": "Он у тебя в сумке.",
             "— And my phone?": "А телефон?",
             "— It's on the table.": "На столе.",
           },
@@ -557,9 +557,9 @@ const module: Module = {
             "— Where is the shop?\n— It's there.\n— And your car?\n— It's here.",
           perevod: {
             "— Where is the shop?": "Где магазин?",
-            "— It's there.": "Вон там.",
+            "— It's there.": "Он вон там.",
             "— And your car?": "А твоя машина?",
-            "— It's here.": "Здесь.",
+            "— It's here.": "Она здесь.",
           },
           explain:
             "Отвечают целым предложением: It's there, а не просто There. Показать рукой " +
@@ -853,9 +853,9 @@ const module: Module = {
             "— It's in your bag.",
           perevod: {
             "— Where are my keys?": "Где мои ключи?",
-            "— They're on the table.": "На столе.",
+            "— They're on the table.": "Они на столе.",
             "— And my phone?": "А телефон?",
-            "— It's in your bag.": "У тебя в сумке.",
+            "— It's in your bag.": "Он у тебя в сумке.",
           },
           explain:
             "В первом ответе стоит they're — ключей несколько. Во втором it's — телефон " +
@@ -1181,7 +1181,7 @@ const module: Module = {
           perevod: {
             "— Where is the hospital?": "Где больница?",
             "— Go straight. Turn left. It's opposite the park.":
-              "Идите прямо. Поверните налево. Она напротив парка.",
+              "Иди прямо. Поверни налево. Она напротив парка.",
             "— Thank you!": "Спасибо!",
           },
           explain:
@@ -1313,8 +1313,8 @@ const module: Module = {
             "— Excuse me! Where is the hotel?\n— Go straight. Turn right.\n" +
             "— And then?\n— It's next to the bus stop.\n— Thank you!\n— You're welcome.",
           perevod: {
-            "— Excuse me! Where is the hotel?": "Извините! Где гостиница?",
-            "— Go straight. Turn right.": "Идите прямо. Поверните направо.",
+            "— Excuse me! Where is the hotel?": "Извини! Где гостиница?",
+            "— Go straight. Turn right.": "Иди прямо. Поверни направо.",
             "— And then?": "А потом?",
             "— It's next to the bus stop.": "Она рядом с остановкой.",
             "— Thank you!": "Спасибо!",

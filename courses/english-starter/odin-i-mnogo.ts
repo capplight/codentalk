@@ -1010,7 +1010,7 @@ const module: Module = {
           ],
           perevod: {
             "I'm Alim. I've got sisters. These are my books. Those aren't my books. My friends are students.":
-              "Я Алим. У меня есть сёстры. Это мои книги. Те книги не мои. " +
+              "Я Алим. У меня есть сёстры. Эти книги мои. Те книги не мои. " +
               "Мои друзья — студенты.",
           },
           explain:

@@ -944,7 +944,7 @@ const module: Module = {
             "— Excuse me. Is there a shop near here?\n— Yes, there is. It's opposite the " +
             "park.\n— Thank you.",
           perevod: {
-            "— Excuse me. Is there a shop near here?": "Извините. Здесь рядом есть магазин?",
+            "— Excuse me. Is there a shop near here?": "Извини. Здесь рядом есть магазин?",
             "— Yes, there is. It's opposite the park.": "Да, есть. Он напротив парка.",
             "— Thank you.": "Спасибо.",
           },
@@ -1263,7 +1263,7 @@ const module: Module = {
             "There isn't a library, but there is a school.",
           perevod: {
             "There is a cinema in my street.": "На моей улице есть кинотеатр.",
-            "There are two markets near the station.": "Рядом с вокзалом два рынка.",
+            "There are two markets near the station.": "Рядом с вокзалом есть два рынка.",
             "There isn't a library, but there is a school.":
               "Библиотеки нет, зато есть школа.",
           },
@@ -1411,7 +1411,7 @@ const module: Module = {
             "There is a TV in the big room.\nThere is a market near the house.",
           perevod: {
             "I live in a flat.": "Я живу в квартире.",
-            "There are two rooms and a kitchen.": "В ней две комнаты и кухня.",
+            "There are two rooms and a kitchen.": "В ней есть две комнаты и кухня.",
             "There is a TV in the big room.": "В большой комнате стоит телевизор.",
             "There is a market near the house.": "Рядом с домом есть рынок.",
           },
