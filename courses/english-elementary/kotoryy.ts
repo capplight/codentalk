@@ -227,7 +227,9 @@ const module: Module = {
           text: [
             "Айгуль рассказывает о родне, и одних имён мало: Данияр их не знает.",
             "Она называет человека и сразу говорит, чем он занят.",
-            "Для этого между ними ставят одно слово — who.",
+            "I have a friend who lives in Almaty. — У меня есть друг, который живёт в Алматы.",
+            "Устройство то же, что в прошлом модуле: главная половина, а к ней приставлена вторая.",
+            "Только связывает их теперь не if, а who — русское «который».",
           ],
         },
         {
@@ -282,6 +284,17 @@ const module: Module = {
           ],
           text:
             "This is my granny who lives in the village.\nAnd the woman with the long hair?\nThat is my aunt, a businesswoman who works in a department store.\nAnd the good-looking man who is next to her?\nMy uncle, the one who has a beard.",
+          perevod: {
+            "This is my granny who lives in the village.":
+              "Это моя бабушка, которая живёт в селе.",
+            "And the woman with the long hair?": "А женщина с длинными волосами?",
+            "That is my aunt, a businesswoman who works in a department store.":
+              "Это моя тётя, деловая женщина, которая работает в универмаге.",
+            "And the good-looking man who is next to her?":
+              "А симпатичный мужчина, который рядом с ней?",
+            "My uncle, the one who has a beard.":
+              "Мой дядя, тот, который с бородой.",
+          },
           explain:
             "В каждой строке с who описание стоит сразу за человеком, и после " +
             "who идёт глагол. Человека второй раз не называют.",
@@ -443,6 +456,14 @@ const module: Module = {
           ],
           text:
             "I'm looking for a bag which is black and very old.\nWe have three. Anything inside?\nAn envelope which has my name on it, and a t-shirt which my granny made.",
+          perevod: {
+            "I'm looking for a bag which is black and very old.":
+              "Я ищу сумку, которая чёрная и очень старая.",
+            "We have three. Anything inside?":
+              "У нас их три. Внутри что-нибудь есть?",
+            "An envelope which has my name on it, and a t-shirt which my granny made.":
+              "Конверт, на котором моё имя, и футболка, которую сшила моя бабушка.",
+          },
           explain:
             "В первых двух описаниях после which сразу идёт глагол: вещь сама " +
             "что-то делает. В последнем после which стоит granny — с вещью " +
@@ -597,6 +618,15 @@ const module: Module = {
           ],
           text:
             "The film that I watched was long.\nWhich one?\nThe one that a friend of mine made.\nAnd the perfume that she gave me was very old.",
+          perevod: {
+            "The film that I watched was long.":
+              "Фильм, который я смотрел, был длинный.",
+            "Which one?": "Какой именно?",
+            "The one that a friend of mine made.":
+              "Тот, который снял мой друг.",
+            "And the perfume that she gave me was very old.":
+              "А духи, которые она мне подарила, были очень старые.",
+          },
           explain:
             "В первой и последней строке описание стоит между словом и тем, что " +
             "о нём сказано. В третьей оно стоит вплотную к the one — и потому " +
@@ -967,6 +997,13 @@ const module: Module = {
           id: "obrazec-podpisi",
           kind: "example",
           caption: "Подпись Айгуль",
+          perevod: {
+            "This is my granny.": "Это моя бабушка.",
+            "She is a housewife who cooks for six people every Sunday.":
+              "Она домохозяйка, которая каждое воскресенье готовит на шестерых.",
+            "She made the t-shirt which I am wearing on this photo.":
+              "Она сшила футболку, которая на мне на этом снимке.",
+          },
           zvuchat: [
             "This is my granny.",
             "She is a housewife who cooks for six people every Sunday.",
