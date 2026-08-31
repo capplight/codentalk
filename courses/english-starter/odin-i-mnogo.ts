@@ -1508,14 +1508,19 @@ const module: Module = {
         why: "«A friends» — a обещает одного, а s говорит, что их несколько.",
       },
       {
-        id: "q-perepisat-bez-a",
+        id: "q-ispravit-mnozhestvennoe",
         kind: "short",
         outcome: "говорить о нескольких предметах без артикля: They're books",
-        prompt: "Перепиши во множественном числе: «It's a bag.» Начни с They're.",
+        // Было «Перепиши во множественном: It's a bag» при «It's a car» в задании
+        // урока — сменено одно слово. Теперь правится чужая строка с настоящей
+        // ошибкой: артикль оставлен при нескольких предметах. Нашёл методист.
+        prompt: "Ученик написал: «They're a bags.» Запиши строку без ошибки.",
         answer: "They're bags.",
         exact: true,
         accept: ["They're bags", "They are bags.", "They are bags"],
-        why: "They're bags. Артикль ушёл, прибавилась s, форма be сменилась.",
+        why:
+          "They're bags. Перед несколькими предметами артикль не ставят: он " +
+          "значит «один из таких», а их тут несколько.",
       },
       {
         id: "q-forma-be-mnozh",

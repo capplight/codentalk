@@ -314,6 +314,9 @@ const module: Module = {
             { term: "play", translation: "играть", example: "I play football.", hint: "/pleɪ/" },
             { term: "every day", translation: "каждый день", example: "I study every day.", hint: "/ˈevri deɪ/" },
             { term: "football", translation: "футбол", example: "I play football.", hint: "/ˈfʊtbɔːl/" },
+            // Карточка перенесена сюда из урока 5: слово работает уже в таблице
+            // «Шесть дел» этого урока, а словарь его не давал. Нашёл методист.
+            { term: "drink", translation: "пить", example: "I drink tea.", hint: "/drɪŋk/" },
           ],
         },
 
@@ -337,10 +340,12 @@ const module: Module = {
             { text: "I work in a shop.", correct: true },
             { text: "I am a work in a shop." },
           ],
-          hint: "Форма be и действие вместе не идут.",
+          // Подсказка повторяла заголовок врезки СЛОВО В СЛОВО, и задание решалось
+          // взглядом на два абзаца вверх, а не разбором. Нашёл методист.
+          hint: "Посмотри, сколько глаголов стоит в каждой строке.",
           why:
             "I work in a shop. Форма am нужна перед названием — I am a doctor, — а перед " +
-            "действием её нет.",
+            "действием её нет: глагол в строке один.",
         },
         {
           id: "z3-sopostavit-glagoly",
@@ -965,8 +970,10 @@ const module: Module = {
           items: [
             { term: "like", translation: "любить, нравиться", example: "I like music.", hint: "/laɪk/" },
             { term: "music", translation: "музыка", example: "I like music.", hint: "/ˈmjuːzɪk/" },
+            // Карточка `drink` отсюда убрана: слово работает уже в таблице урока 1,
+            // и карточка теперь стоит там. Двух карточек одного слова в модуле быть
+            // не должно — ученик читает их как разные.
             { term: "coffee", translation: "кофе", example: "She likes coffee.", hint: "/ˈkɒfi/" },
-            { term: "drink", translation: "пить", example: "I drink coffee.", hint: "/drɪŋk/" },
           ],
         },
 
@@ -1518,7 +1525,7 @@ const module: Module = {
           id: "rasskaz-o-daniyare",
           kind: "text",
           genre: "article",
-          title: "A day of a bus driver",
+          title: "Daniyar, a bus driver",
           body: [
             "Daniyar is a bus driver. He lives in Astana with his family.",
             "He gets up at five o'clock. He starts at six and finishes at three.",
@@ -1545,7 +1552,7 @@ const module: Module = {
           title: "A message from Aigul",
           body: [
             "Hi! I work in a hospital. I get up at six and start at eight.",
-            "I don't work on Sunday. On Sunday I go to the park with my sister. Aigul",
+            "I work from Monday to Saturday. On Sunday I go to the park with my sister. Aigul",
           ],
         },
 
@@ -1555,7 +1562,7 @@ const module: Module = {
           kind: "short",
           about: "rasskaz-o-daniyare",
           prompt:
-            "Прочитай рассказ A day of a bus driver. Кем работает Данияр? Ответь " +
+            "Прочитай рассказ Daniyar, a bus driver. Кем работает Данияр? Ответь " +
             "английским словом.",
           answer: "driver",
           accept: ["a bus driver", "bus driver", "a driver"],
@@ -1567,7 +1574,7 @@ const module: Module = {
           kind: "short",
           about: "rasskaz-o-daniyare",
           prompt:
-            "Прочитай рассказ A day of a bus driver. Во сколько Данияр начинает работу? " +
+            "Прочитай рассказ Daniyar, a bus driver. Во сколько Данияр начинает работу? " +
             "Ответь цифрой.",
           answer: "6",
           accept: ["6 o'clock", "six", "шесть"],
@@ -1580,7 +1587,7 @@ const module: Module = {
           id: "z3-chto-vecherom",
           kind: "choice",
           about: "rasskaz-o-daniyare",
-          prompt: "Прочитай рассказ A day of a bus driver. Что Данияр делает вечером?",
+          prompt: "Прочитай рассказ Daniyar, a bus driver. Что Данияр делает вечером?",
           options: [
             { text: "Только смотрит футбол" },
             { text: "Смотрит футбол или читает", correct: true },
@@ -1600,15 +1607,17 @@ const module: Module = {
             "словом.",
           answer: "Sunday",
           accept: ["on Sunday", "sunday"],
-          hint: "Найди предложение со словом don't.",
-          why: "I don't work on Sunday. В воскресенье.",
+          hint: "Найди день, которого нет в перечне рабочих.",
+          why:
+            "Sunday. Айгуль работает с понедельника по субботу, значит воскресенье " +
+            "остаётся свободным.",
         },
         {
           id: "z5-chem-otlichayutsya",
           kind: "choice",
           about: "pismo-o-svoyom-dne",
           prompt:
-            "Сравни два текста. Почему у Данияра стоит «works», а у Айгуль «work»?",
+            "Сравни два текста. Почему у Данияра стоит «lives», а у Айгуль «work»?",
           options: [
             { text: "Айгуль пишет о себе, а про Данияра рассказывают", correct: true },
             { text: "Потому что Айгуль женщина" },
@@ -1616,7 +1625,7 @@ const module: Module = {
           ],
           hint: "Посмотри, кто в каждом тексте действующее лицо: I или he.",
           why:
-            "Окончание -s ставят, когда речь об одном другом человеке: he works. " +
+            "Окончание -s ставят, когда речь об одном другом человеке: he lives. " +
             "Про себя говорят без него: I work. Пол тут ни при чём — про Айгуль " +
             "тоже сказали бы she works.",
         },
@@ -1671,7 +1680,7 @@ const module: Module = {
           pace: "slow",
           caption: "Послушай рассказ о дне",
           transcript:
-            "I get up at seven. I work in a school. I finish at four. " +
+            "I get up at seven. I work at a school. I finish at four. " +
             "In the evening I read a book.",
         },
         {
@@ -1694,9 +1703,9 @@ const module: Module = {
           prompt:
             "Послушай первую запись. Где работает говорящий? Ответь английским словом.",
           answer: "school",
-          accept: ["a school", "in a school"],
+          accept: ["a school", "at a school"],
           hint: "Место работы идёт после слова in.",
-          why: "I work in a school. В школе.",
+          why: "I work at a school. В школе.",
         },
         {
           id: "z2-vo-skolko-vstayot",
@@ -1796,7 +1805,7 @@ const module: Module = {
         id: "q-na-sluh-kto-chto-delaet",
         kind: "choice",
         outcome: "понимать на слух, кто что делает и во сколько",
-        zvuk: "My sister works in a shop. I work in a school.",
+        zvuk: "My sister works in a shop. I work at a school.",
         prompt: "Послушай запись. Кто работает в школе?",
         options: [
           { text: "Сестра" },
@@ -1804,7 +1813,7 @@ const module: Module = {
           { text: "Оба" },
         ],
         why:
-          "I work in a school. Слово I — про себя. Сестра работает в магазине.",
+          "I work at a school. Слово I — про себя. Сестра работает в магазине.",
       },
       {
         id: "q-na-sluh-vo-skolko-vstayot",
@@ -1902,13 +1911,16 @@ const module: Module = {
       },
       {
         id: "q-dopisat-goes-quiz",
-        kind: "gap",
+        kind: "short",
         outcome: "прибавлять -es там, где одной s мало: goes, watches, studies",
-        prompt: "Сестра ходит на работу. Допиши глагол вместе с окончанием.",
-        before: "She ",
-        after: " to work.",
-        answer: "goes",
-        why: "She goes to work. К go прибавляют es.",
+        prompt:
+          "Ученик написал: «She gos to work.» Запиши строку без ошибки.",
+        answer: "She goes to work.",
+        exact: true,
+        accept: ["She goes to work"],
+        why:
+          "She goes to work. Одной s глаголу go мало — «gos» так и не читается; " +
+          "прибавляют es.",
       },
       {
         id: "q-studies-quiz",
@@ -1922,13 +1934,21 @@ const module: Module = {
       },
       {
         id: "q-vremya-predlog",
-        kind: "gap",
+        kind: "hottext",
         outcome: "рассказывать распорядок дня со временем: I get up at seven",
-        prompt: "Ты встаёшь в шесть. Допиши предлог перед временем.",
-        before: "I get up ",
-        after: " six.",
-        answer: "at",
-        why: "I get up at six. Перед точным временем ставят at.",
+        prompt: "Отметь строки, где перед временем потерялся предлог.",
+        parts: [
+          { text: "I get up at six.", selectable: true },
+          { text: " · " },
+          { text: "I start eight.", selectable: true, correct: true },
+          { text: " · " },
+          { text: "I finish at five.", selectable: true },
+          { text: " · " },
+          { text: "I read seven.", selectable: true, correct: true },
+        ],
+        why:
+          "«I start eight» и «I read seven» — перед точным временем ставят at: " +
+          "I start at eight, I read at seven.",
       },
       {
         id: "q-den-poryadok",
@@ -1955,13 +1975,17 @@ const module: Module = {
       },
       {
         id: "q-like-dopisat",
-        kind: "gap",
+        kind: "choice",
         outcome: "говорить, что нравится: I like music",
-        prompt: "Брат любит кофе. Допиши глагол вместе с окончанием.",
-        before: "He ",
-        after: " coffee.",
-        answer: "likes",
-        why: "He likes coffee.",
+        prompt: "Почему в строке «My brother likes coffee» у глагола стоит -s?",
+        options: [
+          { text: "Потому что речь об одном другом человеке.", correct: true },
+          { text: "Потому что кофе один." },
+          { text: "Потому что глагол стоит вторым." },
+        ],
+        why:
+          "Речь об одном другом человеке — о брате. Про себя говорят I like, а " +
+          "число кофе и место глагола тут ни при чём.",
       },
       {
         id: "q-like-predlog",

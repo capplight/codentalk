@@ -1853,17 +1853,17 @@ const module: Module = {
         why: "A lot of people. Без of выйдет «a lot people», а так не говорят: слово of держит оборот вместе.",
       },
       {
-        id: "q-tri-voprosa",
+        id: "q-vopros-o-cene-ispravit",
         // Было сопоставление тех же трёх пар, что в задании урока, только
-        // перетасованных. Теперь вопрос надо выбрать под случай.
-        kind: "choice",
+        // перетасованных. Потом стал выбор из трёх — и все три варианта совпали
+        // с урочными дословно. Теперь вопрос надо написать самому.
+        kind: "short",
         outcome: "вести короткий разговор о возрасте, количестве и цене",
-        prompt: "Ты хочешь узнать, сколько стоит книга. Какой вопрос задать?",
-        options: [
-          { text: "How much is it?", correct: true },
-          { text: "How many is it?" },
-          { text: "How old is it?" },
-        ],
+        prompt:
+          "Ученик спросил о цене: «How many is it?» Запиши вопрос без ошибки.",
+        answer: "How much is it?",
+        exact: true,
+        accept: ["How much is it"],
         why: "How much is it? О цене спрашивают через much, о количестве штук — через many.",
       },
       {

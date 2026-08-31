@@ -339,8 +339,8 @@ const module: Module = {
             "This говорят о том, что рядом: в руке, на столе перед тобой. О том, что " +
               "подальше — на другом конце комнаты, за окном, — говорят that.",
             "По-русски различие тоже есть: «этот» и «тот». Но по-русски это слово можно и " +
-              "опустить — «что это?». По-английски нельзя: в вопросе What is …? на его " +
-              "месте всегда стоит this или that.",
+              "опустить — «что это?». По-английски, показывая на предмет, ставят this " +
+              "или that: What is this?",
           ],
         },
         {
@@ -589,7 +589,7 @@ const module: Module = {
           exact: true,
           accept: ["It's a box", "It is a box.", "It is a box"],
           hint: "Отвечают через it, даже если спросили через that.",
-          why: "It's a box. В ответе всегда it, каким бы словом ни спросили.",
+          why: "It's a box. Отвечать через it можно на любой такой вопрос — и на What is this, и на What is that.",
         },
       ],
     },
@@ -1223,12 +1223,12 @@ const module: Module = {
           options: [
             { text: "It's a money." },
             { text: "It's money.", correct: true },
-            { text: "That's money." },
+            { text: "Money is." },
           ],
-          hint: "Перед этим словом a не ставят, а отвечают через it.",
+          hint: "Перед этим словом a не ставят, а начинают ответ с it.",
           why:
-            "It's money. Артикль a перед money не ставят, а отвечают на вопрос всегда " +
-            "через it.",
+            "It's money. Артикль a перед money не ставят. «Money is» — слова стоят " +
+            "задом наперёд: сначала it, потом форма be, потом само слово.",
         },
         {
           id: "z3-dopisat-vopros",
@@ -1593,7 +1593,7 @@ const module: Module = {
         answer: "It's a chair.",
         exact: true,
         accept: ["It's a chair", "It is a chair.", "It is a chair"],
-        why: "It's a chair. Отвечают через it, каким бы словом ни спросили.",
+        why: "It's a chair. Через it отвечают на любой такой вопрос — и на What is this, и на What is that.",
       },
       {
         id: "q-otvetit-o-knige",
@@ -1605,7 +1605,7 @@ const module: Module = {
         before: "It's a ",
         after: ".",
         answer: "picture",
-        why: "It's a picture. Отвечают через it, каким бы словом ни спросили.",
+        why: "It's a picture. Через it отвечают на любой такой вопрос — и на What is this, и на What is that.",
       },
       {
         id: "q-this-ili-that",
