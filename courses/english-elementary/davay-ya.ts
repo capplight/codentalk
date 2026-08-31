@@ -1708,11 +1708,11 @@ const module: Module = {
         kind: "short",
         outcome: "слышать в разговоре, куда позвали и о чём условились",
         zvuk:
-          "Shall we meet on Saturday? — Sorry, I can't. — Why don't we meet on Sunday? — Good idea.",
+          "Shall we meet on Sunday? — Sorry, I can't. — Why don't we meet on Monday? — Good idea.",
         prompt:
           "Послушай разговор. В какой день встретятся? Ответь одним словом по-английски.",
-        answer: "Sunday",
-        accept: ["sunday", "on Sunday"],
+        answer: "Monday",
+        accept: ["monday", "on Monday"],
         hint: "Дней названо два, а согласие прозвучало один раз.",
         why:
           "Sunday. Слова Good idea стоят после второго дня, значит выбран он, а " +

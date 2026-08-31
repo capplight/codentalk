@@ -1884,13 +1884,13 @@ const module: Module = {
         kind: "short",
         outcome: "слышать в записи, кто за что берётся и когда",
         zvuk:
-          "Will Alim repair the car on Tuesday? — No, he won't. He'll be busy, but he will repair it on Friday.",
+          "Will Alim repair the car on Friday? — No, he won't. He'll be busy, but he will repair it on Saturday.",
         prompt: "Послушай и запиши одним английским словом, в какой день Алим починит машину.",
-        answer: "Friday",
-        accept: ["on Friday"],
+        answer: "Saturday",
+        accept: ["on Saturday"],
         why:
-          "No, he won't. He'll be busy, but he will repair it on Friday. Вторник " +
-          "назван, чтобы от него отказаться.",
+          "No, he won't. He'll be busy, but he will repair it on Saturday. Пятница " +
+          "названа, чтобы от неё отказаться.",
       },
       {
         id: "q-na-sluh-vo-skolko",

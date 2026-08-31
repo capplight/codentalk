@@ -1901,14 +1901,18 @@ const module: Module = {
         kind: "choice",
         outcome: "ставить while там, где после союза идёт длительное действие",
         prompt: "В какой части после while стоит длительное действие?",
+        // Прежде верной частью стояло `while the rain was falling` — та же
+        // строка, что в задании урока. Ученик отвечал памятью.
+        // Верной частью стояло `while the rain was falling` — та же строка, что
+        // в задании урока 3. Ученик отвечал памятью, а не по форме глагола.
         options: [
           { text: "while the lock opened" },
+          { text: "while the guests were waiting", correct: true },
           { text: "while the postman called" },
-          { text: "while the rain was falling", correct: true },
         ],
         why:
-          "while the rain was falling. Только здесь после союза стоит форма was и " +
-          "окончание -ing.",
+          "while the guests were waiting. Только здесь после союза стоит форма " +
+          "were и окончание -ing.",
       },
 
       // ---- итог 3 ----

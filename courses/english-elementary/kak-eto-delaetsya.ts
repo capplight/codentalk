@@ -1736,14 +1736,15 @@ const module: Module = {
         kind: "short",
         outcome: "слышать в разговоре, как что-то прошло",
         zvuk:
-          "How was the match? — It started badly. — And then? — Then we played well and won.",
+          "How was the match? — We played well at first. — And then? — Then we played badly and lost.",
         prompt:
           "Послушай. Как команда играла во второй половине матча? Ответь одним словом по-английски.",
-        answer: "well",
-        accept: ["Well"],
+        answer: "badly",
+        accept: ["Badly"],
         hint: "Начало и продолжение в записи разные.",
         why:
-          "Well. Плохо было только начало, а потом игра пошла и матч выиграли.",
+          "Badly. Хорошо было только начало, а потом игра пошла хуже и матч " +
+          "проиграли.",
       },
       {
         id: "q-uslyshat-kak-chital",

@@ -1270,15 +1270,15 @@ const module: Module = {
         kind: "short",
         outcome: "слышать в разговоре, что человек умел в детстве",
         zvuk:
-          "I couldn't swim at ten, but I could sing very well.",
+          "I couldn't cook at ten, but I could draw very well.",
         prompt:
           "Послушай. Что у говорящего в десять лет выходило хорошо? Ответь одним словом по-английски.",
-        answer: "sing",
-        accept: ["Sing", "singing"],
+        answer: "draw",
+        accept: ["Draw", "drawing"],
         hint: "Ответ звучит во второй половине записи.",
         why:
-          "Sing. Первой половиной идёт то, чего говорящий как раз не умел, — " +
-          "плавать.",
+          "Draw. Первой половиной идёт то, чего говорящий как раз не умел, — " +
+          "готовить.",
       },
       {
         id: "q-uslyshat-vozrast",
