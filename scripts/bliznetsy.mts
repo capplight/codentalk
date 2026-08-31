@@ -28,14 +28,30 @@
  * способа сказать нет. Решает методист, и решённое кладётся в
  * `courses/resheno.ts`.
  *
+ * ПОРЯДОК ВЫВОДА — ОТ ХУДШЕГО. Сырое число велико (375 на ступени Beginner) и
+ * включает законные совпадения: «Что вписывают в поле Address?» против «В какое
+ * поле вписывают фамилию?» — вопрос обратный, и это не близнец. Поэтому список
+ * идёт по силе признака: сперва дословно совпавшие варианты, потом доля слов.
+ * Разбирать надо сверху, а не подряд.
+ *
  *     npm run bliznetsy -- english-starter            весь курс
  *     npm run bliznetsy -- english-starter alfavit    один модуль
+ *     npm run bliznetsy -- english-starter --hudshie 20   двадцать худших
  */
 import { courses } from "../courses/index.ts";
 import { isTask, type Module } from "../lib/content/types.ts";
 import { resheno } from "../courses/resheno.ts";
 
-const [, , kursSlug, ...modSlugi] = process.argv;
+const argv = process.argv.slice(2);
+const iHudshie = argv.indexOf("--hudshie");
+const skolkoHudshih = iHudshie >= 0 ? Number(argv[iHudshie + 1]) || 20 : 0;
+// Из позиционных доводов первый — курс, остальные — модули. Из списка выкинуты
+// сам флаг и стоящее за ним число.
+const pozicionnye = argv.filter(
+  (a, i) => !a.startsWith("--") && !(iHudshie >= 0 && i === iHudshie + 1)
+);
+const kursSlug = pozicionnye[0];
+const modSlugi = pozicionnye.slice(1);
 
 if (!kursSlug) {
   console.error("Укажи курс: npm run bliznetsy -- english-starter [модуль …]");
@@ -87,6 +103,7 @@ const PORG_VARIANTOV = 2;
 
 let vsego = 0;
 let zamolchalo = 0;
+const vse: Array<{ modul: string; voprosov: number; nahodki: Array<{ sila: number; dolya: number; text: string }> }> = [];
 
 for (const m of kurs.modules as Module[]) {
   if (modSlugi.length && !modSlugi.includes(m.slug)) continue;
@@ -98,7 +115,7 @@ for (const m of kurs.modules as Module[]) {
   const voprosy = (m.quiz?.questions ?? []) as any[];
   if (!voprosy.length || !zadaniyaUrokov.length) continue;
 
-  const nahodki: string[] = [];
+  const nahodki: Array<{ sila: number; dolya: number; text: string }> = [];
 
   for (const q of voprosy) {
     let luchshiy: any = null;
@@ -128,18 +145,36 @@ for (const m of kurs.modules as Module[]) {
     }
 
     vsego += 1;
-    nahodki.push(
-      `  [${q.id}] ${q.kind}, общих слов ${(dolya * 100).toFixed(0)}%  ↔  ` +
+    nahodki.push({
+      sila: doslovno.length,
+      dolya,
+      text:
+        `  [${q.id}] ${q.kind}, общих слов ${(dolya * 100).toFixed(0)}%  ↔  ` +
         `${luchshiy._urok} · ${luchshiy.id} (${luchshiy.kind})\n` +
         `     работа: ${q.prompt}\n` +
         `     урок  : ${luchshiy.prompt}` +
-        (doslovno.length ? `\n     совпало дословно: ${doslovno.join("  ///  ")}` : "")
-    );
+        (doslovno.length ? `\n     совпало дословно: ${doslovno.join("  ///  ")}` : ""),
+    });
   }
 
   if (nahodki.length) {
-    console.log(`\n=== ${m.slug} — вопросов работы ${voprosy.length}, близнецов ${nahodki.length}`);
-    for (const n of nahodki) console.log(n);
+    nahodki.sort((a, b) => b.sila - a.sila || b.dolya - a.dolya);
+    vse.push({ modul: m.slug, voprosov: voprosy.length, nahodki });
+  }
+}
+
+// Худшее первым: сперва дословно совпавшие варианты, потом доля общих слов.
+// Разбирать список надо сверху: сырое число велико и включает законные
+// совпадения, а признак «совпал вариант» сильнее любой доли.
+if (skolkoHudshih) {
+  const ploskiy = vse.flatMap((v) => v.nahodki.map((n) => ({ ...n, modul: v.modul })));
+  ploskiy.sort((a, b) => b.sila - a.sila || b.dolya - a.dolya);
+  console.log(`\n=== ${Math.min(skolkoHudshih, ploskiy.length)} худших из ${ploskiy.length}`);
+  for (const n of ploskiy.slice(0, skolkoHudshih)) console.log(`\n[${n.modul}]\n${n.text}`);
+} else {
+  for (const v of vse) {
+    console.log(`\n=== ${v.modul} — вопросов работы ${v.voprosov}, близнецов ${v.nahodki.length}`);
+    for (const n of v.nahodki) console.log(n.text);
   }
 }
 
