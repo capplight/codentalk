@@ -177,7 +177,7 @@ const module: Module = {
           text: "Alim works in a shop.\nI know him.\nDana is a teacher.\nI see her every day.",
           perevod: {
             "Alim works in a shop.": "Алим работает в магазине.",
-            "I know him.": "Я его знаю.",
+            "I know him.": "Я знаю его.",
             "Dana is a teacher.": "Дана преподаватель.",
             "I see her every day.": "Я вижу её каждый день.",
           },
@@ -323,10 +323,10 @@ const module: Module = {
           ],
           text: "She knows me.\nI know you.\nWe know them.\nThey know us.",
           perevod: {
-            "She knows me.": "Она меня знает.",
-            "I know you.": "Я тебя знаю.",
-            "We know them.": "Мы их знаем.",
-            "They know us.": "Они нас знают.",
+            "She knows me.": "Она знает меня.",
+            "I know you.": "Я знаю тебя.",
+            "We know them.": "Мы знаем их.",
+            "They know us.": "Они знают нас.",
           },
           explain:
             "В каждом предложении первое слово — то, что стоит перед глаголом, а " +
@@ -470,10 +470,10 @@ const module: Module = {
             "This is her book.": "Это её книга.",
             "I know her.": "Я её знаю.",
             "This is his book.": "Это его книга.",
-            "I know him.": "Я его знаю.",
+            "I know him.": "Я знаю его.",
           },
           explain:
-            "Слева от книги стоят her и his. После глагола — her и him. У женского " +
+            "Перед словом book стоят her и his. После глагола — her и him. У женского " +
             "рода слово одно, у мужского — два разных.",
         },
         // Запись убрана: все четыре записи звучат в примере выше.
@@ -614,7 +614,9 @@ const module: Module = {
           },
           explain:
             "В обеих парах вещь названа в первом предложении, а во втором заменена " +
-            "на it. Слово it стоит после глагола, как him и her.",
+            "на it. Слово it стоит после глагола, как him и her.\n\n" +
+            "Посмотри на переводы: и о Дане, и о книге по-русски говорят «её». " +
+            "По-английски это разные слова — her о человеке, it о вещи.",
         },
         // Запись убрана: все три предложения звучат в таблице выше.
         {
@@ -894,7 +896,7 @@ const module: Module = {
           ],
           text: "I listen to her.\nShe is listening to me.\nI look at them.\nThey are looking at us.",
           perevod: {
-            "I listen to her.": "Я её слушаю.",
+            "I listen to her.": "Я слушаю её.",
             "She is listening to me.": "Она слушает меня.",
             "I look at them.": "Я смотрю на них.",
             "They are looking at us.": "Они смотрят на нас.",
@@ -1039,10 +1041,10 @@ const module: Module = {
             "— Yes, I do. I see her every day.": "Да. Я вижу её каждый день.",
             "— Can you call her?": "Можешь ей позвонить?",
             "— Yes, I can. I ask her about the lesson.":
-              "Могу. Спрошу её про занятие.",
+              "Могу. Спрашиваю её про занятие.",
           },
           explain:
-            "Имя названо в первом вопросе, а дальше идёт her — четыре раза подряд. В " +
+            "Имя названо в первом вопросе, а дальше идёт her — три раза подряд. В " +
             "ответах повторяется только do или can.",
         },
         // Запись убрана: все три вопроса звучат в таблице выше, а разговор — целиком.

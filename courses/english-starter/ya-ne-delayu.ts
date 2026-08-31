@@ -1115,7 +1115,7 @@ const module: Module = {
             "They don't work on Sunday.",
           perevod: {
             "My friends don't live in Astana. They live in Almaty.":
-              "Мои друзья живут не в Астане. Они живут в Алматы.",
+              "Мои друзья не живут в Астане. Они живут в Алматы.",
             "They don't work on Sunday.": "По воскресеньям они не работают.",
           },
           explain:

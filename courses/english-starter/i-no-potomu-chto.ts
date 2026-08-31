@@ -223,7 +223,7 @@ const module: Module = {
           perevod: {
             "I work, and I study.": "Я работаю и учусь.",
             "She can swim, and she can drive.": "Она умеет плавать и водить машину.",
-            "I like music, and I like sport.": "Мне нравится музыка и нравится спорт.",
+            "I like music, and I like sport.": "Мне нравится музыка, и мне нравится спорт.",
           },
           explain:
             "В каждом предложении слово and стоит посередине, а по бокам от него — " +
@@ -360,8 +360,8 @@ const module: Module = {
           text: "I'd like some bread, some water and some rice.\nI like tea, coffee and milk.",
           perevod: {
             "I'd like some bread, some water and some rice.":
-              "Мне хлеба, воды и риса.",
-            "I like tea, coffee and milk.": "Я люблю чай, кофе и молоко.",
+              "Мне немного хлеба, немного воды и немного риса.",
+            "I like tea, coffee and milk.": "Мне нравится чай, кофе и молоко.",
           },
           explain:
             "В каждом перечислении одна запятая и одно and — перед последней вещью. " +
@@ -501,7 +501,7 @@ const module: Module = {
             "I work, but I don't study.": "Я работаю, но не учусь.",
             "She can drive, but she can't swim.":
               "Она умеет водить машину, но не умеет плавать.",
-            "I like tea, but I don't like coffee.": "Я люблю чай, а кофе не люблю.",
+            "I like tea, but I don't like coffee.": "Мне нравится чай, но не нравится кофе.",
           },
           explain:
             "Во всех трёх вторая часть — отрицание. Это самый частый случай для but, " +
@@ -1231,7 +1231,7 @@ const module: Module = {
             "I work in a shop, and I study at a university.":
               "Я работаю в магазине и учусь в университете.",
             "I like my work, but I don't like early mornings.":
-              "Работа мне нравится, а вот вставать рано — нет.",
+              "Работа мне нравится, но рано вставать не люблю.",
             "I study because I want a good job.":
               "Я учусь, потому что хочу хорошую работу.",
           },

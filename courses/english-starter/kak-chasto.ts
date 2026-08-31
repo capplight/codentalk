@@ -207,8 +207,9 @@ const module: Module = {
           tone: "info",
           text:
             "Со словом sometimes есть и второй порядок: Sometimes I work on Sunday. Он " +
-            "тоже верный. Со словом always так не говорят, поэтому проще держаться одного " +
-            "места для всех слов сразу.",
+            "тоже верный. Со словом always так не говорят, поэтому проще держаться " +
+            "одного места: после того, кто действует, и перед глаголом.\n\n" +
+            "При форме be место другое, и об этом урок «Наречие и форма be».",
         },
         {
           id: "primer-vsegda",
@@ -220,8 +221,8 @@ const module: Module = {
           text: "I always get up at seven.\nI sometimes read in the evening.\nI always work in the morning.",
           perevod: {
             "I always get up at seven.": "Я всегда встаю в семь.",
-            "I sometimes read in the evening.": "Иногда я читаю по вечерам.",
-            "I always work in the morning.": "По утрам я всегда работаю.",
+            "I sometimes read in the evening.": "Я иногда читаю по вечерам.",
+            "I always work in the morning.": "Я всегда работаю по утрам.",
           },
           explain:
             "В каждом предложении наречие стоит на одном и том же месте: после I и до " +
@@ -369,10 +370,10 @@ const module: Module = {
           text:
             "I usually get up at seven.\nI often read in the morning.\nI sometimes go to the gym in the evening.",
           perevod: {
-            "I usually get up at seven.": "Обычно я встаю в семь.",
-            "I often read in the morning.": "По утрам я часто читаю.",
+            "I usually get up at seven.": "Я обычно встаю в семь.",
+            "I often read in the morning.": "Я часто читаю по утрам.",
             "I sometimes go to the gym in the evening.":
-              "Иногда по вечерам я хожу в спортзал.",
+              "Я иногда хожу в спортзал по вечерам.",
           },
           explain:
             "Три предложения — три разные частоты. Место наречия во всех трёх одно, " +
@@ -519,7 +520,7 @@ const module: Module = {
           text: "I never drink coffee.\nI never work on Sunday.\nI never go to bed late.",
           perevod: {
             "I never drink coffee.": "Я никогда не пью кофе.",
-            "I never work on Sunday.": "По воскресеньям я никогда не работаю.",
+            "I never work on Sunday.": "Я никогда не работаю по воскресеньям.",
             "I never go to bed late.": "Я никогда не ложусь поздно.",
           },
           explain:
@@ -825,7 +826,7 @@ const module: Module = {
             "I don't usually work on Sunday.\nI don't often go to the gym.\nI don't usually drink coffee in the evening.",
           perevod: {
             "I don't usually work on Sunday.": "По воскресеньям я обычно не работаю.",
-            "I don't often go to the gym.": "В спортзал я хожу нечасто.",
+            "I don't often go to the gym.": "Я редко хожу в спортзал.",
             "I don't usually drink coffee in the evening.":
               "По вечерам я обычно не пью кофе.",
           },
@@ -966,9 +967,9 @@ const module: Module = {
           text:
             "My brother always works late.\nHe usually gets up at six.\nHe never drinks coffee.\nHe is often busy at the weekend.",
           perevod: {
-            "My brother always works late.": "Мой брат всегда работает допоздна.",
+            "My brother always works late.": "Мой брат всегда работает поздно.",
             "He usually gets up at six.": "Обычно он встаёт в шесть.",
-            "He never drinks coffee.": "Кофе он никогда не пьёт.",
+            "He never drinks coffee.": "Он никогда не пьёт кофе.",
             "He is often busy at the weekend.": "По выходным у него часто много дел.",
           },
           explain:
@@ -1255,10 +1256,10 @@ const module: Module = {
           text:
             "I usually get up at seven.\nI always work on Monday.\nI sometimes go to the gym in the evening.\nI never work at the weekend.\nI am always busy on Friday.",
           perevod: {
-            "I usually get up at seven.": "Обычно я встаю в семь.",
+            "I usually get up at seven.": "Я обычно встаю в семь.",
             "I always work on Monday.": "По понедельникам я всегда работаю.",
             "I sometimes go to the gym in the evening.":
-              "Иногда по вечерам я хожу в спортзал.",
+              "Я иногда хожу в спортзал по вечерам.",
             "I never work at the weekend.": "По выходным я никогда не работаю.",
             "I am always busy on Friday.": "По пятницам у меня всегда много дел.",
           },

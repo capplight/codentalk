@@ -234,7 +234,7 @@ const module: Module = {
             "Open the door.": "Открой дверь.",
             "Close the window.": "Закрой окно.",
             "Come here.": "Иди сюда.",
-            "Sit here.": "Садись здесь.",
+            "Sit here.": "Садись сюда.",
           },
           explain:
             "Все четыре начинаются прямо с глагола. После него идёт то, к чему " +
@@ -645,7 +645,7 @@ const module: Module = {
           ],
           text: "Can you help, please?\nCan you open the door?\nCan you come tomorrow?",
           perevod: {
-            "Can you help, please?": "Помоги, пожалуйста.",
+            "Can you help, please?": "Поможешь, пожалуйста?",
             "Can you open the door?": "Откроешь дверь?",
             "Can you come tomorrow?": "Придёшь завтра?",
           },
@@ -782,7 +782,7 @@ const module: Module = {
           perevod: {
             "— Can I sit here?": "Можно я сяду здесь?",
             "— Yes, of course.": "Да, конечно.",
-            "— Can I open the window?": "А окно можно открыть?",
+            "— Can I open the window?": "А можно я открою окно?",
             "— Sorry, I'm cold.": "Извини, мне холодно.",
           },
           explain:
@@ -928,7 +928,7 @@ const module: Module = {
           razgovor: true,
           text: "— Would you like to come to my party?\n— Yes, I'd like to. Thanks!",
           perevod: {
-            "— Would you like to come to my party?": "Придёшь ко мне на праздник?",
+            "— Would you like to come to my party?": "Не хочешь прийти ко мне на вечеринку?",
             "— Yes, I'd like to. Thanks!": "Да, с удовольствием. Спасибо!",
           },
           explain:
@@ -1078,8 +1078,8 @@ const module: Module = {
             "— Would you like a coffee?\n— Yes, please.\n\n— Would you like to come tomorrow?\n— Sorry, I can't.",
           perevod: {
             "— Would you like a coffee?": "Хочешь кофе?",
-            "— Yes, please.": "Да, пожалуйста.",
-            "— Would you like to come tomorrow?": "Придёшь завтра?",
+            "— Yes, please.": "Да, давай.",
+            "— Would you like to come tomorrow?": "Не хочешь прийти завтра?",
             "— Sorry, I can't.": "Извини, не могу.",
           },
           explain:

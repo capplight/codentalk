@@ -613,9 +613,9 @@ const module: Module = {
           text: "— How much bread?\n— Some bread, please.\n— How many books?\n— Two books, please.",
           perevod: {
             "— How much bread?": "Сколько хлеба?",
-            "— Some bread, please.": "Немного, пожалуйста.",
+            "— Some bread, please.": "Немного хлеба, пожалуйста.",
             "— How many books?": "Сколько книг?",
-            "— Two books, please.": "Две, пожалуйста.",
+            "— Two books, please.": "Две книги, пожалуйста.",
           },
           explain:
             "В первом вопросе слово bread не считают — стоит much. Во втором книги " +

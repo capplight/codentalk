@@ -209,9 +209,9 @@ const module: Module = {
           ],
           text: "I like to read.\nI like to cook.\nMy sister likes to swim.",
           perevod: {
-            "I like to read.": "Я люблю читать.",
-            "I like to cook.": "Я люблю готовить.",
-            "My sister likes to swim.": "Моя сестра любит плавать.",
+            "I like to read.": "Мне нравится читать.",
+            "I like to cook.": "Мне нравится готовить.",
+            "My sister likes to swim.": "Моей сестре нравится плавать.",
           },
           explain:
             "В третьем предложении у like стоит -s, потому что речь о сестре. А глагол " +
@@ -223,7 +223,7 @@ const module: Module = {
           kind: "vocab",
           caption: "Слова урока",
           items: [
-            { term: "love", translation: "очень любить", example: "I love music.", hint: "/lʌv/" },
+            { term: "love", translation: "любить", example: "I love music.", hint: "/lʌv/" },
             { term: "food", translation: "еда", example: "I like this food.", hint: "/fuːd/" },
           ],
         },
@@ -349,7 +349,7 @@ const module: Module = {
           ],
           text: "I like reading. I like to read.\nI am reading now.",
           perevod: {
-            "I like reading. I like to read.": "Я люблю читать. Я люблю читать.",
+            "I like reading. I like to read.": "Мне нравится читать. И это тоже «мне нравится читать».",
             "I am reading now.": "Сейчас я читаю.",
           },
           explain:
@@ -486,13 +486,13 @@ const module: Module = {
           ],
           text: "I don't like waiting.\nI don't like to wait.\nMy brother doesn't like cooking.",
           perevod: {
-            "I don't like waiting.": "Я не люблю ждать.",
-            "I don't like to wait.": "Я не люблю ждать.",
-            "My brother doesn't like cooking.": "Мой брат не любит готовить.",
+            "I don't like waiting.": "Мне не нравится ждать.",
+            "I don't like to wait.": "И это тоже «мне не нравится ждать».",
+            "My brother doesn't like cooking.": "Моему брату не нравится готовить.",
           },
           explain:
-            "Первые два предложения значат одно: отрицание не отменяет ни одного из " +
-            "двух форм. В третьем стоит doesn't, потому что речь о брате.",
+            "Первые два предложения значат одно: отрицание не отменяет ни одной из " +
+            "двух записей. В третьем стоит doesn't, потому что речь о брате.",
         },
         // Запись убрана: все три предложения звучат в таблице выше.
         // Словаря у урока больше нет: единственным словом было cinema, а оно
@@ -758,10 +758,10 @@ const module: Module = {
           razgovor: true,
           text: "— Do you like coffee?\n— No, I don't. I like tea.\n— What do you like doing?\n— I like reading.",
           perevod: {
-            "— Do you like coffee?": "Ты любишь кофе?",
-            "— No, I don't. I like tea.": "Нет. Я люблю чай.",
-            "— What do you like doing?": "А что ты любишь делать?",
-            "— I like reading.": "Я люблю читать.",
+            "— Do you like coffee?": "Тебе нравится кофе?",
+            "— No, I don't. I like tea.": "Нет. Мне нравится чай.",
+            "— What do you like doing?": "А что тебе нравится делать?",
+            "— I like reading.": "Мне нравится читать.",
           },
           explain:
             "В первом вопросе после like стоит название вещи. В третьем — вопрос о " +
@@ -888,7 +888,7 @@ const module: Module = {
           text: "— I'd like a coffee, please.\n— And you?\n— I'd like a tea.",
           perevod: {
             "— I'd like a coffee, please.": "Мне кофе, пожалуйста.",
-            "— And you?": "А вам?",
+            "— And you?": "А ты?",
             "— I'd like a tea.": "А мне чай.",
           },
           explain:
@@ -1172,8 +1172,8 @@ const module: Module = {
             "I like reading, and I really like sport.\nI don't like waiting.\nMy favourite food is bread.",
           perevod: {
             "I like reading, and I really like sport.":
-              "Я люблю читать, а спорт люблю очень.",
-            "I don't like waiting.": "Я не люблю ждать.",
+              "Мне нравится читать, а спорт нравится очень.",
+            "I don't like waiting.": "Мне не нравится ждать.",
             "My favourite food is bread.": "Моя любимая еда — хлеб.",
           },
           explain:
@@ -1556,8 +1556,8 @@ const module: Module = {
             "I like reading and music.\nI don't like waiting.\n" +
             "I'd like to see this film.",
           perevod: {
-            "I like reading and music.": "Я люблю читать и слушать музыку.",
-            "I don't like waiting.": "Я не люблю ждать.",
+            "I like reading and music.": "Мне нравится читать и слушать музыку.",
+            "I don't like waiting.": "Мне не нравится ждать.",
             "I'd like to see this film.": "Мне хотелось бы посмотреть этот фильм.",
           },
           zvuchat: [
@@ -1576,7 +1576,7 @@ const module: Module = {
           text:
             "На письме вкус и желание различает одна буква с апострофом. «I like " +
             "coffee» — о вкусе, «I'd like a coffee» — просьба принести. Потеряешь 'd — " +
-            "получится не то, что хотел сказать.\n\nЗаметь и артикль: в рассказе о вкусе " +
+            "выйдет не то, что хочешь сказать.\n\nЗаметь и артикль: в рассказе о вкусе " +
             "его нет, в просьбе есть. Просят одну чашку, а любят кофе вообще.",
         },
         {

@@ -519,7 +519,7 @@ const module: Module = {
           perevod: {
             "I went to work.": "Я ходил на работу.",
             "I saw my friend.": "Я видел друга.",
-            "I had a good day.": "День вышел хороший.",
+            "I had a good day.": "День у меня вышел хороший.",
           },
           explain:
             "Ни в одном из трёх нет окончания -ed. Форма взята из таблицы целиком, " +
@@ -799,7 +799,7 @@ const module: Module = {
           text: "I worked yesterday.\nShe came last week.\nWe were at home last Friday.",
           perevod: {
             "I worked yesterday.": "Вчера я работал.",
-            "She came last week.": "Она приезжала на прошлой неделе.",
+            "She came last week.": "Она приходила на прошлой неделе.",
             "We were at home last Friday.": "В прошлую пятницу мы были дома.",
           },
           explain:
@@ -1069,7 +1069,7 @@ const module: Module = {
           razgovor: true,
           text: "— Would you like to come to my party?\n— Yes, I'd like to. I'll come at six.",
           perevod: {
-            "— Would you like to come to my party?": "Придёшь ко мне на праздник?",
+            "— Would you like to come to my party?": "Не хочешь прийти ко мне на вечеринку?",
             "— Yes, I'd like to. I'll come at six.": "Да, с удовольствием. Приду в шесть.",
           },
           explain:
@@ -1209,7 +1209,7 @@ const module: Module = {
           perevod: {
             "I worked yesterday.": "Вчера я работал.",
             "I am reading a book now.": "Сейчас я читаю книгу.",
-            "I will come to your party tomorrow.": "Завтра приду к тебе на праздник.",
+            "I will come to your party tomorrow.": "Завтра приду к тебе на вечеринку.",
           },
           explain:
             "Три предложения — три времени. В первом окончание -ed, во втором форма " +
@@ -1579,14 +1579,14 @@ const module: Module = {
         {
           id: "obrazec-otkrytki",
           kind: "example",
-          caption: "Открытка из пяти строк",
+          caption: "Открытка Алима",
           text:
             "Hello from Rome!\nYesterday I saw the Colosseum.\n" +
             "Now I am reading in a cafe.\nI will come home on Friday.\nSee you!",
           perevod: {
             "Hello from Rome!": "Привет из Рима!",
             "Yesterday I saw the Colosseum.": "Вчера я видел Колизей.",
-            "Now I am reading in a cafe.": "Сейчас сижу в кафе и читаю.",
+            "Now I am reading in a cafe.": "Сейчас читаю в кафе.",
             "I will come home on Friday.": "Домой вернусь в пятницу.",
             "See you!": "До встречи!",
           },

@@ -1056,9 +1056,9 @@ const module: Module = {
           text:
             "— Can you help, please?\n— Yes, I can.\n\n— Can I help you?\n— No, thank you.",
           perevod: {
-            "— Can you help, please?": "Помоги, пожалуйста.",
+            "— Can you help, please?": "Поможешь, пожалуйста?",
             "— Yes, I can.": "Да.",
-            "— Can I help you?": "Вам помочь?",
+            "— Can I help you?": "Тебе помочь?",
             "— No, thank you.": "Нет, спасибо.",
           },
           explain:

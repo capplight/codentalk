@@ -402,7 +402,7 @@ const module: Module = {
         {
           id: "primer-korotkogo",
           kind: "example",
-          caption: "Три вопроса подряд",
+          caption: "Два вопроса подряд",
           razgovor: true,
           text:
             "— Do you live in Almaty?\n— Yes, I do.\n— Do you work in an office?\n" +
