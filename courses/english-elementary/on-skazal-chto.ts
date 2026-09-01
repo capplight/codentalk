@@ -1513,16 +1513,18 @@ const module: Module = {
         id: "q-kto-skazal-v-pisme",
         kind: "choice",
         outcome: "находить в письме, кто что сказал",
+        // Строка была дословно из письма для чтения того же модуля. Взята новая
+        // строка того же жанра, слова — карточки этого же модуля.
         prompt:
-          "В письме строка: The guest-house told us that they have no rooms anymore. Кто это сказал?",
+          "В письме строка: The teacher told us that the show starts at six. Кто это сказал?",
         options: [
-          { text: "Гостевой дом.", correct: true },
+          { text: "Преподаватель.", correct: true },
           { text: "Мы." },
           { text: "В строке это не названо." },
         ],
         hint: "Говорящий стоит перед said или told, а не после.",
         why:
-          "Гостевой дом. Слово us стоит после told — это тот, кому сказали.",
+          "Преподаватель. Слово us стоит после told — это тот, кому сказали.",
       },
       {
         id: "q-najti-adresata",

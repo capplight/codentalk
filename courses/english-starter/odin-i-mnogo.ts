@@ -1487,12 +1487,22 @@ const module: Module = {
         why: "Buses. Слово оканчивается на s, поэтому прибавляется es.",
       },
       {
-        id: "q-gde-nuzhna-es",
+        // Рамка и два слова из трёх — включая верное — стояли в задании 3 урока 2.
+        // Теперь спрашивается причина, а слово взято другое.
+        id: "q-pochemu-ne-hvatilo-s",
         kind: "choice",
         outcome: "прибавлять es там, где одной буквы s мало: boxes, buses",
-        prompt: "К какому слову нужна es?",
-        options: [{ text: "book" }, { text: "watch", correct: true }, { text: "key" }],
-        why: "Watch оканчивается на ch, поэтому watches. Book и key берут обычную s.",
+        prompt: "У слова box о нескольких предметах на конце es. Почему одной s мало?",
+        options: [
+          { text: "Слово и так кончается на звук вроде «с», и вторую рядом не расслышать.", correct: true },
+          { text: "Перед буквой s всегда ставят e." },
+          { text: "У box особая форма, как у man и child." },
+        ],
+        hint: "Произнеси box вслух и попробуй добавить к нему s.",
+        why:
+          "Box кончается на «кс» — звук, похожий на s. Вторая s рядом с ним не " +
+          "прозвучит, поэтому между ними вставляют e: boxes. У man и child форма " +
+          "особая, а перед s буква e нужна не всегда: book — books.",
       },
       {
         id: "q-a-lishnee",
@@ -1533,16 +1543,19 @@ const module: Module = {
         why: "My friends are students. Друзей несколько, значит форма are.",
       },
       {
-        id: "q-nesoglasovanie",
-        kind: "choice",
+        // Верная строка «They is books.» была дословно урочной: задание 3 урока 4
+        // велело отметить её же. Взята другая ошибка — не форма при местоимении, а
+        // местоимение при вещи, — и ответ надо написать.
+        id: "q-ispravit-mestoimenie-po-chislu",
+        kind: "short",
         outcome: "выбирать форму be по числу: It is — They are",
-        prompt: "В какой строке форма be не подходит?",
-        options: [
-          { text: "They are cars." },
-          { text: "It is a pen." },
-          { text: "They is books.", correct: true },
-        ],
-        why: "«They is books» — с they идёт are.",
+        prompt: "В углу стоят коробки. Ученик написал: «It are boxes.» Запиши строку без ошибки.",
+        answer: "They are boxes.",
+        accept: ["They are boxes"],
+        hint: "Коробок несколько — значит и местоимение о нескольких.",
+        why:
+          "They are boxes. Вещей несколько, поэтому местоимение they, а форма are " +
+          "при нём остаётся.",
       },
       {
         id: "q-osobaya-forma",
@@ -1618,9 +1631,8 @@ const module: Module = {
         exact: true,
         accept: ["Yes, they are"],
         why:
-          "Yes, they are. В кратком ответе о нескольких предметах стоит they, а не " +
-          "these: these показывает на вещи, а отвечать надо тем же словом, что в " +
-          "вопросе.",
+          "Yes, they are. В кратком ответе стоит то же слово, что в вопросе, — they. " +
+          "Слово these показывает на вещи рядом, и для ответа оно не годится.",
       },
       {
         id: "q-rasskaz-mnozh",

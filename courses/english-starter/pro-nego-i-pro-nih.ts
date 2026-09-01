@@ -1548,15 +1548,17 @@ const module: Module = {
         id: "q-tekst-o-kom-rech",
         kind: "choice",
         outcome: "понимать в тексте, о ком идёт речь, когда имя не повторяют",
+        // Строка «My father is a driver» была дословно из записи для слушания того
+        // же модуля. Текст новый, того же вида.
         prompt:
-          "Письмо: «My mother is a doctor. My father is a driver. I see him at home " +
-          "every day.» Кого видят дома каждый день?",
+          "Письмо: «My brother is a student. My sister is a teacher. I see her at " +
+          "school every day.» Кого видят в школе каждый день?",
         options: [
-          { text: "Отца", correct: true },
-          { text: "Мать" },
+          { text: "Сестру", correct: true },
+          { text: "Брата" },
           { text: "Обоих" },
         ],
-        why: "I see him at home every day. Him — про мужчину, то есть про отца.",
+        why: "I see her at school every day. Her — про женщину, то есть про сестру.",
       },
       {
         id: "q-tekst-kogo-znayut",
@@ -1761,19 +1763,21 @@ const module: Module = {
         why: "This book is for him. После for идёт him, а не he.",
       },
       {
-        id: "q-predlog-vybor",
+        // Задание урока 5 отличалось от этого одним местоимением при том же наборе
+        // ошибок. Взято третье местоимение, и строку надо написать самому.
+        id: "q-chto-ne-tak-posle-predloga",
         kind: "choice",
         outcome: "ставить слово после предлога: This is for me",
-        prompt: "Ты работаешь вместе с ней. В каком предложении нет ошибки?",
+        prompt: "Ученик написал: I work with she. Что в этой строке не так?",
         options: [
-          { text: "I work with her.", correct: true },
-          { text: "I work with she." },
-          { text: "I with her work." },
+          { text: "Глагол должен стоять в конце." },
+          { text: "После предлога местоимение стоит в другой форме — her.", correct: true },
+          { text: "Перед предлогом нужен артикль." },
         ],
-        hint: "Смотри и на форму слова, и на место глагола.",
+        hint: "Спроси себя, что меняется у местоимения после with.",
         why:
-          "I work with her. После with стоит her, и порядок слов в английском другой, " +
-          "чем в русском «я с ней работаю».",
+          "Форма местоимения: I work with her. После with стоит не she, а her — " +
+          "так же, как после for стоит them, а не they.",
       },
       {
         id: "q-predlog-napisat",

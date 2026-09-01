@@ -1506,20 +1506,21 @@ const module: Module = {
         why: "Is she a driver? Первые два слова меняются местами, точка становится знаком вопроса.",
       },
       {
-        id: "q-chto-delayut",
-        kind: "choice",
+        // Условие переписали, а кнопки остались от прежней редакции: две из трёх
+        // дословно совпадали с заданием 1 урока 1, и верная среди них. Правка
+        // перенесла ошибку, а не сняла её. Теперь спрашивают не правило, а
+        // исправление чужой записи, и ответ надо написать.
+        id: "q-ispravit-vopros-s-be",
+        kind: "short",
         outcome: "строить вопрос с be, поменяв местами первые два слова",
-        // Условие повторяло задание урока 1 с точностью до одного глагола, и оба
-        // варианта совпадали дословно. Теперь спрашивается не правило, а его след
-        // в готовой паре строк.
         prompt:
-          "«You are a student.» → «Are you a student?» Что в строке переехало?",
-        options: [
-          { text: "Убирают глагол" },
-          { text: "Меняют местами первые два слова", correct: true },
-          { text: "Ставят слово do в начало" },
-        ],
-        why: "Первые два слова меняются местами. Слово do понадобится с другими глаголами, позже в курсе.",
+          "Ученик сделал из «He is in the city.» вопрос так: «Is he is in the city?» " +
+          "Запиши вопрос без ошибки.",
+        answer: "Is he in the city?",
+        accept: ["Is he in the city"],
+        hint: "Форма be в вопросе одна.",
+        why:
+          "Is he in the city? Форма is уходит в начало, и на прежнем месте её уже нет.",
       },
       {
         id: "q-otvet-da",
@@ -1573,16 +1574,19 @@ const module: Module = {
         why: "Are they in Rome? С they идёт форма are, и она открывает вопрос.",
       },
       {
-        id: "q-najti-nesovpadenie",
-        kind: "choice",
+        // Верная строка «Are he a doctor?» была дословно урочной — задание 4 урока
+        // 4 велело отметить её же. Взято другое местоимение, которого в том
+        // задании нет, и ответ надо написать, а не узнать.
+        id: "q-ispravit-formu-be",
+        kind: "short",
         outcome: "подбирать форму be к местоимению в вопросе",
-        prompt: "В каком вопросе форма be не подходит местоимению?",
-        options: [
-          { text: "Am I right?" },
-          { text: "Are you a student?" },
-          { text: "Are he a doctor?", correct: true },
-        ],
-        why: "«Are he» — форма are осталась от you, а он один: Is he a doctor?",
+        prompt: "Ученик спросил: «Is we from Almaty?» Запиши вопрос без ошибки.",
+        answer: "Are we from Almaty?",
+        accept: ["Are we from Almaty"],
+        hint: "Нас несколько, и я среди них.",
+        why:
+          "Are we from Almaty? Форма is идёт с одним другим — he, she, — а с we " +
+          "идёт are.",
       },
       {
         id: "q-vopros-o-drugom",
@@ -1601,13 +1605,16 @@ const module: Module = {
         id: "q-propusk-artiklya",
         kind: "choice",
         outcome: "спрашивать о другом человеке: Is he, Is she",
-        prompt: "В каком вопросе пропущено короткое слово перед занятием?",
+        // Задание урока 2 отличалось от этого одним местоимением при тех же трёх
+        // записях. Теперь запись дана одна, а спрашивается место пропущенного слова.
+        prompt: "В вопросе «Is she teacher?» пропущено короткое слово. Куда оно встаёт?",
         options: [
-          { text: "Is she an artist?" },
-          { text: "Is he a nurse?" },
-          { text: "Is she teacher?", correct: true },
+          { text: "Между Is и she." },
+          { text: "Перед названием занятия.", correct: true },
+          { text: "В самое начало вопроса." },
         ],
-        why: "«Is she teacher?» — пропущено a. Правильно: Is she a teacher?",
+        hint: "Это слово ходит при названии занятия, а не при человеке.",
+        why: "Перед названием занятия: Is she a teacher?",
       },
       {
         id: "q-kratkiy-ili-polnyy",
@@ -1615,8 +1622,8 @@ const module: Module = {
         outcome: "выбирать между кратким и полным ответом",
         prompt: "«Is he a driver?» Какой ответ короткий и верный?",
         options: [
-          { text: "Yes, he is.", correct: true },
           { text: "Yes, he is a driver." },
+          { text: "Yes, he is.", correct: true },
           { text: "Yes." },
         ],
         why: "Yes, he is. Второй ответ верен, но не короток; одного «Yes» в разговоре мало.",

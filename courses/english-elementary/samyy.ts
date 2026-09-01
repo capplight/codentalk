@@ -1639,14 +1639,16 @@ const module: Module = {
         id: "q-chto-samoe-tihoe",
         kind: "short",
         outcome: "находить в тексте, что самое большое и самое старое",
+        // Строка была дословно из заметки для чтения того же модуля. Взята новая
+        // строка того же жанра, животные — карточки этого же модуля.
         prompt:
-          "В заметке стоит: The parrots are the noisiest animals here, and the lizards are the quietest. Кто самый тихий? Ответь одним словом по-английски.",
-        answer: "lizards",
-        accept: ["Lizards", "the lizards", "lizard"],
-        hint: "Слова noisiest и quietest значат разное.",
+          "В заметке стоит: The elephants are the biggest animals here, and the rabbits are the smallest. Кто самый маленький? Ответь одним словом по-английски.",
+        answer: "rabbits",
+        accept: ["Rabbits", "the rabbits", "rabbit"],
+        hint: "Слова biggest и smallest значат разное.",
         why:
-          "The lizards. Слово quietest называет самых тихих, а попугаи, наоборот, " +
-          "самые шумные.",
+          "The rabbits. Слово smallest называет самых маленьких, а слоны, наоборот, " +
+          "самые большие.",
       },
 
       // ---- итог 7 ----

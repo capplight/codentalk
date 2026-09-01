@@ -1640,14 +1640,18 @@ const module: Module = {
         why: "No, he hasn't. Got в кратком ответе не повторяют, а isn't — форма другого глагола.",
       },
       {
+        // Задание 3 урока 6 отличалось от этого одним словом при том же ответе
+        // sister: ученик вписывал его по памяти. Имя вопроса при этом говорило про
+        // брата, а спрашивали про сестру. Теперь строку надо написать целиком, и
+        // спрашивают как раз о брате.
         id: "q-brat-po-angliyski",
-        kind: "gap",
+        kind: "short",
         outcome: "называть родных и друзей",
-        prompt: "Допиши: «У неё есть сестра».",
-        before: "She's got a ",
-        after: ".",
-        answer: "sister",
-        why: "She's got a sister. Sister — сестра, brother — брат.",
+        prompt: "Скажи по-английски: «У него есть брат.» Начни с He's.",
+        answer: "He's got a brother.",
+        accept: ["He's got a brother", "He has got a brother.", "He has got a brother"],
+        hint: "Оборот тот же, что и о вещах.",
+        why: "He's got a brother. Полностью это He has got a brother.",
       },
       {
         id: "q-drug-bez-roda",
@@ -1729,7 +1733,8 @@ const module: Module = {
         why: "She's got a camera. Без got выходит «она есть фотоаппарат»: слово это и говорит «есть у неё».",
       },
       {
-        id: "q-th-v-slovah",
+        // Имя осталось от прежней редакции и говорило про сочетание th.
+        id: "q-slova-o-muzhchine",
         kind: "hottext",
         outcome: "называть родных и друзей",
         prompt: "Отметь слова, называющие мужчину.",

@@ -1489,12 +1489,17 @@ const module: Module = {
         id: "q-najti-sdelannoe-nedavno",
         kind: "short",
         outcome: "находить в списке дел, что сделано, а что нет",
+        // Строка была дословно из записки для чтения того же модуля. Взята новая
+        // строка того же жанра. Разбор был в одну строку и только повторял её —
+        // теперь он говорит, по какому слову дело видно законченным.
         prompt:
-          "В записке строка: I have just been to the pharmacy, so we have the medicine. Что уже есть дома? Ответь одним словом по-английски.",
-        answer: "medicine",
-        accept: ["Medicine", "the medicine"],
-        hint: "Ответ стоит в самом конце строки.",
-        why: "So we have the medicine.",
+          "В записке строка: I have just boiled the water, so we can make tea. Что уже готово? Ответь одним словом по-английски.",
+        answer: "water",
+        accept: ["Water", "the water"],
+        hint: "Ответ стоит в первой половине строки.",
+        why:
+          "The water. Слово just говорит, что дело закончено только что, а вторая " +
+          "половина строки называет, что из этого следует.",
       },
 
       // ---- итог 6 ----

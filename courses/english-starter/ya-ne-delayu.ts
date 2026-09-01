@@ -1727,15 +1727,19 @@ const module: Module = {
         id: "q-doesnt-okonchanie",
         kind: "choice",
         outcome: "говорить, чего не делает другой человек: He doesn't work on Sunday",
-        prompt: "Брат не работает по воскресеньям. Какую запись выбрать?",
+        // Задание урока 2 отличалось от этого одним словом — сестра вместо брата — при
+        // том же наборе ошибок. Теперь спрашивается причина ошибки.
+        prompt: "Ученик написал: He doesn't works on Sunday. Почему так не говорят?",
         options: [
-          { text: "He doesn't works on Sunday." },
-          { text: "He doesn't work on Sunday.", correct: true },
-          { text: "He don't work on Sunday." },
+          { text: "Окончание уже перешло к doesn't, и глаголу оно не достаётся.", correct: true },
+          { text: "Форма doesn't идёт только с I и you." },
+          { text: "Глагол work окончания -s не берёт вовсе." },
         ],
+        hint: "Сосчитай, сколько раз в строке стоит одно и то же окончание.",
         why:
-          "He doesn't work on Sunday. Окончание перешло к doesn't, у действия его больше " +
-          "нет.",
+          "Окончание перешло к doesn't: He doesn't work on Sunday. Форма doesn't как " +
+          "раз для одного другого человека, а окончание -s глагол work берёт — в " +
+          "рассказе: He works on Sunday.",
       },
       {
         id: "q-doesnt-perestroit",
@@ -1885,14 +1889,18 @@ const module: Module = {
         why: "I don't understand. Форма be тут не нужна.",
       },
       {
-        id: "q-oni-ne-dopisat",
-        kind: "gap",
+        // Задание урока 7 отличалось от этого одним словом при том же ответе don't.
+        // Теперь надо исправить чужую запись и написать строку целиком.
+        id: "q-ispravit-otricanie-o-neskolkih",
+        kind: "short",
         outcome: "говорить, чего не делают несколько человек: My friends don't live here",
-        prompt: "Родители не живут здесь. Допиши недостающее слово.",
-        before: "My parents ",
-        after: " live here.",
-        answer: "don't",
-        why: "My parents don't live here. Родителей несколько.",
+        prompt: "Ученик написал: My friends doesn't work here. Запиши строку без ошибки.",
+        answer: "My friends don't work here.",
+        accept: ["My friends don't work here"],
+        hint: "Друзей несколько.",
+        why:
+          "My friends don't work here. Форма doesn't идёт с одним другим человеком, " +
+          "а о нескольких говорят don't.",
       },
       {
         id: "q-oni-ne-vybor",

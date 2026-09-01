@@ -1748,19 +1748,19 @@ const module: Module = {
 
       // ---- итог 5 ----
       {
-        id: "q-chto-umeet-vybor",
-        kind: "choice",
+        // Задание урока 1 отличалось от этого одним словом — мать вместо сестры — при
+        // том же наборе ошибок. Теперь вопрос надо построить целиком.
+        id: "q-chto-umeet-napisat",
+        kind: "short",
         outcome: "спрашивать, что человек умеет: What can you do?",
-        prompt: "Ты хочешь узнать, что умеет твоя сестра. Как спросить?",
-        options: [
-          { text: "What your sister can do?" },
-          { text: "What can your sister do?", correct: true },
-          { text: "What does your sister can?" },
-        ],
-        hint: "Между вопросительным словом и сестрой стоит одно слово.",
+        prompt: "Ты хочешь узнать, что умеет твой брат. Запиши вопрос целиком.",
+        answer: "What can your brother do?",
+        exact: true,
+        accept: ["What can your brother do"],
+        hint: "Слово can стоит сразу за вопросительным словом.",
         why:
-          "What can your sister do? Слово does в вопросе с can не нужно, а порядок " +
-          "«What your sister can» перевёрнут.",
+          "What can your brother do? Слово does в вопросе с can не нужно, а сам can " +
+          "стоит сразу за словом what.",
       },
       {
         id: "q-chto-umeet-dopisat",

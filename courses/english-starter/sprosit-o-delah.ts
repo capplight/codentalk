@@ -1842,21 +1842,25 @@ const module: Module = {
         why: "Does Dana study English? Окончание уже внутри Does, поэтому глагол остаётся голым.",
       },
       {
-        id: "q-does-otmetit",
-        kind: "hottext",
+        // Вопрос звал одно и то же явление вторым именем: урок 3 говорит
+        // «окончание стоит дважды», работа говорила «осталось у глагола». И
+        // задание повторяло урочное — та же разметка, та же пара ошибок. Теперь
+        // спрашивается причина ошибки, а имя у явления одно.
+        id: "q-pochemu-dva-okonchaniya",
+        kind: "choice",
         outcome: "спрашивать о другом человеке: Does he work here?",
-        prompt: "Отметь вопросы, где окончание осталось у глагола.",
-        parts: [
-          { text: "Does she live in Astana?", selectable: true },
-          { text: " · " },
-          { text: "Does she lives in Astana?", selectable: true, correct: true },
-          { text: " · " },
-          { text: "Does he study here?", selectable: true },
-          { text: " · " },
-          { text: "Does he studies here?", selectable: true, correct: true },
+        prompt: "Ученик написал: Does she lives in Astana? Почему так не говорят?",
+        options: [
+          { text: "Окончание стоит дважды: и внутри Does, и на глаголе.", correct: true },
+          { text: "Об одном другом человеке спрашивают через Do, а не через Does." },
+          { text: "Глагол live окончания -s не берёт вовсе." },
         ],
-        hint: "Окончание уходит в Does и у глагола не остаётся.",
-        why: "Окончание осталось у глагола в «Does she lives in Astana?» и «Does he studies here?».",
+        hint: "Сосчитай, сколько раз в вопросе стоит одно и то же окончание.",
+        why:
+          "Окончание стоит дважды. Оно уже внутри Does, поэтому глаголу не " +
+          "достаётся: Does she live in Astana? Через Does об одном другом человеке " +
+          "как раз и спрашивают, а окончание -s глагол live берёт — в рассказе: " +
+          "She lives in Astana.",
       },
 
       // ---- итог 4 ----
@@ -1896,16 +1900,17 @@ const module: Module = {
 
       // ---- итог 5 ----
       {
-        id: "q-what-dopisat",
-        kind: "gap",
+        // Задание урока 5 отличалось от этого одним словом при том же ответе What:
+        // ученик вписывал его по памяти. Теперь вопрос надо построить целиком.
+        id: "q-what-vopros-celikom",
+        kind: "short",
         outcome: "спрашивать, что человек делает: What do you study?",
-        prompt: "Ты хочешь узнать, что собеседник ест. Допиши недостающее слово.",
-        before: "",
-        after: " do you eat?",
-        answer: "What",
-        accept: ["what"],
-        hint: "Оно значит «что».",
-        why: "What do you eat? Слово what встаёт впереди, а сам вопрос за ним остаётся прежним.",
+        prompt: "Ты хочешь узнать, что собеседник готовит. Запиши вопрос целиком.",
+        answer: "What do you cook?",
+        exact: true,
+        accept: ["What do you cook"],
+        hint: "Вопросительное слово впереди, дальше обычный вопрос с do.",
+        why: "What do you cook? Слово what встаёт первым, а вопрос за ним остаётся прежним.",
       },
       {
         id: "q-what-dopisat-does",
@@ -1941,16 +1946,18 @@ const module: Module = {
 
       // ---- итог 6 ----
       {
-        id: "q-gde-dopisat",
-        kind: "gap",
+        // Задание урока 6 отличалось от этого одним словом при том же ответе Where.
+        // Спрошено о времени — второй половине итога, которой работа не касалась, —
+        // и вопрос надо построить целиком.
+        id: "q-kogda-vopros-celikom",
+        kind: "short",
         outcome: "спрашивать, где, когда и кто: Where do you work? Who is your teacher?",
-        prompt: "Ты хочешь узнать, где собеседник учится. Допиши недостающее слово.",
-        before: "",
-        after: " do you study?",
-        answer: "Where",
-        accept: ["where"],
-        hint: "Оно значит «где».",
-        why: "Where do you study? Вопросительное слово стоит первым.",
+        prompt: "Ты хочешь узнать, когда собеседник работает. Запиши вопрос целиком.",
+        answer: "When do you work?",
+        exact: true,
+        accept: ["When do you work"],
+        hint: "Вопросительное слово впереди, дальше обычный вопрос с do.",
+        why: "When do you work? О времени спрашивают словом when, и оно стоит первым.",
       },
       {
         id: "q-kto-dopisat",

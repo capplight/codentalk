@@ -1728,7 +1728,8 @@ const module: Module = {
           "полной записи оно возвращается целым словом.",
       },
       {
-        id: "q-pochemu-net-s",
+        // Имя обещало вопрос «почему», а вопрос просит выбрать верную запись.
+        id: "q-glagol-posle-will",
         kind: "choice",
         outcome: "обещать: I will call you tomorrow",
         prompt: "В какой строке глагол после will записан верно?",
