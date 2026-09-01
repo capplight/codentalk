@@ -1256,14 +1256,16 @@ const module: Module = {
         id: "q-uslyshat-sovet",
         kind: "short",
         outcome: "слышать в разговоре, что советуют",
-        zvuk: "You shouldn't drink coffee at night, and you should try walking in the morning.",
+        // Ответ `walking` совпадал с ответом задания урока 4, где спрашивают
+        // о том же по тексту для чтения. Запись можно было не слушать.
+        zvuk: "You shouldn't take a taxi here, and you should try the market in the centre.",
         prompt:
-          "Послушай. Что советуют делать по утрам? Ответь одним словом по-английски.",
-        answer: "walking",
-        accept: ["Walking"],
+          "Послушай. Что советуют посмотреть в центре? Ответь одним словом по-английски.",
+        answer: "market",
+        accept: ["Market", "the market"],
         hint: "Совет сделать стоит во второй половине записи.",
         why:
-          "Walking. Первой половиной идёт совет наоборот — про кофе на ночь.",
+          "Market. Первой половиной идёт совет наоборот — про такси.",
       },
       {
         id: "q-uslyshat-chego-ne-sovetuyut",

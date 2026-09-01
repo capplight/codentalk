@@ -1533,15 +1533,17 @@ const module: Module = {
       },
       {
         id: "q-moy-lishnee",
-        kind: "choice",
+        kind: "short",
         outcome: "говорить «мой» и «твой»: my bag, your key",
-        prompt: "В какой строке два слова борются за одно место?",
-        options: [
-          { text: "It's your key." },
-          { text: "It's a key." },
-          { text: "It's a your key.", correct: true },
-        ],
-        why: "«It's a your key» — перед названием предмета стоит либо a, либо your.",
+        // Все три варианта совпадали с урочными дословно, включая верный;
+        // переписано было только условие. Нашёл методист.
+        prompt: "Ученик написал: «It's a my phone.» Запиши строку без ошибки.",
+        answer: "It's my phone.",
+        exact: true,
+        accept: ["It's my phone", "It is my phone.", "It is my phone"],
+        why:
+          "It's my phone. Перед названием предмета стоит либо артикль, либо слово " +
+          "о принадлежности — вместе они за одно место не борются.",
       },
       {
         id: "q-dopisat-tvoy",

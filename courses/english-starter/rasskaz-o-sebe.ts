@@ -1826,14 +1826,17 @@ const module: Module = {
         id: "q-na-sluh-otkuda-i-kem",
         kind: "short",
         outcome: "понимать на слух, откуда человек и чем он занят",
-        zvuk: "I am Nurlan. I am from Kazakhstan. I am in Astana. I am a driver.",
+        // Была запись, почти дословно повторяющая текст урока чтения: то же имя,
+        // тот же город, то же занятие. Ответ и accept совпадали с заданием урока
+        // знак в знак, и слушать было незачем. Нашёл методист.
+        zvuk: "I am Aigerim. I am from Turkey. I am in Almaty. I am a nurse.",
         prompt:
-          "Послушай запись. Чем занят человек? Ответь английским словом.",
-        answer: "driver",
-        accept: ["a driver", "I am a driver"],
+          "Послушай запись. Из какой страны человек? Ответь английским словом.",
+        answer: "Turkey",
+        accept: ["turkey", "from Turkey"],
         why:
-          "I am a driver. Водитель. Занятие всегда идёт после I am a, а не после " +
-          "from или in.",
+          "Turkey. Страна идёт после from, а город — после in. Занятие названо " +
+          "последним, после I am a.",
       },
       {
         id: "q-na-sluh-ispravit-pereskaz",

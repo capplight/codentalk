@@ -1608,15 +1608,19 @@ const module: Module = {
       },
       {
         id: "q-kratkiy-otvet-mnozh",
-        kind: "choice",
+        kind: "short",
         outcome: "строить вопрос и отрицание, когда предметов несколько",
-        prompt: "«Are they books?» Это правда. Ответь коротко.",
-        options: [
-          { text: "Yes, these are." },
-          { text: "Yes, they are.", correct: true },
-          { text: "Yes, it is." },
-        ],
-        why: "Yes, they are. В кратком ответе о нескольких предметах стоит they.",
+        // Все три варианта совпадали с урочными дословно, включая верный.
+        prompt:
+          "Ученик ответил на «Are they your keys?» так: «Yes, these are.» " +
+          "Запиши краткий ответ без ошибки.",
+        answer: "Yes, they are.",
+        exact: true,
+        accept: ["Yes, they are"],
+        why:
+          "Yes, they are. В кратком ответе о нескольких предметах стоит they, а не " +
+          "these: these показывает на вещи, а отвечать надо тем же словом, что в " +
+          "вопросе.",
       },
       {
         id: "q-rasskaz-mnozh",

@@ -1735,16 +1735,19 @@ const module: Module = {
         id: "q-uslyshat-chto-izmenilos",
         kind: "short",
         outcome: "слышать в разговоре, как что-то прошло",
+        // Ответ дважды совпадал с урочным: сперва `well`, потом, после правки
+        // 1 сентября, `badly` — ответ задания урока 7. Взято третье наречие,
+        // которого в заданиях модуля нет.
         zvuk:
-          "How was the match? — We played well at first. — And then? — Then we played badly and lost.",
+          "How did the concert go? — They started slowly, but they finished beautifully.",
         prompt:
-          "Послушай. Как команда играла во второй половине матча? Ответь одним словом по-английски.",
-        answer: "badly",
-        accept: ["Badly"],
-        hint: "Начало и продолжение в записи разные.",
+          "Послушай. Как оркестр доиграл концерт? Ответь одним словом по-английски.",
+        answer: "beautifully",
+        accept: ["Beautifully"],
+        hint: "Начало и конец в записи разные.",
         why:
-          "Badly. Хорошо было только начало, а потом игра пошла хуже и матч " +
-          "проиграли.",
+          "Beautifully. Медленным было только начало, а слово but говорит, что " +
+          "дальше пошло иначе.",
       },
       {
         id: "q-uslyshat-kak-chital",

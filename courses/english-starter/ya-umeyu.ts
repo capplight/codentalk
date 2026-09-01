@@ -1800,22 +1800,21 @@ const module: Module = {
       },
       {
         id: "q-vozmozhnost-otmetit",
-        kind: "hottext",
+        kind: "short",
         outcome: "говорить о возможности: You can buy milk here",
-        prompt: "Отметь записи, где речь об умении человека, а не о возможности.",
-        parts: [
-          { text: "You can buy milk here.", selectable: true },
-          { text: " · " },
-          { text: "I can cook.", selectable: true, correct: true },
-          { text: " · " },
-          { text: "You can't buy bread here.", selectable: true },
-          { text: " · " },
-          { text: "My sister can draw.", selectable: true, correct: true },
-        ],
-        hint: "Спроси себя: это про человека или про место.",
+        // Было зеркало урочного задания: те же половины, переставленные местами,
+        // и верные на тех же местах — втором и четвёртом. Ученик отмечал те же
+        // две кнопки. Теперь строку надо написать. Нашёл методист.
+        prompt:
+          "В библиотеке можно взять книги. Напиши это одним предложением, начни с You. " +
+          "Взять — take, книги — books, в библиотеке — in the library.",
+        answer: "You can take books in the library.",
+        exact: true,
+        accept: ["You can take books in the library"],
+        hint: "Речь о том, что доступно всякому, а не об умении одного человека.",
         why:
-          "«I can cook» и «My sister can draw» — про человека и его умение. Два " +
-          "других предложения — про то, что доступно всякому в этом месте.",
+          "You can take books in the library. Слово you здесь не о собеседнике, а " +
+          "о любом посетителе: так говорят о возможности, которую даёт место.",
       },
       {
         id: "q-vozmozhnost-napisat",

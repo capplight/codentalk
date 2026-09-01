@@ -73,14 +73,25 @@ function slova(s: string): string[] {
     .filter(Boolean);
 }
 
-/** Доля общих слов: пересечение к большему из двух наборов. */
+/**
+ * Доля общих слов: пересечение к МЕНЬШЕМУ из двух наборов.
+ *
+ * Первая редакция делила на больший — и порода пряталась ровно этим. Работа,
+ * которая цитирует строку урочного текста, ДОБАВЛЯЕТ слов, набор растёт, и доля
+ * ПАДАЕТ ниже порога. Модуль 24 Elementary: вопрос работы дословно повторял
+ * вопрос урока вместе с ответом и списком `accept`, а доля выходила 43% и в
+ * отчёт не попадала. Нашёл методист 1 сентября 2026.
+ *
+ * Деление на меньший отвечает на нужный вопрос: сколько слов УРОЧНОГО условия
+ * встретилось в условии работы.
+ */
 function shozhest(a: string, b: string): number {
   const A = new Set(slova(a));
   const B = new Set(slova(b));
   if (!A.size || !B.size) return 0;
   let obshchih = 0;
   for (const x of A) if (B.has(x)) obshchih += 1;
-  return obshchih / Math.max(A.size, B.size);
+  return obshchih / Math.min(A.size, B.size);
 }
 
 /**
@@ -89,12 +100,17 @@ function shozhest(a: string, b: string): number {
  * совсем не то же самое.
  */
 function varianty(b: any): string[] {
+  // Тексты чистятся тем же разбором, что и условие. Без этого
+  // `She was driving while I was sleeping` и та же строка С ТОЧКОЙ не
+  // совпадали — настоящий близнец в модуле 7 Elementary прятался за одним
+  // знаком. Нашёл методист 1 сентября 2026.
+  const ch = (s: string) => slova(String(s ?? "")).join(" ");
   const out: string[] = [];
-  if (b.options) for (const o of b.options) out.push(`${o.correct ? "+" : "-"}${o.text}`);
-  if (b.parts) for (const p of b.parts) if (p.selectable) out.push(`${p.correct ? "+" : "-"}${p.text}`);
-  if (typeof b.answer === "string") out.push(`=${b.answer}`);
-  if (b.items) out.push(`items:${b.items.join("|")}`);
-  if (b.left && b.right) out.push(`L:${b.left.join("|")} R:${b.right.join("|")}`);
+  if (b.options) for (const o of b.options) out.push(`${o.correct ? "+" : "-"}${ch(o.text)}`);
+  if (b.parts) for (const p of b.parts) if (p.selectable) out.push(`${p.correct ? "+" : "-"}${ch(p.text)}`);
+  if (typeof b.answer === "string") out.push(`=${ch(b.answer)}`);
+  if (b.items) out.push(`items:${b.items.map(ch).join("|")}`);
+  if (b.left && b.right) out.push(`L:${b.left.map(ch).join("|")} R:${b.right.map(ch).join("|")}`);
   return out;
 }
 
@@ -118,20 +134,31 @@ for (const m of kurs.modules as Module[]) {
   const nahodki: Array<{ sila: number; dolya: number; text: string }> = [];
 
   for (const q of voprosy) {
+    // ПАРТНЁР ВЫБИРАЕТСЯ ПО СИЛЕ ПРИЗНАКА, А НЕ ПО ДОЛЕ СЛОВ.
+    //
+    // Первая редакция брала задание с наибольшей долей общих слов и сверяла
+    // варианты только с ним — а совпадать варианты могли с ДРУГИМ заданием.
+    // Так прятались настоящие близнецы: `q-prosba-vybor` в модуле 19 Beginner
+    // имеет долю 11%, но две его кнопки совпадают с урочными дословно. Нашёл
+    // методист 1 сентября 2026, прогнав ту же сверку вручную.
+    const vq = varianty(q);
     let luchshiy: any = null;
     let dolya = 0;
+    let doslovno: string[] = [];
     for (const t of zadaniyaUrokov) {
       const s = shozhest(q.prompt, t.prompt);
-      if (s > dolya) {
+      const d = vq.filter((v) => varianty(t).includes(v));
+      // Совпавший вариант сильнее любой доли: у худших близнецов совпадают все
+      // кнопки разом, включая верную.
+      const silnee =
+        d.length > doslovno.length || (d.length === doslovno.length && s > dolya);
+      if (silnee) {
         dolya = s;
+        doslovno = d;
         luchshiy = t;
       }
     }
     if (!luchshiy) continue;
-
-    const vq = varianty(q);
-    const vt = varianty(luchshiy);
-    const doslovno = vq.filter((v) => vt.includes(v));
 
     if (dolya < PORG_SHOZHESTI && doslovno.length < PORG_VARIANTOV) continue;
 
@@ -208,7 +235,74 @@ if (skolkoHudshih) {
   }
 }
 
+// ---------------------------------------------------------------------------
+// ВТОРАЯ ПОРОДА: РАБОТА ПЕРЕСПРАШИВАЕТ УРОЧНЫЙ МАТЕРИАЛ.
+//
+// Первая половина скрипта сверяет вопрос работы с ЗАДАНИЯМИ уроков. А работа
+// умеет списывать и у самого материала: вставить в условие дословную строку из
+// текста для чтения того же модуля и спросить по ней. Урок чтения тогда
+// переигрывается второй раз вместо нового умения.
+//
+// Нашёл методист 1 сентября 2026, прогнав сверку вручную: на Elementary таких
+// мест 32 в семнадцати модулях, из них в одиннадцати спрашивается ТОТ ЖЕ ФАКТ,
+// который урок уже спросил по тому же тексту. На Beginner — ноль: там работы
+// текстов не цитируют. Значит проверка не будет кричать на правильное.
+//
+// Сверяется дословное вхождение предложения длиной от пяти слов: короткая
+// строка вроде «Call me» встречается и случайно.
+// ---------------------------------------------------------------------------
+let citat = 0;
+const citaty: string[] = [];
+
+for (const m of kurs.modules as Module[]) {
+  if (modSlugi.length && !modSlugi.includes(m.slug)) continue;
+  const voprosy = (m.quiz?.questions ?? []) as any[];
+  if (!voprosy.length) continue;
+
+  // Все строки материала модуля: тексты для чтения и расшифровки записей.
+  const stroki: Array<{ text: string; gde: string }> = [];
+  for (const urok of m.lessons) {
+    for (const b of urok.blocks as any[]) {
+      if (b.kind === "text" && Array.isArray(b.body)) {
+        for (const s of b.body) stroki.push({ text: String(s), gde: `${urok.slug} · ${b.id}` });
+      }
+      if (b.kind === "audio" && typeof b.transcript === "string") {
+        for (const s of b.transcript.split(/[.!?]\s+/)) {
+          if (s.trim()) stroki.push({ text: s.trim(), gde: `${urok.slug} · ${b.id}` });
+        }
+      }
+    }
+  }
+
+  for (const q of voprosy) {
+    const uslovie = String(q.prompt ?? "");
+    for (const s of stroki) {
+      const slov = slova(s.text).length;
+      if (slov < 5) continue;
+      if (!uslovie.includes(s.text.replace(/[.!?]+$/, ""))) continue;
+      if (resheno.some((r) => q.id === r.chto)) break;
+      citat += 1;
+      citaty.push(
+        `  [${q.id}] цитирует материал урока ${s.gde}\n` +
+          `     строка: ${s.text}\n` +
+          `     условие: ${uslovie.slice(0, 110)}`
+      );
+      break;
+    }
+  }
+}
+
+if (citaty.length) {
+  console.log(`\n=== Работа цитирует урочный материал — ${citat}`);
+  for (const c of citaty) console.log(c);
+  console.log(
+    "\n  Правится дешевле всего так: брать не строку урочного текста, а КОРОТКИЙ\n" +
+      "  НОВЫЙ текст того же жанра. Тогда снимается вся порода разом."
+  );
+}
+
 console.log(`\nБлизнецов: ${vsego}. Разобрано раньше и потому пропущено: ${zamolchalo}.`);
+if (citat) console.log(`Из них цитирующих урочный материал: ${citat}.`);
 console.log(
   "Это сведения, а не ошибка. Совпадение бывает законным — «Сопоставь букву и её\n" +
     "название» сказать иначе нельзя. Решает методист, решённое кладётся в\n" +
