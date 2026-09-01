@@ -314,7 +314,7 @@ const module: Module = {
             "I have studied English for two years.":
               "Я учу английский два года.",
             "And your vocabulary is good! I haven't had such a good teacher before.":
-              "И словарный запас у вас хороший! У меня раньше не было такого хорошего преподавателя.",
+              "И словарный запас у тебя хороший! У меня раньше не было такого хорошего преподавателя.",
             "I have used this software for a year, and it helps.":
               "Я пользуюсь этой программой год, и она помогает.",
           },
@@ -479,7 +479,7 @@ const module: Module = {
             "How long have you studied photography?\nFor a year. I have taken photos of the moon!\nI have read comics for six years, but that isn't studying!",
           perevod: {
             "How long have you studied photography?":
-              "Сколько вы уже занимаетесь фотографией?",
+              "Сколько ты уже занимаешься фотографией?",
             "For a year. I have taken photos of the moon!":
               "Год. Я снимал луну!",
             "I have read comics for six years, but that isn't studying!":

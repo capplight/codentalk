@@ -781,7 +781,7 @@ const module: Module = {
             "Are you coming on Friday?": "Ты придёшь в пятницу?",
             "Yes, I am. Are you sending me the directions?":
               "Да. А ты пришлёшь мне, как добраться?",
-            "Pardon? I didn't hear you.": "Прости, что? Не слышно.",
+            "Pardon? I didn't hear you.": "Извини, что? Не слышно.",
           },
           explain:
             "Три реплики. Оба вопроса начинаются с формы are, а короткий ответ " +

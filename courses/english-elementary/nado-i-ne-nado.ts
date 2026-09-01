@@ -302,7 +302,7 @@ const module: Module = {
             "And we have to bring a kit for the pool.":
               "А ещё мы должны приносить вещи для бассейна.",
             "Do you have to show your ID at the door?":
-              "Вам надо показывать пропуск на входе?",
+              "Тебе надо показывать пропуск на входе?",
           },
           explain:
             "Во всех трёх строках стоит have to, и после него глагол в обычной " +
@@ -495,7 +495,7 @@ const module: Module = {
             "I must show my passport here.":
               "Здесь я должен показать паспорт.",
             "And your brother? He has to show his ID.":
-              "А ваш брат? Он должен показать удостоверение.",
+              "А твой брат? Он должен показать удостоверение.",
             "The driver has to show a licence too.":
               "Водитель тоже должен показать права.",
           },

@@ -388,10 +388,10 @@ const module: Module = {
           text:
             "Is this your bag?\nNo, it isn't mine. My bag is black.\nThen it's mine! Sorry.",
           perevod: {
-            "Is this your bag?": "Это ваша сумка?",
+            "Is this your bag?": "Это твоя сумка?",
             "No, it isn't mine. My bag is black.":
               "Нет, не моя. Моя сумка чёрная.",
-            "Then it's mine! Sorry.": "Тогда она моя! Простите.",
+            "Then it's mine! Sorry.": "Тогда она моя! Извини.",
           },
           explain:
             "В первой строке вещь названа — your bag. Во второй её уже назвали, " +
@@ -964,7 +964,7 @@ const module: Module = {
             "What happened? Did you hurt yourself?\nYes, I hurt myself. My finger, my toe and my stomach.\nAnd Daniyar? Did he enjoy himself?\nHe enjoyed himself, but now his neck hurts too.",
           perevod: {
             "What happened? Did you hurt yourself?":
-              "Что случилось? Вы ушиблись?",
+              "Что случилось? Ты ушибся?",
             "Yes, I hurt myself. My finger, my toe and my stomach.":
               "Да, ушибся. Палец на руке, палец на ноге и живот.",
             "And Daniyar? Did he enjoy himself?":
@@ -1133,7 +1133,7 @@ const module: Module = {
           text:
             "Did your grandma go with you?\nNo, I went by myself. I wasn't frightened.\nAnd the photographer? Did he work by himself?\nYes, and he did not hurry at all.",
           perevod: {
-            "Did your grandma go with you?": "Бабушка поехала с вами?",
+            "Did your grandma go with you?": "Бабушка поехала с тобой?",
             "No, I went by myself. I wasn't frightened.":
               "Нет, я поехал сам. Мне не было страшно.",
             "And the photographer? Did he work by himself?":

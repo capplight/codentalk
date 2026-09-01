@@ -783,7 +783,7 @@ const module: Module = {
             "— Can I sit here?": "Можно я сяду здесь?",
             "— Yes, of course.": "Да, конечно.",
             "— Can I open the window?": "А можно я открою окно?",
-            "— Sorry, I'm cold.": "Извини, мне холодно.",
+            "— Sorry, I'm cold.": "Извините, мне холодно.",
           },
           explain:
             "В обоих вопросах после can стоит I: разрешения просит тот, кто " +

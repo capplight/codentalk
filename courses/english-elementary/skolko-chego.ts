@@ -810,7 +810,7 @@ const module: Module = {
           text:
             "Can you come?\nI don't have much time today.\nAnd tomorrow?\nThere aren't many tickets left. We didn't have much money for two.",
           perevod: {
-            "Can you come?": "Вы сможете прийти?",
+            "Can you come?": "Ты сможешь прийти?",
             "I don't have much time today.": "Сегодня у меня мало времени.",
             "And tomorrow?": "А завтра?",
             "There aren't many tickets left. We didn't have much money for two.":

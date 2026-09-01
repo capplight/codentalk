@@ -1313,8 +1313,8 @@ const module: Module = {
             "— Excuse me! Where is the hotel?\n— Go straight. Turn right.\n" +
             "— And then?\n— It's next to the bus stop.\n— Thank you!\n— You're welcome.",
           perevod: {
-            "— Excuse me! Where is the hotel?": "Извини! Где гостиница?",
-            "— Go straight. Turn right.": "Иди прямо. Поверни направо.",
+            "— Excuse me! Where is the hotel?": "Извините! Где гостиница?",
+            "— Go straight. Turn right.": "Идите прямо. Поверните направо.",
             "— And then?": "А потом?",
             "— It's next to the bus stop.": "Она рядом с остановкой.",
             "— Thank you!": "Спасибо!",

@@ -823,12 +823,12 @@ const module: Module = {
           text:
             "Have you packed the bags yet?\nYes, I have. And you?\nNo, not yet. I have just finished the washing.\nThat isn't fair! Will you be able to help me?",
           perevod: {
-            "Have you packed the bags yet?": "Вы уже собрали сумки?",
-            "Yes, I have. And you?": "Да. А вы?",
+            "Have you packed the bags yet?": "Ты уже собрал сумки?",
+            "Yes, I have. And you?": "Да. А ты?",
             "No, not yet. I have just finished the washing.":
               "Нет, ещё нет. Я только что закончил со стиркой.",
             "That isn't fair! Will you be able to help me?":
-              "Так нечестно! Вы сможете мне помочь?",
+              "Так нечестно! Ты сможешь мне помочь?",
           },
           explain:
             "В вопросе have стоит первым, а yet — последним. Короткий ответ " +

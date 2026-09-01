@@ -432,7 +432,7 @@ const module: Module = {
             ["The film was good.", "Фильм был хороший."],
             ["The shops were expensive.", "Магазины были дорогие."],
             ["It was cold.", "Было холодно."],
-            ["You were at the party.", "Вы были на празднике."],
+            ["You were at the party.", "Ты был на празднике."],
           ],
         },
         {
@@ -905,8 +905,8 @@ const module: Module = {
           zvuchat: ["You were at the party.", "Were you at the party?", "Was he at home?"],
           head: ["Английский", "Перевод"],
           rows: [
-            ["You were at the party.", "Вы были на празднике."],
-            ["Were you at the party?", "Вы были на празднике?"],
+            ["You were at the party.", "Ты был на празднике."],
+            ["Were you at the party?", "Ты был на празднике?"],
             ["He was at home.", "Он был дома."],
             ["Was he at home?", "Он был дома?"],
             ["Was the film good?", "Фильм был хороший?"],
@@ -1067,7 +1067,7 @@ const module: Module = {
           text: [
             "Ответ «да» или «нет» разговор не поддержит. Дальше спрашивают где, как, " +
               "кто и почему.",
-            "Where were you? — Где вы были?",
+            "Where were you? — Где ты был?",
             "Вопросительное слово стоит первым и по-русски, и по-английски — тут языки совпадают.",
             "А дальше расходятся: по-английски за ним сразу идёт форма глагола, и только потом тот, о ком речь.",
             "Where were you? How was the film?",
@@ -1080,11 +1080,11 @@ const module: Module = {
           zvuchat: ["Where were you?", "How was the film?", "Who was there?"],
           head: ["Английский", "Перевод"],
           rows: [
-            ["Where were you?", "Где вы были?"],
+            ["Where were you?", "Где ты был?"],
             ["How was the film?", "Каким был фильм?"],
             ["How was your day?", "Как прошёл день?"],
             ["Who was there?", "Кто там был?"],
-            ["Why were you late?", "Почему вы опоздали?"],
+            ["Why were you late?", "Почему ты опоздал?"],
           ],
         },
         {

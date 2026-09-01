@@ -259,7 +259,7 @@ const module: Module = {
             "Глагол после того, к кому обращаются, стоит в обычной форме: help, fill, pick.",
             "Слово please ставят в конец, и просьба звучит ещё мягче.",
             "Оборот годится и незнакомому, и своим.",
-            "Excuse me — обращение к незнакомому, по-русски «простите».",
+            "Excuse me — обращение к незнакомому, по-русски «извините».",
           ],
         },
         {
@@ -284,7 +284,7 @@ const module: Module = {
             "Excuse me, could you help me, please?\nOf course. What can I do for you?\nCould you fill in this form for me? And could you look after my bag?",
           perevod: {
             "Excuse me, could you help me, please?":
-              "Простите, не могли бы вы мне помочь?",
+              "Извините, не могли бы вы мне помочь?",
             "Of course. What can I do for you?": "Конечно. Чем могу помочь?",
             "Could you fill in this form for me? And could you look after my bag?":
               "Не могли бы вы заполнить за меня этот бланк? И не присмотрите за моей сумкой?",
@@ -299,7 +299,7 @@ const module: Module = {
           kind: "vocab",
           caption: "Слова урока",
           items: [
-            { term: "excuse", translation: "простите, извините", example: "Excuse me, could you help me?", hint: "/ɪkˈskjuːz/" },
+            { term: "excuse", translation: "извините", example: "Excuse me, could you help me?", hint: "/ɪkˈskjuːz/" },
             { term: "fill in", translation: "заполнить", example: "Could you fill in this form?", hint: "/fɪl ˈɪn/" },
             { term: "pick up", translation: "забрать, заехать за кем-то", example: "Could you pick me up at six?", hint: "/pɪk ˈʌp/" },
             { term: "look after", translation: "присмотреть за кем-то или чем-то", example: "Could you look after my bag?", hint: "/lʊk ˈɑːftə/" },

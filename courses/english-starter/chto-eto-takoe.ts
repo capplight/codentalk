@@ -1169,7 +1169,7 @@ const module: Module = {
             "— It's a ticket.": "Это билет.",
             "— Is that a ticket too?": "А вон то — тоже билет?",
             "— No, it isn't. It's a map.": "Нет. Это карта.",
-            "— Sorry! And what is that?": "Прости! А что это вон там?",
+            "— Sorry! And what is that?": "Извини! А что это вон там?",
             "— It's money.": "Это деньги.",
           },
           explain:

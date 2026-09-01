@@ -945,7 +945,7 @@ const module: Module = {
             "— Excuse me. Is there a shop near here?\n— Yes, there is. It's opposite the " +
             "park.\n— Thank you.",
           perevod: {
-            "— Excuse me. Is there a shop near here?": "Извини. Здесь рядом есть магазин?",
+            "— Excuse me. Is there a shop near here?": "Извините. Здесь рядом есть магазин?",
             "— Yes, there is. It's opposite the park.": "Да, есть. Он напротив парка.",
             "— Thank you.": "Спасибо.",
           },

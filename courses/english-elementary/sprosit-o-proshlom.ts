@@ -280,8 +280,8 @@ const module: Module = {
           kind: "explain",
           text: [
             "Твой сослуживец ездил на побережье, и тебе хочется расспросить его о поездке.",
-            "Did you go to the coast? — Вы ездили на побережье?",
-            "По-русски вопрос отличается от утверждения только голосом: «Вы ездили» и «Вы ездили?».",
+            "Did you go to the coast? — Ты ездил на побережье?",
+            "По-русски вопрос отличается от утверждения только голосом: «Ты ездил» и «Ты ездил?».",
             "По-английски в вопросе появляется целое новое слово — did.",
             "Оно берёт на себя прошедшее время, а в русском ему ничего не отвечает.",
           ],
@@ -349,9 +349,9 @@ const module: Module = {
           text:
             "Did you go to the coast?\nDid you take a suitcase?\nDid you buy a postcard?",
           perevod: {
-            "Did you go to the coast?": "Вы ездили на побережье?",
-            "Did you take a suitcase?": "Вы брали чемодан?",
-            "Did you buy a postcard?": "Вы купили открытку?",
+            "Did you go to the coast?": "Ты ездил на побережье?",
+            "Did you take a suitcase?": "Ты брал чемодан?",
+            "Did you buy a postcard?": "Ты купил открытку?",
           },
           explain:
             "Три вопроса об одной поездке. В каждом did стоит первым, а действие — go, " +
@@ -508,9 +508,9 @@ const module: Module = {
           text:
             "— Did you go to the stadium?\n— Yes, I did. The match was long.\n— Did you see the goal?\n— No, I didn't.",
           perevod: {
-            "— Did you go to the stadium?": "Вы ходили на стадион?",
+            "— Did you go to the stadium?": "Ты ходил на стадион?",
             "— Yes, I did. The match was long.": "Да. Матч был долгий.",
-            "— Did you see the goal?": "Вы видели гол?",
+            "— Did you see the goal?": "Ты видел гол?",
             "— No, I didn't.": "Нет.",
           },
           explain:
@@ -659,9 +659,9 @@ const module: Module = {
           text:
             "— Where did you go yesterday?\n— I went to the cinema.\n— What did you see?\n— A cartoon. I liked the character.",
           perevod: {
-            "— Where did you go yesterday?": "Куда вы вчера ходили?",
+            "— Where did you go yesterday?": "Куда ты вчера ходил?",
             "— I went to the cinema.": "Я ходил в кино.",
-            "— What did you see?": "Что вы смотрели?",
+            "— What did you see?": "Что ты смотрел?",
             "— A cartoon. I liked the character.":
               "Мультфильм. Мне понравился герой.",
           },
@@ -774,7 +774,7 @@ const module: Module = {
           kind: "explain",
           text: [
             "О вчерашнем концерте спрашивают двумя разными вопросами.",
-            "Did you go to the concert? — Вы ходили на концерт?",
+            "Did you go to the concert? — Ты ходил на концерт?",
             "Was the concert good? — Концерт был хороший?",
             "Слово выбирают по тому, о чём спрашиваешь.",
           ],
@@ -832,7 +832,7 @@ const module: Module = {
           text:
             "— Did you go to the concert?\n— Yes, I did.\n— Was it good?\n— It was brilliant.",
           perevod: {
-            "— Did you go to the concert?": "Вы ходили на концерт?",
+            "— Did you go to the concert?": "Ты ходил на концерт?",
             "— Yes, I did.": "Да.",
             "— Was it good?": "Хорошо было?",
             "— It was brilliant.": "Было великолепно.",

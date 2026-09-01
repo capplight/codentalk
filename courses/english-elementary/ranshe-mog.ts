@@ -629,7 +629,7 @@ const module: Module = {
         {
           id: "razgovor-o-spektakle",
           kind: "example",
-          caption: "Разговор о школьном спектакле",
+          caption: "Айгуль расспрашивает Данияра о школьном спектакле",
           razgovor: true,
           zvuchat: [
             "Could you get dressed alone at five?",
@@ -641,11 +641,11 @@ const module: Module = {
             "Could you get dressed alone at five?\nNo, I couldn't. My granny helped me with the costume.\nCould you play the clown at school?\nYes, I could. Everybody laughed.",
           perevod: {
             "Could you get dressed alone at five?":
-              "Вы умели одеваться сами в пять лет?",
+              "Ты умел одеваться сам в пять лет?",
             "No, I couldn't. My granny helped me with the costume.":
               "Нет. С костюмом мне помогала бабушка.",
             "Could you play the clown at school?":
-              "Вы умели играть клоуна в школе?",
+              "Ты умел играть клоуна в школе?",
             "Yes, I could. Everybody laughed.": "Да. Все смеялись.",
           },
           explain:

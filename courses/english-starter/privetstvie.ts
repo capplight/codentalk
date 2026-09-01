@@ -704,7 +704,7 @@ const module: Module = {
             { term: "OK", translation: "нормально", example: "I'm OK.", hint: "/ˌəʊˈkeɪ/" },
             { term: "thank you", translation: "спасибо", example: "Thank you!", hint: "/ˈθæŋk juː/" },
             { term: "thanks", translation: "спасибо (короче)", example: "Thanks!", hint: "/θæŋks/" },
-            { term: "sorry", translation: "извините", example: "Sorry!", hint: "/ˈsɒri/" },
+            { term: "sorry", translation: "извини", example: "Sorry!", hint: "/ˈsɒri/" },
             {
               term: "you're welcome",
               translation: "не за что",
@@ -1317,7 +1317,7 @@ const module: Module = {
           ],
           head: ["Фраза", "Перевод", "Когда"],
           rows: [
-            ["Sorry?", "Простите?", "не слышно совсем"],
+            ["Sorry?", "Извини, что?", "не слышно совсем"],
             ["Again, please.", "Ещё раз, пожалуйста.", "нужно повторение"],
             ["How do you spell that?", "Как это пишется?", "слово слышно, но неясно, как его написать"],
           ],
@@ -1349,7 +1349,7 @@ const module: Module = {
             "— Hello! I'm Aigerim.\n— Sorry?\n— Aigerim. A-I-G-E-R-I-M.\n— Nice to meet you, Aigerim.",
           perevod: {
             "— Hello! I'm Aigerim.": "Здравствуй! Я Айгерим.",
-            "— Sorry?": "Простите?",
+            "— Sorry?": "Извини, что?",
             "— Nice to meet you, Aigerim.": "Приятно познакомиться, Айгерим.",
           },
           explain:
@@ -1442,7 +1442,7 @@ const module: Module = {
           kind: "speak",
           prompt: "Произнеси вслух переспрос и просьбу повторить.",
           phrase: "Sorry? Again, please.",
-          translation: "Простите? Ещё раз, пожалуйста.",
+          translation: "Извини, что? Ещё раз, пожалуйста.",
           hint: "У Sorry голос идёт вверх, как в вопросе. У Again, please — ровно.",
           why:
             "Эти две фразы выручают в любом разговоре. Произнеси их несколько раз, чтобы " +
@@ -1761,7 +1761,7 @@ const module: Module = {
             "Произнеси вслух переспрос и ответ на него: сначала одно слово, потом имя " +
             "и его буквы.",
           phrase: "Sorry? Nurlan. N-U-R-L-A-N.",
-          translation: "Простите? Нурлан.",
+          translation: "Извини, что? Нурлан.",
           hint: "После каждой буквы делай короткую остановку.",
           why:
             "Так переспрос и закрывают: имя повторяют целиком, а потом диктуют по " +

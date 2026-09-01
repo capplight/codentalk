@@ -617,8 +617,8 @@ const module: Module = {
             "— Hello! Are you Dana?\n— Sorry, I'm not Dana. I'm Aigul.\n— Sorry! Nice to meet you, Aigul.",
           perevod: {
             "— Hello! Are you Dana?": "Привет! Ты Дана?",
-            "— Sorry, I'm not Dana. I'm Aigul.": "Прости, я не Дана. Я Айгуль.",
-            "— Sorry! Nice to meet you, Aigul.": "Прости! Приятно познакомиться, Айгуль.",
+            "— Sorry, I'm not Dana. I'm Aigul.": "Извини, я не Дана. Я Айгуль.",
+            "— Sorry! Nice to meet you, Aigul.": "Извини! Приятно познакомиться, Айгуль.",
           },
           explain:
             "Собеседник обознался. Ответ строится теми же двумя шагами: сначала что не " +
@@ -709,7 +709,7 @@ const module: Module = {
           kind: "speak",
           prompt: "Произнеси вслух поправку о себе: возрази на «You are a student» и назови своё занятие.",
           phrase: "Sorry, I'm not a student. I'm a ... .",
-          translation: "Простите, я не студент. Я ... .",
+          translation: "Извини, я не студент. Я ... .",
           hint: "Между двумя предложениями сделай короткую паузу.",
           why:
             "Поправка из двух шагов — то, что понадобится в любом разговоре о себе. " +
@@ -1144,8 +1144,8 @@ const module: Module = {
             "— I'm a student. Nice to meet you!",
           perevod: {
             "— Hello! Are you Dana?": "Привет! Ты Дана?",
-            "— Sorry, I'm not Dana. I'm Aigul.": "Прости, я не Дана. Я Айгуль.",
-            "— Sorry! Are you a student, Aigul?": "Прости! Ты студентка, Айгуль?",
+            "— Sorry, I'm not Dana. I'm Aigul.": "Извини, я не Дана. Я Айгуль.",
+            "— Sorry! Are you a student, Aigul?": "Извини! Ты студентка, Айгуль?",
             "— No, I'm not. I'm a teacher. And you?": "Нет. Я преподавательница. А ты?",
             "— I'm a student. Nice to meet you!": "Я учусь. Приятно познакомиться!",
           },

@@ -705,7 +705,7 @@ const module: Module = {
           text:
             "Did anybody call you today?\nNobody.\nAnd the bookshelf? Is anything there?\nThere is nothing on the bookshelf. There are only scissors and two old books in the cupboard.",
           perevod: {
-            "Did anybody call you today?": "Вам сегодня кто-нибудь звонил?",
+            "Did anybody call you today?": "Тебе сегодня кто-нибудь звонил?",
             "Nobody.": "Никто.",
             "And the bookshelf? Is anything there?":
               "А книжная полка? Там что-нибудь есть?",
