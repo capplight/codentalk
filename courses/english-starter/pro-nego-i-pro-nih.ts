@@ -1616,15 +1616,18 @@ const module: Module = {
           "не нужен: по-русски «звоню ей», по-английски просто call her.",
       },
       {
+        // Урочное задание отличалось одним подлежащим при том же ответе me, а число
+        // подлежащего на ответ не влияет вовсе. Теперь спрашивают причину ошибки.
         id: "q-vmesto-imeni-dopisat",
-        kind: "gap",
+        kind: "short",
         outcome: "заменять имя словом после глагола: I know him",
-        prompt: "Дана и Алим тебя знают. Допиши недостающее слово.",
-        before: "Dana and Alim know ",
-        after: ".",
-        answer: "me",
-        hint: "Слово о себе, но не первое в предложении.",
-        why: "Dana and Alim know me. Первым стояло бы I, после глагола идёт me.",
+        prompt: "Ученик написал: Dana and Alim know I. Запиши строку без ошибки.",
+        answer: "Dana and Alim know me.",
+        accept: ["Dana and Alim know me"],
+        hint: "Сравни с началом строки: там I стояло бы верно.",
+        why:
+          "Dana and Alim know me. Первым в строке стоит I, а после глагола та же " +
+          "мысль о себе выражается формой me.",
       },
       {
         id: "q-vmesto-imeni-napisat",

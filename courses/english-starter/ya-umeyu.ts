@@ -1762,15 +1762,19 @@ const module: Module = {
           "стоит сразу за словом what.",
       },
       {
+        // Урочное задание отличалось одним словом после your при том же ответе can,
+        // а can не меняется ни от лица, ни от числа — выбирать было не из чего.
+        // Теперь надо исправить чужую запись.
         id: "q-chto-umeet-dopisat",
-        kind: "gap",
+        kind: "short",
         outcome: "спрашивать, что человек умеет: What can you do?",
-        prompt: "Ты хочешь узнать, что умеют твои друзья. Допиши недостающее слово.",
-        before: "What ",
-        after: " your friends do?",
-        answer: "can",
-        hint: "Нужное слово говорит об умении.",
-        why: "What can your friends do? Спрашивают об умении, поэтому вторым словом встаёт can.",
+        prompt: "Ученик спросил: What your friends can do? Запиши вопрос без ошибки.",
+        answer: "What can your friends do?",
+        accept: ["What can your friends do"],
+        hint: "Слово can стоит сразу за вопросительным словом.",
+        why:
+          "What can your friends do? По-русски порядок другой — «что твои друзья " +
+          "умеют», — и потому его легко перенести в английский.",
       },
       {
         id: "q-chto-umeet-sprosit",

@@ -2100,14 +2100,19 @@ const module: Module = {
         why: "Grey — серый, white — белый, blue — синий.",
       },
       {
+        // Урочное задание отличалось одной парой «предмет — признак» при том же
+        // ответе very. Теперь спрашивают место слова, а не само слово.
         id: "q-very-mesto",
-        kind: "gap",
+        kind: "choice",
         outcome: "усиливать прилагательное словом very",
-        prompt: "Комната очень чистая. Допиши недостающее слово.",
-        before: "The room is ",
-        after: " clean.",
-        answer: "very",
-        why: "The room is very clean. Very стоит вплотную перед прилагательным.",
+        prompt: "Ученик написал: The room very is clean. Где место слову very?",
+        options: [
+          { text: "Перед формой be." },
+          { text: "В самом конце строки." },
+          { text: "Вплотную перед прилагательным.", correct: true },
+        ],
+        hint: "Слово very усиливает прилагательное, а не глагол.",
+        why: "The room is very clean. Слово very стоит вплотную перед прилагательным.",
       },
       {
         id: "q-very-artikl",

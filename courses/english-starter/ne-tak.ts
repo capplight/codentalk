@@ -1616,14 +1616,16 @@ const module: Module = {
         why: "He is not in Rome. Not встало после is.",
       },
       {
+        // Урочное задание отличалось одним занятием при том же ответе not. Теперь
+        // строку надо собрать, и место not выбирает сам ученик.
         id: "q-dopisat-not",
-        kind: "gap",
+        kind: "order",
         outcome: "строить отрицание, поставив not после формы be",
-        prompt: "Допиши слово: «Она не медсестра».",
-        before: "She is ",
-        after: " a nurse.",
-        answer: "not",
-        why: "She is not a nurse. Слово not стоит сразу за формой be.",
+        prompt: "Собери предложение: «Она не медсестра».",
+        items: ["not", "She", "a nurse.", "is"],
+        answer: [1, 3, 0, 2],
+        hint: "Слово not встаёт сразу за формой be.",
+        why: "She is not a nurse. Между формой be и занятием и стоит отрицание.",
       },
       {
         id: "q-korotkaya-isnt",
@@ -1780,14 +1782,21 @@ const module: Module = {
         why: "It isn't a city. Полная запись — It is not a city; обе верны.",
       },
       {
+        // Урочное задание отличалось одним городом при том же ответе in. Теперь
+        // спрашивают, что в строке потеряли, — и разбирать надо чужую запись.
         id: "q-predlog-ne-vypadaet",
-        kind: "gap",
+        kind: "choice",
         outcome: "говорить, что это не тот предмет и не то место: it isn't, he isn't in",
-        prompt: "Допиши предлог: «Он не в Риме».",
-        before: "He isn't ",
-        after: " Rome.",
-        answer: "in",
-        why: "He isn't in Rome. Отрицание меняет только глагол, а предлог in остаётся на месте.",
+        prompt: "Ученик написал: He isn't Rome. Чего не хватает?",
+        options: [
+          { text: "Предлога перед названием города.", correct: true },
+          { text: "Формы be." },
+          { text: "Слова not." },
+        ],
+        hint: "Сравни со строкой без отрицания: He is in Rome.",
+        why:
+          "Предлога. Отрицание меняет только глагол, а предлог in остаётся на месте: " +
+          "He isn't in Rome.",
       },
       {
         id: "q-prav-ili-net",

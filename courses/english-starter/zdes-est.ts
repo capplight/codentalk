@@ -2066,16 +2066,18 @@ const module: Module = {
         why: "There is a bed in the bedroom.",
       },
       {
+        // Замена предмета породу не сняла: рамка урочного задания та же, ответ тот
+        // же. Методист: чинить надо сменой ВИДА. Теперь строку надо собрать.
         id: "q-some-dopisat",
-        kind: "gap",
+        kind: "order",
         outcome: "говорить о нескольких, не называя числа: There are some books",
-        // Предложение совпадало с урочным буква в букву — менялась только вводная
-        // фраза условия. Взяты другой предмет и другое место.
-        prompt: "В комнате несколько стульев. Допиши недостающее слово.",
-        before: "There are ",
-        after: " chairs in the room.",
-        answer: "some",
-        why: "There are some chairs in the room.",
+        prompt: "Собери предложение: «В комнате несколько стульев».",
+        items: ["some chairs", "There", "in the room.", "are"],
+        answer: [1, 3, 0, 2],
+        hint: "Слово о количестве стоит вплотную перед вещью.",
+        why:
+          "There are some chairs in the room. Слово some говорит о нескольких, не " +
+          "называя числа, и стоит прямо перед вещью.",
       },
       {
         id: "q-some-oshibka",
@@ -2140,14 +2142,16 @@ const module: Module = {
         why: "Yes, there are. В ответе повторяют there и форму are.",
       },
       {
+        // Урочное задание отличалось одной вещью при том же ответе isn't. Теперь
+        // надо исправить чужую запись и написать строку целиком.
         id: "q-otricanie-dopisat",
-        kind: "gap",
+        kind: "short",
         outcome: "говорить, чего нет: There isn't a garden",
-        prompt: "Сада у дома нет. Допиши недостающее слово.",
-        before: "There ",
-        after: " a garden.",
-        answer: "isn't",
-        why: "There isn't a garden. Сад один, поэтому isn't.",
+        prompt: "Ученик написал: There aren't a garden. Запиши строку без ошибки.",
+        answer: "There isn't a garden.",
+        accept: ["There isn't a garden", "There is not a garden."],
+        hint: "Сад один.",
+        why: "There isn't a garden. Форма aren't идёт с несколькими вещами, а сад один.",
       },
       {
         id: "q-otricanie-vybor",

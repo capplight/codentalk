@@ -1655,15 +1655,19 @@ const module: Module = {
         why: "There is milk in the shop. Слово milk не меняется.",
       },
       {
+        // Условие само печатало ответ — «Рис — rice», — и ученик переписывал
+        // данное слово: соблазна поставить -s или a не было вовсе. Нашёл методист.
+        // Теперь выбирать надо между тремя записями одного и того же слова.
         id: "q-mnogo-risa",
-        kind: "gap",
+        kind: "short",
         outcome: "не ставить a и -s к таким словам",
-        prompt: "У тебя дома много риса. Допиши недостающее слово. Рис — rice.",
-        before: "I have got a lot of ",
-        after: ".",
-        answer: "rice",
-        hint: "Слово остаётся таким, каким стоит в словаре.",
-        why: "I have got a lot of rice. Ни a, ни окончание -s к нему не приходят.",
+        prompt: "Ученик написал: I have got a lot of rices. Запиши строку без ошибки.",
+        answer: "I have got a lot of rice.",
+        accept: ["I have got a lot of rice"],
+        hint: "Рис поштучно не считают.",
+        why:
+          "I have got a lot of rice. Ни артикль a, ни окончание -s к такому слову не " +
+          "приходят: считать его поштучно нельзя.",
       },
 
       // ---- итог 3 ----

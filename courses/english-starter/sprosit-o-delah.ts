@@ -1740,16 +1740,18 @@ const module: Module = {
         why: "What do you study? Study — «изучать», значит вопрос об учёбе.",
       },
       {
+        // Урочное задание отличалось одним глаголом при том же ответе Do. Теперь
+        // вопрос надо построить из сообщения, а не вписать первое слово.
         id: "q-do-you-dopisat",
-        kind: "gap",
+        kind: "short",
         outcome: "спрашивать собеседника о его делах: Do you work on Sunday?",
-        prompt: "Спроси, живёт ли собеседник здесь. Допиши недостающее слово.",
-        before: "",
-        after: " you live here?",
-        answer: "Do",
-        accept: ["do"],
-        hint: "Это слово стоит первым, а само не переводится.",
-        why: "Do you live here? Вопрос начинается с Do.",
+        prompt: "Сообщение: You live here. Сделай из него вопрос и запиши целиком.",
+        answer: "Do you live here?",
+        accept: ["Do you live here"],
+        hint: "Порядок слов не меняется, слово добавляется в начало.",
+        why:
+          "Do you live here? В отличие от вопроса с be, здесь ничего не переставляют: " +
+          "слово Do просто встаёт впереди.",
       },
       {
         id: "q-do-you-vybor",

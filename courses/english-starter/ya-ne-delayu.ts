@@ -1714,14 +1714,16 @@ const module: Module = {
         why: "I don't cook on Saturday.",
       },
       {
+        // Урочное задание отличалось одним подлежащим при том же ответе doesn't.
+        // Теперь строку надо собрать, и место отрицания выбирает сам ученик.
         id: "q-doesnt-dopisat",
-        kind: "gap",
+        kind: "order",
         outcome: "говорить, чего не делает другой человек: He doesn't work on Sunday",
-        prompt: "Дана не поёт. Допиши недостающее слово.",
-        before: "Dana ",
-        after: " sing.",
-        answer: "doesn't",
-        why: "Dana doesn't sing. Дана одна, значит doesn't.",
+        prompt: "Собери предложение: «Дана не поёт».",
+        items: ["sing.", "Dana", "doesn't"],
+        answer: [1, 2, 0],
+        hint: "Отрицание встаёт между Даной и делом.",
+        why: "Dana doesn't sing. Дана одна, поэтому doesn't, а не don't.",
       },
       {
         id: "q-doesnt-okonchanie",
