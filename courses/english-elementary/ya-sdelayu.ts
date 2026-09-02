@@ -1870,13 +1870,16 @@ const module: Module = {
         id: "q-perepiska-chto-obeshchal",
         kind: "short",
         outcome: "понимать переписку о договорённости",
+        // Строка была дословно из письма для чтения того же модуля — пятнадцать слов
+        // подряд. Нашёл методист, вторым проходом. Взята новая строка того же
+        // жанра, слова — карточки этого же модуля.
         prompt:
-          "В сообщении написано: «Actually I'm busy till five, but I will manage. I won't be late, I promise.» Запиши одним английским словом, до какого часа человек занят.",
-        answer: "five",
-        accept: ["till five", "at five"],
+          "В сообщении написано: «Actually I'm at work till six, but I will come. I won't forget, I promise.» Запиши одним английским словом, до какого часа человек занят.",
+        answer: "six",
+        accept: ["till six", "at six"],
         why:
-          "Actually I'm busy till five. Занятость кончается в пять, и опоздания " +
-          "человек не обещает.",
+          "Actually I'm at work till six. Занятость кончается в шесть, а прийти " +
+          "человек обещает.",
       },
 
       // ---- итог 7 ----

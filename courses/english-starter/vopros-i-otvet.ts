@@ -1513,14 +1513,17 @@ const module: Module = {
         id: "q-ispravit-vopros-s-be",
         kind: "short",
         outcome: "строить вопрос с be, поменяв местами первые два слова",
+        // Первая правка взяла строку «He is in the city.» — а артикль the вводится
+        // только в модуле 10, и до этого коммита в модуле 4 его не было ни разу.
+        // Нашёл методист. Взято занятие: артикля the в такой строке нет.
         prompt:
-          "Ученик сделал из «He is in the city.» вопрос так: «Is he is in the city?» " +
+          "Ученик сделал из «He is a nurse.» вопрос так: «Is he is a nurse?» " +
           "Запиши вопрос без ошибки.",
-        answer: "Is he in the city?",
-        accept: ["Is he in the city"],
+        answer: "Is he a nurse?",
+        accept: ["Is he a nurse"],
         hint: "Форма be в вопросе одна.",
         why:
-          "Is he in the city? Форма is уходит в начало, и на прежнем месте её уже нет.",
+          "Is he a nurse? Форма is уходит в начало, и на прежнем месте её уже нет.",
       },
       {
         id: "q-otvet-da",

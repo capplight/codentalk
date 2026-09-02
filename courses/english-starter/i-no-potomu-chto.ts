@@ -17,10 +17,10 @@ import type { Module } from "@/lib/content/types";
  * противопоставить, дать выбор, назвать причину.
  *
  * ПРО ЗАПЯТУЮ. Правило дал владелец, оно записано в docs/punktuaciya.md:
- * перед сочинительным союзом ставится запятая, когда он соединяет ДВА ПОЛНЫХ
- * предложения. I work, and I study. I work, but I don't study. Если второй
- * части не хватает до предложения — запятой нет: I work and study, tea and
- * coffee. Придаточное с `because` запятой не требует.
+ * перед сочинительным союзом ставится запятая, когда он соединяет ДВЕ ПОЛНЫЕ
+ * МЫСЛИ. I work, and I study. I work, but I don't study. Если второй части до
+ * полной мысли не хватает — запятой нет: I work and study, tea and coffee.
+ * Придаточное с `because` запятой не требует.
  *
  * Две прежние редакции модуля были неверны обе. Первая объявляла запятую
  * ошибкой; я убрал утверждение, но оставил «по-английски она не нужна» — а это
@@ -153,7 +153,7 @@ const module: Module = {
   ],
 
   outcomes: [
-    "соединять два предложения: I work, and I study",
+    "соединять две мысли в одно предложение: I work, and I study",
     "перечислять через запятую: tea, coffee and water",
     "противопоставлять: I work, but I don't study",
     "давать выбор: tea or coffee",
@@ -171,7 +171,7 @@ const module: Module = {
       slug: "soedinyaem-and",
       title: "И: I work, and I study",
       estimatedMinutes: 12,
-      outcome: "соединять два предложения: I work, and I study",
+      outcome: "соединять две мысли в одно предложение: I work, and I study",
 
       blocks: [
         {
@@ -244,7 +244,7 @@ const module: Module = {
           tone: "info",
           text:
             "Слово and тебе давно знакомо: Alim and Dana, tea and coffee.\n\nНовое " +
-            "здесь одно — им можно соединять целые мысли, а не только слова.",
+            "здесь одно — им можно соединять полные мысли, а не только слова.",
         },
 
         // ---- задания ----
@@ -274,7 +274,7 @@ const module: Module = {
             "предложения.",
         },
         {
-          id: "z3-otmetit-dva-predlozheniya",
+          id: "z3-otmetit-dve-mysli",
           kind: "hottext",
           prompt: "Отметь записи, где and соединяет две полные мысли.",
           parts: [
@@ -1480,9 +1480,9 @@ const module: Module = {
           kind: "explain",
           text: [
             "Слова and, but, or и because — это союзы. Союз соединяет два дела в одно " +
-              "одно предложение.",
+              "предложение.",
             "Союзы звучат коротко и стоят в середине, между двумя делами. Пропустишь " +
-              "её — услышишь два отдельных сообщения вместо одного связного.",
+              "его — услышишь два отдельных сообщения вместо одного связного.",
             "И хуже: спутаешь and с but — и решишь, что человеку нравится то, что как " +
               "раз не нравится.",
           ],
@@ -1675,7 +1675,7 @@ const module: Module = {
       {
         id: "q-soedinit-dva-predlozheniya",
         kind: "short",
-        outcome: "соединять два предложения: I work, and I study",
+        outcome: "соединять две мысли в одно предложение: I work, and I study",
         prompt: "Друг написал два предложения: I live here. I work here. Соедини их в одно.",
         answer: "I live here, and I work here.",
         accept: ["I live here and work here."],
@@ -1687,14 +1687,14 @@ const module: Module = {
       {
         id: "q-dva-cheloveka-v-odnom",
         kind: "choice",
-        outcome: "соединять два предложения: I work, and I study",
+        outcome: "соединять две мысли в одно предложение: I work, and I study",
         prompt: "Она преподаватель, он врач. Как сказать это одним предложением?",
         options: [
           { text: "She is a teacher, and he is a doctor.", correct: true },
           { text: "She is a teacher and doctor." },
           { text: "She and he are a teacher and a doctor." },
         ],
-        hint: "Люди разные, поэтому обе части остаются целыми.",
+        hint: "Люди разные, поэтому обе части остаются полными.",
         why:
           "She is a teacher, and he is a doctor. Вторая запись выходит про одного " +
           "человека сразу с двумя занятиями, а в третьей потерялось, кто есть кто.",
@@ -1706,7 +1706,7 @@ const module: Module = {
         // предложением, а работа спрашивает о запятой, а не о счёте точек.
         id: "q-lishnyaya-zapyataya",
         kind: "hottext",
-        outcome: "соединять два предложения: I work, and I study",
+        outcome: "соединять две мысли в одно предложение: I work, and I study",
         prompt: "Отметь записи, где запятая перед and лишняя.",
         parts: [
           { text: "I like tea, and coffee.", selectable: true, correct: true },
@@ -1717,10 +1717,10 @@ const module: Module = {
           { text: " · " },
           { text: "My sister works, and my brother studies.", selectable: true },
         ],
-        hint: "Посмотри, что стоит справа от and: целая мысль или одно слово.",
+        hint: "Посмотри, что стоит справа от and: полная мысль или одно слово.",
         why:
           "Лишняя запятая в I like tea, and coffee и She can read, and write: справа " +
-          "от and стоит одно слово. В двух других записях у каждой половины свой " +
+          "от and стоит одно слово. В двух других записях у каждой части свой " +
           "глагол, и запятая нужна.",
       },
 
@@ -1742,9 +1742,9 @@ const module: Module = {
         // Три строки из четырёх были дословно теми же, что в задании урока.
         // Взяты другие продукты.
         parts: [
-          { text: "milk, cake and food", selectable: true, correct: true },
+          { text: "milk, cake and bread", selectable: true, correct: true },
           { text: " · " },
-          { text: "milk and cake and food", selectable: true },
+          { text: "milk and cake and bread", selectable: true },
           { text: " · " },
           { text: "water, rice and meat", selectable: true, correct: true },
           { text: " · " },
@@ -1754,7 +1754,7 @@ const module: Module = {
         // Разбор остался от прежней редакции и называл строки, которых в вопросе
         // уже нет: продукты заменили, а счёт под ними — нет.
         why:
-          "В milk, cake and food и water, rice and meat слово and стоит один раз — " +
+          "В milk, cake and bread и water, rice and meat слово and стоит один раз — " +
           "перед последней вещью. В двух других оно повторяется при каждой вещи.",
       },
       {
@@ -1891,7 +1891,7 @@ const module: Module = {
         prompt: "Напиши короче: I like bread, and I like rice.",
         answer: "I like bread and rice.",
         hint: "То, что сказано дважды, назови один раз.",
-        why: "I like bread and rice. Раз действие одно и то же, and соединяет уже не предложения, а два продукта.",
+        why: "I like bread and rice. Раз действие одно и то же, and соединяет уже не две полные мысли, а два продукта.",
       },
 
       // ---- итог 6 ----
@@ -1907,7 +1907,7 @@ const module: Module = {
             "I work here because it is near.",
             "I work here, because it is near.",
           ],
-        hint: "Главное стоит первым because — вторым.",
+        hint: "Главное стоит первым, because — вторым.",
         why:
           "I work here because this shop is near. Годится и короткое I work here " +
           "because it is near.",
@@ -2024,8 +2024,8 @@ const module: Module = {
         hint: "Первое предложение соединяет, второе спорит.",
         why:
           "I read, and I draw. I like music, but I don't like sport. Запятая стоит там, " +
-          "где соединяющее слово стоит между двумя целыми предложениями. Короткая запись " +
-          "I read and draw тоже принимается.",
+          "где по обе стороны от союза — полные мысли: у каждой свой глагол. Короткая " +
+          "запись I read and draw тоже принимается.",
       },
       {
         id: "q-vybrat-svyazku-v-rasskaze",

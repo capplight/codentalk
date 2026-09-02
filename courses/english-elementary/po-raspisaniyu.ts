@@ -1790,11 +1790,13 @@ const module: Module = {
         id: "q-zametka-v-subbotu",
         kind: "short",
         outcome: "находить нужное время в заметке о поезде",
+        // Строка была дословно из заметки для чтения того же модуля — двенадцать
+        // слов подряд. Нашёл методист, вторым проходом. Строка новая, того же жанра.
         prompt:
-          "В заметке: «On Saturday the latest train leaves at midnight and arrives at four.» Запиши одним английским словом время прибытия.",
-        answer: "four",
-        accept: ["at four"],
-        why: "Время отправления — midnight, прибытия — four. Нужно второе.",
+          "В заметке: «On Sunday the first train leaves at five and arrives at nine.» Запиши одним английским словом время прибытия.",
+        answer: "nine",
+        accept: ["at nine"],
+        why: "Время отправления — five, прибытия — nine. Нужно второе.",
       },
 
       // ---- итог 7 ----
