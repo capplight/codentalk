@@ -250,8 +250,7 @@ const module: Module = {
             "В модуле «Это было» речь шла о том, где человек был: I was at home. Этот — о том, что он делал.",
             "I worked in the morning. — Я работал утром.",
             "У глагола для этого есть своя форма: к нему прибавляется окончание -ed.",
-            "По-русски прошедшее тоже узнают по концу слова — «работал», «готовила», «смотрели».",
-            "Но по-русски конец меняется: работал, работала, работали.",
+            "По-русски прошедшее узнают по концу слова, и конец этот меняется: работал, работала, работали.",
             "По-английски worked остаётся worked при любом лице.",
             "Was — форма из прошлого модуля, worked — форма этого урока.",
             "Оба слова стоят в одном времени, и оно называется Past Simple.",
@@ -278,7 +277,6 @@ const module: Module = {
           kind: "explain",
           text: [
             "Окончание -ed одно на всех: I worked, he worked, they worked.",
-            "Форма глагола здесь не зависит от того, о ком речь, — это и есть вся простота прошедшего времени.",
             "Одно окончание на всех и есть вся простота английского прошедшего.",
             "В настоящем времени у he и she появляется -s, а в прошедшем его нет ни у кого.",
             "Вместо местоимения может стоять имя, и окончание то же: my sister cooked, " +
@@ -707,8 +705,9 @@ const module: Module = {
           id: "zachem-neskolko-del",
           kind: "explain",
           text: [
-            "Одно дело — ещё не рассказ. Рассказ выходит, когда дел несколько и они идут по порядку.",
-            "Для порядка есть три слова: first — сначала, then — потом, after that — после этого.",
+            "Айгуль рассказывает о вчерашнем дне: вскипятила воду, убрала комнату, помогла маме.",
+            "По-русски дела в таком рассказе связывают словами «сначала», «потом», «после этого».",
+            "По-английски их тоже три: first, then, after that.",
           ],
         },
         {
@@ -727,10 +726,11 @@ const module: Module = {
           id: "gde-stoyat-slova-poryadka",
           kind: "explain",
           text: [
-            "Эти слова встают в начало предложения, перед тем, о ком речь.",
-            "Дальше всё как обычно: кто, глагол с окончанием, остальное.",
-            "Два дела можно соединить в одно предложение через запятую — тогда then " +
-              "встаёт после неё: First I worked, then I cooked dinner.",
+            "First, then и after that — слова порядка: они показывают, что было раньше, а что позже.",
+            "В рассказе о дне их ставят в начало строки: First I worked. Then I cooked dinner.",
+            "Два дела можно соединить и в одно предложение — тогда then встаёт после " +
+              "запятой: First I worked, then I cooked dinner.",
+            "Дальше в строке всё то же, что и в прошлых уроках: глагол с окончанием -ed.",
           ],
         },
         {
@@ -740,16 +740,16 @@ const module: Module = {
           zvuchat: ["First I boiled water.", "Then I cleaned the room.", "After that I helped my mother.", "Then I listened to music.", "After that I wanted a snack.", "Then I packed my bag."],
           text: "First I boiled water.\nThen I cleaned the room.\nAfter that I helped my mother.\nThen I listened to music.\nAfter that I wanted a snack.\nThen I packed my bag.",
           perevod: {
-            "First I boiled water.": "Сначала я вскипятил воду.",
-            "Then I cleaned the room.": "Потом я убрал комнату.",
-            "After that I helped my mother.": "После этого я помог маме.",
-            "Then I listened to music.": "Потом я послушал музыку.",
-            "After that I wanted a snack.": "После этого мне захотелось перекусить.",
-            "Then I packed my bag.": "Потом я собрал сумку.",
+            "First I boiled water.": "Сначала я вскипятила воду.",
+            "Then I cleaned the room.": "Потом я убрала комнату.",
+            "After that I helped my mother.": "После этого я помогла маме.",
+            "Then I listened to music.": "Потом я послушала музыку.",
+            "After that I wanted a snack.": "После этого мне захотелось съесть что-нибудь лёгкое.",
+            "Then I packed my bag.": "Потом я собрала сумку.",
           },
           explain:
             "Шесть дел в том порядке, в каком они были. У каждого глагола окончание -ed, " +
-            "а слово порядка стоит первым.",
+            "а слово порядка открывает строку.",
         },
         {
           id: "slovar-rasskaza",
@@ -778,7 +778,7 @@ const module: Module = {
           answer: "Then",
           accept: ["then"],
           hint: "Слово значит «потом».",
-          why: "Then I cooked dinner. Слово порядка стоит в начале предложения.",
+          why: "Then I cooked dinner. Слово порядка открывает строку.",
         },
         {
           id: "z2-sobrat-den",
@@ -855,8 +855,9 @@ const module: Module = {
           id: "zachem-vmeste",
           kind: "explain",
           text: [
-            "Дело названо, а когда оно было — нет. Собеседник спросит об этом первым.",
-            "Обороты времени те же, что в прошлом модуле: yesterday, last night, two days ago.",
+            "Скажешь I worked — и тебя тут же спросят: когда?",
+            "По-русски мы отвечаем «вчера», «прошлой ночью», «два дня назад».",
+            "По-английски это yesterday, last night, two days ago — те же обороты, что в модуле «Это было».",
             "Новое здесь одно: теперь они стоят не при was, а при глаголе с окончанием -ed.",
           ],
         },
@@ -1033,7 +1034,7 @@ const module: Module = {
           kind: "note",
           tone: "info",
           text:
-            "Порядок дел в письме задают три слова: First, then, After that.\n\nЕсли " +
+            "Порядок дел в письме задают три слова: First, Then, After that.\n\nЕсли " +
             "потерять их, рассказ рассыпается на отдельные предложения.",
         },
 

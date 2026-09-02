@@ -386,10 +386,10 @@ const module: Module = {
           id: "zachem-videl",
           kind: "explain",
           text: [
-            "Рассказ о поездке почти всегда о людях: кого видел, с кем встретился.",
-            "Два глагола для этого тоже неправильные.",
-            "See — это увидеть глазами: человек попал в поле зрения.",
-            "Meet — встретиться с человеком: двое оказались вместе и заговорили.",
+            "Айгуль вернулась из поездки, и первое, о чём её спрашивают, — кого она там видела.",
+            "По-русски мы говорим «видел» и «встретился» — и это не одно и то же.",
+            "Увидеть можно издали и молча; встретиться — значит сойтись и заговорить.",
+            "По-английски ту же пару держат два глагола: see и meet. Оба неправильные.",
           ],
         },
         {
@@ -431,8 +431,8 @@ const module: Module = {
           ],
           text: "I saw a big crowd.\nThen I met my guide.\nThe guests were friendly.",
           perevod: {
-            "I saw a big crowd.": "Я увидел большую толпу.",
-            "Then I met my guide.": "Потом я встретил своего экскурсовода.",
+            "I saw a big crowd.": "Я увидела большую толпу.",
+            "Then I met my guide.": "Потом я встретила своего экскурсовода.",
             "The guests were friendly.": "Гости были приветливые.",
           },
           explain:
@@ -535,9 +535,8 @@ const module: Module = {
           id: "zachem-imel",
           kind: "explain",
           text: [
-            "Три глагола об одном и том же, но с разных сторон.",
-            "Что у человека было, что ему дали и что он взял сам.",
-            "Все три неправильные.",
+            "Про один и тот же подарок по-русски говорят тремя способами: «был у меня», «мне дали», «я взял».",
+            "По-английски для этих трёх случаев тоже три глагола, и все три неправильные.",
             "Have — это «есть у меня»: I have a car — машина у меня есть.",
           ],
         },
@@ -560,7 +559,6 @@ const module: Module = {
             "I had a gift — подарок был у меня.",
             "I got a gift — подарок мне дали, он появился.",
             "I took a gift — я взял подарок и унёс.",
-            "Разница та же, что между «у меня был», «мне дали» и «я взял».",
             "У take есть и второе применение: так говорят о поездке и о снимке — I take the bus, I take photos.",
           ],
         },
@@ -687,9 +685,10 @@ const module: Module = {
           id: "zachem-eda",
           kind: "explain",
           text: [
-            "Рассказ о дне почти всегда доходит до еды и покупок.",
-            "Три глагола для этого тоже неправильные, и формы у них непохожие.",
-            "Write — писать: письмо, сообщение, дневник. Форма для прошлого у него тоже своя.",
+            "Айгуль рассказывает о дне и доходит до простого: что ела, что купила, что записала.",
+            "По-русски это «съел», «купил», «написал».",
+            "По-английски — eat, buy, write, и формы для прошлого у всех трёх свои.",
+            "Write — это писать: письмо, сообщение, дневник.",
           ],
         },
         {
@@ -733,9 +732,9 @@ const module: Module = {
           text:
             "I ate fish with sauce.\nThen I bought a poster at the sale.\nIn the evening I wrote in my diary.",
           perevod: {
-            "I ate fish with sauce.": "Я съел рыбу с соусом.",
-            "Then I bought a poster at the sale.": "Потом я купил плакат на распродаже.",
-            "In the evening I wrote in my diary.": "Вечером я написал в дневнике.",
+            "I ate fish with sauce.": "Я съела рыбу с соусом.",
+            "Then I bought a poster at the sale.": "Потом я купила плакат на распродаже.",
+            "In the evening I wrote in my diary.": "Вечером я написала в дневнике.",
           },
           explain:
             "Три дела одного дня, и все три глагола неправильные. Слово порядка Then и " +
@@ -839,8 +838,8 @@ const module: Module = {
           id: "zachem-vmeste",
           kind: "explain",
           text: [
-            "Раньше в предложении стоял один неправильный глагол.",
-            "В рассказе их идёт несколько подряд, вперемешку с правильными: у тех окончание -ed.",
+            "Айгуль рассказывает о поездке, и в каждой строке у неё свой глагол.",
+            "Неправильные идут вперемешку с правильными: у правильных окончание -ed, у неправильных своя форма.",
             "Узнавать неправильный глагол по виду не нужно — нужно помнить, какие глаголы неправильные.",
           ],
         },
@@ -898,9 +897,9 @@ const module: Module = {
           text:
             "Last week I went to the coast.\nFirst I saw a big ship.\nThen I ate fish and watched the sea.\nThe view was beautiful.",
           perevod: {
-            "Last week I went to the coast.": "На прошлой неделе я ездил на побережье.",
-            "First I saw a big ship.": "Сначала я увидел большой корабль.",
-            "Then I ate fish and watched the sea.": "Потом я поел рыбы и смотрел на море.",
+            "Last week I went to the coast.": "На прошлой неделе я ездила на побережье.",
+            "First I saw a big ship.": "Сначала я увидела большой корабль.",
+            "Then I ate fish and watched the sea.": "Потом я поела рыбы и смотрела на море.",
             "The view was beautiful.": "Вид был красивый.",
           },
           explain:
@@ -1224,15 +1223,15 @@ const module: Module = {
           caption: "Образец: четыре строки о поездке",
           zvuchat: [
             "Last week I went to the lake.",
-            "First I saw a big ship.",
+            "First I saw a ship.",
             "Then I ate fish.",
             "The lake was quiet.",
           ],
           text:
-            "Last week I went to the lake.\nFirst I saw a big ship.\nThen I ate fish.\nThe lake was quiet.",
+            "Last week I went to the lake.\nFirst I saw a ship.\nThen I ate fish.\nThe lake was quiet.",
           perevod: {
             "Last week I went to the lake.": "На прошлой неделе я ездил на озеро.",
-            "First I saw a big ship.": "Сначала я увидел большой корабль.",
+            "First I saw a ship.": "Сначала я увидел корабль.",
             "Then I ate fish.": "Потом я поел рыбы.",
             "The lake was quiet.": "На озере было тихо.",
           },
