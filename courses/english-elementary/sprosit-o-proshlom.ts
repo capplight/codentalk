@@ -1128,6 +1128,9 @@ const module: Module = {
             { term: "a lot of", translation: "много" },
             { term: "wrong", translation: "неверный" },
             { term: "late", translation: "с опозданием" },
+            // Слово работает здесь, а карточка стоит уроком позже: до неё ученик
+            // читал его без объяснения. Словарик текста объясняет на месте.
+            { term: "motorway", translation: "автомагистраль" },
             { term: "near", translation: "рядом с" },
           ],
         },

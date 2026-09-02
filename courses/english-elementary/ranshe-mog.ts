@@ -984,7 +984,10 @@ const module: Module = {
           id: "zachem-proveryat-rasskaz",
           kind: "explain",
           text: [
-            "Ученик прислал на школьный сайт одну строку: «My childhood was nice.» — «Детство у меня было хорошее.»",
+            // Слово childhood Oxford 3000 помечает B1, и в словнике A2 Key его нет:
+            // выше ступени. Строка заменена на оценку без единого дела — а это
+            // и есть предмет урока.
+            "Ученик прислал на школьный сайт одну строку: «I was a happy child.» — «Я был счастливым ребёнком.»",
             "Читатель закроет это и не узнает о нём ничего.",
             "В рассказе о детстве пропускают не оценку, а сами дела.",
             "Проверить свой рассказ можно по четырём строкам.",
@@ -1052,7 +1055,7 @@ const module: Module = {
           id: "z1-chego-ne-hvataet-rasskazu",
           kind: "choice",
           prompt:
-            "Рассказ целиком: My childhood was nice. Чего в нём не хватает?",
+            "Рассказ целиком: I was a happy child. Чего в нём не хватает?",
           options: [
             { text: "Имени того, кто писал." },
             { text: "Хотя бы одного дела: что выходило и что нет.", correct: true },
@@ -1083,7 +1086,7 @@ const module: Module = {
           parts: [
             { text: "At five I could sing pop songs.", selectable: true, correct: true },
             { text: " · " },
-            { text: "My childhood was nice.", selectable: true },
+            { text: "I was a happy child.", selectable: true },
             { text: " · " },
             { text: "I couldn't get dressed alone.", selectable: true, correct: true },
             { text: " · " },

@@ -530,6 +530,10 @@ const module: Module = {
             { term: "curtain", translation: "штора", example: "The curtain was long.", hint: "/ˈkɜːtn/" },
             { term: "ceiling", translation: "потолок", example: "The lamp was on the ceiling.", hint: "/ˈsiːlɪŋ/" },
             { term: "stairs", translation: "лестница в доме", example: "The stairs were dark.", hint: "/steəz/" },
+            // Карточка перенесена сюда из урока «Слова части»: слово работает
+            // уже в примере этого урока, а получал его ученик четырьмя уроками
+            // позже. Нашёл kontrol.
+            { term: "pillow", translation: "подушка", example: "The pillow was white.", hint: "/ˈpɪləʊ/" },
           ],
         },
 
@@ -1126,7 +1130,6 @@ const module: Module = {
             { term: "bin", translation: "мусорное ведро", example: "The bin was near the exit.", hint: "/bɪn/" },
             { term: "board", translation: "доска", example: "The board was on the wall.", hint: "/bɔːd/" },
             { term: "blanket", translation: "одеяло", example: "The blanket was on the sofa.", hint: "/ˈblæŋkɪt/" },
-            { term: "pillow", translation: "подушка", example: "The pillow was white.", hint: "/ˈpɪləʊ/" },
           ],
         },
 
