@@ -150,8 +150,8 @@ import type { Module } from "@/lib/content/types";
  *    kitchen, motorway, stairs.
  *
  * ВОЗВРАЩЕНИЕ. Два задания из пройденного: одно в уроке 1 (форма `was` + `-ing`
- * из модуля 6 — она и есть левая половина каждой строки этого модуля) и одно в
- * уроке 4 (окончание `-ed` из модуля 2, а оно нужно правой половине). Берутся
+ * из модуля 6 — она и есть левая часть каждой строки этого модуля) и одно в
+ * уроке 4 (окончание `-ed` из модуля 2, а оно нужно правой части). Берутся
  * ссылкой (`vozvrat`), устройство — docs/format-uroka.md.
  *
  * ПОСЛЕДНИЙ УРОК — «СЛОВА ЧАСТИ», И ОН НОВОГО ВИДА. Решение владельца от 29
@@ -328,7 +328,7 @@ const module: Module = {
         {
           id: "dve-poloviny-stroki",
           kind: "table",
-          caption: "Две половины одной строки",
+          caption: "Две части одной строки",
           zvuchat: [
             "I was cooking",
             "when my colleague came",
@@ -348,7 +348,7 @@ const module: Module = {
           id: "pochemu-dve-formy-ryadom",
           kind: "explain",
           text: [
-            "Левая половина показывает, что уже шло к тому мигу.",
+            "Левая часть показывает, что уже шло к тому мигу.",
             "Правая называет то, что случилось и заняло один миг.",
             "Поэтому формы у них разные.",
             "Поменяешь местами — строка останется верной, но скажет другое: об этом врезка ниже.",
@@ -361,7 +361,7 @@ const module: Module = {
           text:
             "«I cooked when my colleague came» говорит другое: сначала пришёл " +
             "сослуживец, а потом началась готовка.\n\nЧтобы сказать, что готовка уже " +
-            "шла, левая половина берёт was cooking.",
+            "шла, левая часть берёт was cooking.",
         },
         {
           id: "primer-o-sluchae-na-doroge",
@@ -381,7 +381,7 @@ const module: Module = {
             "The ambulance arrived very quickly.": "Скорая приехала очень быстро.",
           },
           explain:
-            "В первой строке две половины: ходьба уже шла, а вид происшествия случился " +
+            "В первой строке две части: ходьба уже шла, а вид происшествия случился " +
             "разом. Во второй и третьей строках названо только то, что случилось.",
         },
         {
@@ -406,7 +406,7 @@ const module: Module = {
           before: "I ",
           after: " cooking when my colleague came.",
           answer: "was",
-          hint: "Левая половина берёт ту же форму, что и всякое длительное действие.",
+          hint: "Левая часть берёт ту же форму, что и всякое длительное действие.",
           why:
             "I was cooking when my colleague came. Длительное действие держится на " +
             "was и окончании -ing.",
@@ -420,7 +420,7 @@ const module: Module = {
             { text: "She was waiting when the ambulance arrived.", correct: true },
             { text: "She was waiting when the ambulance was arriving." },
           ],
-          hint: "Первая половина должна тянуться, вторая — занять один миг.",
+          hint: "Первая часть должна тянуться, вторая — занять один миг.",
           why:
             "She was waiting when the ambulance arrived. Ожидание тянулось, поэтому " +
             "was waiting, а приезд занял миг, поэтому arrived.",
@@ -428,7 +428,7 @@ const module: Module = {
         {
           id: "z3-otmetit-chto-tyanulos",
           kind: "hottext",
-          prompt: "Отметь половины, которые говорят о длительном действии.",
+          prompt: "Отметь части, которые говорят о длительном действии.",
           parts: [
             { text: "I was walking home", selectable: true, correct: true },
             { text: " · " },
@@ -441,7 +441,7 @@ const module: Module = {
           hint: "У длительного действия рядом с глаголом стоит форма was или were.",
           why:
             "О длительном действии говорят I was walking home и They were waiting at " +
-            "the crossing. Две другие половины называют то, что случилось разом.",
+            "the crossing. Две другие части называют то, что случилось разом.",
         },
         {
           id: "z4-sobrat-dve-poloviny",
@@ -465,7 +465,7 @@ const module: Module = {
             "I was walking home when I saw the accident.",
             "I was walking home when I saw the accident",
           ],
-          hint: "Левая половина берёт was и окончание -ing, правая — форму saw.",
+          hint: "Левая часть берёт was и окончание -ing, правая — форму saw.",
           why:
             "I was walking home when I saw an accident. Ходьба тянулась, а вид " +
             "происшествия занял миг.",
@@ -485,7 +485,7 @@ const module: Module = {
           id: "zachem-dva-soyuza",
           kind: "explain",
           text: [
-            "Связать две половины можно двумя словами: when и while.",
+            "Связать две части можно двумя словами: when и while.",
             "Такие связывающие слова называют союзами.",
             "Оба переводятся «когда», но ведут себя по-разному.",
           ],
@@ -631,7 +631,7 @@ const module: Module = {
             "While I was walking to the shop I lost my purse.",
             "While I was walking to the shop I lost my purse",
           ],
-          hint: "После While ставь длительное действие, а потом запятую и вторую половину.",
+          hint: "После While ставь длительное действие, а потом запятую и вторую часть.",
           why:
             "While I was walking to the shop, I lost my purse. После While стоит " +
             "длительное действие.",
@@ -651,7 +651,7 @@ const module: Module = {
           id: "zachem-perestanovka",
           kind: "explain",
           text: [
-            "Половины строки можно ставить в любом порядке.",
+            "Части строки можно ставить в любом порядке.",
             "I was cooking when he came и When he came, I was cooking значат одно и то же.",
             "Меняется только одно: запятая.",
           ],
@@ -752,7 +752,7 @@ const module: Module = {
           prompt: "Собери ту же мысль, начав с части со while.",
           items: ["I lost my purse.", "I was walking,", "While"],
           answer: [2, 1, 0],
-          hint: "Впереди союз, потом длительное действие с запятой, потом вторая половина.",
+          hint: "Впереди союз, потом длительное действие с запятой, потом вторая часть.",
           why:
             "While I was walking, I lost my purse. Часть с while стоит впереди, и " +
             "после неё запятая.",
@@ -778,7 +778,7 @@ const module: Module = {
         {
           id: "z4-sopostavit-poryadok",
           kind: "match",
-          prompt: "Соедини запись с тем, как в ней стоят половины.",
+          prompt: "Соедини запись с тем, как в ней стоят части.",
           left: [
             "When the postman called, I was cleaning.",
             "I was cleaning when the postman called.",
@@ -804,7 +804,7 @@ const module: Module = {
           accept: ["When the postman called, I was cleaning the stairs"],
           hint: "Часть с When уходит вперёд, и после неё нужна запятая.",
           why:
-            "When the postman called, I was cleaning the stairs. Половины поменялись " +
+            "When the postman called, I was cleaning the stairs. Части поменялись " +
             "местами, и запятая встала в середину.",
         },
       ],
@@ -825,7 +825,7 @@ const module: Module = {
           text: [
             "По-русски мы говорим «пока»: она вела машину, пока я спал.",
             "Оба дела тянулись разом, и ни одно не случилось в один миг.",
-            "Тогда обе половины берут was или were с окончанием -ing.",
+            "Тогда обе части берут was или were с окончанием -ing.",
             "Связывает их while, и это его прямое дело.",
           ],
         },
@@ -853,8 +853,8 @@ const module: Module = {
           kind: "explain",
           text: [
             "После while стоит длительное действие — значит для этого случая он и создан.",
-            "Формы was и were выбираются в каждой половине отдельно, по своему лицу.",
-            "Порядок половин любой: важно, что после while стоит то, что тянулось.",
+            "Формы was и were выбираются в каждой части отдельно, по своему лицу.",
+            "Порядок частей любой: важно, что после while стоит то, что тянулось.",
           ],
         },
         {
@@ -898,7 +898,7 @@ const module: Module = {
         {
           id: "z1-dopisat-vtoroe-dlitelnoe",
           kind: "gap",
-          prompt: "Оба действия тянулись. Допиши недостающее слово во второй половине.",
+          prompt: "Оба действия тянулись. Допиши недостающее слово во второй части.",
           before: "She was driving while I ",
           after: " sleeping.",
           answer: "was",
@@ -914,9 +914,9 @@ const module: Module = {
             { text: "They were talking while the rain was falling.", correct: true },
             { text: "They were talking while the rain stopped." },
           ],
-          hint: "Тянуться должны обе половины сразу.",
+          hint: "Тянуться должны обе части сразу.",
           why:
-            "They were talking while the rain was falling. В обеих половинах стоит " +
+            "They were talking while the rain was falling. В обеих частях стоит " +
             "форма was или were и окончание -ing.",
         },
         {
@@ -932,10 +932,10 @@ const module: Module = {
             { text: " · " },
             { text: "They were talking when the bus arrived", selectable: true },
           ],
-          hint: "Смотри на обе половины сразу: есть ли was или were в каждой.",
+          hint: "Смотри на обе части сразу: есть ли was или were в каждой.",
           why:
             "Оба действия тянулись в She was driving while I was sleeping и They were " +
-            "talking while the rain was falling. В двух других вторая половина " +
+            "talking while the rain was falling. В двух других вторая часть " +
             "называет то, что случилось разом.",
         },
         {
@@ -960,7 +960,7 @@ const module: Module = {
             "My sister was driving while it was raining.",
             "My sister was driving while it was raining",
           ],
-          hint: "Оба действия тянулись, значит в обеих половинах стоит was.",
+          hint: "Оба действия тянулись, значит в обеих частях стоит was.",
           why:
             "My sister was driving while the rain was falling. Оба действия тянулись, " +
             "и связывает их while.",
@@ -1453,7 +1453,7 @@ const module: Module = {
           kind: "explain",
           text: [
             "Смотреть надо только вперёд: что стоит перед while, значения не имеет.",
-            "Поэтому проверять можно по одной половине, не читая всей строки.",
+            "Поэтому проверять можно по одной части, не читая всей строки.",
             "За when следить не нужно: после него годится и то, и другое.",
           ],
         },
@@ -1577,8 +1577,8 @@ const module: Module = {
           text: [
             "Дома день состоит из мелочей: убрать, помыть посуду, надеть куртку, выйти.",
             "Здесь собраны слова о доме, о сборах и о делах, которые повторяются каждый день.",
-            "Многие из них состоят из двух слов: wash up, put on, go out.",
-            "Такую пару запоминают целиком: по частям её смысл виден не всегда.",
+            "Многие дела названы глаголом с приставленным словом: wash up, put on, go out.",
+            "Такую пару запоминают целиком: по отдельным словам её смысл виден не всегда.",
           ],
         },
         {
@@ -1854,7 +1854,7 @@ const module: Module = {
     passRatio: 0.8,
     questions: [
       // Работа написана отдельно от заданий уроков и другими углами: восстановить
-      // половину строки, назвать разницу в смысле, поставить знак, ответить по
+      // часть строки, назвать разницу в смысле, поставить знак, ответить по
       // записи. Строк уроков в ней нет.
 
       // ---- итог 1 ----
@@ -1868,7 +1868,7 @@ const module: Module = {
         accept: ["I was cleaning the engine when my brother arrived"],
         why:
           "I was cleaning the engine when my brother arrived. Уборка тянулась, и " +
-          "потому левая половина берёт was и окончание -ing.",
+          "потому левая часть берёт was и окончание -ing.",
       },
       {
         id: "q-dve-formy-prichina",
@@ -1953,7 +1953,7 @@ const module: Module = {
         accept: ["My brother was waiting while I was cleaning the wheel"],
         why:
           "My brother was waiting while I was cleaning the wheel. Раз тянулись оба, " +
-          "форма was и окончание -ing нужны в обеих половинах.",
+          "форма was и окончание -ing нужны в обеих частях.",
       },
       {
         id: "q-dva-dlitelnyh-otlichit",
@@ -1966,7 +1966,7 @@ const module: Module = {
           { text: "She stopped while I was sleeping." },
         ],
         why:
-          "She was driving while I was sleeping. В обеих половинах стоит was и " +
+          "She was driving while I was sleeping. В обеих частях стоит was и " +
           "окончание -ing.",
       },
 
@@ -2023,7 +2023,7 @@ const module: Module = {
         options: [
           { text: "Конец занятия" },
           { text: "Разговор с матерью" },
-          { text: "Ничего: обе половины называют то, что случилось", correct: true },
+          { text: "Ничего: обе части называют то, что случилось", correct: true },
         ],
         why:
           "Здесь нет длительного действия вовсе: и finished, и called — формы " +
@@ -2068,7 +2068,7 @@ const module: Module = {
         accept: ["While the postman was calling, I was cleaning the stairs"],
         why:
           "While the postman was calling, I was cleaning the stairs. Тянулись оба " +
-          "дела, и потому форма was и окончание -ing стоят в обеих половинах.",
+          "дела, и потому форма was и окончание -ing стоят в обеих частях.",
       },
       {
         id: "q-proverka-chto-smotret",
@@ -2078,7 +2078,7 @@ const module: Module = {
           "В рассказе надо сказать, что одно дело тянулось, а другое случилось внутри него. Что проверять в строке с while?",
         options: [
           { text: "Есть ли форма was и окончание -ing сразу за while", correct: true },
-          { text: "Сколько слов в первой половине" },
+          { text: "Сколько слов в первой части" },
           { text: "Стоит ли в конце строки точка" },
         ],
         why:

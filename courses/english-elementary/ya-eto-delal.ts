@@ -228,7 +228,7 @@ const module: Module = {
             "We visited the island in May.",
             "We have visited the island.",
           ],
-          head: ["О дне: когда", "Об опыте: было ли", "По-русски и то и другое"],
+          head: ["О случае: когда", "Об опыте: было ли", "По-русски и то и другое"],
           rows: [
             [
               "I saw a dolphin last summer.",
@@ -246,13 +246,13 @@ const module: Module = {
           id: "iz-chego-sostoit",
           kind: "explain",
           text: [
-            "Слева стоит день: last summer, in May. Это Past Simple — время из модулей о прошлом.",
-            "Справа дня нет вовсе, и вместо него появилось слово have.",
+            "Слева стоит оборот времени: last summer, in May. Это Past Simple — время из модулей о прошлом.",
+            "Справа оборота времени нет вовсе, и вместо него появилось слово have.",
             "После have идёт особая форма глагола: seen, visited.",
             "Перевод у левой и правой строки одинаковый, значит выбирают не по нему.",
-            "Смотрят на одно: названо ли, в какой день это было.",
-            "Названо — берут Past Simple. Не названо и неважно — берут другое время.",
-            "Оно называется Present Perfect и говорит не о дне, а о том, случалось ли это в жизни.",
+            "Смотрят на одно: назван ли оборот времени.",
+            "Назван — берут Past Simple. Не назван и неважен — берут другое время.",
+            "Оно называется Present Perfect и говорит не о том, когда это было, а о том, случалось ли вообще.",
           ],
         },
         {
@@ -313,9 +313,9 @@ const module: Module = {
               "Мы были на большом острове, и дельфины плавали у лодки.",
           },
           explain:
-            "Первая строка говорит об опыте: дня в ней нет, и потому have seen. " +
-            "В третьей строке рядом стоят оба времени: have visited — об опыте, " +
-            "а were — о том самом дне.",
+            "Первая строка говорит об опыте: оборота времени в ней нет, и потому " +
+            "have seen. В третьей строке рядом стоят оба времени: have visited — " +
+            "об опыте, а were — о том самом случае.",
         },
         {
           id: "slovar-poezdki-k-moryu",
@@ -340,10 +340,10 @@ const module: Module = {
             { text: "I have seen a dolphin.", correct: true },
             { text: "I have see a dolphin." },
           ],
-          hint: "Дня в строке нет, значит и слова о дне не будет.",
+          hint: "Оборота времени в строке нет, значит речь об опыте.",
           why:
-            "I have seen a dolphin. Запись I saw ждёт дня, а в I have see глагол " +
-            "остался без особой формы.",
+            "I have seen a dolphin. Запись I saw ждёт оборота времени, а в I have " +
+            "see глагол остался без особой формы.",
         },
         {
           id: "z2-dopisat-have",
@@ -360,7 +360,7 @@ const module: Module = {
         {
           id: "z3-otmetit-ob-opyte",
           kind: "hottext",
-          prompt: "Отметь строки, которые говорят об опыте, а не о дне.",
+          prompt: "Отметь строки, которые говорят об опыте, а не о случае.",
           parts: [
             { text: "I have seen a dolphin.", selectable: true, correct: true },
             { text: " · " },
@@ -370,10 +370,10 @@ const module: Module = {
             { text: " · " },
             { text: "I visited the island in May.", selectable: true },
           ],
-          hint: "Спроси у каждой строки: назван ли в ней день?",
+          hint: "Спроси у каждой строки: есть ли в ней оборот времени?",
           why:
-            "Первая и третья. Во второй и четвёртой стоит день — on Monday, in " +
-            "May, — и это разговор о дне, а не об опыте.",
+            "Первая и третья. Во второй и четвёртой стоит оборот времени — on " +
+            "Monday, in May, — и это разговор о случае, а не об опыте.",
         },
         {
           id: "z4-sobrat-ob-ostrove",
@@ -399,8 +399,8 @@ const module: Module = {
           ],
           hint: "После have глагол берёт особую форму.",
           why:
-            "I have seen a dolphin. Форма saw ждала бы дня, а после have стоит " +
-            "третья.",
+            "I have seen a dolphin. Форма saw ждала бы оборота времени, а после " +
+            "have стоит третья.",
         },
       ],
     },
@@ -420,7 +420,7 @@ const module: Module = {
             "После have у глагола стоит не обычная форма, а особая.",
             "У русского такого нет, и запомнить её приходится отдельно.",
             "Эту форму зовут третьей: у глагола их три, и это последняя.",
-            "Первая — обычная, вторая — о прошлом дне, третья — после have.",
+            "Первая — обычная, вторая — о прошлом, третья — после have.",
           ],
         },
         {
@@ -434,7 +434,7 @@ const module: Module = {
             "eaten",
             "been",
           ],
-          head: ["Обычная", "О прошлом дне", "После have"],
+          head: ["Обычная", "О прошлом", "После have"],
           rows: [
             ["visit", "visited", "visited"],
             ["try", "tried", "tried"],
@@ -448,7 +448,7 @@ const module: Module = {
           kind: "explain",
           text: [
             "У большинства глаголов вторая и третья формы одинаковы: visited, tried.",
-            "Они берут окончание -ed, как в разговоре о прошлом дне.",
+            "Они берут окончание -ed, как в разговоре о прошлом.",
             "У глаголов из модуля «Неправильные глаголы» третья форма бывает двух видов.",
             "Своя, третья по счёту: see — saw — seen, eat — ate — eaten, be — was и were — been.",
             "Или та же, что вторая: meet — met — met, buy — bought — bought, have — had — had.",
@@ -534,7 +534,7 @@ const module: Module = {
           explain:
             "Глагол try берёт -ed, как большинство: tried. А eat берёт свою " +
             "форму: eaten. В последней строке стоит was — там речь уже о том " +
-            "самом дне, а не об опыте.",
+            "самом случае, а не об опыте.",
         },
         {
           id: "slovar-edy",
@@ -560,8 +560,8 @@ const module: Module = {
           answer: "seen",
           hint: "Вторая форма этого глагола — saw, а третья другая.",
           why:
-            "I have seen a crocodile. Форма saw говорит о прошлом дне, а после " +
-            "have нужна третья.",
+            "I have seen a crocodile. Форма saw говорит о прошлом, а после have " +
+            "нужна третья.",
         },
         {
           id: "z2-vybrat-vernuyu-formu",
@@ -592,8 +592,8 @@ const module: Module = {
           ],
           hint: "Третья форма — та, что встаёт после have.",
           why:
-            "Tried и been. Формы saw и ate — вторые: они говорят о прошлом дне " +
-            "и после have не встают.",
+            "Tried и been. Формы saw и ate — вторые: они говорят о прошлом и " +
+            "после have не встают.",
         },
         {
           id: "z4-sobrat-o-karri",
@@ -971,14 +971,14 @@ const module: Module = {
         {
           id: "byl-i-byval",
           kind: "table",
-          caption: "Был в тот день и бывал вообще",
+          caption: "Был в тот раз и бывал вообще",
           zvuchat: [
             "I was in Astana last May.",
             "I have been to Astana.",
             "We were on a horse farm.",
             "We have been to a horse farm.",
           ],
-          head: ["О дне", "Об опыте"],
+          head: ["О том случае", "Об опыте"],
           rows: [
             ["I was in Astana last May.", "I have been to Astana."],
             ["We were on a horse farm.", "We have been to a horse farm."],
@@ -988,8 +988,8 @@ const module: Module = {
           id: "kak-ustroeno-been-to",
           kind: "explain",
           text: [
-            "Слева стоит день и слово was — это разговор о том дне.",
-            "Справа дня нет, стоит have been, и это разговор обо всей жизни.",
+            "Слева стоит оборот времени и слово was — это разговор о том случае.",
+            "Справа оборота времени нет, стоит have been, и это разговор обо всей жизни.",
             "Когда говорят, что где-то побывал и вернулся, ставят to: I have been to Astana.",
             "Оборот значит, что человек там бывал и уже вернулся.",
           ],
@@ -1000,8 +1000,8 @@ const module: Module = {
           tone: "mistake",
           text:
             "«I have been to Astana yesterday» — так не говорят.\n\nОборот " +
-            "говорит о жизни целиком, и день при нём не называют: I have been " +
-            "to Astana.",
+            "говорит о жизни целиком, и оборот времени при нём не ставят: I have " +
+            "been to Astana.",
         },
         {
           id: "razgovor-o-mestah",
@@ -1027,7 +1027,7 @@ const module: Module = {
           },
           explain:
             "В первых двух строках речь об опыте, и потому have been to. В " +
-            "третьей и четвёртой разговор перешёл на тот самый день, и там уже " +
+            "третьей и четвёртой разговор перешёл на тот самый случай, и там уже " +
             "стоит were и was.",
         },
         {
@@ -1059,15 +1059,15 @@ const module: Module = {
           id: "z2-vybrat-ob-opyte-mesta",
           kind: "choice",
           prompt:
-            "Скажи, что бывал в горах. Когда именно — неважно.",
+            "Скажи об опыте: в горах бывать доводилось. Когда именно — неважно.",
           options: [
             { text: "I was in the mountains." },
             { text: "I have been in the mountains." },
             { text: "I have been to the mountains.", correct: true },
           ],
-          hint: "Дня нет, значит и слова о дне не будет; а при been стоит to.",
+          hint: "Оборота времени нет, значит речь об опыте; а при been стоит to.",
           why:
-            "I have been to the mountains. Запись I was ждёт дня, а have been in " +
+            "I have been to the mountains. Запись I was ждёт оборота времени, а have been in " +
             "the mountains говорит не о поездке, а о том, сколько человек там " +
             "пробыл.",
         },
@@ -1084,10 +1084,10 @@ const module: Module = {
             { text: " · " },
             { text: "The swan was very loud.", selectable: true },
           ],
-          hint: "Ищи, где назван день и где стоит was или were.",
+          hint: "Ищи, где стоит оборот времени и где стоит was или were.",
           why:
-            "Первая и третья. Во второй стоит день in May, а в четвёртой was — " +
-            "рассказ о том самом дне.",
+            "Первая и третья. Во второй стоит оборот времени in May, а в четвёртой " +
+            "was: это рассказ о том самом случае.",
         },
         {
           id: "z4-sobrat-o-ferme",

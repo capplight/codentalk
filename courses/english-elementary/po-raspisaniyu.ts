@@ -57,8 +57,8 @@ import type { Module } from "@/lib/content/types";
  *
  * 2. English Grammar Profile, A2, там же, «FORM: WITH 'WHEN'» — «Can use the
  *    present simple with 'when' to refer to the future», пример «I'll tell you
- *    more when I meet you». Это урок 4. В главной половине примера стоит
- *    `will`, а настоящее время — только в половине со словом `when`; урок
+ *    more when I meet you». Это урок 4. В главной части примера стоит
+ *    `will`, а настоящее время — только в части со словом `when`; урок
  *    устроен так же, и слово `will` ученик получил модулем 9.
  *
  * 3. English Grammar Profile, A2, там же, «USE: 'HOPE'» — «Can use the present
@@ -116,7 +116,7 @@ import type { Module } from "@/lib/content/types";
  *
  * ОСТОРОЖНО С ФОРМУЛИРОВКОЙ ПРО `WHEN`. Говорить «после when не бывает will»
  * нельзя: это верно для придаточного времени и неверно для вопроса (`When will
- * you arrive?`). Модуль говорит «в половине со словом when», и так же надо
+ * you arrive?`). Модуль говорит «в части со словом when», и так же надо
  * говорить дальше.
  *
  * СЛОВАРЬ МОДУЛЯ. Тридцать две карточки, из них шестнадцать несут слово,
@@ -159,7 +159,7 @@ import type { Module } from "@/lib/content/types";
  * ВОЗВРАЩЕНИЕ. Два задания из пройденного. В уроке 1 — выбор записи о
  * договорённости из модуля 10, урок 1: там та же речь о будущем, но другой
  * случай. В уроке 4 — слово `will` из модуля 9, урок 1: без него главную
- * половину строки с `when` не построить. Берутся ссылкой (`vozvrat`).
+ * часть строки с `when` не построить. Берутся ссылкой (`vozvrat`).
  */
 const module: Module = {
   slug: "po-raspisaniyu",
@@ -179,8 +179,8 @@ const module: Module = {
         "нигде; нашёл методист. " +
         "A2, там же, «FORM: WITH 'WHEN'»: «Can use the present simple with 'when' to " +
         "refer to the future», пример — «I'll tell you more when I meet you» — урок " +
-        "4. В главной половине примера стоит will, а настоящее время только в " +
-        "половине со словом when. " +
+        "4. В главной части примера стоит will, а настоящее время только в " +
+        "части со словом when. " +
         "A2, там же, «USE: 'HOPE'»: «Can use the present simple with 'I hope' to talk " +
         "about hopes and wishes for the future», пример — «I hope you enjoy your " +
         "holiday too» — урок 5. " +
@@ -924,13 +924,13 @@ const module: Module = {
             "Алим уезжает завтра и обещает позвонить сразу после приезда.",
             "I'll call you when I arrive. — Я позвоню, когда приеду.",
             "Присмотрись к русской строке: «позвоню» и «приеду» — оба слова о будущем.",
-            "По-английски будущее ставят в первой половине, а во второй хватает настоящего времени.",
+            "По-английски будущее ставят в первой части, а во второй хватает настоящего времени.",
           ],
         },
         {
           id: "dve-poloviny-so-slovom-when",
           kind: "table",
-          caption: "Две половины строки",
+          caption: "Две части строки",
           zvuchat: [
             "I'll call you",
             "when I arrive",
@@ -939,7 +939,7 @@ const module: Module = {
             "We'll leave",
             "when the shop closes",
           ],
-          head: ["Главная половина", "Половина со словом when"],
+          head: ["Главная часть", "Часть со словом when"],
           rows: [
             ["I'll call you", "when I arrive"],
             ["I'll tell you more", "when I meet you"],
@@ -950,10 +950,10 @@ const module: Module = {
           id: "pochemu-nastoyashchee-posle-when",
           kind: "explain",
           text: [
-            "В главной половине стоит will — то самое слово обещания.",
-            "А в половине со словом when его не ставят: там глагол настоящего времени.",
-            "Окончание в этой половине живёт по правилу лица: I arrive, но the shop closes.",
-            "По-русски будущее стоит в обеих половинах — «позвоню, когда приеду».",
+            "В главной части стоит will — то самое слово обещания.",
+            "А в части со словом when его не ставят: там глагол настоящего времени.",
+            "Окончание в этой части живёт по правилу лица: I arrive, но the shop closes.",
+            "По-русски будущее стоит в обеих частях — «позвоню, когда приеду».",
             "Здесь и ошибаются чаще всего: пишут will дважды, по русскому образцу.",
           ],
         },
@@ -962,7 +962,7 @@ const module: Module = {
           kind: "note",
           tone: "mistake",
           text:
-            "«I'll call you when I will arrive» — так сказать нельзя.\n\nВ половине со " +
+            "«I'll call you when I will arrive» — так сказать нельзя.\n\nВ части со " +
             "словом when будущего не ставят: там настоящее время.",
         },
         {
@@ -988,9 +988,9 @@ const module: Module = {
               "Дорога продолжится, когда закончится задержка: пересадка в порту занимает час.",
           },
           explain:
-            "Четыре строки. В первых трёх главная половина держится на will, а в " +
-            "половине со словом when стоит настоящее время. В четвёртой will нет " +
-            "вовсе: обе половины о расписании.",
+            "Четыре строки. В первых трёх главная часть держится на will, а в " +
+            "части со словом when стоит настоящее время. В четвёртой will нет " +
+            "вовсе: обе части о расписании.",
         },
         {
           id: "slovar-zaderzhki",
@@ -1012,9 +1012,9 @@ const module: Module = {
           before: "I'll call you when I ",
           after: " at the airport.",
           answer: "arrive",
-          hint: "В половине со словом when глагол стоит в настоящем времени.",
+          hint: "В части со словом when глагол стоит в настоящем времени.",
           why:
-            "I'll call you when I arrive at the airport. В половине со словом when " +
+            "I'll call you when I arrive at the airport. В части со словом when " +
             "будущего не ставят.",
         },
         {
@@ -1026,15 +1026,15 @@ const module: Module = {
             { text: "I'll tell you more when I meet you.", correct: true },
             { text: "I tell you more when I will meet you." },
           ],
-          hint: "Слово will стоит только в главной половине.",
+          hint: "Слово will стоит только в главной части.",
           why:
-            "I'll tell you more when I meet you. В главной половине will есть, в " +
-            "половине со словом when его нет.",
+            "I'll tell you more when I meet you. В главной части will есть, в " +
+            "части со словом when его нет.",
         },
         {
           id: "z3-otmetit-vernye-svyazki",
           kind: "hottext",
-          prompt: "Отметь верно построенные половины со словом when.",
+          prompt: "Отметь верно построенные части со словом when.",
           parts: [
             { text: "when the shop closes", selectable: true, correct: true },
             { text: " · " },
@@ -1044,7 +1044,7 @@ const module: Module = {
             { text: " · " },
             { text: "when the delay will finish", selectable: true },
           ],
-          hint: "Ищи слово will: в этой половине его быть не должно.",
+          hint: "Ищи слово will: в этой части его быть не должно.",
           why:
             "Верны when the shop closes и when we meet. В двух других стоит will.",
         },
@@ -1054,9 +1054,9 @@ const module: Module = {
           prompt: "Собери строку: я позвоню тебе, когда приеду завтра в аэропорт.",
           items: ["at the airport tomorrow.", "when I arrive", "you", "I'll call"],
           answer: [3, 2, 1, 0],
-          hint: "Сначала главная половина с will, потом половина со словом when.",
+          hint: "Сначала главная часть с will, потом часть со словом when.",
           why:
-            "I'll call you when I arrive at the airport tomorrow. Главная половина " +
+            "I'll call you when I arrive at the airport tomorrow. Главная часть " +
             "идёт первой.",
         },
         {
@@ -1074,7 +1074,7 @@ const module: Module = {
             "I will tell you more when we meet.",
             "I will tell you more when we meet",
           ],
-          hint: "В половине со словом when ставь настоящее время.",
+          hint: "В части со словом when ставь настоящее время.",
           why:
             "I'll tell you more when I meet you. Годится и when we meet: обе записи " +
             "верны, и обе принимаются.",
@@ -1538,7 +1538,7 @@ const module: Module = {
             "Hi Dana! The plane leaves at six tomorrow, so the taxi comes at four.\nThe change at the port takes at least an hour.\nThe chemist at the airport doesn't open before nine.\nI'll call you when I arrive. I hope you enjoy the journey!",
           explain:
             "Четыре строки. У каждого дела назван свой час, а в последней строке " +
-            "стоят оба оборота модуля: половина со словом when и I hope.",
+            "стоят оба оборота модуля: часть со словом when и I hope.",
         },
         {
           id: "chto-proverit-v-zapiske",
@@ -1546,7 +1546,7 @@ const module: Module = {
           tone: "info",
           text:
             "Проверь четыре вещи.\n\nУ каждого дела назван час. Окончание глагола " +
-            "выбрано по лицу. В половине со словом when нет будущего. В записке есть " +
+            "выбрано по лицу. В части со словом when нет будущего. В записке есть " +
             "пожелание.\n\nЕсли строку пришлось переписать, проверь её заново с начала.",
         },
         {
@@ -1599,10 +1599,10 @@ const module: Module = {
             { text: "I'll call you when I arrive.", correct: true },
             { text: "I call you when I will arrive." },
           ],
-          hint: "Слово will стоит только в главной половине.",
+          hint: "Слово will стоит только в главной части.",
           why:
-            "I'll call you when I arrive. В половине со словом when будущего не " +
-            "ставят, а в главной половине will нужен.",
+            "I'll call you when I arrive. В части со словом when будущего не " +
+            "ставят, а в главной части will нужен.",
         },
         {
           id: "z4-napisat-zapisku",
@@ -1615,7 +1615,7 @@ const module: Module = {
           checklist: [
             "у каждого дела назван час",
             "окончание глагола выбрано по лицу",
-            "в половине со словом when нет будущего",
+            "в части со словом when нет будущего",
             "в записке есть пожелание",
           ],
           hint: "Бери глаголы, которые знаешь: leave, arrive, open, close, take, start.",
@@ -1728,7 +1728,7 @@ const module: Module = {
           "We will leave when the shop closes",
         ],
         why:
-          "We'll leave when the shop closes. В половине со словом when будущего не " +
+          "We'll leave when the shop closes. В части со словом when будущего не " +
           "ставят, и глагол берёт окончание -s: магазин — это it.",
       },
       {
@@ -1739,8 +1739,8 @@ const module: Module = {
         items: ["arrives.", "when the international flight", "leave", "We'll"],
         answer: [3, 2, 1, 0],
         why:
-          "We'll leave when the international flight arrives. Главная половина идёт " +
-          "первой, а в половине со словом when стоит настоящее время.",
+          "We'll leave when the international flight arrives. Главная часть идёт " +
+          "первой, а в части со словом when стоит настоящее время.",
       },
 
       // ---- итог 5 ----

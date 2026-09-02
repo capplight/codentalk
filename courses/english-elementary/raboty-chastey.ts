@@ -170,7 +170,7 @@ export const rabotaProshloe: Quiz = {
       after: " I didn't write.",
       answer: "but",
       hint: "Первое дело сделано, второе нет.",
-      why: "I called, but I didn't write. Союз but ставят там, где вторая половина возражает первой.",
+      why: "I called, but I didn't write. Союз but ставят там, где второе простое предложение возражает первой.",
     },
     {
       id: "ch1-na-sluh-chego-ne-delal",
@@ -269,7 +269,7 @@ export const rabotaProshloe: Quiz = {
       before: "I was reading ",
       after: " my brother was cooking.",
       answer: "while",
-      hint: "Этот союз ставят, когда тянутся обе половины.",
+      hint: "Этот союз ставят, когда тянутся обе части.",
       why:
         "I was reading while my brother was cooking. Союз while связывает два дела, " +
         "которые шли одновременно.",
@@ -282,7 +282,7 @@ export const rabotaProshloe: Quiz = {
       options: [
         { text: "Звонок друга" },
         { text: "Мытьё посуды", correct: true },
-        { text: "Ничего: обе половины называют то, что случилось" },
+        { text: "Ничего: обе части называют то, что случилось" },
       ],
       hint: "Ищи форму с окончанием -ing.",
       why:
@@ -329,8 +329,8 @@ export const rabotaPlany: Quiz = {
         "В объявлении строка: «Bring your own towel: we are going to close the shower.» Что просят принести? Ответь одним английским словом.",
       answer: "towel",
       accept: ["Towel", "a towel", "your own towel"],
-      hint: "В строке две половины: просьба и причина.",
-      why: "Bring your own towel. Вторая половина строки объясняет причину, а просьба в первой.",
+      hint: "В строке две части: просьба и причина.",
+      why: "Bring your own towel. Вторая часть строки объясняет причину, а просьба в первой.",
     },
 
     // ---- Я сделаю ----
@@ -408,8 +408,8 @@ export const rabotaPlany: Quiz = {
         "В письме строка: «I'm meeting Dana at nine, so I'm not coming to the lesson.» Во сколько назначена встреча? Ответь одним английским словом.",
       answer: "nine",
       accept: ["Nine", "at nine"],
-      hint: "В строке назван час, а во второй половине — что из этого следует.",
-      why: "I'm meeting Dana at nine. Вторая половина строки говорит, что из этого следует.",
+      hint: "В строке назван час, а во второй части — что из этого следует.",
+      why: "I'm meeting Dana at nine. Вторая часть строки говорит, что из этого следует.",
     },
 
     // ---- По расписанию ----
@@ -936,7 +936,7 @@ export const rabotaOpytIPravila: Quiz = {
       answer: "tram",
       accept: ["Tram", "the tram", "by tram"],
       hint: "Один совет зовёт сделать, другой отговаривает.",
-      why: "You should take the tram. Вторая половина строки, наоборот, отговаривает.",
+      why: "You should take the tram. Вторая часть строки, наоборот, отговаривает.",
     },
 
     // ---- Раньше мог ----
@@ -998,8 +998,8 @@ export const rabotaOpytIPravila: Quiz = {
       answer: "rains",
       hint: "После if будущего не ставят.",
       why:
-        "If it rains, we'll stay at home. В половине с if стоит обычная форма настоящего, " +
-        "а обещание — во второй половине.",
+        "If it rains, we'll stay at home. В части с if стоит обычная форма настоящего, " +
+        "а обещание — во второй части.",
     },
     {
       id: "ch4-pamyatka-chto-sluchitsya",
@@ -1012,7 +1012,7 @@ export const rabotaOpytIPravila: Quiz = {
         { text: "Взять другой ключ на стойке, если этот потерян.", correct: true },
         { text: "Уйти со своим ключом." },
       ],
-      hint: "Смотри главную половину — ту, где стоит can.",
+      hint: "Смотри главную часть — ту, где стоит can.",
       why: "Взять другой на стойке. Слово can стоит именно при этом действии, а условие — в половине с if.",
     },
 
@@ -1065,7 +1065,7 @@ export const rabotaOpytIPravila: Quiz = {
       answer: "wasn't",
       hint: "После утверждения переспрос идёт с отрицанием.",
       why:
-        "The film was great, wasn't it? В первой половине стоит was, значит и переспрос " +
+        "The film was great, wasn't it? В первой части стоит was, значит и переспрос " +
         "строится от was.",
     },
   ],

@@ -799,15 +799,16 @@ const module: Module = {
           kind: "explain",
           text: [
             "По-русски мы всё время говорим «сделал, но не успел»: убрал, но не помыл; купил, но забыл.",
-            "Половина дня удалась, половина нет — и об этом рассказывают одной строкой.",
-            "По-английски две части соединяют словом but.",
+            "Одно дело удалось, другое нет — и об этом рассказывают одной строкой.",
             "I worked, but I didn't finish — поработал, но не закончил.",
+            "Каждое из двух — простое предложение: у него один свой глагол.",
+            "По-английски два простых предложения соединяют словом but.",
           ],
         },
         {
           id: "dve-chasti",
           kind: "table",
-          caption: "Две части одного дня",
+          caption: "Два простых предложения об одном дне",
           zvuchat: [
             "I cleaned the room",
             "but I didn't wash the towel",
@@ -824,9 +825,9 @@ const module: Module = {
           id: "zapyataya-pered-but",
           kind: "explain",
           text: [
-            "Перед but ставят запятую, если после него идёт вторая часть со своим подлежащим.",
-            "I worked, but I didn't finish — две части, запятая нужна.",
-            "Каждая часть построена по своим правилам: в первой обычное прошедшее, во второй didn't.",
+            "Перед but ставят запятую, если после него идёт второе простое предложение со своим подлежащим.",
+            "I worked, but I didn't finish — два простых предложения, запятая нужна.",
+            "Каждое построено по своим правилам: в первом обычное прошедшее, во втором didn't.",
           ],
         },
         {
@@ -856,7 +857,7 @@ const module: Module = {
             "The uniform was in the pocket.": "Спецодежда лежала в кармане.",
           },
           explain:
-            "В первых двух строках по две части: сделанное и несделанное, между ними " +
+            "В первых двух строках по два простых предложения: сделанное и несделанное, между ними " +
             "but. Третья строка описывает, где лежала вещь, и отрицания не несёт.",
         },
         {
@@ -876,11 +877,11 @@ const module: Module = {
         {
           id: "z1-dopisat-but",
           kind: "gap",
-          prompt: "Комната убрана, а полотенце — нет. Допиши слово, которое соединяет две части.",
+          prompt: "Комната убрана, а полотенце — нет. Допиши слово, которое соединяет два простых предложения.",
           before: "I cleaned the room, ",
           after: " I didn't wash the towel.",
           answer: "but",
-          hint: "Три буквы, и после него идёт вторая часть.",
+          hint: "Три буквы, и после него идёт второе простое предложение.",
           why:
             "I cleaned the room, but I didn't wash the towel. Слово but соединяет " +
             "сделанное с несделанным.",
@@ -888,7 +889,7 @@ const module: Module = {
         {
           id: "z2-vybrat-wasnt-ili-didnt",
           kind: "choice",
-          prompt: "Работа была, а конца у неё не было. Выбери верную вторую часть.",
+          prompt: "Работа была, а конца у неё не было. Выбери верное второе простое предложение.",
           options: [
             { text: "but I wasn't finish" },
             { text: "but I didn't finish", correct: true },
@@ -902,7 +903,7 @@ const module: Module = {
         {
           id: "z3-otmetit-vtorye-chasti",
           kind: "hottext",
-          prompt: "Отметь части, где сказано, чего не было.",
+          prompt: "Отметь простые предложения, где сказано, чего не было.",
           parts: [
             { text: "but I didn't buy a mirror", selectable: true, correct: true },
             { text: " · " },
@@ -912,28 +913,28 @@ const module: Module = {
             { text: " · " },
             { text: "I cleaned the room", selectable: true },
           ],
-          hint: "В нужных частях стоит отрицание.",
-          why: "О несделанном говорят части but I didn't buy a mirror и but I didn't wash the towel.",
+          hint: "В нужных стоит отрицание.",
+          why: "О несделанном говорят but I didn't buy a mirror и but I didn't wash the towel.",
         },
         {
           id: "z4-sobrat-dve-chasti",
           kind: "order",
-          prompt: "Собери вторую часть: зеркало куплено не было. Начни со слова but.",
+          prompt: "Собери второе простое предложение: зеркало куплено не было. Начни со слова but.",
           items: ["a mirror", "but", "buy", "I didn't"],
           answer: [1, 3, 2, 0],
           hint: "Сначала соединительное слово, потом кто и отрицание, потом дело.",
-          why: "but I didn't buy a mirror. Вторая часть строится так же, как отдельное предложение.",
+          why: "but I didn't buy a mirror. Второе строится так же, как отдельное предложение.",
         },
         {
           id: "z5-napisat-dve-chasti",
           kind: "short",
-          prompt: "Расскажи о покупках: мыло куплено, а зеркало — нет. Запиши обе части целиком.",
+          prompt: "Расскажи о покупках: мыло куплено, а зеркало — нет. Запиши оба простых предложения целиком.",
           answer: "I bought soap, but I didn't buy a mirror.",
           accept: ["I bought soap but I didn't buy a mirror."],
-          hint: "Первая часть о сделанном, вторая начинается с but.",
+          hint: "Первое о сделанном, второе начинается с but.",
           why:
-            "I bought soap, but I didn't buy a mirror. В первой части обычное прошедшее, " +
-            "во второй — didn't и словарная форма.",
+            "I bought soap, but I didn't buy a mirror. В первом обычное прошедшее, " +
+            "во втором — didn't и словарная форма.",
         },
       ],
     },
@@ -1086,7 +1087,7 @@ const module: Module = {
             "Начни со слова Then.",
           answer: "Then I wrote a message, but I didn't call.",
           accept: ["Then I wrote a message but I didn't call."],
-          hint: "Две части, между ними but.",
+          hint: "Два простых предложения, между ними but.",
           why:
             "Then I wrote a message, but I didn't call. Слово порядка открывает строку, " +
             "а but соединяет сделанное с несделанным.",
@@ -1302,9 +1303,9 @@ const module: Module = {
           answer: [4, 3, 2, 1, 0],
           hint: "Оборот времени стоит в самом конце, и услышать его можно только в записи.",
           why:
-            "My sister didn't call, but she wrote a message in the evening. Первая " +
-            "часть с отрицанием, вторая — о том, что всё же было сделано, и время " +
-            "названо в самом конце.",
+            "My sister didn't call, but she wrote a message in the evening. Первое " +
+            "простое предложение с отрицанием, второе — о том, что всё же было сделано, " +
+            "а оборот времени стоит в самом конце.",
         },
       ],
     },
@@ -1421,8 +1422,9 @@ const module: Module = {
           "He received the email, but he didn't write an answer",
         ],
         why:
-          "He received the email, but he didn't write an answer. Первая часть о " +
-          "сделанном, вторая начинается с but и берёт didn't со словарной формой.",
+          "He received the email, but he didn't write an answer. Первое простое " +
+          "предложение о сделанном, второе начинается с but и берёт didn't со " +
+          "словарной формой.",
       },
       {
         id: "q-but-ispravit",
@@ -1443,12 +1445,12 @@ const module: Module = {
         prompt:
           "Этот рассказ о вчерашнем дне. Одна строка сбилась на настоящее время. " +
           "Вот она: «I didn't have cash, and I don't have it now.» Оставь только " +
-          "первую половину и запиши её.",
+          "первое простое предложение и запиши его.",
         answer: "I didn't have cash.",
         accept: ["I didn't have cash"],
         why:
-          "I didn't have cash. Вторая половина говорила о том, что есть сейчас, а " +
-          "рассказ — о вчерашнем дне.",
+          "I didn't have cash. Второе простое предложение говорило о том, что есть " +
+          "сейчас, а рассказ — о вчерашнем дне.",
       },
       {
         id: "q-rasskaz-sobrat",

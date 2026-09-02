@@ -457,6 +457,11 @@ const module: Module = {
           kind: "vocab",
           caption: "Слова урока",
           items: [
+            // Карточка артикля стоит здесь по той же причине, по какой выше стоит
+            // его объяснение: курс не может сослаться на прошлую ступень, а
+            // чтения `the` объяснение не даёт вовсе — /ðə/ и /ði/ живут только в
+            // карточке. Ступень Beginner даёт такую же, модуль «Дни, даты, время».
+            { term: "the", translation: "тот самый, о котором речь", example: "We were at the station.", hint: "/ðə/, перед гласным звуком /ði/" },
             { term: "home", translation: "дом, дома", example: "I was at home.", hint: "/həʊm/" },
             { term: "work", translation: "работа", example: "He was at work.", hint: "/wɜːk/" },
             { term: "school", translation: "школа", example: "She was at school.", hint: "/skuːl/" },
