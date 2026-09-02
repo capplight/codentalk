@@ -997,6 +997,32 @@ async function proveritVvedenieSlov(course: Course, tolko?: string): Promise<voi
     }
   }
 
+  /*
+   * ИМЯ НАШЕГО УРОКА — НЕ УПОТРЕБЛЕНИЕ СЛОВА.
+   *
+   * Правила требуют давать адрес обещанию «разберём позже», и урок 1 модуля 20
+   * его даёт: «Полностью разберём его в уроке „Без повтора: the pale one"».
+   * Английские слова там стоят внутри русской фразы как ИМЯ нашего же урока —
+   * ученик не читает их как слова и понимать не обязан. А проверка считала это
+   * первой встречей и требовала карточку раньше, чем слово начнёт работать.
+   *
+   * Мерка методиста от 2 сентября 2026, и она узкая нарочно: вырезается только
+   * подстрока, дословно совпавшая с заголовком урока или модуля ЭТОГО курса.
+   * Всё остальное, включая переведённую строку примера, употреблением остаётся:
+   * КАРТОЧКА — ТАМ, ГДЕ СЛОВО РАБОТАЕТ, А НЕ ТАМ, ГДЕ НАЗВАНО.
+   */
+  const zagolovki = [
+    ...course.modules.map((m) => m.title),
+    ...course.modules.flatMap((m) => m.lessons.map((l) => l.title)),
+  ]
+    .filter((t) => /[A-Za-z]/.test(String(t ?? "")))
+    .sort((a, b) => b.length - a.length);
+  const bezZagolovkov = (t: string | null | undefined): string => {
+    let out = String(t ?? "");
+    for (const z of zagolovki) out = out.split(z).join(" ");
+    return out;
+  };
+
   // Где слово впервые попалось ученику на глаза.
   const imena = new Set<string>();
   const vstrecha = new Map<string, { urok: number; gde: string; raz: number }>();
@@ -1009,7 +1035,7 @@ async function proveritVvedenieSlov(course: Course, tolko?: string): Promise<voi
         const b = block as any;
         sobratImena(tekstBloka(b)).forEach((n) => imena.add(n));
         if (b.kind === "vocab") continue;      // карточка сама себя не вводит
-        const tekst = isTask(b) ? trebuetsyaOtUchenika(b) : tekstBloka(b);
+        const tekst = bezZagolovkov(isTask(b) ? trebuetsyaOtUchenika(b) : tekstBloka(b));
         if (!tekst) continue;
         for (const w of angliyskie(tekst)) {
           const bylo = vstrecha.get(w);

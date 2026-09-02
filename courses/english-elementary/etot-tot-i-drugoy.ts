@@ -369,6 +369,13 @@ const module: Module = {
             { term: "that", translation: "тот, та, то", example: "And that cap in the window?", hint: "/ðæt/" },
             { term: "cap", translation: "кепка", example: "Look at this cap.", hint: "/kæp/" },
             { term: "leather", translation: "кожаный", example: "It is leather.", hint: "/ˈleðə/" },
+            // Карточка перенесена сюда из модуля 31: слово работает уже в этом
+            // уроке — строка «This is my number» стоит в объяснении, — а получал
+            // его ученик одиннадцатью модулями позже. И настоящий долг был не
+            // здесь, а в модуле 28: там строка «Could you send us your bus
+            // number?» стоит в тексте для чтения без перевода и без глоссария, и
+            // на ней держатся два задания. Нашёл методист.
+            { term: "number", translation: "номер, число", example: "This is my number.", hint: "/ˈnʌmbə/" },
           ],
         },
 

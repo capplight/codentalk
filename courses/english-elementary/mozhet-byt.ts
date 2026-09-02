@@ -1590,7 +1590,12 @@ const module: Module = {
             { term: "driving licence", translation: "водительские права", example: "I always take my driving licence.", hint: "/ˈdraɪvɪŋ laɪsns/" },
             { term: "close to", translation: "близко к", example: "The bus station is close to the market.", hint: "/ˈkləʊs tə/" },
             { term: "out of", translation: "за пределами, из", example: "The police station is out of the centre.", hint: "/ˈaʊt əv/" },
-            { term: "by accident", translation: "случайно", example: "We found the museum by accident.", hint: "/baɪ ˈæksɪdənt/" },
+            // Пример был «We found the museum by accident» — а форма found от глагола
+            // find курсом не дана вовсе: десяток неправильных глаголов модуля 3 её
+            // не содержит, пара lose — lost в модуле 7 тоже, а карточки find и found
+            // стоят в модуле 21 — на пятьдесят уроков позже. Нашёл методист. Взят
+            // глагол, который курс уже дал.
+            { term: "by accident", translation: "случайно", example: "We came to the museum by accident.", hint: "/baɪ ˈæksɪdənt/" },
           ],
         },
         {
@@ -1600,19 +1605,19 @@ const module: Module = {
           zvuchat: [
             "A police officer showed us the way.",
             "A police car stopped at the traffic light.",
-            "We found the museum by accident.",
+            "We came to the museum by accident.",
             "I always take my driving licence.",
             "Our aeroplane may be late.",
           ],
           text:
-            "A police officer showed us the way.\nA police car stopped at the traffic light.\nWe found the museum by accident.\nI always take my driving licence.\nOur aeroplane may be late.",
+            "A police officer showed us the way.\nA police car stopped at the traffic light.\nWe came to the museum by accident.\nI always take my driving licence.\nOur aeroplane may be late.",
           perevod: {
             "A police officer showed us the way.":
               "Полицейский показал нам дорогу.",
             "A police car stopped at the traffic light.":
               "У светофора остановилась полицейская машина.",
-            "We found the museum by accident.":
-              "Музей мы нашли случайно.",
+            "We came to the museum by accident.":
+              "К музею мы вышли случайно.",
             "I always take my driving licence.":
               "Я всегда беру с собой водительские права.",
             "Our aeroplane may be late.":

@@ -1061,7 +1061,9 @@ export const ekzamenEnglishElementary: Quiz = {
       id: "ex-el-sluh-chto-naznacheno",
       kind: "short",
       outcome: "слышать в записи, что и когда назначено",
-      zvuk: "I'm seeing the dentist on Thursday at four.",
+      // Оборот I'm seeing в значении «встречаюсь по договорённости» ступень нигде
+      // не показывает: модуль 10 везде говорит I'm meeting. Нашёл методист.
+      zvuk: "I'm meeting my classmate on Thursday at four.",
       prompt: "Послушай. В какой день назначена встреча? Ответь одним словом по-английски.",
       answer: "Thursday",
       accept: ["thursday", "on Thursday"],

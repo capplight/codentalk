@@ -1143,6 +1143,11 @@ const module: Module = {
           items: [
             { term: "sister", translation: "сестра", example: "My sister said that she is busy.", hint: "/ˈsɪstə/" },
             { term: "brother", translation: "брат", example: "My brother told me that the film is good.", hint: "/ˈbrʌðə/" },
+            // Взято взамен карточки number, которая ушла в модуль 20: слово там
+            // работает с первого урока. Слово из словника A2 Key, карточки на
+            // ступени не было, и людям в этом уроке оно родня. Запись без `ə`
+            // перед n — по условности курса, источник даёт /kˈʌzən/.
+            { term: "cousin", translation: "двоюродный брат, двоюродная сестра", example: "My cousin said that the train is late.", hint: "/ˈkʌzn/" },
             { term: "people", translation: "люди", example: "People here say that the market is cheap.", hint: "/ˈpiːpl/" },
             { term: "business person", translation: "деловой человек", example: "The business person told us that the office is closed.", hint: "/ˈbɪznəs pɜːsn/" },
             { term: "aged", translation: "такого-то возраста: aged ten — десяти лет", example: "The class is for children aged ten.", hint: "/eɪdʒd/" },
@@ -1328,7 +1333,6 @@ const module: Module = {
             { term: "small", translation: "маленький", example: "My bag is small.", hint: "/smɔːl/" },
             { term: "new", translation: "новый", example: "The door is new.", hint: "/njuː/" },
             { term: "itself", translation: "сам, сама (о вещи)", example: "The flat itself is small.", hint: "/ɪtˈself/" },
-            { term: "number", translation: "номер, число", example: "The number of the flat is on the door.", hint: "/ˈnʌmbə/" },
           ],
         },
 

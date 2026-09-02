@@ -405,11 +405,11 @@ export const rabotaPlany: Quiz = {
       kind: "short",
       outcome: "понимать письмо о делах на неделе",
       prompt:
-        "В письме строка: «I'm seeing the dentist at nine, so I'm not coming to the lesson.» Во сколько назначен приём? Ответь одним английским словом.",
+        "В письме строка: «I'm meeting Dana at nine, so I'm not coming to the lesson.» Во сколько назначена встреча? Ответь одним английским словом.",
       answer: "nine",
       accept: ["Nine", "at nine"],
-      hint: "Час назван в первой половине строки.",
-      why: "I'm seeing the dentist at nine. Вторая половина строки говорит, что из этого следует.",
+      hint: "В строке назван час, а во второй половине — что из этого следует.",
+      why: "I'm meeting Dana at nine. Вторая половина строки говорит, что из этого следует.",
     },
 
     // ---- По расписанию ----
@@ -547,12 +547,12 @@ export const rabotaPlany: Quiz = {
       id: "ch2-na-sluh-chto-naznacheno",
       kind: "short",
       outcome: "слышать в записи, что и когда назначено",
-      zvuk: "I'm seeing the doctor on Wednesday at two.",
-      prompt: "Послушай. В какой день назначен приём? Ответь одним английским словом.",
+      zvuk: "I'm meeting Alim on Wednesday at two.",
+      prompt: "Послушай. В какой день назначена встреча? Ответь одним английским словом.",
       answer: "Wednesday",
       accept: ["wednesday", "on Wednesday"],
       hint: "В записи названы и день, и час.",
-      why: "I'm seeing the doctor on Wednesday at two. Два — это час, а спрашивают про день.",
+      why: "I'm meeting Alim on Wednesday at two. Два — это час, а спрашивают про день.",
     },
   ],
 };

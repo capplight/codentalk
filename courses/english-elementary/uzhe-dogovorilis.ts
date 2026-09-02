@@ -1782,7 +1782,7 @@ const module: Module = {
         // подряд. Первая половина взята новая; оборот one textbook for two остаётся
         // нарочно: он и есть предмет вопроса и стоит в словнике модуля.
         prompt:
-          "В письме написано: «I'm seeing my classmate in the cafeteria at one: we're taking one textbook for two.» Сколько у них учебников?",
+          "В письме написано: «I'm meeting my classmate in the cafeteria at one: we're taking one textbook for two.» Сколько у них учебников?",
         options: [
           { text: "Два — по одному на каждого" },
           { text: "Один на двоих", correct: true },
