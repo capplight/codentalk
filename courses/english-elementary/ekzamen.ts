@@ -103,8 +103,8 @@ export const ekzamenEnglishElementary: Quiz = {
       outcome: "различать три чтения окончания -ed по последнему звуку глагола",
       prompt: "В каком из трёх слов окончание -ed читается отдельным слогом?",
       options: [
-        { text: "watched" },
         { text: "wanted", correct: true },
+        { text: "watched" },
         { text: "played" },
       ],
       why:
@@ -412,8 +412,8 @@ export const ekzamenEnglishElementary: Quiz = {
       outcome: "звать вместе: Shall we play golf on Saturday?",
       prompt: "Ты зовёшь друга пойти в кино вместе. Какая строка годится?",
       options: [
-        { text: "Shall I go to the cinema?" },
         { text: "Shall we go to the cinema?", correct: true },
+        { text: "Shall I go to the cinema?" },
         { text: "Shall you go to the cinema?" },
       ],
       why:
@@ -626,8 +626,8 @@ export const ekzamenEnglishElementary: Quiz = {
       prompt: "В какой строке уточнение стоит на своём месте?",
       options: [
         { text: "I want cold something to drink." },
-        { text: "I want something cold to drink.", correct: true },
         { text: "I want something to drink cold." },
+        { text: "I want something cold to drink.", correct: true },
       ],
       why:
         "I want something cold to drink. Уточнение идёт ПОСЛЕ слова something — не так, " +
@@ -655,8 +655,8 @@ export const ekzamenEnglishElementary: Quiz = {
       prompt:
         "Ты примерил рубашку, она мала, и ты просишь ещё одну — любую другую. Что сказать?",
       options: [
-        { text: "Can I try the other one?" },
         { text: "Can I try another one?", correct: true },
+        { text: "Can I try the other one?" },
         { text: "Can I try other one?" },
       ],
       why:
@@ -925,8 +925,8 @@ export const ekzamenEnglishElementary: Quiz = {
       prompt: "В какой строке речь о том, что случится наверняка, а не о возможном?",
       options: [
         { text: "If I finish early, I'll call you." },
-        { text: "When I finish work, I'll call you.", correct: true },
         { text: "If it rains, I'll take a taxi." },
+        { text: "When I finish work, I'll call you.", correct: true },
       ],
       why:
         "When I finish work, I'll call you. Работа кончится наверняка — вопрос только " +
@@ -954,8 +954,8 @@ export const ekzamenEnglishElementary: Quiz = {
       outcome: "описывать вещь: the bag which is on the table",
       prompt: "В какой строке описание стоит на своём месте?",
       options: [
-        { text: "The man which lives next door is a doctor." },
         { text: "The man who lives next door is a doctor.", correct: true },
+        { text: "The man which lives next door is a doctor." },
         { text: "The man who is a doctor lives which next door." },
       ],
       why:
@@ -1151,8 +1151,8 @@ export const ekzamenEnglishElementary: Quiz = {
         "Call me.» Какой из четырёх нужных строк здесь нет?",
       options: [
         { text: "Той, что называет вещь и день." },
-        { text: "Той, что описывает приметы.", correct: true },
         { text: "Той, что говорит, где забрать." },
+        { text: "Той, что описывает приметы.", correct: true },
       ],
       why:
         "Той, что описывает приметы. Вещь и день названы, чьё оно — сказано, забрать " +
