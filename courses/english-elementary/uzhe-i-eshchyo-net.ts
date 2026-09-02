@@ -1532,8 +1532,10 @@ const module: Module = {
         id: "q-chego-ne-hvataet-chuzhoy-zapiske",
         kind: "choice",
         outcome: "проверять записку о делах: названо сделанное и несделанное",
+        // Строка «I have just been to the pharmacy» была дословно из записки для
+        // чтения того же модуля — семь слов подряд. Взято другое дело.
         prompt:
-          "Записка: Daniyar, I have already booked a room. I have just been to the pharmacy. I haven't washed the sink yet. Какой из четырёх нужных строк здесь нет?",
+          "Записка: Daniyar, I have already booked a room. I have just prepared the lunch. I haven't washed the sink yet. Какой из четырёх нужных строк здесь нет?",
         options: [
           { text: "Той, что называет срок.", correct: true },
           { text: "Той, что называет, кому записка." },

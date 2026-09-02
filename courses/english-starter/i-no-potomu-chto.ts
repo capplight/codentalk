@@ -1632,17 +1632,19 @@ const module: Module = {
         id: "q-tekst-chto-ne-nravitsya",
         kind: "choice",
         outcome: "понимать по рассказу, что с чем связано и почему",
+        // Строка была дословно из записи для слушания того же модуля — одиннадцать
+        // слов подряд, худшее место на ступени. Рассказ новый, того же жанра.
         prompt:
-          "Рассказ: «Alim works in a hospital and he likes his job, but he doesn't " +
-          "like night work.» Что ему не нравится?",
+          "Рассказ: «Dana works in a school and she likes the children, but she " +
+          "doesn't like early lessons.» Что ей не нравится?",
         options: [
-          { text: "Ночная работа", correct: true },
-          { text: "Его работа" },
-          { text: "Больница" },
+          { text: "Ранние занятия", correct: true },
+          { text: "Её работа" },
+          { text: "Дети" },
         ],
         why:
-          "…but he doesn't like night work. Слово but показывает, что дальше идёт " +
-          "обратное сказанному до него.",
+          "…but she doesn't like early lessons. Слово but показывает, что дальше " +
+          "идёт обратное сказанному до него.",
       },
       {
         id: "q-tekst-pochemu",

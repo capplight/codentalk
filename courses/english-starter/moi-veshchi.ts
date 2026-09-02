@@ -1499,12 +1499,14 @@ const module: Module = {
         id: "q-chtenie-chto-est",
         kind: "short",
         outcome: "понимать по разговору, чья вещь и у кого что есть",
+        // Разговор был дословно из текста для чтения того же модуля — восемь слов
+        // подряд. Взяты другие вещи, и ответ теперь стоит не в той же рамке.
         prompt:
-          "Разговор: «— Have you got a camera? — No, I haven't. I have got a phone.» " +
+          "Разговор: «— Have you got a car? — No, I haven't. My bike is here.» " +
           "Что есть у собеседника? Ответь английским словом.",
-        answer: "phone",
-        accept: ["a phone", "I have got a phone"],
-        why: "I have got a phone. Камеры нет, телефон есть.",
+        answer: "bike",
+        accept: ["a bike", "My bike is here"],
+        why: "My bike is here. Машины нет, велосипед есть.",
       },
       {
         id: "q-na-sluh-sobrat-otvet-o-veshchi",

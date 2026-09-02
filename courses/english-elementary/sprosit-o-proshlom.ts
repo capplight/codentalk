@@ -1652,8 +1652,10 @@ const module: Module = {
         id: "q-pismo-otvet-k-voprosu",
         kind: "short",
         outcome: "понимать письмо, где спрашивают о прошедших днях",
+        // Вопрос был дословно из письма для чтения того же модуля — семь слов
+        // подряд. Место заменено, отрезок ушёл ниже мерки.
         prompt:
-          "В письме спрашивают: «What did you buy at the market?» Твоя покупка — открытка. Ответь одной строкой.",
+          "В письме спрашивают: «What did you buy at the shop?» Твоя покупка — открытка. Ответь одной строкой.",
         answer: "I bought a postcard.",
         accept: ["I bought a postcard", "A postcard.", "A postcard"],
         why:

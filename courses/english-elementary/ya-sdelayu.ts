@@ -1857,14 +1857,17 @@ const module: Module = {
         id: "q-perepiska-kto-beryotsya",
         kind: "choice",
         outcome: "понимать переписку о договорённости",
+        // Строка была дословно из переписки для чтения того же модуля — двенадцать
+        // слов подряд, худшее место на ступени. Строка новая, того же жанра; имя
+        // ступенью не меряется, а notebook — карточка этого же модуля.
         prompt:
-          "В сообщении написано: «My sister will be at home, so she will hold the bags.» Кто подержит сумки?",
+          "В сообщении написано: «Dana will be free after five, so she will bring the notebook.» Кто принесёт тетрадь?",
         options: [
           { text: "Тот, кто пишет" },
-          { text: "Сестра того, кто пишет", correct: true },
+          { text: "Дана", correct: true },
           { text: "Тот, кому пишут" },
         ],
-        why: "she will hold the bags — речь о сестре, о ней и сказано строкой раньше.",
+        why: "she will bring the notebook — речь о Дане, о ней и сказано строкой раньше.",
       },
       {
         id: "q-perepiska-chto-obeshchal",

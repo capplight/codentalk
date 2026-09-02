@@ -1889,11 +1889,16 @@ const module: Module = {
         id: "q-obyavlenie-den",
         kind: "short",
         outcome: "находить нужное сведение в трёх объявлениях",
+        // Строка была дословно из объявлений для чтения того же модуля — девять
+        // слов подряд. Строка новая, того же жанра; о магазине объявления модуля
+        // не говорят, так что спор с ними исключён.
         prompt:
-          "В объявлении написано: «The court is going to be closed on Tuesday.» Запиши одним английским словом день, когда площадка закрыта.",
-        answer: "Tuesday",
-        accept: ["on Tuesday"],
-        why: "The court is going to be closed on Tuesday.",
+          "В объявлении написано: «The shop is going to be closed on Monday.» Запиши одним английским словом день, когда магазин закрыт.",
+        answer: "Monday",
+        accept: ["on Monday"],
+        why:
+          "Monday. Оборот is going to говорит о том, что решено заранее, а день " +
+          "стоит в конце строки.",
       },
       {
         id: "q-obyavlenie-k-komu",

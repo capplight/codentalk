@@ -1747,8 +1747,10 @@ const module: Module = {
         id: "q-najti-cenu-v-obyavlenii",
         kind: "short",
         outcome: "находить в объявлении, что продают и почём",
+        // Начало строки было дословно из объявления для чтения того же модуля —
+        // семь слов подряд. Взята другая вещь, карточка того же модуля.
         prompt:
-          "В объявлении строка: We have two kites. This one is 800 tenge, and the other one is 1200 tenge. Сколько стоит второй змей? Ответь числом.",
+          "В объявлении строка: We have two caps. This one is 800 tenge, and the other one is 1200 tenge. Сколько стоит вторая кепка? Ответь числом.",
         answer: "1200",
         accept: ["1200 tenge", "тысяча двести"],
         hint: "Второй назван оборотом the other one.",

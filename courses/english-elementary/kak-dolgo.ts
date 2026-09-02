@@ -1311,8 +1311,10 @@ const module: Module = {
         id: "q-chego-ne-hvataet-chuzhomu-rasskazu-o-zanyatii",
         kind: "choice",
         outcome: "проверять рассказ о занятии: названо дело, срок и уровень",
+        // Строка «My studies take four hours a week» была дословно из письма для
+        // чтения того же модуля — семь слов подряд. Взята другая.
         prompt:
-          "Рассказ: I have studied English for a year. My studies take four hours a week. I haven't written articles for a long time. Какой из четырёх нужных строк здесь нет?",
+          "Рассказ: I have studied English for a year. My lessons take three hours a week. I haven't written articles for a long time. Какой из четырёх нужных строк здесь нет?",
         options: [
           { text: "Той, что говорит, с чего начал и где сейчас.", correct: true },
           { text: "Той, что называет дело и срок." },
