@@ -250,9 +250,37 @@ if (skolkoHudshih) {
 //
 // Сверяется дословное вхождение предложения длиной от пяти слов: короткая
 // строка вроде «Call me» встречается и случайно.
+// МЕРКА. Первая редакция искала вхождение строки ЦЕЛИКОМ и потому молчала о
+// главном: работа цитирует не всю строку, а её кусок. После правок 2 сентября
+// отчёт показывал ноль, а методист своей меркой — семь слов ПОДРЯД — нашёл
+// семнадцать мест, одно из них в шестнадцать слов.
+//
+// Теперь меряется самый длинный общий отрезок слов подряд: строка попадает в
+// список, если стоит в условии целиком (от пяти слов) или любым куском от семи
+// слов. Семь — мерка методиста: короче встречается и случайно, а рамки вроде
+// «Ответь одним словом по-английски» до семи не дотягивают.
 // ---------------------------------------------------------------------------
+
+/** Длина самого длинного отрезка слов подряд, общего у двух строк. */
+function podryad(a: string[], b: string[]): number {
+  if (!a.length || !b.length) return 0;
+  let luchshee = 0;
+  let prev: number[] = new Array(b.length + 1).fill(0);
+  for (let i = 1; i <= a.length; i += 1) {
+    const cur: number[] = new Array(b.length + 1).fill(0);
+    for (let j = 1; j <= b.length; j += 1) {
+      if (a[i - 1] === b[j - 1]) {
+        cur[j] = prev[j - 1] + 1;
+        if (cur[j] > luchshee) luchshee = cur[j];
+      }
+    }
+    prev = cur;
+  }
+  return luchshee;
+}
+
 let citat = 0;
-const citaty: string[] = [];
+const citaty: Array<{ dlina: number; text: string }> = [];
 
 for (const m of kurs.modules as Module[]) {
   if (modSlugi.length && !modSlugi.includes(m.slug)) continue;
@@ -276,25 +304,43 @@ for (const m of kurs.modules as Module[]) {
 
   for (const q of voprosy) {
     const uslovie = String(q.prompt ?? "");
-    for (const s of stroki) {
-      const slov = slova(s.text).length;
-      if (slov < 5) continue;
-      if (!uslovie.includes(s.text.replace(/[.!?]+$/, ""))) continue;
-      if (resheno.some((r) => q.id === r.chto)) break;
-      citat += 1;
-      citaty.push(
-        `  [${q.id}] цитирует материал урока ${s.gde}\n` +
-          `     строка: ${s.text}\n` +
-          `     условие: ${uslovie.slice(0, 110)}`
-      );
-      break;
+    const slovaUsloviya = slova(uslovie);
+
+    // Из всех строк материала берём ту, что совпала САМЫМ ДЛИННЫМ отрезком:
+    // список разбирают сверху, и сверху должно стоять худшее.
+    let luchshaya: { text: string; gde: string } | null = null;
+    let dlina = 0;
+    for (const st of stroki) {
+      const slovaStroki = slova(st.text);
+      if (slovaStroki.length < 5) continue;
+      const celikom = uslovie.includes(st.text.replace(/[.!?]+$/, ""));
+      const n = podryad(slovaStroki, slovaUsloviya);
+      if (!celikom && n < 7) continue;
+      const sila = celikom ? Math.max(n, slovaStroki.length) : n;
+      if (sila > dlina) {
+        dlina = sila;
+        luchshaya = st;
+      }
     }
+    if (!luchshaya) continue;
+    if (resheno.some((r) => q.id === r.chto)) continue;
+
+    citat += 1;
+    citaty.push({
+      dlina,
+      text:
+        `  [${q.id}] цитирует материал урока ${luchshaya.gde} — ${dlina} слов подряд` +
+        `\n     строка: ${luchshaya.text}` +
+        `\n     условие: ${uslovie.slice(0, 110)}`,
+    });
   }
+
 }
 
 if (citaty.length) {
   console.log(`\n=== Работа цитирует урочный материал — ${citat}`);
-  for (const c of citaty) console.log(c);
+  citaty.sort((a, b) => b.dlina - a.dlina);
+  for (const c of citaty) console.log(c.text);
   console.log(
     "\n  Правится дешевле всего так: брать не строку урочного текста, а КОРОТКИЙ\n" +
       "  НОВЫЙ текст того же жанра. Тогда снимается вся порода разом."
