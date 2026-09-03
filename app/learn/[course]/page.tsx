@@ -26,6 +26,24 @@ function znakVida(lesson: Lesson): string | undefined {
 }
 
 /**
+ * Внутренность узла тропы: кружок и подпись.
+ *
+ * Нажимается ВЕСЬ узел, а не одно название: кружок с номером выглядит кнопкой,
+ * значит должен ею быть. Владелец ткнул в кружок и не попал никуда.
+ *
+ * Закрытая работа ссылки не получает, но обёртку получает ту же — иначе она
+ * встала бы в сетке иначе, чем соседи, и тропа сломалась бы на одном узле.
+ */
+function Uzel({ href, children }: { href?: string; children: React.ReactNode }) {
+  if (!href) return <span className={t.uzelSsylka}>{children}</span>;
+  return (
+    <Link className={t.uzelSsylka} href={href}>
+      {children}
+    </Link>
+  );
+}
+
+/**
  * Кольцо успеха части.
  *
  * Рисуется прямо в разметке, без картинки и без кода на стороне ученика: два
@@ -339,41 +357,48 @@ export default async function CoursePage({ params }: Params) {
                           className={`${t.uzel} ${i % 2 === 0 ? t.sleva : t.sprava}`}
                           key={lesson.slug}
                         >
-                          <span
-                            className={`${t.krug} ${isDone ? t.krugGotov : ""} ${
-                              isNow ? t.krugSeychas : ""
-                            }`}
-                            aria-hidden
+                          {/* Нажимается ВЕСЬ узел — и кружок, и подпись.
+                              Раньше ссылкой было только название: владелец
+                              ткнул в кружок и не попал никуда. Кружок с
+                              номером выглядит кнопкой, значит должен ею быть. */}
+                          <Link
+                            className={t.uzelSsylka}
+                            href={`/learn/${course.slug}/${lesson.slug}`}
                           >
-                            {isDone ? "✓" : i + 1}
-                          </span>
-                          <span className={t.podpis}>
-                            {isNow && <span className={t.tuty}>ты здесь</span>}
-                            <Link className={t.imyaUroka} href={`/learn/${course.slug}/${lesson.slug}`}>
-                              {lesson.title}
-                            </Link>
-                            <span className={t.melko}>
+                            <span
+                              className={`${t.krug} ${isDone ? t.krugGotov : ""} ${
+                                isNow ? t.krugSeychas : ""
+                              }`}
+                              aria-hidden
+                            >
+                              {isDone ? "✓" : i + 1}
+                            </span>
+                            <span className={t.podpis}>
+                              {isNow && <span className={t.tuty}>ты здесь</span>}
+                              <span className={t.imyaUroka}>{lesson.title}</span>
+                              <span className={t.melko}>
                               {/* Значок стоит только у уроков умений: их среди
                                   правил и надо различать. У правил значка нет
                                   нарочно — иначе он у каждого второго узла и
                                   превращается в шум. */}
-                              {znakVida(lesson) && (
-                                <>
-                                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                                  <img
-                                    className={t.znachokVida}
-                                    src={`/twemoji/${znakVida(lesson)}.svg`}
-                                    alt=""
-                                    width={14}
-                                    height={14}
-                                  />
-                                  {IMYA_VIDA[vidUroka(lesson)]}
-                                  {" · "}
-                                </>
-                              )}
-                              {isDone ? "пройден" : `${lesson.estimatedMinutes} мин`}
+                                {znakVida(lesson) && (
+                                  <>
+                                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                                    <img
+                                      className={t.znachokVida}
+                                      src={`/twemoji/${znakVida(lesson)}.svg`}
+                                      alt=""
+                                      width={14}
+                                      height={14}
+                                    />
+                                    {IMYA_VIDA[vidUroka(lesson)]}
+                                    {" · "}
+                                  </>
+                                )}
+                                {isDone ? "пройден" : `${lesson.estimatedMinutes} мин`}
+                              </span>
                             </span>
-                          </span>
+                          </Link>
                         </li>
                       );
                     })}
@@ -389,35 +414,29 @@ export default async function CoursePage({ params }: Params) {
                         moduleReady ? "" : t.rabotaZakryta
                       }`}
                     >
-                      <span className={t.krug} aria-hidden>
-                        {quizScore !== undefined ? "✓" : moduleReady ? "?" : <Zamok />}
-                      </span>
-                      <span className={t.podpis}>
-                        {moduleReady && quizScore === undefined ? (
-                          <Link
-                            className={t.imyaUroka}
-                            href={`/learn/${course.slug}/proverochnaya/${module.slug}`}
-                          >
-                            Проверочная работа
-                          </Link>
-                        ) : quizScore !== undefined ? (
-                          <Link
-                            className={t.imyaUroka}
-                            href={`/learn/${course.slug}/proverochnaya/${module.slug}`}
-                          >
-                            Проверочная работа
-                          </Link>
-                        ) : (
-                          <span className={t.imyaUroka}>Проверочная работа</span>
-                        )}
-                        <span className={t.melko}>
-                          {quizScore !== undefined
-                            ? `сдана, ${quizScore} из 100`
-                            : moduleReady
-                              ? `${asked} ${plural(asked, "вопрос", "вопроса", "вопросов")} · можно сдавать`
-                              : "откроется, когда пройдены все уроки модуля"}
+                      {/* Закрытая работа — не ссылка, а тот же узел без неё:
+                          обёртка одна и та же, значит и стоит она одинаково. */}
+                      <Uzel
+                        href={
+                          moduleReady || quizScore !== undefined
+                            ? `/learn/${course.slug}/proverochnaya/${module.slug}`
+                            : undefined
+                        }
+                      >
+                        <span className={t.krug} aria-hidden>
+                          {quizScore !== undefined ? "✓" : moduleReady ? "?" : <Zamok />}
                         </span>
-                      </span>
+                        <span className={t.podpis}>
+                          <span className={t.imyaUroka}>Проверочная работа</span>
+                          <span className={t.melko}>
+                            {quizScore !== undefined
+                              ? `сдана, ${quizScore} из 100`
+                              : moduleReady
+                                ? `${asked} ${plural(asked, "вопрос", "вопроса", "вопросов")} · можно сдавать`
+                                : "откроется, когда пройдены все уроки модуля"}
+                          </span>
+                        </span>
+                      </Uzel>
                     </li>
                   </ol>
                 </div>
@@ -463,28 +482,27 @@ export default async function CoursePage({ params }: Params) {
                         partScore !== undefined ? t.rabotaSdana : ""
                       } ${partReady ? "" : t.rabotaZakryta}`}
                     >
-                      <span className={t.krug} aria-hidden>
-                        {partScore !== undefined ? "✓" : partReady ? "?" : <Zamok />}
-                      </span>
-                      <span className={t.podpis}>
-                        {partReady || partScore !== undefined ? (
-                          <Link
-                            className={t.imyaUroka}
-                            href={`/learn/${course.slug}/rabota-chasti/${group.part.slug}`}
-                          >
-                            Работа части: {group.part.title}
-                          </Link>
-                        ) : (
-                          <span className={t.imyaUroka}>Работа части: {group.part.title}</span>
-                        )}
-                        <span className={t.melko}>
-                          {partScore !== undefined
-                            ? `сдана, ${partScore} из 100`
-                            : partReady
-                              ? `${partAsked} ${plural(partAsked, "вопрос", "вопроса", "вопросов")} · можно сдавать`
-                              : "откроется, когда пройдены все уроки части"}
+                      <Uzel
+                        href={
+                          partReady || partScore !== undefined
+                            ? `/learn/${course.slug}/rabota-chasti/${group.part.slug}`
+                            : undefined
+                        }
+                      >
+                        <span className={t.krug} aria-hidden>
+                          {partScore !== undefined ? "✓" : partReady ? "?" : <Zamok />}
                         </span>
-                      </span>
+                        <span className={t.podpis}>
+                          <span className={t.imyaUroka}>Работа части: {group.part.title}</span>
+                          <span className={t.melko}>
+                            {partScore !== undefined
+                              ? `сдана, ${partScore} из 100`
+                              : partReady
+                                ? `${partAsked} ${plural(partAsked, "вопрос", "вопроса", "вопросов")} · можно сдавать`
+                                : "откроется, когда пройдены все уроки части"}
+                          </span>
+                        </span>
+                      </Uzel>
                     </li>
                   </ol>
                 )}

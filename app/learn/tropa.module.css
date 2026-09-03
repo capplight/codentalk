@@ -221,11 +221,31 @@
  */
 .uzel {
   position: relative;
+  padding: 3px 0;
+}
+
+/*
+ * Сетка живёт на ССЫЛКЕ, а не на самом узле, — и это не мелочь.
+ *
+ * Нажимается весь узел: кружок с номером выглядит кнопкой, значит должен ею
+ * быть. Владелец ткнул в кружок и не попал никуда. Чтобы ссылка накрыла и
+ * кружок, и подпись, она обязана быть их общим родителем, а раскладку тогда
+ * держит она.
+ */
+.uzelSsylka {
   display: grid;
   grid-template-columns: 1fr 44px 1fr;
   align-items: center;
   gap: 14px;
-  padding: 6px 0;
+  padding: 5px 6px;
+  border-radius: 16px;
+  text-decoration: none;
+  color: inherit;
+  transition: background 0.15s;
+}
+
+a.uzelSsylka:hover {
+  background: var(--paper-alt);
 }
 
 .sleva .podpis {
@@ -269,7 +289,7 @@
   transition: transform 0.15s;
 }
 
-.uzel:hover .krug {
+a.uzelSsylka:hover .krug {
   transform: scale(1.08);
 }
 
@@ -352,7 +372,7 @@
   .tropa::before {
     left: 22px;
   }
-  .uzel {
+  .uzelSsylka {
     grid-template-columns: 44px 1fr;
     gap: 12px;
   }
