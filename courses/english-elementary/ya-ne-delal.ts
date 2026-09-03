@@ -619,7 +619,7 @@ const module: Module = {
           items: ["send", "The secretary", "it", "did not"],
           answer: [1, 3, 0, 2],
           hint: "Полная запись занимает два слова, и оба стоят перед делом.",
-          why: "The secretary did not send it. Обе части полной записи стоят перед глаголом.",
+          why: "The secretary did not send it. Оба слова полной записи стоят перед глаголом.",
         },
         {
           id: "z5-napisat-o-planshete",
@@ -841,7 +841,7 @@ const module: Module = {
         {
           id: "primer-uborki",
           kind: "example",
-          caption: "Половина дел",
+          caption: "Что сделано и что нет",
           zvuchat: [
             "I cleaned the room, but I didn't wash the towel.",
             "I bought soap, but I didn't buy a mirror.",
@@ -857,8 +857,9 @@ const module: Module = {
             "The uniform was in the pocket.": "Спецодежда лежала в кармане.",
           },
           explain:
-            "В первых двух строках по два простых предложения: сделанное и несделанное, между ними " +
-            "but. Третья строка описывает, где лежала вещь, и отрицания не несёт.",
+            "В первых двух строках по два простых предложения: одно о сделанном, другое " +
+            "о несделанном, между ними but. Третья строка описывает, где лежала вещь, " +
+            "и отрицания не несёт.",
         },
         {
           id: "slovar-veshchey-chetyre",
@@ -889,7 +890,7 @@ const module: Module = {
         {
           id: "z2-vybrat-wasnt-ili-didnt",
           kind: "choice",
-          prompt: "Работа была, а конца у неё не было. Выбери верное второе простое предложение.",
+          prompt: "Работа была, а закончить её не вышло. Выбери верное второе простое предложение.",
           options: [
             { text: "but I wasn't finish" },
             { text: "but I didn't finish", correct: true },
@@ -923,7 +924,7 @@ const module: Module = {
           items: ["a mirror", "but", "buy", "I didn't"],
           answer: [1, 3, 2, 0],
           hint: "Сначала соединительное слово, потом кто и отрицание, потом дело.",
-          why: "but I didn't buy a mirror. Второе строится так же, как отдельное предложение.",
+          why: "but I didn't buy a mirror. Второе простое предложение строится так же, как отдельное.",
         },
         {
           id: "z5-napisat-dve-chasti",
@@ -1449,7 +1450,7 @@ const module: Module = {
         answer: "I didn't have cash.",
         accept: ["I didn't have cash"],
         why:
-          "I didn't have cash. Второе простое предложение говорило о том, что есть " +
+          "I didn't have cash. Второе простое предложение говорит о том, что есть " +
           "сейчас, а рассказ — о вчерашнем дне.",
       },
       {

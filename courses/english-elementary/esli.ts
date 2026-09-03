@@ -274,11 +274,16 @@ const module: Module = {
             "А в части с условием его не ставят: там глагол настоящего времени.",
             "Окончание в этой части живёт по правилу лица: I wake up, но the bus breaks down.",
             "Части можно поменять местами: I'll show you the city if you come.",
-            "При обратном порядке запятая не нужна вовсе.",
             "Когда условие стоит впереди, между частями ставят запятую.",
+            "А при обратном порядке запятая не нужна вовсе.",
           ],
         },
         {
+          // Имена блоков `dve-poloviny-so-slovom-if`, `ne-will-v-polovine-s-if` и
+          // `chetyre-vida-glavnoy-poloviny` остались от прежнего слова «половина».
+          // Переименовывать их НЕЛЬЗЯ: правило 5 формата урока — имя блока после
+          // выхода не меняется, к нему привязаны пометки «непонятно» и заметки
+          // учеников. На экране этих имён нет. То же в po-raspisaniyu.ts.
           id: "ne-will-v-polovine-s-if",
           kind: "note",
           tone: "mistake",
@@ -427,7 +432,7 @@ const module: Module = {
             "If you find it, I'll come today.",
             "If you turn off the light, the room is dark.",
           ],
-          head: ["Главная часть", "Пример строки"],
+          head: ["Вид главной части", "Пример строки"],
           rows: [
             ["просьба", "If you find it, call me."],
             ["можно так", "If you find it, you can call me."],

@@ -390,7 +390,7 @@ const module: Module = {
           id: "z5-napisat-o-delfine",
           kind: "short",
           prompt:
-            "Скажи по-английски, что дельфина доводилось видеть. Дня не называй, начни с I have.",
+            "Скажи по-английски, что доводилось видеть дельфина. Когда это было, не называй, начни с I have.",
           answer: "I have seen a dolphin.",
           accept: [
             "I have seen a dolphin",
@@ -991,7 +991,7 @@ const module: Module = {
             "Слева стоит оборот времени и слово was — это разговор о том случае.",
             "Справа оборота времени нет, стоит have been, и это разговор обо всей жизни.",
             "Когда говорят, что где-то побывал и вернулся, ставят to: I have been to Astana.",
-            "Оборот значит, что человек там бывал и уже вернулся.",
+            "Запись have been to значит, что человек там бывал и уже вернулся.",
           ],
         },
         {
@@ -999,7 +999,7 @@ const module: Module = {
           kind: "note",
           tone: "mistake",
           text:
-            "«I have been to Astana yesterday» — так не говорят.\n\nОборот " +
+            "«I have been to Astana yesterday» — так не говорят.\n\nHave been to " +
             "говорит о жизни целиком, и оборот времени при нём не ставят: I have " +
             "been to Astana.",
         },
@@ -1050,7 +1050,7 @@ const module: Module = {
           before: "I have been ",
           after: " Astana.",
           answer: "to",
-          hint: "Это не in: у оборота своё слово.",
+          hint: "Это не in: у have been своё слово.",
           why:
             "I have been to Astana. Это то самое короткое слово, которое " +
             "присоединяет место к been.",
@@ -1059,7 +1059,7 @@ const module: Module = {
           id: "z2-vybrat-ob-opyte-mesta",
           kind: "choice",
           prompt:
-            "Скажи об опыте: в горах бывать доводилось. Когда именно — неважно.",
+            "Скажи об опыте: доводилось бывать в горах. Когда именно — неважно.",
           options: [
             { text: "I was in the mountains." },
             { text: "I have been in the mountains." },

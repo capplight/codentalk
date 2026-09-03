@@ -161,7 +161,7 @@ export const ekzamenEnglishElementary: Quiz = {
       kind: "short",
       outcome: "противопоставлять сделанное и несделанное через but",
       prompt:
-        "Напиши о себе одно предложение: вчера работа была, а звонка сестре не было. " +
+        "Напиши о себе одно предложение: вчера работа была, а позвонить сестре не вышло. " +
         "Работать — work, звонить — call, сестра — my sister.",
       answer: "I worked yesterday, but I didn't call my sister.",
       accept: [
@@ -209,7 +209,7 @@ export const ekzamenEnglishElementary: Quiz = {
       kind: "short",
       outcome: "говорить о длительном действии: I was working",
       prompt:
-        "Напиши: в семь вечера у тебя шла готовка ужина. Готовить — cook, ужин — dinner, " +
+        "Напиши о вчерашнем вечере: в семь ты ещё за готовкой ужина. Готовить — cook, ужин — dinner, " +
         "в семь вечера — at seven in the evening.",
       answer: "I was cooking dinner at seven in the evening.",
       accept: [
@@ -388,8 +388,8 @@ export const ekzamenEnglishElementary: Quiz = {
         "I will call you when I get home",
       ],
       why:
-        "I'll call you when I get home. В первой части стоит will, а во второй, " +
-        "после when, — обычное настоящее время.",
+        "I'll call you when I get home. В главной части стоит will, а в части со " +
+        "словом when — обычное настоящее время.",
     },
 
     // ---- 12. Давай я ----
@@ -524,7 +524,7 @@ export const ekzamenEnglishElementary: Quiz = {
       kind: "short",
       outcome: "говорить, что мешает: too small, too expensive",
       prompt:
-        "Скажи, что куртка слишком дорогая и ты её не купил. Куртка — the jacket, " +
+        "Скажи, что куртка слишком дорогая и покупка не состоялась. Куртка — the jacket, " +
         "дорогой — expensive, купить — buy. Два предложения.",
       answer: "The jacket was too expensive. I didn't buy it.",
       accept: [
@@ -699,7 +699,7 @@ export const ekzamenEnglishElementary: Quiz = {
       kind: "short",
       outcome: "рассказать об опыте: I have seen a dolphin",
       prompt:
-        "Скажи об опыте: кита видеть доводилось. Видеть — see, кит — a whale. Начни с I have.",
+        "Скажи об опыте: доводилось видеть кита. Видеть — see, кит — a whale. Начни с I have.",
       answer: "I have seen a whale.",
       exact: true,
       accept: ["I have seen a whale", "I've seen a whale.", "I've seen a whale"],
@@ -711,7 +711,7 @@ export const ekzamenEnglishElementary: Quiz = {
       kind: "short",
       outcome: "назвать то, чего не было в жизни: I have never tried it",
       prompt:
-        "Скажи, что никогда не пробовал это блюдо. Пробовать — try, это блюдо — this dish.",
+        "Скажи об опыте: это блюдо пробовать не доводилось. Пробовать — try, это блюдо — this dish.",
       answer: "I have never tried this dish.",
       accept: [
         "I have never tried this dish",
@@ -729,7 +729,7 @@ export const ekzamenEnglishElementary: Quiz = {
       kind: "short",
       outcome: "сообщить, что дело ещё не сделано: I haven't packed yet",
       prompt:
-        "Напиши два предложения: чемодан ты уже собрал, а билет ещё не купил. " +
+        "Напиши два предложения: чемодан уже собран, а билет ещё не куплен. " +
         "Собрать чемодан — pack, купить билет — buy the ticket.",
       answer: "I have already packed. I haven't bought the ticket yet.",
       accept: [
@@ -744,7 +744,7 @@ export const ekzamenEnglishElementary: Quiz = {
       id: "ex-el-tolko-chto",
       kind: "gap",
       outcome: "сказать о только что сделанном: I have just finished",
-      prompt: "Ты только что закончил работу. Допиши недостающее слово.",
+      prompt: "Работа только что закончена. Допиши недостающее слово.",
       before: "I have ",
       after: " finished my work.",
       answer: "just",
@@ -852,7 +852,7 @@ export const ekzamenEnglishElementary: Quiz = {
       kind: "short",
       outcome: "рассказывать, что умел герой раньше: I could swim at six",
       prompt:
-        "Скажи: в семь лет умение кататься на коньках уже было. Кататься на коньках — skate, " +
+        "Скажи о себе: кататься на коньках получалось уже в семь лет. Кататься на коньках — skate, " +
         "в семь лет — at seven.",
       answer: "I could skate at seven.",
       exact: true,
@@ -916,7 +916,7 @@ export const ekzamenEnglishElementary: Quiz = {
       ],
       why:
         "If it rains tomorrow, I'll stay at home. После if стоит обычное настоящее " +
-        "время, а обещание во второй части берёт will.",
+        "время, а обещание в главной части берёт will.",
     },
     {
       id: "ex-el-if-ili-when",
@@ -1124,7 +1124,7 @@ export const ekzamenEnglishElementary: Quiz = {
         "Послушай. От чего зависит согласие? Ответь одним словом по-английски.",
       answer: "weather",
       accept: ["Weather", "the weather"],
-      why: "Weather. Условие вводит слово if, и оно стоит в первой части записи.",
+      why: "Weather. Условие вводит слово if, и стоит это условие в первой части записи.",
     },
     {
       id: "ex-el-proverit-rasskaz-o-dne",
