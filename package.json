@@ -29,6 +29,7 @@
     "zapas": "tsx scripts/zapas.mts",
     "pamyat": "tsx scripts/pamyat.mts",
     "otchyot-aktivnost": "tsx scripts/otchyot-aktivnost.mts",
+    "skachat-obyasneniya": "tsx scripts/skachat-obyasneniya.mts",
     "slovo": "tsx scripts/slovo.mts",
     "sosedi": "tsx scripts/sosedi.mts",
     "perevody": "tsx scripts/perevody.mts",
