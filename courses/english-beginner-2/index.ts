@@ -1,4 +1,5 @@
 import type { Course } from "@/lib/content/types";
+import alfavit from "./alfavit";
 import ktoEto from "./kto-eto";
 
 /**
@@ -34,7 +35,7 @@ const course: Course = {
    * переделка.
    */
   format: "shagi",
-  modules: [ktoEto],
+  modules: [alfavit, ktoEto],
 };
 
 export default course;
