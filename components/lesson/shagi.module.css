@@ -1,0 +1,486 @@
+/*
+ * Пошаговый урок: один экран — одна мысль.
+ *
+ * Цвета не свои: все до одного берутся из `app/globals.css`. Свой набор здесь
+ * уже был ошибкой в образце — урок оказался островом посреди сайта, и при
+ * смене темы разъезжался с шапкой.
+ *
+ * Ширина ограничена 680 точками. Это не украшение: длинная строка на широком
+ * экране читается хуже, а урок читают подолгу.
+ */
+
+.ramka {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 12px 16px 24px;
+  min-height: calc(100vh - 220px);
+  display: flex;
+  flex-direction: column;
+}
+
+/* ---- Верх: выход, полоса шагов, счёт ---- */
+
+.verh {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.krest {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  color: var(--ink-soft);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  font-size: 15px;
+  text-decoration: none;
+}
+
+.krest:hover {
+  color: var(--ink);
+  border-color: var(--accent);
+}
+
+.polosa {
+  flex: 1;
+  display: flex;
+  gap: 3px;
+}
+
+.polosa i {
+  flex: 1;
+  height: 5px;
+  border-radius: 3px;
+  background: var(--line);
+  transition: background 0.25s;
+}
+
+.polosa i.proyden {
+  background: var(--good);
+}
+
+.polosa i.tut {
+  background: var(--accent);
+}
+
+.schyot {
+  font-size: 13px;
+  color: var(--ink-soft);
+  flex: none;
+  min-width: 44px;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+.gde {
+  font-size: 12px;
+  color: var(--ink-soft);
+  padding: 7px 0 0 42px;
+  letter-spacing: 0.03em;
+}
+
+/* ---- Сам экран ---- */
+
+.pole {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 16px 0;
+}
+
+.ekran {
+  display: none;
+}
+
+.ekranVidno {
+  display: block;
+  animation: vhod 0.28s ease;
+}
+
+@keyframes vhod {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ekranVidno,
+  .puzyr {
+    animation: none;
+  }
+}
+
+.metka {
+  font-size: 12px;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin-bottom: 10px;
+}
+
+.zagolovok {
+  font-family: var(--font-display);
+  font-size: 26px;
+  line-height: 1.25;
+  margin: 0 0 12px;
+  letter-spacing: -0.01em;
+}
+
+.vyvod {
+  color: var(--good);
+  margin: 12px 0 0;
+  font-weight: 500;
+}
+
+.pravilo {
+  color: var(--ink-soft);
+  margin: 0 0 12px;
+}
+
+/* ---- Начало и конец урока ---- */
+
+.karta {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 16px;
+  margin-top: 16px;
+  box-shadow: var(--shadow);
+}
+
+.karta p {
+  margin: 0;
+  color: var(--ink-soft);
+}
+
+/* ---- Разговор пузырями ---- */
+
+.razgovor {
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+  margin-top: 4px;
+}
+
+.puzyr {
+  display: flex;
+  gap: 10px;
+  align-items: flex-end;
+  opacity: 0;
+  transform: translateY(8px);
+  animation: vsplyt 0.4s forwards;
+}
+
+.puzyr:nth-child(1) {
+  animation-delay: 0.05s;
+}
+.puzyr:nth-child(2) {
+  animation-delay: 0.35s;
+}
+.puzyr:nth-child(3) {
+  animation-delay: 0.65s;
+}
+.puzyr:nth-child(4) {
+  animation-delay: 0.95s;
+}
+.puzyr:nth-child(n + 5) {
+  animation-delay: 1.2s;
+}
+
+@keyframes vsplyt {
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.sprava {
+  flex-direction: row-reverse;
+}
+
+.lico {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: var(--paper-alt);
+  flex: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--line);
+}
+
+.rech {
+  max-width: 80%;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 16px 16px 16px 4px;
+  padding: 10px 13px;
+  box-shadow: var(--shadow);
+}
+
+.sprava .rech {
+  border-radius: 16px 16px 4px 16px;
+  background: var(--accent-soft);
+  border-color: var(--accent-soft);
+}
+
+.en {
+  font-weight: 600;
+}
+
+.ru {
+  color: var(--ink-soft);
+  font-size: 14px;
+  margin-top: 2px;
+}
+
+/* ---- Случай: значок слева, правило и два примера справа ---- */
+
+.sluchay {
+  display: flex;
+  gap: 18px;
+  align-items: flex-start;
+}
+
+.telo {
+  flex: 1;
+  min-width: 0;
+}
+
+.risunok {
+  width: 92px;
+  height: 92px;
+  border-radius: 22px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  box-shadow: var(--shadow);
+}
+
+@media (max-width: 560px) {
+  .sluchay {
+    flex-direction: column;
+    gap: 12px;
+  }
+  .risunok {
+    width: 68px;
+    height: 68px;
+    border-radius: 18px;
+  }
+  .risunok img {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+.stroki {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.stroka {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 10px 13px;
+}
+
+/* ---- Таблица ---- */
+
+.tablicaKarta {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 6px 16px;
+  overflow-x: auto;
+  box-shadow: var(--shadow);
+}
+
+.tablica {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 15px;
+}
+
+.tablica th {
+  text-align: left;
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  font-weight: 600;
+  padding: 12px 10px 8px 0;
+  border-bottom: 1px solid var(--line);
+  white-space: nowrap;
+}
+
+.tablica td {
+  padding: 11px 10px 11px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.tablica tr:last-child td {
+  border-bottom: 0;
+}
+
+/* ---- Слова ---- */
+
+.nabor {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(132px, 1fr));
+  gap: 9px;
+}
+
+.slovoKarta {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 13px;
+  text-align: center;
+  box-shadow: var(--shadow);
+}
+
+.slovoKarta img {
+  margin-bottom: 7px;
+}
+
+.bezZnaka {
+  height: 40px;
+}
+
+.chtenie {
+  color: var(--ink-soft);
+  opacity: 0.75;
+  font-size: 12px;
+  margin-top: 4px;
+}
+
+/* ---- Врезка ---- */
+
+.vrezka {
+  border-radius: 16px;
+  padding: 16px;
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  background: var(--accent-soft);
+  border: 1px solid var(--accent);
+}
+
+.vrezkaOshibka {
+  background: var(--bad-soft);
+  border-color: var(--bad);
+}
+
+.vrezka .zag {
+  font-size: 19px;
+  font-weight: 700;
+  margin-bottom: 6px;
+  color: var(--ink);
+}
+
+.vrezka p {
+  margin: 8px 0 0;
+  color: var(--ink);
+}
+
+.vrezkaZnak {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  flex: none;
+  color: var(--btn-text);
+  background: var(--accent);
+}
+
+.vrezkaOshibka .vrezkaZnak {
+  background: var(--bad);
+}
+
+/* ---- Низ: назад и дальше ---- */
+
+.niz {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  padding: 12px 0 4px;
+  border-top: 1px solid var(--line);
+}
+
+.nazad {
+  background: none;
+  border: 0;
+  color: var(--ink-soft);
+  font: inherit;
+  cursor: pointer;
+  padding: 10px;
+}
+
+.nazad:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+
+.dalshe {
+  flex: 1;
+  background: var(--accent);
+  color: var(--btn-text);
+  border: 0;
+  border-radius: 14px;
+  padding: 15px;
+  font: inherit;
+  font-weight: 700;
+  font-size: 17px;
+  cursor: pointer;
+  box-shadow: var(--shadow-2);
+  text-align: center;
+  text-decoration: none;
+}
+
+.dalshe:hover {
+  filter: brightness(1.05);
+}
+
+/*
+ * Задание без ответа не запирает дорогу: свой темп — принцип продукта, а не
+ * послабление. Но кнопка честно говорит, что происходит: не «дальше», а
+ * «пропустить», и выглядит тише.
+ */
+.propustit {
+  background: var(--surface);
+  color: var(--ink-soft);
+  border: 1px solid var(--line);
+  box-shadow: none;
+  font-weight: 500;
+}
+
+.podskazkaKlaviatura {
+  text-align: center;
+  color: var(--ink-soft);
+  opacity: 0.7;
+  font-size: 12px;
+  padding-top: 8px;
+}

@@ -51,7 +51,9 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="ru" data-theme="light" className={`${manrope.variable} ${inter.variable}`}>
+    /* Тёмный лист по умолчанию — решение владельца от 3 сентября 2026.
+       Светлый остаётся на выбор, переключатель в шапке. */
+    <html lang="ru" data-theme="dark" className={`${manrope.variable} ${inter.variable}`}>
       <head>
         {/*
           Тема применяется до первой отрисовки. Без этого страница успевала бы
@@ -80,6 +82,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <a href="https://instagram.com/codentalk.kz" target="_blank" rel="noreferrer">
               @codentalk.kz
             </a>
+            <br />
+            {/* Значки уроков — Twemoji, лицензия CC-BY 4.0: она требует
+                упоминания, и вот оно. Сами файлы лежат у нас, в /twemoji. */}
+            Значки в уроках —{" "}
+            <a href="https://github.com/jdecked/twemoji" target="_blank" rel="noreferrer">
+              Twemoji
+            </a>{" "}
+            от Twitter, лицензия CC-BY 4.0
           </div>
         </footer>
         {/*

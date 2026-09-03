@@ -32,6 +32,16 @@ interface Flow {
   answered: number;
   /** Урок засчитан — отметка лежит в базе */
   done: boolean;
+  /**
+   * Дан ли ответ на это задание.
+   *
+   * Нужно пошаговому виду урока: там на экране стоит одно задание, и кнопка
+   * внизу обязана честно называться. Пока ответа нет — «Пропустить», после
+   * ответа — «Дальше». Запирать дорогу мы не будем (свой темп — принцип
+   * продукта), но и говорить «дальше» там, где человек уходит, не ответив,
+   * тоже нельзя.
+   */
+  otvecheno: (taskId: string) => boolean;
   /** Запись не прошла: сеть или вход. Ученик должен об этом знать */
   saveFailed: boolean;
   markAnswered: (taskId: string) => void;
@@ -44,6 +54,7 @@ const LessonFlowContext = createContext<Flow>({
   answered: 0,
   done: false,
   saveFailed: false,
+  otvecheno: () => false,
   markAnswered: () => {},
   finish: async () => false,
 });
@@ -75,7 +86,11 @@ export default function LessonFlow({
   // и внутри обновления состояния ему не место. React в разработке вызывает
   // такое обновление дважды, и запрос уходил бы дважды.
   const answered = useRef<Set<string>>(new Set(answeredIds));
-  const [count, setCount] = useState(answered.current.size);
+  // Перечень, а не только счёт: пошаговому виду нужно знать про КАЖДОЕ задание,
+  // отвечено оно или нет. Счёт остаётся его длиной — второго источника правды
+  // не заводим.
+  const [spisok, setSpisok] = useState<string[]>(() => [...answered.current]);
+  const count = spisok.length;
   const [done, setDone] = useState(completed);
   const [saveFailed, setSaveFailed] = useState(false);
 
@@ -117,9 +132,9 @@ export default function LessonFlow({
     (taskId: string) => {
       if (answered.current.has(taskId)) return;
       answered.current.add(taskId);
-      setCount(answered.current.size);
-
       const list = [...answered.current];
+      setSpisok(list);
+
       const finished = total > 0 && list.length >= total;
       void save(list, finished ? "completed" : "in_progress").then((okay) => {
         if (okay && finished) setDone(true);
@@ -134,9 +149,11 @@ export default function LessonFlow({
     return okay;
   }, [save]);
 
+  const otvecheno = useCallback((taskId: string) => spisok.includes(taskId), [spisok]);
+
   const value = useMemo(
-    () => ({ total, answered: count, done, saveFailed, markAnswered, finish }),
-    [total, count, done, saveFailed, markAnswered, finish]
+    () => ({ total, answered: count, done, saveFailed, otvecheno, markAnswered, finish }),
+    [total, count, done, saveFailed, otvecheno, markAnswered, finish]
   );
 
   return <LessonFlowContext.Provider value={value}>{children}</LessonFlowContext.Provider>;

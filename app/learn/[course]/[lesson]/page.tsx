@@ -10,6 +10,7 @@ import TaskCard from "@/components/lesson/TaskCard";
 import ConfusionButton from "@/components/lesson/ConfusionButton";
 import FinishLesson from "@/components/lesson/FinishLesson";
 import LessonFlow from "@/components/lesson/LessonFlow";
+import UrokShagami from "@/components/lesson/UrokShagami";
 import s from "@/components/lesson/lesson.module.css";
 
 type Params = { params: Promise<{ course: string; lesson: string }> };
@@ -92,6 +93,38 @@ export default async function LessonPage({ params }: Params) {
 
   const tasks = lesson.blocks.filter(isTask);
   let taskNumber = 0;
+
+  /*
+   * Пошаговый вид — новый формат урока, принятый владельцем 3 сентября 2026.
+   * Курс объявляет его сам (`format: "shagi"`), а не страница угадывает по
+   * имени: это решение о содержании, и оно живёт в данных.
+   *
+   * Учёт работы, отметка о прохождении и запись ответов те же самые —
+   * `LessonFlow` стоит снаружи обоих видов. Ученик, начавший урок страницей и
+   * вернувшийся к нему шагами, своих ответов не теряет.
+   */
+  if (course.format === "shagi") {
+    return (
+      <main className="wrap">
+        <LessonFlow
+          course={courseSlug}
+          lesson={lessonSlug}
+          total={tasks.length}
+          answeredIds={answeredIds}
+          completed={completed}
+          signedIn={Boolean(userId)}
+        >
+          <UrokShagami
+            course={course}
+            module={module}
+            lesson={lesson}
+            next={next}
+            courseSlug={courseSlug}
+          />
+        </LessonFlow>
+      </main>
+    );
+  }
 
   return (
     <main className="wrap" style={{ paddingBottom: 56 }}>

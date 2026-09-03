@@ -10,8 +10,33 @@ import type { Course, Lesson, Module } from "@/lib/content/types";
 import webVvedenie from "./web-vvedenie";
 import englishStarter from "./english-starter";
 import englishElementary from "./english-elementary";
+import englishBeginner2 from "./english-beginner-2";
 
-export const courses: Course[] = [englishStarter, englishElementary, webVvedenie];
+/*
+ * ОБРАЗЕЦ НОВОГО ФОРМАТА ПОДКЛЮЧЁН ЗДЕСЬ НАРОЧНО, хотя он ещё не дописан.
+ *
+ * Правило записано в CLAUDE.md кровью экзамена Elementary: содержание, до
+ * которого нет дороги, выглядит в отчётах работающим. Пока курс не стоял в
+ * этом перечне, ни `check:content`, ни `kontrol`, ни `bliznetsy` его не
+ * смотрели — а отчёт был чист.
+ *
+ * Ученику он при этом не мешает: в каталоге курс закрыт от показа (см.
+ * `courseCards`), потому что в нём один модуль из двадцати с лишним.
+ */
+export const courses: Course[] = [
+  englishStarter,
+  englishElementary,
+  englishBeginner2,
+  webVvedenie,
+];
+
+/**
+ * Курсы, которые ученик видит в каталоге.
+ *
+ * Недописанный курс из перечня не выбрасывается — иначе его перестанут
+ * проверять скрипты, — а прячется здесь, в одном месте и с объяснением.
+ */
+const NEDOPISANY = new Set(["english-beginner-2"]);
 
 export function findCourse(slug: string): Course | undefined {
   return courses.find((course) => course.slug === slug);
@@ -37,7 +62,8 @@ export interface CourseCard {
 }
 
 export function courseCards(): CourseCard[] {
-  return courses.map((course) => {
+  const vidnye = courses.filter((course) => !NEDOPISANY.has(course.slug));
+  return vidnye.map((course) => {
     const lessons = lessonsInOrder(course);
     return {
       slug: course.slug,
