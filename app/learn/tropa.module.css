@@ -229,16 +229,27 @@
 }
 
 .sleva .podpis {
+  grid-row: 1;
   grid-column: 1;
   align-items: flex-end;
   text-align: right;
 }
 
 .sprava .podpis {
+  grid-row: 1;
   grid-column: 3;
 }
 
 .krug {
+  /*
+   * Строка задана явно — и это не украшение.
+   *
+   * Сетка расставляет то, чему не указана строка, только ВПЕРЁД: круг стоит в
+   * средней колонке, и подпись, которой велено встать в первую, уезжала на
+   * следующую строку — к чужому кружку. Владелец увидел это сразу: «номера не
+   * совпадают с названиями». Обе ячейки теперь названы поимённо.
+   */
+  grid-row: 1;
   grid-column: 2;
   justify-self: center;
   width: 40px;
@@ -346,10 +357,12 @@
     gap: 12px;
   }
   .krug {
+    grid-row: 1;
     grid-column: 1;
   }
   .sleva .podpis,
   .sprava .podpis {
+    grid-row: 1;
     grid-column: 2;
     align-items: flex-start;
     text-align: left;
