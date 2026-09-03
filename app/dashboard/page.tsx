@@ -2,11 +2,23 @@ import Link from "next/link";
 import { redirect } from "next/navigation";
 import { auth } from "@/auth";
 import { buildOverview } from "@/lib/api/overview";
+import CourseArt from "@/components/CourseArt";
+import { findNapravlenie } from "@/courses/napravleniya";
 import styles from "./dashboard.module.css";
 
 export const metadata = {
   title: "Мои курсы",
 };
+
+/**
+ * Рисунок направления по его имени.
+ *
+ * Кабинет знает про курс только имя направления, а рисунок лежит в перечне
+ * направлений. Не нашлось — берём знак веба: он же стоит у всего, что не язык.
+ */
+function artNapravleniya(track: string): string {
+  return findNapravlenie(track)?.art ?? "web";
+}
 
 /** Дата по-русски: «1 сентября» */
 function formatDate(date: Date): string {
@@ -32,6 +44,11 @@ export default async function DashboardPage() {
 
       {continueWith?.nextLesson ? (
         <div className={styles.continue}>
+          {/* Рисунок направления — тот же, что в каталоге и на странице курса.
+              Человек узнаёт, к чему возвращается, раньше, чем прочитал строку. */}
+          <span className={styles.art}>
+            <CourseArt id={artNapravleniya(continueWith.trackSlug)} title={continueWith.title} />
+          </span>
           <div>
             <span className={styles.meta}>{continueWith.title}</span>
             <h2 className={styles.continueTitle}>{continueWith.nextLesson.title}</h2>
@@ -39,6 +56,12 @@ export default async function DashboardPage() {
               {continueWith.nextLesson.minutes
                 ? `Около ${continueWith.nextLesson.minutes} мин`
                 : "Продолжим с того же места"}
+              {continueWith.lessonsTotal > 0 && (
+                <>
+                  {" · пройдено "}
+                  {continueWith.lessonsCompleted} из {continueWith.lessonsTotal}
+                </>
+              )}
             </span>
           </div>
           <Link className="btn big" href={continueWith.nextLessonHref ?? continueWith.href}>
@@ -83,14 +106,19 @@ export default async function DashboardPage() {
                   : Math.round((course.lessonsCompleted / course.lessonsTotal) * 100);
               return (
                 <Link key={course.slug} href={course.href} className={styles.course}>
-                  {/* Значка «по подписке» больше нет: платных курсов не
-                      существует, а витрина и кабинет должны говорить об одном
-                      и том же. */}
-                  {course.completedAt ? (
-                    <span className={`${styles.badge} ${styles.badgeDone}`}>Пройден</span>
-                  ) : course.access === "free" ? (
-                    <span className={`${styles.badge} ${styles.badgeFree}`}>Бесплатно</span>
-                  ) : null}
+                  <span className={styles.courseVerh}>
+                    <span className={styles.artMalenkiy}>
+                      <CourseArt id={artNapravleniya(course.trackSlug)} title={course.title} />
+                    </span>
+                    {/* Значка «по подписке» больше нет: платных курсов не
+                        существует, а витрина и кабинет должны говорить об одном
+                        и том же. */}
+                    {course.completedAt ? (
+                      <span className={`${styles.badge} ${styles.badgeDone}`}>Пройден</span>
+                    ) : course.access === "free" ? (
+                      <span className={`${styles.badge} ${styles.badgeFree}`}>Бесплатно</span>
+                    ) : null}
+                  </span>
 
                   <h3 className={styles.courseTitle}>{course.title}</h3>
 

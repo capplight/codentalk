@@ -189,3 +189,62 @@ a.course:hover {
 .certEnd {
   margin-left: auto;
 }
+
+/* ---------- рисунки направления ---------- */
+
+/*
+ * Обложка у «Продолжить» и у карточек курсов. Тот же рисунок, что в каталоге и
+ * на странице курса: человек узнаёт курс раньше, чем прочитал заголовок.
+ */
+.art {
+  width: 96px;
+  height: 64px;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+  flex: none;
+  display: block;
+}
+
+.art svg,
+.art img,
+.artMalenkiy svg,
+.artMalenkiy img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.artMalenkiy {
+  width: 56px;
+  height: 38px;
+  border-radius: 9px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  flex: none;
+  display: block;
+}
+
+.courseVerh {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+/* «Продолжить» встало в три колонки: рисунок, текст, кнопка. */
+.continue {
+  grid-template-columns: auto 1fr auto;
+}
+
+@media (max-width: 700px) {
+  .continue {
+    grid-template-columns: auto 1fr;
+  }
+  .art {
+    width: 72px;
+    height: 48px;
+  }
+}

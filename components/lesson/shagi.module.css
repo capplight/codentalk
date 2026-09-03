@@ -484,3 +484,9 @@
   font-size: 12px;
   padding-top: 8px;
 }
+
+/* Значок модуля в шапке урока — тот же, что на карте курса. */
+.znachokModulya {
+  vertical-align: -2px;
+  margin-right: 5px;
+}

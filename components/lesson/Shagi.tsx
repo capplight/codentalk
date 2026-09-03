@@ -38,6 +38,7 @@ export default function Shagi({
   ekrany,
   vyhod,
   modul,
+  znakModulya,
   children,
 }: {
   ekrany: OpisanieEkrana[];
@@ -45,6 +46,8 @@ export default function Shagi({
   vyhod: string;
   /** Название модуля — оно стоит под полосой шагов, чтобы не потеряться. */
   modul: string;
+  /** Значок модуля — тот же, что на карте курса. Пусто — значка нет. */
+  znakModulya?: string;
   children: React.ReactNode;
 }) {
   const [gde, setGde] = useState(0);
@@ -102,7 +105,19 @@ export default function Shagi({
           {gde + 1}/{vsego}
         </span>
       </div>
-      <div className={s.gde}>{modul}</div>
+      <div className={s.gde}>
+        {znakModulya && (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img
+            className={s.znachokModulya}
+            src={`/twemoji/${znakModulya}.svg`}
+            alt=""
+            width={14}
+            height={14}
+          />
+        )}
+        {modul}
+      </div>
 
       <div className={s.pole}>
         {spisok.map((ekran, i) => (

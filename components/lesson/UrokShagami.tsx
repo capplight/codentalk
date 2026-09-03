@@ -148,7 +148,12 @@ export default function UrokShagami({
   );
 
   return (
-    <Shagi ekrany={opisaniya} vyhod={`/learn/${courseSlug}`} modul={modul.title}>
+    <Shagi
+      ekrany={opisaniya}
+      vyhod={`/learn/${courseSlug}`}
+      modul={modul.title}
+      znakModulya={modul.znak}
+    >
       {ekrany}
     </Shagi>
   );

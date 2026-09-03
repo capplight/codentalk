@@ -75,6 +75,18 @@ export default async function QuizPage({ params }: Params) {
     <main className="wrap" style={{ paddingBottom: 56 }}>
       <div className={s.head}>
         <span className={s.eyebrow}>
+          {/* Значок модуля — тот же, что на карте курса: работа не отдельная
+              страница ниоткуда, а конец пройденного участка. */}
+          {module.znak && (
+            // eslint-disable-next-line @next/next/no-img-element
+            <img
+              src={`/twemoji/${module.znak}.svg`}
+              alt=""
+              width={18}
+              height={18}
+              style={{ verticalAlign: -3, marginRight: 7 }}
+            />
+          )}
           {course.title} · {module.title}
         </span>
         <h1 className={s.title}>Проверочная работа</h1>
