@@ -3,390 +3,898 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Beginner заново — урок по шагам</title>
+<title>Beginner заново — модуль «Я, ты, он»</title>
 <style>
-  :root{
-    --fon:#101014; --karta:#191922; --karta2:#20202b;
-    --ink:#f4f4f2; --tish:#a0a0ad; --liniya:#2c2c39;
-    --zelen:#34d399; --zelen-t:#065f46;
-    --yantar:#fbbf24; --yantar-t:#78350f;
-    --siren:#a78bfa; --krasn:#fb7185;
-  }
-  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
-  html,body{height:100%}
-  body{margin:0;background:var(--fon);color:var(--ink);
-    font:17px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
-    display:flex;flex-direction:column;align-items:center}
-
-  .zametka{max-width:660px;margin:14px 16px 0;padding:11px 14px;border-radius:12px;
-    background:#1c1c26;border:1px solid var(--liniya);color:var(--tish);font-size:13px}
-  .zametka b{color:var(--ink)}
-
-  .ramka{width:100%;max-width:660px;flex:1;display:flex;flex-direction:column;padding:16px}
-
-  /* ---- шапка: полоска шагов ---- */
-  .verh{display:flex;align-items:center;gap:12px;margin-bottom:6px}
-  .krest{width:32px;height:32px;border-radius:50%;background:var(--karta);
-    border:1px solid var(--liniya);color:var(--tish);display:flex;align-items:center;
-    justify-content:center;font-size:15px;flex:none}
-  .shagi{flex:1;display:flex;gap:5px}
-  .shagi i{flex:1;height:5px;border-radius:3px;background:var(--liniya);transition:background .25s}
-  .shagi i.est{background:var(--zelen)}
-  .shagi i.tut{background:var(--yantar)}
-  .schyot{font-size:13px;color:var(--tish);flex:none;min-width:38px;text-align:right}
-
-  /* ---- экран ---- */
-  .ekran{flex:1;display:none;flex-direction:column;justify-content:center;padding:18px 0}
-  .ekran.vidno{display:flex;animation:vhod .28s ease}
-  @keyframes vhod{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
-
-  .metka{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--tish);margin-bottom:10px}
-  h1{font-size:27px;line-height:1.25;margin:0 0 6px}
-  h2{font-size:22px;line-height:1.3;margin:0 0 14px}
-
-  /* ---- сцена-переписка ---- */
-  .chat{display:flex;flex-direction:column;gap:12px;margin-top:6px}
-  .puz{display:flex;gap:10px;align-items:flex-end;opacity:0;transform:translateY(8px);
-    animation:vsplyt .4s forwards}
-  .puz:nth-child(1){animation-delay:.05s}
-  .puz:nth-child(2){animation-delay:.45s}
-  .puz:nth-child(3){animation-delay:.85s}
-  .puz:nth-child(4){animation-delay:1.25s}
-  @keyframes vsplyt{to{opacity:1;transform:none}}
-  .puz.spr{flex-direction:row-reverse}
-  .lico{width:38px;height:38px;border-radius:50%;background:var(--karta2);flex:none;
-    display:flex;align-items:center;justify-content:center}
-  .lico img{width:24px;height:24px}
-  .rech{max-width:78%;background:var(--karta);border:1px solid var(--liniya);
-    border-radius:16px 16px 16px 4px;padding:11px 14px}
-  .spr .rech{border-radius:16px 16px 4px 16px;background:#1e2a28;border-color:#2b3f3a}
-  .rech .en{font-weight:600}
-  .rech .ru{color:var(--tish);font-size:14px;margin-top:3px}
-  .zvuk{display:inline-flex;width:22px;height:22px;border-radius:50%;
-    background:var(--zelen);color:#04231a;align-items:center;justify-content:center;
-    font-size:10px;margin-right:7px;vertical-align:1px;cursor:pointer;flex:none}
-
-  /* ---- случай: картинка + правило ---- */
-  .sluchay{display:flex;gap:18px;align-items:flex-start}
-  .risunok{width:96px;height:96px;border-radius:22px;background:var(--karta);
-    border:1px solid var(--liniya);display:flex;align-items:center;justify-content:center;flex:none}
-  .risunok img{width:60px;height:60px}
-  .pravilo{color:#d6d6d2;margin:0 0 14px}
-  .stroki{display:flex;flex-direction:column;gap:8px}
-  .stroka{background:var(--karta);border:1px solid var(--liniya);border-radius:12px;
-    padding:10px 13px}
-  .stroka .en{font-weight:600}
-  .stroka .ru{color:var(--tish);font-size:14px}
-
-  /* ---- набор картинок: что после I am ---- */
-  .nabor{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;margin-top:8px}
-  .chip{background:var(--karta);border:1px solid var(--liniya);border-radius:14px;
-    padding:14px;text-align:center}
-  .chip img{width:44px;height:44px;margin-bottom:8px}
-  .chip .en{font-weight:600;font-size:15px}
-  .chip .ru{color:var(--tish);font-size:13px}
-
-  /* ---- врезка «так не говорят» ---- */
-  .nelzya{background:#2a1519;border:1px solid #4a2028;border-radius:14px;padding:16px;
-    display:flex;gap:14px;align-items:flex-start}
-  .nelzya .zn{width:34px;height:34px;border-radius:50%;background:var(--krasn);color:#3b0713;
-    display:flex;align-items:center;justify-content:center;font-weight:700;flex:none}
-  .nelzya s{color:var(--krasn);text-decoration-thickness:2px}
-
-  /* ---- задание ---- */
-  .zad{margin-top:4px}
-  .vybor{display:flex;flex-direction:column;gap:9px;margin-top:14px}
-  .vybor button{text-align:left;background:var(--karta);color:var(--ink);
-    border:1px solid var(--liniya);border-radius:14px;padding:14px 16px;font:inherit;
-    cursor:pointer;transition:.15s;display:flex;align-items:center;gap:10px}
-  .vybor button:hover{border-color:#3d3d4d;transform:translateX(2px)}
-  .vybor button.verno{border-color:var(--zelen);background:#12241d}
-  .vybor button.mimo{border-color:var(--krasn);background:#241316;opacity:.75}
-  .vybor button .otm{width:22px;height:22px;border-radius:50%;border:1px solid var(--liniya);
-    flex:none;display:flex;align-items:center;justify-content:center;font-size:12px}
-  .verno .otm{background:var(--zelen);border-color:var(--zelen);color:#04231a}
-  .mimo .otm{background:var(--krasn);border-color:var(--krasn);color:#3b0713}
-  .razbor{margin-top:12px;padding:13px 15px;border-radius:12px;background:#12241d;
-    border:1px solid #1f4136;color:#bdf0dc;font-size:15px;display:none}
-  .razbor.vidno{display:block;animation:vhod .25s}
-  .razbor.mimo{background:#241316;border-color:#4a2028;color:#ffd7dd}
-
-  /* сборка строки */
-  .karty{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
-  .karty button{background:var(--karta);color:var(--ink);border:1px solid var(--liniya);
-    border-radius:12px;padding:10px 15px;font:inherit;cursor:pointer}
-  .karty button:disabled{opacity:.3}
-  .sobrano{min-height:52px;border:1px dashed #3a3a49;border-radius:12px;margin-top:12px;
-    padding:11px 14px;display:flex;gap:8px;align-items:center;flex-wrap:wrap;color:var(--tish)}
-  .sobrano b{background:#1e2a28;border:1px solid #2b3f3a;border-radius:9px;padding:5px 11px;
-    color:var(--ink);font-weight:600}
-
-  /* итог */
-  .itogi{display:flex;flex-direction:column;gap:10px;margin-top:12px}
-  .itogi div{background:var(--karta);border:1px solid var(--liniya);border-radius:14px;
-    padding:13px 15px;display:flex;gap:11px;align-items:center}
-  .itogi img{width:26px;height:26px;flex:none}
-
-  /* ---- низ ---- */
-  .niz{display:flex;gap:10px;align-items:center;padding:14px 0 4px}
-  .niz .nazad{background:none;border:0;color:var(--tish);font:inherit;cursor:pointer;padding:10px}
-  .dalshe{flex:1;background:var(--zelen);color:#04231a;border:0;border-radius:14px;
-    padding:15px;font:inherit;font-weight:700;font-size:17px;cursor:pointer;transition:.15s}
-  .dalshe:hover{filter:brightness(1.07)}
-  .podpis{max-width:660px;color:#6a6a78;font-size:12px;padding:0 16px 26px;text-align:center}
+:root{--fon:#0e0e13;--karta:#191922;--karta2:#20202b;--ink:#f4f4f2;--tish:#a0a0ad;
+  --liniya:#2c2c39;--zelen:#34d399;--yantar:#fbbf24;--krasn:#fb7185}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{height:100%}
+body{margin:0;background:var(--fon);color:var(--ink);display:flex;flex-direction:column;
+  align-items:center;font:17px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif}
+.zametka{max-width:680px;margin:14px 16px 0;padding:11px 14px;border-radius:12px;
+  background:#1c1c26;border:1px solid var(--liniya);color:var(--tish);font-size:13px}
+.zametka b{color:var(--ink)}
+.ramka{width:100%;max-width:680px;flex:1;display:flex;flex-direction:column;padding:16px}
+.verh{display:flex;align-items:center;gap:12px;margin-bottom:2px}
+.krest{width:32px;height:32px;border-radius:50%;background:var(--karta);border:1px solid var(--liniya);
+  color:var(--tish);display:flex;align-items:center;justify-content:center;flex:none;font-size:15px}
+.shagi{flex:1;display:flex;gap:3px}
+.shagi i{flex:1;height:5px;border-radius:3px;background:var(--liniya);transition:background .25s}
+.shagi i.est{background:var(--zelen)}
+.shagi i.tut{background:var(--yantar)}
+.schyot{font-size:13px;color:var(--tish);flex:none;min-width:44px;text-align:right}
+.gde{font-size:12px;color:var(--tish);padding:6px 0 0 44px;letter-spacing:.03em}
+.ekran{flex:1;display:none;flex-direction:column;justify-content:center;padding:14px 0}
+.ekran.vidno{display:flex;animation:vhod .28s ease}
+@keyframes vhod{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.metka{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--tish);margin-bottom:10px}
+h1{font-size:28px;line-height:1.2;margin:0 0 8px}
+h2{font-size:22px;line-height:1.3;margin:0 0 12px}
+.vyvod{color:var(--zelen);margin:8px 0 0}
+.pravilo{color:#d6d6d2;margin:0 0 12px}
+.nachalo{display:flex;gap:14px;align-items:center;background:var(--karta);border:1px solid var(--liniya);
+  border-radius:16px;padding:16px;margin-top:16px}
+.nachalo p{margin:0;color:var(--tish)}
+.chat{display:flex;flex-direction:column;gap:11px;margin-top:4px}
+.puz{display:flex;gap:10px;align-items:flex-end;opacity:0;transform:translateY(8px);animation:vsplyt .4s forwards}
+.puz:nth-child(1){animation-delay:.05s}.puz:nth-child(2){animation-delay:.4s}
+.puz:nth-child(3){animation-delay:.75s}.puz:nth-child(4){animation-delay:1.1s}
+@keyframes vsplyt{to{opacity:1;transform:none}}
+.puz.spr{flex-direction:row-reverse}
+.lico{width:38px;height:38px;border-radius:50%;background:var(--karta2);flex:none;
+  display:flex;align-items:center;justify-content:center}
+.rech{max-width:80%;background:var(--karta);border:1px solid var(--liniya);
+  border-radius:16px 16px 16px 4px;padding:10px 13px}
+.spr .rech{border-radius:16px 16px 4px 16px;background:#1e2a28;border-color:#2b3f3a}
+.rech .en,.stroka .en,.chip .en,.vsluh .en{font-weight:600}
+.rech .ru,.stroka .ru,.chip .ru,.vsluh .ru{color:var(--tish);font-size:14px;margin-top:2px}
+.zvuk{display:inline-flex;width:21px;height:21px;border-radius:50%;background:var(--zelen);
+  color:#04231a;align-items:center;justify-content:center;font-size:9px;margin-right:7px;
+  vertical-align:1px;cursor:pointer;flex:none}
+.sluchay{display:flex;gap:18px;align-items:flex-start}
+.sluchay .telo{flex:1;min-width:0}
+.risunok{width:92px;height:92px;border-radius:22px;background:var(--karta);border:1px solid var(--liniya);
+  display:flex;align-items:center;justify-content:center;flex:none}
+.stroki{display:flex;flex-direction:column;gap:8px}
+.stroka{background:var(--karta);border:1px solid var(--liniya);border-radius:12px;padding:10px 13px}
+.karta{background:var(--karta);border:1px solid var(--liniya);border-radius:16px;padding:8px 16px;overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:15px}
+th{text-align:left;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--tish);
+  font-weight:600;padding:10px 10px 8px 0;border-bottom:1px solid var(--liniya)}
+td{padding:10px 10px 10px 0;border-bottom:1px solid var(--liniya)}
+tr:last-child td{border-bottom:0}
+.nabor{display:grid;grid-template-columns:repeat(auto-fit,minmax(132px,1fr));gap:9px}
+.chip{background:var(--karta);border:1px solid var(--liniya);border-radius:14px;padding:13px;text-align:center}
+.chip img{margin-bottom:7px}
+.chip .bez{height:40px}
+.chip .zvuchit{color:#6a6a78;font-size:12px;margin-top:4px}
+.vrezka{border-radius:16px;padding:16px;display:flex;gap:14px;align-items:flex-start}
+.vrezka .zag{font-size:19px;font-weight:700;margin-bottom:6px}
+.vrezka p{margin:8px 0 0}
+.nelzya{background:#2a1519;border:1px solid #4a2028;color:#ffd7dd}
+.svedenie{background:#141d2e;border:1px solid #26364f;color:#cfe0f7}
+.vrezka .zn{width:32px;height:32px;border-radius:50%;display:flex;align-items:center;
+  justify-content:center;font-weight:700;flex:none}
+.nelzya .zn{background:var(--krasn);color:#3b0713}
+.svedenie .zn{background:#60a5fa;color:#0b1e38}
+.vybor{display:flex;flex-direction:column;gap:9px}
+.vybor button{text-align:left;background:var(--karta);color:var(--ink);border:1px solid var(--liniya);
+  border-radius:14px;padding:14px 16px;font:inherit;cursor:pointer;transition:.15s;
+  display:flex;align-items:center;gap:10px}
+.vybor button:hover{border-color:#3d3d4d;transform:translateX(2px)}
+.vybor button.verno{border-color:var(--zelen);background:#12241d}
+.vybor button.mimo{border-color:var(--krasn);background:#241316;opacity:.8}
+.otm{width:22px;height:22px;border-radius:50%;border:1px solid var(--liniya);flex:none;
+  display:flex;align-items:center;justify-content:center;font-size:12px}
+.verno .otm{background:var(--zelen);border-color:var(--zelen);color:#04231a}
+.mimo .otm{background:var(--krasn);border-color:var(--krasn);color:#3b0713}
+.propusk{display:flex;gap:8px;align-items:center;flex-wrap:wrap;background:var(--karta);
+  border:1px solid var(--liniya);border-radius:14px;padding:14px;font-weight:600}
+input{background:#0e0e13;color:var(--ink);border:1px solid #3a3a49;border-radius:9px;
+  padding:9px 12px;font:inherit;min-width:120px}
+input.stroka-vvoda{width:100%;margin-top:4px}
+input:focus{outline:0;border-color:var(--zelen)}
+.proverit,.podskazka{margin-top:12px;margin-right:8px;background:var(--zelen);color:#04231a;
+  border:0;border-radius:12px;padding:11px 18px;font:inherit;font-weight:700;cursor:pointer}
+.podskazka{background:none;color:var(--tish);border:1px solid var(--liniya);font-weight:400}
+.spisok{margin-top:12px;color:var(--tish);font-size:14px}
+.zapis{background:var(--karta);border:1px solid var(--liniya);border-radius:12px;padding:11px 14px;
+  color:var(--tish);margin-bottom:10px}
+.razbor{margin-top:12px;padding:13px 15px;border-radius:12px;background:#12241d;
+  border:1px solid #1f4136;color:#bdf0dc;font-size:15px;display:none}
+.razbor.vidno{display:block;animation:vhod .25s}
+.razbor.mimo{background:#241316;border-color:#4a2028;color:#ffd7dd}
+.karty{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.karty button{background:var(--karta);color:var(--ink);border:1px solid var(--liniya);
+  border-radius:12px;padding:10px 15px;font:inherit;cursor:pointer}
+.karty button:disabled{opacity:.28}
+.sobrano{min-height:52px;border:1px dashed #3a3a49;border-radius:12px;padding:11px 14px;
+  display:flex;gap:8px;align-items:center;flex-wrap:wrap;color:var(--tish)}
+.sobrano b{background:#1e2a28;border:1px solid #2b3f3a;border-radius:9px;padding:5px 11px;font-weight:600}
+.otmetka{background:var(--karta);border:1px solid var(--liniya);border-radius:14px;padding:14px;
+  line-height:2.1}
+.slovo{background:#0e0e13;color:var(--ink);border:1px solid #3a3a49;border-radius:9px;
+  padding:5px 11px;font:inherit;cursor:pointer}
+.slovo.vzyato{background:var(--yantar);color:#3b2600;border-color:var(--yantar)}
+.pary{display:flex;gap:12px}
+.stolb{flex:1;display:flex;flex-direction:column;gap:8px}
+.stolb button{background:var(--karta);color:var(--ink);border:1px solid var(--liniya);
+  border-radius:12px;padding:12px;font:inherit;cursor:pointer}
+.stolb button.vzyato{border-color:var(--yantar)}
+.stolb button.gotovo{border-color:var(--zelen);background:#12241d}
+.vsluh{display:flex;gap:14px;align-items:center;background:var(--karta);
+  border:1px solid var(--liniya);border-radius:16px;padding:16px}
+.mikro{flex:none}
+.niz{display:flex;gap:10px;align-items:center;padding:12px 0 4px}
+.nazad{background:none;border:0;color:var(--tish);font:inherit;cursor:pointer;padding:10px}
+.dalshe{flex:1;background:var(--zelen);color:#04231a;border:0;border-radius:14px;padding:15px;
+  font:inherit;font-weight:700;font-size:17px;cursor:pointer}
+.dalshe:hover{filter:brightness(1.07)}
+.podpis{max-width:680px;color:#6a6a78;font-size:12px;padding:0 16px 26px;text-align:center}
 </style>
 </head>
 <body>
-
 <div class="zametka">
-  <b>Образец, а не сайт.</b> Урок проходится по шагам — нажимай «Дальше», варианты в
-  заданиях нажимаются. Нынешний Beginner не тронут. Картинки — Twemoji (CC-BY 4.0),
-  подставлены как пример: на боевом сайте они лежат у нас, а не на чужом адресе.
+  <b>Образец, а не сайт.</b> Модуль «Я, ты, он» целиком: 3 урока,
+  67 экранов. Жми «Дальше» или стрелки ← →. Задания щёлкаются и дают разбор.
+  Страница собрана из самого курса <code>courses/english-beginner-2/</code> —
+  <code>npm run obrazec-urokov</code>. Нынешний Beginner не тронут.
 </div>
-
 <div class="ramka">
   <div class="verh">
     <div class="krest">✕</div>
     <div class="shagi" id="shagi"></div>
     <div class="schyot" id="schyot"></div>
   </div>
-
-  <!-- 1. сцена -->
-  <section class="ekran vidno">
-    <div class="metka">Шаг 1 · сначала послушай</div>
-    <h2>Первый день на курсах</h2>
-    <div class="chat">
-      <div class="puz">
-        <div class="lico"><img src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f9d1-200d-1f393.svg" alt=""></div>
-        <div class="rech"><div class="en"><span class="zvuk">▶</span>Hello! I am Alim.</div><div class="ru">Здравствуйте! Я Алим.</div></div>
-      </div>
-      <div class="puz spr">
-        <div class="lico"><img src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f9d1-200d-1f3eb.svg" alt=""></div>
-        <div class="rech"><div class="en"><span class="zvuk">▶</span>Hi! I am Dana.</div><div class="ru">Привет! Я Дана.</div></div>
-      </div>
-      <div class="puz">
-        <div class="lico"><img src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f9d1-200d-1f393.svg" alt=""></div>
-        <div class="rech"><div class="en"><span class="zvuk">▶</span>I am a student. And you?</div><div class="ru">Я студент. А ты?</div></div>
-      </div>
-      <div class="puz spr">
-        <div class="lico"><img src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f9d1-200d-1f3eb.svg" alt=""></div>
-        <div class="rech"><div class="en"><span class="zvuk">▶</span>I am a teacher. I am from Almaty.</div><div class="ru">Я учитель. Я из Алматы.</div></div>
-      </div>
-    </div>
-    <p style="color:var(--zelen);margin-top:18px">Четыре раза подряд — <b>I am</b>. Разберём, из чего это сделано.</p>
-  </section>
-
-  <!-- 2. случай 1 -->
-  <section class="ekran">
-    <div class="metka">Шаг 2 · случай 1 из 9</div>
+  <div class="gde" id="gde"></div>
+  <section class="ekran vidno"><div class="metka">Урок 1 из 3</div>
+      <h1>Я — это I am</h1>
+      <p class="vyvod">говорить о себе через I am: имя, занятие, место, состояние</p>
+      <div class="nachalo"><img src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f50a.svg" alt="" width="52" height="52"><p>Впереди 9 случаев и задания.
+        Один экран — одна мысль.</p></div></section>
+  <section class="ekran"><div class="metka">Шаг 1 из 25 · сначала послушай</div>
+    <h2>Знакомство в первый день</h2>
+    <div class="chat"><div class="puz">
+        <div class="lico"><img src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f9d1-200d-1f393.svg" alt="" width="24" height="24"></div>
+        <div class="rech"><div class="en"><span class="zvuk" title="послушать">▶</span>Hello! I am Alim.</div>
+        <div class="ru">Здравствуйте! Я Алим.</div></div></div><div class="puz spr">
+        <div class="lico"><img src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f9d1-200d-1f3eb.svg" alt="" width="24" height="24"></div>
+        <div class="rech"><div class="en"><span class="zvuk" title="послушать">▶</span>Hi! I am Dana.</div>
+        <div class="ru">Привет! Я Дана.</div></div></div><div class="puz">
+        <div class="lico"><img src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f9d1-200d-1f393.svg" alt="" width="24" height="24"></div>
+        <div class="rech"><div class="en"><span class="zvuk" title="послушать">▶</span>I am a student. And you?</div>
+        <div class="ru">Я студент. А ты?</div></div></div><div class="puz spr">
+        <div class="lico"><img src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f9d1-200d-1f3eb.svg" alt="" width="24" height="24"></div>
+        <div class="rech"><div class="en"><span class="zvuk" title="послушать">▶</span>I am a teacher. I am from Almaty.</div>
+        <div class="ru">Я учитель. Я из Алматы.</div></div></div></div>
+    <p class="vyvod">Четыре раза подряд — I am. Дальше разберём, почему после I стоит именно am и что можно поставить после него.</p></section>
+  <section class="ekran"><div class="metka">Шаг 2 из 25 · случай 1 из 9</div>
     <div class="sluchay">
-      <div class="risunok"><img src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/261d.svg" alt=""></div>
-      <div>
-        <h2>Форма <b>am</b> бывает только с <b>I</b></h2>
-        <p class="pravilo">Никакое другое слово её за собой не тянет.</p>
-        <div class="stroki">
-          <div class="stroka"><div class="en"><span class="zvuk">▶</span>I am Alim.</div><div class="ru">Я Алим.</div></div>
-          <div class="stroka"><div class="en"><span class="zvuk">▶</span>I am at home.</div><div class="ru">Я дома.</div></div>
-        </div>
+      <div class="risunok"><img src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/261d.svg" alt="" width="58" height="58"></div>
+      <div class="telo">
+        <h2>Форма am бывает только с I. Никакое другое слово её за собой не тянет.</h2>
+        
+        <div class="stroki"><div class="stroka"><div class="en"><span class="zvuk" title="послушать">▶</span>I am Alim.</div>
+              <div class="ru">Я Алим.</div></div><div class="stroka"><div class="en"><span class="zvuk" title="послушать">▶</span>I am at home.</div>
+              <div class="ru">Я дома.</div></div></div>
       </div>
-    </div>
-  </section>
-
-  <!-- 3. случай 2 -->
-  <section class="ekran">
-    <div class="metka">Шаг 3 · случай 2 из 9</div>
+    </div></section>
+  <section class="ekran"><div class="metka">Шаг 3 из 25 · случай 2 из 9</div>
     <div class="sluchay">
-      <div class="risunok"><img src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f504.svg" alt=""></div>
-      <div>
-        <h2>По-русски глагола нет вовсе</h2>
-        <p class="pravilo">«Я Алим», «я дома» — по-английски глагол обязателен.</p>
-        <div class="stroki">
-          <div class="stroka"><div class="en"><span class="zvuk">▶</span>I am a student.</div><div class="ru">Я студент.</div></div>
-          <div class="stroka"><div class="en"><span class="zvuk">▶</span>I am ready.</div><div class="ru">Я готов.</div></div>
-        </div>
+      <div class="risunok"><img src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f504.svg" alt="" width="58" height="58"></div>
+      <div class="telo">
+        <h2>По-русски в таких фразах глагола нет вовсе: «я Алим», «я дома». По-английски он обязателен.</h2>
+        
+        <div class="stroki"><div class="stroka"><div class="en"><span class="zvuk" title="послушать">▶</span>I am a student.</div>
+              <div class="ru">Я студент.</div></div><div class="stroka"><div class="en"><span class="zvuk" title="послушать">▶</span>I am ready.</div>
+              <div class="ru">Я готов.</div></div></div>
       </div>
-    </div>
-  </section>
-
-  <!-- 4. случай 3 -->
-  <section class="ekran">
-    <div class="metka">Шаг 4 · случай 3 из 9</div>
+    </div></section>
+  <section class="ekran"><div class="metka">Шаг 4 из 25 · случай 3 из 9</div>
     <div class="sluchay">
-      <div class="risunok"><img src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f468-200d-2695-fe0f.svg" alt=""></div>
-      <div>
-        <h2>После <b>am</b> ставят занятие</h2>
-        <p class="pravilo">Перед занятием нужно короткое слово <b>a</b>.</p>
-        <div class="stroki">
-          <div class="stroka"><div class="en"><span class="zvuk">▶</span>I am a doctor.</div><div class="ru">Я врач.</div></div>
-          <div class="stroka"><div class="en"><span class="zvuk">▶</span>I am a driver.</div><div class="ru">Я водитель.</div></div>
-        </div>
+      <div class="risunok"><img src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1faaa.svg" alt="" width="58" height="58"></div>
+      <div class="telo">
+        <h2>После am ставят имя — своё или чужое.</h2>
+        
+        <div class="stroki"><div class="stroka"><div class="en"><span class="zvuk" title="послушать">▶</span>I am Aigul.</div>
+              <div class="ru">Я Айгуль.</div></div><div class="stroka"><div class="en"><span class="zvuk" title="послушать">▶</span>I am Daniyar.</div>
+              <div class="ru">Я Данияр.</div></div></div>
       </div>
-    </div>
-  </section>
-
-  <!-- 5. случай 4 -->
-  <section class="ekran">
-    <div class="metka">Шаг 5 · случай 4 из 9</div>
+    </div></section>
+  <section class="ekran"><div class="metka">Шаг 5 из 25 · случай 4 из 9</div>
     <div class="sluchay">
-      <div class="risunok"><img src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f3a8.svg" alt=""></div>
-      <div>
-        <h2>Перед гласным звуком — <b>an</b></h2>
-        <p class="pravilo">Если занятие начинается с гласного звука, вместо <b>a</b> ставят <b>an</b>.</p>
-        <div class="stroki">
-          <div class="stroka"><div class="en"><span class="zvuk">▶</span>I am an artist.</div><div class="ru">Я художник.</div></div>
-          <div class="stroka"><div class="en"><span class="zvuk">▶</span>I am an engineer.</div><div class="ru">Я инженер.</div></div>
-        </div>
+      <div class="risunok"><img src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f468-200d-2695-fe0f.svg" alt="" width="58" height="58"></div>
+      <div class="telo">
+        <h2>После am ставят занятие, и перед занятием нужно короткое слово a.</h2>
+        
+        <div class="stroki"><div class="stroka"><div class="en"><span class="zvuk" title="послушать">▶</span>I am a doctor.</div>
+              <div class="ru">Я врач.</div></div><div class="stroka"><div class="en"><span class="zvuk" title="послушать">▶</span>I am a driver.</div>
+              <div class="ru">Я водитель.</div></div></div>
       </div>
-    </div>
-  </section>
-
-  <!-- 6. набор -->
-  <section class="ekran">
-    <div class="metka">Шаг 6 · всё вместе</div>
-    <h2>Что ставят после <b>I am</b></h2>
-    <div class="nabor">
-      <div class="chip"><img src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1faaa.svg" alt=""><div class="en">I am Alim.</div><div class="ru">имя</div></div>
-      <div class="chip"><img src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f468-200d-2695-fe0f.svg" alt=""><div class="en">I am a doctor.</div><div class="ru">занятие</div></div>
-      <div class="chip"><img src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f3e2.svg" alt=""><div class="en">I am at work.</div><div class="ru">место</div></div>
-      <div class="chip"><img src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f5fa.svg" alt=""><div class="en">I am from Astana.</div><div class="ru">откуда</div></div>
-      <div class="chip"><img src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f62a.svg" alt=""><div class="en">I am tired.</div><div class="ru">состояние</div></div>
-    </div>
-  </section>
-
-  <!-- 7. так не говорят -->
-  <section class="ekran">
-    <div class="metka">Шаг 7 · частая ошибка</div>
-    <div class="nelzya">
+    </div></section>
+  <section class="ekran"><div class="metka">Шаг 6 из 25 · случай 5 из 9</div>
+    <div class="sluchay">
+      <div class="risunok"><img src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f3a8.svg" alt="" width="58" height="58"></div>
+      <div class="telo">
+        <h2>Если занятие начинается с гласного звука, вместо a ставят an.</h2>
+        
+        <div class="stroki"><div class="stroka"><div class="en"><span class="zvuk" title="послушать">▶</span>I am an artist.</div>
+              <div class="ru">Я художник.</div></div><div class="stroka"><div class="en"><span class="zvuk" title="послушать">▶</span>I am an engineer.</div>
+              <div class="ru">Я инженер.</div></div></div>
+      </div>
+    </div></section>
+  <section class="ekran"><div class="metka">Шаг 7 из 25 · случай 6 из 9</div>
+    <div class="sluchay">
+      <div class="risunok"><img src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f3e2.svg" alt="" width="58" height="58"></div>
+      <div class="telo">
+        <h2>После am ставят место, и перед местом нужен предлог: at или in.</h2>
+        
+        <div class="stroki"><div class="stroka"><div class="en"><span class="zvuk" title="послушать">▶</span>I am at work.</div>
+              <div class="ru">Я на работе.</div></div><div class="stroka"><div class="en"><span class="zvuk" title="послушать">▶</span>I am in the car.</div>
+              <div class="ru">Я в машине.</div></div></div>
+      </div>
+    </div></section>
+  <section class="ekran"><div class="metka">Шаг 8 из 25 · случай 7 из 9</div>
+    <div class="sluchay">
+      <div class="risunok"><img src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f5fa.svg" alt="" width="58" height="58"></div>
+      <div class="telo">
+        <h2>Откуда человек — это from и название города или страны.</h2>
+        
+        <div class="stroki"><div class="stroka"><div class="en"><span class="zvuk" title="послушать">▶</span>I am from Astana.</div>
+              <div class="ru">Я из Астаны.</div></div><div class="stroka"><div class="en"><span class="zvuk" title="послушать">▶</span>I am from Kazakhstan.</div>
+              <div class="ru">Я из Казахстана.</div></div></div>
+      </div>
+    </div></section>
+  <section class="ekran"><div class="metka">Шаг 9 из 25 · случай 8 из 9</div>
+    <div class="sluchay">
+      <div class="risunok"><img src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f62a.svg" alt="" width="58" height="58"></div>
+      <div class="telo">
+        <h2>После am ставят и состояние: как человеку сейчас.</h2>
+        
+        <div class="stroki"><div class="stroka"><div class="en"><span class="zvuk" title="послушать">▶</span>I am fine.</div>
+              <div class="ru">У меня всё хорошо.</div></div><div class="stroka"><div class="en"><span class="zvuk" title="послушать">▶</span>I am tired.</div>
+              <div class="ru">Я устал.</div></div></div>
+      </div>
+    </div></section>
+  <section class="ekran"><div class="metka">Шаг 10 из 25 · случай 9 из 9</div>
+    <div class="sluchay">
+      <div class="risunok"><img src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/2702.svg" alt="" width="58" height="58"></div>
+      <div class="telo">
+        <h2>В разговоре I am сокращают до I'm. Значение то же, а знак ' стоит вместо выпавшей буквы a.</h2>
+        
+        <div class="stroki"><div class="stroka"><div class="en"><span class="zvuk" title="послушать">▶</span>I'm Alim.</div>
+              <div class="ru">Я Алим.</div></div><div class="stroka"><div class="en"><span class="zvuk" title="послушать">▶</span>I'm at home.</div>
+              <div class="ru">Я дома.</div></div></div>
+      </div>
+    </div></section>
+  <section class="ekran"><div class="metka">Шаг 11 из 25 · всё вместе</div>
+    <h2>Что ставят после I am</h2>
+    <div class="karta"><table><tr><th>Что называем</th><th>Английский</th><th>Перевод</th></tr><tr><td>имя</td><td><span class="zvuk" title="послушать">▶</span>I am Alim.</td><td>Я Алим.</td></tr><tr><td>занятие</td><td><span class="zvuk" title="послушать">▶</span>I am a doctor.</td><td>Я врач.</td></tr><tr><td>место</td><td><span class="zvuk" title="послушать">▶</span>I am at work.</td><td>Я на работе.</td></tr><tr><td>откуда</td><td><span class="zvuk" title="послушать">▶</span>I am from Astana.</td><td>Я из Астаны.</td></tr><tr><td>состояние</td><td><span class="zvuk" title="послушать">▶</span>I am tired.</td><td>Я устал.</td></tr></table></div></section>
+  <section class="ekran"><div class="metka">Шаг 12 из 25 · частая ошибка</div>
+    <div class="vrezka nelzya">
       <div class="zn">!</div>
-      <div>
-        <div style="font-size:20px;font-weight:700;margin-bottom:6px"><s>I student</s> — так не говорят</div>
-        <p style="margin:0;color:#ffd7dd">По-русски «я студент» обходится без глагола, по-английски
-        между <b>I</b> и остальным обязательно стоит <b>am</b>:</p>
-        <div class="stroka" style="margin-top:11px;background:#12241d;border-color:#1f4136">
-          <div class="en"><span class="zvuk">▶</span>I am a student.</div><div class="ru">Я студент.</div>
-        </div>
+      <div><div class="zag">«I student» — так не говорят.</div>
+      <p>По-русски «я студент» обходится без глагола, по-английски между I и остальным обязательно стоит am: I am a student.</p></div>
+    </div></section>
+  <section class="ekran"><div class="metka">Шаг 13 из 25 · к сведению</div>
+    <div class="vrezka svedenie">
+      <div class="zn">i</div>
+      <div><div class="zag">Слово I пишется с заглавной буквы всегда, а не только в начале предложения.</div>
+      <p>Другие такие слова — you, he, she — пишутся с маленькой, если стоят не первыми.</p></div>
+    </div></section>
+  <section class="ekran"><div class="metka">Шаг 14 из 25 · слова урока</div>
+    <h2>Слова урока</h2>
+    <div class="nabor"><div class="chip">
+        <img src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f9d1-200d-1f393.svg" alt="" width="40" height="40">
+        <div class="en"><span class="zvuk" title="послушать">▶</span>student</div>
+        <div class="ru">студент</div>
+        <div class="zvuchit">/ˈstjuːdənt/</div>
+      </div><div class="chip">
+        <img src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f9d1-200d-1f3eb.svg" alt="" width="40" height="40">
+        <div class="en"><span class="zvuk" title="послушать">▶</span>teacher</div>
+        <div class="ru">учитель</div>
+        <div class="zvuchit">/ˈtiːtʃə/</div>
+      </div><div class="chip">
+        <img src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f468-200d-2695-fe0f.svg" alt="" width="40" height="40">
+        <div class="en"><span class="zvuk" title="послушать">▶</span>doctor</div>
+        <div class="ru">врач</div>
+        <div class="zvuchit">/ˈdɒktə/</div>
+      </div><div class="chip">
+        <img src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f695.svg" alt="" width="40" height="40">
+        <div class="en"><span class="zvuk" title="послушать">▶</span>driver</div>
+        <div class="ru">водитель</div>
+        <div class="zvuchit">/ˈdraɪvə/</div>
+      </div><div class="chip">
+        <img src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f3a8.svg" alt="" width="40" height="40">
+        <div class="en"><span class="zvuk" title="послушать">▶</span>artist</div>
+        <div class="ru">художник</div>
+        <div class="zvuchit">/ˈɑːtɪst/</div>
+      </div><div class="chip">
+        <img src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f6e0.svg" alt="" width="40" height="40">
+        <div class="en"><span class="zvuk" title="послушать">▶</span>engineer</div>
+        <div class="ru">инженер</div>
+        <div class="zvuchit">/ˌendʒɪˈnɪə/</div>
+      </div><div class="chip">
+        <img src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f642.svg" alt="" width="40" height="40">
+        <div class="en"><span class="zvuk" title="послушать">▶</span>fine</div>
+        <div class="ru">хорошо (о состоянии)</div>
+        <div class="zvuchit">/faɪn/</div>
+      </div><div class="chip">
+        <img src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f62a.svg" alt="" width="40" height="40">
+        <div class="en"><span class="zvuk" title="послушать">▶</span>tired</div>
+        <div class="ru">усталый</div>
+        <div class="zvuchit">/ˈtaɪəd/</div>
+      </div><div class="chip">
+        <img src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/2705.svg" alt="" width="40" height="40">
+        <div class="en"><span class="zvuk" title="послушать">▶</span>ready</div>
+        <div class="ru">готовый</div>
+        <div class="zvuchit">/ˈredi/</div>
+      </div><div class="chip">
+        <img src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f3e2.svg" alt="" width="40" height="40">
+        <div class="en"><span class="zvuk" title="послушать">▶</span>work</div>
+        <div class="ru">работа</div>
+        <div class="zvuchit">/wɜːk/</div>
+      </div></div></section>
+  <section class="ekran"><div class="metka">Шаг 15 из 25 · ступенька 1: узнать</div><h2>Первая ступенька — узнать форму. Какая запись верна?</h2>
+      <div class="vybor" data-id="z1" data-razbor="I am a driver. Форма am бывает только с I, а без неё предложение не собирается."><button data-verno="1"><span class="otm"></span>I am a driver.</button><button data-verno="0"><span class="otm"></span>I a driver.</button><button data-verno="0"><span class="otm"></span>I is a driver.</button></div>
+      <button class="podskazka" data-hint="После I стоит своя форма, и она одна.">Подсказка</button><div class="razbor" id="razbor-z1"></div></section>
+  <section class="ekran"><div class="metka">Шаг 16 из 25 · ступенька 1: узнать</div><h2>Занятие начинается с гласного звука. Какая запись верна?</h2>
+      <div class="vybor" data-id="z2" data-razbor="I am an engineer. Перед гласным звуком вместо a ставят an, и совсем без него нельзя."><button data-verno="1"><span class="otm"></span>I am an engineer.</button><button data-verno="0"><span class="otm"></span>I am a engineer.</button><button data-verno="0"><span class="otm"></span>I am engineer.</button></div>
+      <button class="podskazka" data-hint="Перед гласным звуком короткое слово меняется.">Подсказка</button><div class="razbor" id="razbor-z2"></div></section>
+  <section class="ekran"><div class="metka">Шаг 17 из 25 · ступенька 1: узнать</div><h2>Отметь в разговоре все формы глагола be.</h2>
+      <div class="otmetka" data-id="z3" data-razbor="Обе формы am. Слово work называет дело, а не связывает: это другой глагол."><span>I </span><button class="slovo" data-verno="1">am</button><span> Dana. I </span><button class="slovo" data-verno="1">am</button><span> a teacher. I </span><button class="slovo" data-verno="0">work</button><span> at school.</span></div>
+      <button class="proverit" data-id="z3">Проверить</button><button class="podskazka" data-hint="Форма be связывает, а не называет дело.">Подсказка</button><div class="razbor" id="razbor-z3"></div></section>
+  <section class="ekran"><div class="metka">Шаг 18 из 25 · ступенька 2: произвести</div><h2>Вторая ступенька — произвести. Ты у себя дома. Допиши недостающее слово.</h2>
+      <div class="propusk">
+        <span>I </span>
+        <input data-id="z4" data-otvet="am"
+          data-razbor="I am at home. Между I и местом обязательно стоит am." placeholder="…">
+        <span> at home.</span>
       </div>
-    </div>
-  </section>
-
-  <!-- 8. задание: узнать -->
-  <section class="ekran">
-    <div class="metka">Шаг 8 · ступенька 1: узнать</div>
-    <h2>Какая запись верна?</h2>
-    <div class="zad">
-      <div class="vybor" data-razbor="I am a driver. Форма am бывает только с I, а без неё предложение не собирается.">
-        <button data-verno="1"><span class="otm"></span>I am a driver.</button>
-        <button><span class="otm"></span>I a driver.</button>
-        <button><span class="otm"></span>I is a driver.</button>
+      <button class="proverit" data-id="z4">Проверить</button><button class="podskazka" data-hint="После I форма одна.">Подсказка</button><div class="razbor" id="razbor-z4"></div></section>
+  <section class="ekran"><div class="metka">Шаг 19 из 25 · ступенька 2: произвести</div><h2>Собери строку: ты врач.</h2>
+      <div class="sobrano" id="sobrano-z5">нажимай карточки по порядку</div>
+      <div class="karty" data-id="z5" data-nuzhno="1,2,0" data-razbor="I am a doctor. Порядок один: кто, форма be, остальное."><button data-i="0">a doctor</button><button data-i="1">I</button><button data-i="2">am</button></div>
+      <button class="podskazka" data-hint="Сначала тот, о ком речь, потом форма, потом занятие.">Подсказка</button><div class="razbor" id="razbor-z5"></div></section>
+  <section class="ekran"><div class="metka">Шаг 20 из 25 · ступенька 2: произвести</div><h2>Ученик написал: I an artist. Запиши строку без ошибки.</h2>
+      
+      <input class="stroka-vvoda" data-id="z6" data-otvet="I am an artist.|I am an artist"
+        data-razbor="I am an artist. Слово an на месте, а формы am не было вовсе." placeholder="пиши здесь…">
+      <button class="proverit" data-id="z6" data-svoyo="0">
+        Проверить</button><button class="podskazka" data-hint="Пропущена форма глагола, а не артикль.">Подсказка</button>
+      
+      <div class="razbor" id="razbor-z6"></div></section>
+  <section class="ekran"><div class="metka">Шаг 21 из 25 · ступенька 2: произвести</div><h2>Запиши ту же строку коротко: I am tired.</h2>
+      
+      <input class="stroka-vvoda" data-id="z7" data-otvet="I'm tired.|I'm tired|I’m tired.|I’m tired"
+        data-razbor="I'm tired. Буква a выпадает, и на её месте стоит апостроф." placeholder="пиши здесь…">
+      <button class="proverit" data-id="z7" data-svoyo="0">
+        Проверить</button><button class="podskazka" data-hint="Знак ' встаёт вместо выпавшей буквы.">Подсказка</button>
+      
+      <div class="razbor" id="razbor-z7"></div></section>
+  <section class="ekran"><div class="metka">Шаг 22 из 25 · ступенька 2: произвести</div><h2>Диктант. Послушай и запиши строку целиком.</h2>
+      <div class="zapis"><span class="zvuk" title="послушать">▶</span> запись к заданию</div>
+      <input class="stroka-vvoda" data-id="z8" data-otvet="I am from Kazakhstan.|I am from Kazakhstan|I'm from Kazakhstan.|I'm from Kazakhstan"
+        data-razbor="I am from Kazakhstan. Короткая запись I'm тоже верна: на слух они различаются мало." placeholder="пиши здесь…">
+      <button class="proverit" data-id="z8" data-svoyo="0">
+        Проверить</button><button class="podskazka" data-hint="Откуда человек — это from и название страны.">Подсказка</button>
+      
+      <div class="razbor" id="razbor-z8"></div></section>
+  <section class="ekran"><div class="metka">Шаг 23 из 25 · ступенька 3: применить к себе</div><h2>Третья ступенька — о себе. Напиши две строки: как тебя зовут и чем ты занят. Занятие возьми из словаря урока.</h2>
+      
+      <input class="stroka-vvoda" data-id="z9" data-otvet=""
+        data-razbor="Например: I am Alim. I am a student. Твои имя и занятие будут другими, а устройство строки то же." placeholder="пиши здесь…">
+      <button class="proverit" data-id="z9" data-svoyo="1">
+        Показать образец</button><button class="podskazka" data-hint="Две строки, и каждая начинается с I am.">Подсказка</button>
+      <div class="spisok">Проверь себя: в каждой строке стоит am · перед занятием стоит a или an · слово I написано с заглавной буквы</div>
+      <div class="razbor" id="razbor-z9"></div></section>
+  <section class="ekran"><div class="metka">Шаг 24 из 25 · ступенька 3: применить к себе</div><h2>Скажи вслух три строки о себе: имя, занятие, откуда ты.</h2>
+      <div class="vsluh">
+        <div class="mikro"><img src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f5e3.svg" alt="" width="40" height="40"></div>
+        <div><div class="en"><span class="zvuk" title="послушать">▶</span>I am Dana. I am a teacher. I am from Almaty.</div>
+        <div class="ru">Я Дана. Я учитель. Я из Алматы.</div></div>
       </div>
-      <div class="razbor"></div>
-    </div>
-  </section>
-
-  <!-- 9. задание: собрать -->
-  <section class="ekran">
-    <div class="metka">Шаг 9 · ступенька 2: произвести</div>
-    <h2>Собери строку: ты врач</h2>
-    <div class="sobrano" id="sobrano">нажимай карточки по порядку</div>
-    <div class="karty" id="karty">
-      <button data-i="2">a doctor</button>
-      <button data-i="0">I</button>
-      <button data-i="1">am</button>
-    </div>
-    <div class="razbor" id="razbor-sborka"></div>
-  </section>
-
-  <!-- 10. итог -->
-  <section class="ekran">
-    <div class="metka">Шаг 10 · готово</div>
-    <h1>Урок пройден</h1>
-    <p style="color:var(--tish);margin:0 0 6px">Теперь ты умеешь сказать о себе:</p>
-    <div class="itogi">
-      <div><img src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1faaa.svg" alt=""><div><b>I am Alim.</b> — имя</div></div>
-      <div><img src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f468-200d-2695-fe0f.svg" alt=""><div><b>I am a doctor.</b> — занятие</div></div>
-      <div><img src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f3e2.svg" alt=""><div><b>I am at work.</b> — место</div></div>
-      <div><img src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f62a.svg" alt=""><div><b>I am tired.</b> — состояние</div></div>
-    </div>
-    <p style="color:var(--tish);font-size:15px;margin-top:16px">
-      Дальше — урок 2: <b>ты, мы, они — are</b>.</p>
-  </section>
-
+      <p class="pravilo">Скажи вслух и сравни с записью.</p><button class="podskazka" data-hint="Каждая строка начинается с I am.">Подсказка</button></section>
+  <section class="ekran"><div class="metka">Урок пройден</div>
+      <h1>Готово</h1>
+      <p class="vyvod">Теперь ты умеешь: говорить о себе через I am: имя, занятие, место, состояние</p>
+      <div class="nachalo"><img src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/2705.svg" alt="" width="52" height="52"><p>Дальше — урок 2: <b>Ты, мы, они — are</b>.</p></div></section>
+  <section class="ekran"><div class="metka">Урок 2 из 3</div>
+      <h1>Ты, мы, они — are</h1>
+      <p class="vyvod">выбирать are для you, we, they и для двух имён</p>
+      <div class="nachalo"><img src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f50a.svg" alt="" width="52" height="52"><p>Впереди 7 случаев и задания.
+        Один экран — одна мысль.</p></div></section>
+  <section class="ekran"><div class="metka">Шаг 1 из 19 · сначала послушай</div>
+    <h2>В первый день, продолжение</h2>
+    <div class="chat"><div class="puz">
+        <div class="lico"><img src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f9d1-200d-1f393.svg" alt="" width="24" height="24"></div>
+        <div class="rech"><div class="en"><span class="zvuk" title="послушать">▶</span>You are a teacher, right?</div>
+        <div class="ru">Ты учитель, верно?</div></div></div><div class="puz spr">
+        <div class="lico"><img src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f9d1-200d-1f3eb.svg" alt="" width="24" height="24"></div>
+        <div class="rech"><div class="en"><span class="zvuk" title="послушать">▶</span>Yes. And you are students.</div>
+        <div class="ru">Да. А вы студенты.</div></div></div><div class="puz">
+        <div class="lico"><img src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f9d1-200d-1f393.svg" alt="" width="24" height="24"></div>
+        <div class="rech"><div class="en"><span class="zvuk" title="послушать">▶</span>We are students. Dana and Alim are students too.</div>
+        <div class="ru">Мы студенты. Дана и Алим тоже студенты.</div></div></div></div>
+    <p class="vyvod">Четыре раза are, и каждый раз перед ним разное слово: you, you, we, два имени. Разберём, что их объединяет.</p></section>
+  <section class="ekran"><div class="metka">Шаг 2 из 19 · случай 1 из 7</div>
+    <div class="sluchay">
+      <div class="risunok"><img src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f449.svg" alt="" width="58" height="58"></div>
+      <div class="telo">
+        <h2>После you стоит are — и когда речь об одном человеке, и когда о нескольких.</h2>
+        
+        <div class="stroki"><div class="stroka"><div class="en"><span class="zvuk" title="послушать">▶</span>You are a doctor.</div>
+              <div class="ru">Ты врач.</div></div><div class="stroka"><div class="en"><span class="zvuk" title="послушать">▶</span>You are students.</div>
+              <div class="ru">Вы студенты.</div></div></div>
+      </div>
+    </div></section>
+  <section class="ekran"><div class="metka">Шаг 3 из 19 · случай 2 из 7</div>
+    <div class="sluchay">
+      <div class="risunok"><img src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f465.svg" alt="" width="58" height="58"></div>
+      <div class="telo">
+        <h2>После we — тоже are. We значит «мы»: говорящий и кто-то ещё.</h2>
+        
+        <div class="stroki"><div class="stroka"><div class="en"><span class="zvuk" title="послушать">▶</span>We are at home.</div>
+              <div class="ru">Мы дома.</div></div><div class="stroka"><div class="en"><span class="zvuk" title="послушать">▶</span>We are ready.</div>
+              <div class="ru">Мы готовы.</div></div></div>
+      </div>
+    </div></section>
+  <section class="ekran"><div class="metka">Шаг 4 из 19 · случай 3 из 7</div>
+    <div class="sluchay">
+      <div class="risunok"><img src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f9d1-200d-1f91d-200d-1f9d1.svg" alt="" width="58" height="58"></div>
+      <div class="telo">
+        <h2>После they — are. They значит «они», и это могут быть и люди, и вещи.</h2>
+        
+        <div class="stroki"><div class="stroka"><div class="en"><span class="zvuk" title="послушать">▶</span>They are teachers.</div>
+              <div class="ru">Они учителя.</div></div><div class="stroka"><div class="en"><span class="zvuk" title="послушать">▶</span>They are in the car.</div>
+              <div class="ru">Они в машине.</div></div></div>
+      </div>
+    </div></section>
+  <section class="ekran"><div class="metka">Шаг 5 из 19 · случай 4 из 7</div>
+    <div class="sluchay">
+      <div class="risunok"><img src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1faaa.svg" alt="" width="58" height="58"></div>
+      <div class="telo">
+        <h2>Вместо they часто стоят два имени. Форма от этого не меняется: их двое, значит are.</h2>
+        
+        <div class="stroki"><div class="stroka"><div class="en"><span class="zvuk" title="послушать">▶</span>Dana and Alim are students.</div>
+              <div class="ru">Дана и Алим студенты.</div></div><div class="stroka"><div class="en"><span class="zvuk" title="послушать">▶</span>Aigul and Daniyar are at work.</div>
+              <div class="ru">Айгуль и Данияр на работе.</div></div></div>
+      </div>
+    </div></section>
+  <section class="ekran"><div class="metka">Шаг 6 из 19 · случай 5 из 7</div>
+    <div class="sluchay">
+      <div class="risunok"><img src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f469-200d-1f3a8.svg" alt="" width="58" height="58"></div>
+      <div class="telo">
+        <h2>Когда людей несколько, занятие тоже ставят во множественное число, и слово a перед ним не нужно.</h2>
+        
+        <div class="stroki"><div class="stroka"><div class="en"><span class="zvuk" title="послушать">▶</span>We are drivers.</div>
+              <div class="ru">Мы водители.</div></div><div class="stroka"><div class="en"><span class="zvuk" title="послушать">▶</span>They are artists.</div>
+              <div class="ru">Они художники.</div></div></div>
+      </div>
+    </div></section>
+  <section class="ekran"><div class="metka">Шаг 7 из 19 · случай 6 из 7</div>
+    <div class="sluchay">
+      <div class="risunok"><img src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/2702.svg" alt="" width="58" height="58"></div>
+      <div class="telo">
+        <h2>В разговоре are сокращают: you're, we're, they're. Апостроф стоит вместо выпавшей буквы a.</h2>
+        
+        <div class="stroki"><div class="stroka"><div class="en"><span class="zvuk" title="послушать">▶</span>You're a teacher.</div>
+              <div class="ru">Ты учитель.</div></div><div class="stroka"><div class="en"><span class="zvuk" title="послушать">▶</span>We're at home.</div>
+              <div class="ru">Мы дома.</div></div></div>
+      </div>
+    </div></section>
+  <section class="ekran"><div class="metka">Шаг 8 из 19 · случай 7 из 7</div>
+    <div class="sluchay">
+      <div class="risunok"><img src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f6ab.svg" alt="" width="58" height="58"></div>
+      <div class="telo">
+        <h2>После двух имён are коротко не записывают: сокращение бывает только у местоимения.</h2>
+        
+        <div class="stroki"><div class="stroka"><div class="en"><span class="zvuk" title="послушать">▶</span>Dana and Alim are students.</div>
+              <div class="ru">Дана и Алим студенты.</div></div><div class="stroka"><div class="en"><span class="zvuk" title="послушать">▶</span>They're students.</div>
+              <div class="ru">Они студенты.</div></div></div>
+      </div>
+    </div></section>
+  <section class="ekran"><div class="metka">Шаг 9 из 19 · всё вместе</div>
+    <h2>Кому какая форма</h2>
+    <div class="karta"><table><tr><th>Кто</th><th>Английский</th><th>Перевод</th></tr><tr><td>ты, вы</td><td><span class="zvuk" title="послушать">▶</span>You are a doctor.</td><td>Ты врач.</td></tr><tr><td>мы</td><td><span class="zvuk" title="послушать">▶</span>We are at home.</td><td>Мы дома.</td></tr><tr><td>они</td><td><span class="zvuk" title="послушать">▶</span>They are teachers.</td><td>Они учителя.</td></tr><tr><td>два имени</td><td><span class="zvuk" title="послушать">▶</span>Dana and Alim are students.</td><td>Дана и Алим студенты.</td></tr></table></div></section>
+  <section class="ekran"><div class="metka">Шаг 10 из 19 · частая ошибка</div>
+    <div class="vrezka nelzya">
+      <div class="zn">!</div>
+      <div><div class="zag">«You is a teacher» — так не говорят.</div>
+      <p>Форма is с you не сочетается никогда, даже если речь об одном человеке: You are a teacher.</p></div>
+    </div></section>
+  <section class="ekran"><div class="metka">Шаг 11 из 19 · слова урока</div>
+    <h2>Слова урока</h2>
+    <div class="nabor"><div class="chip">
+        <img src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f449.svg" alt="" width="40" height="40">
+        <div class="en"><span class="zvuk" title="послушать">▶</span>you</div>
+        <div class="ru">ты, вы</div>
+        <div class="zvuchit">/juː/</div>
+      </div><div class="chip">
+        <img src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f465.svg" alt="" width="40" height="40">
+        <div class="en"><span class="zvuk" title="послушать">▶</span>we</div>
+        <div class="ru">мы</div>
+        <div class="zvuchit">/wiː/</div>
+      </div><div class="chip">
+        <img src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f9d1-200d-1f91d-200d-1f9d1.svg" alt="" width="40" height="40">
+        <div class="en"><span class="zvuk" title="послушать">▶</span>they</div>
+        <div class="ru">они</div>
+        <div class="zvuchit">/ðeɪ/</div>
+      </div><div class="chip">
+        <img src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/2795.svg" alt="" width="40" height="40">
+        <div class="en"><span class="zvuk" title="послушать">▶</span>too</div>
+        <div class="ru">тоже</div>
+        <div class="zvuchit">/tuː/</div>
+      </div><div class="chip">
+        <img src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/2714.svg" alt="" width="40" height="40">
+        <div class="en"><span class="zvuk" title="послушать">▶</span>right</div>
+        <div class="ru">верно</div>
+        <div class="zvuchit">/raɪt/</div>
+      </div></div></section>
+  <section class="ekran"><div class="metka">Шаг 12 из 19 · ступенька 1: узнать</div><h2>Речь об одном человеке. Какая запись верна?</h2>
+      <div class="vybor" data-id="z11" data-razbor="You are a driver. Форма is с you не сочетается никогда."><button data-verno="1"><span class="otm"></span>You are a driver.</button><button data-verno="0"><span class="otm"></span>You is a driver.</button><button data-verno="0"><span class="otm"></span>You am a driver.</button></div>
+      <button class="podskazka" data-hint="С you форма одна, сколько бы людей ни было.">Подсказка</button><div class="razbor" id="razbor-z11"></div></section>
+  <section class="ekran"><div class="metka">Шаг 13 из 19 · ступенька 1: узнать</div><h2>Отметь строки, где нужна форма are.</h2>
+      <div class="otmetka" data-id="z12" data-razbor="Are нужна двум именам, we и they. У I своя форма — am."><button class="slovo" data-verno="1">Dana and Alim</button><span> · </span><button class="slovo" data-verno="0">I</button><span> · </span><button class="slovo" data-verno="1">we</button><span> · </span><button class="slovo" data-verno="1">they</button></div>
+      <button class="proverit" data-id="z12">Проверить</button><button class="podskazka" data-hint="Одно слово из четырёх тянет за собой другую форму.">Подсказка</button><div class="razbor" id="razbor-z12"></div></section>
+  <section class="ekran"><div class="metka">Шаг 14 из 19 · ступенька 2: произвести</div><h2>Речь о двоих. Допиши недостающее слово.</h2>
+      <div class="propusk">
+        <span>Dana and Alim </span>
+        <input data-id="z13" data-otvet="are"
+          data-razbor="Dana and Alim are at work. Два имени — это те же «они», значит are." placeholder="…">
+        <span> at work.</span>
+      </div>
+      <button class="proverit" data-id="z13">Проверить</button><button class="podskazka" data-hint="Их двое.">Подсказка</button><div class="razbor" id="razbor-z13"></div></section>
+  <section class="ekran"><div class="metka">Шаг 15 из 19 · ступенька 2: произвести</div><h2>Собери строку: мы художники.</h2>
+      <div class="sobrano" id="sobrano-z14">нажимай карточки по порядку</div>
+      <div class="karty" data-id="z14" data-nuzhno="1,2,0" data-razbor="We are artists. Слово a перед artists не нужно: их несколько."><button data-i="0">artists</button><button data-i="1">We</button><button data-i="2">are</button></div>
+      <button class="podskazka" data-hint="Когда людей несколько, занятие тоже ставят во множественное число.">Подсказка</button><div class="razbor" id="razbor-z14"></div></section>
+  <section class="ekran"><div class="metka">Шаг 16 из 19 · ступенька 2: произвести</div><h2>Ученик написал: They is teachers. Запиши строку без ошибки.</h2>
+      
+      <input class="stroka-vvoda" data-id="z15" data-otvet="They are teachers.|They are teachers"
+        data-razbor="They are teachers. После they стоит are, а is бывает у одного." placeholder="пиши здесь…">
+      <button class="proverit" data-id="z15" data-svoyo="0">
+        Проверить</button><button class="podskazka" data-hint="Форму выбирает слово перед ней.">Подсказка</button>
+      
+      <div class="razbor" id="razbor-z15"></div></section>
+  <section class="ekran"><div class="metka">Шаг 17 из 19 · ступенька 2: произвести</div><h2>Диктант. Послушай и запиши строку целиком.</h2>
+      <div class="zapis"><span class="zvuk" title="послушать">▶</span> запись к заданию</div>
+      <input class="stroka-vvoda" data-id="z16" data-otvet="We are students.|We are students|We're students.|We're students"
+        data-razbor="We are students. Короткая запись We're тоже верна." placeholder="пиши здесь…">
+      <button class="proverit" data-id="z16" data-svoyo="0">
+        Проверить</button><button class="podskazka" data-hint="Речь о нескольких, и занятие тоже во множественном.">Подсказка</button>
+      
+      <div class="razbor" id="razbor-z16"></div></section>
+  <section class="ekran"><div class="metka">Шаг 18 из 19 · ступенька 3: применить к себе</div><h2>Напиши одну строку о двух своих знакомых: назови их имена и общее занятие. Занятие возьми из словаря.</h2>
+      
+      <input class="stroka-vvoda" data-id="z17" data-otvet=""
+        data-razbor="Например: Dana and Alim are students. Имена будут твои, а устройство строки то же: два имени тянут за собой are." placeholder="пиши здесь…">
+      <button class="proverit" data-id="z17" data-svoyo="1">
+        Показать образец</button><button class="podskazka" data-hint="Два имени, потом are, потом занятие во множественном числе.">Подсказка</button>
+      <div class="spisok">Проверь себя: имён два, и между ними стоит and · после имён стоит are · занятие стоит во множественном числе, и слова a перед ним нет</div>
+      <div class="razbor" id="razbor-z17"></div></section>
+  <section class="ekran"><div class="metka">Урок пройден</div>
+      <h1>Готово</h1>
+      <p class="vyvod">Теперь ты умеешь: выбирать are для you, we, they и для двух имён</p>
+      <div class="nachalo"><img src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/2705.svg" alt="" width="52" height="52"><p>Дальше — урок 3: <b>Он, она, оно — is</b>.</p></div></section>
+  <section class="ekran"><div class="metka">Урок 3 из 3</div>
+      <h1>Он, она, оно — is</h1>
+      <p class="vyvod">выбирать is для he, she, it и для одного имени</p>
+      <div class="nachalo"><img src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f50a.svg" alt="" width="52" height="52"><p>Впереди 7 случаев и задания.
+        Один экран — одна мысль.</p></div></section>
+  <section class="ekran"><div class="metka">Шаг 1 из 20 · сначала послушай</div>
+    <h2>Кто есть кто</h2>
+    <div class="chat"><div class="puz">
+        <div class="lico"><img src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f9d1-200d-1f393.svg" alt="" width="24" height="24"></div>
+        <div class="rech"><div class="en"><span class="zvuk" title="послушать">▶</span>Who is that?</div>
+        <div class="ru">Кто это?</div></div></div><div class="puz spr">
+        <div class="lico"><img src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f9d1-200d-1f3eb.svg" alt="" width="24" height="24"></div>
+        <div class="rech"><div class="en"><span class="zvuk" title="послушать">▶</span>That is Daniyar. He is a driver.</div>
+        <div class="ru">Это Данияр. Он водитель.</div></div></div><div class="puz">
+        <div class="lico"><img src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f9d1-200d-1f393.svg" alt="" width="24" height="24"></div>
+        <div class="rech"><div class="en"><span class="zvuk" title="послушать">▶</span>And she is Aigul. She is a doctor.</div>
+        <div class="ru">А это Айгуль. Она врач.</div></div></div><div class="puz spr">
+        <div class="lico"><img src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f9d1-200d-1f3eb.svg" alt="" width="24" height="24"></div>
+        <div class="rech"><div class="en"><span class="zvuk" title="послушать">▶</span>The car is new.</div>
+        <div class="ru">Машина новая.</div></div></div></div>
+    <p class="vyvod">Пять раз is: с who, с that, с he, со she и с машиной. Общее у них одно — речь всякий раз об одном.</p></section>
+  <section class="ekran"><div class="metka">Шаг 2 из 20 · случай 1 из 7</div>
+    <div class="sluchay">
+      <div class="risunok"><img src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f468.svg" alt="" width="58" height="58"></div>
+      <div class="telo">
+        <h2>После he и she стоит is. He — о мужчине, she — о женщине.</h2>
+        
+        <div class="stroki"><div class="stroka"><div class="en"><span class="zvuk" title="послушать">▶</span>He is a driver.</div>
+              <div class="ru">Он водитель.</div></div><div class="stroka"><div class="en"><span class="zvuk" title="послушать">▶</span>She is a doctor.</div>
+              <div class="ru">Она врач.</div></div></div>
+      </div>
+    </div></section>
+  <section class="ekran"><div class="metka">Шаг 3 из 20 · случай 2 из 7</div>
+    <div class="sluchay">
+      <div class="risunok"><img src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f4e6.svg" alt="" width="58" height="58"></div>
+      <div class="telo">
+        <h2>После it — тоже is. Слово it ставят о предмете, а не о человеке.</h2>
+        
+        <div class="stroki"><div class="stroka"><div class="en"><span class="zvuk" title="послушать">▶</span>It is a car.</div>
+              <div class="ru">Это машина.</div></div><div class="stroka"><div class="en"><span class="zvuk" title="послушать">▶</span>It is new.</div>
+              <div class="ru">Оно новое.</div></div></div>
+      </div>
+    </div></section>
+  <section class="ekran"><div class="metka">Шаг 4 из 20 · случай 3 из 7</div>
+    <div class="sluchay">
+      <div class="risunok"><img src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1faaa.svg" alt="" width="58" height="58"></div>
+      <div class="telo">
+        <h2>Вместо he и she часто стоит одно имя. Форма та же: человек один, значит is.</h2>
+        
+        <div class="stroki"><div class="stroka"><div class="en"><span class="zvuk" title="послушать">▶</span>Daniyar is a driver.</div>
+              <div class="ru">Данияр водитель.</div></div><div class="stroka"><div class="en"><span class="zvuk" title="послушать">▶</span>Aigul is at work.</div>
+              <div class="ru">Айгуль на работе.</div></div></div>
+      </div>
+    </div></section>
+  <section class="ekran"><div class="metka">Шаг 5 из 20 · случай 4 из 7</div>
+    <div class="sluchay">
+      <div class="risunok"><img src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f697.svg" alt="" width="58" height="58"></div>
+      <div class="telo">
+        <h2>Вместо it может стоять название самой вещи, и форма не меняется.</h2>
+        
+        <div class="stroki"><div class="stroka"><div class="en"><span class="zvuk" title="послушать">▶</span>The car is new.</div>
+              <div class="ru">Машина новая.</div></div><div class="stroka"><div class="en"><span class="zvuk" title="послушать">▶</span>The house is big.</div>
+              <div class="ru">Дом большой.</div></div></div>
+      </div>
+    </div></section>
+  <section class="ekran"><div class="metka">Шаг 6 из 20 · случай 5 из 7</div>
+    <div class="sluchay">
+      <div class="risunok"><img src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/2702.svg" alt="" width="58" height="58"></div>
+      <div class="telo">
+        <h2>В разговоре is сокращают до 's: he's, she's, it's. Апостроф стоит вместо выпавшей буквы i.</h2>
+        
+        <div class="stroki"><div class="stroka"><div class="en"><span class="zvuk" title="послушать">▶</span>He's a driver.</div>
+              <div class="ru">Он водитель.</div></div><div class="stroka"><div class="en"><span class="zvuk" title="послушать">▶</span>It's new.</div>
+              <div class="ru">Оно новое.</div></div></div>
+      </div>
+    </div></section>
+  <section class="ekran"><div class="metka">Шаг 7 из 20 · случай 6 из 7</div>
+    <div class="sluchay">
+      <div class="risunok"><img src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f4dd.svg" alt="" width="58" height="58"></div>
+      <div class="telo">
+        <h2>С одним именем короткую запись тоже делают — в отличие от двух имён.</h2>
+        
+        <div class="stroki"><div class="stroka"><div class="en"><span class="zvuk" title="послушать">▶</span>Daniyar's at work.</div>
+              <div class="ru">Данияр на работе.</div></div><div class="stroka"><div class="en"><span class="zvuk" title="послушать">▶</span>Aigul's a doctor.</div>
+              <div class="ru">Айгуль врач.</div></div></div>
+      </div>
+    </div></section>
+  <section class="ekran"><div class="metka">Шаг 8 из 20 · случай 7 из 7</div>
+    <div class="sluchay">
+      <div class="risunok"><img src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/2744.svg" alt="" width="58" height="58"></div>
+      <div class="telo">
+        <h2>О погоде и о времени говорят через it, хотя по-русски никакого «оно» там нет.</h2>
+        
+        <div class="stroki"><div class="stroka"><div class="en"><span class="zvuk" title="послушать">▶</span>It is cold.</div>
+              <div class="ru">Холодно.</div></div><div class="stroka"><div class="en"><span class="zvuk" title="послушать">▶</span>It is Monday.</div>
+              <div class="ru">Понедельник.</div></div></div>
+      </div>
+    </div></section>
+  <section class="ekran"><div class="metka">Шаг 9 из 20 · всё вместе</div>
+    <h2>Кому и чему нужна is</h2>
+    <div class="karta"><table><tr><th>Кто или что</th><th>Английский</th><th>Перевод</th></tr><tr><td>он</td><td><span class="zvuk" title="послушать">▶</span>He is a driver.</td><td>Он водитель.</td></tr><tr><td>она</td><td><span class="zvuk" title="послушать">▶</span>She is a doctor.</td><td>Она врач.</td></tr><tr><td>предмет</td><td><span class="zvuk" title="послушать">▶</span>It is a car.</td><td>Это машина.</td></tr><tr><td>одно имя</td><td><span class="zvuk" title="послушать">▶</span>Daniyar is a driver.</td><td>Данияр водитель.</td></tr><tr><td>название вещи</td><td><span class="zvuk" title="послушать">▶</span>The house is big.</td><td>Дом большой.</td></tr></table></div></section>
+  <section class="ekran"><div class="metka">Шаг 10 из 20 · всё вместе</div>
+    <h2>Все три формы разом</h2>
+    <div class="karta"><table><tr><th>Кто</th><th>Форма</th><th>Пример</th><th>Перевод</th></tr><tr><td>I</td><td><span class="zvuk" title="послушать">▶</span>am</td><td><span class="zvuk" title="послушать">▶</span>I am a student.</td><td>Я студент.</td></tr><tr><td><span class="zvuk" title="послушать">▶</span>you, we, they</td><td><span class="zvuk" title="послушать">▶</span>are</td><td><span class="zvuk" title="послушать">▶</span>You are a student.</td><td>Ты студент.</td></tr><tr><td><span class="zvuk" title="послушать">▶</span>he, she, it</td><td><span class="zvuk" title="послушать">▶</span>is</td><td><span class="zvuk" title="послушать">▶</span>He is a student.</td><td>Он студент.</td></tr></table></div></section>
+  <section class="ekran"><div class="metka">Шаг 11 из 20 · частая ошибка</div>
+    <div class="vrezka nelzya">
+      <div class="zn">!</div>
+      <div><div class="zag">«He are a driver» — так не говорят.</div>
+      <p>Форма are бывает у нескольких, а he — это один человек: He is a driver.</p></div>
+    </div></section>
+  <section class="ekran"><div class="metka">Шаг 12 из 20 · слова урока</div>
+    <h2>Слова урока</h2>
+    <div class="nabor"><div class="chip">
+        <img src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f468.svg" alt="" width="40" height="40">
+        <div class="en"><span class="zvuk" title="послушать">▶</span>he</div>
+        <div class="ru">он</div>
+        <div class="zvuchit">/hiː/</div>
+      </div><div class="chip">
+        <img src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f469.svg" alt="" width="40" height="40">
+        <div class="en"><span class="zvuk" title="послушать">▶</span>she</div>
+        <div class="ru">она</div>
+        <div class="zvuchit">/ʃiː/</div>
+      </div><div class="chip">
+        <img src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f4e6.svg" alt="" width="40" height="40">
+        <div class="en"><span class="zvuk" title="послушать">▶</span>it</div>
+        <div class="ru">оно (о предмете)</div>
+        <div class="zvuchit">/ɪt/</div>
+      </div><div class="chip">
+        <img src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f697.svg" alt="" width="40" height="40">
+        <div class="en"><span class="zvuk" title="послушать">▶</span>car</div>
+        <div class="ru">машина</div>
+        <div class="zvuchit">/kɑː/</div>
+      </div><div class="chip">
+        <img src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f3e0.svg" alt="" width="40" height="40">
+        <div class="en"><span class="zvuk" title="послушать">▶</span>house</div>
+        <div class="ru">дом</div>
+        <div class="zvuchit">/haʊs/</div>
+      </div><div class="chip">
+        <img src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/2728.svg" alt="" width="40" height="40">
+        <div class="en"><span class="zvuk" title="послушать">▶</span>new</div>
+        <div class="ru">новый</div>
+        <div class="zvuchit">/njuː/</div>
+      </div><div class="chip">
+        <img src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f418.svg" alt="" width="40" height="40">
+        <div class="en"><span class="zvuk" title="послушать">▶</span>big</div>
+        <div class="ru">большой</div>
+        <div class="zvuchit">/bɪg/</div>
+      </div><div class="chip">
+        <img src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/2744.svg" alt="" width="40" height="40">
+        <div class="en"><span class="zvuk" title="послушать">▶</span>cold</div>
+        <div class="ru">холодный, холодно</div>
+        <div class="zvuchit">/kəʊld/</div>
+      </div></div></section>
+  <section class="ekran"><div class="metka">Шаг 13 из 20 · ступенька 1: узнать</div><h2>Речь об одном человеке. Какая запись верна?</h2>
+      <div class="vybor" data-id="z18" data-razbor="He is a driver. Он один, и потому is."><button data-verno="1"><span class="otm"></span>He is a driver.</button><button data-verno="0"><span class="otm"></span>He are a driver.</button><button data-verno="0"><span class="otm"></span>He am a driver.</button></div>
+      <button class="podskazka" data-hint="Форма are бывает у нескольких.">Подсказка</button><div class="razbor" id="razbor-z18"></div></section>
+  <section class="ekran"><div class="metka">Шаг 14 из 20 · ступенька 1: узнать</div><h2>Отметь слова, после которых нужна форма is.</h2>
+      <div class="otmetka" data-id="z19" data-razbor="Is нужна he и the car: там речь об одном. They и we — о нескольких."><button class="slovo" data-verno="1">he</button><span> · </span><button class="slovo" data-verno="0">they</button><span> · </span><button class="slovo" data-verno="1">the car</button><span> · </span><button class="slovo" data-verno="0">we</button></div>
+      <button class="proverit" data-id="z19">Проверить</button><button class="podskazka" data-hint="Считай, об одном речь или о нескольких.">Подсказка</button><div class="razbor" id="razbor-z19"></div></section>
+  <section class="ekran"><div class="metka">Шаг 15 из 20 · ступенька 2: произвести</div><h2>Речь о машине. Допиши недостающее слово.</h2>
+      <div class="propusk">
+        <span>The car </span>
+        <input data-id="z20" data-otvet="is"
+          data-razbor="The car is new. Название вещи ведёт себя как it: речь об одном." placeholder="…">
+        <span> new.</span>
+      </div>
+      <button class="proverit" data-id="z20">Проверить</button><button class="podskazka" data-hint="Машина одна.">Подсказка</button><div class="razbor" id="razbor-z20"></div></section>
+  <section class="ekran"><div class="metka">Шаг 16 из 20 · ступенька 2: произвести</div><h2>Соедини слово и нужную ему форму.</h2>
+      <div class="pary" data-id="z21" data-otvet="0,1,2" data-razbor="I — am, we — are, she — is. Форму выбирает слово, стоящее перед ней.">
+        <div class="stolb levo"><button data-i="0">I</button><button data-i="1">we</button><button data-i="2">she</button></div><div class="stolb pravo"><button data-i="0">am</button><button data-i="1">are</button><button data-i="2">is</button></div>
+      </div><button class="podskazka" data-hint="У I форма своя и только своя.">Подсказка</button><div class="razbor" id="razbor-z21"></div></section>
+  <section class="ekran"><div class="metka">Шаг 17 из 20 · ступенька 2: произвести</div><h2>Ученик написал: She are a doctor. Запиши строку без ошибки.</h2>
+      
+      <input class="stroka-vvoda" data-id="z22" data-otvet="She is a doctor.|She is a doctor"
+        data-razbor="She is a doctor. После she стоит is, а are бывает у нескольких." placeholder="пиши здесь…">
+      <button class="proverit" data-id="z22" data-svoyo="0">
+        Проверить</button><button class="podskazka" data-hint="Она одна.">Подсказка</button>
+      
+      <div class="razbor" id="razbor-z22"></div></section>
+  <section class="ekran"><div class="metka">Шаг 18 из 20 · ступенька 2: произвести</div><h2>Диктант. Послушай и запиши строку целиком.</h2>
+      <div class="zapis"><span class="zvuk" title="послушать">▶</span> запись к заданию</div>
+      <input class="stroka-vvoda" data-id="z23" data-otvet="The house is big.|The house is big"
+        data-razbor="The house is big. Название вещи тянет за собой is." placeholder="пиши здесь…">
+      <button class="proverit" data-id="z23" data-svoyo="0">
+        Проверить</button><button class="podskazka" data-hint="Речь о доме, и он один.">Подсказка</button>
+      
+      <div class="razbor" id="razbor-z23"></div></section>
+  <section class="ekran"><div class="metka">Шаг 19 из 20 · ступенька 3: применить к себе</div><h2>Напиши две строки об одном своём знакомом: назови имя и занятие. Занятие возьми из словаря.</h2>
+      
+      <input class="stroka-vvoda" data-id="z24" data-otvet=""
+        data-razbor="Например: This is Daniyar. He is a driver. Имя будет твоё, а форма та же: об одном человеке говорят через is." placeholder="пиши здесь…">
+      <button class="proverit" data-id="z24" data-svoyo="1">
+        Показать образец</button><button class="podskazka" data-hint="Человек один, значит форма во всех строках одна.">Подсказка</button>
+      <div class="spisok">Проверь себя: в обеих строках стоит is · перед занятием стоит a или an · во второй строке вместо имени стоит he или she</div>
+      <div class="razbor" id="razbor-z24"></div></section>
+  <section class="ekran"><div class="metka">Урок пройден</div>
+      <h1>Готово</h1>
+      <p class="vyvod">Теперь ты умеешь: выбирать is для he, she, it и для одного имени</p>
+      <div class="nachalo"><img src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/2705.svg" alt="" width="52" height="52"><p>Модуль пройден. Дальше — проверочная работа модуля.</p></div></section>
   <div class="niz">
     <button class="nazad" id="nazad">Назад</button>
     <button class="dalshe" id="dalshe">Дальше</button>
   </div>
 </div>
-
 <div class="podpis">
-  Картинки: Twemoji © Twitter, лицензия CC-BY 4.0. На боевом сайте лежат у нас.
+  Картинки: Twemoji © Twitter, лицензия CC-BY 4.0. Звук в образце не подключён —
+  кнопки ▶ показывают, где он стоит.
 </div>
-
 <script>
-  const ekrany = [...document.querySelectorAll(".ekran")];
-  const shagi = document.getElementById("shagi");
-  const schyot = document.getElementById("schyot");
-  let tut = 0;
+const ekrany=[...document.querySelectorAll(".ekran")];
+const gde=["Я — это I am","Я — это I am","Я — это I am","Я — это I am","Я — это I am","Я — это I am","Я — это I am","Я — это I am","Я — это I am","Я — это I am","Я — это I am","Я — это I am","Я — это I am","Я — это I am","Я — это I am","Я — это I am","Я — это I am","Я — это I am","Я — это I am","Я — это I am","Я — это I am","Я — это I am","Я — это I am","Я — это I am","Я — это I am","Я — это I am","Ты, мы, они — are","Ты, мы, они — are","Ты, мы, они — are","Ты, мы, они — are","Ты, мы, они — are","Ты, мы, они — are","Ты, мы, они — are","Ты, мы, они — are","Ты, мы, они — are","Ты, мы, они — are","Ты, мы, они — are","Ты, мы, они — are","Ты, мы, они — are","Ты, мы, они — are","Ты, мы, они — are","Ты, мы, они — are","Ты, мы, они — are","Ты, мы, они — are","Ты, мы, они — are","Ты, мы, они — are","Он, она, оно — is","Он, она, оно — is","Он, она, оно — is","Он, она, оно — is","Он, она, оно — is","Он, она, оно — is","Он, она, оно — is","Он, она, оно — is","Он, она, оно — is","Он, она, оно — is","Он, она, оно — is","Он, она, оно — is","Он, она, оно — is","Он, она, оно — is","Он, она, оно — is","Он, она, оно — is","Он, она, оно — is","Он, она, оно — is","Он, она, оно — is","Он, она, оно — is","Он, она, оно — is"];
+const shagi=document.getElementById("shagi"),schyot=document.getElementById("schyot");
+let tut=0;
+ekrany.forEach(()=>shagi.appendChild(document.createElement("i")));
+function risovat(){
+  ekrany.forEach((e,i)=>e.classList.toggle("vidno",i===tut));
+  [...shagi.children].forEach((el,i)=>{el.className=i<tut?"est":i===tut?"tut":"";});
+  schyot.textContent=(tut+1)+"/"+ekrany.length;
+  document.getElementById("gde").textContent=gde[tut];
+  document.getElementById("nazad").style.visibility=tut?"visible":"hidden";
+  document.getElementById("dalshe").textContent=tut===ekrany.length-1?"В начало":"Дальше";
+  window.scrollTo({top:0});
+}
+document.getElementById("dalshe").onclick=()=>{tut=tut<ekrany.length-1?tut+1:0;risovat();};
+document.getElementById("nazad").onclick=()=>{if(tut){tut-=1;risovat();}};
+document.addEventListener("keydown",(e)=>{
+  if(e.key==="ArrowRight")document.getElementById("dalshe").click();
+  if(e.key==="ArrowLeft")document.getElementById("nazad").click();
+});
+risovat();
 
-  ekrany.forEach(() => shagi.appendChild(document.createElement("i")));
-  const risovat = () => {
-    ekrany.forEach((e, i) => e.classList.toggle("vidno", i === tut));
-    [...shagi.children].forEach((el, i) => {
-      el.className = i < tut ? "est" : i === tut ? "tut" : "";
-    });
-    schyot.textContent = (tut + 1) + "/" + ekrany.length;
-    document.getElementById("nazad").style.visibility = tut ? "visible" : "hidden";
-    document.getElementById("dalshe").textContent =
-      tut === ekrany.length - 1 ? "К уроку 2" : "Дальше";
-    window.scrollTo({ top: 0 });
-  };
-  document.getElementById("dalshe").onclick = () => {
-    if (tut < ekrany.length - 1) { tut += 1; risovat(); }
-  };
-  document.getElementById("nazad").onclick = () => { if (tut) { tut -= 1; risovat(); } };
-  risovat();
+function pokazat(id,text,mimo){
+  const r=document.getElementById("razbor-"+id);
+  if(!r)return; r.textContent=text; r.classList.add("vidno"); r.classList.toggle("mimo",!!mimo);
+}
+const chisto=(s)=>s.toLowerCase().replace(/[.,!?'’]/g,"").replace(/\s+/g," ").trim();
 
-  // выбор варианта
-  document.querySelectorAll(".vybor").forEach((gruppa) => {
-    const razbor = gruppa.parentElement.querySelector(".razbor");
-    gruppa.querySelectorAll("button").forEach((b) => {
-      b.onclick = () => {
-        if (gruppa.dataset.gotovo) return;
-        gruppa.dataset.gotovo = "1";
-        const verno = b.dataset.verno === "1";
-        b.classList.add(verno ? "verno" : "mimo");
-        b.querySelector(".otm").textContent = verno ? "✓" : "✕";
-        if (!verno) {
-          const pravilnyy = gruppa.querySelector("[data-verno]");
-          pravilnyy.classList.add("verno");
-          pravilnyy.querySelector(".otm").textContent = "✓";
-        }
-        razbor.textContent = gruppa.dataset.razbor;
-        razbor.classList.add("vidno");
-        razbor.classList.toggle("mimo", !verno);
-      };
-    });
+document.querySelectorAll(".vybor").forEach((g)=>{
+  g.querySelectorAll("button").forEach((b)=>{
+    b.onclick=()=>{
+      if(g.dataset.gotovo)return; g.dataset.gotovo="1";
+      const verno=b.dataset.verno==="1";
+      b.classList.add(verno?"verno":"mimo");
+      b.querySelector(".otm").textContent=verno?"✓":"✕";
+      if(!verno){const p=g.querySelector('[data-verno="1"]');
+        p.classList.add("verno");p.querySelector(".otm").textContent="✓";}
+      pokazat(g.dataset.id,g.dataset.razbor,!verno);
+    };
   });
+});
 
-  // сборка строки
-  const nuzhno = ["I", "am", "a doctor"];
-  let sobral = [];
-  const pole = document.getElementById("sobrano");
-  const razborSborki = document.getElementById("razbor-sborka");
-  document.querySelectorAll("#karty button").forEach((b) => {
-    b.onclick = () => {
-      b.disabled = true;
-      sobral.push(b.textContent);
-      pole.innerHTML = sobral.map((s) => "<b>" + s + "</b>").join(" ");
-      if (sobral.length === nuzhno.length) {
-        const verno = sobral.join(" ") === nuzhno.join(" ");
-        razborSborki.textContent = verno
-          ? "I am a doctor. Порядок один: кто, форма be, остальное."
-          : "Пока не так. Верно: I am a doctor — сначала тот, о ком речь, потом форма, потом занятие.";
-        razborSborki.classList.add("vidno");
-        razborSborki.classList.toggle("mimo", !verno);
+document.querySelectorAll(".proverit").forEach((k)=>{
+  k.onclick=()=>{
+    const id=k.dataset.id;
+    const pole=document.querySelector('input[data-id="'+id+'"]');
+    if(pole){
+      if(k.dataset.svoyo==="1"){pokazat(id,pole.dataset.razbor,false);return;}
+      const nado=pole.dataset.otvet.split("|").map(chisto);
+      const verno=nado.includes(chisto(pole.value));
+      pole.style.borderColor=verno?"#34d399":"#fb7185";
+      pokazat(id,verno?pole.dataset.razbor:"Пока не так. "+pole.dataset.razbor,!verno);
+      return;
+    }
+    const otm=document.querySelector('.otmetka[data-id="'+id+'"]');
+    if(otm){
+      let verno=true;
+      otm.querySelectorAll(".slovo").forEach((s)=>{
+        const nado=s.dataset.verno==="1", vzyal=s.classList.contains("vzyato");
+        if(nado!==vzyal)verno=false;
+      });
+      pokazat(id,verno?otm.dataset.razbor:"Пока не так. "+otm.dataset.razbor,!verno);
+    }
+  };
+});
+
+document.querySelectorAll(".otmetka .slovo").forEach((s)=>{
+  s.onclick=()=>s.classList.toggle("vzyato");
+});
+
+document.querySelectorAll(".karty[data-nuzhno]").forEach((g)=>{
+  const id=g.dataset.id, nuzhno=g.dataset.nuzhno.split(",").map(Number);
+  const pole=document.getElementById("sobrano-"+id); const sobral=[];
+  g.querySelectorAll("button").forEach((b)=>{
+    b.onclick=()=>{
+      b.disabled=true; sobral.push({i:Number(b.dataset.i),t:b.textContent});
+      pole.innerHTML=sobral.map((x)=>"<b>"+x.t+"</b>").join(" ");
+      if(sobral.length===nuzhno.length){
+        const verno=sobral.every((x,k)=>x.i===nuzhno[k]);
+        pokazat(id,verno?g.dataset.razbor:"Пока не так. "+g.dataset.razbor,!verno);
       }
     };
   });
+});
+
+document.querySelectorAll(".pary").forEach((g)=>{
+  const id=g.dataset.id, otvet=g.dataset.otvet.split(",").map(Number);
+  let vybral=null, sdelano=0, oshibok=0;
+  g.querySelectorAll(".levo button").forEach((b)=>{
+    b.onclick=()=>{ if(b.classList.contains("gotovo"))return;
+      g.querySelectorAll(".levo button").forEach((x)=>x.classList.remove("vzyato"));
+      b.classList.add("vzyato"); vybral=Number(b.dataset.i); };
+  });
+  g.querySelectorAll(".pravo button").forEach((b)=>{
+    b.onclick=()=>{ if(vybral===null||b.classList.contains("gotovo"))return;
+      const verno=otvet[vybral]===Number(b.dataset.i);
+      if(verno){
+        g.querySelectorAll(".levo button")[vybral].classList.add("gotovo");
+        g.querySelectorAll(".levo button")[vybral].classList.remove("vzyato");
+        b.classList.add("gotovo"); sdelano+=1;
+        if(sdelano===otvet.length)pokazat(id,g.dataset.razbor,oshibok>0);
+      } else { oshibok+=1; b.animate([{transform:"translateX(-4px)"},{transform:"translateX(4px)"},{transform:"none"}],160); }
+      vybral=null; };
+  });
+});
+
+document.querySelectorAll(".podskazka").forEach((k)=>{
+  k.onclick=()=>{ k.textContent=k.dataset.hint; k.disabled=true; k.style.opacity=".8"; };
+});
 </script>
 </body>
 </html>
