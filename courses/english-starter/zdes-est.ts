@@ -99,6 +99,7 @@ import type { Module } from "@/lib/content/types";
 const module: Module = {
   slug: "zdes-est",
   title: "Здесь есть",
+  znak: "1f3e0",
 
   sources: [
     {

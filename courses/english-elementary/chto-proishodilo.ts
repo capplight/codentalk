@@ -150,6 +150,7 @@ import type { Module } from "@/lib/content/types";
 const module: Module = {
   slug: "chto-proishodilo",
   title: "Что происходило",
+  znak: "1f3ac",
 
   sources: [
     {

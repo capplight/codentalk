@@ -125,6 +125,7 @@ import type { Module } from "@/lib/content/types";
 const module: Module = {
   slug: "uzhe-i-eshchyo-net",
   title: "Уже и ещё нет",
+  znak: "23f2",
 
   outcomes: [
     "сообщить, что дело сделано: I have already packed",

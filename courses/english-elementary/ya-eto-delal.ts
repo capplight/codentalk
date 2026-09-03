@@ -91,6 +91,7 @@ import type { Module } from "@/lib/content/types";
 const module: Module = {
   slug: "ya-eto-delal",
   title: "Я это делал",
+  znak: "1f3c1",
 
   outcomes: [
     "рассказать об опыте: I have seen a dolphin",

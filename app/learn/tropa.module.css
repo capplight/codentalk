@@ -395,3 +395,110 @@
   flex: 1;
   min-width: 200px;
 }
+
+/* ---- Свод по всей ступени ---- */
+
+.svod {
+  margin: 18px 0 4px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.svodPolosa {
+  flex: 1;
+  min-width: 180px;
+  height: 8px;
+  border-radius: 4px;
+  background: var(--line);
+  overflow: hidden;
+}
+
+.svodPolosa i {
+  display: block;
+  height: 100%;
+  border-radius: 4px;
+  background: linear-gradient(90deg, var(--good), var(--accent));
+  transition: width 0.4s ease;
+}
+
+.svodStroka {
+  color: var(--ink-soft);
+  font-size: 14px;
+}
+
+.svodStroka b {
+  color: var(--ink);
+}
+
+/* ---- Название модуля в два этажа ---- */
+
+.modulImyaStolb {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.modulNomer {
+  color: var(--ink-soft);
+  font-size: 12px;
+}
+
+/* Значок модуля стоит в той же плитке, где был номер: он крупнее цифры и
+   потому плитку чуть распирает — уравниваем. */
+.nomer img {
+  display: block;
+}
+
+/* ---- Части раскрашены по-разному ---- */
+
+/*
+ * Четыре части ступени получают свои цвета. Это не украшение ради украшения:
+ * одинаковые серые полосы на длинной странице сливаются, и человек теряет, в
+ * какой части он находится. Цвет держится и на плитках модулей внутри.
+ */
+.chast:nth-of-type(1) {
+  border-left: 3px solid var(--accent);
+}
+.chast:nth-of-type(2) {
+  border-left: 3px solid var(--good);
+}
+.chast:nth-of-type(3) {
+  border-left: 3px solid var(--violet);
+}
+.chast:nth-of-type(4) {
+  border-left: 3px solid var(--amber);
+}
+
+/* ---- Тропа — пунктиром, как дорога на карте ---- */
+
+.tropa::before {
+  background: none;
+  border-left: 2px dashed var(--line);
+  width: 0;
+}
+
+/* Узел, где человек сейчас, тихо дышит. Ни счётчиков, ни наказаний — просто
+   глазу есть за что зацепиться на длинной странице. */
+@keyframes dyshit {
+  0%,
+  100% {
+    box-shadow: 0 0 0 6px var(--accent-soft);
+  }
+  50% {
+    box-shadow: 0 0 0 11px var(--accent-soft);
+  }
+}
+
+.krugSeychas {
+  animation: dyshit 2.4s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .krugSeychas {
+    animation: none;
+  }
+}

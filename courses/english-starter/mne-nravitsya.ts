@@ -81,6 +81,7 @@ import type { Module } from "@/lib/content/types";
 const module: Module = {
   slug: "mne-nravitsya",
   title: "Мне нравится",
+  znak: "2764",
 
   sources: [
     {

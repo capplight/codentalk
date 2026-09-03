@@ -55,6 +55,7 @@ import type { Module } from "@/lib/content/types";
 const module: Module = {
   slug: "gde-eto",
   title: "Где это",
+  znak: "1f4cd",
 
   sources: [
     {

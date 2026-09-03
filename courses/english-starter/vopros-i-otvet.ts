@@ -35,6 +35,7 @@ import type { Module } from "@/lib/content/types";
 const module: Module = {
   slug: "vopros-i-otvet",
   title: "Вопрос и краткий ответ",
+  znak: "2753",
 
   sources: [
     {

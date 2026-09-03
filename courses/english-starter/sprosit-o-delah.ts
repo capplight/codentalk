@@ -102,6 +102,7 @@ import type { Module } from "@/lib/content/types";
 const module: Module = {
   slug: "sprosit-o-delah",
   title: "Спросить о делах",
+  znak: "1f4ac",
 
   sources: [
     {

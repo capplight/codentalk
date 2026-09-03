@@ -72,6 +72,7 @@ import type { Module } from "@/lib/content/types";
 const module: Module = {
   slug: "bolshe-i-menshe",
   title: "Больше и меньше",
+  znak: "2696",
 
   outcomes: [
     "сравнивать две вещи: My flat is smaller than yours",

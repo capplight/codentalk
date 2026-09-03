@@ -106,6 +106,7 @@ import type { Module } from "@/lib/content/types";
 const module: Module = {
   slug: "davay-ya",
   title: "Давай я",
+  znak: "1f64b",
 
   outcomes: [
     "предлагать помощь: Shall I carry your bag?",

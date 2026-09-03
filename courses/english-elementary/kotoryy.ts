@@ -83,6 +83,7 @@ import type { Module } from "@/lib/content/types";
 const module: Module = {
   slug: "kotoryy",
   title: "Который",
+  znak: "1f517",
 
   outcomes: [
     "описывать человека по тому, что он делает: a friend who lives in Almaty",

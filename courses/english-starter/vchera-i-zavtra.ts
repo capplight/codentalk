@@ -95,6 +95,7 @@ import type { Module } from "@/lib/content/types";
 const module: Module = {
   slug: "vchera-i-zavtra",
   title: "Вчера и завтра",
+  znak: "23f3",
 
   sources: [
     {

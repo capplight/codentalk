@@ -146,6 +146,7 @@ import type { Module } from "@/lib/content/types";
 const module: Module = {
   slug: "sprosit-o-proshlom",
   title: "Спросить о прошлом",
+  znak: "2753",
 
   sources: [
     {

@@ -96,6 +96,7 @@ import type { Module } from "@/lib/content/types";
 const module: Module = {
   slug: "samyy",
   title: "Самый",
+  znak: "1f3c6",
 
   outcomes: [
     "выделять одно из многих: the biggest animal",

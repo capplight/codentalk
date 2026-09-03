@@ -99,6 +99,7 @@ import type { Module } from "@/lib/content/types";
 const module: Module = {
   slug: "etot-tot-i-drugoy",
   title: "Этот, тот и другой",
+  znak: "1f449",
 
   outcomes: [
     "показывать на вещь: this cap, that shop",

@@ -49,6 +49,7 @@ function nuzhnye(spisok: Course[]): Map<string, string[]> {
 
   for (const kurs of spisok) {
     for (const modul of kurs.modules) {
+      otmetit(modul.znak, `${kurs.slug}/${modul.slug}`);
       for (const urok of modul.lessons) {
         for (const blok of urok.blocks) {
           otmetit(blok.znak, `${kurs.slug}/${urok.slug}/${blok.id}`);

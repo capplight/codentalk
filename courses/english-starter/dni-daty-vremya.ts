@@ -94,6 +94,7 @@ import type { Module } from "@/lib/content/types";
 const module: Module = {
   slug: "dni-daty-vremya",
   title: "Дни, даты, время",
+  znak: "1f4c5",
 
   sources: [
     {

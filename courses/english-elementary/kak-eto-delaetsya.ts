@@ -126,6 +126,7 @@ import type { Module } from "@/lib/content/types";
 const module: Module = {
   slug: "kak-eto-delaetsya",
   title: "Как это делается",
+  znak: "1f527",
 
   outcomes: [
     "говорить, как идёт действие: He plays badly",

@@ -95,6 +95,7 @@ import type { Module } from "@/lib/content/types";
 const module: Module = {
   slug: "ranshe-mog",
   title: "Раньше мог",
+  znak: "1f4fc",
 
   outcomes: [
     "рассказывать, что умел герой раньше: I could swim at six",

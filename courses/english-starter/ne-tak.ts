@@ -29,6 +29,7 @@ import type { Module } from "@/lib/content/types";
 const module: Module = {
   slug: "ne-tak",
   title: "Не так",
+  znak: "274c",
 
   sources: [
     {

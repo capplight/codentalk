@@ -108,6 +108,7 @@ import type { Module } from "@/lib/content/types";
 const module: Module = {
   slug: "osobye-formy",
   title: "Неправильные глаголы",
+  znak: "1f9e9",
 
   sources: [
     {

@@ -107,6 +107,7 @@ import type { Module } from "@/lib/content/types";
 const module: Module = {
   slug: "kak-dolgo",
   title: "Как долго",
+  znak: "1f4cf",
 
   outcomes: [
     "сказать, сколько времени длится дело: I have studied English for two years",

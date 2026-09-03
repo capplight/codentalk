@@ -47,6 +47,7 @@ import type { Module } from "@/lib/content/types";
 const module: Module = {
   slug: "chisla-vozrast-cena",
   title: "Числа, возраст, цена",
+  znak: "1f522",
 
   sources: [
     {

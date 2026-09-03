@@ -84,6 +84,7 @@ import type { Module } from "@/lib/content/types";
 const module: Module = {
   slug: "on-skazal-chto",
   title: "Он сказал, что",
+  znak: "1f4ac",
 
   outcomes: [
     "пересказывать чужие слова: He said that he is busy",

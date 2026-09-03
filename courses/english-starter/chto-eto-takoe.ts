@@ -45,6 +45,7 @@ import type { Module } from "@/lib/content/types";
 const module: Module = {
   slug: "chto-eto-takoe",
   title: "Что это такое",
+  znak: "1f50d",
 
   sources: [
     {

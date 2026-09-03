@@ -131,6 +131,7 @@ import type { Module } from "@/lib/content/types";
 const module: Module = {
   slug: "ochen-i-slishkom",
   title: "Очень и слишком",
+  znak: "1f4c8",
 
   outcomes: [
     "говорить, насколько: really good, quite expensive",

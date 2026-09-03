@@ -160,6 +160,7 @@ import type { Module } from "@/lib/content/types";
 const module: Module = {
   slug: "svoy-i-sam",
   title: "Свой и сам",
+  znak: "1fa9e",
 
   outcomes: [
     "сказать, что вещь твоя: It's mine",

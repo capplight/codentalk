@@ -121,6 +121,7 @@ import type { Module } from "@/lib/content/types";
 const module: Module = {
   slug: "skolko-chego",
   title: "Сколько чего",
+  znak: "1f9ee",
 
   outcomes: [
     "отличать исчисляемое от неисчисляемого: a book, water",

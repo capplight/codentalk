@@ -179,6 +179,34 @@ export default async function CoursePage({ params }: Params) {
       )}
 
       {/*
+        Свод: сколько пройдено на ступени целиком.
+
+        Тропа показывает ближний шаг, а этот свод — весь путь. Без него человек
+        видит свой участок и не видит, сколько сделано вообще, — а это и есть
+        то, ради чего он возвращается.
+
+        Гостю не показывается: у него ничего не пройдено, и полоса в ноль
+        встречала бы его упрёком.
+      */}
+      {userId && (
+        <div className={t.svod}>
+          <div className={t.svodPolosa} aria-hidden>
+            <i style={{ width: `${all.length ? (done.size / all.length) * 100 : 0}%` }} />
+          </div>
+          <span className={t.svodStroka}>
+            Пройдено <b>{done.size}</b> из {all.length}{" "}
+            {plural(all.length, "урока", "уроков", "уроков")}
+            {quizzesTotal > 0 && (
+              <>
+                {" · "}сдано <b>{quizzesPassed}</b> из {quizzesTotal}{" "}
+                {plural(quizzesTotal, "работы", "работ", "работ")}
+              </>
+            )}
+          </span>
+        </div>
+      )}
+
+      {/*
         ТРОПА ВМЕСТО СПИСКА. Владелец 3 сентября 2026: «мне не нравится
         бесконечный список модулей и потом списков».
 
@@ -216,14 +244,28 @@ export default async function CoursePage({ params }: Params) {
                 open={modulSeychas}
               >
                 <summary className={t.modulShapka}>
+                  {/* Значок вместо номера: свёрнутые модули стоят строками, и
+                      одинаковые кружки с цифрами глазом не различаются. Номер
+                      при этом не пропал — он ушёл в подпись под названием. */}
                   <span
                     className={`${t.nomer} ${
                       moduleReady ? t.nomerGotov : modulSeychas ? t.nomerSeychas : ""
                     }`}
                   >
-                    {moduleReady ? "✓" : index + 1}
+                    {module.znak ? (
+                      // eslint-disable-next-line @next/next/no-img-element
+                      <img src={`/twemoji/${module.znak}.svg`} alt="" width={22} height={22} />
+                    ) : (
+                      index + 1
+                    )}
                   </span>
-                  <h2 className={t.modulImya}>{module.title}</h2>
+                  <span className={t.modulImyaStolb}>
+                    <h2 className={t.modulImya}>{module.title}</h2>
+                    <span className={t.modulNomer}>
+                      Модуль {index + 1} · {module.lessons.length}{" "}
+                      {plural(module.lessons.length, "урок", "урока", "уроков")}
+                    </span>
+                  </span>
                   <span className={t.polosa} aria-hidden>
                     <i style={{ width: `${(lessonsDone / module.lessons.length) * 100}%` }} />
                   </span>

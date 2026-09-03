@@ -179,6 +179,7 @@ import type { Module } from "@/lib/content/types";
 const module: Module = {
   slug: "poka-i-kogda",
   title: "Пока и когда",
+  znak: "23f3",
 
   sources: [
     {

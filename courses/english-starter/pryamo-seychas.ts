@@ -72,6 +72,7 @@ import type { Module } from "@/lib/content/types";
 const module: Module = {
   slug: "pryamo-seychas",
   title: "Прямо сейчас",
+  znak: "23f1",
 
   sources: [
     {

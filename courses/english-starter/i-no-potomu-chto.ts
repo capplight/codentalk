@@ -119,6 +119,7 @@ import type { Module } from "@/lib/content/types";
 const module: Module = {
   slug: "i-no-potomu-chto",
   title: "И, но, потому что",
+  znak: "1f517",
 
   sources: [
     {

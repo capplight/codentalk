@@ -51,6 +51,7 @@ import type { Module } from "@/lib/content/types";
 const modul: Module = {
   slug: "kto-eto",
   title: "Я, ты, он",
+  znak: "1f465",
 
   sources: [
     {

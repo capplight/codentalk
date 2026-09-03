@@ -38,6 +38,7 @@ import type { Module } from "@/lib/content/types";
 const module: Module = {
   slug: "rasskaz-o-sebe",
   title: "Рассказ о себе",
+  znak: "1faaa",
 
   sources: [
     {

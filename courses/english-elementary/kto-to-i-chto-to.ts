@@ -102,6 +102,7 @@ import type { Module } from "@/lib/content/types";
 const module: Module = {
   slug: "kto-to-i-chto-to",
   title: "Кто-то и что-то",
+  znak: "1f464",
 
   outcomes: [
     "говорить о неизвестном человеке и о неизвестной вещи: someone, something",

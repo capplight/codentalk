@@ -109,6 +109,7 @@ import type { Module } from "@/lib/content/types";
 const module: Module = {
   slug: "mozhet-byt",
   title: "Может быть",
+  znak: "1f914",
 
   outcomes: [
     "говорить о возможном: It might rain tomorrow",

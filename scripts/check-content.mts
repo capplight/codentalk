@@ -2926,6 +2926,7 @@ function checkZnachki(course: Course): void {
   for (const kod of Object.values(ZNACHKI_VIDA)) if (!est(kod)) netu.add(kod);
 
   for (const mod of course.modules) {
+    if (mod.znak && !est(mod.znak)) netu.add(mod.znak);
     for (const lesson of mod.lessons) {
       for (const block of lesson.blocks) {
         if (block.znak && !est(block.znak)) netu.add(block.znak);

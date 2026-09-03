@@ -120,6 +120,7 @@ import type { Module } from "@/lib/content/types";
 const module: Module = {
   slug: "stoit-i-ne-stoit",
   title: "Стоит и не стоит",
+  znak: "1f4a1",
 
   outcomes: [
     "советовать сделать: You should try walking",

@@ -163,6 +163,7 @@ import type { Module } from "@/lib/content/types";
 const module: Module = {
   slug: "uzhe-dogovorilis",
   title: "Уже договорились",
+  znak: "1f91d",
 
   sources: [
     {

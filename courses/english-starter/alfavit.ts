@@ -47,6 +47,7 @@ import type { Module } from "@/lib/content/types";
 const module: Module = {
   slug: "alfavit",
   title: "Алфавит и своё имя",
+  znak: "1f524",
 
   sources: [
     {

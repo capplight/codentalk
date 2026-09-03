@@ -86,6 +86,7 @@ import type { Module } from "@/lib/content/types";
 const module: Module = {
   slug: "ya-umeyu",
   title: "Я умею",
+  znak: "1f4aa",
   outcomes: [
     "говорить, что умеешь: I can swim",
     "говорить, что умеет другой человек: He can drive",

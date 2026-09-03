@@ -115,6 +115,7 @@ import type { Module } from "@/lib/content/types";
 const module: Module = {
   slug: "nado-i-ne-nado",
   title: "Надо и не надо",
+  znak: "26a0",
 
   outcomes: [
     "сказать, что делать обязан: I have to wear a uniform",

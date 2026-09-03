@@ -102,6 +102,7 @@ import type { Module } from "@/lib/content/types";
 const module: Module = {
   slug: "esli",
   title: "Если",
+  znak: "1f500",
 
   outcomes: [
     "ставить условие с обещанием: If you come, I'll show you the city",
