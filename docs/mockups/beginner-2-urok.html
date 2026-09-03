@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Beginner заново — как выглядит урок</title>
+<style>
+  :root{
+    --bg:#f7f7f5; --card:#fff; --ink:#1b1b1a; --tish:#6b6b66; --liniya:#e6e5e0;
+    --biryuza:#0f766e; --biryuza-fon:#effcf9; --yantar:#b45309; --yantar-fon:#fff8ec;
+    --krasnyy:#b91c1c; --krasnyy-fon:#fef2f2;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif}
+  .wrap{max-width:820px;margin:0 auto;padding:32px 20px 80px}
+  .shapka{margin-bottom:28px}
+  .kroshki{font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--tish)}
+  h1{font-size:32px;line-height:1.2;margin:6px 0 8px}
+  .itog{color:var(--tish);font-size:15px}
+  .plashka{display:inline-block;background:#1b1b1a;color:#fff;border-radius:99px;
+    padding:3px 12px;font-size:12px;letter-spacing:.04em;margin-bottom:14px}
+  .zamechanie{background:#fffbe9;border:1px solid #f0e2b6;border-radius:12px;
+    padding:14px 16px;font-size:14px;color:#6a5a2a;margin:0 0 26px}
+
+  .karta{background:var(--card);border:1px solid var(--liniya);border-radius:14px;
+    padding:20px 22px;margin:0 0 16px}
+  .karta h2{font-size:13px;letter-spacing:.08em;text-transform:uppercase;
+    color:var(--tish);margin:0 0 12px;font-weight:600}
+
+  /* разговор в начале урока */
+  .razgovor{background:var(--biryuza-fon);border-color:#cdeee7}
+  .replika{display:flex;gap:12px;padding:7px 0;border-bottom:1px dashed #cdeee7}
+  .replika:last-child{border-bottom:0}
+  .en{flex:1 1 55%;font-weight:600}
+  .ru{flex:1 1 45%;color:var(--tish);font-size:15px}
+  .igra{display:inline-flex;align-items:center;justify-content:center;
+    width:24px;height:24px;border-radius:50%;background:var(--biryuza);color:#fff;
+    font-size:11px;margin-right:8px;flex:none}
+
+  /* СЛУЧАЙ — главное новшество */
+  .sluchay{background:var(--card);border:1px solid var(--liniya);border-left:4px solid var(--biryuza);
+    border-radius:10px;padding:14px 18px;margin:0 0 10px}
+  .sluchay .imya{font-weight:700;margin-bottom:4px}
+  .sluchay .pravilo{color:#3d3d39;margin-bottom:10px}
+  .sluchay .stroka{display:flex;gap:10px;padding:3px 0;font-size:15px}
+  .sluchay .stroka b{flex:0 0 auto;font-weight:600}
+  .sluchay .stroka span{color:var(--tish)}
+
+  table{width:100%;border-collapse:collapse;font-size:15px}
+  th{text-align:left;font-size:12px;letter-spacing:.06em;text-transform:uppercase;
+    color:var(--tish);font-weight:600;padding:0 10px 8px 0;border-bottom:1px solid var(--liniya)}
+  td{padding:9px 10px 9px 0;border-bottom:1px solid var(--liniya)}
+  tr:last-child td{border-bottom:0}
+
+  .vrezka{border-radius:12px;padding:14px 16px;margin:0 0 16px;font-size:15px}
+  .oshibka{background:var(--krasnyy-fon);border:1px solid #f3c8c8;color:#7f1d1d}
+  .svedenie{background:#f3f6ff;border:1px solid #d6def7;color:#2b3a67}
+
+  /* лестница заданий */
+  .stupenka{display:flex;align-items:center;gap:10px;margin:30px 0 12px}
+  .nomer{width:26px;height:26px;border-radius:50%;background:var(--yantar);color:#fff;
+    display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;flex:none}
+  .stupenka h3{margin:0;font-size:15px;letter-spacing:.04em;text-transform:uppercase;color:var(--yantar)}
+  .zadanie{background:var(--yantar-fon);border:1px solid #f0dfc0;border-radius:12px;
+    padding:16px 18px;margin:0 0 10px}
+  .vopros{font-weight:600;margin-bottom:10px}
+  .variant{background:#fff;border:1px solid #e8dcc4;border-radius:8px;padding:9px 12px;margin-bottom:6px}
+  .polye{background:#fff;border:1px dashed #d9c9a6;border-radius:8px;padding:9px 12px;color:var(--tish)}
+  .karty{display:flex;gap:8px;flex-wrap:wrap}
+  .karty span{background:#fff;border:1px solid #e8dcc4;border-radius:8px;padding:7px 12px}
+
+  .sravnenie{margin-top:44px}
+  .sravnenie table{background:var(--card);border:1px solid var(--liniya);border-radius:12px}
+  .sravnenie td:first-child{padding-left:14px}
+  .bylo{color:var(--tish)}
+  .stalo{font-weight:700;color:var(--biryuza)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="zamechanie">
+    <b>Это образец, а не сайт.</b> Так я предлагаю переделать урок. Нынешний Beginner
+    не тронут; новое лежит отдельно и до ученика не доходит. Показаны первый урок
+    модуля «Я, ты, он» и то, чем он отличается от нынешнего «Am, is, are».
+  </div>
+
+  <div class="shapka">
+    <div class="plashka">Образец нового формата</div>
+    <div class="kroshki">Английский · Beginner · Я, ты, он</div>
+    <h1>Я — это I am</h1>
+    <div class="itog">Урок 1 из 3 · 12 минут · научишься говорить о себе: имя, занятие, место, состояние</div>
+  </div>
+
+  <!-- 1. Связный кусок сначала -->
+  <div class="karta razgovor">
+    <h2>Сначала послушай разговор</h2>
+    <div class="replika"><div class="en"><span class="igra">▶</span>— Hello! I am Alim.</div><div class="ru">Здравствуйте! Я Алим.</div></div>
+    <div class="replika"><div class="en"><span class="igra">▶</span>— Hi! I am Dana.</div><div class="ru">Привет! Я Дана.</div></div>
+    <div class="replika"><div class="en"><span class="igra">▶</span>— I am a student. And you?</div><div class="ru">Я студент. А ты?</div></div>
+    <div class="replika"><div class="en"><span class="igra">▶</span>— I am a teacher. I am from Almaty.</div><div class="ru">Я учитель. Я из Алматы.</div></div>
+    <p style="margin:14px 0 0;color:#0f766e">Четыре раза подряд — <b>I am</b>. Дальше разберём,
+      почему после <b>I</b> стоит именно <b>am</b> и что можно поставить после него.</p>
+  </div>
+
+  <!-- 2. Случаи -->
+  <div class="sluchay">
+    <div class="imya">Форма am бывает только с I</div>
+    <div class="pravilo">Никакое другое слово её за собой не тянет.</div>
+    <div class="stroka"><b>I am Alim.</b> <span>— Я Алим.</span></div>
+    <div class="stroka"><b>I am at home.</b> <span>— Я дома.</span></div>
+  </div>
+
+  <div class="sluchay">
+    <div class="imya">По-русски глагола нет вовсе</div>
+    <div class="pravilo">«Я Алим», «я дома» — по-английски глагол обязателен.</div>
+    <div class="stroka"><b>I am a student.</b> <span>— Я студент.</span></div>
+    <div class="stroka"><b>I am ready.</b> <span>— Я готов.</span></div>
+  </div>
+
+  <div class="sluchay">
+    <div class="imya">После am ставят занятие</div>
+    <div class="pravilo">Перед занятием нужно короткое слово <b>a</b>.</div>
+    <div class="stroka"><b>I am a doctor.</b> <span>— Я врач.</span></div>
+    <div class="stroka"><b>I am a driver.</b> <span>— Я водитель.</span></div>
+  </div>
+
+  <div class="sluchay">
+    <div class="imya">Перед гласным звуком — an</div>
+    <div class="pravilo">Если занятие начинается с гласного звука, вместо <b>a</b> ставят <b>an</b>.</div>
+    <div class="stroka"><b>I am an artist.</b> <span>— Я художник.</span></div>
+    <div class="stroka"><b>I am an engineer.</b> <span>— Я инженер.</span></div>
+  </div>
+
+  <p style="color:var(--tish);font-size:14px;margin:4px 0 18px">
+    …и так далее — в уроке девять таких случаев: имя, место, откуда, состояние,
+    короткая запись <b>I'm</b>.
+  </p>
+
+  <div class="karta">
+    <h2>Что ставят после I am</h2>
+    <table>
+      <tr><th>Что называем</th><th>Английский</th><th>Перевод</th></tr>
+      <tr><td>имя</td><td>▶ I am Alim.</td><td>Я Алим.</td></tr>
+      <tr><td>занятие</td><td>▶ I am a doctor.</td><td>Я врач.</td></tr>
+      <tr><td>место</td><td>▶ I am at work.</td><td>Я на работе.</td></tr>
+      <tr><td>откуда</td><td>▶ I am from Astana.</td><td>Я из Астаны.</td></tr>
+      <tr><td>состояние</td><td>▶ I am tired.</td><td>Я устал.</td></tr>
+    </table>
+  </div>
+
+  <div class="vrezka oshibka">
+    <b>«I student» — так не говорят.</b><br>
+    По-русски «я студент» обходится без глагола, по-английски между <b>I</b> и остальным
+    обязательно стоит <b>am</b>: I am a student.
+  </div>
+
+  <div class="vrezka svedenie">
+    Слово <b>I</b> пишется с заглавной буквы всегда, а не только в начале предложения.
+    Другие такие слова — you, he, she — пишутся с маленькой, если стоят не первыми.
+  </div>
+
+  <!-- 3. Лестница заданий -->
+  <div class="stupenka"><div class="nomer">1</div><h3>Узнать</h3></div>
+  <div class="zadanie">
+    <div class="vopros">Какая запись верна?</div>
+    <div class="variant">I am a driver.</div>
+    <div class="variant">I a driver.</div>
+    <div class="variant">I is a driver.</div>
+  </div>
+
+  <div class="stupenka"><div class="nomer">2</div><h3>Произвести</h3></div>
+  <div class="zadanie">
+    <div class="vopros">Собери строку: ты врач.</div>
+    <div class="karty"><span>a doctor</span><span>I</span><span>am</span></div>
+  </div>
+  <div class="zadanie">
+    <div class="vopros">Диктант. Послушай <span class="igra" style="background:var(--yantar)">▶</span> и запиши строку целиком.</div>
+    <div class="polye">пиши здесь…</div>
+  </div>
+
+  <div class="stupenka"><div class="nomer">3</div><h3>Применить к себе</h3></div>
+  <div class="zadanie">
+    <div class="vopros">Напиши две строки: как тебя зовут и чем ты занят.</div>
+    <div class="polye">пиши здесь…</div>
+    <p style="margin:12px 0 0;font-size:14px;color:#6a5a2a">
+      Проверь себя: в каждой строке стоит <b>am</b> · перед занятием стоит <b>a</b> или <b>an</b> ·
+      слово <b>I</b> написано с заглавной
+    </p>
+  </div>
+
+  <!-- 4. Счёт -->
+  <div class="sravnenie">
+    <h2 style="font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--tish)">
+      Тот же предмет: что было и что стало</h2>
+    <table>
+      <tr><th></th><th>Нынешний Beginner<br><span style="font-weight:400;text-transform:none;letter-spacing:0">«Приветствие», уроки 4–6</span></th><th>Образец<br><span style="font-weight:400;text-transform:none;letter-spacing:0">«Я, ты, он», три урока</span></th></tr>
+      <tr><td>Названных случаев</td><td class="bylo">3</td><td class="stalo">23</td></tr>
+      <tr><td>Строк с английским и переводом</td><td class="bylo">24</td><td class="stalo">94</td></tr>
+      <tr><td>Заданий</td><td class="bylo">18</td><td class="stalo">24</td></tr>
+      <tr><td>Видов заданий</td><td class="bylo">6</td><td class="stalo">8 (добавились письмо и речь вслух)</td></tr>
+    </table>
+  </div>
+
+</div>
+</body>
+</html>
