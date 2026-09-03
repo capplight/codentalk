@@ -12,6 +12,12 @@
  * нравится, он должен быть увлекательным… уроки должны быть не списком, а
  * чем-то интересным для учеников».
  *
+ * ТЁМНЫЙ ЛИСТ ПО УМОЛЧАНИЮ — решение владельца от 3 сентября 2026: «темная
+ * тема лучше, можно оставить по дефолту, и светлая тема на выбор». Оно
+ * ОТМЕНЯЕТ прежнее, записанное в `app/globals.css`: «по умолчанию сайт
+ * светлый». Оба листа берутся оттуда же, значения один в один, меняется только
+ * то, какой стоит первым.
+ *
  * КАРТИНКИ — Twemoji, CC-BY 4.0 (`docs/beginner-2/kartinki-otkuda.md`). Здесь
  * они тянутся с чужого адреса НАРОЧНО, чтобы образец было видно сразу. На боевом
  * сайте так делать нельзя: файлы должны лежать у нас — то же правило, по
@@ -614,7 +620,7 @@ document.querySelectorAll(".podskazka").forEach((k)=>{
 `;
 
 const html = `<!doctype html>
-<html lang="ru">
+<html lang="ru" data-theme="dark">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -633,7 +639,7 @@ const html = `<!doctype html>
     <div class="krest">✕</div>
     <div class="shagi" id="shagi"></div>
     <div class="schyot" id="schyot"></div>
-    <button class="tema" id="tema">Тёмная тема</button>
+    <button class="tema" id="tema">Светлая тема</button>
   </div>
   <div class="gde" id="gde"></div>
 ${ekrany.map((e, i) => `  <section class="ekran${i === 0 ? " vidno" : ""}">${e.html}</section>`).join("\n")}
