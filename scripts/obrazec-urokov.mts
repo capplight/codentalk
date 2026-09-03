@@ -334,132 +334,163 @@ for (const [ui, urok] of modul.lessons.entries()) {
 const uroki = [...new Set(ekrany.map((e) => e.urok))];
 
 const stil = `
-:root{--fon:#0e0e13;--karta:#191922;--karta2:#20202b;--ink:#f4f4f2;--tish:#a0a0ad;
-  --liniya:#2c2c39;--zelen:#34d399;--yantar:#fbbf24;--krasn:#fb7185}
+/* ЦВЕТА ВЗЯТЫ У САМОГО САЙТА — app/globals.css. Свой набор в образце был ошибкой:
+   сайт светлый по решению, записанному там же («тёмный лист у обучающей
+   платформы — это решение, которое человек принимает сам»), и тёмный урок
+   оказался островом посреди светлого сайта. Здесь оба листа и переключатель,
+   как в шапке сайта. */
+:root{
+  --paper:#f6f8fb; --paper-alt:#eef2f7; --surface:#ffffff;
+  --ink:#16202e; --ink-soft:#5b6b7f; --line:#dde3ea;
+  --accent:#2563eb; --accent-soft:#e8f0fd;
+  --good:#0e7a5a; --good-soft:#e3f4ee;
+  --bad:#b23b32; --bad-soft:#fbeae8;
+  --btn-text:#ffffff;
+  --shadow:0 1px 2px rgba(16,24,40,.04),0 2px 8px rgba(16,24,40,.05);
+  --shadow-2:0 2px 4px rgba(16,24,40,.05),0 10px 24px rgba(16,24,40,.07);
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --paper:#0e141d; --paper-alt:#131b25; --surface:#141c27;
+  --ink:#e6edf5; --ink-soft:#94a4b8; --line:#24303f;
+  --accent:#6fa4ff; --accent-soft:#16243c;
+  --good:#4fbf95; --good-soft:#10281f;
+  --bad:#e08880; --bad-soft:#2e1b19;
+  --btn-text:#0e141d;
+  --shadow:0 1px 2px rgba(0,0,0,.3),0 2px 8px rgba(0,0,0,.25);
+  --shadow-2:0 2px 4px rgba(0,0,0,.35),0 10px 24px rgba(0,0,0,.35);
+}
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 html,body{height:100%}
-body{margin:0;background:var(--fon);color:var(--ink);display:flex;flex-direction:column;
-  align-items:center;font:17px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif}
+body{margin:0;background:var(--paper);color:var(--ink);display:flex;flex-direction:column;
+  align-items:center;font:17px/1.6 ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  transition:background .2s,color .2s}
 .zametka{max-width:680px;margin:14px 16px 0;padding:11px 14px;border-radius:12px;
-  background:#1c1c26;border:1px solid var(--liniya);color:var(--tish);font-size:13px}
+  background:var(--paper-alt);border:1px solid var(--line);color:var(--ink-soft);font-size:13px}
 .zametka b{color:var(--ink)}
+.zametka code{background:var(--surface);border:1px solid var(--line);border-radius:5px;padding:1px 5px}
 .ramka{width:100%;max-width:680px;flex:1;display:flex;flex-direction:column;padding:16px}
-.verh{display:flex;align-items:center;gap:12px;margin-bottom:2px}
-.krest{width:32px;height:32px;border-radius:50%;background:var(--karta);border:1px solid var(--liniya);
-  color:var(--tish);display:flex;align-items:center;justify-content:center;flex:none;font-size:15px}
+.verh{display:flex;align-items:center;gap:10px;margin-bottom:2px}
+.krest{width:32px;height:32px;border-radius:50%;background:var(--surface);border:1px solid var(--line);
+  color:var(--ink-soft);display:flex;align-items:center;justify-content:center;flex:none;font-size:15px}
 .shagi{flex:1;display:flex;gap:3px}
-.shagi i{flex:1;height:5px;border-radius:3px;background:var(--liniya);transition:background .25s}
-.shagi i.est{background:var(--zelen)}
-.shagi i.tut{background:var(--yantar)}
-.schyot{font-size:13px;color:var(--tish);flex:none;min-width:44px;text-align:right}
-.gde{font-size:12px;color:var(--tish);padding:6px 0 0 44px;letter-spacing:.03em}
+.shagi i{flex:1;height:5px;border-radius:3px;background:var(--line);transition:background .25s}
+.shagi i.est{background:var(--good)}
+.shagi i.tut{background:var(--accent)}
+.schyot{font-size:13px;color:var(--ink-soft);flex:none;min-width:44px;text-align:right}
+.tema{background:var(--surface);border:1px solid var(--line);color:var(--ink-soft);
+  border-radius:99px;padding:6px 12px;font:inherit;font-size:12px;cursor:pointer;flex:none}
+.gde{font-size:12px;color:var(--ink-soft);padding:6px 0 0 42px;letter-spacing:.03em}
 .ekran{flex:1;display:none;flex-direction:column;justify-content:center;padding:14px 0}
 .ekran.vidno{display:flex;animation:vhod .28s ease}
 @keyframes vhod{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
-.metka{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--tish);margin-bottom:10px}
-h1{font-size:28px;line-height:1.2;margin:0 0 8px}
-h2{font-size:22px;line-height:1.3;margin:0 0 12px}
-.vyvod{color:var(--zelen);margin:8px 0 0}
-.pravilo{color:#d6d6d2;margin:0 0 12px}
-.nachalo{display:flex;gap:14px;align-items:center;background:var(--karta);border:1px solid var(--liniya);
-  border-radius:16px;padding:16px;margin-top:16px}
-.nachalo p{margin:0;color:var(--tish)}
+.metka{font-size:12px;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:10px}
+h1{font-size:28px;line-height:1.2;margin:0 0 8px;letter-spacing:-.01em}
+h2{font-size:22px;line-height:1.3;margin:0 0 12px;letter-spacing:-.01em}
+.vyvod{color:var(--good);margin:8px 0 0;font-weight:500}
+.pravilo{color:var(--ink-soft);margin:0 0 12px}
+.nachalo{display:flex;gap:14px;align-items:center;background:var(--surface);border:1px solid var(--line);
+  border-radius:16px;padding:16px;margin-top:16px;box-shadow:var(--shadow)}
+.nachalo p{margin:0;color:var(--ink-soft)}
 .chat{display:flex;flex-direction:column;gap:11px;margin-top:4px}
 .puz{display:flex;gap:10px;align-items:flex-end;opacity:0;transform:translateY(8px);animation:vsplyt .4s forwards}
 .puz:nth-child(1){animation-delay:.05s}.puz:nth-child(2){animation-delay:.4s}
 .puz:nth-child(3){animation-delay:.75s}.puz:nth-child(4){animation-delay:1.1s}
 @keyframes vsplyt{to{opacity:1;transform:none}}
 .puz.spr{flex-direction:row-reverse}
-.lico{width:38px;height:38px;border-radius:50%;background:var(--karta2);flex:none;
-  display:flex;align-items:center;justify-content:center}
-.rech{max-width:80%;background:var(--karta);border:1px solid var(--liniya);
-  border-radius:16px 16px 16px 4px;padding:10px 13px}
-.spr .rech{border-radius:16px 16px 4px 16px;background:#1e2a28;border-color:#2b3f3a}
+.lico{width:38px;height:38px;border-radius:50%;background:var(--paper-alt);flex:none;
+  display:flex;align-items:center;justify-content:center;border:1px solid var(--line)}
+.rech{max-width:80%;background:var(--surface);border:1px solid var(--line);
+  border-radius:16px 16px 16px 4px;padding:10px 13px;box-shadow:var(--shadow)}
+.spr .rech{border-radius:16px 16px 4px 16px;background:var(--accent-soft);border-color:var(--accent-soft)}
 .rech .en,.stroka .en,.chip .en,.vsluh .en{font-weight:600}
-.rech .ru,.stroka .ru,.chip .ru,.vsluh .ru{color:var(--tish);font-size:14px;margin-top:2px}
-.zvuk{display:inline-flex;width:21px;height:21px;border-radius:50%;background:var(--zelen);
-  color:#04231a;align-items:center;justify-content:center;font-size:9px;margin-right:7px;
+.rech .ru,.stroka .ru,.chip .ru,.vsluh .ru{color:var(--ink-soft);font-size:14px;margin-top:2px}
+.zvuk{display:inline-flex;width:21px;height:21px;border-radius:50%;background:var(--accent);
+  color:var(--btn-text);align-items:center;justify-content:center;font-size:9px;margin-right:7px;
   vertical-align:1px;cursor:pointer;flex:none}
 .sluchay{display:flex;gap:18px;align-items:flex-start}
 .sluchay .telo{flex:1;min-width:0}
-.risunok{width:92px;height:92px;border-radius:22px;background:var(--karta);border:1px solid var(--liniya);
-  display:flex;align-items:center;justify-content:center;flex:none}
+.risunok{width:92px;height:92px;border-radius:22px;background:var(--surface);border:1px solid var(--line);
+  display:flex;align-items:center;justify-content:center;flex:none;box-shadow:var(--shadow)}
 .stroki{display:flex;flex-direction:column;gap:8px}
-.stroka{background:var(--karta);border:1px solid var(--liniya);border-radius:12px;padding:10px 13px}
-.karta{background:var(--karta);border:1px solid var(--liniya);border-radius:16px;padding:8px 16px;overflow-x:auto}
+.stroka{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:10px 13px}
+.karta{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:8px 16px;
+  overflow-x:auto;box-shadow:var(--shadow)}
 table{width:100%;border-collapse:collapse;font-size:15px}
-th{text-align:left;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--tish);
-  font-weight:600;padding:10px 10px 8px 0;border-bottom:1px solid var(--liniya)}
-td{padding:10px 10px 10px 0;border-bottom:1px solid var(--liniya)}
+th{text-align:left;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft);
+  font-weight:600;padding:10px 10px 8px 0;border-bottom:1px solid var(--line)}
+td{padding:10px 10px 10px 0;border-bottom:1px solid var(--line)}
 tr:last-child td{border-bottom:0}
 .nabor{display:grid;grid-template-columns:repeat(auto-fit,minmax(132px,1fr));gap:9px}
-.chip{background:var(--karta);border:1px solid var(--liniya);border-radius:14px;padding:13px;text-align:center}
+.chip{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:13px;
+  text-align:center;box-shadow:var(--shadow)}
 .chip img{margin-bottom:7px}
 .chip .bez{height:40px}
-.chip .zvuchit{color:#6a6a78;font-size:12px;margin-top:4px}
+.chip .zvuchit{color:var(--ink-soft);opacity:.75;font-size:12px;margin-top:4px}
 .vrezka{border-radius:16px;padding:16px;display:flex;gap:14px;align-items:flex-start}
-.vrezka .zag{font-size:19px;font-weight:700;margin-bottom:6px}
-.vrezka p{margin:8px 0 0}
-.nelzya{background:#2a1519;border:1px solid #4a2028;color:#ffd7dd}
-.svedenie{background:#141d2e;border:1px solid #26364f;color:#cfe0f7}
+.vrezka .zag{font-size:19px;font-weight:700;margin-bottom:6px;color:var(--ink)}
+.vrezka p{margin:8px 0 0;color:var(--ink)}
+.nelzya{background:var(--bad-soft);border:1px solid var(--bad)}
+.svedenie{background:var(--accent-soft);border:1px solid var(--accent)}
 .vrezka .zn{width:32px;height:32px;border-radius:50%;display:flex;align-items:center;
-  justify-content:center;font-weight:700;flex:none}
-.nelzya .zn{background:var(--krasn);color:#3b0713}
-.svedenie .zn{background:#60a5fa;color:#0b1e38}
+  justify-content:center;font-weight:700;flex:none;color:var(--btn-text)}
+.nelzya .zn{background:var(--bad)}
+.svedenie .zn{background:var(--accent)}
 .vybor{display:flex;flex-direction:column;gap:9px}
-.vybor button{text-align:left;background:var(--karta);color:var(--ink);border:1px solid var(--liniya);
+.vybor button{text-align:left;background:var(--surface);color:var(--ink);border:1px solid var(--line);
   border-radius:14px;padding:14px 16px;font:inherit;cursor:pointer;transition:.15s;
-  display:flex;align-items:center;gap:10px}
-.vybor button:hover{border-color:#3d3d4d;transform:translateX(2px)}
-.vybor button.verno{border-color:var(--zelen);background:#12241d}
-.vybor button.mimo{border-color:var(--krasn);background:#241316;opacity:.8}
-.otm{width:22px;height:22px;border-radius:50%;border:1px solid var(--liniya);flex:none;
+  display:flex;align-items:center;gap:10px;box-shadow:var(--shadow)}
+.vybor button:hover{border-color:var(--accent);transform:translateX(2px)}
+.vybor button.verno{border-color:var(--good);background:var(--good-soft)}
+.vybor button.mimo{border-color:var(--bad);background:var(--bad-soft)}
+.otm{width:22px;height:22px;border-radius:50%;border:1px solid var(--line);flex:none;
   display:flex;align-items:center;justify-content:center;font-size:12px}
-.verno .otm{background:var(--zelen);border-color:var(--zelen);color:#04231a}
-.mimo .otm{background:var(--krasn);border-color:var(--krasn);color:#3b0713}
-.propusk{display:flex;gap:8px;align-items:center;flex-wrap:wrap;background:var(--karta);
-  border:1px solid var(--liniya);border-radius:14px;padding:14px;font-weight:600}
-input{background:#0e0e13;color:var(--ink);border:1px solid #3a3a49;border-radius:9px;
+.verno .otm{background:var(--good);border-color:var(--good);color:#fff}
+.mimo .otm{background:var(--bad);border-color:var(--bad);color:#fff}
+.propusk{display:flex;gap:8px;align-items:center;flex-wrap:wrap;background:var(--surface);
+  border:1px solid var(--line);border-radius:14px;padding:14px;font-weight:600;box-shadow:var(--shadow)}
+input{background:var(--paper);color:var(--ink);border:1px solid var(--line);border-radius:9px;
   padding:9px 12px;font:inherit;min-width:120px}
 input.stroka-vvoda{width:100%;margin-top:4px}
-input:focus{outline:0;border-color:var(--zelen)}
-.proverit,.podskazka{margin-top:12px;margin-right:8px;background:var(--zelen);color:#04231a;
-  border:0;border-radius:12px;padding:11px 18px;font:inherit;font-weight:700;cursor:pointer}
-.podskazka{background:none;color:var(--tish);border:1px solid var(--liniya);font-weight:400}
-.spisok{margin-top:12px;color:var(--tish);font-size:14px}
-.zapis{background:var(--karta);border:1px solid var(--liniya);border-radius:12px;padding:11px 14px;
-  color:var(--tish);margin-bottom:10px}
-.razbor{margin-top:12px;padding:13px 15px;border-radius:12px;background:#12241d;
-  border:1px solid #1f4136;color:#bdf0dc;font-size:15px;display:none}
+input:focus{outline:0;border-color:var(--accent)}
+.proverit,.podskazka{margin-top:12px;margin-right:8px;background:var(--accent);color:var(--btn-text);
+  border:0;border-radius:12px;padding:11px 18px;font:inherit;font-weight:600;cursor:pointer}
+.podskazka{background:var(--surface);color:var(--ink-soft);border:1px solid var(--line);font-weight:400}
+.spisok{margin-top:12px;color:var(--ink-soft);font-size:14px}
+.zapis{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:11px 14px;
+  color:var(--ink-soft);margin-bottom:10px}
+.razbor{margin-top:12px;padding:13px 15px;border-radius:12px;background:var(--good-soft);
+  border:1px solid var(--good);color:var(--ink);font-size:15px;display:none}
 .razbor.vidno{display:block;animation:vhod .25s}
-.razbor.mimo{background:#241316;border-color:#4a2028;color:#ffd7dd}
+.razbor.mimo{background:var(--bad-soft);border-color:var(--bad)}
 .karty{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
-.karty button{background:var(--karta);color:var(--ink);border:1px solid var(--liniya);
-  border-radius:12px;padding:10px 15px;font:inherit;cursor:pointer}
-.karty button:disabled{opacity:.28}
-.sobrano{min-height:52px;border:1px dashed #3a3a49;border-radius:12px;padding:11px 14px;
-  display:flex;gap:8px;align-items:center;flex-wrap:wrap;color:var(--tish)}
-.sobrano b{background:#1e2a28;border:1px solid #2b3f3a;border-radius:9px;padding:5px 11px;font-weight:600}
-.otmetka{background:var(--karta);border:1px solid var(--liniya);border-radius:14px;padding:14px;
-  line-height:2.1}
-.slovo{background:#0e0e13;color:var(--ink);border:1px solid #3a3a49;border-radius:9px;
+.karty button{background:var(--surface);color:var(--ink);border:1px solid var(--line);
+  border-radius:12px;padding:10px 15px;font:inherit;cursor:pointer;box-shadow:var(--shadow)}
+.karty button:disabled{opacity:.35;box-shadow:none}
+.sobrano{min-height:52px;border:1px dashed var(--line);border-radius:12px;padding:11px 14px;
+  display:flex;gap:8px;align-items:center;flex-wrap:wrap;color:var(--ink-soft)}
+.sobrano b{background:var(--accent-soft);border:1px solid var(--accent);border-radius:9px;
+  padding:5px 11px;font-weight:600;color:var(--ink)}
+.otmetka{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px;
+  line-height:2.2;box-shadow:var(--shadow)}
+.slovo{background:var(--paper);color:var(--ink);border:1px solid var(--line);border-radius:9px;
   padding:5px 11px;font:inherit;cursor:pointer}
-.slovo.vzyato{background:var(--yantar);color:#3b2600;border-color:var(--yantar)}
+.slovo.vzyato{background:var(--accent);color:var(--btn-text);border-color:var(--accent)}
 .pary{display:flex;gap:12px}
 .stolb{flex:1;display:flex;flex-direction:column;gap:8px}
-.stolb button{background:var(--karta);color:var(--ink);border:1px solid var(--liniya);
-  border-radius:12px;padding:12px;font:inherit;cursor:pointer}
-.stolb button.vzyato{border-color:var(--yantar)}
-.stolb button.gotovo{border-color:var(--zelen);background:#12241d}
-.vsluh{display:flex;gap:14px;align-items:center;background:var(--karta);
-  border:1px solid var(--liniya);border-radius:16px;padding:16px}
+.stolb button{background:var(--surface);color:var(--ink);border:1px solid var(--line);
+  border-radius:12px;padding:12px;font:inherit;cursor:pointer;box-shadow:var(--shadow)}
+.stolb button.vzyato{border-color:var(--accent)}
+.stolb button.gotovo{border-color:var(--good);background:var(--good-soft)}
+.vsluh{display:flex;gap:14px;align-items:center;background:var(--surface);
+  border:1px solid var(--line);border-radius:16px;padding:16px;box-shadow:var(--shadow)}
 .mikro{flex:none}
 .niz{display:flex;gap:10px;align-items:center;padding:12px 0 4px}
-.nazad{background:none;border:0;color:var(--tish);font:inherit;cursor:pointer;padding:10px}
-.dalshe{flex:1;background:var(--zelen);color:#04231a;border:0;border-radius:14px;padding:15px;
-  font:inherit;font-weight:700;font-size:17px;cursor:pointer}
-.dalshe:hover{filter:brightness(1.07)}
-.podpis{max-width:680px;color:#6a6a78;font-size:12px;padding:0 16px 26px;text-align:center}
+.nazad{background:none;border:0;color:var(--ink-soft);font:inherit;cursor:pointer;padding:10px}
+.dalshe{flex:1;background:var(--accent);color:var(--btn-text);border:0;border-radius:14px;padding:15px;
+  font:inherit;font-weight:700;font-size:17px;cursor:pointer;box-shadow:var(--shadow-2)}
+.dalshe:hover{filter:brightness(1.05)}
+.podpis{max-width:680px;color:var(--ink-soft);opacity:.8;font-size:12px;padding:0 16px 26px;text-align:center}
 `;
 
 const skript = `
@@ -569,6 +600,14 @@ document.querySelectorAll(".pary").forEach((g)=>{
   });
 });
 
+const knopkaTemy=document.getElementById("tema");
+knopkaTemy.onclick=()=>{
+  const tyomno=document.documentElement.getAttribute("data-theme")==="dark";
+  if(tyomno)document.documentElement.removeAttribute("data-theme");
+  else document.documentElement.setAttribute("data-theme","dark");
+  knopkaTemy.textContent=tyomno?"Тёмная тема":"Светлая тема";
+};
+
 document.querySelectorAll(".podskazka").forEach((k)=>{
   k.onclick=()=>{ k.textContent=k.dataset.hint; k.disabled=true; k.style.opacity=".8"; };
 });
@@ -594,6 +633,7 @@ const html = `<!doctype html>
     <div class="krest">✕</div>
     <div class="shagi" id="shagi"></div>
     <div class="schyot" id="schyot"></div>
+    <button class="tema" id="tema">Тёмная тема</button>
   </div>
   <div class="gde" id="gde"></div>
 ${ekrany.map((e, i) => `  <section class="ekran${i === 0 ? " vidno" : ""}">${e.html}</section>`).join("\n")}
