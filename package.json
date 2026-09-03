@@ -28,6 +28,7 @@
     "sources": "bash scripts/download-sources.sh",
     "zapas": "tsx scripts/zapas.mts",
     "pamyat": "tsx scripts/pamyat.mts",
+    "otchyot-aktivnost": "tsx scripts/otchyot-aktivnost.mts",
     "slovo": "tsx scripts/slovo.mts",
     "sosedi": "tsx scripts/sosedi.mts",
     "perevody": "tsx scripts/perevody.mts",
