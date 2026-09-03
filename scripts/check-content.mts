@@ -21,6 +21,7 @@ import {
   type TaskBlock,
 } from "../lib/content/types.ts";
 import { ZNACHKI_VIDA } from "../lib/content/znaki.ts";
+import { ZNAK_VIDA, vidPoZagolovku, vidPoSostavu, vidUroka, IMYA_VIDA } from "../lib/content/vid-uroka.ts";
 import { checkPositionBalance } from "../lib/domain/testing.ts";
 import {
   adresBloka,
@@ -2917,6 +2918,37 @@ function checkZvuk(course: Course): void {
 // и спрятали дыру.
 // ---------------------------------------------------------------------------
 
+/**
+ * Вид урока не разъехался со своим заголовком.
+ *
+ * Вид выводится из состава урока (`lib/content/vid-uroka.ts`) — и потому может
+ * молча съехать: дописал в урок правил запись, и он стал «слушанием». Заметить
+ * это нечем: содержание верное, отчёт чист, а на карте у урока чужой значок.
+ *
+ * Поэтому здесь сверяются ДВА независимых признака: вывод по составу и
+ * заголовок («Читаем…», «Слушаем…», «Пишем…»). Заголовок пишет автор, состав
+ * складывается сам — совпадение этих двух и есть проверка.
+ *
+ * Не ошибка: заголовок бывает и вовсе не о виде («Отвечаем на приглашение» —
+ * урок письма). Решает методист, а автор может закрыть вопрос полем `vid`.
+ */
+function checkVidUroka(course: Course): void {
+  for (const mod of course.modules) {
+    for (const lesson of mod.lessons) {
+      const poImeni = vidPoZagolovku(lesson.title);
+      if (!poImeni) continue;
+      const itog = vidUroka(lesson);
+      if (poImeni === itog) continue;
+      warn(
+        `${course.slug} → ${mod.slug} → ${lesson.slug}`,
+        `заголовок обещает ${IMYA_VIDA[poImeni]}, а по составу выходит ` +
+          `${IMYA_VIDA[vidPoSostavu(lesson)]} — либо заголовок не о том, ` +
+          `либо в уроке не тот блок. Закрыть можно полем vid`
+      );
+    }
+  }
+}
+
 function checkZnachki(course: Course): void {
   const netu = new Set<string>();
   const est = (kod: string): boolean =>
@@ -2924,6 +2956,7 @@ function checkZnachki(course: Course): void {
 
   // Значки самого вида урока — общий список со страницей.
   for (const kod of Object.values(ZNACHKI_VIDA)) if (!est(kod)) netu.add(kod);
+  for (const kod of Object.values(ZNAK_VIDA)) if (kod && !est(kod)) netu.add(kod);
 
   for (const mod of course.modules) {
     if (mod.znak && !est(mod.znak)) netu.add(mod.znak);
@@ -2990,6 +3023,7 @@ for (const course of courses) {
   checkSlovoNeVvoditsyaDvazhdy(course);
   checkZvuk(course);
   checkZnachki(course);
+  checkVidUroka(course);
   checkGdeNetZvuka(course);
 }
 

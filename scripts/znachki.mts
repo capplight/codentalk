@@ -24,6 +24,7 @@ import { join } from "node:path";
 import { courses } from "../courses/index.ts";
 import { isTask, type Course } from "../lib/content/types.ts";
 import { ZNACHKI_VIDA } from "../lib/content/znaki.ts";
+import { ZNAK_VIDA } from "../lib/content/vid-uroka.ts";
 
 const OTKUDA = "https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg";
 const KUDA = "public/twemoji";
@@ -46,6 +47,8 @@ function nuzhnye(spisok: Course[]): Map<string, string[]> {
    * первом же экране. Список общий со страницей, `lib/content/znaki.ts`.
    */
   for (const [rol, kod] of Object.entries(ZNACHKI_VIDA)) otmetit(kod, `вид урока: ${rol}`);
+  // Значки видов урока — чтение, слушание, письмо, говорение.
+  for (const [rol, kod] of Object.entries(ZNAK_VIDA)) otmetit(kod, `вид: ${rol}`);
 
   for (const kurs of spisok) {
     for (const modul of kurs.modules) {

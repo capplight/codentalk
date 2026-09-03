@@ -85,6 +85,8 @@ const modul: Module = {
     {
       slug: "ya-eto-i-am",
       title: "Я — это I am",
+      // сочинение здесь — задание урока правил, а не урок письма
+      vid: "pravila",
       estimatedMinutes: 25,
       outcome: "говорить о себе через I am: имя, занятие, место, состояние",
 
@@ -401,6 +403,8 @@ const modul: Module = {
     {
       slug: "ty-my-oni-are",
       title: "Ты, мы, они — are",
+      // сочинение здесь — задание урока правил, а не урок письма
+      vid: "pravila",
       estimatedMinutes: 20,
       outcome: "выбирать are для you, we, they и для двух имён",
 
@@ -634,6 +638,8 @@ const modul: Module = {
     {
       slug: "on-ona-ono-is",
       title: "Он, она, оно — is",
+      // сочинение здесь — задание урока правил, а не урок письма
+      vid: "pravila",
       estimatedMinutes: 20,
       outcome: "выбирать is для he, she, it и для одного имени",
 

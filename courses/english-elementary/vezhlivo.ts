@@ -1012,6 +1012,7 @@ const module: Module = {
     {
       slug: "otvechaem-na-priglashenie",
       title: "Отвечаем на приглашение",
+      vid: "pismo",
       estimatedMinutes: 15,
       outcome:
         "проверять ответ на приглашение: сказано спасибо, дан ответ и назван день",

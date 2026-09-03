@@ -547,6 +547,8 @@ const module: Module = {
     {
       slug: "kak-chitaetsya-ed",
       title: "Как читается -ed",
+      // запись здесь о чтении окончания, а не предмет урока
+      vid: "pravila",
       estimatedMinutes: 15,
       outcome: "различать три чтения окончания -ed по последнему звуку глагола",
 

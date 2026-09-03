@@ -4,9 +4,13 @@ import { auth } from "@/auth";
 import { prisma } from "@/lib/db";
 import { findCourse, lessonsInOrder } from "@/courses";
 import CourseActions from "@/components/lesson/CourseActions";
+import CourseArt from "@/components/CourseArt";
+import { findNapravlenie } from "@/courses/napravleniya";
 import { plural } from "@/lib/plural";
 import s from "../learn.module.css";
 import { ZNACHKI_VIDA } from "@/lib/content/znaki";
+import { IMYA_VIDA, ZNAK_VIDA, vidUroka } from "@/lib/content/vid-uroka";
+import type { Lesson } from "@/lib/content/types";
 import t from "../tropa.module.css";
 
 type Params = { params: Promise<{ course: string }> };
@@ -14,6 +18,36 @@ type Params = { params: Promise<{ course: string }> };
 export async function generateMetadata({ params }: Params) {
   const { course } = await params;
   return { title: findCourse(course)?.title ?? "Курс" };
+}
+
+/** Значок вида урока — только у умений; у правил его нет нарочно. */
+function znakVida(lesson: Lesson): string | undefined {
+  return ZNAK_VIDA[vidUroka(lesson)];
+}
+
+/**
+ * Кольцо успеха части.
+ *
+ * Рисуется прямо в разметке, без картинки и без кода на стороне ученика: два
+ * круга, у второго обводка обрезана по доле. Цвет берётся из токенов, значит
+ * кольцо само меняется вместе с темой.
+ */
+function Kolco({ dolya }: { dolya: number }) {
+  const r = 13;
+  const dlina = 2 * Math.PI * r;
+  return (
+    <svg className={t.kolco} width={32} height={32} viewBox="0 0 32 32" aria-hidden>
+      <circle cx="16" cy="16" r={r} className={t.kolcoFon} />
+      <circle
+        cx="16"
+        cy="16"
+        r={r}
+        className={t.kolcoDolya}
+        strokeDasharray={`${dlina * dolya} ${dlina}`}
+        transform="rotate(-90 16 16)"
+      />
+    </svg>
+  );
 }
 
 /** Замок у закрытой работы. Значок лежит у нас, забирает `npm run znachki`. */
@@ -147,17 +181,27 @@ export default async function CoursePage({ params }: Params) {
     : [{ part: null, modules: course.modules }];
 
   const totalMinutes = all.reduce((sum, entry) => sum + entry.lesson.estimatedMinutes, 0);
+  const napravlenie = findNapravlenie(course.track);
 
   return (
     <main className="wrap-wide" style={{ paddingBottom: 56 }}>
-      <div className={s.head}>
-        <span className={s.eyebrow}>{course.level ? `Ступень ${course.level}` : "Курс"}</span>
-        <h1 className={s.title}>{course.title}</h1>
-        <span className={s.meta}>
-          {course.modules.length} {plural(course.modules.length, "модуль", "модуля", "модулей")} ·{" "}
-          {all.length} {plural(all.length, "урок", "урока", "уроков")} · около{" "}
-          {Math.max(1, Math.round(totalMinutes / 60))} ч занятий
-        </span>
+      <div className={t.shapka}>
+        {/* Рисунок направления — тот же, что на карточке в каталоге. Человек
+            узнаёт курс раньше, чем прочитал заголовок. */}
+        {napravlenie && (
+          <span className={t.oblozhka}>
+            <CourseArt id={napravlenie.art} title={course.title} />
+          </span>
+        )}
+        <div className={s.head} style={{ margin: 0 }}>
+          <span className={s.eyebrow}>{course.level ? `Ступень ${course.level}` : "Курс"}</span>
+          <h1 className={s.title}>{course.title}</h1>
+          <span className={s.meta}>
+            {course.modules.length} {plural(course.modules.length, "модуль", "модуля", "модулей")} ·{" "}
+            {all.length} {plural(all.length, "урок", "урока", "уроков")} · около{" "}
+            {Math.max(1, Math.round(totalMinutes / 60))} ч занятий
+          </span>
+        </div>
       </div>
 
       {/*
@@ -309,6 +353,24 @@ export default async function CoursePage({ params }: Params) {
                               {lesson.title}
                             </Link>
                             <span className={t.melko}>
+                              {/* Значок стоит только у уроков умений: их среди
+                                  правил и надо различать. У правил значка нет
+                                  нарочно — иначе он у каждого второго узла и
+                                  превращается в шум. */}
+                              {znakVida(lesson) && (
+                                <>
+                                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                                  <img
+                                    className={t.znachokVida}
+                                    src={`/twemoji/${znakVida(lesson)}.svg`}
+                                    alt=""
+                                    width={14}
+                                    height={14}
+                                  />
+                                  {IMYA_VIDA[vidUroka(lesson)]}
+                                  {" · "}
+                                </>
+                              )}
                               {isDone ? "пройден" : `${lesson.estimatedMinutes} мин`}
                             </span>
                           </span>
@@ -383,10 +445,13 @@ export default async function CoursePage({ params }: Params) {
               <summary className={t.chastShapka}>
                 <span className={t.chastImya}>{group.part.title}</span>
                 {group.part.tagline && <span className={t.chastVyvod}>{group.part.tagline}</span>}
+                {/* Кольцо вместо строки со счётом: доля видна глазом, не считая.
+                    Строка рядом остаётся — кольцо без числа приблизительно. */}
+                <Kolco dolya={partLessons.length ? partDone / partLessons.length : 0} />
                 <span className={t.chastSchyot}>
                   {partDone === partLessons.length
                     ? "часть пройдена"
-                    : `${partDone} из ${partLessons.length} уроков`}
+                    : `${partDone} из ${partLessons.length}`}
                 </span>
               </summary>
               <div className={t.chastTelo}>

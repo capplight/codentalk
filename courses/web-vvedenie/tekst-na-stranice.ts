@@ -194,6 +194,8 @@ const module: Module = {
     {
       slug: "spiski-i-vydelenie",
       title: "Списки и выделение",
+      // сочинение здесь — задание урока правил
+      vid: "pravila",
       estimatedMinutes: 13,
       outcome: "оформлять перечисление списком и выделять важное по смыслу, а не по виду",
 

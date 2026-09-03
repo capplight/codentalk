@@ -1343,6 +1343,7 @@ const module: Module = {
     {
       slug: "otvechaem-na-voprosy-pisma",
       title: "Отвечаем на письмо с вопросами",
+      vid: "pismo",
       estimatedMinutes: 15,
       outcome: "находить в письме вопросы и проверять, на все ли есть ответ",
 

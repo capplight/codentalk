@@ -261,6 +261,8 @@ const module: Module = {
     {
       slug: "bukvy-i-nazvaniya",
       title: "Буквы и их названия",
+      // запись здесь о названиях букв, а не предмет урока
+      vid: "pravila",
       estimatedMinutes: 15,
       outcome: "узнавать букву по названию и записывать слово, продиктованное по буквам",
 
@@ -957,6 +959,8 @@ const module: Module = {
     {
       slug: "poryadok-bukv",
       title: "Порядок букв",
+      // запись здесь о порядке букв, а не предмет урока
+      vid: "pravila",
       estimatedMinutes: 11,
       outcome: "расставлять слова и имена по алфавиту",
 
