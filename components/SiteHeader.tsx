@@ -7,8 +7,15 @@ import styles from "./SiteHeader.module.css";
 /**
  * Шапка сайта.
  *
- * Для вошедшего логотип ведёт в личный кабинет, а не на витрину: домашняя
- * страница ученика — это его курсы, а не рассказ о платформе.
+ * ЛОГОТИП ВЕДЁТ НА ГЛАВНУЮ — ВСЕГДА. Решение владельца от 4 сентября 2026.
+ *
+ * ЭТО ОТМЕНЯЕТ прежнее, стоявшее здесь же: «для вошедшего логотип ведёт в
+ * личный кабинет, домашняя страница ученика — это его курсы». Логотип в шапке
+ * везде означает «на главную», и уводить вошедшего в другое место значит
+ * ломать привычку, которая старше нашего сайта. В кабинет ведёт «Мои курсы».
+ *
+ * Отдельной ссылки «Каталог» больше нет: на главной и лежит каталог, а
+ * логотип теперь туда же и ведёт. Две ссылки в одно место — лишний выбор.
  */
 export default async function SiteHeader() {
   const session = await auth();
@@ -24,7 +31,7 @@ export default async function SiteHeader() {
   return (
     <header className={styles.header}>
       <div className={`wrap-wide ${styles.inner}`}>
-        <Link href={user ? "/dashboard" : "/"} className={styles.logo}>
+        <Link href="/" className={styles.logo}>
           Code<span className={styles.logoAccent}>N</span>Talk
         </Link>
 
@@ -32,7 +39,6 @@ export default async function SiteHeader() {
           <>
             <nav className={styles.nav}>
               <Link href="/dashboard">Мои курсы</Link>
-              <Link href="/">Каталог</Link>
             </nav>
             <div className={styles.end}>
               <ThemeToggle />
@@ -53,13 +59,14 @@ export default async function SiteHeader() {
           </>
         ) : (
           <>
-            {/* Отдельный признак, потому что на телефоне эти три ссылки
-                прячутся, а «Мои курсы» и «Каталог» у вошедшего остаются:
-                первые ведут на ту же страницу, вторые — настоящие переходы. */}
+            {/* Отдельный признак, потому что на телефоне эта ссылка
+                прячется: она ведёт на то же место, где человек и стоит.
+
+                Разделов «Как это работает» и «Что внутри» больше нет — они
+                убраны с главной по решению владельца, и ссылки на них ушли
+                вместе с ними. Мёртвый якорь хуже отсутствующего. */}
             <nav className={`${styles.nav} ${styles.navAnchors}`}>
               <Link href="/#napravleniya">Направления</Link>
-              <Link href="/#kak-eto-ustroeno">Как это работает</Link>
-              <Link href="/#chto-vnutri">Что внутри</Link>
             </nav>
             <div className={styles.end}>
               <ThemeToggle />

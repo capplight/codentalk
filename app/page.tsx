@@ -151,12 +151,12 @@ export default async function HomePage() {
               пробуешь на деле. Восемь–пятнадцать минут — и можно возвращаться к своим делам.
             </p>
 
+            {/* Вторая кнопка вела в раздел «Как это работает», а его больше
+                нет — убран с главной по решению владельца 4 сентября 2026.
+                Ссылка в никуда хуже её отсутствия. */}
             <div className={styles.actions}>
               <Link className="btn big" href={nachatHref}>
                 {nachatLabel}
-              </Link>
-              <Link className="btn big ghost" href="#kak-eto-ustroeno">
-                Как это устроено
               </Link>
             </div>
 
@@ -265,80 +265,19 @@ export default async function HomePage() {
         </div>
       </div>
 
-      <div className={`wrap-wide ${styles.section}`} id="kak-eto-ustroeno">
-        <div className={styles.sectionHead}>
-          <span className={styles.eyebrow}>Как это работает</span>
-          <h2 className={styles.sectionTitle}>Три шага, дальше — по кругу</h2>
-        </div>
-
-        <div className={styles.steps}>
-          <div className={styles.step}>
-            <span className={styles.stepNum}>1</span>
-            <h3 className={styles.stepTitle}>Выбираешь направление</h3>
-            <p className={styles.stepText}>
-              Сейчас это английский с нуля и основы веб-разработки. Начинай прямо с первого
-              урока: он короткий, и сразу видно, подходит ли темп.
-            </p>
-          </div>
-          <div className={styles.step}>
-            <span className={styles.stepNum}>2</span>
-            <h3 className={styles.stepTitle}>Проходишь модуль</h3>
-            <p className={styles.stepText}>
-              Сначала разбираешь правило, потом упражняешься, а в конце модуля сдаёшь
-              проверочную работу.
-            </p>
-          </div>
-          <div className={styles.step}>
-            <span className={styles.stepNum}>3</span>
-            <h3 className={styles.stepTitle}>Получаешь сертификат</h3>
-            <p className={styles.stepText}>
-              Сертификат выдаётся после итогового экзамена. У него свой номер и страница
-              проверки — её можно отправить работодателю.
-            </p>
-          </div>
-        </div>
-      </div>
-
       {/*
-        Здесь был раздел о подписке: два курса разом, «платишь за то, что
-        действительно проходишь». Убран целиком по решению владельца — оплаты
-        на сайте нет, платных курсов нет, и обещать условия несуществующего
-        значит обманывать раньше, чем человек успел начать.
+        ЗДЕСЬ БЫЛИ ДВА РАЗДЕЛА: «Три шага, дальше — по кругу» и «Как здесь
+        учат». Убраны по решению владельца 4 сентября 2026.
 
-        Место оставлено под разговор о том, что человек получает. Якорь сменил
-        имя, ссылка в шапке сайта поправлена вместе с ним.
+        Оба рассказывали о платформе словами, а не показывали её. Человек,
+        дошедший до направлений, уже выбирает курс — дальше ему нужен курс, а
+        не рассказ о том, как у нас всё устроено. Обещания «объяснение до
+        упражнения» и «свой темп без штрафов» остаются правдой, но живут они в
+        самих уроках.
+
+        Вместе с разделами ушли ссылки на них из шапки сайта и вторая кнопка
+        героя: якорь, ведущий в никуда, хуже отсутствующего.
       */}
-      <div className={styles.sectionAlt} id="chto-vnutri">
-        <div className={`wrap-wide ${styles.section}`}>
-          <div className={styles.sectionHead}>
-            <span className={styles.eyebrow}>Что внутри</span>
-            <h2 className={styles.sectionTitle}>Как здесь учат</h2>
-          </div>
-
-          <div className={styles.plan}>
-            <p className={styles.planItem}>
-              <b>Объяснение до упражнения</b>
-              Сначала понимаешь, почему так, и только потом делаешь. Правило — обычными
-              словами, без грамматических дебрей.
-            </p>
-            <p className={styles.planItem}>
-              <b>Настоящие проверочные работы</b>
-              Вопросы каждый раз новые — работу не пройти, нажимая одну и ту же кнопку.
-            </p>
-            <p className={styles.planItem}>
-              <b>Свой темп и никаких штрафов</b>
-              Ошибка ведёт к подсказке и новой попытке, а не к потере очков. Пропадёшь на месяц —
-              вернёшься на то же место.
-            </p>
-          </div>
-
-          <div className={styles.planAction}>
-            <Link className="btn big" href={nachatHref}>
-              {nachatLabel}
-            </Link>
-          </div>
-        </div>
-      </div>
     </main>
   );
 }
