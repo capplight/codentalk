@@ -117,18 +117,59 @@ function varianty(b: any): string[] {
 const PORG_SHOZHESTI = 0.45;
 const PORG_VARIANTOV = 2;
 
+/**
+ * БАНК ВОПРОСОВ И ТЕ УРОКИ, У КОТОРЫХ ОН МОГ СПИСАТЬ.
+ *
+ * Приписано 3 сентября 2026, по находке методиста. До этого скрипт обходил
+ * только `kurs.modules` и работы ЧАСТЕЙ не видел вовсе: они лежат в
+ * `kurs.parts[].quiz`. Восемьдесят вопросов ступени Elementary простояли
+ * непроверенными, и методист нашёл в них руками пять близнецов — из них один
+ * страшнее обычного: отвлекающий дословно совпадал с ВЕРНЫМ вариантом работы
+ * модуля 7, то есть ученик, запомнивший строку как верную, выбирал её и
+ * ошибался.
+ *
+ * Та же дыра была у `npm run kontrol`. Общее правило отсюда: **проверка,
+ * написанная под модули, новый вид содержания не видит и об этом не говорит.**
+ * Отчёт у неё остаётся чистым — ровно как «содержание, до которого нет дороги,
+ * выглядит в отчёте как работающее».
+ *
+ * У работы части своя мерка списывания: она могла списать у ЛЮБОГО модуля
+ * своей части, а не у одного.
+ */
+interface Bank {
+  imya: string;
+  voprosy: any[];
+  moduli: Module[];
+}
+
+function banki(): Bank[] {
+  const out: Bank[] = [];
+  for (const m of kurs.modules as Module[]) {
+    if (modSlugi.length && !modSlugi.includes(m.slug)) continue;
+    out.push({ imya: m.slug, voprosy: (m.quiz?.questions ?? []) as any[], moduli: [m] });
+  }
+  for (const chast of (kurs as any).parts ?? []) {
+    const voprosy = (chast.quiz?.questions ?? []) as any[];
+    if (!voprosy.length) continue;
+    const moduli = (kurs.modules as Module[]).filter((m) => chast.modules.includes(m.slug));
+    if (modSlugi.length && !moduli.some((m) => modSlugi.includes(m.slug))) continue;
+    out.push({ imya: `часть ${chast.slug}`, voprosy, moduli });
+  }
+  return out;
+}
+
 let vsego = 0;
 let zamolchalo = 0;
 const vse: Array<{ modul: string; voprosov: number; nahodki: Array<{ sila: number; dolya: number; text: string }> }> = [];
 
-for (const m of kurs.modules as Module[]) {
-  if (modSlugi.length && !modSlugi.includes(m.slug)) continue;
-
+for (const bank of banki()) {
   const zadaniyaUrokov: Array<any> = [];
-  for (const urok of m.lessons) {
-    for (const b of urok.blocks) if (isTask(b)) zadaniyaUrokov.push({ ...(b as any), _urok: urok.slug });
+  for (const m of bank.moduli) {
+    for (const urok of m.lessons) {
+      for (const b of urok.blocks) if (isTask(b)) zadaniyaUrokov.push({ ...(b as any), _urok: urok.slug });
+    }
   }
-  const voprosy = (m.quiz?.questions ?? []) as any[];
+  const voprosy = bank.voprosy;
   if (!voprosy.length || !zadaniyaUrokov.length) continue;
 
   const nahodki: Array<{ sila: number; dolya: number; text: string }> = [];
@@ -216,7 +257,7 @@ for (const m of kurs.modules as Module[]) {
 
   if (nahodki.length) {
     nahodki.sort((a, b) => b.sila - a.sila || b.dolya - a.dolya);
-    vse.push({ modul: m.slug, voprosov: voprosy.length, nahodki });
+    vse.push({ modul: bank.imya, voprosov: voprosy.length, nahodki });
   }
 }
 
@@ -282,14 +323,14 @@ function podryad(a: string[], b: string[]): number {
 let citat = 0;
 const citaty: Array<{ dlina: number; text: string }> = [];
 
-for (const m of kurs.modules as Module[]) {
-  if (modSlugi.length && !modSlugi.includes(m.slug)) continue;
-  const voprosy = (m.quiz?.questions ?? []) as any[];
+for (const bank of banki()) {
+  const voprosy = bank.voprosy;
   if (!voprosy.length) continue;
 
-  // Все строки материала модуля: тексты для чтения и расшифровки записей.
+  // Все строки материала: тексты для чтения и расшифровки записей. У работы
+  // части это строки ВСЕХ модулей части, а не одного.
   const stroki: Array<{ text: string; gde: string }> = [];
-  for (const urok of m.lessons) {
+  for (const urok of bank.moduli.flatMap((m) => m.lessons)) {
     for (const b of urok.blocks as any[]) {
       if (b.kind === "text" && Array.isArray(b.body)) {
         for (const s of b.body) stroki.push({ text: String(s), gde: `${urok.slug} · ${b.id}` });

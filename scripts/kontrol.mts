@@ -1026,7 +1026,48 @@ async function proveritVvedenieSlov(course: Course, tolko?: string): Promise<voi
   // Где слово впервые попалось ученику на глаза.
   const imena = new Set<string>();
   const vstrecha = new Map<string, { urok: number; gde: string; raz: number }>();
+  /**
+   * ОДИН ВОПРОС РАБОТЫ — ТАКОЕ ЖЕ МЕСТО ВСТРЕЧИ, КАК БЛОК УРОКА.
+   *
+   * Приписано 3 сентября 2026. До этого проверка обходила только `les.blocks`,
+   * то есть НИ ОДИН банк вопросов — ни работы модуля, ни работы части, ни
+   * экзамена — в счёт не входил. Методист нашёл это руками на восьмидесяти
+   * вопросах работ частей: `repair` требовался в части 1, а карточка стоит в
+   * модуле 9; `windy` требовался в части 2, хотя модуль 13 снял это слово
+   * нарочно, а карточка появилась только в модуле 26; форма `paid` не даётся
+   * курсом нигде.
+   *
+   * Место банка в порядке — там, где ученик до него доходит: работа модуля
+   * сразу после его уроков, работа части после последнего модуля части,
+   * экзамен в самом конце.
+   */
+  const posleModulya = new Map<string, Array<{ imya: string; voprosy: any[] }>>();
+  for (const chast of (course as any).parts ?? []) {
+    const voprosy = (chast.quiz?.questions ?? []) as any[];
+    const posledniy = chast.modules?.[chast.modules.length - 1];
+    if (!voprosy.length || !posledniy) continue;
+    const spisok = posleModulya.get(posledniy) ?? [];
+    spisok.push({ imya: `работа части «${chast.slug}»`, voprosy });
+    posleModulya.set(posledniy, spisok);
+  }
+
   nomer = 0;
+  const vzyatVopros = (v: any, gde: string) => {
+    // Английское слово в вопросе живёт в трёх местах сразу: в ответе, в условии
+    // (там стоят строки для чтения) и в поле `zvuk` — том, что ученик слышит.
+    // Первая редакция брала только ответ, и проверка вышла мёртвой: нарочно
+    // испорченная запись `I didn't repair the printer` её не разбудила.
+    const tekst = bezZagolovkov(
+      `${trebuetsyaOtUchenika(v) ?? ""} ${v.prompt ?? ""} ${v.zvuk ?? ""}`
+    );
+    if (!tekst.trim()) return;
+    for (const w of angliyskie(tekst)) {
+      const bylo = vstrecha.get(w);
+      if (bylo) bylo.raz += 1;
+      else vstrecha.set(w, { urok: nomer, gde, raz: 1 });
+    }
+  };
+
   for (const mod of course.modules) {
     for (const les of mod.lessons) {
       nomer += 1;
@@ -1044,6 +1085,18 @@ async function proveritVvedenieSlov(course: Course, tolko?: string): Promise<voi
         }
       }
     }
+    // Номер НЕ увеличиваем: карточки пронумерованы по урокам, и две нумерации
+    // обязаны совпадать, иначе сравнение «карточка позже, чем слово» врёт.
+    // Банк вопросов получает номер последнего урока перед ним.
+    for (const v of (mod.quiz?.questions ?? []) as any[]) {
+      vzyatVopros(v, `${mod.slug} → проверочная`);
+    }
+    for (const bank of posleModulya.get(mod.slug) ?? []) {
+      for (const v of bank.voprosy) vzyatVopros(v, bank.imya);
+    }
+  }
+  for (const v of ((course as any).exam?.questions ?? []) as any[]) {
+    vzyatVopros(v, "экзамен ступени");
   }
 
   const bez: Array<{ w: string; raz: number; gde: string }> = [];
