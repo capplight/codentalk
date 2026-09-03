@@ -20,8 +20,23 @@ import type { Quiz } from "@/lib/content/types";
  * показательный пример просится в вопрос сам.
  *
  * СКОЛЬКО ВОПРОСОВ. В банке двадцать, показывается десять, порог зачёта —
- * восемь из десяти. Каждый модуль части затрагивается не меньше двух раз:
- * часть считается сданной, только если работают все её модули, а не половина.
+ * восемь из десяти. Каждый модуль части затрагивается в банке не меньше двух
+ * раз — пересчитано по итогам вопросов, ни один модуль не пропущен.
+ *
+ * И СРАЗУ ОГОВОРКА, ЧТОБЫ СЛЕДУЮЩИЙ НЕ ОБОПРЁЛСЯ НА ЛОЖНЫЙ ВЫВОД. Из «два
+ * вопроса на модуль в банке» НЕ следует, что ученику достанется хотя бы один
+ * вопрос по каждому модулю: показывается десять из двадцати, и в части 4 при
+ * десяти модулях в среднем два-три модуля не спрашиваются вовсе
+ * (10·C(18,10)/C(20,10) ≈ 2,4). Первая редакция шапки писала «часть считается
+ * сданной, только если работают все её модули» — это неверно, посчитал
+ * методист 3 сентября 2026.
+ *
+ * ПРОВЕРКИ ЭТОТ ФАЙЛ ПОЧТИ НЕ ВИДЯТ, и это надо знать. `npm run kontrol` и
+ * `npm run bliznetsy` обходят `course.modules` и в `course.parts[].quiz` не
+ * заходят вовсе: долг словаря, форму впереди курса и близнецов они здесь не
+ * ищут. `npm run check:content` файл видит, но меряет целостность — пустые
+ * ответы, один верный вариант, распределение верных, наличие записи. Всё
+ * содержательное здесь проверяется руками.
  *
  * УРОКИ УМЕНИЙ СПРАШИВАЮТСЯ НАРАВНЕ С ПРАВИЛАМИ. Это долг, найденный на прошлой
  * ступени 20 августа: работы частей писались раньше уроков чтения, слушания и
@@ -82,7 +97,7 @@ export const rabotaProshloe: Quiz = {
       id: "ch1-okonchanie-u-glagola",
       kind: "gap",
       outcome: "рассказывать о законченном деле: I worked yesterday",
-      prompt: "Вчерашний вечер ушёл на английский. Допиши глагол целиком.",
+      prompt: "Вчерашний вечер ушёл на английский. Допиши глагол, у которого перед окончанием стоит y.",
       before: "Yesterday I ",
       after: " English.",
       answer: "studied",
@@ -128,7 +143,7 @@ export const rabotaProshloe: Quiz = {
       id: "ch1-vzyal-podarok",
       kind: "gap",
       outcome: "говорить о том, что было и что взял: I had a headache, I took a gift",
-      prompt: "Вчера у тебя с собой был подарок. Допиши глагол.",
+      prompt: "Вчера подарок был взят с собой на праздник. Допиши глагол.",
       before: "I ",
       after: " a gift.",
       answer: "took",
@@ -170,13 +185,13 @@ export const rabotaProshloe: Quiz = {
       after: " I didn't write.",
       answer: "but",
       hint: "Первое дело сделано, второе нет.",
-      why: "I called, but I didn't write. Союз but ставят там, где второе простое предложение возражает первой.",
+      why: "I called, but I didn't write. Союз but ставят там, где второе простое предложение возражает первому.",
     },
     {
       id: "ch1-na-sluh-chego-ne-delal",
       kind: "short",
       outcome: "слышать в записи, чего человек не делал",
-      zvuk: "I didn't repair the printer yesterday.",
+      zvuk: "I didn't fix the printer yesterday.",
       prompt: "Послушай. Чего человек не починил? Ответь одним английским словом.",
       answer: "printer",
       accept: ["Printer", "the printer"],
@@ -214,7 +229,7 @@ export const rabotaProshloe: Quiz = {
       kind: "short",
       outcome: "находить в письме вопросы и проверять, на все ли есть ответ",
       prompt:
-        "В письме три строки: «I went to the coast. The train came late. What did you cook on Sunday?» Ответь на вопрос письма одной строкой. Твой ответ — рыба.",
+        "В письме три строки: «We stayed at a hotel. My sister took a lot of photos. What did you cook on Sunday?» Ответь на вопрос письма одной строкой. Твой ответ — рыба.",
       answer: "I cooked fish.",
       accept: ["I cooked fish", "Fish.", "Fish"],
       hint: "Вопрос в письме один, и он в последней строке.",
@@ -265,14 +280,14 @@ export const rabotaProshloe: Quiz = {
       id: "ch1-soyuz-dvuh-dlitelnyh",
       kind: "gap",
       outcome: "соединять два длительных действия словом while",
-      prompt: "Оба дела тянулись разом. Допиши союз.",
-      before: "I was reading ",
+      prompt: "Оба дела тянулись весь вечер, и ни одно не случилось в один миг. Допиши союз.",
+      before: "I was reading all evening ",
       after: " my brother was cooking.",
       answer: "while",
-      hint: "Этот союз ставят, когда тянутся обе части.",
+      hint: "Этот союз ставят, когда тянутся обе части и мига в строке нет вовсе.",
       why:
-        "I was reading while my brother was cooking. Союз while связывает два дела, " +
-        "которые шли одновременно.",
+        "I was reading all evening while my brother was cooking. Союз while связывает " +
+        "два дела, которые шли одновременно.",
     },
     {
       id: "ch1-rasskaz-chto-tyanulos-v-chasti",
@@ -282,7 +297,7 @@ export const rabotaProshloe: Quiz = {
       options: [
         { text: "Звонок друга" },
         { text: "Мытьё посуды", correct: true },
-        { text: "Ничего: обе части называют то, что случилось" },
+        { text: "И мытьё, и звонок — оба тянулись" },
       ],
       hint: "Ищи форму с окончанием -ing.",
       why:
@@ -314,23 +329,23 @@ export const rabotaPlany: Quiz = {
       id: "ch2-kakoy-budet-den",
       kind: "gap",
       outcome: "говорить, каким что-то будет: It is going to be foggy",
-      prompt: "Видно, что день будет ветреный. Допиши недостающее слово.",
+      prompt: "Видно, что день будет туманный. Допиши недостающее слово.",
       before: "It is going to ",
-      after: " windy.",
+      after: " foggy.",
       answer: "be",
       hint: "О свойстве говорят формой be, а не глаголом дела.",
-      why: "It is going to be windy. О том, каким что-то будет, говорят через be.",
+      why: "It is going to be foggy. О том, каким что-то будет, говорят через be.",
     },
     {
       id: "ch2-obyavlenie-chto-prinesti",
       kind: "short",
       outcome: "находить нужное сведение в трёх объявлениях",
       prompt:
-        "В объявлении строка: «Bring your own towel: we are going to close the shower.» Что просят принести? Ответь одним английским словом.",
+        "В объявлении строка: «Bring a towel: we are going to clean the pool.» Что просят принести? Ответь одним английским словом.",
       answer: "towel",
-      accept: ["Towel", "a towel", "your own towel"],
+      accept: ["Towel", "a towel"],
       hint: "В строке две части: просьба и причина.",
-      why: "Bring your own towel. Вторая часть строки объясняет причину, а просьба в первой.",
+      why: "Bring a towel. Вторая часть строки объясняет причину, а просьба в первой.",
     },
 
     // ---- Я сделаю ----
@@ -338,7 +353,7 @@ export const rabotaPlany: Quiz = {
       id: "ch2-obeshchanie-celikom",
       kind: "short",
       outcome: "обещать: I will call you tomorrow",
-      prompt: "Пообещай собеседнику написать вечером. Запиши строку целиком, начни с I.",
+      prompt: "Пообещай, что вечером напишешь ему. Запиши строку целиком, начни с I.",
       answer: "I will write to you in the evening.",
       accept: [
         "I will write to you in the evening",
@@ -444,11 +459,11 @@ export const rabotaPlany: Quiz = {
       kind: "short",
       outcome: "находить нужное время в заметке о поезде",
       prompt:
-        "В заметке строка: «The last bus leaves at eleven and the first one at five.» Во сколько уходит первый? Ответь одним английским словом.",
+        "В заметке строка: «The last bus leaves at eleven and the first bus at five.» Во сколько уходит первый? Ответь одним английским словом.",
       answer: "five",
       accept: ["Five", "at five"],
       hint: "Слово first называет первый рейс, last — последний.",
-      why: "The first one at five. Одиннадцать — время последнего, а спрашивают про первый.",
+      why: "The first bus at five. Одиннадцать — время последнего, а спрашивают про первый.",
     },
 
     // ---- Давай я ----
@@ -547,12 +562,12 @@ export const rabotaPlany: Quiz = {
       id: "ch2-na-sluh-chto-naznacheno",
       kind: "short",
       outcome: "слышать в записи, что и когда назначено",
-      zvuk: "I'm meeting Alim on Wednesday at two.",
-      prompt: "Послушай. В какой день назначена встреча? Ответь одним английским словом.",
-      answer: "Wednesday",
-      accept: ["wednesday", "on Wednesday"],
-      hint: "В записи названы и день, и час.",
-      why: "I'm meeting Alim on Wednesday at two. Два — это час, а спрашивают про день.",
+      zvuk: "Are you free on Monday? — No, I'm playing football at four.",
+      prompt: "Послушай. Чем занят человек в ответе? Ответь одним английским словом.",
+      answer: "football",
+      accept: ["Football"],
+      hint: "В первой реплике назван день, а спрашивают о том, что во второй.",
+      why: "No, I'm playing football at four. Понедельник и четыре — это день и час, а занятие названо одно.",
     },
   ],
 };
@@ -687,14 +702,14 @@ export const rabotaKakoyISkolko: Quiz = {
     },
     {
       id: "ch3-na-sluh-kak-proshlo",
-      kind: "short",
+      kind: "order",
       outcome: "слышать в разговоре, как что-то прошло",
-      zvuk: "How did the concert go? — The band played loudly.",
-      prompt: "Послушай. Как играла группа? Ответь одним английским словом.",
-      answer: "loudly",
-      accept: ["Loudly"],
-      hint: "Ответ звучит во второй реплике и кончается на -ly.",
-      why: "The band played loudly. Первая реплика — вопрос, а ответ во второй.",
+      zvuk: "The band played loudly at the concert.",
+      prompt: "Послушай запись и собери из карточек то, что в ней сказано.",
+      items: ["at the concert", "loudly", "The band", "played"],
+      answer: [2, 3, 1, 0],
+      hint: "Слово о том, КАК идёт дело, стоит сразу после самого дела.",
+      why: "The band played loudly at the concert. Наречие встаёт после глагола, а место — в самый конец.",
     },
 
     // ---- Сколько чего ----
@@ -817,14 +832,13 @@ export const rabotaOpytIPravila: Quiz = {
     // ---- Я это делал ----
     {
       id: "ch4-tretya-forma-posle-have",
-      kind: "gap",
+      kind: "short",
       outcome: "строить третью форму глагола: visited, seen, been",
-      prompt: "Глагол eat стоит после have. Допиши его третью форму.",
-      before: "I have ",
-      after: " goat cheese.",
-      answer: "eaten",
-      hint: "Вторая форма этого глагола — ate, а третья другая.",
-      why: "I have eaten goat cheese. После have стоит третья форма, а не вторая.",
+      prompt: "Ученик написал: I have ate goat cheese. Запиши строку без ошибки.",
+      answer: "I have eaten goat cheese.",
+      accept: ["I have eaten goat cheese"],
+      hint: "После have стоит не вторая форма глагола, а третья.",
+      why: "I have eaten goat cheese. Ate — вторая форма, а после have нужна eaten.",
     },
     {
       id: "ch4-sprosit-ob-opyte",
@@ -856,11 +870,11 @@ export const rabotaOpytIPravila: Quiz = {
       kind: "short",
       outcome: "находить в списке дел, что сделано, а что нет",
       prompt:
-        "В записке строка: «I have already paid for the room, but I haven't packed the bags yet.» Что ещё не собрано? Ответь одним английским словом.",
-      answer: "bags",
-      accept: ["Bags", "the bags", "pack the bags"],
+        "В записке строка: «I have already prepared the food, but I haven't washed the plates yet.» Что ещё не вымыто? Ответь одним английским словом.",
+      answer: "plates",
+      accept: ["Plates", "the plates"],
       hint: "Оставшееся стоит при отрицании.",
-      why: "I haven't packed the bags yet. Комната оплачена, а сумки ещё не собраны.",
+      why: "I haven't washed the plates yet. Еда готова, а тарелки ещё не вымыты.",
     },
 
     // ---- Как долго ----
@@ -971,9 +985,22 @@ export const rabotaOpytIPravila: Quiz = {
       outcome: "вежливо просить: Could you help me?",
       prompt: "Вежливо попроси незнакомого человека повторить. Запиши вопрос целиком.",
       answer: "Could you repeat that?",
-      accept: ["Could you repeat that", "Could you repeat it?", "Could you repeat it"],
+      accept: [
+        "Could you repeat that",
+        "Could you repeat it?",
+        "Could you repeat it",
+        "Could you repeat that, please?",
+        "Could you repeat that please?",
+        "Could you repeat that, please",
+        "Could you repeat it, please?",
+        "Could you repeat it please?",
+        "Excuse me, could you repeat that?",
+        "Excuse me, could you repeat that",
+      ],
       hint: "Вежливую просьбу открывает не can.",
-      why: "Could you repeat that? Слово could звучит мягче, чем can, и потому годится с незнакомым человеком.",
+      why:
+        "Could you repeat that? Слово could звучит мягче, чем can, и потому годится " +
+        "с незнакомым человеком. Годится и с please в конце, и с Excuse me впереди.",
     },
     {
       id: "ch4-chto-luchshe",
@@ -992,28 +1019,28 @@ export const rabotaOpytIPravila: Quiz = {
       id: "ch4-uslovie-s-obeshchaniem",
       kind: "gap",
       outcome: "ставить условие с обещанием: If you come, I'll show you the city",
-      prompt: "Если пойдёт дождь, вы с друзьями останетесь дома. Допиши глагол целиком.",
-      before: "If it ",
-      after: ", we'll stay at home.",
-      answer: "rains",
+      prompt: "Если Дана позвонит, ты ответишь. Допиши глагол целиком.",
+      before: "If Dana ",
+      after: ", I'll answer.",
+      answer: "calls",
       hint: "После if будущего не ставят.",
       why:
-        "If it rains, we'll stay at home. В части с if стоит обычная форма настоящего, " +
-        "а обещание — во второй части.",
+        "If Dana calls, I'll answer. В части с условием стоит обычная форма настоящего, " +
+        "а обещание — в главной части.",
     },
     {
       id: "ch4-pamyatka-chto-sluchitsya",
       kind: "choice",
       outcome: "находить в письме, что случится при каком условии",
       prompt:
-        "В памятке строка: «If you lose the key, you can take another one at the desk.» Что она разрешает?",
+        "В памятке строка: «If you lose the key, you can take another key at the office.» Что она разрешает?",
       options: [
         { text: "Терять ключ." },
-        { text: "Взять другой ключ на стойке, если этот потерян.", correct: true },
+        { text: "Взять другой ключ в конторе, если этот потерян.", correct: true },
         { text: "Уйти со своим ключом." },
       ],
       hint: "Смотри главную часть — ту, где стоит can.",
-      why: "Взять другой на стойке. Слово can стоит именно при этом действии, а условие — в половине с if.",
+      why: "Взять другой ключ в конторе. Слово can стоит именно при этом действии, а условие — в части с if.",
     },
 
     // ---- Который ----
