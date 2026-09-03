@@ -20,6 +20,7 @@ import {
   type Quiz,
   type TaskBlock,
 } from "../lib/content/types.ts";
+import { ZNACHKI_VIDA } from "../lib/content/znaki.ts";
 import { checkPositionBalance } from "../lib/domain/testing.ts";
 import {
   adresBloka,
@@ -2902,6 +2903,50 @@ function checkZvuk(course: Course): void {
   }
 }
 
+// ---------------------------------------------------------------------------
+// Значки на месте
+//
+// Та же беда, что со звуком, только тише: урок называет значок кодом
+// (`znak: "1f697"`), а файл забирает отдельная команда. Не запустил её — ученик
+// видит сломанную картинку, а отчёт при этом чист.
+//
+// Найдено 3 сентября 2026 владельцем, глазами, на первом же экране первого
+// урока. Причина была ровно такая: значок вступления называет не содержание, а
+// сам вид урока, скрипт забора его не видел и не забирал. Три соседних значка
+// случайно совпали со значками словарных слов — и потому лежали на месте, чем
+// и спрятали дыру.
+// ---------------------------------------------------------------------------
+
+function checkZnachki(course: Course): void {
+  const netu = new Set<string>();
+  const est = (kod: string): boolean =>
+    existsSync(join(process.cwd(), "public", "twemoji", `${kod}.svg`));
+
+  // Значки самого вида урока — общий список со страницей.
+  for (const kod of Object.values(ZNACHKI_VIDA)) if (!est(kod)) netu.add(kod);
+
+  for (const mod of course.modules) {
+    for (const lesson of mod.lessons) {
+      for (const block of lesson.blocks) {
+        if (block.znak && !est(block.znak)) netu.add(block.znak);
+        if (!isTask(block) && block.kind === "vocab") {
+          for (const slovo of block.items) {
+            if (slovo.znak && !est(slovo.znak)) netu.add(slovo.znak);
+          }
+        }
+      }
+    }
+  }
+
+  if (netu.size > 0) {
+    fail(
+      course.slug,
+      `значок назван, а файла нет (${netu.size} шт.), запусти npm run znachki: ` +
+        [...netu].join(", ")
+    );
+  }
+}
+
 /**
  * Примеры и таблицы, у которых звука нет вовсе.
  *
@@ -2943,6 +2988,7 @@ for (const course of courses) {
   checkTermsOrder(course);
   checkSlovoNeVvoditsyaDvazhdy(course);
   checkZvuk(course);
+  checkZnachki(course);
   checkGdeNetZvuka(course);
 }
 

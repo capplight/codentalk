@@ -16,6 +16,7 @@
  */
 import type { MaterialBlock } from "@/lib/content/types";
 import { adresRazgovora, adresSlova, adresYacheyki, zvuchashchee } from "@/lib/content/zvuk";
+import { ZNACHKI_VIDA } from "@/lib/content/znaki";
 import Material from "./Material";
 import Zvuk from "./Zvuk";
 import s from "./shagi.module.css";
@@ -111,7 +112,10 @@ export default function Ekran({ block }: { block: MaterialBlock }) {
               {repliki(stroki).map((r, i) => (
                 <div className={`${s.puzyr} ${r.svoy ? "" : s.sprava}`} key={i}>
                   <div className={s.lico}>
-                    <Znak kod={r.svoy ? "1f9d1-200d-1f393" : "1f9d1-200d-1f3eb"} razmer={24} />
+                    <Znak
+                      kod={r.svoy ? ZNACHKI_VIDA.uchenik : ZNACHKI_VIDA.uchitel}
+                      razmer={24}
+                    />
                   </div>
                   <div className={s.rech}>
                     <div className={s.en} lang="en">

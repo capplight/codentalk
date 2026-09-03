@@ -23,6 +23,7 @@ import { mkdir, readdir, writeFile } from "node:fs/promises";
 import { join } from "node:path";
 import { courses } from "../courses/index.ts";
 import { isTask, type Course } from "../lib/content/types.ts";
+import { ZNACHKI_VIDA } from "../lib/content/znaki.ts";
 
 const OTKUDA = "https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg";
 const KUDA = "public/twemoji";
@@ -36,6 +37,15 @@ function nuzhnye(spisok: Course[]): Map<string, string[]> {
     bylo.push(mesto);
     gde.set(znak, bylo);
   };
+
+  /*
+   * Значки самого вида урока — вступление, «пройдено», два лица в разговоре.
+   * Их не называет ни одно содержание, и первая редакция скрипта их не видела:
+   * три случайно совпали со значками словарных слов, а четвёртый — компас у
+   * вступления — не совпал ни с чем, и владелец увидел сломанную картинку на
+   * первом же экране. Список общий со страницей, `lib/content/znaki.ts`.
+   */
+  for (const [rol, kod] of Object.entries(ZNACHKI_VIDA)) otmetit(kod, `вид урока: ${rol}`);
 
   for (const kurs of spisok) {
     for (const modul of kurs.modules) {

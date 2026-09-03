@@ -14,6 +14,7 @@
 import Link from "next/link";
 import type { Course, Lesson, Module } from "@/lib/content/types";
 import { isTask } from "@/lib/content/types";
+import { ZNACHKI_VIDA } from "@/lib/content/znaki";
 import Ekran, { Znak } from "./Ekran";
 import FinishLesson from "./FinishLesson";
 import Shagi, { type OpisanieEkrana } from "./Shagi";
@@ -71,7 +72,7 @@ export default function UrokShagami({
       <h1 className={s.zagolovok}>{lesson.title}</h1>
       <p className={s.vyvod}>{lesson.outcome}</p>
       <div className={s.karta}>
-        <Znak kod="1f9ed" razmer={52} />
+        <Znak kod={ZNACHKI_VIDA.nachalo} razmer={52} />
         <p>
           {sluchaev > 0
             ? `Впереди ${sluchaev} случаев и ${zadaniya.length} заданий. `
@@ -123,7 +124,7 @@ export default function UrokShagami({
       <h1 className={s.zagolovok}>Готово</h1>
       <p className={s.vyvod}>Теперь ты умеешь: {lesson.outcome}</p>
       <div className={s.karta}>
-        <Znak kod="2705" razmer={52} />
+        <Znak kod={ZNACHKI_VIDA.konec} razmer={52} />
         <p>
           {next ? (
             <>

@@ -6,12 +6,20 @@ import { findCourse, lessonsInOrder } from "@/courses";
 import CourseActions from "@/components/lesson/CourseActions";
 import { plural } from "@/lib/plural";
 import s from "../learn.module.css";
+import { ZNACHKI_VIDA } from "@/lib/content/znaki";
+import t from "../tropa.module.css";
 
 type Params = { params: Promise<{ course: string }> };
 
 export async function generateMetadata({ params }: Params) {
   const { course } = await params;
   return { title: findCourse(course)?.title ?? "Курс" };
+}
+
+/** Замок у закрытой работы. Значок лежит у нас, забирает `npm run znachki`. */
+function Zamok() {
+  // eslint-disable-next-line @next/next/no-img-element
+  return <img src={`/twemoji/${ZNACHKI_VIDA.zamok}.svg`} alt="" width={18} height={18} />;
 }
 
 /**
@@ -170,10 +178,21 @@ export default async function CoursePage({ params }: Params) {
         </p>
       )}
 
-      <div className={s.modules}>
+      {/*
+        ТРОПА ВМЕСТО СПИСКА. Владелец 3 сентября 2026: «мне не нравится
+        бесконечный список модулей и потом списков».
+
+        Устроено так: часть — раздел, модуль — участок тропы, урок — узел.
+        Развёрнут только тот модуль, где человек сейчас; остальные свёрнуты в
+        строку с полосой успеха. Это прямой ответ на главную жалобу к тропе
+        Duolingo — «листать вечность, чтобы вернуться к теме»: у нас заголовки
+        модулей стоят рядом, и до любого два нажатия.
+
+        Замков на уроках нет: узел впереди — обычная ссылка. Закрыты только
+        проверочные работы, и это старое правило, а не свойство тропы.
+      */}
+      <div className={t.karta}>
         {groups.map((group) => {
-          // Раскрыта та часть, где человек сейчас. Если курс пройден целиком —
-          // последняя: возвращаться логичнее туда, где остановился.
           const openGroup =
             group.part === null ||
             (currentModule
@@ -183,75 +202,123 @@ export default async function CoursePage({ params }: Params) {
           const partDone = partLessons.filter((lesson) => done.has(lesson.slug)).length;
 
           const body = group.modules.map((module) => {
-          const index = course.modules.indexOf(module);
-          const lessonsDone = module.lessons.filter((lesson) => done.has(lesson.slug)).length;
-          const moduleReady = lessonsDone === module.lessons.length;
-          const asked = module.quiz.ask ?? module.quiz.questions.length;
-          const quizScore = quizScoreByModule.get(module.slug);
+            const index = course.modules.indexOf(module);
+            const lessonsDone = module.lessons.filter((lesson) => done.has(lesson.slug)).length;
+            const moduleReady = lessonsDone === module.lessons.length;
+            const asked = module.quiz.ask ?? module.quiz.questions.length;
+            const quizScore = quizScoreByModule.get(module.slug);
+            const modulSeychas = module.slug === currentModule;
 
-          return (
-            <section className={s.module} key={module.slug}>
-              <div className={s.moduleHead}>
-                <span className={s.moduleNum}>{index + 1}</span>
-                <h2 className={s.moduleTitle}>{module.title}</h2>
-                <span className={s.moduleMeta}>
-                  {lessonsDone} из {module.lessons.length} уроков
-                </span>
-              </div>
+            return (
+              <details
+                className={`${t.modul} ${modulSeychas ? t.modulSeychas : ""}`}
+                key={module.slug}
+                open={modulSeychas}
+              >
+                <summary className={t.modulShapka}>
+                  <span
+                    className={`${t.nomer} ${
+                      moduleReady ? t.nomerGotov : modulSeychas ? t.nomerSeychas : ""
+                    }`}
+                  >
+                    {moduleReady ? "✓" : index + 1}
+                  </span>
+                  <h2 className={t.modulImya}>{module.title}</h2>
+                  <span className={t.polosa} aria-hidden>
+                    <i style={{ width: `${(lessonsDone / module.lessons.length) * 100}%` }} />
+                  </span>
+                  <span className={t.modulSchyot}>
+                    {lessonsDone} из {module.lessons.length}
+                  </span>
+                </summary>
 
-              {/* Без заголовка список читался непонятно: владелец прошёл
-                  модуль и спросил, что это за строки над уроками. */}
-              <p className={s.outcomesLabel}>Чему научишься в модуле</p>
-              <ul className={s.outcomes}>
-                {module.outcomes.map((outcome, i) => (
-                  <li key={i}>{outcome}</li>
-                ))}
-              </ul>
+                <div className={t.modulTelo}>
+                  {/* Без заголовка список читался непонятно: владелец прошёл
+                      модуль и спросил, что это за строки над уроками. */}
+                  <div className={t.vyvody}>
+                    <span className={t.vyvodyImya}>Чему научишься в модуле</span>
+                    <ul>
+                      {module.outcomes.map((outcome, i) => (
+                        <li key={i}>{outcome}</li>
+                      ))}
+                    </ul>
+                  </div>
 
-              <ul className={s.lessons}>
-                {module.lessons.map((lesson) => {
-                  const isDone = done.has(lesson.slug);
-                  const isNow = lesson.slug === current;
-                  return (
-                    <li className={s.lessonRow} key={lesson.slug}>
-                      <span
-                        className={`${s.dot} ${isDone ? s.dotDone : ""} ${isNow ? s.dotNow : ""}`}
-                        aria-hidden
-                      />
-                      <Link className={s.lessonLink} href={`/learn/${course.slug}/${lesson.slug}`}>
-                        {lesson.title}
-                      </Link>
-                      <span className={s.lessonMeta}>
-                        {isDone ? "пройден" : `${lesson.estimatedMinutes} мин`}
+                  <ol className={t.tropa}>
+                    {module.lessons.map((lesson, i) => {
+                      const isDone = done.has(lesson.slug);
+                      const isNow = lesson.slug === current;
+                      return (
+                        <li
+                          className={`${t.uzel} ${i % 2 === 0 ? t.sleva : t.sprava}`}
+                          key={lesson.slug}
+                        >
+                          <span
+                            className={`${t.krug} ${isDone ? t.krugGotov : ""} ${
+                              isNow ? t.krugSeychas : ""
+                            }`}
+                            aria-hidden
+                          >
+                            {isDone ? "✓" : i + 1}
+                          </span>
+                          <span className={t.podpis}>
+                            {isNow && <span className={t.tuty}>ты здесь</span>}
+                            <Link className={t.imyaUroka} href={`/learn/${course.slug}/${lesson.slug}`}>
+                              {lesson.title}
+                            </Link>
+                            <span className={t.melko}>
+                              {isDone ? "пройден" : `${lesson.estimatedMinutes} мин`}
+                            </span>
+                          </span>
+                        </li>
+                      );
+                    })}
+
+                    {/* Работа модуля — такой же узел тропы, только другой формы:
+                        она стоит в конце пути и открывается, когда уроки
+                        пройдены. Отдельной рамкой она выглядела концом
+                        страницы, а не следующим шагом. */}
+                    <li
+                      className={`${t.uzel} ${
+                        module.lessons.length % 2 === 0 ? t.sleva : t.sprava
+                      } ${t.rabota} ${quizScore !== undefined ? t.rabotaSdana : ""} ${
+                        moduleReady ? "" : t.rabotaZakryta
+                      }`}
+                    >
+                      <span className={t.krug} aria-hidden>
+                        {quizScore !== undefined ? "✓" : moduleReady ? "?" : <Zamok />}
+                      </span>
+                      <span className={t.podpis}>
+                        {moduleReady && quizScore === undefined ? (
+                          <Link
+                            className={t.imyaUroka}
+                            href={`/learn/${course.slug}/proverochnaya/${module.slug}`}
+                          >
+                            Проверочная работа
+                          </Link>
+                        ) : quizScore !== undefined ? (
+                          <Link
+                            className={t.imyaUroka}
+                            href={`/learn/${course.slug}/proverochnaya/${module.slug}`}
+                          >
+                            Проверочная работа
+                          </Link>
+                        ) : (
+                          <span className={t.imyaUroka}>Проверочная работа</span>
+                        )}
+                        <span className={t.melko}>
+                          {quizScore !== undefined
+                            ? `сдана, ${quizScore} из 100`
+                            : moduleReady
+                              ? `${asked} ${plural(asked, "вопрос", "вопроса", "вопросов")} · можно сдавать`
+                              : "откроется, когда пройдены все уроки модуля"}
+                        </span>
                       </span>
                     </li>
-                  );
-                })}
-              </ul>
-
-              <div className={s.quiz}>
-                <span className={s.quizTitle}>Проверочная работа</span>
-                <span className={s.quizMeta}>
-                  {quizScore !== undefined
-                    ? `сдана, ${quizScore} из 100`
-                    : `${asked} ${plural(asked, "вопрос", "вопроса", "вопросов")} · ${
-                        moduleReady ? "можно сдавать" : "откроется, когда пройдены все уроки модуля"
-                      }`}
-                </span>
-                <span className={s.quizAction}>
-                  {moduleReady ? (
-                    <Link className="btn" href={`/learn/${course.slug}/proverochnaya/${module.slug}`}>
-                      {quizScore !== undefined ? "Пройти ещё раз" : "Начать"}
-                    </Link>
-                  ) : (
-                    <button className={`btn ${s.locked}`} type="button" disabled>
-                      Пока закрыта
-                    </button>
-                  )}
-                </span>
-              </div>
-            </section>
-          );
+                  </ol>
+                </div>
+              </details>
+            );
           });
 
           // Курс без частей (например, из одного модуля) показывается плоско:
@@ -267,52 +334,52 @@ export default async function CoursePage({ params }: Params) {
           const partQuiz = group.part.quiz;
           const partReady = partLessons.length > 0 && partDone === partLessons.length;
           const partScore = quizScoreByPart.get(group.part.slug);
-          const partAsked = partQuiz ? partQuiz.ask ?? partQuiz.questions.length : 0;
+          const partAsked = partQuiz ? (partQuiz.ask ?? partQuiz.questions.length) : 0;
 
           return (
-            <details className={s.part} key={group.part.slug} open={openGroup}>
-              <summary className={s.partHead}>
-                <span className={s.partTitle}>{group.part.title}</span>
-                {group.part.tagline && (
-                  <span className={s.partTagline}>{group.part.tagline}</span>
-                )}
-                <span className={s.partMeta}>
-                  {group.modules.length}{" "}
-                  {plural(group.modules.length, "модуль", "модуля", "модулей")} ·{" "}
+            <details className={t.chast} key={group.part.slug} open={openGroup}>
+              <summary className={t.chastShapka}>
+                <span className={t.chastImya}>{group.part.title}</span>
+                {group.part.tagline && <span className={t.chastVyvod}>{group.part.tagline}</span>}
+                <span className={t.chastSchyot}>
                   {partDone === partLessons.length
-                    ? "пройдена"
+                    ? "часть пройдена"
                     : `${partDone} из ${partLessons.length} уроков`}
                 </span>
               </summary>
-              <div className={s.partBody}>
+              <div className={t.chastTelo}>
                 {body}
                 {partQuiz && (
-                  <div className={s.partQuiz}>
-                    <span className={s.quizTitle}>Работа части: {group.part.title}</span>
-                    <span className={s.quizMeta}>
-                      {partScore !== undefined
-                        ? `сдана, ${partScore} из 100`
-                        : `${partAsked} ${plural(partAsked, "вопрос", "вопроса", "вопросов")} · ${
-                            partReady
-                              ? "можно сдавать"
-                              : "откроется, когда пройдены все уроки части"
-                          }`}
-                    </span>
-                    <span className={s.quizAction}>
-                      {partReady ? (
-                        <Link
-                          className="btn"
-                          href={`/learn/${course.slug}/rabota-chasti/${group.part.slug}`}
-                        >
-                          {partScore !== undefined ? "Пройти ещё раз" : "Начать"}
-                        </Link>
-                      ) : (
-                        <button className={`btn ${s.locked}`} type="button" disabled>
-                          Пока закрыта
-                        </button>
-                      )}
-                    </span>
-                  </div>
+                  <ol className={t.tropa}>
+                    <li
+                      className={`${t.uzel} ${t.sprava} ${t.rabota} ${
+                        partScore !== undefined ? t.rabotaSdana : ""
+                      } ${partReady ? "" : t.rabotaZakryta}`}
+                    >
+                      <span className={t.krug} aria-hidden>
+                        {partScore !== undefined ? "✓" : partReady ? "?" : <Zamok />}
+                      </span>
+                      <span className={t.podpis}>
+                        {partReady || partScore !== undefined ? (
+                          <Link
+                            className={t.imyaUroka}
+                            href={`/learn/${course.slug}/rabota-chasti/${group.part.slug}`}
+                          >
+                            Работа части: {group.part.title}
+                          </Link>
+                        ) : (
+                          <span className={t.imyaUroka}>Работа части: {group.part.title}</span>
+                        )}
+                        <span className={t.melko}>
+                          {partScore !== undefined
+                            ? `сдана, ${partScore} из 100`
+                            : partReady
+                              ? `${partAsked} ${plural(partAsked, "вопрос", "вопроса", "вопросов")} · можно сдавать`
+                              : "откроется, когда пройдены все уроки части"}
+                        </span>
+                      </span>
+                    </li>
+                  </ol>
                 )}
               </div>
             </details>
@@ -321,41 +388,31 @@ export default async function CoursePage({ params }: Params) {
       </div>
 
       {course.exam && (
-        <section className={s.module} style={{ marginTop: 24 }}>
-          <div className={s.moduleHead}>
-            <span className={s.moduleNum}>✓</span>
-            <h2 className={s.moduleTitle}>Итоговый экзамен</h2>
-            <span className={s.moduleMeta}>
-              {examPassed
-                ? "сдан"
-                : `${course.exam.questions.length} ${plural(
-                    course.exam.questions.length,
-                    "вопрос",
-                    "вопроса",
-                    "вопросов"
-                  )} обо всём курсе`}
-            </span>
-          </div>
-          <div className={s.quiz}>
-            <span className={s.quizMeta}>
-              {examPassed
-                ? "Экзамен сдан — можно получать сертификат."
-                : quizzesTotal > 0 && quizzesPassed >= quizzesTotal
-                  ? "Все проверочные работы сданы, экзамен открыт."
-                  : `Откроется, когда сданы все проверочные работы: сдано ${quizzesPassed} из ${quizzesTotal} ${plural(quizzesTotal, "работы", "работ", "работ")}`}
-            </span>
-            <span className={s.quizAction}>
-              {quizzesTotal > 0 && quizzesPassed >= quizzesTotal ? (
-                <Link className="btn" href={`/learn/${course.slug}/ekzamen`}>
-                  {examPassed ? "Пересдать" : "Сдавать экзамен"}
-                </Link>
-              ) : (
-                <button className={`btn ${s.locked}`} type="button" disabled>
-                  Пока закрыт
-                </button>
-              )}
-            </span>
-          </div>
+        <section className={t.ekzamen}>
+          <span
+            className={`${t.krug} ${examPassed ? t.krugGotov : ""}`}
+            style={{ borderRadius: 14 }}
+            aria-hidden
+          >
+            {examPassed ? "✓" : "★"}
+          </span>
+          <span className={t.ekzamenImya}>Итоговый экзамен</span>
+          <span className={t.ekzamenChto}>
+            {examPassed
+              ? "Экзамен сдан — можно получать сертификат."
+              : quizzesTotal > 0 && quizzesPassed >= quizzesTotal
+                ? `${course.exam.questions.length} ${plural(course.exam.questions.length, "вопрос", "вопроса", "вопросов")} обо всём курсе. Все проверочные работы сданы, экзамен открыт.`
+                : `Откроется, когда сданы все проверочные работы: сдано ${quizzesPassed} из ${quizzesTotal} ${plural(quizzesTotal, "работы", "работ", "работ")}`}
+          </span>
+          {quizzesTotal > 0 && quizzesPassed >= quizzesTotal ? (
+            <Link className="btn" href={`/learn/${course.slug}/ekzamen`}>
+              {examPassed ? "Пересдать" : "Сдавать экзамен"}
+            </Link>
+          ) : (
+            <button className={`btn ${s.locked}`} type="button" disabled>
+              Пока закрыт
+            </button>
+          )}
         </section>
       )}
 

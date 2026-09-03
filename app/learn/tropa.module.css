@@ -1,0 +1,384 @@
+/*
+ * Тропа курса: уроки узлами, а не списком.
+ *
+ * ЗАЧЕМ. Владелец 3 сентября 2026: «мне не нравится бесконечный список модулей
+ * и потом списков». На ступени 31 модуль и 250 уроков — списком это стена, в
+ * которой не видно ни где ты, ни что дальше.
+ *
+ * ЧТО ВЗЯТО У ЧУЖИХ И ЧТО НЕТ. Duolingo в 2022 сменил дерево на тропу ровно
+ * потому, что человек не понимал, что делать дальше. Взято это. А главную
+ * жалобу на их тропу — «листать вечность, чтобы вернуться к нужной теме» — мы
+ * обходим тем, что развёрнут ТОЛЬКО текущий модуль, остальные свёрнуты в
+ * строку с полосой успеха. Это и есть решение, которое их критики предлагали.
+ *
+ * ЗАМКОВ НА УРОКАХ НЕТ И НЕ БУДЕТ: правило владельца от 16 августа. Узел
+ * впереди — обычная ссылка, а не запертая дверь. Закрыты только проверочные
+ * работы, и это отдельное правило, а не украшение тропы.
+ */
+
+/* Обёртка всей тропы курса. */
+.karta {
+  margin-top: 22px;
+}
+
+/* ---- Части: разделы курса ---- */
+
+.chast {
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: var(--paper-alt);
+  margin-bottom: 14px;
+  overflow: hidden;
+}
+
+.chastShapka {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  flex-wrap: wrap;
+  padding: 16px 20px;
+  cursor: pointer;
+  list-style: none;
+  user-select: none;
+}
+
+.chastShapka::-webkit-details-marker {
+  display: none;
+}
+
+.chastShapka::before {
+  content: "▸";
+  color: var(--ink-soft);
+  font-size: 13px;
+  transition: transform 0.15s;
+}
+
+.chast[open] > .chastShapka::before {
+  transform: rotate(90deg);
+}
+
+.chastImya {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.chastVyvod {
+  color: var(--ink-soft);
+  font-size: 14px;
+  flex: 1;
+  min-width: 180px;
+}
+
+.chastSchyot {
+  color: var(--ink-soft);
+  font-size: 13px;
+  white-space: nowrap;
+}
+
+.chastTelo {
+  padding: 4px 16px 18px;
+}
+
+/* ---- Модуль: свёрнутая полоса или развёрнутая тропа ---- */
+
+.modul {
+  border-radius: 16px;
+  margin: 8px 0;
+  background: var(--surface);
+  border: 1px solid var(--line);
+}
+
+.modulSeychas {
+  border-color: var(--accent);
+  box-shadow: var(--shadow-2);
+}
+
+.modulShapka {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 16px;
+  cursor: pointer;
+  list-style: none;
+}
+
+.modulShapka::-webkit-details-marker {
+  display: none;
+}
+
+.nomer {
+  width: 34px;
+  height: 34px;
+  border-radius: 11px;
+  background: var(--paper-alt);
+  border: 1px solid var(--line);
+  color: var(--ink-soft);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 14px;
+  flex: none;
+}
+
+.nomerGotov {
+  background: var(--good-soft);
+  border-color: var(--good);
+  color: var(--good);
+}
+
+.nomerSeychas {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--btn-text);
+}
+
+.modulImya {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 17px;
+  margin: 0;
+  flex: 1;
+  min-width: 0;
+}
+
+.modulSchyot {
+  color: var(--ink-soft);
+  font-size: 13px;
+  white-space: nowrap;
+}
+
+/* Полоса успеха модуля: видно, сколько сделано, не разворачивая. */
+.polosa {
+  width: 92px;
+  height: 6px;
+  border-radius: 3px;
+  background: var(--line);
+  flex: none;
+  overflow: hidden;
+}
+
+.polosa i {
+  display: block;
+  height: 100%;
+  background: var(--good);
+  border-radius: 3px;
+}
+
+.modulTelo {
+  padding: 0 16px 16px;
+}
+
+.vyvody {
+  margin: 0 0 14px;
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: var(--paper-alt);
+  color: var(--ink-soft);
+  font-size: 14px;
+}
+
+.vyvodyImya {
+  display: block;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.vyvody ul {
+  margin: 0;
+  padding-left: 18px;
+}
+
+/* ---- Сама тропа ---- */
+
+.tropa {
+  list-style: none;
+  margin: 0;
+  padding: 4px 0;
+  position: relative;
+}
+
+/* Нить, на которую нанизаны узлы. Стоит по середине и уходит за края
+   крайних узлов, чтобы тропа читалась как одна дорога. */
+.tropa::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 22px;
+  bottom: 22px;
+  width: 2px;
+  margin-left: -1px;
+  background: var(--line);
+}
+
+/*
+ * Узел стоит НА нити, а подпись — сбоку, и стороны чередуются. Три колонки:
+ * подпись слева, круг посередине, подпись справа. Круг всегда в средней, потому
+ * тропа и читается одной дорогой, а не двумя столбцами.
+ */
+.uzel {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 44px 1fr;
+  align-items: center;
+  gap: 14px;
+  padding: 6px 0;
+}
+
+.sleva .podpis {
+  grid-column: 1;
+  align-items: flex-end;
+  text-align: right;
+}
+
+.sprava .podpis {
+  grid-column: 3;
+}
+
+.krug {
+  grid-column: 2;
+  justify-self: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid var(--line);
+  background: var(--surface);
+  color: var(--ink-soft);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 15px;
+  flex: none;
+  position: relative;
+  z-index: 1;
+  transition: transform 0.15s;
+}
+
+.uzel:hover .krug {
+  transform: scale(1.08);
+}
+
+.krugGotov {
+  background: var(--good);
+  border-color: var(--good);
+  color: #fff;
+}
+
+.krugSeychas {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--btn-text);
+  box-shadow: 0 0 0 6px var(--accent-soft);
+}
+
+.podpis {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.imyaUroka {
+  color: var(--ink);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.imyaUroka:hover {
+  color: var(--accent);
+}
+
+.melko {
+  color: var(--ink-soft);
+  font-size: 12px;
+}
+
+.tuty {
+  display: inline-block;
+  background: var(--accent);
+  color: var(--btn-text);
+  border-radius: 99px;
+  padding: 1px 9px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  width: fit-content;
+}
+
+/* ---- Узел проверочной работы ---- */
+
+.rabota .krug {
+  border-radius: 13px;
+  background: var(--amber-soft);
+  border-color: var(--amber);
+  color: var(--amber);
+}
+
+.rabotaSdana .krug {
+  background: var(--good);
+  border-color: var(--good);
+  color: #fff;
+}
+
+.rabotaZakryta .krug {
+  opacity: 0.55;
+}
+
+.rabotaZakryta .imyaUroka {
+  color: var(--ink-soft);
+}
+
+/* ---- Узкий экран: тропа выпрямляется в столбец ---- */
+
+@media (max-width: 640px) {
+  /* На телефоне тропа выпрямляется: нить уходит влево, подписи всегда справа.
+     Зигзаг на узкой полосе рвёт длинные русские названия на два слова в строку. */
+  .tropa::before {
+    left: 22px;
+  }
+  .uzel {
+    grid-template-columns: 44px 1fr;
+    gap: 12px;
+  }
+  .krug {
+    grid-column: 1;
+  }
+  .sleva .podpis,
+  .sprava .podpis {
+    grid-column: 2;
+    align-items: flex-start;
+    text-align: left;
+  }
+}
+
+/* ---- Экзамен ступени ---- */
+
+.ekzamen {
+  margin-top: 18px;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: var(--paper-alt);
+  padding: 18px 20px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.ekzamenImya {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.ekzamenChto {
+  color: var(--ink-soft);
+  font-size: 14px;
+  flex: 1;
+  min-width: 200px;
+}
