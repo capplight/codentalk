@@ -31,7 +31,17 @@ import type { Module } from "@/lib/content/types";
  *    применить к себе. Прежний вперемешку порядок уходит.
  *
  * СЧЁТ ДЛЯ СРАВНЕНИЯ. Нынешний урок `svyazka-be`: 2 строки объяснения, 4 примера
- * с переводом. Урок 1 этого модуля: 9 случаев, 20 примеров с переводом.
+ * с переводом. Урок 1 этого модуля: 8 случаев, у каждого по два примера с
+ * переводом.
+ *
+ * ЧЕГО ЗДЕСЬ НЕ ОБЪЯСНЯЮТ — решение владельца от 4 сентября 2026: «зачем вообще
+ * объяснять что такое буква». Тем, что ученик знает по русскому языку и по
+ * школе (буква, слово, предложение, дефис, точка, слог, гласный и согласный,
+ * число, род), здесь ПОЛЬЗУЮТСЯ, а не объясняют его. По этому правилу снят
+ * случай «После am называем имя» — он повторял русскую параллель соседнего
+ * случая слово в слово, — и вычищены строки вроде «мы говорим we, когда речь о
+ * себе и ещё о ком-то». Если такая строка снова просится в текст, спроси: что
+ * ученик потеряет, если убрать её целиком?
  *
  * КАРТИНКИ. У случая, таблицы, врезки и словарного слова стоит поле `znak` —
  * код значка Twemoji. Своё рисование прекращено по слову владельца («сделанные
@@ -93,7 +103,8 @@ const modul: Module = {
       blocks: [
         {
           // НАЧАЛО — СВЯЗНЫЙ РАЗГОВОР, А НЕ ПРАВИЛО. Форма am встречается в нём
-          // четыре раза, и ученик видит вещь целиком раньше, чем её разбор.
+          // пять раз, и ученик видит вещь целиком раньше, чем её разбор.
+          // Число названо и в разборе под примером — правишь строки, поправь оба.
           id: "razgovor-snachala",
 
           znak: "1f44b",
@@ -120,7 +131,7 @@ const modul: Module = {
           kind: "explain",
           text: [
             "I значит «я», и после него ставим am",
-            "Форма am бывает только с I. Ни с одним другим словом она не стоит.",
+            "Форма am бывает только с I.",
             "I am Alim. — Я Алим.",
             "I am at home. — Я дома.",
           ],
@@ -139,26 +150,14 @@ const modul: Module = {
           ],
         },
         {
-          id: "sluchay-3-imya",
-
-          znak: "1faaa",
-          kind: "explain",
-          text: [
-            "После am называем имя",
-            "По-русски мы говорим «я Айгуль». По-английски между «я» и именем встаёт am: I am Aigul.",
-            "I am Aigul. — Я Айгуль.",
-            "I am Daniyar. — Я Данияр.",
-          ],
-        },
-        {
           id: "sluchay-4-zanyatie",
 
           znak: "1f9d1-200d-2695-fe0f",
           kind: "explain",
           text: [
             "После am называем занятие",
-            "По-русски мы говорим «я врач». По-английски перед занятием встаёт ещё одно короткое слово, a.",
-            "Такое слово называется артикль. В русском языке артиклей нет вовсе, поэтому в переводе ему ничего не соответствует.",
+            "По-русски мы говорим «я врач». По-английски перед занятием встаёт ещё одно слово, a.",
+            "Такое слово называется артикль. В русском его нет, и в переводе ему ничего не соответствует.",
             "I am a doctor. — Я врач.",
             "I am a driver. — Я водитель.",
           ],
@@ -183,10 +182,9 @@ const modul: Module = {
           kind: "explain",
           text: [
             "После am называем место",
-            "По-русски мы говорим «я на работе», «я в машине»: перед местом стоит маленькое слово «на» или «в».",
-            "В английском на этом месте тоже стоит маленькое слово: at или in. Такие слова называют предлогами.",
+            "По-русски мы говорим «я на работе», «я в машине». По-английски вместо «на» и «в» стоят предлоги at и in.",
             "I am at work. — Я на работе.",
-            "I am in the car. — Я в машине.",
+            "I am in a taxi. — Я в такси.",
           ],
         },
         {
@@ -220,8 +218,7 @@ const modul: Module = {
           kind: "explain",
           text: [
             "В разговоре I am сокращаем до I'm",
-            "Значение остаётся прежним, короче становится только запись.",
-            "Буква a выпадает, а на её месте стоит значок «'». Такой значок называется апострофом.",
+            "Буква a выпадает, а на её месте стоит апостроф — значок «'».",
             "I'm Alim. — Я Алим.",
             "I'm at home. — Я дома.",
           ],
@@ -256,8 +253,7 @@ const modul: Module = {
           tone: "mistake",
           text:
             "«I student» — так не говорят.\n\nПо-русски «я студент» обходится без " +
-            "глагола, и по-английски его легко потерять. Между I и остальным " +
-            "обязательно ставим am: I am a student.",
+            "глагола, и am легко потерять: I am a student.",
         },
         {
           id: "i-vsegda-zaglavnaya",
@@ -266,9 +262,8 @@ const modul: Module = {
           kind: "note",
           tone: "info",
           text:
-            "Слово I всегда пишем с заглавной буквы, где бы оно ни стояло в " +
-            "предложении.\n\nСлова you, he и she так себя не ведут: с заглавной " +
-            "их пишем только в начале предложения.",
+            "Слово I пишем с заглавной буквы везде, а не только в начале " +
+            "предложения. Со словами you, he и she так не делают.",
         },
         {
           id: "slovar-uroka",
@@ -328,8 +323,8 @@ const modul: Module = {
             { text: "work", selectable: true },
             { text: " at school." },
           ],
-          hint: "Форма be связывает, а не называет дело.",
-          why: "Обе формы am. Слово work называет дело, а не связывает: это другой глагол.",
+          hint: "Одно из отмеченных слов называет дело, а не форму be.",
+          why: "Обе формы am. Слово work называет дело — это другой глагол.",
         },
         {
           id: "u4-dopisat-formu",
@@ -460,7 +455,6 @@ const modul: Module = {
           kind: "explain",
           text: [
             "we значит «мы», и после него тоже are",
-            "Мы говорим we, когда речь о себе и ещё о ком-то: я и мой друг, я и моя семья.",
             "We are at home. — Мы дома.",
             "We are ready. — Мы готовы.",
           ],
@@ -472,9 +466,8 @@ const modul: Module = {
           kind: "explain",
           text: [
             "they значит «они», и после него ставим are",
-            "Слово they годится и для людей, и для вещей: и про учителей, и про машины скажем they.",
             "They are teachers. — Они учителя.",
-            "They are in the car. — Они в машине.",
+            "They are in a taxi. — Они в такси.",
           ],
         },
         {
@@ -497,7 +490,7 @@ const modul: Module = {
           text: [
             "Людей несколько — занятие тоже во множественном числе",
             "По-русски мы говорим «мы водители», а не «мы водитель».",
-            "По-английски так же: к слову driver добавляем s и получаем drivers. Это множественное число, и слово a перед ним не нужно.",
+            "По-английски так же: к слову driver добавляем s — drivers. Слово a перед ним не нужно.",
             "We are drivers. — Мы водители.",
             "They are artists. — Они художники.",
           ],
@@ -521,7 +514,7 @@ const modul: Module = {
           kind: "explain",
           text: [
             "После имён are пишем целиком",
-            "Коротко записываем are после you, we и they. А после имён пишем его полностью.",
+            "Сокращаем are после you, we и they, а после имён — нет.",
             "Dana and Alim are students. — Дана и Алим студенты.",
             "They're students. — Они студенты.",
           ],
@@ -672,13 +665,13 @@ const modul: Module = {
           caption: "Кто есть кто",
           razgovor: true,
           text:
-            "— Who is that?\n— That is Daniyar. He is a driver.\n" +
-            "— And she is Aigul. She is a doctor.\n— The car is new.",
+            "— Who is this?\n— This is Daniyar. He is a driver.\n" +
+            "— And she is Aigul. She is a doctor.\n— My car is new.",
           perevod: {
-            "— Who is that?": "Кто это?",
-            "— That is Daniyar. He is a driver.": "Это Данияр. Он водитель.",
+            "— Who is this?": "Кто это?",
+            "— This is Daniyar. He is a driver.": "Это Данияр. Он водитель.",
             "— And she is Aigul. She is a doctor.": "А это Айгуль. Она врач.",
-            "— The car is new.": "Машина новая.",
+            "— My car is new.": "Моя машина новая.",
           },
           explain:
             "Шесть раз is. Общее у всех шести одно: речь идёт об одном человеке " +
@@ -692,7 +685,7 @@ const modul: Module = {
           text: [
             "he значит «он», she значит «она»",
             "После he и she ставим is.",
-            "По-русски мы говорим «он водитель» и «она врач» без всякого глагола. По-английски между словами обязательно стоит is.",
+            "По-русски «он водитель» обходится без глагола, а по-английски на этом месте стоит is.",
             "He is a driver. — Он водитель.",
             "She is a doctor. — Она врач.",
           ],
@@ -729,9 +722,9 @@ const modul: Module = {
           kind: "explain",
           text: [
             "Название вещи ведёт себя как it",
-            "Вместо it называем саму вещь: the car, the house. Вещь одна, значит снова is.",
-            "The car is new. — Машина новая.",
-            "The house is big. — Дом большой.",
+            "Вместо it называем саму вещь: my car, my house. Вещь одна, значит снова is.",
+            "My car is new. — Моя машина новая.",
+            "My house is big. — Мой дом большой.",
           ],
         },
         {
@@ -753,7 +746,7 @@ const modul: Module = {
           kind: "explain",
           text: [
             "Одно имя тоже сокращаем",
-            "После имени is записываем коротко так же, как после he и she: значок ' встаёт на место буквы i.",
+            "После имени is записываем коротко так же, как после he и she.",
             "После двух имён так не делаем: там are пишем целиком.",
             "Daniyar's at work. — Данияр на работе.",
             "Aigul's a doctor. — Айгуль врач.",
@@ -765,11 +758,11 @@ const modul: Module = {
           znak: "2744",
           kind: "explain",
           text: [
-            "О погоде и о дне недели тоже говорим через it",
-            "По-русски мы говорим просто «холодно» и «понедельник», без всякого «оно».",
+            "О погоде тоже говорим через it",
+            "По-русски мы говорим просто «холодно» и «жарко», без всякого «оно».",
             "По-английски в начале такой строки всё равно ставим it, хотя переводить его не придётся.",
             "It is cold. — Холодно.",
-            "It is Monday. — Понедельник.",
+            "It is hot. — Жарко.",
           ],
         },
         {
@@ -778,14 +771,14 @@ const modul: Module = {
           znak: "1f4d0",
           kind: "table",
           caption: "Кому и чему нужна is",
-          zvuchat: ["He is a driver.", "She is a doctor.", "It is a car.", "The house is big."],
+          zvuchat: ["He is a driver.", "She is a doctor.", "It is a car.", "My house is big."],
           head: ["Кто или что", "Английский", "Перевод"],
           rows: [
             ["он", "He is a driver.", "Он водитель."],
             ["она", "She is a doctor.", "Она врач."],
             ["вещь", "It is a car.", "Это машина."],
             ["одно имя", "Daniyar is a driver.", "Данияр водитель."],
-            ["название вещи", "The house is big.", "Дом большой."],
+            ["название вещи", "My house is big.", "Мой дом большой."],
           ],
         },
         {
@@ -809,8 +802,8 @@ const modul: Module = {
           kind: "note",
           tone: "mistake",
           text:
-            "«He are a driver» — так не говорят.\n\nHe — это один человек, а are ставим " +
-            "там, где людей несколько. Значит здесь стоит is: He is a driver.",
+            "«He are a driver» — так не говорят.\n\nHe — это «он», и после него стоит " +
+            "is: He is a driver.",
         },
         {
           id: "slovar-is",
@@ -822,11 +815,12 @@ const modul: Module = {
             { term: "he", znak: "1f468", translation: "он", example: "He is a driver.", hint: "/hiː/" },
             { term: "she", znak: "1f469", translation: "она", example: "She is a doctor.", hint: "/ʃiː/" },
             { term: "it", znak: "1f4e6", translation: "оно (о вещи)", example: "It is a car.", hint: "/ɪt/" },
-            { term: "car", znak: "1f697", translation: "машина", example: "The car is new.", hint: "/kɑː/" },
-            { term: "house", znak: "1f3e0", translation: "дом", example: "The house is big.", hint: "/haʊs/" },
-            { term: "new", znak: "2728", translation: "новый", example: "The car is new.", hint: "/njuː/" },
-            { term: "big", znak: "1f418", translation: "большой", example: "The house is big.", hint: "/bɪg/" },
+            { term: "car", znak: "1f697", translation: "машина", example: "My car is new.", hint: "/kɑː/" },
+            { term: "house", znak: "1f3e0", translation: "дом", example: "My house is big.", hint: "/haʊs/" },
+            { term: "new", znak: "2728", translation: "новый", example: "My car is new.", hint: "/njuː/" },
+            { term: "big", znak: "1f418", translation: "большой", example: "My house is big.", hint: "/bɪg/" },
             { term: "cold", znak: "2744", translation: "холодный, холодно", example: "It is cold.", hint: "/kəʊld/" },
+            { term: "hot", znak: "1f525", translation: "жаркий, жарко", example: "It is hot.", hint: "/hɒt/" },
           ],
         },
 
@@ -854,22 +848,22 @@ const modul: Module = {
             { text: " · " },
             { text: "they", selectable: true },
             { text: " · " },
-            { text: "the car", selectable: true, correct: true },
+            { text: "my car", selectable: true, correct: true },
             { text: " · " },
             { text: "we", selectable: true },
           ],
           hint: "Считай, об одном речь или о нескольких.",
-          why: "Is нужна he и the car: там речь об одном. They и we — о нескольких.",
+          why: "Is нужна he и my car: там речь об одном. They и we — о нескольких.",
         },
         {
           id: "i3-dopisat",
           kind: "gap",
           prompt: "Речь о машине. Допиши недостающее слово.",
-          before: "The car ",
+          before: "My car ",
           after: " new.",
           answer: "is",
           hint: "Машина одна.",
-          why: "The car is new. Название вещи ведёт себя как it: речь об одном.",
+          why: "My car is new. Название вещи ведёт себя как it: речь об одном.",
         },
         {
           id: "i4-sopostavit",
@@ -895,12 +889,12 @@ const modul: Module = {
         {
           id: "i6-diktant",
           kind: "short",
-          zvuk: "The house is big.",
+          zvuk: "My house is big.",
           prompt: "Диктант. Послушай и запиши строку целиком.",
-          answer: "The house is big.",
-          accept: ["The house is big"],
+          answer: "My house is big.",
+          accept: ["My house is big"],
           hint: "Речь о доме, и он один.",
-          why: "The house is big. Название вещи тянет за собой is.",
+          why: "My house is big. Название вещи тянет за собой is.",
         },
         {
           id: "i7-o-znakomom",
@@ -908,7 +902,7 @@ const modul: Module = {
           prompt:
             "Напиши две строки об одном своём знакомом: назови имя и занятие. " +
             "Занятие возьми из словаря.",
-          sample: "That is Daniyar. He is a driver.",
+          sample: "This is Daniyar. He is a driver.",
           minWords: 6,
           checklist: [
             "в обеих строках стоит is",
@@ -917,7 +911,7 @@ const modul: Module = {
           ],
           hint: "Человек один, значит форма во всех строках одна.",
           why:
-            "Например: That is Daniyar. He is a driver. Имя будет твоё, а форма та " +
+            "Например: This is Daniyar. He is a driver. Имя будет твоё, а форма та " +
             "же: об одном человеке говорят через is.",
         },
       ],
@@ -978,11 +972,11 @@ const modul: Module = {
         outcome: "выбирать is для he, she, it и для одного имени",
         prompt: "В какой строке ошибка?",
         options: [
-          { text: "The car is new." },
+          { text: "My car is new." },
           { text: "She is at home." },
-          { text: "The house are big.", correct: true },
+          { text: "My house are big.", correct: true },
         ],
-        why: "The house are big. Дом один, и форма у него та же, что у he и she: is.",
+        why: "My house are big. Дом один, и форма у него та же, что у he и she: is.",
       },
       {
         id: "kto-eto-na-sluh",
@@ -991,7 +985,9 @@ const modul: Module = {
         zvuk: "I am from Astana.",
         prompt: "Послушай. Откуда человек? Ответь одним английским словом.",
         answer: "Astana",
-        accept: ["astana", "from Astana"],
+        // «from Astana» отсюда убрано: условие просит ОДНО слово, а этот ответ
+        // из двух. Ученик, послушавшийся условия, и так отвечает верно.
+        accept: ["astana"],
         why: "I am from Astana. Откуда человек — это from и название города.",
       },
       {
