@@ -286,6 +286,10 @@ const modul: Module = {
           kind: "example",
           caption: "У стойки в гостинице",
           razgovor: true,
+          // Дана — женское имя, и её реплики читает женский голос. Голоса
+          // чередуются, поэтому первым ставим мужской: администратор говорит
+          // первым. Нашёл владелец, послушав сцену.
+          pervyyGolos: "muzhskoy",
           text: "— Good evening. Your name, please?\n— Dana.\n— Tana?\n— No. Dana.\n— Sorry, how do you spell that?\n— D-A-N-A. Dana.\n— Thank you.",
           perevod: {
             "— Good evening. Your name, please?": "— Добрый вечер. Ваше имя, пожалуйста.",

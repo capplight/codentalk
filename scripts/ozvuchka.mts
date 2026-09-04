@@ -36,6 +36,7 @@ const { courses } = await import("../courses/index.ts");
 const { isTask } = await import("../lib/content/types.ts");
 const { klyuchZvuka, razgovorLi, zvuchashchee } = await import("../lib/content/zvuk.ts");
 const { PROIZNOSHENIE } = await import("../lib/content/proiznoshenie.ts");
+const { chtenieBukvy } = await import("../lib/content/nazvaniya-bukv.ts");
 
 type TempZvuka = "normal" | "slow";
 type RodZvuka = "blok" | "slovo" | "obrazec" | "vopros";
@@ -65,6 +66,8 @@ interface Zapis {
   text: string;
   temp: TempZvuka;
   dvaGolosa: boolean;
+  /** Мужской голос читает первую реплику. Пусто — первой читает женский. */
+  muzhskoyPervym?: boolean;
   /** Откуда взялось — для отчёта и разбора. */
   otkuda: string;
 }
@@ -112,6 +115,7 @@ function sobratOpis(): Zapis[] {
                 text: block.text,
                 temp: "slow",
                 dvaGolosa: true,
+                muzhskoyPervym: block.pervyyGolos === "muzhskoy",
                 otkuda: `${gde} · пример ${block.id}`,
               });
             }
@@ -340,7 +344,15 @@ function znakiPrepinaniya(text: string): string {
  * законным («G — J» — пара букв), а перевод строки в примере значит ровно смену
  * говорящего.
  */
-function repliki(text: string, dvaGolosa: boolean): { golos: string; text: string }[] {
+function repliki(
+  text: string,
+  dvaGolosa: boolean,
+  muzhskoyPervym = false
+): { golos: string; text: string }[] {
+  // Кто читает чётные реплики, кто нечётные. По умолчанию первой — женский:
+  // так собраны все прежние разговоры курса.
+  const pervyy = muzhskoyPervym ? VTOROY : PERVYY;
+  const vtoroy = muzhskoyPervym ? PERVYY : VTOROY;
   if (!dvaGolosa) return [{ golos: PERVYY, text }];
   const poStrokam = text
     .split("\n")
@@ -350,7 +362,7 @@ function repliki(text: string, dvaGolosa: boolean): { golos: string; text: strin
     .filter(Boolean);
   if (poStrokam.length >= 2) {
     return poStrokam.map((chast, i) => ({
-      golos: i % 2 === 0 ? PERVYY : VTOROY,
+      golos: i % 2 === 0 ? pervyy : vtoroy,
       text: chast,
     }));
   }
@@ -363,7 +375,7 @@ function repliki(text: string, dvaGolosa: boolean): { golos: string; text: strin
     .map((s) => s.replace(/^—\s*/, ""))
     .filter(Boolean);
   if (chasti.length < 2) return [{ golos: PERVYY, text }];
-  return chasti.map((chast, i) => ({ golos: i % 2 === 0 ? PERVYY : VTOROY, text: chast }));
+  return chasti.map((chast, i) => ({ golos: i % 2 === 0 ? pervyy : vtoroy, text: chast }));
 }
 
 /**
@@ -414,6 +426,22 @@ function transkripciya(text: string): string | null {
   return m ? m[1] : null;
 }
 
+/**
+ * КАК ОТДАТЬ СИНТЕЗУ ОДНУ БУКВУ.
+ *
+ * `<say-as interpret-as="characters">` синтез тянет как обрывок, а на нашем
+ * замедлении обрывок хрипит: владелец 5 сентября 2026 услышал это на A и V, а в
+ * диктанте `C, A, T` буква A звучала как K. Поэтому букву отдаём звуком, а не
+ * знаком — той же разметкой `<phoneme>`, которой читаются имена собственные.
+ *
+ * Если буквы в таблице нет (а там все двадцать шесть), остаётся прежний путь.
+ */
+function bukvaVsluh(bukva: string): string {
+  const mfa = chtenieBukvy(bukva);
+  if (!mfa) return `<say-as interpret-as="characters">${bukva.trim()}</say-as>`;
+  return `<phoneme alphabet="ipa" ph="${mfa}">${bukva.trim()}</phoneme>`;
+}
+
 function ssml(z: Zapis): string {
   const mfa = transkripciya(z.text);
   if (mfa) {
@@ -425,7 +453,7 @@ function ssml(z: Zapis): string {
   }
 
   if (odinochnayaBukva(z.text)) {
-    const telo = `<say-as interpret-as="characters">${z.text.trim()}</say-as>`;
+    const telo = bukvaVsluh(z.text);
     return (
       `<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-GB">` +
       `<voice name="${PERVYY}"><prosody rate="-25%">${telo}</prosody></voice></speak>`
@@ -440,7 +468,7 @@ function ssml(z: Zapis): string {
       .split(razdelitel)
       .map((s) => s.trim())
       .filter(Boolean)
-      .map((b) => `<say-as interpret-as="characters">${b}</say-as>`)
+      .map((b) => bukvaVsluh(b))
       .join(`<break time="${pereryv}ms"/>`);
     return (
       `<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-GB">` +
@@ -451,7 +479,7 @@ function ssml(z: Zapis): string {
 }
 
 function ssmlObychnyy(z: Zapis): string {
-  const chasti = repliki(z.text, z.dvaGolosa)
+  const chasti = repliki(z.text, z.dvaGolosa, z.muzhskoyPervym)
     .map((r) => {
       const telo = znakiPrepinaniya(tireVnutriRepliki(sPodskazkami(ekran(r.text))));
       const sTempom = z.temp === "slow" ? `<prosody rate="-25%">${telo}</prosody>` : telo;
