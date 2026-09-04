@@ -1395,7 +1395,17 @@ function checkLesson(lesson: Lesson, where: string): void {
   // Время урока против числа блоков. Оценка грубая: объяснение читают около
   // минуты, задание занимает примерно полторы. Расхождение больше пяти минут
   // означает, что оценку либо не пересчитали после правки, либо взяли с потолка.
-  const materials = lesson.blocks.length - tasks.length;
+  /*
+   * Таблица с пометкой `naTomZheEkrane` своего экрана не занимает — она едет
+   * вместе с предыдущим объяснением. Без этой поправки проверка считала её
+   * отдельным блоком и приписывала уроку лишние минуты. Нашёл методист,
+   * разбирая замысел урока: у него выходило 13 экранов, а проверка обещала 17
+   * минут.
+   */
+  const slitye = lesson.blocks.filter(
+    (b, i) => !isTask(b) && b.kind === "table" && b.naTomZheEkrane && i > 0
+  ).length;
+  const materials = lesson.blocks.length - tasks.length - slitye;
   const expected = Math.round(materials * 1 + tasks.length * 1.5);
   if (lesson.estimatedMinutes < 8 || lesson.estimatedMinutes > 15) {
     warn(
