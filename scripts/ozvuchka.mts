@@ -298,6 +298,29 @@ function sPodskazkami(text: string): string {
  * Лечим коротким явным перерывом. Точку не трогаем: её пауза и так длиннее,
  * а лишняя разметка заставила бы переозвучить весь курс без нужды.
  */
+/**
+ * БУКВЫ, ПРОДИКТОВАННЫЕ ВНУТРИ РЕПЛИКИ, — `D-A-N-A` в разговоре.
+ *
+ * Ветка «весь текст записи есть диктовка» их не ловит: там текст всей записи, а
+ * здесь диктовка стоит внутри реплики рядом с обычными словами. Синтез получал
+ * `D-A-N-A` простым текстом и был волен прочесть это как слово.
+ *
+ * Нашёл методист, разбирая замысел урока 2: «сцена урока 1 тоже написана
+ * дефисами и, судя по всему, уже озвучена — послушать стоит». Беда и правда
+ * оказалась старше замысла.
+ *
+ * Каждая буква уходит звуком, между ними тот же короткий перерыв, что и в
+ * диктанте: это одно слово по буквам, а не сравнение разных букв.
+ */
+function bukvyCherezDefis(text: string): string {
+  return text.replace(/(?<![A-Za-z-])([A-Za-z](?:-[A-Za-z])+)(?![A-Za-z-])/g, (ryad) =>
+    ryad
+      .split("-")
+      .map((b) => bukvaVsluh(b))
+      .join('<break time="250ms"/>')
+  );
+}
+
 function tireVnutriRepliki(text: string): string {
   return text.replace(/\s+—\s+/g, '<break time="200ms"/>');
 }
@@ -481,7 +504,9 @@ function ssml(z: Zapis): string {
 function ssmlObychnyy(z: Zapis): string {
   const chasti = repliki(z.text, z.dvaGolosa, z.muzhskoyPervym)
     .map((r) => {
-      const telo = znakiPrepinaniya(tireVnutriRepliki(sPodskazkami(ekran(r.text))));
+      const telo = znakiPrepinaniya(
+        tireVnutriRepliki(sPodskazkami(bukvyCherezDefis(ekran(r.text))))
+      );
       const sTempom = z.temp === "slow" ? `<prosody rate="-25%">${telo}</prosody>` : telo;
       return `<voice name="${r.golos}">${sTempom}</voice>`;
     })
