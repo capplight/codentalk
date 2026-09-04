@@ -69,6 +69,9 @@ function kuskiBloka(b: any, gde: string): Kusok[] {
   switch (b.kind) {
     case "explain":
       (b.text ?? []).forEach((p: string) => dobavit("объяснение", p));
+      // Звук у транскрипции внутри объяснения ученик слышит — значит его
+      // проверяет редактор, как и звук у строки примера.
+      for (const chto of Object.values(zvuchashchee(b))) dobavit("звук в объяснении", chto);
       break;
     case "example":
       dobavit("подпись примера", b.caption);
@@ -93,6 +96,7 @@ function kuskiBloka(b: any, gde: string): Kusok[] {
       break;
     case "note":
       dobavit(b.tone === "mistake" ? "врезка об ошибке" : "врезка", b.text);
+      for (const chto of Object.values(zvuchashchee(b))) dobavit("звук во врезке", chto);
       break;
     case "audio":
       dobavit("подпись записи", b.caption);
