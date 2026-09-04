@@ -33,6 +33,7 @@ import {
   zvuchashchee,
 } from "../lib/content/zvuk.ts";
 import { nayti } from "../lib/content/vozvrat.ts";
+import { kuskiUroka } from "./vidimoe.mts";
 import { resheno } from "../courses/resheno.ts";
 import { courses } from "../courses/index.ts";
 import { existsSync, readFileSync } from "node:fs";
@@ -2997,6 +2998,35 @@ function checkVidUroka(course: Course): void {
  * Без этой проверки урок без вступления выглядел бы здоровым: экран просто
  * показал бы одно название, и ни один отчёт не сказал бы ни слова.
  */
+/**
+ * ЗАГЛУШКА РЕДАКТОРА НЕ ДОЛЖНА ДОЕХАТЬ ДО УЧЕНИКА.
+ *
+ * По новому порядку работы (владелец, 5 сентября 2026) весь видимый текст пишут
+ * методист и редактор, а сборщик кода собирает скелет: имена блоков, английские
+ * строки, ответы, звук. Русские строки он оставляет пустыми и помечает словом
+ * ПИШЕТ РЕДАКТОР — иначе их некуда положить и проверки падают на пустоте.
+ *
+ * Метка обязана быть ошибкой сборки: незаполненная заглушка выглядит на экране
+ * ровно как объяснение, и увидеть её можно только глазами. Проверка испытана
+ * порчей: метка, оставленная в подсказке задания, названа местом.
+ */
+const METKA_REDAKTORA = "ПИШЕТ РЕДАКТОР";
+
+function checkZaglushki(course: Course): void {
+  for (const mod of course.modules) {
+    for (const lesson of mod.lessons) {
+      for (const kusok of kuskiUroka(mod, lesson).kuski) {
+        if (kusok.text.includes(METKA_REDAKTORA)) {
+          fail(
+            `${course.slug} → ${mod.slug} → ${lesson.slug}`,
+            `заглушка сборщика не заполнена (${kusok.rol}): «${kusok.text.slice(0, 60)}»`
+          );
+        }
+      }
+    }
+  }
+}
+
 function checkVstuplenie(course: Course): void {
   if (course.format !== "shagi") return;
   for (const mod of course.modules) {
@@ -3087,6 +3117,7 @@ for (const course of courses) {
   checkZnachki(course);
   checkVidUroka(course);
   checkVstuplenie(course);
+  checkZaglushki(course);
   checkGdeNetZvuka(course);
 }
 

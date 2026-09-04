@@ -187,6 +187,15 @@ export function kuskiSSverkoy(b: Block, gde: string): { kuski: Kusok[]; poteryan
 export function kuskiUroka(mod: Module, les: Lesson): { kuski: Kusok[]; poteryano: string[] } {
   const kuski: Kusok[] = [{ gde: `${mod.slug} → ${les.slug}`, rol: "название урока", text: les.title }];
   kuski.push({ gde: `${mod.slug} → ${les.slug}`, rol: "итог урока", text: les.outcome });
+  /*
+   * Вступление урока — первый экран пошагового вида. Поле заведено 4 сентября
+   * 2026, а сюда дописано 5-го: до этой строки разбор его не видел, то есть
+   * текст, который ученик читает ПЕРВЫМ, не проверял никто — ни `yazyk` на
+   * кальки, ни проверка на заглушки. Нашлось испытанием проверки порчей.
+   */
+  if (les.vstuplenie) {
+    kuski.push({ gde: `${mod.slug} → ${les.slug}`, rol: "вступление урока", text: les.vstuplenie });
+  }
   const poteryano: string[] = [];
 
   for (const b of les.blocks as Block[]) {
