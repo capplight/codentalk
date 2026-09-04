@@ -52,6 +52,51 @@ export function razobrat(stroka: string): { en: string; ru: string } | null {
   return { en: m[1].trim(), ru: m[2].trim() };
 }
 
+/**
+ * Строка объяснения, в которой у названных кусков стоит кнопка «послушать».
+ *
+ * ЗАЧЕМ. Решение владельца от 4 сентября 2026: ученик не умеет читать
+ * транскрипцию, и `/dʒeɪ/` без звука ему ничего не говорит. Кнопка стоит рядом
+ * с самой транскрипцией, а не отдельным экраном с таблицей.
+ *
+ * Куски ищутся с начала строки, при равном начале побеждает длинный: иначе
+ * ключ `B` съел бы начало ключа `B b`.
+ */
+function sZvukom(stroka: string, zvuki: Record<string, string>): React.ReactNode {
+  const klyuchi = Object.keys(zvuki);
+  if (klyuchi.length === 0) return stroka;
+
+  const kuski: React.ReactNode[] = [];
+  let ostatok = stroka;
+  let nomer = 0;
+
+  while (ostatok.length > 0) {
+    let nashli: { gde: number; klyuch: string } | null = null;
+    for (const klyuch of klyuchi) {
+      const gde = ostatok.indexOf(klyuch);
+      if (gde === -1) continue;
+      if (!nashli || gde < nashli.gde || (gde === nashli.gde && klyuch.length > nashli.klyuch.length)) {
+        nashli = { gde, klyuch };
+      }
+    }
+    if (!nashli) {
+      kuski.push(ostatok);
+      break;
+    }
+    if (nashli.gde > 0) kuski.push(ostatok.slice(0, nashli.gde));
+    const chto = zvuki[nashli.klyuch];
+    kuski.push(
+      <span className={s.zvuchashcheeVTekste} key={(nomer += 1)}>
+        {nashli.klyuch}
+        <Zvuk src={adresYacheyki(chto)} chto={chto} />
+      </span>
+    );
+    ostatok = ostatok.slice(nashli.gde + nashli.klyuch.length);
+  }
+
+  return kuski;
+}
+
 export default function Ekran({ block }: { block: MaterialBlock }) {
   switch (block.kind) {
     /* ------------------------------------------------------------------
@@ -60,6 +105,7 @@ export default function Ekran({ block }: { block: MaterialBlock }) {
     case "explain": {
       const [imya, ...ostalnoe] = block.text;
       const primery = ostalnoe.map(razobrat);
+      const zvuki = zvuchashchee(block);
 
       return (
         <div className={s.sluchay}>
@@ -69,11 +115,11 @@ export default function Ekran({ block }: { block: MaterialBlock }) {
             </div>
           )}
           <div className={s.telo}>
-            <h2 className={s.zagolovok}>{imya}</h2>
+            <h2 className={s.zagolovok}>{sZvukom(imya, zvuki)}</h2>
             {ostalnoe.map((stroka, i) =>
               primery[i] ? null : (
                 <p className={s.pravilo} key={i}>
-                  {stroka}
+                  {sZvukom(stroka, zvuki)}
                 </p>
               )
             )}

@@ -142,6 +142,24 @@ function sobratOpis(): Zapis[] {
             continue;
           }
 
+          // Звук прямо в объяснении: транскрипция и буква, у которых на
+          // странице стоит кнопка. Решение владельца от 4 сентября 2026 —
+          // ученик не умеет читать транскрипцию, и слушать её надо там же, где
+          // читает, а не отдельным экраном с таблицей.
+          if (block.kind === "explain" || block.kind === "note") {
+            for (const chto of Object.values(zvuchashchee(block))) {
+              dobavit({
+                rod: "slovo",
+                klyuch: klyuchZvuka(chto, "slow"),
+                text: chto,
+                temp: "slow",
+                dvaGolosa: false,
+                otkuda: `${gde} · ${block.kind === "note" ? "врезка" : "объяснение"} ${block.id}`,
+              });
+            }
+            continue;
+          }
+
           if (block.kind === "vocab") {
             for (const item of block.items) {
               dobavit({

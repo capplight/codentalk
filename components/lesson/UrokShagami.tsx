@@ -12,7 +12,7 @@
  * случай написан слишком широко.
  */
 import Link from "next/link";
-import type { Course, Lesson, Module } from "@/lib/content/types";
+import type { Course, Lesson, MaterialBlock, Module } from "@/lib/content/types";
 import { isTask } from "@/lib/content/types";
 import {
   KONEC_DALSHE_UROK,
@@ -44,7 +44,22 @@ export default function UrokShagami({
   next?: Lesson;
   courseSlug: string;
 }) {
-  const bloki = lesson.blocks;
+  /*
+   * Таблица с пометкой `naTomZheEkrane` не получает своего шага: она едет
+   * вместе с объяснением, за которым стоит. Решение владельца от 4 сентября
+   * 2026 — правило и его таблица это одна мысль, а не два шага.
+   */
+  const vsePodryad = lesson.blocks;
+  const bloki = vsePodryad.filter(
+    (b, i) => !(!isTask(b) && b.kind === "table" && b.naTomZheEkrane && i > 0)
+  );
+  const pribavka = new Map<string, MaterialBlock>();
+  vsePodryad.forEach((b, i) => {
+    if (isTask(b) || b.kind !== "table" || !b.naTomZheEkrane || i === 0) return;
+    const predydushchiy = vsePodryad[i - 1];
+    if (!isTask(predydushchiy)) pribavka.set(predydushchiy.id, b);
+  });
+
   const zadaniya = bloki.filter(isTask);
   const sluchaev = bloki.filter((b) => !isTask(b) && b.kind === "explain").length;
 
@@ -108,8 +123,14 @@ export default function UrokShagami({
         ? `${nomer} · ${podpisRazbora(kakoySluchay, sluchaev)}`
         : `${nomer} · ${podpisMateriala(blok.kind)}`;
 
+    const vdobavok = pribavka.get(blok.id);
     opisaniya.push({ metka });
-    ekrany.push(<Ekran key={blok.id} block={blok} />);
+    ekrany.push(
+      <div key={blok.id}>
+        <Ekran block={blok} />
+        {vdobavok && <Ekran block={vdobavok} />}
+      </div>
+    );
   });
 
   // ---- Готово ----

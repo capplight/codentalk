@@ -919,6 +919,17 @@ function checkMaterial(block: Block, where: string): void {
     case "explain":
       if (block.text.length === 0) fail(where, "объяснение пустое");
       if (block.text.some(blank)) fail(where, "пустой абзац в объяснении");
+      /*
+       * Звучащий кусок, которого в тексте нет, — это кнопка, которая никогда не
+       * появится. Опечатка в ключе иначе не видна ничем: файл озвучится,
+       * проверка звука промолчит, а на странице пусто. Та же проверка стоит у
+       * примера, и написана она была после такого же случая.
+       */
+      for (const klyuch of Object.keys(block.zvuk ?? {})) {
+        if (!block.text.some((abzac) => abzac.includes(klyuch))) {
+          fail(where, `звучит «${klyuch}», но такого куска в объяснении нет`);
+        }
+      }
       block.text.forEach((paragraph, i) => {
         checkProse(paragraph, where, `абзац ${i + 1}`);
         if (paragraph.length > PARAGRAPH_LIMIT) {
@@ -979,6 +990,12 @@ function checkMaterial(block: Block, where: string): void {
     }
 
     case "note":
+      // Звучащий кусок, которого во врезке нет, — кнопка, которая не появится.
+      for (const klyuch of Object.keys(block.zvuk ?? {})) {
+        if (!block.text.includes(klyuch)) {
+          fail(where, `звучит «${klyuch}», но такого куска во врезке нет`);
+        }
+      }
       if (blank(block.text)) fail(where, "врезка пустая");
       checkProse(block.text, where, "врезка");
       break;
@@ -2842,6 +2859,16 @@ function checkZvuk(course: Course): void {
           for (const chto of Object.values(zvuchashchee(block))) {
             if (!est(adresYacheyki(chto))) {
               netu.push(`${lesson.slug} · таблица ${block.id}: ячейка «${chto.slice(0, 40)}»`);
+            }
+          }
+          continue;
+        }
+
+        if (block.kind === "explain" || block.kind === "note") {
+          const chey = block.kind === "note" ? "врезка" : "объяснение";
+          for (const chto of Object.values(zvuchashchee(block))) {
+            if (!est(adresYacheyki(chto))) {
+              netu.push(`${lesson.slug} · ${chey} ${block.id}: «${chto.slice(0, 40)}»`);
             }
           }
           continue;
