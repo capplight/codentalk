@@ -257,9 +257,9 @@ export default function Ekran({ block }: { block: MaterialBlock }) {
             {oshibka ? "!" : "i"}
           </div>
           <div>
-            <div className={s.zag}>{zagolovok}</div>
+            <div className={s.zag}>{sZvukom(zagolovok, zvuchashchee(block))}</div>
             {ostalnoe.map((p, i) => (
-              <p key={i}>{p}</p>
+              <p key={i}>{sZvukom(p, zvuchashchee(block))}</p>
             ))}
           </div>
         </div>
