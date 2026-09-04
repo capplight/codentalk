@@ -22,6 +22,12 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import Link from "next/link";
+import {
+  KNOPKA_DALSHE,
+  KNOPKA_NAZAD,
+  KNOPKA_PROPUSTIT,
+  PODSKAZKA_KLAVIATURY,
+} from "@/lib/content/podpisi-ekranov";
 import { useLessonFlow } from "./LessonFlow";
 import s from "./shagi.module.css";
 
@@ -138,7 +144,7 @@ export default function Shagi({
 
       <div className={s.niz}>
         <button className={s.nazad} type="button" onClick={nazad} disabled={gde === 0}>
-          ← Назад
+          {KNOPKA_NAZAD}
         </button>
         {!tekushchiy?.konec && (
           <button
@@ -146,11 +152,11 @@ export default function Shagi({
             type="button"
             onClick={dalshe}
           >
-            {zhdyotOtveta ? "Пропустить" : "Дальше"}
+            {zhdyotOtveta ? KNOPKA_PROPUSTIT : KNOPKA_DALSHE}
           </button>
         )}
       </div>
-      <p className={s.podskazkaKlaviatura}>Листать можно стрелками ← и →</p>
+      <p className={s.podskazkaKlaviatura}>{PODSKAZKA_KLAVIATURY}</p>
     </div>
   );
 }

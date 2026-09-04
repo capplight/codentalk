@@ -14,32 +14,22 @@
 import Link from "next/link";
 import type { Course, Lesson, Module } from "@/lib/content/types";
 import { isTask } from "@/lib/content/types";
+import {
+  KONEC_DALSHE_UROK,
+  KONEC_MODUL_PROYDEN,
+  PODPIS_KONCA,
+  PODPIS_NACHALA,
+  ZAGOLOVOK_KONCA,
+  podpisMateriala,
+  podpisRazbora,
+  podpisZadaniya,
+} from "@/lib/content/podpisi-ekranov";
 import { ZNACHKI_VIDA } from "@/lib/content/znaki";
 import Ekran, { Znak } from "./Ekran";
 import FinishLesson from "./FinishLesson";
 import Shagi, { type OpisanieEkrana } from "./Shagi";
 import TaskCard from "./TaskCard";
 import s from "./shagi.module.css";
-
-/** Чем подписан экран материала. */
-function podpis(kind: string): string {
-  switch (kind) {
-    case "example":
-      return "сначала посмотри целиком";
-    case "table":
-      return "всё вместе";
-    case "note":
-      return "остановись здесь";
-    case "vocab":
-      return "слова урока";
-    case "audio":
-      return "послушай";
-    case "text":
-      return "прочитай";
-    default:
-      return "разбор";
-  }
-}
 
 export default function UrokShagami({
   course,
@@ -65,21 +55,26 @@ export default function UrokShagami({
   const vsegoShagov = bloki.length + 2;
   const shag = (n: number) => `Шаг ${n} из ${vsegoShagov}`;
 
-  // ---- Вступление ----
-  opisaniya.push({ metka: `${shag(1)} · с чего начнём` });
+  /*
+   * ---- Вступление ----
+   *
+   * Здесь стоит текст, написанный редактором в самом уроке (`vstuplenie`), а не
+   * собранный кодом. Прежде код печатал сюда поле `outcome` («узнавать букву по
+   * названию и записывать слово, продиктованное по буквам») и строку «Впереди 8
+   * случаев и 8 заданий»: первое написано для сверочного скрипта, второе зовёт
+   * ученику «случаем» наше имя блока. Владелец прочёл оба и назвал их
+   * рандомным описанием.
+   */
+  opisaniya.push({ metka: `${shag(1)} · ${PODPIS_NACHALA}` });
   ekrany.push(
     <div key="nachalo">
       <h1 className={s.zagolovok}>{lesson.title}</h1>
-      <p className={s.vyvod}>{lesson.outcome}</p>
-      <div className={s.karta}>
-        <Znak kod={ZNACHKI_VIDA.nachalo} razmer={52} />
-        <p>
-          {sluchaev > 0
-            ? `Впереди ${sluchaev} случаев и ${zadaniya.length} заданий. `
-            : `Впереди ${zadaniya.length} заданий. `}
-          Один экран — одна мысль, спешить некуда.
-        </p>
-      </div>
+      {lesson.vstuplenie && (
+        <div className={s.karta}>
+          <Znak kod={ZNACHKI_VIDA.nachalo} razmer={52} />
+          <p>{lesson.vstuplenie}</p>
+        </div>
+      )}
     </div>
   );
 
@@ -98,7 +93,7 @@ export default function UrokShagami({
        * A2. Правило первое: ученику не рассказывают о нашей кухне.
        */
       opisaniya.push({
-        metka: `${nomer} · задание ${nomerZadaniya} из ${zadaniya.length}`,
+        metka: `${nomer} · ${podpisZadaniya(nomerZadaniya, zadaniya.length)}`,
         zadanie: blok.id,
       });
       ekrany.push(
@@ -110,28 +105,27 @@ export default function UrokShagami({
     if (blok.kind === "explain") kakoySluchay += 1;
     const metka =
       blok.kind === "explain"
-        ? `${nomer} · случай ${kakoySluchay} из ${sluchaev}`
-        : `${nomer} · ${podpis(blok.kind)}`;
+        ? `${nomer} · ${podpisRazbora(kakoySluchay, sluchaev)}`
+        : `${nomer} · ${podpisMateriala(blok.kind)}`;
 
     opisaniya.push({ metka });
     ekrany.push(<Ekran key={blok.id} block={blok} />);
   });
 
   // ---- Готово ----
-  opisaniya.push({ metka: `${shag(vsegoShagov)} · урок пройден`, konec: true });
+  opisaniya.push({ metka: `${shag(vsegoShagov)} · ${PODPIS_KONCA}`, konec: true });
   ekrany.push(
     <div key="konec">
-      <h1 className={s.zagolovok}>Готово</h1>
-      <p className={s.vyvod}>Теперь ты умеешь: {lesson.outcome}</p>
+      <h1 className={s.zagolovok}>{ZAGOLOVOK_KONCA}</h1>
       <div className={s.karta}>
         <Znak kod={ZNACHKI_VIDA.konec} razmer={52} />
         <p>
           {next ? (
             <>
-              Дальше — <b>{next.title}</b>.
+              {KONEC_DALSHE_UROK}<b>{next.title}</b>.
             </>
           ) : (
-            <>Модуль пройден. Дальше — проверочная работа модуля.</>
+            <>{KONEC_MODUL_PROYDEN}</>
           )}
         </p>
       </div>

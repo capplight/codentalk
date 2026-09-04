@@ -2949,6 +2949,31 @@ function checkVidUroka(course: Course): void {
   }
 }
 
+/**
+ * У ПОШАГОВОГО УРОКА ЕСТЬ ВСТУПЛЕНИЕ, НАПИСАННОЕ РЕДАКТОРОМ.
+ *
+ * Первый экран показывает название урока и две-три строки о том, ради чего его
+ * открывают. Раньше на этом месте код печатал `outcome` — строку, написанную
+ * для сверочного скрипта, — и владелец 4 сентября 2026 назвал её рандомным
+ * описанием.
+ *
+ * Без этой проверки урок без вступления выглядел бы здоровым: экран просто
+ * показал бы одно название, и ни один отчёт не сказал бы ни слова.
+ */
+function checkVstuplenie(course: Course): void {
+  if (course.format !== "shagi") return;
+  for (const mod of course.modules) {
+    for (const lesson of mod.lessons) {
+      if (lesson.vstuplenie && lesson.vstuplenie.trim().length >= 20) continue;
+      fail(
+        `${course.slug} → ${mod.slug} → ${lesson.slug}`,
+        "у урока нет вступления (поле vstuplenie): первый экран покажет одно " +
+          "название. Пишет редактор, мерка — docs/beginner-2/stil-obyasneniy.md"
+      );
+    }
+  }
+}
+
 function checkZnachki(course: Course): void {
   const netu = new Set<string>();
   const est = (kod: string): boolean =>
@@ -3024,6 +3049,7 @@ for (const course of courses) {
   checkZvuk(course);
   checkZnachki(course);
   checkVidUroka(course);
+  checkVstuplenie(course);
   checkGdeNetZvuka(course);
 }
 

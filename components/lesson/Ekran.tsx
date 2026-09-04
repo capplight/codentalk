@@ -16,6 +16,12 @@
  */
 import type { MaterialBlock } from "@/lib/content/types";
 import { adresRazgovora, adresSlova, adresYacheyki, zvuchashchee } from "@/lib/content/zvuk";
+import {
+  ZAGOLOVOK_PRIMERA,
+  ZAGOLOVOK_RAZGOVORA,
+  ZAGOLOVOK_SLOVARYA,
+  ZAGOLOVOK_TABLICY,
+} from "@/lib/content/podpisi-ekranov";
 import { ZNACHKI_VIDA } from "@/lib/content/znaki";
 import Material from "./Material";
 import Zvuk from "./Zvuk";
@@ -106,7 +112,7 @@ export default function Ekran({ block }: { block: MaterialBlock }) {
                 chto={block.caption ?? "разговор"}
                 vid="stroka"
               />{" "}
-              {block.caption ?? "Разговор"}
+              {block.caption ?? ZAGOLOVOK_RAZGOVORA}
             </h2>
             <div className={s.razgovor}>
               {repliki(stroki).map((r, i) => (
@@ -135,7 +141,7 @@ export default function Ekran({ block }: { block: MaterialBlock }) {
 
       return (
         <>
-          <h2 className={s.zagolovok}>{block.caption ?? "Пример"}</h2>
+          <h2 className={s.zagolovok}>{block.caption ?? ZAGOLOVOK_PRIMERA}</h2>
           <div className={s.stroki}>
             {stroki.map((st, i) => (
               <div className={s.stroka} key={i}>
@@ -163,7 +169,7 @@ export default function Ekran({ block }: { block: MaterialBlock }) {
       const zvuki = zvuchashchee(block);
       return (
         <>
-          <h2 className={s.zagolovok}>{block.caption ?? "Свод"}</h2>
+          <h2 className={s.zagolovok}>{block.caption ?? ZAGOLOVOK_TABLICY}</h2>
           <div className={s.tablicaKarta}>
             <table className={s.tablica}>
               <thead>
@@ -220,7 +226,7 @@ export default function Ekran({ block }: { block: MaterialBlock }) {
     case "vocab":
       return (
         <>
-          <h2 className={s.zagolovok}>{block.caption ?? "Слова урока"}</h2>
+          <h2 className={s.zagolovok}>{block.caption ?? ZAGOLOVOK_SLOVARYA}</h2>
           <div className={s.nabor}>
             {block.items.map((item, i) => (
               <div className={s.slovoKarta} key={i}>
