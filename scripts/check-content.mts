@@ -3027,6 +3027,45 @@ function checkZaglushki(course: Course): void {
   }
 }
 
+/**
+ * ЗАПИСЬ УРОКА СЛУШАНИЯ, В КОТОРОЙ ГОВОРЯТ ДВОЕ, А ГОЛОС ОДИН.
+ *
+ * Число голосов у блока `audio` решает поле `voice` и только оно
+ * (`scripts/ozvuchka.mts`): нет поля — синтез читает разговор одним голосом,
+ * подряд, без смены говорящего. Решение владельца от 19 августа 2026 требует
+ * обратного: разговор звучит на два голоса.
+ *
+ * ПОЧЕМУ ЭТО НЕ ЛОВИЛОСЬ РАНЬШЕ. Имя файла считается от текста и от числа
+ * голосов не зависит вовсе, поэтому запись на месте, кнопка работает, отчёт
+ * чист — а звучит она не тем, чем должна. На ступени Elementary так прожили
+ * двадцать четыре разговора, и нашёл их методист чтением скрипта, а не отчёт.
+ * Проверка «файл есть» никогда не то же самое, что «звучит верно».
+ *
+ * Старым курсам это сведения, а не ошибка: они заморожены решением владельца
+ * от 5 сентября 2026 и не чинятся. Новому курсу — ошибка: правило известно
+ * заранее, и дешевле поставить поле, чем потом переозвучивать.
+ */
+function checkGolosaZapisey(course: Course): void {
+  for (const mod of course.modules) {
+    for (const lesson of mod.lessons) {
+      for (const b of lesson.blocks) {
+        if (b.kind !== "audio" || b.voice) continue;
+        const text = b.transcript ?? "";
+        // Признак разговора тот же, что у озвучки: реплики разведены тире.
+        // Строка, начинающаяся с тире, — тоже реплика, даже если она одна.
+        const razgovor = / — /.test(text) || /^\s*—/m.test(text);
+        if (!razgovor) continue;
+        const gde = `${course.slug} → ${mod.slug} → ${lesson.slug}`;
+        const chto =
+          `запись \`${b.id}\` — разговор, а поле voice не задано: синтез прочтёт ` +
+          "её одним голосом подряд";
+        if (course.format === "shagi") fail(gde, chto);
+        else warn(gde, chto);
+      }
+    }
+  }
+}
+
 function checkVstuplenie(course: Course): void {
   if (course.format !== "shagi") return;
   for (const mod of course.modules) {
@@ -3116,6 +3155,7 @@ for (const course of courses) {
   checkZvuk(course);
   checkZnachki(course);
   checkVidUroka(course);
+  checkGolosaZapisey(course);
   checkVstuplenie(course);
   checkZaglushki(course);
   checkGdeNetZvuka(course);
