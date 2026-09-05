@@ -95,7 +95,11 @@ const modul: Module = {
         "and this is … и What's your name?, а обе конструкции у English Grammar " +
         "Profile на A2. " +
         "с. 51, Inventory of functions: «greeting people and responding to greetings " +
-        "(in person and on the phone)» — опора случая «отвечают тем же приветствием». " +
+        "(in person and on the phone)» — опора случая «на чужое приветствие отвечают " +
+        "своим». ВАЖНО: графа разрешает ОТВЕТИТЬ и не говорит, чем именно. Прежняя " +
+        "редакция вычитала из неё «отвечают ТЕМ ЖЕ приветствием» — это было частотное " +
+        "наблюдение, выданное за правило, и опровергала его сцена самого урока, где " +
+        "на Good morning отвечают словом Hi. " +
         "Оговорка: это требования экзамена A2, ступень делу даёт CEFR, а не эта строка",
       license: "свободно распространяется, в уроки не копируется",
     },
@@ -455,7 +459,7 @@ const modul: Module = {
            * на `Good evening` отвечают и `Hello`, и `Hi` — так и в сцене урока.
            * Опора: A2 Key, с. 51, «greeting people and responding to greetings».
            */
-          id: "sluchay-otvechayut-tem-zhe",
+          id: "sluchay-otvechayut-privetstviem",
           znak: "1f4ac",
           kind: "explain",
           /*
