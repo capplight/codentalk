@@ -942,3 +942,30 @@
   display: block;
   margin: 10px auto 4px;
 }
+
+/*
+ * Кнопка звука, пока запись играет. Слово звучит около секунды, и без этого
+ * знака ученик не понимает, началось ли воспроизведение, — жмёт второй раз и
+ * останавливает его.
+ */
+.zvukIdyot {
+  animation: zvukDyshit 1.1s ease-in-out infinite;
+  border-color: var(--accent, var(--ink-soft));
+  color: var(--ink);
+}
+
+@keyframes zvukDyshit {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.12);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .zvukIdyot {
+    animation: none;
+  }
+}

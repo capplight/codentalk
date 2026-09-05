@@ -515,3 +515,111 @@
   margin-left: 3px;
   vertical-align: baseline;
 }
+
+/* ---------------------------------------------------------------------------
+ * Картинки и оживление — 5 сентября 2026, просьба владельца: «больше картинок
+ * и увлекательных элементов, можно анимации тоже».
+ *
+ * Мера здесь такая же, как у содержания: движение показывает УСТРОЙСТВО, а не
+ * украшает. Строки примера всплывают по очереди — читается порядок; карточка
+ * словаря всплывает своей чередой — видно, что их несколько; кнопка звука
+ * дышит, пока играет, — видно, что она сейчас работает.
+ *
+ * Ничего из этого не награда и не наказание: счётчиков дней, «жизней» и
+ * поздравлений за верный ответ здесь нет и не будет — первый принцип продукта.
+ *
+ * Всё движение снимается при `prefers-reduced-motion`: у части людей оно
+ * вызывает тошноту, и это не пожелание, а требование доступности.
+ * ------------------------------------------------------------------------- */
+
+.znakZagolovka {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 13px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  margin-right: 10px;
+  vertical-align: middle;
+  flex: none;
+}
+
+.zagolovok {
+  display: flex;
+  align-items: center;
+  gap: 0;
+}
+
+/* ---- Картинка во весь экран ---- */
+
+.kartinka {
+  margin: 0;
+  text-align: center;
+}
+
+.kartinka img {
+  max-width: 100%;
+  /* Своя высота обязательна: картинка во всю ширину иначе диктует её сама по
+     своей пропорции и вырастает вчетверо выше нужного. На этом уже обжигались
+     на обложках курсов. */
+  max-height: 320px;
+  object-fit: contain;
+  border-radius: 16px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  padding: 12px;
+}
+
+.kartinka figcaption {
+  margin-top: 10px;
+  color: var(--ink-soft);
+  font-size: 15px;
+}
+
+/* ---- Всплытие по очереди ---- */
+
+.stroki .stroka,
+.nabor .slovoKarta,
+.tablica tbody tr {
+  opacity: 0;
+  animation: vsplyt 0.34s forwards;
+}
+
+.stroki .stroka:nth-child(1),
+.nabor .slovoKarta:nth-child(1),
+.tablica tbody tr:nth-child(1) {
+  animation-delay: 0.04s;
+}
+.stroki .stroka:nth-child(2),
+.nabor .slovoKarta:nth-child(2),
+.tablica tbody tr:nth-child(2) {
+  animation-delay: 0.12s;
+}
+.stroki .stroka:nth-child(3),
+.nabor .slovoKarta:nth-child(3),
+.tablica tbody tr:nth-child(3) {
+  animation-delay: 0.2s;
+}
+.stroki .stroka:nth-child(4),
+.nabor .slovoKarta:nth-child(4),
+.tablica tbody tr:nth-child(4) {
+  animation-delay: 0.28s;
+}
+/* Дальше четвёртой строки задержка общая: у свода алфавита строк двадцать
+   шесть, и лесенка на них превратилась бы в ожидание. */
+.stroki .stroka:nth-child(n + 5),
+.nabor .slovoKarta:nth-child(n + 5),
+.tablica tbody tr:nth-child(n + 5) {
+  animation-delay: 0.34s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .stroki .stroka,
+  .nabor .slovoKarta,
+  .tablica tbody tr {
+    animation: none;
+    opacity: 1;
+  }
+}

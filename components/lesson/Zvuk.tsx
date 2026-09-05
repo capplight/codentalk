@@ -46,7 +46,10 @@ export default function Zvuk({
     <>
       <button
         type="button"
-        className={vid === "znak" ? s.zvukZnak : s.zvukStroka}
+        // Пока запись играет, кнопка «дышит»: у слова оно длится секунду, и
+        // без этого непонятно, началось ли вообще. Движение снимается при
+        // prefers-reduced-motion — правило доступности, а не пожелание.
+        className={`${vid === "znak" ? s.zvukZnak : s.zvukStroka} ${zvuchit ? s.zvukIdyot : ""}`}
         onClick={nazhali}
         aria-label={`Послушать: ${chto}`}
       >

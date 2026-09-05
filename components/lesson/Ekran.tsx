@@ -36,6 +36,34 @@ export function Znak({ kod, razmer = 58 }: { kod: string; razmer?: number }) {
 }
 
 /**
+ * Заголовок экрана со значком слева.
+ *
+ * ЗАЧЕМ ОН ЗДЕСЬ. Значок рисовался только у случая (`explain`), а у примера,
+ * таблицы, врезки и словаря экран открывался голой строкой. Владелец 5 сентября
+ * 2026 попросил больше картинок; значок при этом остаётся ЧАСТЬЮ СОДЕРЖАНИЯ —
+ * его ставит поле `znak` у блока, то есть тот, кто пишет урок, а не код
+ * страницы. Нет значка — заголовок стоит один, ничего не ломается.
+ */
+function Shapka({
+  znak,
+  children,
+}: {
+  znak?: string;
+  children: React.ReactNode;
+}) {
+  return (
+    <h2 className={s.zagolovok}>
+      {znak && (
+        <span className={s.znakZagolovka} aria-hidden="true">
+          <Znak kod={znak} razmer={30} />
+        </span>
+      )}
+      <span>{children}</span>
+    </h2>
+  );
+}
+
+/**
  * Строка объяснения — это пример, если в ней есть и английское, и русское, и
  * они разделены тире.
  *
@@ -150,7 +178,7 @@ export default function Ekran({ block }: { block: MaterialBlock }) {
       if (block.razgovor && block.text) {
         return (
           <>
-            <h2 className={s.zagolovok}>
+            <Shapka znak={block.znak}>
               {/* Разговор звучит целиком и на два голоса — решение владельца от
                   19 августа. Кнопка одна, у названия. */}
               <Zvuk
@@ -159,7 +187,7 @@ export default function Ekran({ block }: { block: MaterialBlock }) {
                 vid="stroka"
               />{" "}
               {block.caption ?? ZAGOLOVOK_RAZGOVORA}
-            </h2>
+            </Shapka>
             <div className={s.razgovor}>
               {repliki(stroki).map((r, i) => (
                 <div className={`${s.puzyr} ${r.svoy ? "" : s.sprava}`} key={i}>
@@ -187,7 +215,7 @@ export default function Ekran({ block }: { block: MaterialBlock }) {
 
       return (
         <>
-          <h2 className={s.zagolovok}>{block.caption ?? ZAGOLOVOK_PRIMERA}</h2>
+          <Shapka znak={block.znak}>{block.caption ?? ZAGOLOVOK_PRIMERA}</Shapka>
           <div className={s.stroki}>
             {stroki.map((st, i) => (
               <div className={s.stroka} key={i}>
@@ -215,7 +243,7 @@ export default function Ekran({ block }: { block: MaterialBlock }) {
       const zvuki = zvuchashchee(block);
       return (
         <>
-          <h2 className={s.zagolovok}>{block.caption ?? ZAGOLOVOK_TABLICY}</h2>
+          <Shapka znak={block.znak}>{block.caption ?? ZAGOLOVOK_TABLICY}</Shapka>
           <div className={s.tablicaKarta}>
             <table className={s.tablica}>
               <thead>
@@ -254,7 +282,9 @@ export default function Ekran({ block }: { block: MaterialBlock }) {
       return (
         <div className={`${s.vrezka} ${oshibka ? s.vrezkaOshibka : ""}`}>
           <div className={s.vrezkaZnak} aria-hidden="true">
-            {oshibka ? "!" : "i"}
+            {/* Значок содержания главнее буквы: у врезки о частой ошибке он
+                говорит о предмете, а «i» — только о том, что это врезка. */}
+            {block.znak ? <Znak kod={block.znak} razmer={26} /> : oshibka ? "!" : "i"}
           </div>
           <div>
             <div className={s.zag}>{sZvukom(zagolovok, zvuchashchee(block))}</div>
@@ -272,7 +302,7 @@ export default function Ekran({ block }: { block: MaterialBlock }) {
     case "vocab":
       return (
         <>
-          <h2 className={s.zagolovok}>{block.caption ?? ZAGOLOVOK_SLOVARYA}</h2>
+          <Shapka znak={block.znak}>{block.caption ?? ZAGOLOVOK_SLOVARYA}</Shapka>
           <div className={s.nabor}>
             {block.items.map((item, i) => (
               <div className={s.slovoKarta} key={i}>
@@ -293,7 +323,21 @@ export default function Ekran({ block }: { block: MaterialBlock }) {
         </>
       );
 
-    /* Чтение, запись и картинка — прежним видом, см. заметку наверху файла. */
+    /* ------------------------------------------------------------------
+     * Картинка во весь экран
+     * ---------------------------------------------------------------- */
+    case "image":
+      return (
+        <figure className={s.kartinka}>
+          {/* Обычный img по той же причине, что и у значков: у нас лежат svg
+              из Twemoji и наши собственные схемы, оптимизировать нечего. */}
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src={block.src} alt={block.alt} />
+          {block.caption && <figcaption>{block.caption}</figcaption>}
+        </figure>
+      );
+
+    /* Чтение и запись — прежним видом, см. заметку наверху файла. */
     default:
       return <Material block={block} />;
   }
