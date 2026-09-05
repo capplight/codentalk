@@ -282,7 +282,7 @@ singer, student, teacher, waiter, work, worker, writer.
 «восемь»: семь занятий числились за модулем `kto-eto`, который 6 сентября выведен
 из курса.
 
-### 3.3. Что берёт модуль 6 — 40 карточек
+### 3.3. Что берёт модуль 6 — 43 карточки
 
 Пересчитано 6 сентября 2026, после того как `kto-eto` вывели из курса.
 
@@ -317,20 +317,26 @@ officer.
 модулю 30 (тема `The Natural World`); `teenager`, `love`, `married`, `friendly`,
 `group` — модулям 9 и 10, где разбираются прилагательные.
 
-**Сорок первая карточка — вне обеих тем и потому в счёт нормы не идёт:**
-`best friend` (урок 1). Она нужна пункту `MY BEST FRIEND` и разобрана в замысле
-урока 1. Карточка вне объявленной темы законна всегда.
+**Четыре карточки вне обеих тем и потому в счёт нормы не идут:** `best friend`
+(урок 1) — нужна пункту `MY BEST FRIEND`, разобрана в замысле урока 1; `we`,
+`they` и `our` (урок 3) — переданы модулю 6 замыслами модулей 2 и 5, обоснование
+в разделе 2. Карточка вне объявленной темы законна всегда.
+
+Чтение и звук у всех трёх уже есть: `we` /wiː/, `they` /ðeɪ/, `our` /ˈaʊə/ —
+записи лежат на складе (`public/zvuk/slovo/`), проверил перебором. Записи фраз
+`We are students.` и `They are teachers.` тоже есть.
 
 **Раскладка по урокам, чтобы счёт сходился:** урок 1 — family, mother, father,
 dad, mum, sister, brother (7) и best friend; урок 2 — parents, grandmother,
-grandfather, grandparents, child, boy, girl (7); урок 3 — doctor, driver,
-artist, actor, work, job, nurse, cook, farmer, waiter, singer, writer (12);
-урок 4 — aunt, uncle, cousin, neighbour, worker (5); урок 5 — husband, wife,
-son, daughter, office, company, shop assistant, police officer (8).
+grandfather, grandparents, child, boy, girl (7); урок 3 — we, they, our (3);
+урок 4 — doctor, driver, artist, actor, work, job, nurse, cook, farmer, waiter,
+singer, writer (12); урок 5 — aunt, uncle, cousin, neighbour, worker (5);
+урок 6 — husband, wife, son, daughter, office, company, shop assistant, police
+officer (8).
 
 Двенадцать карточек в одном уроке — много, и если сводящий сочтёт это перебором,
-уроки 3 и 4 делят их пополам: занятия одним словом в третьем, остальные в
-четвёртом. Состав случаев от этого не меняется.
+уроки 4 и 5 делят их пополам: занятия одним словом в четвёртом, остальные в
+пятом. Состав случаев от этого не меняется.
 
 **Каждая карточка обязана работать в модуле где-то ещё, кроме себя самой.**
 Раскладка по урокам — в разделе 5 и в замысле урока 1.
@@ -418,20 +424,19 @@ Oxford даёт A2, а Young Learners даёт A2 Flyers всему сочета
 |---|---|---|---|
 | `1741163708775x971363187748411900` | CONJUNCTIONS / coordinating | FORM: WORD + WORD | урок 1 |
 | `1741163708775x343585548868345200` | CONJUNCTIONS / coordinating | USE: LISTING | урок 2 |
-| `1741163708775x236006169337418240` | CONJUNCTIONS / coordinating | FORM: PHRASE + PHRASE | урок 5 |
-| `1741163708775x495770064260905300` | CONJUNCTIONS / coordinating | FORM: CLAUSE + CLAUSE | урок 4 |
-| `1741163711539x458750897089793800` | NOUNS / noun phrases | FORM: NOUN + NOUN | урок 5 |
-| `1741163711828x633639966955607000` | NOUNS / noun phrases — grammatical functions | FORM: AS SUBJECTS | урок 3 |
+| `1741163708775x236006169337418240` | CONJUNCTIONS / coordinating | FORM: PHRASE + PHRASE | урок 6 |
+| `1741163708775x495770064260905300` | CONJUNCTIONS / coordinating | FORM: CLAUSE + CLAUSE | урок 5 |
+| `1741163711539x458750897089793800` | NOUNS / noun phrases | FORM: NOUN + NOUN | урок 6 |
 | `1741163706532x162687205151185180` | ADJECTIVES / superlatives | FORM: “MY BEST FRIEND” | урок 1 |
-| `1741163708792x578027203654075000` | DETERMINERS / articles | FORM: PREPOSITION + NO ARTICLE | урок 5 (`at school`, `at work`) |
+| `1741163708792x578027203654075000` | DETERMINERS / articles | FORM: PREPOSITION + NO ARTICLE | урок 6 (`at school`, `at work`) |
 
-**Восьмой пункт добавлен 6 сентября 2026.** Прежде я ставил его в `egpPovtor`,
+**Седьмой пункт добавлен 6 сентября 2026.** Прежде я ставил его в `egpPovtor`,
 считая, что `at work` вводит модуль 2. Модуль `kto-eto` выведен из курса, а
 нынешний модуль 2 (`privetstvie.ts`) ни `at work`, ни `at home` не даёт —
 проверил его поле `egp` и словарь. Замысел модуля 3 называет пункт бесхозным и
 прямо пишет: «Я готов взять его себе… но забирать молча не буду». **Прошу его
-модулю 6:** урок 5 целиком о месте работы, и `at school`, `at work` — его
-строки, а не проходная деталь. Если сводящий отдаст пункт модулю 3, урок 5 не
+модулю 6:** урок 6 целиком о месте работы, и `at school`, `at work` — его
+строки, а не проходная деталь. Если сводящий отдаст пункт модулю 3, урок 6 не
 меняется — пункт просто переезжает в `egpPovtor`.
 
 **Цитаты и примеры источника — их я читал вместе с описанием, а не вместо
@@ -449,9 +454,6 @@ Oxford даёт A2, а Young Learners даёт A2 Flyers всему сочета
   cinema.**» Первая половина примера — ровно строка этого модуля.
 - `NOUN + NOUN`: «Can form noun phrases by pre-modifying a limited range of nouns
   with another noun.» Пример: «I am having a **dinner party** on Friday.»
-- `AS SUBJECTS`: «Can use nouns and noun phrases as subjects of the clause.»
-  Примеры: «His name is Stanislav.», «**My friends are from Poland, Hungary,
-  Libya, and Morocco.**»
 - `MY BEST FRIEND`: «Can use the irregular superlative adjective best in the
   phrase my best friend.» Примеры: «She is my best friend.», «Shahin is my best
   friend.»
@@ -467,7 +469,8 @@ Oxford даёт A2, а Young Learners даёт A2 Flyers всему сочета
 |---|---|---|
 | `1741163715288x539616242661052000` | VERBS types, FORM: LINKING VERB “BE” | модуль 2, поле `egp` файла `privetstvie.ts` |
 | `1741163712047x409239658002596100` | NOUNS, FORM: AS COMPLEMENT OF “BE” | модуль 2, там же |
-| `1741163713868x463659211645272000` | PRONOUNS, FORM: (SUBJECT) STATEMENTS | модуль 2, там же |
+| `1741163713868x463659211645272000` | PRONOUNS, FORM: (SUBJECT) STATEMENTS | модуль 2, там же. Модуль 6 добавляет `we` и `they` — так и записано в замысле модуля 2 |
+| `1741163711828x633639966955607000` | NOUNS, FORM: AS SUBJECTS | **модуль 2** — решение сводящего от 6 сентября 2026. Я просил пункт себе, и это была ошибка: оборот разбирается там, где стоит `Dana is my friend`, а не там, где он нужнее |
 | `1741163708329x286701804737242940` | CLAUSES declarative, FORM: AFFIRMATIVE DECLARATIVE | модуль 2, там же |
 | `1741163709005x427091401714639400` | DETERMINERS possessives, FORM: WITH NOUNS | **модуль 2**, там же. Прежде здесь стоял модуль 5 — это была ошибка по снятому `kto-eto` |
 | `1741163708789x105964971324936210` | DETERMINERS articles, FORM: WITH NOUNS | модуль 3, он объявил пункт своим |
@@ -501,7 +504,7 @@ Oxford даёт A2, а Young Learners даёт A2 Flyers всему сочета
 
 ---
 
-## 5. Уроки 2–8 — по строке каждый
+## 5. Уроки 2–9 — по строке каждый
 
 Подробный замысел урока 1 — отдельным документом,
 `docs/beginner-2/plan-modul-6-urok-1.md`.
@@ -516,7 +519,20 @@ grandmother, grandfather, grandparents, parents, child, boy, girl. Пункт:
 `USE: LISTING`. Итог: перечислять троих и больше — запятые между, `and` перед
 последним.
 
-**Урок 3. «Кто они: My sister is a doctor».** Русская параллель — «моя сестра
+**Урок 3. «Мы и они: we are, they are».** ДОПИСАН 6 сентября 2026 — обоснование
+в разделе 2. Русская параллель — «мы» и «они»: ученик говорит эти слова каждый
+день, и урок даёт им английскую пару. Случаи: `we` — мы, дальше `are`; `they` —
+они, дальше `are`; `they` вместо двух названных (`My mother and my father are
+teachers.` → `They are teachers.`); `they` вместо целого перечисления из урока 2;
+`we` о себе и своих (`We are a family.`); `our` — наш, наша, наше, одно слово на
+все три; `our` перед словом о родном (`our mother`, `our family`); `our` рядом с
+`my` — чем они различаются. Карточки: we, they, our (три, вне объявленных тем —
+это законно). Новых пунктов EGP урок не вводит: `(SUBJECT) STATEMENTS` и
+притяжательные вводит модуль 2, и оба стоят у модуля 6 в `egpPovtor`. Итог:
+говорить о нескольких людях сразу через `we` и `they` и ставить `our` перед
+словом о родном.
+
+**Урок 4. «Кто они: My sister is a doctor».** Русская параллель — «моя сестра
 врач»: по-русски между «сестра» и «врач» пусто, по-английски там `is` и `a`.
 Случаи: слово о родном вместо `he` и `she` перед `is`; занятие после `is` с
 артиклем; `an` перед гласным звуком (`an artist`, `an actor` — повтор модуля 2);
@@ -524,9 +540,11 @@ grandmother, grandfather, grandparents, parents, child, boy, girl. Пункт:
 двое — `are` и занятие во множественном (`My parents are teachers`, множественное
 из модуля 4); `job` и `work` как слова о работе вообще. Карточки: doctor,
 driver, artist, actor, work, job, nurse, cook, farmer, waiter, singer, writer.
-Пункт: `AS SUBJECTS`. Итог: называть занятие родного.
+Новых пунктов EGP урок не вводит: `AS SUBJECTS` отдан модулю 2 решением
+сводящего от 6 сентября (там оборот и разбирается — `Dana is my friend`), у
+модуля 6 он в `egpPovtor`. Итог: называть занятие родного.
 
-**Урок 4. «Двое сразу: My father is a driver and my mother is a nurse».**
+**Урок 5. «Двое сразу: My father is a driver and my mother is a nurse».**
 Русская параллель — «папа водитель, а мама медсестра»: две готовые строки
 соединяются одним словом. Случаи: два предложения об одном и том же человеке;
 два предложения о разных людях; `and` в середине строки, а не в начале; запятая
@@ -535,7 +553,7 @@ driver, artist, actor, work, job, nurse, cook, farmer, waiter, singer, writer.
 neighbour, worker. Пункт: `CLAUSE + CLAUSE`. Итог: соединять два готовых
 предложения о разных людях через `and`.
 
-**Урок 5. «Из двух слов и где работают: a taxi driver, at school».** Русская
+**Урок 6. «Из двух слов и где работают: a taxi driver, at school».** Русская
 параллель — «водитель такси»: по-русски второе слово стоит после первого,
 по-английски перед ним. Это и есть расхождение, ради которого урок написан.
 Случаи: `a taxi driver`, `a bus driver`; `a shop assistant`, `a police officer`
@@ -553,7 +571,7 @@ office, company, shop assistant, police officer, husband, wife, son, daughter.
 `in a hospital`). Это решение владельца как преподавателя, а не выписка из
 источника, и в текст урока оно идёт правилом, а не с оговоркой о нашей кухне.
 
-**Урок 6. «Читаем запись о семье».** Вид текста — `message`, короткая запись в
+**Урок 7. «Читаем запись о семье».** Вид текста — `message`, короткая запись в
 сети. Опора: CEFR с. 55, графа A1, «Can understand short, simple messages sent
 via social media or e-mail»; длина — по с. 54, графа A1, «very short, simple
 texts a single phrase at a time». Значит запись в шесть-восемь коротких строк,
@@ -561,18 +579,18 @@ texts a single phrase at a time». Значит запись в шесть-во�
 кто чем занят, кто где работает. Итог: находить в короткой записи, кто кому кем
 приходится и чем занят.
 
-**Урок 7. «Слушаем, кто чем занят».** Запись — разговор на два голоса
+**Урок 8. «Слушаем, кто чем занят».** Запись — разговор на два голоса
 (решение владельца от 19 августа: разговор звучит целиком и двумя голосами).
 Ответ каждого вопроса — **одно слово**: `nurse`, `driver`, `office`, `two`.
 Опора: A2 Key, с. 29, THE TASK. Итог: записывать одним словом занятие
 названного человека.
 
-**Урок 8. «Расскажи об одном из своих друзей».** Устроен по образцу A2 Key
+**Урок 9. «Расскажи об одном из своих друзей».** Устроен по образцу A2 Key
 Speaking Part 1 (с. 42): два коротких ответа и один длинный. Образец записан
 голосом. Три строки: кто он — чем занят — где работает. Итог назван по
 проверяемой половине: собирать три строки о знакомом.
 
-**Осторожно с полом ученика во всех восьми уроках.** Обращение — «ты», а пола
+**Осторожно с полом ученика во всех девяти уроках.** Обращение — «ты», а пола
 платформа не знает. Прошедшего времени во втором лице в условиях и разборах
 быть не должно, и ни одно задание не заставляет ученика назвать себя мужчиной
 или женщиной. Рассказ о родных сам по себе безопасен — речь о других; опасны
@@ -630,14 +648,16 @@ Speaking Part 1 (с. 42): два коротких ответа и один дл�
 
 **Слова, запись есть:** family, mother, father, sister, brother, friend, nurse,
 job, work, office, company, cook, husband, uncle, aunt, cousin, child, people,
-man, woman, waiter, parents, student, teacher, doctor, driver, artist, actor.
+man, woman, waiter, parents, student, teacher, doctor, driver, artist, actor,
+we, they, our.
 
 **Слова, записи нет** (озвучить придётся): son, daughter, parent, wife,
 grandmother, grandfather, grandparents, neighbour, boy, girl, dad, mum, farmer,
 singer, writer, worker, shop assistant, police officer.
 
 **Строки, запись есть:** `He is a doctor.`, `She is a nurse.`, `He is a driver.`,
-`I am a student.`, `They are teachers.`, `This is my sister.`
+`I am a student.`, `They are teachers.`, `We are students.`, `This is my sister.`
+(последняя модулю 6 не пригодится — `this` идёт в модуле 7).
 
 **Строк, которых на складе нет и которые придётся озвучить:** `This is my
 mother.`, `This is my father.`, `She is my friend.`, `He is my friend.`,
@@ -681,12 +701,15 @@ Young Learners ставит `police officer` в столбец A2 Flyers (с. 84
 
 ### 8.2. Пункты грамматики
 
-**`1741163711828x633639966955607000` — NOUNS, FORM: AS SUBJECTS.** Прошу его
-модулю 6: ученик впервые ставит перед `is` не местоимение, а слово о человеке
-(`My sister is a doctor`). Но тот же пункт нужен модулю 5 («Бланк»,
-притяжательные) — пример источника «His name is Stanislav» это ровно его строка.
-Один `id` в `egp` у двух модулей проверка объявит вопросом. Развести можно так:
-модуль 5 берёт `possessives`, модуль 6 — `AS SUBJECTS`.
+**`1741163711828x633639966955607000` — AS SUBJECTS. ЗАКРЫТО НЕ В МОЮ ПОЛЬЗУ, и
+правильно.** Я просил пункт себе: ученик впервые ставит перед `is` не
+местоимение, а слово о человеке (`My sister is a doctor`). Сводящий сперва
+согласился, потом отдал модулю 2 по возражению методиста модуля 5 — и это верное
+решение. Модуль 2 разбирает случай «одно имя вместо `he` и `she`» и печатает
+`Dana is my friend`; правило раздачи одно — **вводит тот модуль, где оборот
+РАЗБИРАЕТСЯ**, а не тот, кому он нужнее. Моя просьба стояла ровно на «нужнее»,
+и это была ошибка в рассуждении, а не в счёте. У модуля 6 пункт в `egpPovtor`;
+урок 4 от этого не меняется ни строкой.
 
 **`1741163708789x105964971324936210` — артикль. ЗАКРЫТО:** модуль 3 объявил
 пункт своим, модуль 6 ставит его в `egpPovtor`. Прежняя редакция писала «вопрос
@@ -705,7 +728,7 @@ Young Learners ставит `police officer` в столбец A2 Flyers (с. 84
 спорит там с модулем 4.
 
 Значит претендентов трое: модули 4, 5 и 6. **Я уступаю:** модуль 5 стоит раньше,
-и если пункт достанется ему, модуль 6 ставит его в `egpPovtor`, а урок 5 не
+и если пункт достанется ему, модуль 6 ставит его в `egpPovtor`, а урок 6 не
 меняется ни одной строкой — `a taxi driver` и `a shop assistant` остаются на
 месте как употребление уже разобранного. Обратное невозможно: отдать пункт мне
 значит заставить модуль 5 печатать `phone number` до разбора.
