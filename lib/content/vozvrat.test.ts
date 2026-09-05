@@ -16,6 +16,7 @@ function kurs(): Course {
   const pervyy: Module = {
     slug: "modul-odin",
     title: "Модуль один",
+    sources: [{ ref: "модуль выдуман для проверки: опоры настоящей нет" }],
     outcomes: ["итог urok-odin"],
     lessons: [
       urok("urok-odin", [
@@ -37,6 +38,7 @@ function kurs(): Course {
   const vtoroy: Module = {
     slug: "modul-dva",
     title: "Модуль два",
+    sources: [{ ref: "модуль выдуман для проверки: опоры настоящей нет" }],
     outcomes: ["итог urok-dva"],
     lessons: [
       urok(
