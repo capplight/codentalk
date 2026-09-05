@@ -689,3 +689,102 @@ Oxford 3000 оборота нет (проверял методист модул�
 
 **Что взято сейчас:** оборот берётся готовым, как и `How do you spell that?` в
 модуле 1, — с объявлением в шапке модуля и без разбора устройства.
+
+## 19. Множественное на `-o` — это список слов, а не правило
+
+**Зачем понадобилось.** Методист модуля 8 хотел поставить правило «слова на `-o`
+берут `-es`» и сам же увидел, что его опровергает слово собственного курса:
+`zoo` даёт `zoos`. Правил чтения и написания окончаний в `materials/` нет вовсе —
+он искал в обоих руководствах Cambridge и в описаниях Совета Европы.
+
+**Что открыто своими глазами** — Википедия, `English plurals`
+(https://en.wikipedia.org/wiki/English_plurals), 6 сентября 2026:
+
+> Singular nouns ending in *o* preceded by a consonant **in many cases** spell the
+> plural by adding *-es*
+
+Примеры графы: `hero`, `potato`, `volcano`, `echo`. И тут же:
+
+> many nouns of foreign origin, including almost all Italian loanwords, add only
+> *-s*
+
+Примеры: `photo`, `piano`, `zero`, `kimono`.
+
+**Что из этого следует.** Правила нет — есть «in many cases». Слова с `-es`
+называются списком, а обобщения о букве `o` в уроке быть не должно. Методист был
+прав, и `zoos` тому доказательство.
+
+**И слово `in many cases` из цитаты не выбрасывается** — та же осторожность, что
+с `usually three or more syllables` и с `mostly do not take`.
+
+## 20. `fish` — множественное совпадает с единственным
+
+Википедия, `English plurals`, там же:
+
+> As to the word *fish* itself, the plural is usually identical to the singular,
+> although *fishes* is sometimes used, especially when meaning "species of fish".
+
+**Что следует:** `fishes` не ошибка, а другой случай. Ученику ступени Beginner
+даётся совпадающая форма; объявлять `fishes` ошибкой нельзя.
+
+## 21. `people` берёт глагол во множественном
+
+Викисловарь, `people` (https://en.wikipedia.org/wiki/… — см. ссылку ниже),
+примечание об употреблении, 6 сентября 2026:
+
+> The word *people* today takes a plural verb in most senses.
+
+Источник: https://en.wiktionary.org/wiki/people
+
+**Что следует:** `people are` законно и подтверждено. Слова «всегда» в правиле
+быть не должно — источник говорит `in most senses`.
+
+## 22. `coffee` бывает исчисляемым, и `two coffees` законно
+
+Викисловарь, `coffee` (https://en.wiktionary.org/wiki/coffee):
+
+> coffee (**countable and uncountable**, plural **coffees**)
+
+Одно из значений — «A serving of this beverage», с примером «As I sip a coffee at
+Brasserie Balzar…».
+
+**Что следует, и это меняет замысел модуля 8.** Методист собирался поставить
+`two coffees` и `three teas` ОТВЛЕКАЮЩИМИ, то есть неверными. **Так нельзя:**
+отвлекающий оказался бы правдой, а это порода, на которой проект уже обжигался
+(работа модуля 25 Elementary объявляла ошибкой `You mustn't run indoors`, чему
+сама же и учила).
+
+## 23. Чтения, спрошенные методистами
+
+Викисловарь, британская норма, 6 сентября 2026.
+
+`sandwich` (https://en.wiktionary.org/wiki/sandwich) — первым стоит
+`/ˈsæn(d).wɪdʒ/`, вторым `/ˈsæn(d).wɪtʃ/`. Курс берёт первое.
+
+`vegetable` (https://en.wiktionary.org/wiki/vegetable) — первым стоит
+трёхсложное `/ˈvɛdʒ.tə.bəl/`, вторым четырёхсложное. Курс берёт первое, и по
+условности курса слоговой согласный пишется без `ə`: `/ˈvedʒtəbl/`.
+
+## 24. `clock` против `watch`, `desk` против `table`
+
+**Зачем понадобилось.** Методист модуля 7 разводит эти пары переводом карточек, а
+толкований ни один файл `materials/` не содержит.
+
+`desk` (https://en.wiktionary.org/wiki/desk), первое значение:
+
+> A table, frame, or case, in past centuries usually with a sloping top but now
+> usually with a flat top, **for the use of writers and readers**.
+
+Разница названа источником: `desk` — стол для того, кто пишет и читает.
+
+`clock` (https://en.wiktionary.org/wiki/clock), первое значение:
+
+> A chronometer, an instrument that measures time, particularly the time of day.
+
+**Разницы с `watch` первое значение НЕ ДАЁТ.** Примечание статьи говорит, что
+исторически часы отличали от переносных, а сегодня `clock` — общее имя для
+приборов времени. Значит перевод карточки «часы (настенные)» источником не
+подтверждается: он сужает то, что источник даёт широким.
+
+**Что взято сейчас:** решает методист. Безопасный ход — не сужать перевод, а
+показать `clock` картинкой и не вводить `watch` в том же модуле вовсе.
