@@ -3133,6 +3133,19 @@ function checkGdeNetZvuka(course: Course): void {
         if (block.kind !== "example" && block.kind !== "table") continue;
         if (block.kind === "example" && block.razgovor) continue;
         if (Object.keys(zvuchashchee(block)).length > 0) continue;
+        /*
+         * РАЗОБРАННОЕ ОТСЕИВАЕТСЯ ПО ОДНОМУ, а не гасится вместе с пачкой.
+         *
+         * Замечание тут собирается в ОДНУ строку отчёта, а `warn()` гасит
+         * строку целиком по первому совпадению с `resheno.ts`. Значит две
+         * записи о немых списке и бланке заглушили бы немоту по ВСЕМУ курсу,
+         * включая блоки, которых ещё нет. Нашёл методист, разбирая собственные
+         * записи, — сам же их и написал.
+         *
+         * Так устроена проверка «ответ напечатан в материале», и того же
+         * требует комментарий к `razobrano`: пачку отсеивают до сборки.
+         */
+        if (razobrano(`${mod.slug} → ${lesson.slug} → ${block.id}`)) continue;
         nemye.push(`${mod.slug} → ${lesson.slug} → ${block.id}`);
       }
     }

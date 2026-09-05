@@ -156,6 +156,14 @@ export default function Ekran({ block }: { block: MaterialBlock }) {
                 para ? (
                   <div className={s.stroka} key={i}>
                     <div className={s.en} lang="en">
+                      {/* Кнопка у примера случая. Прежде звук в объяснении стоял
+                          только у кусков правила, а примеры — самое читаемое
+                          место экрана — молчали: в уроке о чтении сочетаний из
+                          восьми случаев звучал один. Правило владельца от 19
+                          августа простое: звук стоит там, где ученик читает. */}
+                      {zvuki[para.en] && (
+                        <Zvuk src={adresYacheyki(zvuki[para.en])} chto={zvuki[para.en]} />
+                      )}
                       {para.en}
                     </div>
                     <div className={s.ru}>{para.ru}</div>
