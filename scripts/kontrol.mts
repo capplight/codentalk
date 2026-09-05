@@ -386,6 +386,11 @@ function trebuetsyaOtUchenika(b: any): string | null {
       return (b.items ?? []).join(" ");
     case "match":
       return [...(b.left ?? []), ...(b.right ?? [])].join(" ");
+    case "setka":
+      // Слова сетки — настоящие английские слова урока, и долг словаря
+      // спрашивается с них наравне со строками примеров. Сами буквы поля не
+      // берутся: это россыпь, а не текст.
+      return (b.slova ?? []).map((s: any) => s.slovo).join(" ");
     case "speak":
       return b.phrase ?? "";
     case "essay":

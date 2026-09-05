@@ -50,6 +50,14 @@ function pokazat(b: any, gde: string): void {
     case "essay":
       console.log(`  =  ${b.sample}`);
       break;
+    case "setka":
+      for (const stroka of b.stroki ?? []) console.log(`     ${[...stroka].join(" ")}`);
+      console.log(
+        `  =  найти: ${(b.slova ?? [])
+          .map((s: any) => (s.podpis ? `${s.slovo} (${s.podpis})` : s.slovo))
+          .join(", ")}`
+      );
+      break;
   }
   if (b.accept?.length) console.log(`  +  принимает также: ${b.accept.join(" | ")}`);
   // Без этой пометки не видно главной ловушки заданий «исправь ошибку»: если

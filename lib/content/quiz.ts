@@ -92,6 +92,13 @@ export function forBrowser(question: QuizQuestion): BrowserQuestion {
       return { ...base, phrase: question.phrase, translation: question.translation };
     case "short":
       return base;
+    case "setka":
+      /*
+       * В банке вопросов сетки быть не должно: список искомых слов обязан уйти
+       * в браузер, иначе искать нечего, — а с ним ушёл бы и ответ. Запрещает
+       * `check:content`; здесь, как и у `essay`, — на всякий случай.
+       */
+      return base;
     case "essay":
       // В проверочной работе развёрнутого ответа быть не должно: машина его не
       // оценивает. Скрипт проверок это запрещает, здесь — на всякий случай.

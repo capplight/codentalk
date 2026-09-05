@@ -33,6 +33,7 @@ import {
   zvuchashchee,
 } from "../lib/content/zvuk.ts";
 import { nayti } from "../lib/content/vozvrat.ts";
+import { bedySetki, mestaSlova } from "../lib/content/setka.ts";
 import { kuskiUroka } from "./vidimoe.mts";
 import { resheno } from "../courses/resheno.ts";
 import { courses } from "../courses/index.ts";
@@ -745,6 +746,32 @@ function checkTask(task: TaskBlock, where: string): void {
 
     case "short": {
       if (blank(task.answer)) fail(where, "пустой ответ");
+      break;
+    }
+
+    /*
+     * СЕТКА БУКВ. Разбор ведёт `lib/content/setka.ts` — тот же, по которому
+     * страница подсвечивает найденное. Двух правд о том, где стоит слово, быть
+     * не должно: разойдись они, ученик выделит слово и не получит ничего.
+     */
+    case "setka": {
+      for (const beda of bedySetki(task.stroki, task.slova.map((s) => s.slovo))) {
+        fail(where, beda);
+      }
+      if (task.slova.length === 0) fail(where, "искать нечего: слов не названо");
+
+      // Слово, стоящее в сетке ДВАЖДЫ, — не беда: засчитывается любое из мест.
+      // А вот слово, названное подписью, но записанное не тем словом, ученик
+      // ищет по переводу и не находит — это ловится выше, `bedySetki`.
+      for (const slovo of task.slova) {
+        if (mestaSlova(task.stroki, slovo.slovo).length > 1) {
+          warn(
+            where,
+            `слово «${slovo.slovo}» стоит в сетке дважды — засчитается любое место, ` +
+              "но ученик решит, что ошибся"
+          );
+        }
+      }
       break;
     }
 
@@ -1878,6 +1905,16 @@ function checkQuiz(quiz: Quiz, quizWhere: string, rules: QuizRules): void {
     // оценки, либо был бы засчитан наугад.
     if (question.kind === "essay" || question.kind === "speak") {
       fail(at, `вид «${question.kind}» машина не оценивает — в ${rules.label} ему не место`);
+    }
+
+    /*
+     * СЕТКА БУКВ В БАНКЕ — это выданный ответ. Чтобы искать, браузер обязан
+     * получить список искомых слов, а он же и есть ответ: страница могла бы
+     * отметить все слова, не показав ученику ни одной ячейки. В уроке это
+     * законное упражнение — там ответы и так приходят в браузер.
+     */
+    if (question.kind === "setka") {
+      fail(at, `в ${rules.label} сетке букв не место: список слов — это и есть ответ`);
     }
   }
 
@@ -3045,6 +3082,72 @@ function checkZaglushki(course: Course): void {
  * от 5 сентября 2026 и не чинятся. Новому курсу — ошибка: правило известно
  * заранее, и дешевле поставить поле, чем потом переозвучивать.
  */
+/**
+ * БУКВЫ ВРАЗБРОС, СКЛАДЫВАЮЩИЕСЯ ЕЩЁ И В ДРУГОЕ СЛОВО.
+ *
+ * Задание «собери слово из букв» — это `order`, у которого все куски по одной
+ * букве. Просьба владельца от 5 сентября 2026: «давать слова с буквами в
+ * разброс и чтобы ученик правильно написал это слово».
+ *
+ * Беда у такого задания одна и не видна глазами: те же буквы складываются в
+ * ДРУГОЕ слово, которому курс сам же и учил. Ученик собирает `eat` вместо
+ * `tea`, `on` вместо `no`, `was` вместо `saw` — и получает «пока не так» за
+ * слово, которое сам курс объявил знакомым. Ровно та порода, ради которой
+ * писано правило «задание не наказывает за верный ответ»: условие допускает
+ * два ответа, а принимается один.
+ *
+ * Ищется по словарю САМОГО курса, а не по словнику: наказывать больно только
+ * за то, чему учили. Сведениями, не ошибкой, — решает методист: иногда картинка
+ * при задании выбор снимает.
+ */
+function checkAnagrammaDvusmyslennaya(course: Course): void {
+  // Ключ — буквы слова по алфавиту: `tea` и `eat` дают один и тот же `aet`.
+  const poBukvam = new Map<string, Set<string>>();
+  for (const mod of course.modules) {
+    for (const lesson of mod.lessons) {
+      for (const block of lesson.blocks as any[]) {
+        if (block.kind !== "vocab") continue;
+        for (const item of block.items ?? []) {
+          const slovo = String(item.term ?? "").trim().toLowerCase();
+          if (!/^[a-z]{2,}$/.test(slovo)) continue;
+          const klyuch = [...slovo].sort().join("");
+          if (!poBukvam.has(klyuch)) poBukvam.set(klyuch, new Set());
+          poBukvam.get(klyuch)!.add(slovo);
+        }
+      }
+    }
+  }
+
+  const nayden: string[] = [];
+  for (const mod of course.modules) {
+    for (const lesson of mod.lessons) {
+      for (const block of lesson.blocks) {
+        if (!isTask(block) || block.kind !== "order") continue;
+        // Только россыпь букв: сборка предложения из слов — другое задание.
+        if (!block.items.every((k) => /^[A-Za-z]$/.test(k))) continue;
+
+        const sobrano = block.answer.map((n) => block.items[n]).join("").toLowerCase();
+        const drugie = [...(poBukvam.get([...sobrano].sort().join("")) ?? [])].filter(
+          (w) => w !== sobrano
+        );
+        if (drugie.length === 0) continue;
+        const gde = `${mod.slug} → ${lesson.slug} → ${block.id}`;
+        if (razobrano(gde)) continue;
+        nayden.push(`${gde}: из тех же букв складывается «${drugie.join("», «")}»`);
+      }
+    }
+  }
+
+  if (nayden.length > 0) {
+    warn(
+      course.slug,
+      `буквы вразброс складываются не в одно слово (${nayden.length} шт.):\n      ` +
+        nayden.join("\n      ") +
+        "\n      Ученик соберёт знакомое слово и получит «пока не так». Решает методист"
+    );
+  }
+}
+
 function checkGolosaZapisey(course: Course): void {
   for (const mod of course.modules) {
     for (const lesson of mod.lessons) {
@@ -3169,6 +3272,7 @@ for (const course of courses) {
   checkZnachki(course);
   checkVidUroka(course);
   checkGolosaZapisey(course);
+  checkAnagrammaDvusmyslennaya(course);
   checkVstuplenie(course);
   checkZaglushki(course);
   checkGdeNetZvuka(course);

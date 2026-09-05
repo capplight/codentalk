@@ -172,6 +172,11 @@ function kuskiBloka(b: any, gde: string): Kusok[] {
           dobavit("что произнести", b.phrase);
           dobavit("перевод", b.translation);
           break;
+        case "setka":
+          // Подпись — единственное русское во всём задании: сетка и слова
+          // латинские. Без этой строки `yazyk` кальку в подписи не увидит.
+          (b.slova ?? []).forEach((s: any) => dobavit("подпись слова", s.podpis));
+          break;
       }
   }
   return k;

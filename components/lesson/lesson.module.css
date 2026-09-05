@@ -1031,3 +1031,134 @@
   display: block;
   margin: 0 auto 6px;
 }
+
+/* --------------------------------------------------------------- сетка букв */
+/* Просьба владельца от 5 сентября 2026: найти знакомые слова среди букв.
+   Ячейка — кнопка, а не клетка таблицы: по ней нажимают, и трогать её пальцем
+   на телефоне должно быть так же легко, как кнопку варианта. */
+
+.setka {
+  margin-top: 12px;
+}
+
+.setkaPole {
+  display: grid;
+  gap: 4px;
+  justify-content: center;
+  margin: 0 auto;
+  /* Поле шире экрана телефона прокручивается внутри себя, а не тянет страницу
+     вбок: боковая прокрутка страницы — давняя находка владельца. */
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+.yacheyka {
+  font-family: var(--font-mono);
+  font-size: var(--step-0);
+  line-height: 1;
+  width: 2.2rem;
+  height: 2.2rem;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-s);
+  background: var(--surface);
+  color: var(--ink);
+  cursor: pointer;
+  transition:
+    transform 140ms cubic-bezier(0.23, 1, 0.32, 1),
+    background-color 140ms ease;
+}
+
+.yacheyka:hover:not(:disabled) {
+  background: var(--paper-alt);
+}
+
+.yacheyka:active:not(:disabled) {
+  transform: scale(0.9);
+}
+
+.yacheyka:disabled {
+  cursor: default;
+}
+
+/* Начало выделения: ученик уже нажал первую букву и ищет последнюю. */
+.yacheykaNachalo {
+  background: var(--accent-soft);
+  border-color: var(--accent);
+  color: var(--accent-ink);
+}
+
+/* Найденное слово остаётся видимым до конца задания: оно и есть ответ. */
+.yacheykaNaydena {
+  background: var(--good-soft);
+  border-color: var(--good);
+  color: var(--good);
+  font-weight: 600;
+}
+
+.setkaSpisok {
+  list-style: none;
+  padding: 0;
+  margin: 14px 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+}
+
+.setkaSlovo,
+.setkaSlovoNaydeno {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: var(--radius-s);
+  border: 1px solid var(--line);
+  font-size: var(--step--1);
+}
+
+.setkaSlovo {
+  background: var(--paper-alt);
+  color: var(--ink-soft);
+}
+
+.setkaSlovoNaydeno {
+  background: var(--good-soft);
+  border-color: var(--good);
+  color: var(--good);
+  font-family: var(--font-mono);
+  animation: kusokVstal 0.22s ease;
+}
+
+.setkaZnak {
+  display: block;
+}
+
+.setkaKak {
+  margin: 10px 0 0;
+  text-align: center;
+  font-size: var(--step--1);
+  color: var(--ink-soft);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .yacheyka,
+  .setkaSlovoNaydeno {
+    transition: none;
+    animation: none;
+  }
+}
+
+/* Россыпь БУКВ: квадратная плитка вместо продолговатого куска фразы.
+   Различие только на вид — задание то же самое `order`. */
+.sborkaBukvy .kusok,
+.sborkaBukvy .kusokPostavlen,
+.sborkaBukvy .kusokPusto {
+  width: 2.6rem;
+  padding: 9px 0;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: var(--step-1);
+  letter-spacing: 0;
+}

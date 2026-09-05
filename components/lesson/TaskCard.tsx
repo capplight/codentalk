@@ -12,6 +12,7 @@
 
 import { useState } from "react";
 import { checkAnswer, missingParts, type Answer } from "@/lib/content/check";
+import { mestaSlova, shirina, vydelenie, yacheykiSlova } from "@/lib/content/setka";
 import type { TaskBlock } from "@/lib/content/types";
 import { adresObrazca, adresVoprosa } from "@/lib/content/zvuk";
 import { useLessonFlow } from "./LessonFlow";
@@ -48,6 +49,15 @@ export default function TaskCard({
   const [pairs, setPairs] = useState<number[]>(() =>
     task.kind === "match" ? task.left.map(() => -1) : []
   );
+  /*
+   * СЕТКА БУКВ: с какой ячейки ученик начал выделение. Слово отмечается двумя
+   * нажатиями — первая буква и последняя, — а не протягиванием: протянуть
+   * пальцем по мелким ячейкам на телефоне трудно, и промах стоил бы слова.
+   *
+   * Найденные слова лежат в `picked`, как и у `hottext`: там тоже набор, а не
+   * перестановка.
+   */
+  const [nachalo, setNachalo] = useState<number | null>(null);
 
   const locked = status === "right" || status === "shown";
 
@@ -96,6 +106,36 @@ export default function TaskCard({
     if (locked) return;
     setOrder(order.filter((_, n) => n !== pozicia));
     setStatus("idle");
+  }
+
+  /**
+   * Нажатие по ячейке сетки. Первое задаёт начало, второе — конец.
+   *
+   * Выделение, не сложившееся в искомое слово, просто снимается: ошибка здесь
+   * не наказывается ничем, как и во всём курсе. Найденное слово убрать нельзя —
+   * найденное уже найдено.
+   */
+  function nazhatYacheyku(yacheyka: number): void {
+    if (locked || task.kind !== "setka") return;
+    if (nachalo === null) {
+      setNachalo(yacheyka);
+      return;
+    }
+    const vydelil = vydelenie(task.stroki, nachalo, yacheyka);
+    setNachalo(null);
+    if (vydelil === null) return;
+
+    const nomer = task.slova.findIndex(
+      (slovo, i) => !picked.includes(i) && slovo.slovo.toUpperCase() === vydelil
+    );
+    if (nomer === -1) return;
+
+    const naydeno = [...picked, nomer];
+    setPicked(naydeno);
+    // Последнее слово закрывает задание само: нажимать «Проверить» после того,
+    // как искать больше нечего, — лишняя работа.
+    if (naydeno.length === task.slova.length) judge(naydeno);
+    else setStatus("idle");
   }
 
   return (
@@ -235,8 +275,20 @@ export default function TaskCard({
       )}
 
       {/* ------------------------------------------------ расставить по порядку */}
+      {/*
+        БУКВЫ ВРАЗБРОС — тот же вид задания, что и сборка фразы, но другой на
+        вид. Просьба владельца от 5 сентября 2026: «давать слова с буквами в
+        разброс и чтобы ученик правильно написал это слово». Кусок из одной
+        буквы получает квадратную плитку: россыпь букв должна выглядеть
+        россыпью, а не обрубками слов. Отдельного вида задания это не требует —
+        различие чисто внешнее, и правила у него те же.
+      */}
       {task.kind === "order" && (
-        <div className={s.sborka}>
+        <div
+          className={
+            task.items.every((k) => k.length === 1) ? `${s.sborka} ${s.sborkaBukvy}` : s.sborka
+          }
+        >
           {/* Строка ответа: сюда кусок встаёт нажатием, отсюда снимается тем же
               нажатием. Пока пусто, на её месте стоит подсказка — иначе первый
               экран задания выглядит поломанным. */}
@@ -283,6 +335,90 @@ export default function TaskCard({
           </div>
         </div>
       )}
+
+      {/* ------------------------------------------------ найти слова в сетке */}
+      {task.kind === "setka" &&
+        (() => {
+          // Ячейки найденных слов считаются заново на каждой отрисовке: держать
+          // их отдельным состоянием значит завести вторую правду о том же.
+          const nayden = new Set<number>();
+          for (const nomer of picked) {
+            const mesta = mestaSlova(task.stroki, task.slova[nomer].slovo);
+            if (mesta[0]) for (const y of yacheykiSlova(task.stroki, mesta[0])) nayden.add(y);
+          }
+          const w = shirina(task.stroki);
+
+          return (
+            <div className={s.setka}>
+              <div
+                className={s.setkaPole}
+                style={{ gridTemplateColumns: `repeat(${w}, 1fr)` }}
+                role="grid"
+                aria-label="Сетка букв"
+              >
+                {task.stroki.map((stroka, r) =>
+                  [...stroka].map((bukva, c) => {
+                    const yacheyka = r * w + c;
+                    const est = nayden.has(yacheyka);
+                    return (
+                      <button
+                        type="button"
+                        key={yacheyka}
+                        className={[
+                          s.yacheyka,
+                          est ? s.yacheykaNaydena : "",
+                          nachalo === yacheyka ? s.yacheykaNachalo : "",
+                        ]
+                          .filter(Boolean)
+                          .join(" ")}
+                        onClick={() => nazhatYacheyku(yacheyka)}
+                        disabled={locked}
+                        lang="en"
+                        aria-label={`Буква ${bukva}, строка ${r + 1}, столбец ${c + 1}`}
+                      >
+                        {bukva}
+                      </button>
+                    );
+                  })
+                )}
+              </div>
+
+              {/* Что ищем. Найденное слово встаёт сюда латиницей: ученик видит,
+                  что именно он нашёл, а не одну галочку. */}
+              <ul className={s.setkaSpisok}>
+                {task.slova.map((slovo, i) => {
+                  const est = picked.includes(i);
+                  return (
+                    <li
+                      className={est ? s.setkaSlovoNaydeno : s.setkaSlovo}
+                      key={slovo.slovo}
+                    >
+                      {slovo.znak && (
+                        // eslint-disable-next-line @next/next/no-img-element
+                        <img
+                          className={s.setkaZnak}
+                          src={`/twemoji/${slovo.znak}.svg`}
+                          alt=""
+                          width={28}
+                          height={28}
+                        />
+                      )}
+                      <span lang={est ? "en" : undefined}>
+                        {est ? slovo.slovo : (slovo.podpis ?? slovo.slovo)}
+                      </span>
+                    </li>
+                  );
+                })}
+              </ul>
+
+              <p className={s.setkaKak}>
+                {nachalo === null
+                  ? "Нажми первую букву слова, потом последнюю."
+                  : "Теперь нажми последнюю букву этого слова."}
+              </p>
+            </div>
+          );
+        })()}
 
       {/* ------------------------------------------------ сопоставить пары */}
       {task.kind === "match" && (
@@ -388,6 +524,7 @@ export default function TaskCard({
               disabled={task.kind === "order" && order.length !== task.items.length}
               onClick={() => {
                 if (task.kind === "order") judge(order);
+                else if (task.kind === "setka") judge(picked);
                 else if (task.kind === "match") judge(pairs);
                 else if (task.kind === "hottext") judge(picked);
                 else judge(text);

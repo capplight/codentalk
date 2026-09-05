@@ -107,6 +107,16 @@ export function checkAnswer(task: TaskBlock, given: Answer): boolean | null {
       return hasAll && hasNone;
     }
 
+    /*
+     * СЕТКА БУКВ: ответ — номера НАЙДЕННЫХ слов, и верно тогда, когда найдены
+     * все. Порядок нахождения не важен, поэтому сверка идёт набором, как у
+     * `hottext`, а не перестановкой.
+     */
+    case "setka": {
+      const naydeno = new Set(Array.isArray(given) ? given : []);
+      return task.slova.every((_, index) => naydeno.has(index));
+    }
+
     case "essay":
     case "speak":
       return null;
