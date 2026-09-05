@@ -542,3 +542,80 @@ Y: `grammarway/alphabet.txt` — «из них 6 гласных и 20 согла
 **Оговорка о самом источнике.** Викисловарь пишут люди, и областные варианты в
 нём встречаются — об этом уже сказано в шапке файла. Здесь взяты определение и
 примечание, а не транскрипция, и обе статьи сходятся друг с другом.
+
+## 13. Артикль `the` перед названиями стран и мест
+
+**Зачем понадобилось.** Модуль 3 нового курса разбирает артикль, и второй
+методист снял из него выдуманный запрет «перед названием страны артикль не
+ставят»: запрещающей графы в English Grammar Profile нет ни одной, а `the USA`,
+`the UK` и `the Netherlands` опровергают запрет сразу. Правила при этом не было
+ни в одном файле `materials/`.
+
+**Что открыто своими глазами** — Википедия, статья `The`, раздел Geographic
+usage (https://en.wikipedia.org/wiki/The), 6 сентября 2026:
+
+> Countries and territories in a plural noun: the Netherlands, the Falkland
+> Islands, the Faroe Islands…
+
+> Continents, individual islands, administrative units, and settlements mostly do
+> not take a "the" article (Europe, Jura, Austria…)
+
+> Notable natural landmarks – rivers, seas, mountain ranges, deserts, island
+> groups (archipelagoes), regions, etc., are generally used with a "the" definite
+> article…
+
+> Beginning with a common noun followed of may take the article, as in the Isle
+> of Wight or the Isle of Portland…
+
+Там же — про производные от природных объектов (`the Lebanon`, `the Sudan`) и
+про описательные названия областей (`the North Island`, `the West Country`).
+
+**Что из этого следует для курса.** Правило есть, и оно не про страны, а про
+УСТРОЙСТВО названия: множественное число (`the Netherlands`), нарицательное
+внутри имени (`the United States`), природный объект. Одиночные страны и города
+идут без артикля — `Spain`, `Turkey`, `Almaty`.
+
+**Чего из этого НЕ следует.** Запрета «перед названием страны артикль не ставят»
+нет и здесь: статья говорит «mostly do not take», а не «никогда». Слово `mostly`
+из цитаты выбрасывать нельзя — на этом проект уже обжигался, превратив `usually
+three or more syllables` в порог.
+
+**И ступени это не меняет.** Множественные названия стран курсу ступени Beginner
+не нужны: в нём `Kazakhstan`, `Spain`, `Turkey`, `Italy` — все без артикля.
+Правило записано, чтобы урок 4 модуля 3 не поставил запрета, которого нет.
+
+## 14. Турция по-английски остаётся `Turkey`
+
+**Зачем понадобилось.** Таблица урока 1 модуля 3 печатает `Turkey` восемь раз, и
+это слово озвучено. В 2022 году Турция просила международные организации
+называть её `Türkiye`, и методист справедливо спросил, не устарело ли наше слово.
+
+**Что открыто своими глазами** — Википедия, статья `Name of Turkey`
+(https://en.wikipedia.org/wiki/Name_of_Turkey), 6 сентября 2026:
+
+> In 2022, the Turkish government requested the United Nations and other
+> international organizations to use Türkiye officially in English, to which they
+> agreed.
+
+> Turkey has remained the common and conventional name in the English language.
+
+Там же — что Board on Geographic Names в январе 2023 года сохранил `Turkey` и
+`Republic of Turkey` как conventional names, «as these are more widely understood
+by the American public».
+
+**Что из этого следует для курса.** Ученику ступени Beginner даётся `Turkey`.
+Правки не требуется, восемь мест и запись остаются как есть.
+
+## 15. Чем отвечают на `Where are you from?` — городом или страной
+
+**НЕ НАЙДЕНО, и это записано нарочно.** Методист модуля 3 спросил, есть ли
+описанная разница и зависит ли ответ от того, кто спрашивает.
+
+**Где искал:** Википедия, статьи `The` и `English articles`; Викисловарь. Правила
+или наблюдения об этом не нашёл. Пометок о частотности и об обычаях речи наши
+источники не дают вовсе — это записано в CLAUDE.md отдельно.
+
+**Что взято сейчас:** урок 6 модуля 3 показывает оба ответа и не оценивает ни
+одного. Это единственный безопасный ход: утверждение «чаще отвечают страной»
+было бы нашей выдумкой. Если владелец как преподаватель решит иначе, случай
+получит вторую строку.
