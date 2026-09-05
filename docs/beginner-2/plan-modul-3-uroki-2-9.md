@@ -520,24 +520,14 @@ outcome: "находить в короткой записи, откуда чел
 **short, simple descriptions**, especially if there is visual support». Жанр —
 `genre: "message"`, три коротких записи о себе.
 
-**Здесь стоит словарь урока: `park`, `road`, `zoo`, `village`** — пять слов темы
-`Places: Town and City` закрываются модулем, и три из них работают в этом тексте.
-Словарь идёт ПЕРЕД текстом: ученик не должен встречать слово впервые в задании.
+**Здесь стоит словарь урока — четыре карточки: `park`, `road`, `zoo`, `village`.**
+Трое из них — слова темы `Places: Town and City` (`park`, `road`, `zoo`), четвёртое
+из темы `Places: Countryside`: не все живут в городе. Вместе с `town`, `street` и
+`airport` из уроков 3 и 4 модуль закрывает пять слов A1 своей темы из семи; два
+оставшихся (`station`, `market`) уходят модулю 23. Словарь идёт ПЕРЕД текстом:
+ученик не должен встречать слово впервые в задании.
 
-**Три записи, по три-четыре строки каждая.** Люди — из карты модуля.
-
-```
-Hello! I am Sue. I am from Spain. I am in Astana now.
-```
-**`now` карточки нет** — строка идёт как `I am in Astana.` Проверил.
-
-```
-1. Hello! I am Sue. I am from Spain. I am in Astana.
-   My home is in Madrid. The city is big.
-```
-**`big` карточки нет.** Строка: `My home is in Madrid.`
-
-Три записи целиком:
+**Три записи. Люди — из карты модуля.**
 
 | № | Текст |
 |---|---|
@@ -545,8 +535,10 @@ Hello! I am Sue. I am from Spain. I am in Astana now.
 | 2 | `Hi! I am Bill. I am from France. I am in Almaty. The park is here. The zoo is here.` |
 | 3 | `Hello! I am Alim. I am from Turkey. I am in a village. The road is here.` |
 
-**Каждое слово проверено по списку раздела 1.** Новые для ученика — только четыре
-карточки этого урока, и все четыре стоят в тексте.
+**Каждое слово проверено по списку раздела 1, и две строки при этом переписаны:**
+`I am in Astana now` (слова `now` в курсе нет) и `The city is big` (нет `big`).
+Новые для ученика — только четыре карточки этого урока, и все четыре стоят в
+тексте.
 
 **Пять заданий. Ядро — `short` по тексту и `choice` на то, чего в тексте НЕТ.**
 
