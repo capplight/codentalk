@@ -3202,6 +3202,19 @@ function checkZnachki(course: Course): void {
             if (slovo.znak && !est(slovo.znak)) netu.add(slovo.znak);
           }
         }
+        /*
+         * ДВА МЕСТА, ПОЯВИВШИЕСЯ 5 СЕНТЯБРЯ 2026 вместе с просьбой владельца о
+         * картинках: значок у варианта выбора и значок у слова в сетке букв.
+         * Проверка писалась под прежние места и о новых молчала бы — та самая
+         * порода, ради которой в CLAUDE.md записано: дописав новый вид
+         * содержания, пройди по проверкам и спроси у каждой, видит ли она его.
+         */
+        if (isTask(block) && block.kind === "choice") {
+          for (const o of block.options) if (o.znak && !est(o.znak)) netu.add(o.znak);
+        }
+        if (isTask(block) && block.kind === "setka") {
+          for (const slovo of block.slova) if (slovo.znak && !est(slovo.znak)) netu.add(slovo.znak);
+        }
       }
     }
   }

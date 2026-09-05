@@ -61,6 +61,19 @@ function nuzhnye(spisok: Course[]): Map<string, string[]> {
               otmetit(slovo.znak, `${kurs.slug}/${urok.slug}/${blok.id}/${slovo.term}`);
             }
           }
+          // Значок у варианта выбора и у слова сетки — оба появились
+          // 5 сентября 2026. Не забирай их здесь, и `check:content` будет
+          // требовать файл, которого этой команде неоткуда взять.
+          if (isTask(blok) && blok.kind === "choice") {
+            for (const o of blok.options) {
+              otmetit(o.znak, `${kurs.slug}/${urok.slug}/${blok.id}/${o.text}`);
+            }
+          }
+          if (isTask(blok) && blok.kind === "setka") {
+            for (const slovo of blok.slova) {
+              otmetit(slovo.znak, `${kurs.slug}/${urok.slug}/${blok.id}/${slovo.slovo}`);
+            }
+          }
         }
       }
     }
