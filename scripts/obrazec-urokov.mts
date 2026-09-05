@@ -44,7 +44,12 @@
  *     npm run obrazec-urokov
  */
 import { writeFile } from "node:fs/promises";
-import * as fayl from "../courses/english-beginner-2/kto-eto.ts";
+/*
+ * Макет показывает ПЕРВЫЙ УРОК ПРАВИЛ нового формата. Прежде здесь стоял
+ * образцовый модуль `kto-eto`, выведенный из курса 6 сентября 2026: его
+ * предмет оказался грамматикой модуля 2, а сам он — без дескриптора и темы.
+ */
+import * as fayl from "../courses/english-beginner-2/privetstvie.ts";
 import { isTask, type Module, type Block } from "../lib/content/types.ts";
 
 const TWEMOJI = "https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg";
