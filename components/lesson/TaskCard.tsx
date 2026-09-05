@@ -36,9 +36,15 @@ export default function TaskCard({
   // Ответ хранится в форме, удобной виду задания
   const [picked, setPicked] = useState<number[]>([]);
   const [text, setText] = useState("");
-  const [order, setOrder] = useState<number[]>(() =>
-    task.kind === "order" ? task.items.map((_, i) => i) : []
-  );
+  /*
+   * СБОРКА: что ученик уже ПОСТАВИЛ, по порядку. Пусто — значит не начинал.
+   *
+   * Прежде здесь лежала перестановка всех кусков сразу, а двигали их стрелками
+   * «выше» и «ниже». Собрать так слово из пяти букв — девять нажатий вместо
+   * пяти, и ученик занят не языком, а перекладыванием. Владелец 5 сентября
+   * 2026 попросил живых мест; это первое, где живость и польза сходятся.
+   */
+  const [order, setOrder] = useState<number[]>([]);
   const [pairs, setPairs] = useState<number[]>(() =>
     task.kind === "match" ? task.left.map(() => -1) : []
   );
@@ -78,11 +84,17 @@ export default function TaskCard({
     setStatus("idle");
   }
 
-  function move(from: number, to: number): void {
-    if (locked || to < 0 || to >= order.length) return;
-    const next = [...order];
-    [next[from], next[to]] = [next[to], next[from]];
-    setOrder(next);
+  /** Поставить кусок в строку ответа. */
+  function postavit(i: number): void {
+    if (locked || order.includes(i)) return;
+    setOrder([...order, i]);
+    setStatus("idle");
+  }
+
+  /** Снять поставленный кусок обратно в набор. Ошибку исправляют, а не начинают заново. */
+  function snyat(pozicia: number): void {
+    if (locked) return;
+    setOrder(order.filter((_, n) => n !== pozicia));
     setStatus("idle");
   }
 
@@ -211,32 +223,52 @@ export default function TaskCard({
 
       {/* ------------------------------------------------ расставить по порядку */}
       {task.kind === "order" && (
-        <ol className={s.orderList}>
-          {order.map((itemIndex, position) => (
-            <li key={itemIndex} className={s.orderItem}>
-              <span className={s.orderNum}>{position + 1}</span>
-              <span className={s.orderText}>{task.items[itemIndex]}</span>
+        <div className={s.sborka}>
+          {/* Строка ответа: сюда кусок встаёт нажатием, отсюда снимается тем же
+              нажатием. Пока пусто, на её месте стоит подсказка — иначе первый
+              экран задания выглядит поломанным. */}
+          <div className={s.sborkaStroka} aria-label="Твой ответ">
+            {order.length === 0 && (
+              <span className={s.sborkaPusto}>Нажимай на части внизу — они встанут сюда</span>
+            )}
+            {order.map((itemIndex, position) => (
               <button
                 type="button"
-                className={s.moveBtn}
-                onClick={() => move(position, position - 1)}
-                disabled={locked || position === 0}
-                aria-label="Выше"
+                key={itemIndex}
+                className={s.kusokPostavlen}
+                onClick={() => snyat(position)}
+                disabled={locked}
+                lang="en"
+                aria-label={`Убрать ${task.items[itemIndex]} с места ${position + 1}`}
               >
-                ↑
+                {task.items[itemIndex]}
               </button>
-              <button
-                type="button"
-                className={s.moveBtn}
-                onClick={() => move(position, position + 1)}
-                disabled={locked || position === order.length - 1}
-                aria-label="Ниже"
-              >
-                ↓
-              </button>
-            </li>
-          ))}
-        </ol>
+            ))}
+          </div>
+          <div className={s.sborkaNabor}>
+            {task.items.map((kusok, i) =>
+              order.includes(i) ? (
+                // Место занятого куска не схлопывается: строка не прыгает под
+                // пальцем, и видно, сколько кусков осталось.
+                <span className={s.kusokPusto} key={i} aria-hidden="true">
+                  {kusok}
+                </span>
+              ) : (
+                <button
+                  type="button"
+                  key={i}
+                  className={s.kusok}
+                  onClick={() => postavit(i)}
+                  disabled={locked}
+                  lang="en"
+                  aria-label={`Поставить ${kusok}`}
+                >
+                  {kusok}
+                </button>
+              )
+            )}
+          </div>
+        </div>
       )}
 
       {/* ------------------------------------------------ сопоставить пары */}
@@ -338,6 +370,9 @@ export default function TaskCard({
             <button
               type="button"
               className={s.option}
+              // У сборки кнопка ждёт, пока поставлены все куски: неполный ответ
+              // засчитался бы ошибкой, хотя ученик просто не закончил.
+              disabled={task.kind === "order" && order.length !== task.items.length}
               onClick={() => {
                 if (task.kind === "order") judge(order);
                 else if (task.kind === "match") judge(pairs);

@@ -301,6 +301,17 @@ const modul: Module = {
    * Profile вводит этот модуль, называет методист, а не сборщик.
    */
   temy: ["Documents and Texts"],
+  /*
+   * Пункт грамматики, который вводит модуль: NOUNS / types, A1,
+   * «FORM: PROPER NOUNS» — «Can use proper nouns with a capital letter to refer
+   * to specific people, places, days and things». Назвал методист, замыслы
+   * уроков 3 и 5–10 сошлись на нём независимо друг от друга.
+   *
+   * Ключ — поле `id` перечня, а не заголовок: `Guideword` в файле повторяется
+   * 129 раз, и объявить пункт заголовком значит объявить два разных пункта
+   * одинаково. Сверяет `npm run programma -- english-beginner-2`.
+   */
+  egp: ["1741163711816x743806450459332500"],
 
   /*
    * ПОРЯДОК ИТОГОВ ИДЁТ В ПОРЯДКЕ УРОКОВ — это сверяет `check:content`. Урок 2
