@@ -142,3 +142,23 @@ export function bedySetki(stroki: string[], slova: string[]): string[] {
   }
   return bedy;
 }
+
+/**
+ * Слова курса, случайно сложившиеся в сетке помимо списка.
+ *
+ * Нашёл методист 5 сентября 2026: ученик видит в поле знакомое `CAT`, отмечает
+ * его — и не получает ничего. Задание молчит там, где ученик прав, а это тот же
+ * запрет «не наказывать за верный ответ», только с другого конца.
+ *
+ * Спрашивается по словарю САМОГО курса: обидно бывает лишь за то, чему учили.
+ */
+export function lishnieSlova(stroki: string[], slova: string[], slovar: string[]): string[] {
+  const iskomye = new Set(slova.map((s) => s.toUpperCase()));
+  const lishnie = new Set<string>();
+  for (const slovo of slovar) {
+    const bolshimi = slovo.toUpperCase();
+    if (iskomye.has(bolshimi) || bolshimi.length < 2) continue;
+    if (mestaSlova(stroki, bolshimi).length > 0) lishnie.add(slovo);
+  }
+  return [...lishnie].sort();
+}

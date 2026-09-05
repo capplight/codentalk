@@ -33,7 +33,7 @@ import {
   zvuchashchee,
 } from "../lib/content/zvuk.ts";
 import { nayti } from "../lib/content/vozvrat.ts";
-import { bedySetki, mestaSlova } from "../lib/content/setka.ts";
+import { bedySetki, lishnieSlova, mestaSlova } from "../lib/content/setka.ts";
 import { kuskiUroka } from "./vidimoe.mts";
 import { resheno } from "../courses/resheno.ts";
 import { courses } from "../courses/index.ts";
@@ -251,9 +251,26 @@ function checkDubli(task: any, where: string): void {
    * было, проверка молчала — и выглядела верной. Скрипт, который кричит на
    * правильное, хуже, чем никакой.
    */
+  /*
+   * РОССЫПЬ БУКВ — ВТОРОЕ ТАКОЕ ИСПРАВЛЕНИЕ, И ПОРОДА ТА ЖЕ.
+   *
+   * В задании «собери слово из букв» повтор не ошибка, а язык: в `hello` две L,
+   * в `goodbye` две O, в `afternoon` три. Прежнее правило объявляло такие слова
+   * невозможными вовсе — а их в модуле приветствий большинство. Нашёл методист
+   * 5 сентября 2026, пересчитав слова замысла.
+   *
+   * Неразличимости повтор здесь не создаёт: сверка сравнивает СОБРАННОЕ слово,
+   * а не перестановку номеров (`lib/content/check.ts`), значит обе одинаковые
+   * буквы взаимозаменимы и обе дороги к ответу верны.
+   */
+  const rossypBukv =
+    task.kind === "order" &&
+    Array.isArray(task.items) &&
+    task.items.every((k: any) => typeof k === "string" && k.length === 1);
+
   const spiski: Array<[string, string[]]> = [
     ["вариант", (task.options ?? []).map((o: any) => o.text)],
-    ["часть для сборки", task.items ?? []],
+    ["часть для сборки", rossypBukv ? [] : (task.items ?? [])],
     ["пункт слева", task.left ?? []],
     ["пункт справа", task.right ?? []],
   ];
@@ -3100,6 +3117,59 @@ function checkZaglushki(course: Course): void {
  * за то, чему учили. Сведениями, не ошибкой, — решает методист: иногда картинка
  * при задании выбор снимает.
  */
+/**
+ * СЕТКА, В КОТОРОЙ СЛОЖИЛОСЬ ЛИШНЕЕ ЗНАКОМОЕ СЛОВО.
+ *
+ * Нашёл методист 5 сентября 2026, читая новый вид задания. Ученик видит в поле
+ * `CAT`, отмечает — и не получает ничего: слова нет в списке. Задание молчит
+ * там, где ученик прав.
+ *
+ * Считается по словарю всего курса, а не одного модуля: слово, данное в
+ * третьем модуле, ученик узнаёт и в двадцатом. Сведениями — иногда дешевле
+ * поменять одну букву поля, а иногда добавить слово в список.
+ */
+function checkSetkaLishnie(course: Course): void {
+  const slovar: string[] = [];
+  for (const mod of course.modules) {
+    for (const lesson of mod.lessons) {
+      for (const block of lesson.blocks as any[]) {
+        if (block.kind !== "vocab") continue;
+        for (const item of block.items ?? []) {
+          const slovo = String(item.term ?? "").trim();
+          if (/^[A-Za-z]{2,}$/.test(slovo)) slovar.push(slovo);
+        }
+      }
+    }
+  }
+  if (slovar.length === 0) return;
+
+  const nayden: string[] = [];
+  for (const mod of course.modules) {
+    for (const lesson of mod.lessons) {
+      for (const block of lesson.blocks) {
+        if (!isTask(block) || block.kind !== "setka") continue;
+        const gde = `${mod.slug} → ${lesson.slug} → ${block.id}`;
+        if (razobrano(gde)) continue;
+        const lishnie = lishnieSlova(
+          block.stroki,
+          block.slova.map((s) => s.slovo),
+          slovar
+        );
+        if (lishnie.length > 0) nayden.push(`${gde}: «${lishnie.join("», «")}»`);
+      }
+    }
+  }
+
+  if (nayden.length > 0) {
+    warn(
+      course.slug,
+      `в сетке сложились знакомые слова, которых нет в списке (${nayden.length} шт.):\n      ` +
+        nayden.join("\n      ") +
+        "\n      Ученик отметит верное слово и не получит ничего. Решает методист"
+    );
+  }
+}
+
 function checkAnagrammaDvusmyslennaya(course: Course): void {
   // Ключ — буквы слова по алфавиту: `tea` и `eat` дают один и тот же `aet`.
   const poBukvam = new Map<string, Set<string>>();
@@ -3286,6 +3356,7 @@ for (const course of courses) {
   checkVidUroka(course);
   checkGolosaZapisey(course);
   checkAnagrammaDvusmyslennaya(course);
+  checkSetkaLishnie(course);
   checkVstuplenie(course);
   checkZaglushki(course);
   checkGdeNetZvuka(course);

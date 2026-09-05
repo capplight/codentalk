@@ -154,3 +154,20 @@ test("без exact регистр по-прежнему не важен", () => 
   const task: TaskBlock = { id: "t", kind: "gap", prompt: "?", why: "р", before: "", after: "", answer: "morning" };
   assert.equal(checkAnswer(task, "MORNING"), true);
 });
+
+test("повторённая буква не наказывает: обе дороги к слову верны", () => {
+  // Найдено методистом 5 сентября 2026. В `hello` две L, и ученик, поставивший
+  // вторую L первой, собирал ровно `hello` — а сверка объявляла это ошибкой.
+  const task: TaskBlock = {
+    id: "t",
+    kind: "order",
+    prompt: "Собери слово",
+    why: "разбор",
+    items: ["h", "e", "l", "l", "o"],
+    answer: [0, 1, 2, 3, 4],
+  };
+  assert.equal(checkAnswer(task, [0, 1, 2, 3, 4]), true);
+  assert.equal(checkAnswer(task, [0, 1, 3, 2, 4]), true, "буквы L взаимозаменимы");
+  assert.equal(checkAnswer(task, [1, 0, 2, 3, 4]), false, "а вот hello и ehllo — разные слова");
+  assert.equal(checkAnswer(task, [0, 1, 2, 3]), false, "неполная сборка не засчитывается");
+});
