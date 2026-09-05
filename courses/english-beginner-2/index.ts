@@ -2,6 +2,8 @@ import type { Course } from "@/lib/content/types";
 import alfavit from "./alfavit";
 import privetstvie from "./privetstvie";
 import otkudaTy from "./otkuda-ty";
+import chislaITelefon from "./chisla-i-telefon";
+import blank from "./blank";
 
 /**
  * НОВЫЙ BEGINNER — замысел в `docs/beginner-2/zamysel.md`.
@@ -55,7 +57,7 @@ const course: Course = {
    * переделка.
    */
   format: "shagi",
-  modules: [alfavit, privetstvie, otkudaTy],
+  modules: [alfavit, privetstvie, otkudaTy, chislaITelefon, blank],
 };
 
 export default course;
