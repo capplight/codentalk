@@ -1025,3 +1025,9 @@
     animation: none;
   }
 }
+
+/* Значок у варианта выбора: картинка сверху, слово под ней. */
+.znakVarianta {
+  display: block;
+  margin: 0 auto 6px;
+}

@@ -154,6 +154,19 @@ export default function TaskCard({
                 disabled={locked}
                 aria-pressed={picked.includes(i)}
               >
+                {option.znak && (
+                  // Картинка не заменяет слово, а стоит над ним: ученик выбирает
+                  // вещь, но читает и её название — иначе задание перестаёт быть
+                  // языковым.
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img
+                    className={s.znakVarianta}
+                    src={`/twemoji/${option.znak}.svg`}
+                    alt=""
+                    width={44}
+                    height={44}
+                  />
+                )}
                 {option.text}
               </button>
             ))}
