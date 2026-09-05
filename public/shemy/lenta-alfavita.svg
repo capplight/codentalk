@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 104" width="760" height="104" role="img" aria-label="Лента английского алфавита от A до Z">
+<rect x="8" y="26" width="744" height="44" rx="12" fill="#E8EDF5" stroke="#C4CEDC"/>
+<text x="30.0" y="54" text-anchor="middle" font-family="Georgia, serif" font-size="19" fill="#1A2433">A</text>
+<text x="58.0" y="54" text-anchor="middle" font-family="Georgia, serif" font-size="19" fill="#1A2433">B</text>
+<text x="86.0" y="54" text-anchor="middle" font-family="Georgia, serif" font-size="19" fill="#1A2433">C</text>
+<text x="114.0" y="54" text-anchor="middle" font-family="Georgia, serif" font-size="19" fill="#1A2433">D</text>
+<text x="142.0" y="54" text-anchor="middle" font-family="Georgia, serif" font-size="19" fill="#1A2433">E</text>
+<text x="170.0" y="54" text-anchor="middle" font-family="Georgia, serif" font-size="19" fill="#1A2433">F</text>
+<text x="198.0" y="54" text-anchor="middle" font-family="Georgia, serif" font-size="19" fill="#1A2433">G</text>
+<text x="226.0" y="54" text-anchor="middle" font-family="Georgia, serif" font-size="19" fill="#1A2433">H</text>
+<text x="254.0" y="54" text-anchor="middle" font-family="Georgia, serif" font-size="19" fill="#1A2433">I</text>
+<text x="282.0" y="54" text-anchor="middle" font-family="Georgia, serif" font-size="19" fill="#1A2433">J</text>
+<text x="310.0" y="54" text-anchor="middle" font-family="Georgia, serif" font-size="19" fill="#1A2433">K</text>
+<text x="338.0" y="54" text-anchor="middle" font-family="Georgia, serif" font-size="19" fill="#1A2433">L</text>
+<text x="366.0" y="54" text-anchor="middle" font-family="Georgia, serif" font-size="19" fill="#1A2433">M</text>
+<text x="394.0" y="54" text-anchor="middle" font-family="Georgia, serif" font-size="19" fill="#1A2433">N</text>
+<text x="422.0" y="54" text-anchor="middle" font-family="Georgia, serif" font-size="19" fill="#1A2433">O</text>
+<text x="450.0" y="54" text-anchor="middle" font-family="Georgia, serif" font-size="19" fill="#1A2433">P</text>
+<text x="478.0" y="54" text-anchor="middle" font-family="Georgia, serif" font-size="19" fill="#1A2433">Q</text>
+<text x="506.0" y="54" text-anchor="middle" font-family="Georgia, serif" font-size="19" fill="#1A2433">R</text>
+<text x="534.0" y="54" text-anchor="middle" font-family="Georgia, serif" font-size="19" fill="#1A2433">S</text>
+<text x="562.0" y="54" text-anchor="middle" font-family="Georgia, serif" font-size="19" fill="#1A2433">T</text>
+<text x="590.0" y="54" text-anchor="middle" font-family="Georgia, serif" font-size="19" fill="#1A2433">U</text>
+<text x="618.0" y="54" text-anchor="middle" font-family="Georgia, serif" font-size="19" fill="#1A2433">V</text>
+<text x="646.0" y="54" text-anchor="middle" font-family="Georgia, serif" font-size="19" fill="#1A2433">W</text>
+<text x="674.0" y="54" text-anchor="middle" font-family="Georgia, serif" font-size="19" fill="#1A2433">X</text>
+<text x="702.0" y="54" text-anchor="middle" font-family="Georgia, serif" font-size="19" fill="#1A2433">Y</text>
+<text x="730.0" y="54" text-anchor="middle" font-family="Georgia, serif" font-size="19" fill="#1A2433">Z</text>
+<text x="30.0" y="20" text-anchor="middle" font-family="Georgia, serif" font-size="13" fill="#5B6B82">начало</text>
+<text x="730.0" y="20" text-anchor="middle" font-family="Georgia, serif" font-size="13" fill="#5B6B82">конец</text>
+<text x="380.0" y="92" text-anchor="middle" font-family="Georgia, serif" font-size="13" fill="#5B6B82">у каждой буквы своё место, и у него есть соседи</text>
+</svg>
