@@ -48,14 +48,53 @@ function oxford(): Map<string, string> {
   const seno = syroy.replace(/\([^)]*\)/g, " ").toLowerCase();
   const CHASTI = new Set([
     "n", "v", "adj", "adv", "prep", "pron", "det", "conj", "exclam", "number",
-    "modal", "phr", "aux", "article", "ordinal", "abbr", ...STUPENI,
+    "modal", "phr", "aux", "article", "ordinal", "abbr",
+    "indefinite", "definite", ...STUPENI,
   ]);
   const karta = new Map<string, string>();
   for (const m of seno.matchAll(/\b(a1|a2|b1|b2|c1|c2)\b/g)) {
-    const tokeny = (seno.slice(Math.max(0, m.index! - 60), m.index!).match(/[a-z][a-z']*\d?/g) ?? [])
-      .map((w) => w.replace(/\d+$/, ""));
-    while (tokeny.length && CHASTI.has(tokeny[tokeny.length - 1])) tokeny.pop();
-    const slovo = tokeny[tokeny.length - 1];
+    /*
+     * ЦИФРА У СТУПЕНИ СРЕЗАЛАСЬ РАНЬШЕ, ЧЕМ НАХОДИЛАСЬ ГРАНИЦА ЗАПИСИ.
+     *
+     * Прежний разбор снимал хвостовые цифры сразу у всех кусков окна — это
+     * нужно словам вроде `can1`, `can2`, — и заодно превращал пометы `a1` и
+     * `b2` в `a` и `b`. А по этим пометам и узнаётся, где кончается предыдущая
+     * запись словника.
+     *
+     * Теперь цифры снимаются ТОЛЬКО у выбранного слова, а куски окна остаются
+     * как есть.
+     */
+    const tokeny = seno
+      .slice(Math.max(0, m.index! - 60), m.index!)
+      .match(/[a-z][a-z']*\d?/g) ?? [];
+    /*
+     * СЛОВО, НАЗВАННОЕ ТАК ЖЕ, КАК ПОМЕТА ЧАСТИ РЕЧИ, ТЕРЯЛОСЬ ЦЕЛИКОМ.
+     *
+     * Нашёл второй методист 6 сентября 2026 на записи `article n. A1`. Разбор
+     * снимал с хвоста `n`, потом снимал и само `article` — оно стоит в наборе
+     * помет, — а дальше уходил в ПРЕДЫДУЩУЮ запись словника и брал её слово.
+     * То есть `article` не просто пропадало: соседняя запись получала чужую
+     * ступень.
+     *
+     * Признак, что мы ушли за край записи, простой: упёрлись в ступень
+     * предыдущей строки. Значит слово и есть последняя снятая помета.
+     *
+     * Порода та же, ради которой в CLAUDE.md записано «усечение основ врёт в
+     * обе стороны»: разбор, не знающий устройства словника, тихо подменяет
+     * слово соседним, и отчёт при этом зелёный.
+     */
+    let snyatoe: string | undefined;
+    while (
+      tokeny.length &&
+      CHASTI.has(tokeny[tokeny.length - 1]) &&
+      !STUPENI.includes(tokeny[tokeny.length - 1])
+    ) {
+      snyatoe = tokeny.pop();
+    }
+    if (tokeny.length && STUPENI.includes(tokeny[tokeny.length - 1]) && snyatoe) {
+      tokeny.push(snyatoe);
+    }
+    const slovo = (tokeny[tokeny.length - 1] ?? "").replace(/\d+$/, "");
     if (!slovo || slovo.length < 2) continue;
     const bylo = karta.get(slovo);
     if (!bylo || STUPENI.indexOf(m[1]) < STUPENI.indexOf(bylo)) karta.set(slovo, m[1]);
