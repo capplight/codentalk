@@ -465,7 +465,7 @@ A1 (`DETERMINERS articles, FORM: 'A' + ADJECTIVES`), и он модуля 9. А�
 | `1741163715608x123988758899529200` | `VERBS / linking`, FORM: 'BE' + COMPLEMENT | «Can use linking verb 'be' with complements.» — «**Martin is from Poland.**» | урок 1 целиком: пример графы и есть строка урока |
 | `1741163708789x105964971324936210` | `DETERMINERS / articles`, FORM: WITH NOUNS | «Can use articles '**the**', '**a**' and '**an**' before nouns.» — «She lives in **a** small flat in **the** town — it's great!» | уроки 3 и 4 |
 | `1741163708336x928067678664856700` | `CLAUSES / interrogatives`, FORM: AFFIRMATIVE INTERROGATIVE, WITH 'BE' | «Can form interrogative clauses with 'be'.» — «**How are you?**», «**Are you ok?**» | урок 5 |
-| `1741163713867x150062658595893500` | `PRONOUNS / subject-object`, FORM: (SUBJECT) QUESTIONS WITH 'BE' | «Can use the pronouns 'you' and 'it' after 'be' in question forms.» — «How are you?», «Is it OK?» | урок 5: `Are you from Astana?` |
+| `1741163713867x150062658595893500` | `PRONOUNS / subject-object`, FORM: (SUBJECT) QUESTIONS WITH 'BE' | «Can use the pronouns 'you' and 'it' after 'be' in question forms.» — «How are you?», «Is it OK?» | урок 5: `Are you from Spain?` |
 | `1741163708329x778951051617750700` | `CLAUSES / declarative`, FORM: NEGATIVE DECLARATIVE WITH 'BE' | «Can form a simple negative declarative clause with lexical 'be' + 'not' or 'n't'.» — «My college is not very big.», «**I'm not bad.**» | урок 5: `No, I am not`, `I am not from Astana` |
 
 Семь пунктов. Все семь открыл и выписал целиком; все уровня A1; ни один не роздан
@@ -483,9 +483,9 @@ A1 (`DETERMINERS articles, FORM: 'A' + ADJECTIVES`), и он модуля 9. А�
 | `1741163708789x105964971324936210` | FORM: WITH NOUNS | N/A | **мой, раздел 4.1** |
 | `1741163708789x174288205596050180` | FORM: 'A' + 'VERY' + ADJECTIVES | 1 | модуль 9 (`very`) |
 | `1741163708789x344483096716751800` | FORM: 'A' + ADJECTIVES | 1 | модуль 9 |
-| `1741163708789x819248395543273500` | FORM: PREPOSITION + 'THE' + NOUN | 1 | **бесхозный**, раздел 4.5 |
+| `1741163708789x819248395543273500` | FORM: PREPOSITION + 'THE' + NOUN | 1 | **бесхозный**, раздел 4.4 |
 | `1741163708792x578027203654075000` | FORM: PREPOSITION + NO ARTICLE | 1 | прошу модулю 6, раздел 7.3 |
-| `1741163708793x394528376329640770` | FORM/USE: NO ARTICLE | 1 | **бесхозный**, раздел 4.5 |
+| `1741163708793x394528376329640770` | FORM/USE: NO ARTICLE | 1 | **бесхозный**, раздел 4.4 |
 
 **Верная формулировка такая:** пункт, который покрывает `the`, `a` и `an`
 **разом**, — один, `FORM: WITH NOUNS`, и `Lexical Range` у него `N/A`. Значит по
@@ -587,7 +587,10 @@ CLAUDE.md трижды.** Первая редакция брала «как ес
 from Spain`, `Astana is the capital`. Слов «не ставят», «никогда», «нельзя» в
 тексте нет.
 
-## 5. Три места, где источники расходятся: одно решено, два остаются
+## 5. Места, где источники расходятся: одно решено, три остаются
+
+Четвёртое — ступень слова `airport` (Oxford A1 против Cambridge A2 Flyers) —
+разобрано в разделе 3.1, потому что это вопрос словаря, а не грамматики.
 
 ### 5.1. `Where are you from?` — РЕШЕНО ВЛАДЕЛЬЦЕМ 6 сентября 2026
 
@@ -721,8 +724,15 @@ Learners, с. 29, список ступени Pre A1 Starters; English Grammar P
 A2 Key, с. 42, Speaking Part 1 спрашивает «Where do you come from?» и «Where do
 you live?» — обе строки в Present Simple, который программа отдала модулям 13–15.
 Урок говорения модуля 3 берёт **вопрос экзаменатора в нашем виде** (`Where are you
-from?`) и **ответ в виде экзамена** (`I am from Kazakhstan. I am in Astana now.`).
+from?`) и **ответ в виде экзамена** (`I am from Kazakhstan. I am in Astana.`).
 Оговорка обязана стоять в `sources` модуля: образец урезан, и вот чем.
+
+**Правка по разбору: расхождение вдвое меньше, чем казалось.** Правый столбец той
+же таблицы, Back-up prompts, спрашивает **`Are you from (Spain, etc.)?`** — через
+`be`, дословно предмет урока 5. Значит экзамен даёт оба вида вопроса, и модуль
+берёт тот, что ему по ступени, а не подменяет экзаменационный своим. Через `do`
+остаются `Where do you come from?` и `Where do you live?` — они и уходят модулям
+13 и 15. И слово `now` из образца снято: карточки у него в курсе нет.
 
 ### 5.3. `live` в модуле не появляется, хотя модуль называется «где живёшь»
 
@@ -737,7 +747,7 @@ CLAUDE.md прямо про этот случай: «карточка закон
 |---|---|---|
 | откуда я родом | `I am from Almaty.` | `VERBS / linking`, 'BE' + COMPLEMENT — пример графы «Martin is from Poland» |
 | где я сейчас | `I am in Astana.` | `PREPOSITIONS`, FORM: SIMPLE — пример графы «He works in Bognor Regis» |
-| где мой дом | `My home is in Astana.` | та же графа + притяжательное `my` из модуля 2 |
+| где мой дом | `My home is in Astana.` | та же графа; `my` — карточка **модуля 1**, `home` — карточка модуля 3 |
 
 Дескриптор при этом исполняется: CEFR с. 79 требует уметь ответить, «where they
 live», а не употребить глагол `live`.
@@ -835,7 +845,7 @@ What is this?` Одинаковой формулировкой, чтобы по�
 **7.6 — сводящему: три пункта `articles` без хозяина.** `PREPOSITION + NO
 ARTICLE` (прошу модулю 6), `FORM/USE: NO ARTICLE` (ближе к модулям 19 и 22),
 `PREPOSITION + 'THE' + NOUN` (`at the weekend`, `in the morning` — предмет модуля
-18). Разбор — раздел 4.5.
+18). Разбор — раздел 4.4.
 
 **7.7 — методисту модуля 9 «Цвет и размер»: просьба ОТОЗВАНА.** Первая редакция
 просила карточку `small` и право употреблять `a big city`. Ни `big`, ни `small` в
