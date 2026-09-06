@@ -100,6 +100,7 @@ function sobratOpis(): Zapis[] {
               text: block.transcript,
               temp,
               dvaGolosa,
+              muzhskoyPervym: block.pervyyGolos === "muzhskoy",
               otkuda: `${gde} · ${block.id}`,
             });
             continue;
