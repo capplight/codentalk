@@ -166,12 +166,29 @@ function chisloSlovom(n: number): string {
 const OTVETY_O_VOZRASTE: string[] = (() => {
   const otvety: string[] = [];
   for (let n = 1; n <= 100; n += 1) {
-    for (const chislo of [chisloSlovom(n), String(n)]) {
+    /*
+     * Сто — единственное число, у которого модуль даёт две записи: случай 5
+     * урока 4 учит и `one hundred`, и `a hundred`. Обе верны, значит обе
+     * принимаются: поле ученику невидимо, сузить им ничего нельзя.
+     */
+    const zapisi = n === 100 ? [chisloSlovom(n), "a hundred", String(n)] : [chisloSlovom(n), String(n)];
+    for (const chislo of zapisi) {
       otvety.push(`I am ${chislo}.`);
       otvety.push(`I am ${chislo} years old.`);
       otvety.push(`I'm ${chislo}.`);
       otvety.push(`I'm ${chislo} years old.`);
+      /*
+       * `My age is …` — правильный английский, и модуль сам даёт карточку
+       * `age`. Ученик, ответивший так, отвечает верно.
+       */
+      otvety.push(`My age is ${chislo}.`);
       otvety.push(chislo);
+      /*
+       * Голое `twenty years old` без `I am`: на вопрос `How old are you?`
+       * так отвечают, и урок этого не запрещает.
+       */
+      otvety.push(`${chislo} years old`);
+      otvety.push(`${chislo} years old.`);
     }
   }
   return otvety;
