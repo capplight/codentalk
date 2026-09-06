@@ -15,6 +15,7 @@
  * блоки показываются прежним `Material`: это честнее пустого экрана.
  */
 import type { MaterialBlock } from "@/lib/content/types";
+import { adresZnachka } from "@/lib/content/znaki";
 import { adresRazgovora, adresSlova, adresYacheyki, raskladkaGolosov, zvuchashchee } from "@/lib/content/zvuk";
 import {
   ZAGOLOVOK_PRIMERA,
@@ -32,7 +33,7 @@ export function Znak({ kod, razmer = 58 }: { kod: string; razmer?: number }) {
   // Обычный img, а не next/image: значки уже готового размера, оптимизировать
   // нечего, а next/image потребовал бы своей обработки на каждый.
   // eslint-disable-next-line @next/next/no-img-element
-  return <img src={`/twemoji/${kod}.svg`} alt="" width={razmer} height={razmer} />;
+  return <img src={adresZnachka(kod)} alt="" width={razmer} height={razmer} />;
 }
 
 /**

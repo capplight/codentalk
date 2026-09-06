@@ -2438,7 +2438,21 @@ const modul: Module = {
             { term: "ticket", translation: "билет", example: "T-I-C-K-E-T. Ticket.", hint: "/ˈtɪkɪt/", znak: "1f3ab" },
             { term: "night", translation: "ночь", example: "Good night.", hint: "/naɪt/", znak: "1f303" },
             { term: "light", translation: "свет", example: "L-I-G-H-T. Light.", hint: "/laɪt/", znak: "1f4a1" },
-            { term: "out", translation: "наружу", example: "O-U-T. Out.", hint: "/aʊt/", znak: "1f6aa" },
+            /*
+             * У СЛОВА `out` ЗНАЧКА НЕТ, И ЭТО ПРАВКА, А НЕ ПРОПУСК.
+             *
+             * Здесь стояла дверь `1f6aa` — а 6 сентября 2026 ту же дверь
+             * получила карточка `door` в модуле 7, и получила по праву: там это
+             * и есть дверь. Один значок у двух разных вещей в одном курсе врёт:
+             * ученик решает, что `out` и `door` — одно слово. Нашёл сборщик,
+             * раздававший значки, — и правильно не стал править чужой файл сам.
+             *
+             * Своего значка у «наружу» нет и быть не может: это направление, а
+             * не предмет. Правило владельца от 6 сентября — «желательно не
+             * оставляй без картинок ни одну карточку» — служебных слов не
+             * касается.
+             */
+            { term: "out", translation: "наружу", example: "O-U-T. Out.", hint: "/aʊt/" },
             { term: "mouth", translation: "рот", example: "M-O-U-T-H. Mouth.", hint: "/maʊθ/", znak: "1f444" },
             { term: "paper", translation: "бумага", example: "P-A-P-E-R. Paper.", hint: "/ˈpeɪpə/", znak: "1f4c4" },
           ],

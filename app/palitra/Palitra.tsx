@@ -10,6 +10,7 @@
  */
 
 import { useState } from "react";
+import { adresZnachka } from "@/lib/content/znaki";
 import t from "../learn/tropa.module.css";
 
 type Nabor = {
@@ -294,7 +295,7 @@ export default function Palitra() {
                                   {/* eslint-disable-next-line @next/next/no-img-element */}
                                   <img
                                     className={t.znachokVida}
-                                    src={`/twemoji/${u.znak}.svg`}
+                                    src={adresZnachka(u.znak)}
                                     alt=""
                                     width={14}
                                     height={14}

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { adresZnachka } from "@/lib/content/znaki";
 import { notFound, redirect } from "next/navigation";
 import { auth } from "@/auth";
 import { prisma } from "@/lib/db";
@@ -80,7 +81,7 @@ export default async function QuizPage({ params }: Params) {
           {module.znak && (
             // eslint-disable-next-line @next/next/no-img-element
             <img
-              src={`/twemoji/${module.znak}.svg`}
+              src={adresZnachka(module.znak)}
               alt=""
               width={18}
               height={18}

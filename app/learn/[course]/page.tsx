@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { adresZnachka } from "@/lib/content/znaki";
 import { notFound } from "next/navigation";
 import { auth } from "@/auth";
 import { prisma } from "@/lib/db";
@@ -71,7 +72,7 @@ function Kolco({ dolya }: { dolya: number }) {
 /** Замок у закрытой работы. Значок лежит у нас, забирает `npm run znachki`. */
 function Zamok() {
   // eslint-disable-next-line @next/next/no-img-element
-  return <img src={`/twemoji/${ZNACHKI_VIDA.zamok}.svg`} alt="" width={18} height={18} />;
+  return <img src={adresZnachka(ZNACHKI_VIDA.zamok)} alt="" width={18} height={18} />;
 }
 
 /**
@@ -316,7 +317,7 @@ export default async function CoursePage({ params }: Params) {
                   >
                     {module.znak ? (
                       // eslint-disable-next-line @next/next/no-img-element
-                      <img src={`/twemoji/${module.znak}.svg`} alt="" width={22} height={22} />
+                      <img src={adresZnachka(module.znak)} alt="" width={22} height={22} />
                     ) : (
                       index + 1
                     )}
@@ -386,7 +387,7 @@ export default async function CoursePage({ params }: Params) {
                                     {/* eslint-disable-next-line @next/next/no-img-element */}
                                     <img
                                       className={t.znachokVida}
-                                      src={`/twemoji/${znakVida(lesson)}.svg`}
+                                      src={adresZnachka(znakVida(lesson)!)}
                                       alt=""
                                       width={14}
                                       height={14}

@@ -27,6 +27,10 @@ import { ZNACHKI_VIDA } from "../lib/content/znaki.ts";
 import { ZNAK_VIDA } from "../lib/content/vid-uroka.ts";
 
 const OTKUDA = "https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg";
+/** Код Twemoji: шестнадцатеричные числа через дефис. Всё прочее — наша картинка. */
+const TWEMOJI = /^[0-9a-f]+(-[0-9a-f]+)*$/;
+/** Картинки не из Twemoji — их не забирают, а кладут руками. */
+const svoi: string[] = [];
 const KUDA = "public/twemoji";
 
 /** Все значки, названные содержанием курсов. */
@@ -97,6 +101,18 @@ let bylo = 0;
 const poteryany: string[] = [];
 
 for (const [kod, mesta] of [...znaki].sort()) {
+  /*
+   * ВТОРОЙ ИСТОЧНИК КАРТИНОК СЮДА НЕ ХОДИТ — 6 сентября 2026.
+   *
+   * Значок, чьё имя не похоже на код Twemoji, лежит в `public/kartinki` и
+   * положен туда руками: Openclipart адреса по имени не даёт, картинку там
+   * выбирают ГЛАЗАМИ. Пойти за ним на CDN Twemoji значило бы получить 404 и
+   * объявить потерянным то, что на месте.
+   */
+  if (!TWEMOJI.test(kod)) {
+    svoi.push(kod);
+    continue;
+  }
   if (est.has(kod)) {
     bylo += 1;
     continue;
@@ -121,6 +137,10 @@ if (poteryany.length > 0) {
 
 // Файл, на который никто не ссылается, — след переименованного блока.
 // Сведениями, не ошибкой: удаляет человек, а не скрипт.
+if (svoi.length > 0) {
+  console.log(`Не из Twemoji (лежат в public/kartinki): ${svoi.sort().join(", ")}`);
+}
+
 const lishnie = [...est].filter((kod) => !znaki.has(kod));
 if (lishnie.length > 0) {
   console.log(`\nЛежат, но не нужны никому (${lishnie.length}): ${lishnie.join(", ")}`);

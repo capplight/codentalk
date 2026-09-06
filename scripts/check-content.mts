@@ -20,7 +20,7 @@ import {
   type Quiz,
   type TaskBlock,
 } from "../lib/content/types.ts";
-import { ZNACHKI_VIDA } from "../lib/content/znaki.ts";
+import { ZNACHKI_VIDA, adresZnachka } from "../lib/content/znaki.ts";
 import { ZNAK_VIDA, vidPoZagolovku, vidPoSostavu, vidUroka, IMYA_VIDA } from "../lib/content/vid-uroka.ts";
 import { checkPositionBalance } from "../lib/domain/testing.ts";
 import {
@@ -3789,8 +3789,16 @@ function checkVstuplenie(course: Course): void {
 
 function checkZnachki(course: Course): void {
   const netu = new Set<string>();
+  /*
+   * ГДЕ ИСКАТЬ ФАЙЛ, РЕШАЕТ `adresZnachka()`, А НЕ ЭТА ПРОВЕРКА.
+   *
+   * Источников картинок два — Twemoji и Openclipart, — и правило, какой из них
+   * чей, обязано быть одно на страницу, скрипт забора и проверку. Разойдись
+   * они, и проверка объявила бы потерянной картинку, которая на месте, или
+   * промолчала бы о сломанной. Ровно так проект уже терял компас вступления.
+   */
   const est = (kod: string): boolean =>
-    existsSync(join(process.cwd(), "public", "twemoji", `${kod}.svg`));
+    existsSync(join(process.cwd(), "public", adresZnachka(kod)));
 
   // Значки самого вида урока — общий список со страницей.
   for (const kod of Object.values(ZNACHKI_VIDA)) if (!est(kod)) netu.add(kod);

@@ -11,6 +11,7 @@
  */
 
 import { useState } from "react";
+import { adresZnachka } from "@/lib/content/znaki";
 import { checkAnswer, missingParts, type Answer } from "@/lib/content/check";
 import {
   bukvyYacheek,
@@ -63,7 +64,7 @@ function Znachki({
     <img
       key={i}
       className={klass}
-      src={`/twemoji/${kod}.svg`}
+      src={adresZnachka(kod)}
       alt=""
       width={storona}
       height={storona}
@@ -523,7 +524,7 @@ export default function TaskCard({
                         // eslint-disable-next-line @next/next/no-img-element
                         <img
                           className={s.setkaZnak}
-                          src={`/twemoji/${slovo.znak}.svg`}
+                          src={adresZnachka(slovo.znak)}
                           alt=""
                           width={28}
                           height={28}

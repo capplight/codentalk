@@ -2075,7 +2075,7 @@ const modul: Module = {
               hint: "/gʊdˈbaɪ/",
               znak: "1f6b6",
             },
-            { term: "bye", translation: "пока", example: "Bye." , hint: "/baɪ/" },
+            { term: "bye", translation: "пока", example: "Bye." , hint: "/baɪ/", znak: "1f6b6" },
             {
               term: "good night",
               translation: "спокойной ночи",

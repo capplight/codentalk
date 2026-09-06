@@ -1354,6 +1354,7 @@ const modul: Module = {
               translation: "дом, дома",
               example: "My home is in Astana.",
               hint: "/həʊm/",
+              znak: "1f3e0",
             },
           ],
         },
@@ -1809,7 +1810,7 @@ const modul: Module = {
           kind: "vocab",
           caption: "Слова урока",
           items: [
-            { term: "city", translation: "город", example: "Almaty is a city.", hint: "/ˈsɪti/" },
+            { term: "city", translation: "город", example: "Almaty is a city.", hint: "/ˈsɪti/", znak: "1f3d9" },
             {
               term: "town",
               translation: "городок",
@@ -1821,12 +1822,14 @@ const modul: Module = {
               translation: "страна",
               example: "Kazakhstan is a country.",
               hint: "/ˈkʌntri/",
+              znak: "1f30d",
             },
             {
               term: "airport",
               translation: "аэропорт",
               example: "I am in an airport.",
               hint: "/ˈeəpɔːt/",
+              znak: "1f6eb",
             },
           ],
         },
@@ -2282,6 +2285,7 @@ const modul: Module = {
               translation: "столица",
               example: "Astana is the capital.",
               hint: "/ˈkæpɪtl/",
+              znak: "1f3db",
             },
             {
               term: "street",

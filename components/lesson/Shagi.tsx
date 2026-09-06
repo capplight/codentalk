@@ -21,6 +21,7 @@
  */
 
 import { useCallback, useEffect, useRef, useState } from "react";
+import { adresZnachka } from "@/lib/content/znaki";
 import Link from "next/link";
 import {
   KNOPKA_DALSHE,
@@ -116,7 +117,7 @@ export default function Shagi({
           // eslint-disable-next-line @next/next/no-img-element
           <img
             className={s.znachokModulya}
-            src={`/twemoji/${znakModulya}.svg`}
+            src={adresZnachka(znakModulya)}
             alt=""
             width={14}
             height={14}

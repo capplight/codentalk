@@ -866,30 +866,35 @@ const modul: Module = {
               translation: "семья",
               example: "My mother and my father are my family.",
               hint: "/ˈfæmɪli/",
+              znak: "1f46a",
             },
             {
               term: "mother",
               translation: "мать, мама",
               example: "She is my mother.",
               hint: "/ˈmʌðə/",
+              znak: "1f469",
             },
             {
               term: "father",
               translation: "отец, папа",
               example: "He is my father.",
               hint: "/ˈfɑːðə/",
+              znak: "1f468",
             },
             {
               term: "mum",
               translation: "мама",
               example: "She is my mum.",
               hint: "/mʌm/",
+              znak: "1f469",
             },
             {
               term: "dad",
               translation: "папа",
               example: "He is my dad.",
               hint: "/dæd/",
+              znak: "1f468",
             },
             {
               term: "sister",
@@ -913,6 +918,7 @@ const modul: Module = {
               translation: "лучший друг, лучшая подруга",
               example: "She is my best friend.",
               hint: "/best frend/",
+              znak: "1fac2",
             },
           ],
         },
@@ -1524,6 +1530,7 @@ const modul: Module = {
               translation: "родители",
               example: "My parents are my mother and my father.",
               hint: "/ˈpeərənts/",
+              znak: "1f46b",
             },
             {
               // Карточки нет ни в одном курсе — переводить неоткуда.
@@ -1531,12 +1538,14 @@ const modul: Module = {
               translation: "бабушка",
               example: "My grandmother and my sister are my family.",
               hint: "/ˈgrændmʌðə/",
+              znak: "1f475",
             },
             {
               term: "grandfather",
               translation: "дедушка",
               example: "My grandfather is my family.",
               hint: "/ˈgrændfɑːðə/",
+              znak: "1f474",
             },
             {
               term: "grandparents",
@@ -1549,12 +1558,14 @@ const modul: Module = {
               translation: "мальчик",
               example: "My brother is a boy.",
               hint: "/bɔɪ/",
+              znak: "1f466",
             },
             {
               term: "girl",
               translation: "девочка",
               example: "My sister is a girl.",
               hint: "/gɜːl/",
+              znak: "1f467",
             },
             {
               // Склад: `odin-i-mnogo.ts` старого курса переводит «ребёнок».
@@ -1562,6 +1573,7 @@ const modul: Module = {
               translation: "ребёнок",
               example: "She is a child.",
               hint: "/tʃaɪld/",
+              znak: "1f9d2",
             },
           ],
         },
@@ -2514,6 +2526,7 @@ const modul: Module = {
               translation: "врач",
               example: "My sister is a doctor.",
               hint: "/ˈdɒktə/",
+              znak: "1f9d1-200d-2695-fe0f",
             },
             {
               // Склад: `rasskaz-o-sebe.ts` переводит «водитель».
@@ -2521,6 +2534,7 @@ const modul: Module = {
               translation: "водитель",
               example: "My father is a driver.",
               hint: "/ˈdraɪvə/",
+              znak: "1f697",
             },
             {
               // Склад: `rasskaz-o-sebe.ts` переводит «художник».
@@ -2528,6 +2542,7 @@ const modul: Module = {
               translation: "художник, художница",
               example: "My sister is an artist.",
               hint: "/ˈɑːtɪst/",
+              znak: "1f9d1-200d-1f3a8",
             },
             {
               // Склад: `rasskaz-o-sebe.ts` переводит «актёр».
@@ -2535,6 +2550,7 @@ const modul: Module = {
               translation: "актёр",
               example: "My brother is an actor.",
               hint: "/ˈæktə/",
+              znak: "1f3ad",
             },
             {
               // Склад: `rasskaz-o-sebe.ts` переводит «медсестра, медбрат».
@@ -2542,6 +2558,7 @@ const modul: Module = {
               translation: "медсестра, медбрат",
               example: "She is a nurse.",
               hint: "/nɜːs/",
+              znak: "1f489",
             },
             {
               // Складская строка НЕ ГОДИТСЯ: там «готовить», нужно занятие.
@@ -2549,6 +2566,7 @@ const modul: Module = {
               translation: "повар",
               example: "My brother is a cook.",
               hint: "/kʊk/",
+              znak: "1f9d1-200d-1f373",
             },
             {
               // Карточки нет ни в одном курсе.
@@ -2556,6 +2574,7 @@ const modul: Module = {
               translation: "фермер",
               example: "My father is a farmer.",
               hint: "/ˈfɑːmə/",
+              znak: "1f9d1-200d-1f33e",
             },
             {
               // Склад: `kto-to-i-chto-to.ts` переводит «официант».
@@ -2563,6 +2582,7 @@ const modul: Module = {
               translation: "официант",
               example: "He is a waiter.",
               hint: "/ˈweɪtə/",
+              znak: "1f374",
             },
             {
               // Карточки нет ни в одном курсе, и записи чтения в источнике тоже.
@@ -2570,6 +2590,7 @@ const modul: Module = {
               translation: "певец, певица",
               example: "My brother is a singer.",
               hint: "/ˈsɪŋə/",
+              znak: "1f9d1-200d-1f3a4",
             },
             {
               // Карточки нет ни в одном курсе.
@@ -2577,6 +2598,7 @@ const modul: Module = {
               translation: "писатель, писательница",
               example: "My sister is a writer.",
               hint: "/ˈraɪtə/",
+              znak: "2712",
             },
           ],
         },
@@ -3111,6 +3133,7 @@ const modul: Module = {
               translation: "работник, рабочий",
               example: "My cousin is a worker.",
               hint: "/ˈwɜːkə/",
+              znak: "1f9d1-200d-1f3ed",
             },
           ],
         },
@@ -3579,6 +3602,7 @@ const modul: Module = {
               translation: "муж",
               example: "My husband is at work.",
               hint: "/ˈhʌzbənd/",
+              znak: "1f935",
             },
             {
               // Склад: `pro-nego-i-pro-nih.ts` переводит «жена».
@@ -3586,6 +3610,7 @@ const modul: Module = {
               translation: "жена",
               example: "My wife is a bus driver.",
               hint: "/waɪf/",
+              znak: "1f470",
             },
             {
               // Карточки нет ни в одном курсе.
@@ -3593,6 +3618,7 @@ const modul: Module = {
               translation: "сын",
               example: "My son is at school.",
               hint: "/sʌn/",
+              znak: "1f468-200d-1f466",
             },
             {
               // Карточки нет ни в одном курсе.
@@ -3600,6 +3626,7 @@ const modul: Module = {
               translation: "дочь",
               example: "My daughter is a bus driver.",
               hint: "/ˈdɔːtə/",
+              znak: "1f469-200d-1f467",
             },
             {
               // Склад: `sprosit-o-delah.ts` переводит «офис».
@@ -3607,6 +3634,7 @@ const modul: Module = {
               translation: "офис",
               example: "My aunt is in an office.",
               hint: "/ˈɒfɪs/",
+              znak: "1f3e2",
             },
             {
               // Склад: `sprosit-o-delah.ts` переводит «фирма».
@@ -3627,6 +3655,7 @@ const modul: Module = {
               translation: "работа",
               example: "My job is in an office.",
               hint: "/dʒɒb/",
+              znak: "1f4bc",
             },
             {
               // Склад даёт и «работа», и «работать»; нужному случаю годится первое.
@@ -3634,6 +3663,7 @@ const modul: Module = {
               translation: "работа",
               example: "My wife is at work.",
               hint: "/wɜːk/",
+              znak: "1f4bc",
             },
             {
               // Склад: `gde-eto.ts` переводит «школа».
@@ -3641,6 +3671,7 @@ const modul: Module = {
               translation: "школа",
               example: "My son is at school.",
               hint: "/skuːl/",
+              znak: "1f3eb",
             },
             {
               // Склад: `chto-eto-takoe.ts` старого курса переводит «магазин».
@@ -3648,6 +3679,7 @@ const modul: Module = {
               translation: "магазин",
               example: "My uncle is in a shop.",
               hint: "/ʃɒp/",
+              znak: "1f3ea",
             },
             {
               // Склад: `chto-eto-takoe.ts` старого курса переводит «автобус».
@@ -3655,6 +3687,7 @@ const modul: Module = {
               translation: "автобус",
               example: "My daughter is a bus driver.",
               hint: "/bʌs/",
+              znak: "1f68c",
             },
             {
               /*
