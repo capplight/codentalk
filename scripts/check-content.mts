@@ -3386,6 +3386,83 @@ console.log(
     `учебного времени ${Math.round((minutes / 60) * 10) / 10} ч`
 );
 
+/**
+ * Перепись видов заданий по каждому курсу — сведениями, не ошибкой.
+ *
+ * Ловит то, чего не ловит ни одна другая проверка и поймать не может:
+ * ЗАВЕДЁННЫЙ ВИД ЗАДАНИЯ, КОТОРЫМ НИКТО НЕ ПОЛЬЗУЕТСЯ. Проверки смотрят
+ * заведённые задания, а не отсутствующие, и отчёт при нуле применений выглядит
+ * ровно так же, как при сотне.
+ *
+ * Повод — счёт 6 сентября 2026. Владелец 5 сентября попросил три вида
+ * упражнений для новых слов; все три завели в тот же день, и работа выглядела
+ * сделанной. Через сутки: буквы вразброс 2 задания (оба в одном модуле),
+ * картинка в вариантах 2, сетка со словами в поле букв — НОЛЬ.
+ *
+ * Две строки считаются отдельно, потому что они не отдельные виды, а обличья
+ * `order` и `choice`, и `kind` их не различает.
+ */
+{
+  const KAK_ZOVUT: Record<string, string> = {
+    choice: "выбор из вариантов",
+    gap: "вставить слово",
+    hottext: "отметить в тексте",
+    order: "собрать из кусков",
+    match: "сопоставить",
+    short: "короткий ответ",
+    essay: "сочинение",
+    code: "разметка",
+    speak: "сказать вслух",
+    setka: "сетка: найти слова в поле букв",
+  };
+
+  console.log("\nВиды заданий в уроках — сведения, не ошибка:");
+  for (const course of courses) {
+    const schyot = new Map<string, number>();
+    for (const kind of Object.keys(KAK_ZOVUT)) schyot.set(kind, 0);
+    let bukvyVrazbros = 0;
+    let kartinkaVVariantah = 0;
+
+    for (const mod of course.modules) {
+      for (const lesson of mod.lessons) {
+        for (const block of lesson.blocks) {
+          if (!isTask(block)) continue;
+          schyot.set(block.kind, (schyot.get(block.kind) ?? 0) + 1);
+          if (
+            block.kind === "order" &&
+            block.items.length > 0 &&
+            block.items.every((k) => /^[A-Za-z]$/.test(k.trim()))
+          ) {
+            bukvyVrazbros += 1;
+          }
+          if (block.kind === "choice" && block.options.some((o: any) => o.znak)) {
+            kartinkaVVariantah += 1;
+          }
+        }
+      }
+    }
+
+    const stroki = [...schyot.entries()].map(
+      ([kind, n]) => `${n === 0 ? "НИ ОДНОГО" : String(n).padStart(3)}  ${KAK_ZOVUT[kind]}`
+    );
+    stroki.push(
+      `${bukvyVrazbros === 0 ? "НИ ОДНОГО" : String(bukvyVrazbros).padStart(3)}  ` +
+        `из них буквы вразброс (собрать слово)`
+    );
+    stroki.push(
+      `${kartinkaVVariantah === 0 ? "НИ ОДНОГО" : String(kartinkaVVariantah).padStart(3)}  ` +
+        `из них картинка в вариантах (отгадать вещь)`
+    );
+
+    console.log(`  ${course.slug}:`);
+    for (const stroka of stroki) console.log(`    ${stroka}`);
+  }
+  console.log(
+    "  Ноль у вида — не ошибка: вид может быть чужим курсу. Но решает это тот,\n" +
+      "  кто выбирает состав уроков, а не молчание отчёта."
+  );
+}
+
 if (planned.length > 0) {
   if (releaseMode) {
     for (const where of planned) {
