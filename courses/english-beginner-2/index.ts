@@ -9,6 +9,8 @@ import chtoEtoTakoe from "./chto-eto-takoe";
 import odinIMnogo from "./odin-i-mnogo";
 import cvetIRazmer from "./cvet-i-razmer";
 import kakoyChelovek from "./kakoy-chelovek";
+import odezhda from "./odezhda";
+import moyDom from "./moy-dom";
 import { rabotaYaIMoiLyudi } from "./raboty-chastey";
 
 /**
@@ -141,6 +143,8 @@ const course: Course = {
     odinIMnogo,
     cvetIRazmer,
     kakoyChelovek,
+    odezhda,
+    moyDom,
   ],
   /*
    * ЧАСТИ СТУПЕНИ — 6 сентября 2026. Программа объявляет пять частей
@@ -175,7 +179,7 @@ const course: Course = {
     {
       slug: "veshchi-i-mesto",
       title: "Вещи и место",
-      modules: ["chto-eto-takoe", "odin-i-mnogo", "cvet-i-razmer", "kakoy-chelovek"],
+      modules: ["chto-eto-takoe", "odin-i-mnogo", "cvet-i-razmer", "kakoy-chelovek", "odezhda", "moy-dom"],
     },
   ],
 };
