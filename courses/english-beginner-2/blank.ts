@@ -1743,8 +1743,8 @@ const modul: Module = {
           kind: "choice",
           prompt: "Ben Baker потерял бланк. Как сказать по-английски «его бланк»?",
           options: [
-            { text: "his form", correct: true },
             { text: "her form" },
+            { text: "his form", correct: true },
             { text: "he form" },
           ],
           hint:
@@ -2577,9 +2577,9 @@ const modul: Module = {
           kind: "choice",
           prompt: "У стойки спросили: Your surname? Какой ответ подходит?",
           options: [
-            { text: "My surname is Baker.", correct: true },
             { text: "Your surname is Baker." },
             { text: "My first name is Baker." },
+            { text: "My surname is Baker.", correct: true },
           ],
           hint:
             "Отвечает человек о себе, а поле в ответе то же, о котором спросили.",
@@ -2912,7 +2912,8 @@ const modul: Module = {
            * текстом: в поле `Full name` стоит `Sue Green`, имя первым.
            *
            * РУССКИЕ ВАРИАНТЫ НАЗВАНЫ МЕТОДИСТОМ В ЗАМЫСЛЕ; редактор вправе их
-           * поправить, но верным остаётся первый.
+           * поправить, а верным остаётся «имя и фамилия стоят в одном поле» —
+           * место в списке верности не держит, её держит поле `correct`.
            */
           id: "z2-chem-blank-sue-ne-takoy",
           kind: "choice",
@@ -2921,8 +2922,8 @@ const modul: Module = {
             "Имя и фамилия записаны в двух бланках по-разному. Чем запись у Сью отличается " +
             "от записи у Бена?",
           options: [
-            { text: "имя и фамилия стоят в одном поле", correct: true },
             { text: "фамилия стоит перед именем" },
+            { text: "имя и фамилия стоят в одном поле", correct: true },
             { text: "имени нет вовсе" },
           ],
           hint:
@@ -3090,9 +3091,9 @@ const modul: Module = {
           about: "razgovor-u-stoyki-polnyy",
           prompt: "О чём у стойки спросили первым?",
           options: [
-            { text: "об имени", correct: true },
-            { text: "о фамилии" },
             { text: "о стране" },
+            { text: "о фамилии" },
+            { text: "об имени", correct: true },
           ],
           hint: "Нужный вопрос звучит в самом начале, сразу после приветствия.",
           why:
@@ -3262,8 +3263,8 @@ const modul: Module = {
           zvuk: "Your surname, please?",
           prompt: "Послушай вопрос у стойки и выбери ответ, который ему подходит.",
           options: [
-            { text: "Baker.", correct: true },
             { text: "Ben." },
+            { text: "Baker.", correct: true },
             { text: "Kazakhstan." },
           ],
           hint:
