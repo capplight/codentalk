@@ -19,7 +19,7 @@
  *   npm run yazyk -- english-starter ya-ne-delayu   один модуль
  */
 import { courses } from "../courses/index.ts";
-import { kuskiModulya, type Kusok } from "./vidimoe.mts";
+import { kuskiModulya, kuskiBanka, type Kusok } from "./vidimoe.mts";
 import { otchyot, proveritResheno, skazat } from "./otchyot.mts";
 
 // ---------------------------------------------------------------------------
@@ -573,6 +573,42 @@ const [, , kursSlug, modulSlug] = process.argv;
 for (const course of courses) {
   if (kursSlug && course.slug !== kursSlug) continue;
   console.log(`\n=== ${course.title} (${course.slug})`);
+
+  /*
+   * РАБОТЫ ЧАСТЕЙ И ЭКЗАМЕН — с 6 сентября 2026. Прежде здесь стоял только обход
+   * модулей, а работы частей и экзамен лежат у курса, не в модуле: их русский
+   * текст не проверялся никогда. При разборе одного модуля (второй довод
+   * командной строки) банки пропускаются — они не его.
+   */
+  const banki: Array<{ gde: string; questions: readonly unknown[] }> = [];
+  if (!modulSlug) {
+    for (const part of course.parts ?? []) {
+      if (part.quiz) {
+        banki.push({ gde: `часть ${part.slug} → работа`, questions: part.quiz.questions });
+      }
+    }
+    if (course.exam) banki.push({ gde: "экзамен", questions: course.exam.questions });
+  }
+  for (const bank of banki) {
+    const { kuski, poteryano } = kuskiBanka(bank.questions, bank.gde);
+    for (const s of poteryano) {
+      skazat("ОШИБКА", bank.gde, `разбор не увидел строку: ${s}`,
+        "добавь поле в scripts/vidimoe.mts — иначе этот текст не проверяет никто");
+    }
+    for (const k of kuski) {
+      if (/[а-яё]/i.test(k.text)) {
+        proveritKalki(k);
+        proveritYarlyki(k);
+        proveritProshedshee(k);
+        proveritKratkoe(k);
+        proveritPovelenie(k);
+        proveritNazvaniya(k);
+        proveritUnizhenie(k);
+        proveritSchyot(k);
+      }
+      proveritZnaki(k);
+    }
+  }
 
   for (const mod of course.modules) {
     if (modulSlug && mod.slug !== modulSlug) continue;

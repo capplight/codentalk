@@ -251,6 +251,39 @@ export function kuskiModulya(mod: Module): { kuski: Kusok[]; poteryano: string[]
   return { kuski, poteryano };
 }
 
+/**
+ * Куски ОДНОГО БАНКА ВОПРОСОВ: работы части или экзамена.
+ *
+ * ЗАЧЕМ ОТДЕЛЬНО. `kuskiModulya` обходит уроки и работу СВОЕГО модуля, а работы
+ * частей и экзамен лежат не в модуле, а у курса. Значит `npm run yazyk`, который
+ * стоит на этом же сборщике, не видел ни одной работы части НИ НА ОДНОМ КУРСЕ:
+ * кальки, родовое прошедшее время и знаки не той условности в них не ловились
+ * никогда.
+ *
+ * Нашёл сборщик работы части 1 — 6 сентября 2026, прогоном: искомая строка
+ * условия не нашлась среди 23 073 кусков разобранного курса.
+ *
+ * Порода записана в правилах проекта: проверка, написанная под модули, нового
+ * вида содержания не видит, и её молчание о нём неотличимо от одобрения. Тем же
+ * днём она била дважды — `checkZaglushki` не заходила в банк вопросов, а
+ * `kontrol` выходил из проверки словаря по уровню курса.
+ */
+export function kuskiBanka(
+  questions: readonly unknown[],
+  gdeBank: string
+): { kuski: Kusok[]; poteryano: string[] } {
+  const kuski: Kusok[] = [];
+  const poteryano: string[] = [];
+  for (const q of questions as any[]) {
+    const gde = `${gdeBank} → ${q.id}`;
+    const r = kuskiSSverkoy(q as unknown as Block, gde);
+    kuski.push(...r.kuski);
+    // Поле outcome служебное: оно повторяет итог урока и ученику не показывается.
+    poteryano.push(...r.poteryano.filter((s) => s !== q.outcome).map((s) => `${gde}: ${s}`));
+  }
+  return { kuski, poteryano };
+}
+
 /** Только задания: нужно проверкам, которые смотрят на требуемое от ученика. */
 export function zadaniyaModulya(mod: Module): Block[] {
   const out: Block[] = [];

@@ -313,6 +313,37 @@ function sPodskazkami(text: string): string {
  * Каждая буква уходит звуком, между ними тот же короткий перерыв, что и в
  * диктанте: это одно слово по буквам, а не сравнение разных букв.
  */
+/**
+ * РЯД БУКВ ЧЕРЕЗ ЗАПЯТУЮ ВНУТРИ ДЛИННОЙ ЗАПИСИ.
+ *
+ * ЗАЧЕМ. 5 сентября 2026 владелец попросил ставить в записях запятые вместо
+ * дефисов: «дефис синтез читает слитно». Просьбу исполнили — и тогда же
+ * выяснилось, что образец, по которому буква отдаётся синтезу ЗВУКОМ, требует,
+ * чтобы рядом букв была ВСЯ запись целиком (`ryadBukv`). Для отдельной записи
+ * `C, A, T.` это верно, и её починили.
+ *
+ * А 6 сентября то же самое всплыло в третий раз, с новой стороны: сборщик
+ * работы части 1 написал запись `— Good evening. I am Hugo Ball. B, A, L, L.
+ * Your surname, please? — Bell. B, E, L, L.` Тут ряд букв стоит ВНУТРИ реплики,
+ * `ryadBukv` даёт `false`, а `bukvyCherezDefis` ловит только дефис. Значит буквы
+ * ушли бы синтезу простым текстом, и одиночная `A` прочлась бы безударным
+ * артиклем — ровно то, на что владелец жаловался.
+ *
+ * Нашёл сборщик прогоном обоих образцов, а не чтением: то же место в прошлый раз
+ * было объявлено рабочим «по чтению похожей ветки», и это оказалось неверно.
+ *
+ * Перерыв между буквами тот же короткий, что и в диктовке через дефис: это одно
+ * слово по буквам, а не сравнение разных букв.
+ */
+function bukvyCherezZapyatuyu(text: string): string {
+  return text.replace(/(?<![A-Za-z])([A-Za-z](?:,\s+[A-Za-z])+)(?![A-Za-z])/g, (ryad) =>
+    ryad
+      .split(/,\s+/)
+      .map((b) => bukvaVsluh(b))
+      .join('<break time="250ms"/>')
+  );
+}
+
 function bukvyCherezDefis(text: string): string {
   return text.replace(/(?<![A-Za-z-])([A-Za-z](?:-[A-Za-z])+)(?![A-Za-z-])/g, (ryad) =>
     ryad
@@ -521,7 +552,9 @@ function ssmlObychnyy(z: Zapis): string {
   const chasti = repliki(z.text, z.dvaGolosa, z.muzhskoyPervym)
     .map((r) => {
       const telo = znakiPrepinaniya(
-        tireVnutriRepliki(sPodskazkami(bukvyCherezDefis(ekran(r.text))))
+        tireVnutriRepliki(
+          sPodskazkami(bukvyCherezZapyatuyu(bukvyCherezDefis(ekran(r.text))))
+        )
       );
       const sTempom = z.temp === "slow" ? `<prosody rate="-25%">${telo}</prosody>` : telo;
       return `<voice name="${r.golos}">${sTempom}</voice>`;

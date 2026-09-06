@@ -185,9 +185,6 @@ function mezhduRabotami(): void {
    * Правило проекта: проверке на близнецов нельзя верить, пока модуль не
    * дописан, — а значит она обязана сама сказать, чего не считала.
    */
-  const zaglushka = (t: string): boolean =>
-    t.includes("ПИШЕТ МЕТОДИСТ") || t.includes("ПИШЕТ РЕДАКТОР");
-
   const vse: Array<{ modul: string; q: any }> = [];
   const propushcheno = new Map<string, number>();
   for (const m of kurs.modules as Module[]) {
@@ -281,6 +278,22 @@ function mezhduRabotami(): void {
   }
 }
 
+/**
+ * Незаполненная заглушка вместо условия.
+ *
+ * Проверке на близнецов нельзя верить, пока модуль не дописан: она покажет
+ * совпадение ЗАГЛУШЕК, то есть однообразие рыбы, а не текста. Правило записано
+ * в CLAUDE.md, и поблажка на него стояла ЗДЕСЬ ЖЕ — но только в одной ветке из
+ * трёх, в сверке работ между собой.
+ *
+ * Нашёл сборщик работы части 1 — 6 сентября 2026: сверка работы с уроками дала
+ * ему близнеца на 45%, и совпадала там его же заглушка. То есть каждый новый
+ * банк получал ложную находку, пока редактор не написал текст.
+ */
+const zaglushka = (t: string): boolean =>
+  t.includes("ПИШЕТ МЕТОДИСТ") || t.includes("ПИШЕТ РЕДАКТОР");
+
+let propushchenoZaglushek = 0;
 let vsego = 0;
 let zamolchalo = 0;
 const vse: Array<{ modul: string; voprosov: number; nahodki: Array<{ sila: number; dolya: number; text: string }> }> = [];
@@ -298,6 +311,10 @@ for (const bank of banki()) {
   const nahodki: Array<{ sila: number; dolya: number; text: string }> = [];
 
   for (const q of voprosy) {
+    if (zaglushka(String(q.prompt ?? ""))) {
+      propushchenoZaglushek += 1;
+      continue;
+    }
     // ПАРТНЁР ВЫБИРАЕТСЯ ПО СИЛЕ ПРИЗНАКА, А НЕ ПО ДОЛЕ СЛОВ.
     //
     // Первая редакция брала задание с наибольшей долей общих слов и сверяла
@@ -447,7 +464,11 @@ let citat = 0;
 const citaty: Array<{ dlina: number; text: string }> = [];
 
 for (const bank of banki()) {
-  const voprosy = bank.voprosy;
+  const voprosy = bank.voprosy.filter((q: any) => {
+    if (!zaglushka(String(q.prompt ?? ""))) return true;
+    propushchenoZaglushek += 1;
+    return false;
+  });
   if (!voprosy.length) continue;
 
   /*
@@ -542,6 +563,12 @@ if (citaty.length) {
 console.log("\n=== Вопросы работ, повторяющие друг друга");
 mezhduRabotami();
 
+if (propushchenoZaglushek) {
+  console.log(
+    `\nВопросов с незаполненным условием пропущено: ${propushchenoZaglushek}. ` +
+      `Их сверка не касалась вовсе — позвать снова, когда заглушки напишут.`
+  );
+}
 console.log(`\nБлизнецов: ${vsego}. Разобрано раньше и потому пропущено: ${zamolchalo}.`);
 if (citat) console.log(`Из них цитирующих урочный материал: ${citat}.`);
 console.log(
