@@ -1219,3 +1219,14 @@
   font-size: var(--step-1);
   letter-spacing: 0;
 }
+
+/* Несколько значков в ряд — там, где картинка называет число.
+   Решение владельца от 6 сентября 2026: «Чини». Ряд переносится по ширине:
+   четыре чашки на телефоне должны быть видны все четыре, а не уехать за край. */
+.znachkiRyadom {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 2px;
+  justify-content: center;
+  align-items: center;
+}

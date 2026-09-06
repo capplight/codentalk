@@ -39,6 +39,42 @@ const SETKA_KAK_NACHAT = "Нажимай буквы слова по порядк
 const SETKA_KAK_DALSHE =
   "Нажимай следующие буквы этого слова. Слово будет найдено на последней букве.";
 
+/**
+ * Значок, нарисованный столько раз, сколько названо.
+ *
+ * Решение владельца от 6 сентября 2026: «Чини». Страница ставила один значок
+ * там, где условие говорило «на столе четыре чашки», и ученик читал одно, а
+ * видел другое. На счёте держится целый модуль «Один и много».
+ */
+function Znachki({
+  kod,
+  skolko = 1,
+  storona,
+  klass,
+}: {
+  kod: string;
+  skolko?: number;
+  storona: number;
+  klass: string;
+}) {
+  const skolkoRaz = Math.max(1, Math.min(10, Math.round(skolko)));
+  const znachki = Array.from({ length: skolkoRaz }, (_, i) => (
+    // eslint-disable-next-line @next/next/no-img-element
+    <img
+      key={i}
+      className={klass}
+      src={`/twemoji/${kod}.svg`}
+      alt=""
+      width={storona}
+      height={storona}
+    />
+  ));
+  // Один значок остаётся ровно тем, чем был, — без обёртки: так не меняется
+  // ни одно из мест, где картинка уже стоит.
+  if (skolkoRaz === 1) return znachki[0];
+  return <span className={s.znachkiRyadom}>{znachki}</span>;
+}
+
 type Status = "idle" | "right" | "wrong" | "shown";
 
 export default function TaskCard({
@@ -206,13 +242,11 @@ export default function TaskCard({
         в угадывание слова по подсказке.
       */}
       {task.znak && (
-        // eslint-disable-next-line @next/next/no-img-element
-        <img
-          className={s.kartinkaZadaniya}
-          src={`/twemoji/${task.znak}.svg`}
-          alt=""
-          width={72}
-          height={72}
+        <Znachki
+          kod={task.znak}
+          skolko={task.znakov}
+          storona={72}
+          klass={s.kartinkaZadaniya}
         />
       )}
 
@@ -252,13 +286,11 @@ export default function TaskCard({
                   // Картинка не заменяет слово, а стоит над ним: ученик выбирает
                   // вещь, но читает и её название — иначе задание перестаёт быть
                   // языковым.
-                  // eslint-disable-next-line @next/next/no-img-element
-                  <img
-                    className={s.znakVarianta}
-                    src={`/twemoji/${option.znak}.svg`}
-                    alt=""
-                    width={44}
-                    height={44}
+                  <Znachki
+                    kod={option.znak}
+                    skolko={option.znakov}
+                    storona={44}
+                    klass={s.znakVarianta}
                   />
                 )}
                 {option.text}

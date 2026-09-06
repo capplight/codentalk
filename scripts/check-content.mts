@@ -1417,7 +1417,7 @@ function checkTretyeLitsoPriOtveteNaYou(lesson: any, where: string): void {
   }
 }
 
-function checkLesson(lesson: Lesson, where: string): void {
+function checkLesson(lesson: Lesson, where: string, course?: Course): void {
   if (blank(lesson.outcome)) {
     fail(where, "нет итога урока — нечего проверять проверочной работой");
   }
@@ -1467,14 +1467,74 @@ function checkLesson(lesson: Lesson, where: string): void {
     (b, i) => !isTask(b) && b.kind === "table" && b.naTomZheEkrane && i > 0
   ).length;
   const materials = lesson.blocks.length - tasks.length - slitye;
-  const expected = Math.round(materials * 1 + tasks.length * 1.5);
-  if (lesson.estimatedMinutes < 8 || lesson.estimatedMinutes > 15) {
+  /*
+   * ЦЕНА ЭКРАНА В ПОШАГОВОМ КУРСЕ ДРУГАЯ, И ЭТО НЕ ПОБЛАЖКА.
+   *
+   * Прежняя оценка — минута на блок материала, полторы на задание — сложилась
+   * на курсах, где урок был ОДНОЙ страницей: объяснение там идёт абзацами, и
+   * блок держит целую мысль с примерами. В пошаговом формате «один экран — одна
+   * мысль», и блок стал вчетверо мельче: правило одной строкой и два примера
+   * читаются секунд за двадцать.
+   *
+   * Прогон 6 сентября 2026 показал цену ошибки прямо: проверка объявляла
+   * вопросом два десятка уроков нового курса подряд, требуя написать 20 минут
+   * там, где автор честно написал 12. То есть кричала на правильное — а скрипт,
+   * который кричит на правильное, перестают читать.
+   *
+   * Полминуты на экран материала и минута на задание — это ровно то, что
+   * получается из чисел самого курса, и совпадает с решением владельца «пиши по
+   * факту».
+   */
+  const shagami = course?.format === "shagi";
+  const expected = shagami
+    ? Math.round(materials * 0.5 + tasks.length * 1)
+    : Math.round(materials * 1 + tasks.length * 1.5);
+  /*
+   * ДЛИНА УРОКА — ОРИЕНТИР, А НЕ ТРЕБОВАНИЕ. Решение владельца от 6 сентября
+   * 2026, дословно: «пиши по факту, не надо искусственно удлинять или
+   * укорачивать». До того дня проверка звала вопросом всякий урок длиннее
+   * пятнадцати минут — то есть кричала на правильное, а скрипт, кричащий на
+   * правильное, перестают читать.
+   *
+   * Осторожно, ориентир — не отмена. Тем же ответом сказано: «слишком маленькие
+   * уроки тоже не надо». Урок короче шести минут остаётся вопросом: там и
+   * правда не о чем говорить.
+   */
+  if (lesson.estimatedMinutes < 6) {
     warn(
       where,
-      `указано ${lesson.estimatedMinutes} минут, формат рассчитан на 8–15: длинный урок лучше разделить`
+      `указано ${lesson.estimatedMinutes} минут — это слишком короткий урок. ` +
+        "Норма 8–15 минут ориентир, но владелец сказал прямо: «слишком маленькие " +
+        "уроки тоже не надо»"
     );
   }
-  if (Math.abs(lesson.estimatedMinutes - expected) > 5) {
+  /*
+   * ДЛИННЫЙ УРОК НЕ НАЗЫВАЕТСЯ ВОВСЕ, и это решение, а не пропуск. «Пиши по
+   * факту, не надо искусственно удлинять или укорачивать» — значит урок на
+   * восемнадцать минут не беда, и спрашивать о нём каждый прогон незачем.
+   * Согласованность оценки с составом урока ловит проверка ниже, и она честнее:
+   * она сравнивает число с содержанием, а не с меркой.
+   */
+  /*
+   * РАСХОЖДЕНИЕ С ЧИСЛОМ БЛОКОВ ОСТАЁТСЯ ВОПРОСОМ, и это не то же самое, что
+   * длина. Здесь проверяется не мерка, а СОГЛАСОВАННОСТЬ: оценка, разошедшаяся
+   * с составом урока на пять минут, обычно значит, что её не пересчитали после
+   * правки. Ученику она видна — стоит на карточке урока.
+   */
+  /*
+   * И СПРАШИВАЕТСЯ ЭТО ТОЛЬКО У УРОКОВ ПРАВИЛ — в пошаговом курсе.
+   *
+   * У уроков умений число блоков не говорит о времени ничего. Текст для чтения
+   * — ОДИН блок, а читают его три минуты; запись — один блок, а слушают её
+   * дважды и разбирают. Прогон 6 сентября 2026: проверка обещала уроку чтения
+   * четыре минуты при честных двенадцати и делала так двадцать раз подряд.
+   *
+   * У уроков правил блоки однородны — правило, пример, задание, — и там счёт
+   * работает. Ради чего он и заведён: поймать оценку, которую не пересчитали
+   * после правки.
+   */
+  const schitatMinuty = !shagami || vidUroka(lesson) === "pravila";
+  if (schitatMinuty && Math.abs(lesson.estimatedMinutes - expected) > 5) {
     warn(
       where,
       `указано ${lesson.estimatedMinutes} минут, по числу блоков выходит около ${expected}`
@@ -1889,7 +1949,7 @@ function checkModule(course: Course, mod: Module, where: string): void {
   for (const lesson of mod.lessons) {
     if (lessonSlugs.has(lesson.slug)) fail(where, `имя урока «${lesson.slug}» повторяется`);
     lessonSlugs.add(lesson.slug);
-    checkLesson(lesson, `${where} → ${lesson.slug}`);
+    checkLesson(lesson, `${where} → ${lesson.slug}`, course);
     checkOtvetNeStoitVyshe(lesson, `${where} → ${lesson.slug}`);
     checkVozvrat(course, mod, lesson, `${where} → ${lesson.slug}`);
   }
@@ -3674,6 +3734,45 @@ function checkGolosPoImeni(course: Course): void {
   }
 }
 
+/**
+ * СКОЛЬКО РАЗ РИСУЕТСЯ ЗНАЧОК — число должно быть считаемым.
+ *
+ * Поле `znakov` заведено 6 сентября 2026 по решению владельца «Чини»: страница
+ * ставила один значок там, где условие говорило «на столе четыре чашки». Но
+ * картинка, врущая о числе, чинится не любым числом: ряд из двенадцати чашек на
+ * телефоне не сосчитать глазом, и ученик снова увидит не то, что прочитал.
+ *
+ * Десять — не круглое число ради круглоты: ступень считает до десяти, и всё,
+ * что больше, курс ученику назвать пока не умеет.
+ */
+function checkZnakov(course: Course): void {
+  const smotret = (znak: unknown, znakov: unknown, gde: string, chto: string): void => {
+    if (znakov === undefined) return;
+    const n = Number(znakov);
+    if (!znak) {
+      fail(gde, `${chto}: сказано рисовать значок ${n} раз, а самого значка нет`);
+      return;
+    }
+    if (!Number.isInteger(n) || n < 1 || n > 10) {
+      fail(gde, `${chto}: значков ${n} — считаемое число это от 1 до 10`);
+    }
+  };
+  for (const mod of course.modules) {
+    for (const lesson of mod.lessons) {
+      const gde = `${course.slug} → ${mod.slug} → ${lesson.slug}`;
+      for (const b of lesson.blocks as any[]) {
+        smotret(b.znak, b.znakov, gde, `блок \`${b.id}\``);
+        for (const o of b.options ?? []) {
+          smotret(o.znak, o.znakov, gde, `вариант «${o.text}» задания \`${b.id}\``);
+        }
+        for (const it of b.items ?? []) {
+          smotret(it.znak, it.znakov, gde, `карточка «${it.term}»`);
+        }
+      }
+    }
+  }
+}
+
 function checkVstuplenie(course: Course): void {
   if (course.format !== "shagi") return;
   for (const mod of course.modules) {
@@ -3791,6 +3890,7 @@ for (const course of courses) {
   checkVidUroka(course);
   checkGolosaZapisey(course);
   checkGolosPoImeni(course);
+  checkZnakov(course);
   checkAnagrammaDvusmyslennaya(course);
   checkSetkaLishnie(course);
   checkVstuplenie(course);
