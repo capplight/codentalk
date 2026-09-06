@@ -3066,6 +3066,45 @@ function checkVidUroka(course: Course): void {
  */
 const METKA_REDAKTORA = "ПИШЕТ РЕДАКТОР";
 
+/**
+ * Две заглушки модуля, говорящие дословно одно и то же.
+ *
+ * Замечанием, не ошибкой: заглушки законно совпадают рамкой («условие. Скажи,
+ * что…» у каждого `speak`), и кричать на это нельзя.
+ *
+ * ЗАЧЕМ ЭТО НУЖНО. Заглушка — сжатый пересказ будущего текста, и пишет редактор
+ * ПО НЕЙ. Значит совпали заглушки — совпадут и тексты: близнец виден за круг до
+ * того, как появится. Нашёл сборщик модуля 4 в собственной сборке — подсказка
+ * задания урока и подсказка вопроса работы вышли дословно одинаковыми, потому
+ * что предмет у них один.
+ *
+ * У `gap` и `short` это вообще единственный механический признак близнеца:
+ * `npm run bliznetsy` там молчит по устройству — рамку задаёт сам вид задания.
+ *
+ * Сравниваем целиком и дословно. Мерка нарочно грубая: похожие заглушки бывают
+ * у похожих случаев, а вот дословно совпавшие пишутся об одном предмете.
+ */
+function checkZaglushkiBliznetsy(course: Course): void {
+  for (const mod of course.modules) {
+    const gde = new Map<string, string[]>();
+    for (const lesson of mod.lessons) {
+      for (const kusok of kuskiUroka(mod, lesson).kuski) {
+        if (!kusok.text.includes(METKA_REDAKTORA)) continue;
+        const klyuch = kusok.text.replace(/\s+/g, " ").trim();
+        if (!gde.has(klyuch)) gde.set(klyuch, []);
+        gde.get(klyuch)!.push(`${lesson.slug} (${kusok.rol})`);
+      }
+    }
+    for (const [text, mesta] of gde) {
+      if (mesta.length < 2) continue;
+      warnings.push(
+        `${course.slug} → ${mod.slug}: одна заглушка стоит в ${mesta.length} местах — ` +
+          `тексты редактора выйдут близнецами:\n      ${mesta.join("\n      ")}\n      «${text.slice(0, 80)}»`
+      );
+    }
+  }
+}
+
 function checkZaglushki(course: Course): void {
   for (const mod of course.modules) {
     for (const lesson of mod.lessons) {
@@ -3359,6 +3398,7 @@ for (const course of courses) {
   checkSetkaLishnie(course);
   checkVstuplenie(course);
   checkZaglushki(course);
+  checkZaglushkiBliznetsy(course);
   checkGdeNetZvuka(course);
 }
 
