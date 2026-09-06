@@ -3858,7 +3858,6 @@ const modul: Module = {
           "Сэм спросил Энн: Where are you from? Энн родом из Анкары. Запиши её ответ.",
         answer: "I am from Ankara.",
         accept: ["I'm from Ankara."],
-        hint: "Энн отвечает о себе, а не о ком-то другом.",
         why:
           "I am from Ankara. Энн говорит о себе, поэтому стоят I и am, а перед названием " +
           "города стоит from.",
@@ -3889,7 +3888,6 @@ const modul: Module = {
           { text: " · " },
           { text: "Lucy is in a hotel.", selectable: true, correct: true },
         ],
-        hint: "Смотри на слово перед названием и на то, о ком строка, о человеке или о доме.",
         why:
           "Верны строки I am in Astana. и Lucy is in a hotel. В обеих перед названием стоит " +
           "in, и обе говорят о человеке. Строка со словом from говорит, откуда человек " +
@@ -3918,7 +3916,6 @@ const modul: Module = {
           "I am in Madrid. My home's in Rome.",
           "I'm in Madrid. My home's in Rome.",
         ],
-        hint: "Первая строка о тебе, а вторая о доме.",
         why:
           "I am in Madrid. My home is in Rome. Обе строки построены одинаково, и перед " +
           "названием в обеих стоит in. Различает их начало, потому что первая строка о " +
@@ -3942,7 +3939,6 @@ const modul: Module = {
         prompt: "Собери английскую строку со смыслом «Бен в аэропорту».",
         items: ["airport", "Ben", "an", "in", "is"],
         answer: [1, 4, 3, 2, 0],
-        hint: "Перед словом, которое начинается с гласного звука, у артикля вторая запись.",
         why:
           "Ben is in an airport. Слово airport начинается с гласного звука, и потому перед " +
           "ним стоит an, а не a.",
@@ -3972,7 +3968,6 @@ const modul: Module = {
           "о такси говорят впервые",
         ],
         answer: [2, 0, 1],
-        hint: "Смотри, знает ли собеседник, о каком предмете речь.",
         why:
           "В строке Ben is in a taxi. о такси говорят впервые, и потому стоит a. В строке " +
           "The taxi is here. речь о том же такси, и собеседник уже знает, о каком. Столица " +
@@ -3997,7 +3992,6 @@ const modul: Module = {
         left: ["Are you from Spain?", "Is he from Spain?", "Is she in Astana?"],
         right: ["Yes, she is.", "Yes, I am.", "Yes, he is."],
         answer: [1, 2, 0],
-        hint: "В коротком ответе повторяют того, о ком спросили, и форму be.",
         why:
           "Yes, I am. отвечает о себе, Yes, he is. о нём, а Yes, she is. о ней. Пары " +
           "разводит форма be, а не то, что человек ответил.",
@@ -4035,7 +4029,6 @@ const modul: Module = {
           "Rome. Запиши её ответ без ошибки.",
         answer: "No, I am not.",
         accept: ["No, I'm not.", "No, I am not from Rome.", "No, I'm not from Rome."],
-        hint: "Потеряна форма be.",
         why:
           "No, I am not. После слова No стоит тот, о ком речь, потом форма be, потом not. " +
           "У Энн формы be нет, и потому её запись надо поправить.",
@@ -4061,7 +4054,6 @@ const modul: Module = {
           { text: " · " },
           { text: "Where is the park?", selectable: true },
         ],
-        hint: "Разницу задаёт последнее слово вопроса.",
         why:
           "Отмечены Where is Ann from? и Where are you from?, и обе кончаются словом from. " +
           "Вопрос Where are you? спрашивает, где человек сейчас, а Where is the park? " +
@@ -4112,7 +4104,6 @@ const modul: Module = {
           "The zoo is here. Откуда Джилл родом? Ответь одним словом.",
         answer: "France",
         accept: ["From France."],
-        hint: "Страну она называет сразу после того, как назвала себя.",
         why:
           "France. Джилл называет и страну, и деревню, и взять легко не то. Перед France " +
           "стоит from, значит родом Джилл оттуда, а в деревне она сейчас.",
@@ -4130,9 +4121,6 @@ const modul: Module = {
           "The zoo is here. Где Джилл сейчас? Ответь одним словом.",
         answer: "village",
         accept: ["a village", "In a village.", "in a village"],
-        hint:
-          "Джилл пишет и про свою страну, и про место, где она сейчас. Спрашивают про " +
-          "второе.",
         why:
           "village. Спрашивают о том, где Джилл находится в эту минуту. Она пишет I am in " +
           "a village, а значит она в деревне. Францию Джилл называет потому, что оттуда " +
@@ -4154,7 +4142,6 @@ const modul: Module = {
         prompt: "Послушай запись. Откуда Мэтт родом? Ответь одним словом.",
         answer: "Rome",
         accept: ["From Rome."],
-        hint: "Слушай фразу, которая идёт сразу за именем.",
         why:
           "Rome. В записи звучит: I am from Rome. Названо не то место, где Мэтт сейчас, а " +
           "то, откуда он родом.",
@@ -4192,7 +4179,6 @@ const modul: Module = {
           "I'm Alex. I am from Ankara. I'm in Madrid.",
           "I am Alex. I'm from Ankara. I'm in Madrid.",
         ],
-        hint: "Сначала имя, потом откуда родом, потом где сейчас.",
         why:
           "I am Alex. I am from Ankara. I am in Madrid. Каждая строка начинается со слов I " +
           "am, а различает их то, что стоит дальше. Во второй перед названием стоит from, а " +
