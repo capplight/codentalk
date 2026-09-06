@@ -1990,6 +1990,44 @@ function checkQuiz(quiz: Quiz, quizWhere: string, rules: QuizRules): void {
   }
 }
 
+/**
+ * Положение верного ответа в заданиях УРОКОВ модуля.
+ *
+ * Замечанием, не ошибкой: в уроке заданий выбора бывает три-четыре, и на такой
+ * горстке равномерности требовать нельзя — она сложилась бы случайно.
+ * Смотрим по модулю целиком и говорим только о крайности: верный вариант стоит
+ * на одном и том же месте ВЕЗДЕ.
+ *
+ * ЗАЧЕМ. Давняя проверка `checkPositionBalance` считает положение верного ответа
+ * ТОЛЬКО в банке вопросов работы. Задания уроков в этот счёт не входили вовсе, и
+ * 6 сентября 2026 редактор модуля 3 нашёл руками, что там **восемь заданий
+ * выбора и во всех восьми верный вариант первый**. В работе того же модуля
+ * заданий выбора нет ни одного — значит и старая проверка молчала бы.
+ *
+ * Порода известная и дорогая: однажды во всех двадцати вопросах теста верный
+ * ответ стоял первым, и тест проходился нажатием первой кнопки.
+ */
+function checkMestoVernogoVUrokah(course: Course): void {
+  for (const mod of course.modules) {
+    const mesta: number[] = [];
+    for (const lesson of mod.lessons) {
+      for (const block of lesson.blocks) {
+        if (!isTask(block) || block.kind !== "choice") continue;
+        const i = block.options.findIndex((o) => o.correct);
+        if (i >= 0) mesta.push(i);
+      }
+    }
+    if (mesta.length < 4) continue;
+    const odno = mesta.every((m) => m === mesta[0]);
+    if (!odno) continue;
+    warnings.push(
+      `${course.slug} → ${mod.slug}: во всех ${mesta.length} заданиях выбора ` +
+        `верный вариант стоит на месте ${mesta[0] + 1} — задания проходятся ` +
+        `нажатием одной и той же кнопки`
+    );
+  }
+}
+
 // ---------------------------------------------------------------------------
 
 /**
@@ -3452,6 +3490,7 @@ for (const course of courses) {
   checkZaglushki(course);
   checkZaglushkiBliznetsy(course);
   checkSsylkaNomerom(course);
+  checkMestoVernogoVUrokah(course);
   checkGdeNetZvuka(course);
 }
 
