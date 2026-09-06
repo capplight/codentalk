@@ -32,6 +32,7 @@
  */
 import { courses } from "../courses/index.ts";
 import { isTask, type Block, type Module } from "../lib/content/types.ts";
+import { razgovorVStroke } from "../lib/content/zvuk.ts";
 
 const kursSlug = process.argv[2] && !process.argv[2].startsWith("--") ? process.argv[2] : undefined;
 const pokazatChego = process.argv.includes("--chego");
@@ -82,6 +83,44 @@ interface Schyot {
   ssylki: number;
   /** Одна и та же строка, переведённая в модуле двумя разными способами. */
   raznoboy: number;
+  /** Английская строка ВНУТРИ объяснения или врезки, у которой русского нет вовсе. */
+  golye: number;
+}
+
+/**
+ * Английская строка внутри объяснения или врезки, у которой русского нет рядом.
+ *
+ * ЗАЧЕМ ЭТО ЗАВЕДЕНО — 7 сентября 2026. Второй редактор принимал модуль 9 и
+ * нашёл двенадцать таких строк: `Is the box big? — Yes, it is.`,
+ * `What colour is it? — Red.` и ещё десять. **Шесть экранов урока 3 шли без
+ * единого русского слова рядом с английским.**
+ *
+ * А `npm run perevody` показывал 100 %. И показывал верно — по своему вопросу:
+ * он считает строки ПРИМЕРОВ, у которых есть поле `perevod`, а эти лежат внутри
+ * `explain`, где такого поля нет вовсе. Проверка отвечала на свой вопрос, а не
+ * на мой, — порода, которой проект дорожит с тех пор, как «порода снята» из
+ * чистого отчёта однажды не вывелась.
+ *
+ * ЧИНИТСЯ ЭТО НЕ ПОЛЕМ, А ПЕРЕПИСЫВАНИЕМ: у объяснения перевода нет и не будет,
+ * значит строку разводят надвое, как это делает модуль 7, — вопрос отдельной
+ * строкой с русским рядом, ответ отдельной. Потому здесь сведения, а не ошибка.
+ *
+ * ПАРЫ СЮДА НЕ СЧИТАЮТСЯ. `fourteen — forty`, `work — worked`, `G — J` перевода
+ * не получают по давнему правилу редактора: перевод выводится через тире и с
+ * их собственным тире слился бы. Отличает пару от разговора `razgovorVStroke`:
+ * у разговора перед тире стоит знак конца предложения.
+ */
+function goloyStrokoy(t: string): boolean {
+  const s = t.trim();
+  if (!/[A-Za-z]/.test(s)) return false;
+  if (/[А-Яа-яЁё]/.test(s)) return false;
+  // Транскрипция, одиночное слово, ряд букв — не строка.
+  if (/^\/[^/]+\/$/.test(s)) return false;
+  const bezTire = s.replace(/^—\s*/, "");
+  if (bezTire.split(/\s+/).filter(Boolean).length <= 1) return false;
+  // Пара со своим тире — законно без перевода; разговор — нет.
+  if (/\s—\s/.test(s) && !razgovorVStroke(s)) return false;
+  return true;
 }
 
 /** Строки примера: у примера они разделены переводом строки. */
@@ -155,7 +194,7 @@ function nachatObobshcheniem(perv: string): boolean {
 }
 
 function razobrat(m: Module, chego: string[]): Schyot {
-  const s: Schyot = { strok: 0, sPerevodom: 0, ssylki: 0, raznoboy: 0 };
+  const s: Schyot = { strok: 0, sPerevodom: 0, ssylki: 0, raznoboy: 0, golye: 0 };
   // Разнобой ищется ВНУТРИ модуля, а не по курсу: между модулями одна строка
   // законно переводится по-разному, потому что стоит в разных сценах.
   const vstrechalos = new Map<string, string>();
@@ -187,6 +226,18 @@ function razobrat(m: Module, chego: string[]): Schyot {
         }
       }
 
+      // Английская строка внутри объяснения или врезки без русского рядом.
+      if (b.kind === "explain" || b.kind === "note") {
+        for (const t of b.text) {
+          if (!goloyStrokoy(t)) continue;
+          s.golye += 1;
+          chego.push(
+            `${m.slug} · ${lesson.slug} · ${b.kind === "note" ? "врезка" : "объяснение"} ` +
+              `${b.id}: русского рядом нет — ${t.trim()}`
+          );
+        }
+      }
+
       // Ссылки ищем во всём видимом тексте блока, кроме заданий.
       const vidimoe: string[] = [];
       if (b.kind === "explain") vidimoe.push(...b.text);
@@ -203,7 +254,7 @@ for (const course of courses) {
   if (kursSlug && course.slug !== kursSlug) continue;
 
   const chego: string[] = [];
-  const itog: Schyot = { strok: 0, sPerevodom: 0, ssylki: 0, raznoboy: 0 };
+  const itog: Schyot = { strok: 0, sPerevodom: 0, ssylki: 0, raznoboy: 0, golye: 0 };
   const poModulyam: Array<[string, Schyot]> = [];
 
   for (const m of course.modules) {
@@ -213,6 +264,7 @@ for (const course of courses) {
     itog.sPerevodom += s.sPerevodom;
     itog.ssylki += s.ssylki;
     itog.raznoboy += s.raznoboy;
+    itog.golye += s.golye;
   }
 
   const dolya = itog.strok ? Math.round((itog.sPerevodom / itog.strok) * 100) : 100;
@@ -221,6 +273,10 @@ for (const course of courses) {
   console.log(`Из них с переводом рядом:    ${itog.sPerevodom} (${dolya}%)`);
   console.log(`Ссылок на другие модули:     ${itog.ssylki}`);
   console.log(`Строк с двумя переводами:    ${itog.raznoboy}`);
+  console.log(
+    `Голых строк в объяснениях:   ${itog.golye}` +
+      ` (сведения: английское без русского рядом; чинится разводом надвое)`
+  );
 
   // Четвёртое число: уроки правил, начатые обобщением, а не сценой.
   const obobshcheniya: string[] = [];
