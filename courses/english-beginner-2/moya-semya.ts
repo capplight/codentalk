@@ -2120,6 +2120,14 @@ const modul: Module = {
             "Ким написал: My mother, my father and my sister are my family. Запиши ту же " +
             "строку, но вместо всех троих поставь одно слово.",
           answer: "They are my family.",
+          /*
+           * КРАТКАЯ ЗАПИСЬ ФОРМЫ be ПРИНИМАЕТСЯ — уговор 8.4
+           * (`docs/beginner-2/stil-obyasneniy.md`). Урок её не разбирал, но
+           * ученик мог прийти с ней откуда угодно, и наказывать за правоту
+           * нельзя. Разбор при этом краткую запись не называет: `accept`
+           * служит ученику, а разбор учит.
+           */
+          accept: ["They're my family."],
           hint: "Перечисление уходит целиком, а конец строки остаётся прежним.",
           why:
             "They are my family. Одно слово they встаёт вместо всех троих, а форма are и " +
@@ -2159,6 +2167,8 @@ const modul: Module = {
             "Дана говорит о себе и о своей сестре. Запиши по-английски, что они сёстры, и " +
             "начни строку с We.",
           answer: "We are sisters.",
+          // Краткая запись формы be — уговор 8.4.
+          accept: ["We're sisters."],
           /*
            * ОСТОРОЖНО С ПОДСКАЗКОЙ: слов «множественное число» здесь быть не
            * может — `check:content` справедливо ловит их как термин, которого
@@ -2398,8 +2408,8 @@ const modul: Module = {
           text: [
             "Название занятия годится и о нём, и о ней",
             "По-русски у многих занятий два слова, «певец» и «певица», «писатель» и " +
-              "«писательница». По-английски название занятия одно на оба случая. О ком идёт " +
-              "речь, показывает стоящее рядом слово о человеке, и так же устроено слово " +
+              "«писательница». По-английски название занятия одно на оба случая, а о ком " +
+              "речь, показывает стоящее рядом слово о человеке. Так же устроено слово " +
               "friend в уроке «Мама и папа: my mother and my father».",
             "My mother is a doctor. — Моя мама врач.",
             "My father is a doctor. — Мой папа врач.",
@@ -2660,6 +2670,8 @@ const modul: Module = {
           kind: "short",
           prompt: "Запиши по-английски «мой дедушка водитель».",
           answer: "My grandfather is a driver.",
+          // Краткая запись формы be — уговор 8.4.
+          accept: ["My grandfather's a driver."],
           hint: "В русской строке два слова, а в английской их будет больше.",
           why:
             "My grandfather is a driver. После слова о дедушке стоит is, а перед названием " +
@@ -2680,6 +2692,8 @@ const modul: Module = {
             "Под фотографией написано: My brother: a waiter. Запиши то же самое целой " +
             "строкой.",
           answer: "My brother is a waiter.",
+          // Краткая запись формы be — уговор 8.4.
+          accept: ["My brother's a waiter."],
           hint: "Двоеточие в целой строке не нужно, а на его месте встаёт слово.",
           why: "My brother is a waiter. Двоеточие уходит, а на его место встаёт is.",
         },
@@ -2704,8 +2718,7 @@ const modul: Module = {
           /*
            * T8 (экран 19). СТУПЕНЬ «ПРИМЕНИТЬ», закрытое задание. Опора —
            * случаи 5 и 6.
-           */
-          /*
+           *
            * ИМЕНИ В УСЛОВИИ НЕТ, И ЭТО ПРАВКА РЕДАКТОРА 6 сентября 2026.
            * Заглушка говорила «Ким написал о родителях — они оба повара», а
            * таблица людей (замысел, раздел 0.5) закрепляет за матерью Кима
@@ -3096,19 +3109,28 @@ const modul: Module = {
            * ЭТО ОБРАТНЫЙ ХОД СОЕДИНЕНИЮ, И ВЗЯТ ОН НАРОЧНО: соединение двух
            * готовых строк — действие вопроса 5 работы модуля, и повторять его в
            * уроке нельзя.
-           */
-          id: "t3-razdelit-stroku-na-dve",
-          kind: "short",
-          /*
+           *
            * ИМЕНИ В УСЛОВИИ НЕТ — правка редактора 6 сентября 2026 по той же
            * причине, что у задания 8 урока «Кто они». Заглушка говорила «Ким
            * написал», а двоюродный брат Кима по таблице людей — Сэм, `a
            * farmer`, и строка `My cousin is a waiter` спорила бы с ней.
            */
+          id: "t3-razdelit-stroku-na-dve",
+          kind: "short",
           prompt:
             "В этой строке соединены две половины: My cousin is a waiter and my neighbour " +
             "is a worker. Запиши их двумя отдельными строками.",
           answer: "My cousin is a waiter. My neighbour is a worker.",
+          /*
+           * ВСЕ СМЕСИ ПОЛНОЙ И КРАТКОЙ ЗАПИСИ — уговор 8.4, пункт 2: ответ из
+           * двух фраз, и форма be стоит в обеих. Пара «обе полные» и «обе
+           * краткие» смешанных записей не закрывает, а они верны.
+           */
+          accept: [
+            "My cousin's a waiter. My neighbour's a worker.",
+            "My cousin's a waiter. My neighbour is a worker.",
+            "My cousin is a waiter. My neighbour's a worker.",
+          ],
           hint: "Соединявшее слово уходит, а на его месте появляется знак.",
           why:
             "My cousin is a waiter. My neighbour is a worker. Слово and уходит, на его " +
@@ -3162,6 +3184,12 @@ const modul: Module = {
           prompt:
             "Запиши по-английски «Мой двоюродный брат повар, а моя тётя художница».",
           answer: "My cousin is a cook and my aunt is an artist.",
+          // Все смеси полной и краткой записи — уговор 8.4, пункт 2.
+          accept: [
+            "My cousin's a cook and my aunt's an artist.",
+            "My cousin's a cook and my aunt is an artist.",
+            "My cousin is a cook and my aunt's an artist.",
+          ],
           hint:
             "Русское «а» соединяет здесь половины тем же словом, что и перечисление. А во " +
             "второй половине проверь, с какого звука начинается название занятия.",
@@ -3198,6 +3226,12 @@ const modul: Module = {
             "Вот строка из двух половин: My brother is an actor and my sister is a writer. " +
             "Поменяй половины местами и запиши строку заново.",
           answer: "My sister is a writer and my brother is an actor.",
+          // Все смеси полной и краткой записи — уговор 8.4, пункт 2.
+          accept: [
+            "My sister's a writer and my brother's an actor.",
+            "My sister's a writer and my brother is an actor.",
+            "My sister is a writer and my brother's an actor.",
+          ],
           hint: "Слово and остаётся на месте, а половины меняются местами целиком.",
           why:
             "My sister is a writer and my brother is an actor. Половины равны, и от " +
