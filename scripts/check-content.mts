@@ -30,10 +30,16 @@ import {
   adresSlova,
   adresVoprosa,
   adresYacheyki,
+  raskladkaGolosov,
+  razgovorLi,
+  razgovorVStroke,
+  repliki,
   zvuchashchee,
 } from "../lib/content/zvuk.ts";
 import { nayti } from "../lib/content/vozvrat.ts";
 import { bedySetki, lishnieSlova, mestaSlova } from "../lib/content/setka.ts";
+import { POL_IMEN, ktoGovorit } from "../lib/content/imena.ts";
+import type { Golos } from "../lib/content/zvuk.ts";
 import { kuskiUroka } from "./vidimoe.mts";
 import { resheno } from "../courses/resheno.ts";
 import { courses } from "../courses/index.ts";
@@ -3573,6 +3579,101 @@ function checkGolosaZapisey(course: Course): void {
   }
 }
 
+/**
+ * ГОЛОС РЕПЛИКИ СХОДИТСЯ С ПОЛОМ ТОГО, КТО ГОВОРИТ.
+ *
+ * Решение владельца от 6 сентября 2026: «женские имена с женским голосом,
+ * мужские с мужским». Голос назначает раскладка реплик, а не имя, — вывести
+ * говорящего из текста машина не может. Но ОДИН случай однозначен: реплика, в
+ * которой человек называет САМ СЕБЯ («I am Dana», «My name is Kim»). Его и
+ * проверяем.
+ *
+ * ЗАЧЕМ ЭТО ВООБЩЕ НУЖНА МАШИНА. Порядок голосов до этого дня не входил в имя
+ * файла, и ни `check:content`, ни `ozvuchka` о нём не говорили ничего: они
+ * видят, что файл есть, а не что в нём звучит. Проверялось только слухом, и на
+ * этой породе проект обжигался трижды.
+ *
+ * Заодно проверяется длина `golosa`: короче или длиннее числа реплик значит,
+ * что реплики переписали, а голоса остались от прежней сцены.
+ */
+function checkGolosPoImeni(course: Course): void {
+  /*
+   * В ЗАМОРОЖЕННЫХ КУРСАХ ЭТО СВЕДЕНИЯ, А НЕ ОШИБКА — и не по снисходительности.
+   * Решение владельца от 5 сентября 2026: `english-starter` и
+   * `english-elementary` не чинятся и не переделываются, они доживают, пока
+   * новый курс их не заменит. А красный отчёт по ним мешает увидеть новое —
+   * ровно то, ради чего проверки по ним всё равно гоняются.
+   *
+   * Найдено при первом же прогоне: девять реплик, где мужчина говорит «I'm
+   * Dana», а женщина — «I'm Alim». Чинится это полем и переозвучкой, и если
+   * владелец захочет — работа на полчаса.
+   */
+  const skazat = course.format === "shagi" ? fail : warn;
+  const razobrat = (
+    text: string,
+    dvaGolosa: boolean,
+    blok: { golosa?: Golos[]; pervyyGolos?: Golos },
+    gde: string,
+    chto: string
+  ): void => {
+    if (!dvaGolosa) return;
+    const chasti = repliki(text, true, raskladkaGolosov(blok));
+
+    if (blok.golosa && blok.golosa.length !== chasti.length) {
+      skazat(
+        gde,
+        `${chto}: голосов названо ${blok.golosa.length}, а реплик ${chasti.length}. ` +
+          "Недостающие возьмут чередование — а это и значит, что голоса остались " +
+          "от прежней сцены"
+      );
+    }
+
+    for (const [i, replika] of chasti.entries()) {
+      const imya = ktoGovorit(replika.text);
+      if (!imya) continue;
+      const pol = POL_IMEN[imya];
+      // Имени нет в таблице или пол не решён — молчим. «Не нашёл» никогда не
+      // становится «нет»: спорные имена решает владелец как преподаватель.
+      if (!pol || pol === "ne-resheno") continue;
+      if (pol === replika.golos) continue;
+      skazat(
+        gde,
+        `${chto}: реплика ${i + 1} «${replika.text}» — говорит ${imya}, имя ` +
+          `${pol === "zhenskiy" ? "женское" : "мужское"}, а читает её ` +
+          `${replika.golos === "zhenskiy" ? "женский" : "мужской"} голос. ` +
+          "Чинится полем `golosa` или `pervyyGolos`"
+      );
+    }
+  };
+
+  for (const mod of course.modules) {
+    for (const lesson of mod.lessons) {
+      const gde = `${course.slug} → ${mod.slug} → ${lesson.slug}`;
+      for (const b of lesson.blocks as any[]) {
+        if (b.kind === "audio") {
+          razobrat(b.transcript ?? "", Boolean(b.voice), b, gde, `запись \`${b.id}\``);
+          continue;
+        }
+        if (b.kind === "example" && b.razgovor && b.text) {
+          razobrat(b.text, true, b, gde, `пример \`${b.id}\``);
+        }
+        for (const chto of Object.values(zvuchashchee(b))) {
+          razobrat(chto, razgovorVStroke(chto), b, gde, `строка «${chto}»`);
+        }
+        if (isTask(b) && b.zvuk) {
+          razobrat(b.zvuk, razgovorLi(b.zvuk), b, gde, `запись задания \`${b.id}\``);
+        }
+      }
+      const bank = (mod as any).quiz?.questions ?? [];
+      for (const v of bank as any[]) {
+        if (!v.zvuk) continue;
+        razobrat(v.zvuk, razgovorLi(v.zvuk), v, `${course.slug} → ${mod.slug} → работа`,
+          `вопрос \`${v.id}\``);
+      }
+    }
+  }
+}
+
 function checkVstuplenie(course: Course): void {
   if (course.format !== "shagi") return;
   for (const mod of course.modules) {
@@ -3689,6 +3790,7 @@ for (const course of courses) {
   checkZnachki(course);
   checkVidUroka(course);
   checkGolosaZapisey(course);
+  checkGolosPoImeni(course);
   checkAnagrammaDvusmyslennaya(course);
   checkSetkaLishnie(course);
   checkVstuplenie(course);

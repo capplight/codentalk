@@ -11,6 +11,7 @@ import {
   adresRazgovora,
   adresSlova,
   adresYacheyki,
+  raskladkaGolosov,
   zvuchashchee,
 } from "@/lib/content/zvuk";
 import Rasshifrovka from "./Rasshifrovka";
@@ -26,7 +27,8 @@ import s from "./lesson.module.css";
 function lines(
   text: string,
   zvuk?: Record<string, string>,
-  perevod?: Record<string, string>
+  perevod?: Record<string, string>,
+  raskladka = ""
 ) {
   return text.split("\n").map((line, i) =>
     line.trim() === "" ? (
@@ -37,7 +39,10 @@ function lines(
             ученик слышит ровно то, на что смотрит. Решение владельца от
             19 августа. */}
         {zvuk?.[line.trim()] && (
-          <Zvuk src={adresYacheyki(zvuk[line.trim()])} chto={zvuk[line.trim()]} />
+          <Zvuk
+            src={adresYacheyki(zvuk[line.trim()], raskladka)}
+            chto={zvuk[line.trim()]}
+          />
         )}
         {line}
         {/* Перевод — рядом со строкой, а не под примером. Ученик читает
@@ -70,7 +75,11 @@ export default function Material({ block }: { block: MaterialBlock }) {
               {/* Разговор звучит целиком и на два голоса: он должен звучать
                   разговором, а не одним длинным предложением. */}
               {block.razgovor && block.text && (
-                <Zvuk src={adresRazgovora(block.text)} chto={block.caption} vid="stroka" />
+                <Zvuk
+                  src={adresRazgovora(block.text, raskladkaGolosov(block))}
+                  chto={block.caption}
+                  vid="stroka"
+                />
               )}
               {block.caption}
             </span>
@@ -83,7 +92,7 @@ export default function Material({ block }: { block: MaterialBlock }) {
               прав: читать такое нельзя. */}
           {block.text && (
             <div className={s.exampleText}>
-              {lines(block.text, zvuchashchee(block), block.perevod)}
+              {lines(block.text, zvuchashchee(block), block.perevod, raskladkaGolosov(block))}
             </div>
           )}
           <p className={s.exampleExplain}>{block.explain}</p>
@@ -116,7 +125,7 @@ export default function Material({ block }: { block: MaterialBlock }) {
                     return (
                       <td key={j}>
                         {zvuchit && (
-                          <Zvuk src={adresYacheyki(zvuchit)} chto={zvuchit} />
+                          <Zvuk src={adresYacheyki(zvuchit, raskladkaGolosov(block))} chto={zvuchit} />
                         )}
                         {cell}
                       </td>

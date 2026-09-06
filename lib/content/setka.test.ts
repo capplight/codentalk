@@ -1,6 +1,13 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { bedySetki, mestaSlova, vydelenie, yacheykiSlova } from "./setka.ts";
+import {
+  bedySetki,
+  bukvyYacheek,
+  mestaSlova,
+  mozhnoDobavit,
+  OBRAZEC_SETKI,
+  yacheykiSlova,
+} from "./setka.ts";
 import { checkAnswer } from "./check.ts";
 import type { TaskBlock } from "./types.ts";
 
@@ -35,15 +42,45 @@ test("ячейки слова считаются номерами по всей 
   assert.deepEqual(yacheykiSlova(POLE, mestaSlova(POLE, "COW")[0]), [0, 5, 10]);
 });
 
-test("выделение читается слева направо, с какого бы конца ни начали", () => {
-  assert.equal(vydelenie(POLE, 0, 2), "CAT");
-  // Ученик нажал последнюю букву первой — слово всё равно то же.
-  assert.equal(vydelenie(POLE, 2, 0), "CAT");
-  assert.equal(vydelenie(POLE, 10, 0), "COW");
+/*
+ * ОТМЕЧАЮТСЯ ВСЕ БУКВЫ — решение владельца от 6 сентября 2026. Прежняя пара
+ * испытаний проверяла `vydelenie()`: ученик нажимал первую ячейку и последнюю.
+ * Функция снята вместе со способом, и испытания её ушли за ней — мёртвый
+ * экспорт с живым тестом выглядит работающим устройством.
+ */
+
+test("буква добавляется только вправо или вниз и только вплотную", () => {
+  // Пусто — годится любая ячейка: это начало слова.
+  assert.equal(mozhnoDobavit(POLE, [], 0), true);
+  assert.equal(mozhnoDobavit(POLE, [0], 1), true); // вправо
+  assert.equal(mozhnoDobavit(POLE, [0], 5), true); // вниз
+  assert.equal(mozhnoDobavit(POLE, [1], 0), false); // назад
+  assert.equal(mozhnoDobavit(POLE, [0], 6), false); // наискось
+  assert.equal(mozhnoDobavit(POLE, [0], 2), false); // через клетку
+  assert.equal(mozhnoDobavit(POLE, [0], 0), false); // та же ячейка дважды
 });
 
-test("выделение наискось не засчитывается", () => {
-  assert.equal(vydelenie(POLE, 0, 6), null);
+test("направление задают две первые буквы, и дальше оно держится", () => {
+  // Пошли вправо — вниз свернуть уже нельзя.
+  assert.equal(mozhnoDobavit(POLE, [0, 1], 2), true);
+  assert.equal(mozhnoDobavit(POLE, [0, 1], 6), false);
+  // Пошли вниз — вправо нельзя.
+  assert.equal(mozhnoDobavit(POLE, [0, 5], 10), true);
+  assert.equal(mozhnoDobavit(POLE, [0, 5], 6), false);
+});
+
+test("буквы отмеченных ячеек читаются в порядке нажатий", () => {
+  assert.equal(bukvyYacheek(POLE, [0, 1, 2]), "CAT");
+  assert.equal(bukvyYacheek(POLE, [0, 5, 10]), "COW");
+  assert.equal(bukvyYacheek(POLE, []), "");
+});
+
+test("образец над полем и правда показывает два слова", () => {
+  // Испытание не украшение: образец нарисован от руки, и ошибка в номерах
+  // ячеек дала бы ученику картинку, где отмечено не слово.
+  assert.equal(bukvyYacheek(OBRAZEC_SETKI.stroki, OBRAZEC_SETKI.poStroke), "CAT");
+  assert.equal(bukvyYacheek(OBRAZEC_SETKI.stroki, OBRAZEC_SETKI.poStolbcu), "CUP");
+  assert.deepEqual(bedySetki(OBRAZEC_SETKI.stroki, ["CAT", "CUP"]), []);
 });
 
 test("беды сетки называются, а не молчат", () => {

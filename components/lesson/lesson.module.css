@@ -1041,9 +1041,19 @@
   margin-top: 12px;
 }
 
+/* КЛЕТКИ СТОЯТ ВПЛОТНУЮ — решение владельца от 6 сентября 2026: «нужно чтобы
+   вот эти вертикальные линии с буквами и горизонтально друг с другом сблизились,
+   а то между ними расстояние и ппц как трудно найти слово».
+
+   Прежде между ячейками было 4 пикселя, и у каждой своя рамка: глаз собирал
+   поле из отдельных кнопок, а не из строк и столбцов. Теперь линия одна и
+   общая — её рисует фон поля, проступая в шов шириной в пиксель. */
 .setkaPole {
   display: grid;
-  gap: 4px;
+  gap: 1px;
+  background: var(--line);
+  padding: 1px;
+  border-radius: var(--radius-s);
   justify-content: center;
   margin: 0 auto;
   /* Поле шире экрана телефона прокручивается внутри себя, а не тянет страницу
@@ -1060,8 +1070,10 @@
   height: 2.2rem;
   display: grid;
   place-items: center;
-  border: 1px solid var(--line);
-  border-radius: var(--radius-s);
+  /* Рамки у ячейки нет: шов рисует фон поля. Своя рамка вернула бы двойную
+     линию и тот самый зазор, из-за которого слово не собиралось глазом. */
+  border: none;
+  border-radius: 0;
   background: var(--surface);
   color: var(--ink);
   cursor: pointer;
@@ -1085,14 +1097,13 @@
 /* Начало выделения: ученик уже нажал первую букву и ищет последнюю. */
 .yacheykaNachalo {
   background: var(--accent-soft);
-  border-color: var(--accent);
   color: var(--accent-ink);
+  font-weight: 600;
 }
 
 /* Найденное слово остаётся видимым до конца задания: оно и есть ответ. */
 .yacheykaNaydena {
   background: var(--good-soft);
-  border-color: var(--good);
   color: var(--good);
   font-weight: 600;
 }
@@ -1139,6 +1150,52 @@
   margin: 10px 0 0;
   text-align: center;
   font-size: var(--step--1);
+  color: var(--ink-soft);
+}
+
+/* ОБРАЗЕЦ НАД ПОЛЕМ — та же просьба владельца: «сверху был пример правильного
+   ответа и горизонтально и вертикально… картина может быть небольшая».
+
+   Два поля 3×3 рядом. Ячейка тут не кнопка: нажимать образец нечем и незачем,
+   поэтому это `span`, и весь блок скрыт от чтения вслух (`aria-hidden`) —
+   слушающему его пересказывает подпись под ним. */
+.setkaObrazec {
+  display: flex;
+  gap: 18px;
+  justify-content: center;
+  margin-bottom: 8px;
+}
+
+.setkaObrazecPole {
+  display: grid;
+  gap: 1px;
+  background: var(--line);
+  padding: 1px;
+  border-radius: var(--radius-s);
+}
+
+.setkaObrazecYacheyka {
+  font-family: var(--font-mono);
+  font-size: var(--step--2);
+  line-height: 1;
+  width: 1.35rem;
+  height: 1.35rem;
+  display: grid;
+  place-items: center;
+  background: var(--surface);
+  color: var(--ink-soft);
+}
+
+.setkaObrazecOtmechena {
+  background: var(--good-soft);
+  color: var(--good);
+  font-weight: 600;
+}
+
+.setkaObrazecPodpis {
+  margin: 0 0 14px;
+  text-align: center;
+  font-size: var(--step--2);
   color: var(--ink-soft);
 }
 

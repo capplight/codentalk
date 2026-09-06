@@ -75,32 +75,6 @@ export function yacheykiSlova(stroki: string[], mesto: MestoSlova): number[] {
 }
 
 /**
- * Что ученик выделил: он нажимает первую и последнюю ячейку слова.
- *
- * Выделение засчитывается только прямое — по строке или по столбцу; наискось
- * даёт `null`. И читается оно всегда в ту сторону, в какую пишут: выделив
- * слово с конца, ученик получает те же буквы в том же порядке, а не задом
- * наперёд. Иначе задание наказывало бы за порядок нажатий, а не за незнание.
- */
-export function vydelenie(stroki: string[], ot: number, do_: number): string | null {
-  const w = shirina(stroki);
-  if (w === 0) return null;
-  const a = { r: Math.floor(ot / w), c: ot % w };
-  const b = { r: Math.floor(do_ / w), c: do_ % w };
-  if (a.r !== b.r && a.c !== b.c) return null;
-
-  const shagi = Math.max(Math.abs(a.r - b.r), Math.abs(a.c - b.c));
-  const nachalo = a.r > b.r || a.c > b.c ? b : a;
-  const vniz = a.c === b.c && shagi > 0;
-
-  let slovo = "";
-  for (let n = 0; n <= shagi; n += 1) {
-    slovo += bukva(stroki, vniz ? nachalo.r + n : nachalo.r, vniz ? nachalo.c : nachalo.c + n);
-  }
-  return slovo;
-}
-
-/**
  * Беды сетки, которые ученик увидел бы заданием без ответа.
  *
  * Возвращает список готовых строк — их печатает `check:content`. Пусто — сетка
@@ -174,3 +148,83 @@ export function lishnieSlova(stroki: string[], slova: string[], slovar: string[]
   }
   return [...lishnie].sort();
 }
+
+/* ------------------------------------------------------------------------ */
+/*  ОТМЕЧАЮТСЯ ВСЕ БУКВЫ СЛОВА — решение владельца от 6 сентября 2026.        */
+/* ------------------------------------------------------------------------ */
+/*
+ * Дословно: «пусть ученик выбирает не первую и вторую букву, пусть выбирает
+ * все буквы в слове и при нажатии последней буквы ответ будет засчитан, так
+ * лучше запомнится».
+ *
+ * Прежний способ — нажать первую ячейку и последнюю — считал `vydelenie()`.
+ * Она остаётся: по ней собран `yacheykiSlova` и обе проверки. Меняется то, что
+ * делает РУКА ученика, и потому здесь заведены две новые чистые функции.
+ *
+ * НАПРАВЛЕНИЕ ТОЛЬКО ВПЕРЁД — вправо или вниз. Слова в сетке лежат так же (см.
+ * шапку файла), и обратный ход означал бы, что ученик собирает слово с конца.
+ */
+
+/**
+ * Можно ли добавить ячейку к уже отмеченным.
+ *
+ * Пусто — можно любую: это начало слова. Дальше ячейка обязана стоять вплотную
+ * к последней и продолжать то же направление, которое задали две первые.
+ */
+export function mozhnoDobavit(stroki: string[], otmecheny: number[], yacheyka: number): boolean {
+  const w = shirina(stroki);
+  if (w === 0) return false;
+  if (yacheyka < 0 || yacheyka >= stroki.length * w) return false;
+  if (otmecheny.length === 0) return true;
+  if (otmecheny.includes(yacheyka)) return false;
+
+  const gde = (n: number) => ({ r: Math.floor(n / w), c: n % w });
+  const posledn = gde(otmecheny[otmecheny.length - 1]);
+  const novaya = gde(yacheyka);
+
+  const vpravo = novaya.r === posledn.r && novaya.c === posledn.c + 1;
+  const vniz = novaya.c === posledn.c && novaya.r === posledn.r + 1;
+  if (!vpravo && !vniz) return false;
+
+  // Две первые ячейки задают направление, третья и дальше обязаны его держать.
+  if (otmecheny.length === 1) return true;
+  const pervaya = gde(otmecheny[0]);
+  const vtoraya = gde(otmecheny[1]);
+  return vtoraya.r === pervaya.r ? vpravo : vniz;
+}
+
+/** Буквы отмеченных ячеек подряд, заглавными. Порядок — тот, в каком нажимали. */
+export function bukvyYacheek(stroki: string[], otmecheny: number[]): string {
+  const w = shirina(stroki);
+  return otmecheny.map((n) => bukva(stroki, Math.floor(n / w), n % w)).join("");
+}
+
+/**
+ * ОБРАЗЕЦ НАД ПОЛЕМ — вторая половина того же решения владельца: «еще надо
+ * чтобы сверху был пример правильного ответа и горизонтально и вертикально.
+ * одна картина где правильно выбраны два слова вертикально и горизонтально.
+ * картина может быть небольшая».
+ *
+ * Образец один на весь курс и лежит здесь, а не в уроке, нарочно: он говорит о
+ * ТОМ, КАК НАЖИМАТЬ, а не о предмете урока. Урок, который завёл бы свой,
+ * показал бы ученику вторую правду о том же.
+ *
+ * СЛОВА ВЗЯТЫ ЧУЖИЕ СПЕЦИАЛЬНО. `CAT` и `CUP` не ищутся ни в одной из четырёх
+ * сеток курса (проверено по коду: там `FORM`, `COUNTRY`, `ADDRESS`, `EMAIL`,
+ * `PASSPORT`, `THIRTEEN`, `THIRTY`, `TABLE`, `WALL`, `DESK`, `CHAIR`, `COOK`,
+ * `NURSE`, `ACTOR`, `DRIVER`, `SINGER`). Образец, показавший искомое слово,
+ * был бы ответом.
+ */
+export interface ObrazecSetki {
+  stroki: string[];
+  /** Ячейки слова, лежащего по строке. */
+  poStroke: number[];
+  /** Ячейки слова, лежащего по столбцу. */
+  poStolbcu: number[];
+}
+
+export const OBRAZEC_SETKI: ObrazecSetki = {
+  stroki: ["CAT", "UKX", "PMR"],
+  poStroke: [0, 1, 2],
+  poStolbcu: [0, 3, 6],
+};

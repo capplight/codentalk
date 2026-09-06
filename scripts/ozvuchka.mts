@@ -34,7 +34,8 @@ config({ quiet: true });
 
 const { courses } = await import("../courses/index.ts");
 const { isTask } = await import("../lib/content/types.ts");
-const { klyuchZvuka, razgovorLi, zvuchashchee } = await import("../lib/content/zvuk.ts");
+const { klyuchZvuka, raskladkaGolosov, razgovorLi, razgovorVStroke, repliki, zvuchashchee } =
+  await import("../lib/content/zvuk.ts");
 const { PROIZNOSHENIE } = await import("../lib/content/proiznoshenie.ts");
 const { chtenieBukvy } = await import("../lib/content/nazvaniya-bukv.ts");
 
@@ -66,8 +67,16 @@ interface Zapis {
   text: string;
   temp: TempZvuka;
   dvaGolosa: boolean;
-  /** Мужской голос читает первую реплику. Пусто — первой читает женский. */
-  muzhskoyPervym?: boolean;
+  /**
+   * Раскладка голосов строкой: `"m"` — мужской читает первую реплику и дальше
+   * чередование; `"zmm"` — голос каждой реплики по порядку. Пусто — обычное
+   * чередование с женского.
+   *
+   * Считает её `raskladkaGolosov()` из `lib/content/zvuk.ts` — там же, где она
+   * входит в ключ записи. Одна точка нарочно: разойдись они, и озвучка писала
+   * бы файл под именем, которого страница не спросит.
+   */
+  raskladka: string;
   /** Откуда взялось — для отчёта и разбора. */
   otkuda: string;
 }
@@ -96,11 +105,11 @@ function sobratOpis(): Zapis[] {
             const dvaGolosa = Boolean(block.voice);
             dobavit({
               rod: "blok",
-              klyuch: klyuchZvuka(block.transcript, temp, dvaGolosa),
+              klyuch: klyuchZvuka(block.transcript, temp, dvaGolosa, raskladkaGolosov(block)),
               text: block.transcript,
               temp,
               dvaGolosa,
-              muzhskoyPervym: block.pervyyGolos === "muzhskoy",
+              raskladka: raskladkaGolosov(block),
               otkuda: `${gde} · ${block.id}`,
             });
             continue;
@@ -112,21 +121,29 @@ function sobratOpis(): Zapis[] {
             if (block.razgovor && block.text) {
               dobavit({
                 rod: "blok",
-                klyuch: klyuchZvuka(block.text, "slow", true),
+                klyuch: klyuchZvuka(block.text, "slow", true, raskladkaGolosov(block)),
                 text: block.text,
                 temp: "slow",
                 dvaGolosa: true,
-                muzhskoyPervym: block.pervyyGolos === "muzhskoy",
+                raskladka: raskladkaGolosov(block),
                 otkuda: `${gde} · пример ${block.id}`,
               });
             }
             for (const chto of Object.values(zvuchashchee(block))) {
+              // ДВА ГОЛОСА У СТРОКИ ВНУТРИ ОБЪЯСНЕНИЯ, ВРЕЗКИ И ТАБЛИЦЫ —
+              // решение владельца от 6 сентября 2026: «нам нужно два голоса,
+              // переделывай». Признак разговора считает `razgovorVStroke()`, и
+              // он НЕ тот же, что у записей: тире в такой строке чаще значит
+              // пару (`work — worked`), а не смену говорящего.
+              const razgovor = razgovorVStroke(chto);
+              const raskladka = razgovor ? raskladkaGolosov(block) : "";
               dobavit({
                 rod: "slovo",
-                klyuch: klyuchZvuka(chto, "slow"),
+                klyuch: klyuchZvuka(chto, "slow", razgovor, raskladka),
                 text: chto,
                 temp: "slow",
-                dvaGolosa: false,
+                dvaGolosa: razgovor,
+                raskladka,
                 otkuda: `${gde} · пример ${block.id}`,
               });
             }
@@ -135,12 +152,20 @@ function sobratOpis(): Zapis[] {
 
           if (block.kind === "table") {
             for (const chto of Object.values(zvuchashchee(block))) {
+              // ДВА ГОЛОСА У СТРОКИ ВНУТРИ ОБЪЯСНЕНИЯ, ВРЕЗКИ И ТАБЛИЦЫ —
+              // решение владельца от 6 сентября 2026: «нам нужно два голоса,
+              // переделывай». Признак разговора считает `razgovorVStroke()`, и
+              // он НЕ тот же, что у записей: тире в такой строке чаще значит
+              // пару (`work — worked`), а не смену говорящего.
+              const razgovor = razgovorVStroke(chto);
+              const raskladka = razgovor ? raskladkaGolosov(block) : "";
               dobavit({
                 rod: "slovo",
-                klyuch: klyuchZvuka(chto, "slow"),
+                klyuch: klyuchZvuka(chto, "slow", razgovor, raskladka),
                 text: chto,
                 temp: "slow",
-                dvaGolosa: false,
+                dvaGolosa: razgovor,
+                raskladka,
                 otkuda: `${gde} · таблица ${block.id}`,
               });
             }
@@ -153,12 +178,20 @@ function sobratOpis(): Zapis[] {
           // читает, а не отдельным экраном с таблицей.
           if (block.kind === "explain" || block.kind === "note") {
             for (const chto of Object.values(zvuchashchee(block))) {
+              // ДВА ГОЛОСА У СТРОКИ ВНУТРИ ОБЪЯСНЕНИЯ, ВРЕЗКИ И ТАБЛИЦЫ —
+              // решение владельца от 6 сентября 2026: «нам нужно два голоса,
+              // переделывай». Признак разговора считает `razgovorVStroke()`, и
+              // он НЕ тот же, что у записей: тире в такой строке чаще значит
+              // пару (`work — worked`), а не смену говорящего.
+              const razgovor = razgovorVStroke(chto);
+              const raskladka = razgovor ? raskladkaGolosov(block) : "";
               dobavit({
                 rod: "slovo",
-                klyuch: klyuchZvuka(chto, "slow"),
+                klyuch: klyuchZvuka(chto, "slow", razgovor, raskladka),
                 text: chto,
                 temp: "slow",
-                dvaGolosa: false,
+                dvaGolosa: razgovor,
+                raskladka,
                 otkuda: `${gde} · ${block.kind === "note" ? "врезка" : "объяснение"} ${block.id}`,
               });
             }
@@ -173,6 +206,7 @@ function sobratOpis(): Zapis[] {
                 text: item.term,
                 temp: "slow",
                 dvaGolosa: false,
+                raskladka: "",
                 otkuda: `${gde} · словарь`,
               });
             }
@@ -186,6 +220,7 @@ function sobratOpis(): Zapis[] {
               text: block.phrase,
               temp: "slow",
               dvaGolosa: false,
+              raskladka: "",
               otkuda: `${gde} · ${block.id}`,
             });
           }
@@ -195,11 +230,11 @@ function sobratOpis(): Zapis[] {
             const dvaGolosa = razgovorLi(block.zvuk);
             dobavit({
               rod: "vopros",
-              klyuch: klyuchZvuka(block.zvuk, "slow", dvaGolosa),
+              klyuch: klyuchZvuka(block.zvuk, "slow", dvaGolosa, raskladkaGolosov(block)),
               text: block.zvuk,
               temp: "slow",
               dvaGolosa,
-              muzhskoyPervym: (block as any).pervyyGolos === "muzhskoy",
+              raskladka: raskladkaGolosov(block),
               otkuda: `${gde} · ${block.id}`,
             });
           }
@@ -212,11 +247,11 @@ function sobratOpis(): Zapis[] {
         const dvaGolosa = razgovorLi(vopros.zvuk);
         dobavit({
           rod: "vopros",
-          klyuch: klyuchZvuka(vopros.zvuk, "slow", dvaGolosa),
+          klyuch: klyuchZvuka(vopros.zvuk, "slow", dvaGolosa, raskladkaGolosov(vopros)),
           text: vopros.zvuk,
           temp: "slow",
           dvaGolosa,
-          muzhskoyPervym: (vopros as any).pervyyGolos === "muzhskoy",
+          raskladka: raskladkaGolosov(vopros),
           otkuda: `${course.slug}/${module.slug} · работа · ${vopros.id}`,
         });
       }
@@ -228,11 +263,11 @@ function sobratOpis(): Zapis[] {
       const dvaGolosa = razgovorLi(vopros.zvuk);
       dobavit({
         rod: "vopros",
-        klyuch: klyuchZvuka(vopros.zvuk, "slow", dvaGolosa),
+        klyuch: klyuchZvuka(vopros.zvuk, "slow", dvaGolosa, raskladkaGolosov(vopros)),
         text: vopros.zvuk,
         temp: "slow",
         dvaGolosa,
-          muzhskoyPervym: (vopros as any).pervyyGolos === "muzhskoy",
+          raskladka: raskladkaGolosov(vopros),
         otkuda: `${course.slug} · экзамен · ${vopros.id}`,
       });
     }
@@ -250,11 +285,11 @@ function sobratOpis(): Zapis[] {
         const dvaGolosa = razgovorLi(vopros.zvuk);
         dobavit({
           rod: "vopros",
-          klyuch: klyuchZvuka(vopros.zvuk, "slow", dvaGolosa),
+          klyuch: klyuchZvuka(vopros.zvuk, "slow", dvaGolosa, raskladkaGolosov(vopros)),
           text: vopros.zvuk,
           temp: "slow",
           dvaGolosa,
-          muzhskoyPervym: (vopros as any).pervyyGolos === "muzhskoy",
+          raskladka: raskladkaGolosov(vopros),
           otkuda: `${course.slug} · часть ${part.slug} · ${vopros.id}`,
         });
       }
@@ -384,58 +419,13 @@ function znakiPrepinaniya(text: string): string {
     .replace(/,(\s+)/g, `,<break time="${PAUZA_ZAPYATAYA}ms"/>`);
 }
 
-/**
- * Разговор делится на реплики, голоса чередуются.
- *
- * ГРАНИЦ ДВЕ, И ЭТО НЕ ИЗЛИШЕСТВО. Записи `audio` и вопросы работ пишут разговор
- * одной строкой, а реплики разводят тире с пробелами: «Are you a teacher? — No,
- * I'm not.». Примеры уроков (`razgovor: true`) устроены иначе — там реплика на
- * строку, и тире между ними нет вовсе.
- *
- * Пока граница была одна, второй случай молча падал в один голос: тире не
- * находилось, `chasti.length < 2`, и весь разговор читался одним человеком.
- * Проверить это было нечем — имя файла считается от текста и не зависит от
- * числа голосов, поэтому и запись была на месте, и отчёты чисты. Нашлось при
- * написании модуля 19: таких разговоров по курсу **128**, из них 123 на уже
- * выложенных ступенях.
- *
- * Перевод строки пробуем первым: он точнее. Тире внутри реплики бывает и
- * законным («G — J» — пара букв), а перевод строки в примере значит ровно смену
- * говорящего.
+/*
+ * РАЗБОР РАЗГОВОРА НА РЕПЛИКИ ПЕРЕЕХАЛ В `lib/content/zvuk.ts` — 6 сентября
+ * 2026. Он решает, ЧТО СЛЫШНО, а всё, что решает это, живёт там: иначе правило
+ * знают двое и однажды разойдутся. Заодно он стал испытуемым: пока функция
+ * жила в скрипте с верхнеуровневым `await`, её нельзя было позвать из теста, и
+ * раскладка голосов проверялась только слухом.
  */
-function repliki(
-  text: string,
-  dvaGolosa: boolean,
-  muzhskoyPervym = false
-): { golos: string; text: string }[] {
-  // Кто читает чётные реплики, кто нечётные. По умолчанию первой — женский:
-  // так собраны все прежние разговоры курса.
-  const pervyy = muzhskoyPervym ? VTOROY : PERVYY;
-  const vtoroy = muzhskoyPervym ? PERVYY : VTOROY;
-  if (!dvaGolosa) return [{ golos: PERVYY, text }];
-  const poStrokam = text
-    .split("\n")
-    .map((s) => s.trim())
-    // Знак говорящего в начале строки звучать не должен — как и в ветке ниже.
-    .map((s) => s.replace(/^—\s*/, ""))
-    .filter(Boolean);
-  if (poStrokam.length >= 2) {
-    return poStrokam.map((chast, i) => ({
-      golos: i % 2 === 0 ? pervyy : vtoroy,
-      text: chast,
-    }));
-  }
-  const chasti = text
-    .split(/\s+—\s+/)
-    .map((s) => s.trim())
-    // Первая реплика записана с тире в начале строки, и разделитель его не
-    // съедает: перед ним нет пробела. Убираем сами — знак говорящего звучать
-    // не должен.
-    .map((s) => s.replace(/^—\s*/, ""))
-    .filter(Boolean);
-  if (chasti.length < 2) return [{ golos: PERVYY, text }];
-  return chasti.map((chast, i) => ({ golos: i % 2 === 0 ? pervyy : vtoroy, text: chast }));
-}
 
 /**
  * Одиночная латинская буква читается как ИМЯ буквы, а не как слово.
@@ -553,7 +543,7 @@ function ssml(z: Zapis): string {
 }
 
 function ssmlObychnyy(z: Zapis): string {
-  const chasti = repliki(z.text, z.dvaGolosa, z.muzhskoyPervym)
+  const chasti = repliki(z.text, z.dvaGolosa, z.raskladka)
     .map((r) => {
       const telo = znakiPrepinaniya(
         tireVnutriRepliki(
@@ -561,7 +551,10 @@ function ssmlObychnyy(z: Zapis): string {
         )
       );
       const sTempom = z.temp === "slow" ? `<prosody rate="-25%">${telo}</prosody>` : telo;
-      return `<voice name="${r.golos}">${sTempom}</voice>`;
+      // Имена голосов Azure знает только скрипт: библиотека говорит
+      // «женский» и «мужской», а какой это голос — забота записи.
+      const golos = r.golos === "muzhskoy" ? VTOROY : PERVYY;
+      return `<voice name="${golos}">${sTempom}</voice>`;
     })
     .join("");
   return `<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-GB">${chasti}</speak>`;

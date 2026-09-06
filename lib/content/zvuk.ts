@@ -36,12 +36,51 @@ function otpechatok(stroka: string): string {
 }
 
 /**
- * Ключ записи: всё, что слышно. Текст, темп и признак разговора на два голоса.
- * Голоса перечислять незачем — какой именно голос читает, решает скрипт, и
- * менять его без переозвучки всё равно нельзя.
+ * Голос реплики. Больше двух в курсе не бывает: у Azure взяты два британских.
  */
-export function klyuchZvuka(text: string, temp: TempZvuka, dvaGolosa = false): string {
-  return otpechatok(`${temp}|${dvaGolosa ? "2" : "1"}|${text.trim()}`);
+export type Golos = "zhenskiy" | "muzhskoy";
+
+/**
+ * Ключ записи: всё, что слышно. Текст, темп, признак разговора на два голоса и
+ * РАСКЛАДКА голосов, если она не обычная.
+ *
+ * ЗАЧЕМ РАСКЛАДКА ПОПАЛА В КЛЮЧ — 6 сентября 2026. Прежняя запись здесь
+ * говорила: «Голоса перечислять незачем — какой именно голос читает, решает
+ * скрипт». Это было верно, пока голос решало одно чередование. С того дня
+ * владелец велел давать женским именам женский голос, а мужским мужской, и у
+ * реплики появилось своё поле. Значит один и тот же текст с разной раскладкой —
+ * ДВЕ разные записи, и общее имя файла столкнуло бы их: озвучка переписывала бы
+ * один файл двумя записями по кругу, а ученик слышал бы то одно, то другое.
+ *
+ * ПУСТАЯ РАСКЛАДКА НЕ ВХОДИТ В КЛЮЧ НАРОЧНО. Так имена всех записей, собранных
+ * до этого дня, остаются прежними, и переозвучивать курс целиком не нужно.
+ * Меняются имена только у тех, кто раскладку объявил.
+ */
+export function klyuchZvuka(
+  text: string,
+  temp: TempZvuka,
+  dvaGolosa = false,
+  raskladka = ""
+): string {
+  const hvost = raskladka ? `|${raskladka}` : "";
+  return otpechatok(`${temp}|${dvaGolosa ? "2" : "1"}${hvost}|${text.trim()}`);
+}
+
+/**
+ * Раскладка голосов строкой — то, что уходит в ключ.
+ *
+ * `golosa` — голос каждой реплики по порядку; `pervyyGolos` — старая короткая
+ * запись, годная там, где голоса просто чередуются. Обычный случай (женский
+ * первый, дальше чередование) даёт пустую строку и в ключ не входит.
+ */
+export function raskladkaGolosov(block: {
+  golosa?: Golos[];
+  pervyyGolos?: Golos;
+}): string {
+  if (block.golosa && block.golosa.length > 0) {
+    return block.golosa.map((g) => (g === "muzhskoy" ? "m" : "z")).join("");
+  }
+  return block.pervyyGolos === "muzhskoy" ? "m" : "";
 }
 
 /** Адрес записи на сайте. Пусто не бывает: файл либо есть, либо проверка упала. */
@@ -71,8 +110,8 @@ export function adresObrazca(fraza: string): string {
  * образцом для повторения, и вопросом на понимание. Смешай их — и правка одной
  * молча испортит другую.
  */
-export function adresVoprosa(fraza: string): string {
-  return adresZvuka("vopros", klyuchZvuka(fraza, "slow", razgovorLi(fraza)));
+export function adresVoprosa(fraza: string, raskladka = ""): string {
+  return adresZvuka("vopros", klyuchZvuka(fraza, "slow", razgovorLi(fraza), raskladka));
 }
 
 /**
@@ -92,12 +131,36 @@ export function razgovorLi(text: string): boolean {
 }
 
 /**
+ * Разговор ли ОДИНОЧНАЯ СТРОКА объяснения, врезки или таблицы.
+ *
+ * Решение владельца от 6 сентября 2026: «нам нужно два голоса, переделывай».
+ * Сказано по строке `How many apples are there? — Three.`, которая стоит внутри
+ * объяснения и до того дня читалась одним голосом: правило двух голосов
+ * исполнялось только для записей и примеров-разговоров.
+ *
+ * ЗДЕСЬ НЕЛЬЗЯ ВЗЯТЬ `razgovorLi`, И ЭТО ГЛАВНОЕ В ЭТОЙ ФУНКЦИИ. Тире с
+ * пробелами в таких строках чаще всего значит не смену говорящего, а ПАРУ:
+ * `work — worked`, `a book — two books`, `G — J`, `one — two`. Счёт по всем
+ * трём курсам 6 сентября 2026: строк с тире 72, и разговоров среди них 14 —
+ * остальные 58 пары. Прочитанная на два голоса пара `work — worked` развалилась
+ * бы надвое между разными людьми.
+ *
+ * Признак разговора: у половины, стоящей ПЕРЕД тире, есть знак конца
+ * предложения. Пара его не имеет никогда, вопрос с ответом — всегда.
+ */
+export function razgovorVStroke(text: string): boolean {
+  const chasti = text.split(" — ");
+  if (chasti.length < 2) return false;
+  return chasti.slice(0, -1).some((chast) => /[.!?]$/.test(chast.trim()));
+}
+
+/**
  * Ячейка таблицы: название буквы, форма глагола, что угодно, что ученик хочет
  * послушать отдельно. Живёт в той же папке, что и слова словаря: и там, и там
  * звучит одна короткая единица, и разделять их незачем.
  */
-export function adresYacheyki(chto: string): string {
-  return adresZvuka("slovo", klyuchZvuka(chto, "slow"));
+export function adresYacheyki(chto: string, raskladka = ""): string {
+  return adresZvuka("slovo", klyuchZvuka(chto, "slow", razgovorVStroke(chto), raskladka));
 }
 
 /**
@@ -106,8 +169,8 @@ export function adresYacheyki(chto: string): string {
  * Отдельно от `adresYacheyki`, потому что ключ учитывает признак двух голосов:
  * один и тот же текст, прочитанный одним голосом и двумя, — это разные записи.
  */
-export function adresRazgovora(text: string): string {
-  return adresZvuka("blok", klyuchZvuka(text, "slow", true));
+export function adresRazgovora(text: string, raskladka = ""): string {
+  return adresZvuka("blok", klyuchZvuka(text, "slow", true, raskladka));
 }
 
 /**
@@ -130,4 +193,74 @@ export function zvuchashchee(
   // которая говорит, ЧТО произнести.
   for (const [k, v] of Object.entries(block.zvuk ?? {})) out[k] = v;
   return out;
+}
+
+/**
+ * Разговор делится на реплики, голоса чередуются.
+ *
+ * ГРАНИЦ ДВЕ, И ЭТО НЕ ИЗЛИШЕСТВО. Записи `audio` и вопросы работ пишут разговор
+ * одной строкой, а реплики разводят тире с пробелами: «Are you a teacher? — No,
+ * I'm not.». Примеры уроков (`razgovor: true`) устроены иначе — там реплика на
+ * строку, и тире между ними нет вовсе.
+ *
+ * Пока граница была одна, второй случай молча падал в один голос: тире не
+ * находилось, `chasti.length < 2`, и весь разговор читался одним человеком.
+ * Проверить это было нечем — имя файла считается от текста и не зависит от
+ * числа голосов, поэтому и запись была на месте, и отчёты чисты. Нашлось при
+ * написании модуля 19: таких разговоров по курсу **128**, из них 123 на уже
+ * выложенных ступенях.
+ *
+ * Перевод строки пробуем первым: он точнее. Тире внутри реплики бывает и
+ * законным («G — J» — пара букв), а перевод строки в примере значит ровно смену
+ * говорящего.
+ */
+export function repliki(
+  text: string,
+  dvaGolosa: boolean,
+  raskladka = ""
+): { golos: Golos; text: string }[] {
+  /*
+   * КТО ЧИТАЕТ КАКУЮ РЕПЛИКУ. Раскладка бывает трёх видов, и вот они по порядку
+   * силы:
+   *
+   *   `"zmm"` и длиннее — голос КАЖДОЙ реплики назван поимённо (поле `golosa`,
+   *     решение владельца от 6 сентября 2026). Годится там, где чередование
+   *     врёт: один человек говорит две реплики подряд, говорящих трое;
+   *   `"m"` — чередование, но начинает мужской (старое поле `pervyyGolos`);
+   *   пусто — чередование с женского, как собраны все прежние разговоры курса.
+   *
+   * Раскладка длиннее одного знака читается как перечень: знак на реплику.
+   * Короче реплик — недостающие берут чередование, чтобы запись не осталась
+   * немой из-за недописанного поля; на несовпадение длин ругается
+   * `check:content`, и чинить это надо там, а не молчанием здесь.
+   */
+  const poimenno = raskladka.length > 1 ? [...raskladka] : null;
+  const muzhskoyPervym = raskladka === "m" || raskladka[0] === "m";
+  const pervyy: Golos = muzhskoyPervym ? "muzhskoy" : "zhenskiy";
+  const vtoroy: Golos = muzhskoyPervym ? "zhenskiy" : "muzhskoy";
+  const golosPo = (i: number): Golos => {
+    const svoy = poimenno?.[i];
+    if (svoy) return svoy === "m" ? "muzhskoy" : "zhenskiy";
+    return i % 2 === 0 ? pervyy : vtoroy;
+  };
+  if (!dvaGolosa) return [{ golos: golosPo(0), text }];
+  const poStrokam = text
+    .split("\n")
+    .map((s) => s.trim())
+    // Знак говорящего в начале строки звучать не должен — как и в ветке ниже.
+    .map((s) => s.replace(/^—\s*/, ""))
+    .filter(Boolean);
+  if (poStrokam.length >= 2) {
+    return poStrokam.map((chast, i) => ({ golos: golosPo(i), text: chast }));
+  }
+  const chasti = text
+    .split(/\s+—\s+/)
+    .map((s) => s.trim())
+    // Первая реплика записана с тире в начале строки, и разделитель его не
+    // съедает: перед ним нет пробела. Убираем сами — знак говорящего звучать
+    // не должен.
+    .map((s) => s.replace(/^—\s*/, ""))
+    .filter(Boolean);
+  if (chasti.length < 2) return [{ golos: golosPo(0), text }];
+  return chasti.map((chast, i) => ({ golos: golosPo(i), text: chast }));
 }

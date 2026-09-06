@@ -12,12 +12,32 @@
 
 import { useState } from "react";
 import { checkAnswer, missingParts, type Answer } from "@/lib/content/check";
-import { mestaSlova, shirina, vydelenie, yacheykiSlova } from "@/lib/content/setka";
+import {
+  bukvyYacheek,
+  mestaSlova,
+  mozhnoDobavit,
+  OBRAZEC_SETKI,
+  shirina,
+  yacheykiSlova,
+} from "@/lib/content/setka";
 import type { TaskBlock } from "@/lib/content/types";
-import { adresObrazca, adresVoprosa } from "@/lib/content/zvuk";
+import { adresObrazca, adresVoprosa, raskladkaGolosov } from "@/lib/content/zvuk";
 import { useLessonFlow } from "./LessonFlow";
 import Zvuk from "./Zvuk";
 import s from "./lesson.module.css";
+
+/*
+ * ПОДПИСИ СЕТКИ БУКВ. Их пишет РЕДАКТОР — это видимый ученику текст, а автор
+ * кода видимого текста не пишет (решение владельца от 5 сентября 2026).
+ *
+ * Стоят они здесь, а не в уроке, потому что говорят о том, КАК НАЖИМАТЬ, и
+ * одинаковы во всех четырёх сетках курса. Урок, который завёл бы свою подпись,
+ * показал бы ученику вторую правду о том же.
+ */
+const SETKA_OBRAZEC_PODPIS = "Слева слово отмечено по строке, а справа по столбцу.";
+const SETKA_KAK_NACHAT = "Нажимай буквы слова по порядку, от первой до последней.";
+const SETKA_KAK_DALSHE =
+  "Нажимай следующие буквы этого слова. Слово будет найдено на последней букве.";
 
 type Status = "idle" | "right" | "wrong" | "shown";
 
@@ -50,14 +70,21 @@ export default function TaskCard({
     task.kind === "match" ? task.left.map(() => -1) : []
   );
   /*
-   * СЕТКА БУКВ: с какой ячейки ученик начал выделение. Слово отмечается двумя
-   * нажатиями — первая буква и последняя, — а не протягиванием: протянуть
-   * пальцем по мелким ячейкам на телефоне трудно, и промах стоил бы слова.
+   * СЕТКА БУКВ: какие ячейки ученик отметил, собирая слово. По порядку нажатий.
+   *
+   * ОТМЕЧАЮТСЯ ВСЕ БУКВЫ — решение владельца от 6 сентября 2026: «пусть ученик
+   * выбирает не первую и вторую букву, пусть выбирает все буквы в слове и при
+   * нажатии последней буквы ответ будет засчитан, так лучше запомнится».
+   *
+   * До этого дня здесь стояло одно число — начало выделения, — и слово
+   * отмечалось двумя нажатиями. Довод тогдашней записи («протянуть пальцем по
+   * мелким ячейкам трудно») никуда не делся, но нажатие по каждой букве — не
+   * протягивание: промах ничего не стоит, выделение просто начинается заново.
    *
    * Найденные слова лежат в `picked`, как и у `hottext`: там тоже набор, а не
    * перестановка.
    */
-  const [nachalo, setNachalo] = useState<number | null>(null);
+  const [otmecheny, setOtmecheny] = useState<number[]>([]);
 
   const locked = status === "right" || status === "shown";
 
@@ -109,33 +136,56 @@ export default function TaskCard({
   }
 
   /**
-   * Нажатие по ячейке сетки. Первое задаёт начало, второе — конец.
+   * Нажатие по ячейке сетки. Ученик отмечает буквы слова подряд, и слово
+   * засчитывается на последней из них.
    *
-   * Выделение, не сложившееся в искомое слово, просто снимается: ошибка здесь
-   * не наказывается ничем, как и во всём курсе. Найденное слово убрать нельзя —
-   * найденное уже найдено.
+   * ОШИБКА НЕ НАКАЗЫВАЕТСЯ НИЧЕМ, и это здесь не украшение, а устройство. Три
+   * случая, и ни один не сбрасывает работу целиком:
+   *
+   *   - ячейка не продолжает выделение (стоит наискось, через клетку, назад) —
+   *     она становится НАЧАЛОМ нового слова, если с этой буквы вообще начинается
+   *     что-то из ненайденного;
+   *   - собранные буквы перестали быть началом какого-либо искомого слова — то
+   *     же самое: пробуем начать с неё заново;
+   *   - буквы сложились в искомое слово — оно найдено, выделение снимается.
+   *
+   * Найденное слово убрать нельзя: найденное уже найдено.
    */
   function nazhatYacheyku(yacheyka: number): void {
     if (locked || task.kind !== "setka") return;
-    if (nachalo === null) {
-      setNachalo(yacheyka);
+
+    const ostalos = task.slova
+      .map((slovo, i) => ({ slovo: slovo.slovo.toUpperCase(), i }))
+      .filter(({ i }) => !picked.includes(i));
+
+    /** Начать новое слово с этой ячейки — если с такой буквы что-то начинается. */
+    const nachatZanovo = (): void => {
+      const bukva = bukvyYacheek(task.stroki, [yacheyka]);
+      setOtmecheny(ostalos.some(({ slovo }) => slovo.startsWith(bukva)) ? [yacheyka] : []);
+    };
+
+    if (!mozhnoDobavit(task.stroki, otmecheny, yacheyka)) {
+      nachatZanovo();
       return;
     }
-    const vydelil = vydelenie(task.stroki, nachalo, yacheyka);
-    setNachalo(null);
-    if (vydelil === null) return;
 
-    const nomer = task.slova.findIndex(
-      (slovo, i) => !picked.includes(i) && slovo.slovo.toUpperCase() === vydelil
-    );
-    if (nomer === -1) return;
+    const sobrano = [...otmecheny, yacheyka];
+    const bukvy = bukvyYacheek(task.stroki, sobrano);
 
-    const naydeno = [...picked, nomer];
-    setPicked(naydeno);
-    // Последнее слово закрывает задание само: нажимать «Проверить» после того,
-    // как искать больше нечего, — лишняя работа.
-    if (naydeno.length === task.slova.length) judge(naydeno);
-    else setStatus("idle");
+    const nomer = ostalos.find(({ slovo }) => slovo === bukvy)?.i;
+    if (nomer !== undefined) {
+      setOtmecheny([]);
+      const naydeno = [...picked, nomer];
+      setPicked(naydeno);
+      // Последнее слово закрывает задание само: нажимать «Проверить» после
+      // того, как искать больше нечего, — лишняя работа.
+      if (naydeno.length === task.slova.length) judge(naydeno);
+      else setStatus("idle");
+      return;
+    }
+
+    if (ostalos.some(({ slovo }) => slovo.startsWith(bukvy))) setOtmecheny(sobrano);
+    else nachatZanovo();
   }
 
   return (
@@ -170,7 +220,11 @@ export default function TaskCard({
           она была бы ответом. Слушать можно сколько угодно раз. */}
       {task.zvuk && (
         <div className={s.obrazec}>
-          <Zvuk src={adresVoprosa(task.zvuk)} chto="запись к заданию" vid="stroka" />
+          <Zvuk
+            src={adresVoprosa(task.zvuk, raskladkaGolosov(task))}
+            chto="запись к заданию"
+            vid="stroka"
+          />
         </div>
       )}
 
@@ -350,6 +404,46 @@ export default function TaskCard({
 
           return (
             <div className={s.setka}>
+              {/*
+                ОБРАЗЕЦ НАД ПОЛЕМ — решение владельца от 6 сентября 2026: «еще
+                надо чтобы сверху был пример правильного ответа и горизонтально
+                и вертикально». Две маленькие сетки: в одной отмечено слово по
+                строке, в другой — по столбцу.
+
+                Он один на весь курс и лежит данными в `lib/content/setka.ts`:
+                образец говорит о том, КАК НАЖИМАТЬ, а не о предмете урока.
+              */}
+              <div className={s.setkaObrazec} aria-hidden>
+                {[OBRAZEC_SETKI.poStroke, OBRAZEC_SETKI.poStolbcu].map((otmechennye, n) => (
+                  <div
+                    className={s.setkaObrazecPole}
+                    key={n}
+                    style={{
+                      gridTemplateColumns: `repeat(${shirina(OBRAZEC_SETKI.stroki)}, 1fr)`,
+                    }}
+                  >
+                    {OBRAZEC_SETKI.stroki.map((stroka, r) =>
+                      [...stroka].map((bukva, c) => (
+                        <span
+                          key={`${r}-${c}`}
+                          className={[
+                            s.setkaObrazecYacheyka,
+                            otmechennye.includes(r * shirina(OBRAZEC_SETKI.stroki) + c)
+                              ? s.setkaObrazecOtmechena
+                              : "",
+                          ]
+                            .filter(Boolean)
+                            .join(" ")}
+                        >
+                          {bukva}
+                        </span>
+                      ))
+                    )}
+                  </div>
+                ))}
+              </div>
+              <p className={s.setkaObrazecPodpis}>{SETKA_OBRAZEC_PODPIS}</p>
+
               <div
                 className={s.setkaPole}
                 style={{ gridTemplateColumns: `repeat(${w}, 1fr)` }}
@@ -367,7 +461,7 @@ export default function TaskCard({
                         className={[
                           s.yacheyka,
                           est ? s.yacheykaNaydena : "",
-                          nachalo === yacheyka ? s.yacheykaNachalo : "",
+                          otmecheny.includes(yacheyka) ? s.yacheykaNachalo : "",
                         ]
                           .filter(Boolean)
                           .join(" ")}
@@ -412,9 +506,7 @@ export default function TaskCard({
               </ul>
 
               <p className={s.setkaKak}>
-                {nachalo === null
-                  ? "Нажми первую букву слова, потом последнюю."
-                  : "Теперь нажми последнюю букву этого слова."}
+                {otmecheny.length === 0 ? SETKA_KAK_NACHAT : SETKA_KAK_DALSHE}
               </p>
             </div>
           );

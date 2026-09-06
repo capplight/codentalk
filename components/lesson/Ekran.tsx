@@ -15,7 +15,7 @@
  * блоки показываются прежним `Material`: это честнее пустого экрана.
  */
 import type { MaterialBlock } from "@/lib/content/types";
-import { adresRazgovora, adresSlova, adresYacheyki, zvuchashchee } from "@/lib/content/zvuk";
+import { adresRazgovora, adresSlova, adresYacheyki, raskladkaGolosov, zvuchashchee } from "@/lib/content/zvuk";
 import {
   ZAGOLOVOK_PRIMERA,
   ZAGOLOVOK_RAZGOVORA,
@@ -90,7 +90,11 @@ export function razobrat(stroka: string): { en: string; ru: string } | null {
  * Куски ищутся с начала строки, при равном начале побеждает длинный: иначе
  * ключ `B` съел бы начало ключа `B b`.
  */
-function sZvukom(stroka: string, zvuki: Record<string, string>): React.ReactNode {
+function sZvukom(
+  stroka: string,
+  zvuki: Record<string, string>,
+  raskladka = ""
+): React.ReactNode {
   const klyuchi = Object.keys(zvuki);
   if (klyuchi.length === 0) return stroka;
 
@@ -116,7 +120,7 @@ function sZvukom(stroka: string, zvuki: Record<string, string>): React.ReactNode
     kuski.push(
       <span className={s.zvuchashcheeVTekste} key={(nomer += 1)}>
         {nashli.klyuch}
-        <Zvuk src={adresYacheyki(chto)} chto={chto} />
+        <Zvuk src={adresYacheyki(chto, raskladka)} chto={chto} />
       </span>
     );
     ostatok = ostatok.slice(nashli.gde + nashli.klyuch.length);
@@ -143,11 +147,11 @@ export default function Ekran({ block }: { block: MaterialBlock }) {
             </div>
           )}
           <div className={s.telo}>
-            <h2 className={s.zagolovok}>{sZvukom(imya, zvuki)}</h2>
+            <h2 className={s.zagolovok}>{sZvukom(imya, zvuki, raskladkaGolosov(block))}</h2>
             {ostalnoe.map((stroka, i) =>
               primery[i] ? null : (
                 <p className={s.pravilo} key={i}>
-                  {sZvukom(stroka, zvuki)}
+                  {sZvukom(stroka, zvuki, raskladkaGolosov(block))}
                 </p>
               )
             )}
@@ -162,7 +166,10 @@ export default function Ekran({ block }: { block: MaterialBlock }) {
                           восьми случаев звучал один. Правило владельца от 19
                           августа простое: звук стоит там, где ученик читает. */}
                       {zvuki[para.en] && (
-                        <Zvuk src={adresYacheyki(zvuki[para.en])} chto={zvuki[para.en]} />
+                        <Zvuk
+                          src={adresYacheyki(zvuki[para.en], raskladkaGolosov(block))}
+                          chto={zvuki[para.en]}
+                        />
                       )}
                       {para.en}
                     </div>
@@ -190,7 +197,7 @@ export default function Ekran({ block }: { block: MaterialBlock }) {
               {/* Разговор звучит целиком и на два голоса — решение владельца от
                   19 августа. Кнопка одна, у названия. */}
               <Zvuk
-                src={adresRazgovora(block.text)}
+                src={adresRazgovora(block.text, raskladkaGolosov(block))}
                 chto={block.caption ?? "разговор"}
                 vid="stroka"
               />{" "}
@@ -229,7 +236,10 @@ export default function Ekran({ block }: { block: MaterialBlock }) {
               <div className={s.stroka} key={i}>
                 <div className={s.en} lang="en">
                   {zvuki[st.trim()] && (
-                    <Zvuk src={adresYacheyki(zvuki[st.trim()])} chto={zvuki[st.trim()]} />
+                    <Zvuk
+                      src={adresYacheyki(zvuki[st.trim()], raskladkaGolosov(block))}
+                      chto={zvuki[st.trim()]}
+                    />
                   )}
                   {st}
                 </div>
@@ -268,7 +278,12 @@ export default function Ekran({ block }: { block: MaterialBlock }) {
                   <tr key={i}>
                     {row.map((cell, j) => (
                       <td key={j}>
-                        {zvuki[cell] && <Zvuk src={adresYacheyki(zvuki[cell])} chto={zvuki[cell]} />}
+                        {zvuki[cell] && (
+                          <Zvuk
+                            src={adresYacheyki(zvuki[cell], raskladkaGolosov(block))}
+                            chto={zvuki[cell]}
+                          />
+                        )}
                         {cell}
                       </td>
                     ))}
@@ -295,9 +310,9 @@ export default function Ekran({ block }: { block: MaterialBlock }) {
             {block.znak ? <Znak kod={block.znak} razmer={26} /> : oshibka ? "!" : "i"}
           </div>
           <div>
-            <div className={s.zag}>{sZvukom(zagolovok, zvuchashchee(block))}</div>
+            <div className={s.zag}>{sZvukom(zagolovok, zvuchashchee(block), raskladkaGolosov(block))}</div>
             {ostalnoe.map((p, i) => (
-              <p key={i}>{sZvukom(p, zvuchashchee(block))}</p>
+              <p key={i}>{sZvukom(p, zvuchashchee(block), raskladkaGolosov(block))}</p>
             ))}
           </div>
         </div>

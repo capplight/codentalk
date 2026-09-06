@@ -8,7 +8,7 @@
  * Чистые правила: ни базы, ни React.
  */
 import { checkAnswer, type Answer } from "./check";
-import { adresVoprosa } from "./zvuk";
+import { adresVoprosa, raskladkaGolosov } from "./zvuk";
 import type { QuizQuestion, TaskBlock } from "./types";
 
 /**
@@ -62,7 +62,7 @@ export function forBrowser(question: QuizQuestion): BrowserQuestion {
     kind: question.kind,
     prompt: question.prompt,
     // Из `zvuk` наружу уходит только адрес файла.
-    zvuk: question.zvuk ? adresVoprosa(question.zvuk) : undefined,
+    zvuk: question.zvuk ? adresVoprosa(question.zvuk, raskladkaGolosov(question)) : undefined,
   };
 
   switch (question.kind) {
