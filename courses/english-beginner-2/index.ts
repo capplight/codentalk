@@ -5,6 +5,7 @@ import otkudaTy from "./otkuda-ty";
 import chislaITelefon from "./chisla-i-telefon";
 import blank from "./blank";
 import moyaSemya from "./moya-semya";
+import chtoEtoTakoe from "./chto-eto-takoe";
 
 /**
  * НОВЫЙ BEGINNER — замысел в `docs/beginner-2/zamysel.md`.
@@ -58,7 +59,7 @@ const course: Course = {
    * переделка.
    */
   format: "shagi",
-  modules: [alfavit, privetstvie, otkudaTy, chislaITelefon, blank, moyaSemya],
+  modules: [alfavit, privetstvie, otkudaTy, chislaITelefon, blank, moyaSemya, chtoEtoTakoe],
 };
 
 export default course;
