@@ -3255,6 +3255,14 @@ function checkZaglushkiBliznetsy(course: Course): void {
         gde.get(klyuch)!.push(`${lesson.slug} (${kusok.rol})`);
       }
     }
+    for (const q of (mod.quiz?.questions ?? []) as any[]) {
+      for (const kusok of stroliVoprosa(q)) {
+        if (!kusok.text.includes(METKA_REDAKTORA)) continue;
+        const klyuch = kusok.text.replace(/\s+/g, " ").trim();
+        if (!gde.has(klyuch)) gde.set(klyuch, []);
+        gde.get(klyuch)!.push(`работа → ${q.id} (${kusok.rol})`);
+      }
+    }
     for (const [text, mesta] of gde) {
       if (mesta.length < 2) continue;
       warnings.push(
@@ -3265,6 +3273,54 @@ function checkZaglushkiBliznetsy(course: Course): void {
   }
 }
 
+/**
+ * Видимые ученику русские строки ОДНОГО ВОПРОСА банка.
+ *
+ * ЗАЧЕМ ОТДЕЛЬНО. Проверки заглушек обходили `kuskiUroka`, то есть блоки
+ * уроков, — и банк вопросов не открывали вовсе. Нашёл сборщик 7 сентября 2026:
+ * он поставил пять заглушек в две работы, и отчёт вышел ЧИСТЫМ, хотя метка
+ * объявлена ошибкой сборки нарочно.
+ *
+ * Порода известная и записана в правилах проекта: проверка, написанная под
+ * модули, нового вида содержания не видит, и её молчание о нём неотличимо от
+ * одобрения. Тут она била дважды — сперва `kontrol` и `bliznetsy` не заходили в
+ * работы частей, теперь эта.
+ *
+ * Комментарий над прежней редакцией уверял, что она испытана порчей «в подсказке
+ * задания». Испытана она и была — но порча стояла ровно там, куда проверка
+ * смотрит. Испытание порчей доказывает только то, что порча поставлена в поле
+ * зрения.
+ */
+function stroliVoprosa(q: any): Array<{ text: string; rol: string }> {
+  const kuski: Array<{ text: string; rol: string }> = [];
+  const dobavit = (text: unknown, rol: string) => {
+    if (typeof text === "string" && text.trim()) kuski.push({ text, rol });
+  };
+  dobavit(q.prompt, "условие");
+  dobavit(q.hint, "подсказка");
+  dobavit(q.why, "разбор");
+  for (const o of (q.options ?? []) as any[]) dobavit(o?.text, "вариант");
+  for (const item of (q.items ?? []) as unknown[]) dobavit(item, "кусок");
+  for (const l of (q.left ?? []) as unknown[]) dobavit(l, "левый столбец");
+  for (const r of (q.right ?? []) as unknown[]) dobavit(r, "правый столбец");
+  return kuski;
+}
+
+/** Все банки вопросов курса: работы модулей, работы частей и экзамен. */
+function vseBanki(course: Course): Array<{ gde: string; questions: any[] }> {
+  const banki: Array<{ gde: string; questions: any[] }> = [];
+  for (const mod of course.modules) {
+    if (mod.quiz) banki.push({ gde: `${mod.slug} → работа`, questions: mod.quiz.questions as any[] });
+  }
+  for (const part of course.parts ?? []) {
+    if (part.quiz) {
+      banki.push({ gde: `часть ${part.slug} → работа`, questions: part.quiz.questions as any[] });
+    }
+  }
+  if (course.exam) banki.push({ gde: "экзамен", questions: course.exam.questions as any[] });
+  return banki;
+}
+
 function checkZaglushki(course: Course): void {
   for (const mod of course.modules) {
     for (const lesson of mod.lessons) {
@@ -3272,6 +3328,18 @@ function checkZaglushki(course: Course): void {
         if (kusok.text.includes(METKA_REDAKTORA)) {
           fail(
             `${course.slug} → ${mod.slug} → ${lesson.slug}`,
+            `заглушка сборщика не заполнена (${kusok.rol}): «${kusok.text.slice(0, 60)}»`
+          );
+        }
+      }
+    }
+  }
+  for (const bank of vseBanki(course)) {
+    for (const q of bank.questions) {
+      for (const kusok of stroliVoprosa(q)) {
+        if (kusok.text.includes(METKA_REDAKTORA)) {
+          fail(
+            `${course.slug} → ${bank.gde} → ${q.id}`,
             `заглушка сборщика не заполнена (${kusok.rol}): «${kusok.text.slice(0, 60)}»`
           );
         }

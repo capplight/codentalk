@@ -189,20 +189,35 @@ function mezhduRabotami(): void {
     t.includes("ПИШЕТ МЕТОДИСТ") || t.includes("ПИШЕТ РЕДАКТОР");
 
   const vse: Array<{ modul: string; q: any }> = [];
-  const propushcheno = new Set<string>();
+  const propushcheno = new Map<string, number>();
   for (const m of kurs.modules as Module[]) {
     for (const q of (m.quiz?.questions ?? []) as any[]) {
       if (zaglushka(String(q.prompt ?? ""))) {
-        propushcheno.add(m.slug);
+        propushcheno.set(m.slug, (propushcheno.get(m.slug) ?? 0) + 1);
         continue;
       }
       vse.push({ modul: m.slug, q });
     }
   }
+  /*
+   * СЧИТАЕМ ВОПРОСЫ, А НЕ РАБОТЫ, и говорим это вслух.
+   *
+   * Прежняя строка гласила «Работы с незаполненными вопросами пропущены и НЕ
+   * сверялись: …» и называла модули. Сборщик прочёл её буквально и записал в
+   * отчёт, что обе его работы проверка пропустила целиком, — а пропущен был по
+   * одному вопросу из двенадцати, остальные одиннадцать сверялись как всегда.
+   *
+   * Отчёт, сказавший о себе больше, чем сделал, обманывает вернее молчания:
+   * ему верят и не перепроверяют.
+   */
   if (propushcheno.size) {
+    const spisok = [...propushcheno]
+      .map(([slug, n]) => `${slug} (${n})`)
+      .join(", ");
     console.log(
-      `  Работы с незаполненными вопросами пропущены и НЕ сверялись: ` +
-        `${[...propushcheno].join(", ")}. Позвать снова, когда их напишут.`
+      `  Вопросов с незаполненным условием пропущено — они не сверялись: ` +
+        `${spisok}. Прочие вопросы этих же работ сверены. Позвать снова, ` +
+        `когда заглушки напишут.`
     );
   }
   const skazano = new Set<string>();
