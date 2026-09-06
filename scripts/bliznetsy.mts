@@ -158,6 +158,86 @@ function banki(): Bank[] {
   return out;
 }
 
+/**
+ * Работы РАЗНЫХ модулей, повторяющие друг друга.
+ *
+ * ЗАЧЕМ. До 7 сентября 2026 проверка сверяла работу модуля с уроками и
+ * материалом ЕГО ЖЕ модуля — а работу соседа не открывала вовсе. Методист
+ * нашёл это руками, дописывая работу модуля 5: его вопрос со звуком просил
+ * записать возраст цифрой, а вопрос работы модуля 4 — записать цифрой число.
+ * Одно и то же действие в двух работах подряд, и отчёт молчал по устройству.
+ *
+ * Ученик проходит работы одну за другой, и для него это два соседних экрана,
+ * а не два разных файла.
+ *
+ * Порог выше, чем у сверки с уроками: у работ рамки условий похожи законно
+ * («Послушай запись и ответь одним словом» задаёт источник), и на обычном
+ * пороге проверка кричала бы на правильное. Считаем близнецом только при
+ * СОВПАВШЕМ ВИДЕ задания и доле общих слов от семидесяти процентов, либо при
+ * дословно совпавшем варианте ответа — этот признак сильнее любой доли.
+ */
+function mezhduRabotami(): void {
+  /*
+   * Заглушки пропускаем и говорим об этом вслух. Две работы курса стоят
+   * незаполненными, и все их условия — одна и та же строка «ПИШЕТ МЕТОДИСТ»:
+   * без этой поблажки отчёт тонет в парах со стопроцентным совпадением рыбы.
+   * Правило проекта: проверке на близнецов нельзя верить, пока модуль не
+   * дописан, — а значит она обязана сама сказать, чего не считала.
+   */
+  const zaglushka = (t: string): boolean =>
+    t.includes("ПИШЕТ МЕТОДИСТ") || t.includes("ПИШЕТ РЕДАКТОР");
+
+  const vse: Array<{ modul: string; q: any }> = [];
+  const propushcheno = new Set<string>();
+  for (const m of kurs.modules as Module[]) {
+    for (const q of (m.quiz?.questions ?? []) as any[]) {
+      if (zaglushka(String(q.prompt ?? ""))) {
+        propushcheno.add(m.slug);
+        continue;
+      }
+      vse.push({ modul: m.slug, q });
+    }
+  }
+  if (propushcheno.size) {
+    console.log(
+      `  Работы с незаполненными вопросами пропущены и НЕ сверялись: ` +
+        `${[...propushcheno].join(", ")}. Позвать снова, когда их напишут.`
+    );
+  }
+  const skazano = new Set<string>();
+  for (let i = 0; i < vse.length; i += 1) {
+    for (let j = i + 1; j < vse.length; j += 1) {
+      const a = vse[i];
+      const b = vse[j];
+      if (a.modul === b.modul) continue;
+      if (modSlugi.length && !modSlugi.includes(a.modul) && !modSlugi.includes(b.modul)) continue;
+      if (a.q.kind !== b.q.kind) continue;
+      const dolya = shozhest(a.q.prompt, b.q.prompt);
+      const va = varianty(a.q);
+      /*
+       * Совпавший вариант короче трёх знаков признаком не считается: ответы
+       * `w`, `a`, `s` совпадают у любых двух заданий о букве, и на первом
+       * прогоне такие пары дали половину шума при нулевой доле общих слов.
+       * Признак должен говорить о СОДЕРЖАНИИ, а не о длине алфавита.
+       */
+      const doslovno = va
+        .filter((v) => varianty(b.q).includes(v))
+        .filter((v) => v.replace(/^[=+-]/, "").length >= 3);
+      if (dolya < 0.7 && doslovno.length === 0) continue;
+      const klyuch = [a.q.id, b.q.id].sort().join("|");
+      if (skazano.has(klyuch)) continue;
+      skazano.add(klyuch);
+      console.log(
+        `\n  [${a.modul} · ${a.q.id}] ↔ [${b.modul} · ${b.q.id}] ` +
+          `${a.q.kind}, общих слов ${Math.round(dolya * 100)}%` +
+          (doslovno.length ? `, совпало дословно: ${doslovno.join(", ")}` : "") +
+          `\n     ${a.modul}: ${a.q.prompt}` +
+          `\n     ${b.modul}: ${b.q.prompt}`
+      );
+    }
+  }
+}
+
 let vsego = 0;
 let zamolchalo = 0;
 const vse: Array<{ modul: string; voprosov: number; nahodki: Array<{ sila: number; dolya: number; text: string }> }> = [];
@@ -415,6 +495,9 @@ if (citaty.length) {
       "  НОВЫЙ текст того же жанра. Тогда снимается вся порода разом."
   );
 }
+
+console.log("\n=== Работы разных модулей, повторяющие друг друга");
+mezhduRabotami();
 
 console.log(`\nБлизнецов: ${vsego}. Разобрано раньше и потому пропущено: ${zamolchalo}.`);
 if (citat) console.log(`Из них цитирующих урочный материал: ${citat}.`);
