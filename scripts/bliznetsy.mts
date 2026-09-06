@@ -327,9 +327,22 @@ for (const bank of banki()) {
   const voprosy = bank.voprosy;
   if (!voprosy.length) continue;
 
-  // Все строки материала: тексты для чтения и расшифровки записей. У работы
-  // части это строки ВСЕХ модулей части, а не одного.
+  /*
+   * Все строки материала: тексты для чтения, расшифровки записей И РУССКИЕ
+   * ОБЪЯСНЕНИЯ. У работы части это строки ВСЕХ модулей части, а не одного.
+   *
+   * ОБЪЯСНЕНИЯ ДОПИСАНЫ 7 сентября 2026, и вот чем это вызвано. Второй
+   * редактор нашёл в работе модуля 7 разбор, дословно повторяющий правило
+   * урока 2 — двадцать три слова подряд. Проверка промолчала: она сверяла
+   * условие вопроса с ЗАДАНИЯМИ урока и с ТЕКСТАМИ для чтения, а совпало
+   * русское объяснение с русским разбором. Две дыры разом — и по источнику
+   * (объяснений в списке не было), и по цели (`why` не сверялся вовсе).
+   *
+   * У русской прозы порог выше: служебные слова совпадают сами собой, и на
+   * семи словах проверка кричала бы на правильное. Считаем от двенадцати.
+   */
   const stroki: Array<{ text: string; gde: string }> = [];
+  const prozaicheskie = new Set<string>();
   for (const urok of bank.moduli.flatMap((m) => m.lessons)) {
     for (const b of urok.blocks as any[]) {
       if (b.kind === "text" && Array.isArray(b.body)) {
@@ -340,11 +353,24 @@ for (const bank of banki()) {
           if (s.trim()) stroki.push({ text: s.trim(), gde: `${urok.slug} · ${b.id}` });
         }
       }
+      if ((b.kind === "explain" || b.kind === "note") && Array.isArray(b.text)) {
+        for (const s of b.text) {
+          const t = String(s).trim();
+          if (!t) continue;
+          stroki.push({ text: t, gde: `${urok.slug} · ${b.id}` });
+          prozaicheskie.add(t);
+        }
+      }
     }
   }
 
   for (const q of voprosy) {
-    const uslovie = String(q.prompt ?? "");
+    /*
+     * Сверяем и условие, и РАЗБОР: списать работа может обоими. Разбор
+     * `why` до 7 сентября 2026 не сверялся вовсе, и через эту дыру прошло
+     * двадцать три слова подряд.
+     */
+    const uslovie = [String(q.prompt ?? ""), String(q.why ?? "")].join(" ");
     const slovaUsloviya = slova(uslovie);
 
     // Из всех строк материала берём ту, что совпала САМЫМ ДЛИННЫМ отрезком:
@@ -356,7 +382,9 @@ for (const bank of banki()) {
       if (slovaStroki.length < 5) continue;
       const celikom = uslovie.includes(st.text.replace(/[.!?]+$/, ""));
       const n = podryad(slovaStroki, slovaUsloviya);
-      if (!celikom && n < 7) continue;
+      // У русской прозы порог выше: служебные слова совпадают сами собой.
+      const porog = prozaicheskie.has(st.text) ? 12 : 7;
+      if (!celikom && n < porog) continue;
       const sila = celikom ? Math.max(n, slovaStroki.length) : n;
       if (sila > dlina) {
         dlina = sila;
