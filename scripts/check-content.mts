@@ -37,6 +37,7 @@ import { bedySetki, lishnieSlova, mestaSlova } from "../lib/content/setka.ts";
 import { kuskiUroka } from "./vidimoe.mts";
 import { resheno } from "../courses/resheno.ts";
 import { courses } from "../courses/index.ts";
+import { readdirSync, readFileSync, existsSync } from "node:fs";
 import { existsSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 
@@ -2031,6 +2032,75 @@ function checkMestoVernogoVUrokah(course: Course): void {
 // ---------------------------------------------------------------------------
 
 /**
+ * Файл модуля лежит в каталоге курса, а `index.ts` о нём не знает.
+ *
+ * ЗАЧЕМ. Все до одной проверки этого скрипта обходят `courses` — то есть то,
+ * что собрал `index.ts`. Файл, который никто не импортирует, не проверяется
+ * НИ ОДНОЙ из них, и отчёт о нём молчит ровно так же, как о безупречном.
+ *
+ * Порода в проекте самая дорогая из механических, и била она трижды: работы
+ * частей неделю лежали без дороги к ученику, экзамен Elementary сутки стоял
+ * невключённым (а включённый тут же оказался проходимым нажатием одной
+ * кнопки), словарь новых видов содержания не проверялся вовсе.
+ *
+ * Нашлось 7 сентября 2026 при другой работе: в новом курсе лежит
+ * `kto-eto.ts` — тысяча строк написанного редактором текста, к которым нет
+ * дороги. Это первый образец нового формата, замещённый настоящим модулем 2;
+ * выбрасывать его или включать — решение владельца, и потому здесь сведения,
+ * а не ошибка.
+ */
+function checkSirotyKursa(course: Course): void {
+  const dir = `courses/${course.slug}`;
+  const indexPath = `${dir}/index.ts`;
+  if (!existsSync(indexPath)) return;
+  const index = readFileSync(indexPath, "utf-8");
+  for (const file of readdirSync(dir)) {
+    if (!file.endsWith(".ts") || file === "index.ts") continue;
+    const imya = file.slice(0, -3);
+    if (index.includes(`"./${imya}"`)) continue;
+    warnings.push(
+      `${course.slug}: файл ${file} лежит в каталоге курса, но index.ts его не ` +
+        `импортирует — его не видит НИ ОДНА проверка и не видит ученик`
+    );
+  }
+}
+
+// ---------------------------------------------------------------------------
+
+/**
+ * Порог зачёта работы назван, а не оставлен умолчанию.
+ *
+ * ЗАЧЕМ. Поле `passRatio` необязательное, и когда его нет, `scripts/seed-courses.mts`
+ * ставит работе модуля **0.7**, тогда как все до одной работы трёх курсов, где
+ * поле названо, стоят на **0.8**. То есть отсутствие строки — это не «как у
+ * всех», а молчаливое смягчение порога на десять процентов.
+ *
+ * Нашёл сборщик 7 сентября 2026, внося в код работы модулей 2 и 5: четыре
+ * работы нового курса стояли без поля, четыре соседние — с ним. Ученик
+ * проходит их подряд и получает разные требования без единого слова об этом.
+ *
+ * Ошибкой, а не сведениями: чинится одной строкой, и ни одного случая, где
+ * порог должен быть другим, в курсах нет.
+ */
+function checkPorogRaboty(course: Course): void {
+  for (const mod of course.modules) {
+    if (!mod.quiz) continue;
+    if (typeof mod.quiz.passRatio === "number") continue;
+    fail(
+      `${course.slug} → ${mod.slug}`,
+      "у работы модуля не назван passRatio — она зачтётся при 70%, а соседние требуют 80%"
+    );
+  }
+  for (const part of course.parts ?? []) {
+    if (part.quiz && typeof part.quiz.passRatio !== "number") {
+      fail(`${course.slug} → часть ${part.slug}`, "у работы части не назван passRatio");
+    }
+  }
+}
+
+// ---------------------------------------------------------------------------
+
+/**
  * Имя урока уникально во ВСЁМ курсе, а не только внутри модуля.
  *
  * ЗАЧЕМ. Адрес урока — `/learn/[курс]/[урок]`, модуль в нём не участвует. Два
@@ -3491,6 +3561,8 @@ for (const course of courses) {
   checkZaglushkiBliznetsy(course);
   checkSsylkaNomerom(course);
   checkMestoVernogoVUrokah(course);
+  checkPorogRaboty(course);
+  checkSirotyKursa(course);
   checkGdeNetZvuka(course);
 }
 

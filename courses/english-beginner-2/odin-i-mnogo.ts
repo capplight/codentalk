@@ -3639,6 +3639,7 @@ const modul: Module = {
    */
   quiz: {
     ask: 12,
+    passRatio: 0.8,
     questions: [
       {
         /*
