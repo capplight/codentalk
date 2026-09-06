@@ -157,7 +157,19 @@ export function lishnieSlova(stroki: string[], slova: string[], slovar: string[]
   const lishnie = new Set<string>();
   for (const slovo of slovar) {
     const bolshimi = slovo.toUpperCase();
-    if (iskomye.has(bolshimi) || bolshimi.length < 2) continue;
+    // Слова короче трёх букв не считаются, и это не поблажка ради тишины.
+    //
+    // 6 сентября 2026 сетку впервые поставили в уроки, и ДВА модуля независимо
+    // упёрлись в одно и то же: `HI` лежит внутри `THIRTEEN` и `THIRTY`, `IN` —
+    // внутри `SINGER`. Убрать это перестановкой нельзя: лишнее слово лежит
+    // ВНУТРИ искомого, а не рядом с ним. Оба сборщика назвали это вслух.
+    //
+    // Двухбуквенные слова курса — сплошь служебные (`am`, `is`, `in`, `at`,
+    // `hi`, `my`, `we`), и ученик их в поле не ищет: список говорит, что
+    // искать. А проверка, кричащая на неизбежное, перестаёт читаться — этим
+    // правилом проект дорожит с тех пор, как первая редакция другой проверки
+    // дала 168 срабатываний почти сплошь на правильном.
+    if (iskomye.has(bolshimi) || bolshimi.length < 3) continue;
     if (mestaSlova(stroki, bolshimi).length > 0) lishnie.add(slovo);
   }
   return [...lishnie].sort();
