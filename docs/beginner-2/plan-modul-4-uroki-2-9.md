@@ -1438,6 +1438,11 @@ something about …" question**». Программа читает эту стр
 |---|---|---|---|---|
 | 1 | `chisla-4-slovo-v-cifru` | `short` | 1 | «Ученик записал число словом: `nine`. Запиши то же число цифрой.» → `9` |
 | 2 | `chisla-4-naiti-propusk` | `gap` | 1 | «Записали: `four, five, ___, eight`. Одно число пропущено.» → `six`, `accept: ["6"]` |
+
+> **ОТМЕНЕНО 6 сентября 2026.** Вопрос переустроен по разбору второго
+> редактора и решению методиста; строка выше описывает прежнее устройство и
+> оставлена как запись прошлого. Что стоит в коде теперь — см.
+> [sostav-pravok-moduley-4-6.md](sostav-pravok-moduley-4-6.md).
 | 3 | `chisla-4-shest-dney` | `short` | 2 | «По-русски: шесть дней. Запиши по-английски.» → `six days` |
 | 4 | `chisla-4-najti-oshibki` | `hottext` | 2 | в ряду `four keys · three pen · two tickets · one books` отмечает записанные с ошибкой |
 | 5 | `chisla-4-cifra-v-slovo` | `short` | 3 | «Запиши словом: 17» → `seventeen` |
