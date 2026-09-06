@@ -67,12 +67,27 @@ function checkCourse(course: Course): void {
   const promises: string[] = [];
 
   let lesson = 0;
-  for (const mod of course.modules) {
-    for (const les of mod.lessons) {
-      lesson += 1;
-      const where = `${mod.slug} → ${les.slug}`;
-      for (const block of les.blocks as Block[]) {
-        const b = block as any;
+
+  /*
+   * БАНКИ ВОПРОСОВ ВХОДЯТ В СЧЁТ — с 6 сентября 2026. Прежде цепочка обходила
+   * ТОЛЬКО уроки, и ни один вопрос — ни работы модуля, ни работы части, ни
+   * экзамена — в порядок не попадал вовсе. То есть «слово в задании раньше
+   * своей карточки» для всех банков курса не искалось никогда.
+   *
+   * Нашёл сборщик работы части 1 порчей: подставил в ответ вопроса слово
+   * `apple`, у которого карточка стоит в модуле 8, то есть ПОЗЖЕ работы части
+   * первой, — ни одна проверка не возразила.
+   *
+   * Место банка в порядке важно, иначе счёт соврёт: работа модуля идёт сразу за
+   * его уроками, работа части — после последнего модуля части, экзамен в конце.
+   * Тот же порядок знает `bliznetsy`.
+   */
+  const razbratBank = (questions: readonly unknown[], where: string): void => {
+    lesson += 1;
+    for (const q of questions as any[]) razobratBlock(q, where, true);
+  };
+
+  const razobratBlock = (b: any, where: string, kakZadanie = false): void => {
 
         if (b.kind === "vocab") {
           for (const item of b.items ?? []) {
@@ -109,11 +124,26 @@ function checkCourse(course: Course): void {
           if (word.length === 1 && word !== "a" && word !== "i") continue;
           useCount.set(word, (useCount.get(word) ?? 0) + 1);
           if (!firstUse.has(word)) firstUse.set(word, { lesson, where });
-          if (isTask(b) && !firstInTask.has(word)) firstInTask.set(word, { lesson, where });
+          if ((kakZadanie || isTask(b)) && !firstInTask.has(word)) {
+            firstInTask.set(word, { lesson, where });
+          }
         }
-      }
+  };
+
+  for (const mod of course.modules) {
+    for (const les of mod.lessons) {
+      lesson += 1;
+      const where = `${mod.slug} → ${les.slug}`;
+      for (const block of les.blocks as Block[]) razobratBlock(block as any, where);
+    }
+    if (mod.quiz) razbratBank(mod.quiz.questions, `${mod.slug} → работа модуля`);
+    for (const chast of course.parts ?? []) {
+      if (!chast.quiz) continue;
+      if (chast.modules[chast.modules.length - 1] !== mod.slug) continue;
+      razbratBank(chast.quiz.questions, `часть ${chast.slug} → работа`);
     }
   }
+  if (course.exam) razbratBank(course.exam.questions, "экзамен ступени");
 
   // 1. Слово живёт в курсе, а словарём его не вводили нигде.
   const never = [...useCount]
