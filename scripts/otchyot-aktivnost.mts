@@ -28,7 +28,7 @@ import "dotenv/config";
 import { config } from "dotenv";
 config({ path: ".env.local", override: true });
 
-import { PrismaClient } from "../lib/db/generated/client.ts";
+import { PrismaClient, Prisma } from "../lib/db/generated/client.ts";
 import { PrismaPg } from "@prisma/adapter-pg";
 
 const dney = Number(process.argv[2]) || 30;
@@ -59,7 +59,7 @@ async function main(): Promise<void> {
   const podtverdili = await db.user.count({ where: { emailVerifiedAt: { not: null } } });
   stroka("подтвердили почту", podtverdili);
 
-  const sOnboardingom = await db.user.count({ where: { onboarding: { not: null } } });
+  const sOnboardingom = await db.user.count({ where: { onboarding: { not: Prisma.JsonNull } } });
   stroka("ответили на вопросы при регистрации", sOnboardingom);
 
   const kogdaVideli = await db.user.count({ where: { lastSeenAt: { not: null } } });
@@ -130,7 +130,7 @@ async function main(): Promise<void> {
       console.log(
         `     ${x.updatedAt.toISOString().slice(0, 16)} ` +
         `${x.status === "completed" ? "прошёл" : "открыл"} ` +
-        `${x.lesson.module.slug} → ${x.lesson.slug}`
+        `${x.lesson.module!.slug} → ${x.lesson.slug}`
       );
     }
     if (lp.length > 6) console.log(`     … и ещё ${lp.length - 6}`);

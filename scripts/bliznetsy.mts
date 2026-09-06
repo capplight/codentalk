@@ -58,11 +58,14 @@ if (!kursSlug) {
   process.exit(1);
 }
 
-const kurs = courses.find((c) => c.slug === kursSlug);
-if (!kurs) {
+const naydennyy = courses.find((c) => c.slug === kursSlug);
+if (!naydennyy) {
   console.error(`Курса «${kursSlug}» нет. Есть: ${courses.map((c) => c.slug).join(", ")}`);
   process.exit(1);
 }
+// Сторож выше стоял и раньше, но сужение типа теряется внутри функций ниже:
+// TypeScript не переносит его через замыкание. Отдельное имя это чинит.
+const kurs = naydennyy;
 
 /** Условие без знаков и регистра: сравнивать надо слова, а не запятые. */
 function slova(s: string): string[] {

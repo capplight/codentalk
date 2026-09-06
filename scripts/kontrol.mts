@@ -181,7 +181,7 @@ const keshMd = new Map<string, string>();
 
 function vtoroyRazbor(file: string): string | null {
   if (!file.toLowerCase().endsWith(".pdf")) return null;
-  if (keshMd.has(file)) return keshMd.get(file);
+  if (keshMd.has(file)) return keshMd.get(file) ?? null;
 
   const ryadom = join(MATERIALS, ".md", file.replace(/\.pdf$/i, ".md"));
   if (!existsSync(ryadom)) {
@@ -852,12 +852,12 @@ async function zagruzitSlovnik(): Promise<Map<string, string> | null> {
     while (
       tokeny.length &&
       CHASTI_RECHI.has(tokeny[tokeny.length - 1]) &&
-      !STUPENI.includes(tokeny[tokeny.length - 1])
+      !(STUPENI as readonly string[]).includes(tokeny[tokeny.length - 1])
     ) {
       snyatoe = tokeny.pop();
     }
-    if (tokeny.length && STUPENI.includes(tokeny[tokeny.length - 1]) && snyatoe) {
-      tokeny.push(snyatoe);
+    if (tokeny.length && (STUPENI as readonly string[]).includes(tokeny[tokeny.length - 1]) && snyatoe) {
+      (tokeny as string[]).push(snyatoe);
     }
     const slovo = (tokeny[tokeny.length - 1] ?? "").replace(/\d+$/, "");
     if (!slovo || slovo.length < 2) continue;

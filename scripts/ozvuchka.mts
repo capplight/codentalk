@@ -199,6 +199,7 @@ function sobratOpis(): Zapis[] {
               text: block.zvuk,
               temp: "slow",
               dvaGolosa,
+              muzhskoyPervym: (block as any).pervyyGolos === "muzhskoy",
               otkuda: `${gde} · ${block.id}`,
             });
           }
@@ -215,6 +216,7 @@ function sobratOpis(): Zapis[] {
           text: vopros.zvuk,
           temp: "slow",
           dvaGolosa,
+          muzhskoyPervym: (vopros as any).pervyyGolos === "muzhskoy",
           otkuda: `${course.slug}/${module.slug} · работа · ${vopros.id}`,
         });
       }
@@ -230,6 +232,7 @@ function sobratOpis(): Zapis[] {
         text: vopros.zvuk,
         temp: "slow",
         dvaGolosa,
+          muzhskoyPervym: (vopros as any).pervyyGolos === "muzhskoy",
         otkuda: `${course.slug} · экзамен · ${vopros.id}`,
       });
     }
@@ -251,6 +254,7 @@ function sobratOpis(): Zapis[] {
           text: vopros.zvuk,
           temp: "slow",
           dvaGolosa,
+          muzhskoyPervym: (vopros as any).pervyyGolos === "muzhskoy",
           otkuda: `${course.slug} · часть ${part.slug} · ${vopros.id}`,
         });
       }

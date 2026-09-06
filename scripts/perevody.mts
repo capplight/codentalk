@@ -165,7 +165,7 @@ function razobrat(m: Module, chego: string[]): Schyot {
       if (isTask(b)) continue;
 
       if (b.kind === "example") {
-        for (const stroka of strokiPrimera(b.text)) {
+        for (const stroka of strokiPrimera(b.text ?? "")) {
           if (!nuzhenPerevod(stroka)) continue;
           s.strok += 1;
           const perevod = b.perevod?.[stroka];
@@ -190,7 +190,7 @@ function razobrat(m: Module, chego: string[]): Schyot {
       // Ссылки ищем во всём видимом тексте блока, кроме заданий.
       const vidimoe: string[] = [];
       if (b.kind === "explain") vidimoe.push(...b.text);
-      if (b.kind === "example") vidimoe.push(b.text, b.explain ?? "");
+      if (b.kind === "example") vidimoe.push(b.text ?? "", b.explain ?? "");
       if (b.kind === "note") vidimoe.push(...b.text);
       if (b.kind === "table") vidimoe.push(b.caption ?? "");
       for (const t of vidimoe) if (SSYLKA.test(t)) s.ssylki += 1;

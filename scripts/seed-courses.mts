@@ -114,13 +114,17 @@ async function main(): Promise<void> {
           title: module.title,
           sort: moduleIndex,
           outcomes: module.outcomes,
-          sources: module.sources,
+          // Prisma не принимает наш массив опор в поле Json напрямую: у него
+          // свой тип InputJsonValue. Приведение нарочное и безвредное.
+          sources: module.sources as unknown as object,
         },
         update: {
           title: module.title,
           sort: moduleIndex,
           outcomes: module.outcomes,
-          sources: module.sources,
+          // Prisma не принимает наш массив опор в поле Json напрямую: у него
+          // свой тип InputJsonValue. Приведение нарочное и безвредное.
+          sources: module.sources as unknown as object,
         },
         select: { id: true },
       });

@@ -201,12 +201,12 @@ function oxford(): Map<string, string> {
     while (
       tokeny.length &&
       CHASTI.has(tokeny[tokeny.length - 1]) &&
-      !STUPENI.includes(tokeny[tokeny.length - 1])
+      !(STUPENI as readonly string[]).includes(tokeny[tokeny.length - 1])
     ) {
       snyatoe = tokeny.pop();
     }
-    if (tokeny.length && STUPENI.includes(tokeny[tokeny.length - 1]) && snyatoe) {
-      tokeny.push(snyatoe);
+    if (tokeny.length && (STUPENI as readonly string[]).includes(tokeny[tokeny.length - 1]) && snyatoe) {
+      (tokeny as string[]).push(snyatoe);
     }
     const slovo = (tokeny[tokeny.length - 1] ?? "").replace(/\d+$/, "");
     if (!slovo || slovo.length < 2) continue;

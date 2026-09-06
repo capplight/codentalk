@@ -37,8 +37,7 @@ import { bedySetki, lishnieSlova, mestaSlova } from "../lib/content/setka.ts";
 import { kuskiUroka } from "./vidimoe.mts";
 import { resheno } from "../courses/resheno.ts";
 import { courses } from "../courses/index.ts";
-import { readdirSync, readFileSync, existsSync } from "node:fs";
-import { existsSync, readFileSync } from "node:fs";
+import { readdirSync, existsSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 
 const errors: string[] = [];
@@ -1785,14 +1784,16 @@ function checkAltNePechataetOtvet(course: Course, mod: Module, where: string): v
       // Условие задания читается раньше картинки и само может называть вещь:
       // «На столе лежит чужой рюкзак — спроси, чей он». Тогда описание
       // картинки ничего не выдаёт, и кричать не на что.
-      const uslovie = slova(
-        [block.prompt, block.before, block.after].filter(Boolean).join(" ")
-      );
+      // Задание — размеченное объединение девяти видов, и полей `before`,
+      // `answer`, `options`, `parts` нет у каждого. Читаем через отдельное имя:
+      // так видно, что проверка нарочно смотрит на все виды сразу.
+      const z = block as any;
+      const uslovie = slova([z.prompt, z.before, z.after].filter(Boolean).join(" "));
 
       const otvety: string[] = [];
-      if (typeof block.answer === "string") otvety.push(block.answer);
-      for (const o of block.options ?? []) if (o.correct) otvety.push(o.text);
-      for (const p of block.parts ?? []) if (p.correct) otvety.push(p.text);
+      if (typeof z.answer === "string") otvety.push(z.answer);
+      for (const o of z.options ?? []) if (o.correct) otvety.push(o.text);
+      for (const p of z.parts ?? []) if (p.correct) otvety.push(p.text);
 
       for (const otvet of otvety) {
         const chistyy = slova(otvet);
@@ -2292,7 +2293,7 @@ function checkSourcesNazyvayutSushchestvuyushchie(course: Course): void {
   for (const mod of course.modules) {
     const est = new Set(mod.lessons.map((l) => l.title));
     for (const istochnik of mod.sources ?? []) {
-      for (const m of istochnik.section.matchAll(nazvanie)) {
+      for (const m of (istochnik.section ?? "").matchAll(nazvanie)) {
         if (!est.has(m[1])) {
           fail(
             `${course.slug} → ${mod.slug}`,
@@ -2897,7 +2898,7 @@ function blockText(block: Block): string {
     if (typeof value === "string") parts.push(value);
   };
 
-  const any = block as Record<string, unknown>;
+  const any = block as unknown as Record<string, unknown>;
   push(any.text);
   push(any.prompt);
   push(any.hint);
