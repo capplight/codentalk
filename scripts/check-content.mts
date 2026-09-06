@@ -3123,10 +3123,24 @@ function checkZvuk(course: Course): void {
   for (const mod of course.modules) {
     for (const lesson of mod.lessons) {
       for (const block of lesson.blocks) {
+        /*
+         * АДРЕС СЧИТАЕТСЯ ТЕМИ ЖЕ ДОВОДАМИ, ЧТО И В ОЗВУЧКЕ, — включая раскладку
+         * голосов. Приписано 6 сентября 2026, когда раскладка вошла в ключ
+         * записи, а здесь про неё забыли.
+         *
+         * ЧЕМ ЭТО КОНЧИЛОСЬ И ПОЧЕМУ НЕ ВИДНО. Проверка искала файл под СТАРЫМ
+         * именем — и находила его: старые записи никто не убирал, они лежали
+         * сиротами. То есть отчёт был чист, а на странице кнопка вела бы на файл
+         * с новым именем, которого проверка не спрашивала вовсе.
+         *
+         * Нашлось это не проверкой, а РАСХОЖДЕНИЕМ ДВУХ ОТЧЁТОВ: `ozvuchka`
+         * сказала «делать нечего», а `check:content` — «нет записи». Оба не
+         * могут быть правы, и разбираться надо было именно с этим.
+         */
         if (block.kind === "audio") {
           if (block.planned) continue;
           const temp = block.pace === "slow" ? "slow" : "normal";
-          const adres = block.src ?? adresBloka(block.transcript, temp, Boolean(block.voice));
+          const adres = block.src ?? adresBloka(block.transcript, temp, Boolean(block.voice), raskladkaGolosov(block));
           if (!est(adres)) netu.push(`${lesson.slug} · ${block.id}: «${block.transcript.slice(0, 60)}»`);
           continue;
         }
@@ -3150,11 +3164,11 @@ function checkZvuk(course: Course): void {
         // забытая переозвучка примера не видна ничем — кнопка на странице есть,
         // а нажатие даёт тишину.
         if (block.kind === "example") {
-          if (block.razgovor && block.text && !est(adresRazgovora(block.text))) {
+          if (block.razgovor && block.text && !est(adresRazgovora(block.text, raskladkaGolosov(block)))) {
             netu.push(`${lesson.slug} · пример ${block.id}: разговор целиком`);
           }
           for (const chto of Object.values(zvuchashchee(block))) {
-            if (!est(adresYacheyki(chto))) {
+            if (!est(adresYacheyki(chto, razgovorVStroke(chto) ? raskladkaGolosov(block) : ""))) {
               netu.push(`${lesson.slug} · пример ${block.id}: строка «${chto.slice(0, 40)}»`);
             }
           }
@@ -3163,7 +3177,7 @@ function checkZvuk(course: Course): void {
 
         if (block.kind === "table") {
           for (const chto of Object.values(zvuchashchee(block))) {
-            if (!est(adresYacheyki(chto))) {
+            if (!est(adresYacheyki(chto, razgovorVStroke(chto) ? raskladkaGolosov(block) : ""))) {
               netu.push(`${lesson.slug} · таблица ${block.id}: ячейка «${chto.slice(0, 40)}»`);
             }
           }
@@ -3173,7 +3187,7 @@ function checkZvuk(course: Course): void {
         if (block.kind === "explain" || block.kind === "note") {
           const chey = block.kind === "note" ? "врезка" : "объяснение";
           for (const chto of Object.values(zvuchashchee(block))) {
-            if (!est(adresYacheyki(chto))) {
+            if (!est(adresYacheyki(chto, razgovorVStroke(chto) ? raskladkaGolosov(block) : ""))) {
               netu.push(`${lesson.slug} · ${chey} ${block.id}: «${chto.slice(0, 40)}»`);
             }
           }
@@ -3193,21 +3207,21 @@ function checkZvuk(course: Course): void {
           }
         }
 
-        if (isTask(block) && block.zvuk && !est(adresVoprosa(block.zvuk))) {
+        if (isTask(block) && block.zvuk && !est(adresVoprosa(block.zvuk, raskladkaGolosov(block)))) {
           netu.push(`${lesson.slug} · ${block.id}: запись к заданию`);
         }
       }
     }
 
     for (const vopros of mod.quiz.questions) {
-      if (vopros.zvuk && !est(adresVoprosa(vopros.zvuk))) {
+      if (vopros.zvuk && !est(adresVoprosa(vopros.zvuk, raskladkaGolosov(vopros)))) {
         netu.push(`${mod.slug} · работа · ${vopros.id}: запись к вопросу`);
       }
     }
   }
 
   for (const vopros of course.exam?.questions ?? []) {
-    if (vopros.zvuk && !est(adresVoprosa(vopros.zvuk))) {
+    if (vopros.zvuk && !est(adresVoprosa(vopros.zvuk, raskladkaGolosov(vopros)))) {
       netu.push(`экзамен · ${vopros.id}: запись к вопросу`);
     }
   }
@@ -3221,7 +3235,7 @@ function checkZvuk(course: Course): void {
    */
   for (const part of course.parts ?? []) {
     for (const vopros of part.quiz?.questions ?? []) {
-      if (vopros.zvuk && !est(adresVoprosa(vopros.zvuk))) {
+      if (vopros.zvuk && !est(adresVoprosa(vopros.zvuk, raskladkaGolosov(vopros)))) {
         netu.push(`часть ${part.slug} · ${vopros.id}: запись к вопросу`);
       }
     }

@@ -89,8 +89,13 @@ export function adresZvuka(rod: RodZvuka, klyuch: string): string {
 }
 
 /** Короткий путь для блока материала. */
-export function adresBloka(text: string, temp: TempZvuka, dvaGolosa = false): string {
-  return adresZvuka("blok", klyuchZvuka(text, temp, dvaGolosa));
+export function adresBloka(
+  text: string,
+  temp: TempZvuka,
+  dvaGolosa = false,
+  raskladka = ""
+): string {
+  return adresZvuka("blok", klyuchZvuka(text, temp, dvaGolosa, raskladka));
 }
 
 /** Слово словаря читается медленно и по одному. */
