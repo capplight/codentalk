@@ -21,3 +21,4 @@ lib/db/generated/
 scratch-*/
 .tmp-*/
 _*.mts
+scripts/tmp*/
