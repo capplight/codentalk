@@ -11,6 +11,7 @@ import cvetIRazmer from "./cvet-i-razmer";
 import kakoyChelovek from "./kakoy-chelovek";
 import odezhda from "./odezhda";
 import moyDom from "./moy-dom";
+import kazhdyyDen from "./kazhdyy-den";
 import { rabotaYaIMoiLyudi } from "./raboty-chastey";
 
 /**
@@ -145,6 +146,7 @@ const course: Course = {
     kakoyChelovek,
     odezhda,
     moyDom,
+    kazhdyyDen,
   ],
   /*
    * ЧАСТИ СТУПЕНИ — 6 сентября 2026. Программа объявляет пять частей
@@ -180,6 +182,28 @@ const course: Course = {
       slug: "veshchi-i-mesto",
       title: "Вещи и место",
       modules: ["chto-eto-takoe", "odin-i-mnogo", "cvet-i-razmer", "kakoy-chelovek", "odezhda", "moy-dom"],
+    },
+    {
+      /*
+       * ЧАСТЬ 3 ОБЪЯВЛЕНА, КОГДА В НЕЙ ОДИН МОДУЛЬ ИЗ ШЕСТИ, и это нарочно.
+       *
+       * Правило нажито на экзамене ступени Elementary: пока часть не объявлена,
+       * ни одна проверка о ней не спрашивает, и её отсутствие в отчёте выглядит
+       * так же, как её исправность. Объявить рано — значит начать её проверять.
+       *
+       * Имя и состав взяты у программы дословно (`programma-stupeni.md`,
+       * «Часть 3. Мой день»): модули 13–18. Пять из шести ещё не написаны.
+       *
+       * `tagline` не поставлен нарочно: это видимый ученику текст, а его пишет
+       * редактор, а не сборщик.
+       *
+       * РАБОТЫ У ЧАСТИ НЕТ, и это долг, а не устройство: по программе она
+       * спрашивает «ответить на сообщение о встрече и рассказать свой день», а
+       * писать её пока не по чему.
+       */
+      slug: "moy-den",
+      title: "Мой день",
+      modules: ["kazhdyy-den"],
     },
   ],
 };
