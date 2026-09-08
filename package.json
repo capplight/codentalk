@@ -32,6 +32,7 @@
     "skachat-obyasneniya": "tsx scripts/skachat-obyasneniya.mts",
     "obrazec-urokov": "tsx scripts/obrazec-urokov.mts",
     "znachki": "tsx scripts/znachki.mts",
+    "bez-znachka": "tsx scripts/bez-znachka.mts",
     "slovo": "tsx scripts/slovo.mts",
     "sosedi": "tsx scripts/sosedi.mts",
     "perevody": "tsx scripts/perevody.mts",

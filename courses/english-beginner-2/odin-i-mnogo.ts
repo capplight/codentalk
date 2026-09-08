@@ -1140,6 +1140,7 @@ const modul: Module = {
             {
               /* Значка нет нарочно — см. комментарий у словаря. */
               term: "bottle",
+              znak: "butylka",
               translation: "бутылка",
               example: "bottles in the box",
               hint: "/ˈbɒtl/",

@@ -898,12 +898,14 @@ const modul: Module = {
             },
             {
               term: "sister",
+              znak: "1f467",
               translation: "сестра",
               example: "She is my sister.",
               hint: "/ˈsɪstə/",
             },
             {
               term: "brother",
+              znak: "1f466",
               translation: "брат",
               example: "He is my brother.",
               hint: "/ˈbrʌðə/",
@@ -1549,6 +1551,7 @@ const modul: Module = {
             },
             {
               term: "grandparents",
+              znak: "babushka-i-dedushka",
               translation: "бабушка и дедушка",
               example: "My grandparents and my parents are my family.",
               hint: "/ˈgrændpeərənts/",
@@ -3101,6 +3104,7 @@ const modul: Module = {
             {
               // Склад: `kotoryy.ts` ступени Elementary переводит «тётя».
               term: "aunt",
+              znak: "1f469",
               translation: "тётя",
               example: "My aunt is a doctor and my uncle is a farmer.",
               hint: "/ɑːnt/",
@@ -3108,6 +3112,7 @@ const modul: Module = {
             {
               // Склад: `kotoryy.ts` переводит «дядя».
               term: "uncle",
+              znak: "1f468",
               translation: "дядя",
               example: "My uncle is a driver and my aunt is a writer.",
               hint: "/ˈʌŋkl/",

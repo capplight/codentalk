@@ -2287,6 +2287,7 @@ const modul: Module = {
             },
             {
               term: "street",
+              znak: "tablichka-ulicy",
               translation: "улица",
               example: "The street is here.",
               hint: "/striːt/",
