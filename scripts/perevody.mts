@@ -85,6 +85,8 @@ interface Schyot {
   raznoboy: number;
   /** Английская строка ВНУТРИ объяснения или врезки, у которой русского нет вовсе. */
   golye: number;
+  /** Строка таблицы с целой английской фразой, где ни в одной ячейке нет русского. */
+  tablicyBezRusskogo: number;
 }
 
 /**
@@ -194,7 +196,7 @@ function nachatObobshcheniem(perv: string): boolean {
 }
 
 function razobrat(m: Module, chego: string[]): Schyot {
-  const s: Schyot = { strok: 0, sPerevodom: 0, ssylki: 0, raznoboy: 0, golye: 0 };
+  const s: Schyot = { strok: 0, sPerevodom: 0, ssylki: 0, raznoboy: 0, golye: 0, tablicyBezRusskogo: 0 };
   // Разнобой ищется ВНУТРИ модуля, а не по курсу: между модулями одна строка
   // законно переводится по-разному, потому что стоит в разных сценах.
   const vstrechalos = new Map<string, string>();
@@ -238,6 +240,42 @@ function razobrat(m: Module, chego: string[]): Schyot {
         }
       }
 
+      /*
+       * СТРОКА ТАБЛИЦЫ С ЦЕЛОЙ АНГЛИЙСКОЙ ФРАЗОЙ И БЕЗ РУССКОГО РЯДОМ.
+       *
+       * ПОВОД — находка второго редактора модуля 14, 10 сентября 2026: три
+       * таблицы модуля из семи оставляли английские строки без перевода,
+       * включая таблицу главного противопоставления. А эта проверка таблиц НЕ
+       * ВИДЕЛА ВОВСЕ — она брала у таблицы одну подпись.
+       *
+       * ПРИЗНАК СУЖЕН ДО ЦЕЛОЙ ФРАЗЫ НАРОЧНО, и вот чем это вызвано. Первая
+       * редакция считала английской всякую ячейку от трёх латинских слов — и
+       * закричала на таблицы ФОРМ: `I was not | I wasn't`, `my first name |
+       * my surname`. Им перевод по строке не нужен: это парадигма, а не
+       * строки. Счёт по всем курсам был 137 + 271 + 33.
+       *
+       * Теперь ячейка считается фразой, только если начинается с заглавной и
+       * кончается точкой, вопросительным или восклицательным знаком. Счёт стал
+       * 129 + 160 + 13, и на новом курсе это ровно две таблицы, обе названные
+       * редактором.
+       *
+       * ЗАМОРОЖЕННЫЕ КУРСЫ ДАЮТ МНОГО, и это ожидаемо: они писались до правила
+       * «у каждой английской строки перевод рядом», и чинить там нечего.
+       */
+      if (b.kind === "table" && Array.isArray(b.rows)) {
+        const fraza = (c: string) =>
+          /^[A-Z][^\u0400-\u04FF]*[.?!]$/.test(c.trim()) && (c.match(/[A-Za-z']+/g) ?? []).length >= 3;
+        for (const ryad of b.rows) {
+          if (!ryad.some((c) => fraza(String(c)))) continue;
+          if (ryad.some((c) => /[\u0400-\u04FF]/.test(String(c)))) continue;
+          s.tablicyBezRusskogo += 1;
+          chego.push(
+            `${m.slug} · ${lesson.slug} · таблица ${b.id}: русского в строке нет — ` +
+              ryad.join(" | ")
+          );
+        }
+      }
+
       // Ссылки ищем во всём видимом тексте блока, кроме заданий.
       const vidimoe: string[] = [];
       if (b.kind === "explain") vidimoe.push(...b.text);
@@ -254,7 +292,7 @@ for (const course of courses) {
   if (kursSlug && course.slug !== kursSlug) continue;
 
   const chego: string[] = [];
-  const itog: Schyot = { strok: 0, sPerevodom: 0, ssylki: 0, raznoboy: 0, golye: 0 };
+  const itog: Schyot = { strok: 0, sPerevodom: 0, ssylki: 0, raznoboy: 0, golye: 0, tablicyBezRusskogo: 0 };
   const poModulyam: Array<[string, Schyot]> = [];
 
   for (const m of course.modules) {
@@ -265,6 +303,7 @@ for (const course of courses) {
     itog.ssylki += s.ssylki;
     itog.raznoboy += s.raznoboy;
     itog.golye += s.golye;
+    itog.tablicyBezRusskogo += s.tablicyBezRusskogo;
   }
 
   const dolya = itog.strok ? Math.round((itog.sPerevodom / itog.strok) * 100) : 100;
@@ -276,6 +315,10 @@ for (const course of courses) {
   console.log(
     `Голых строк в объяснениях:   ${itog.golye}` +
       ` (сведения: английское без русского рядом; чинится разводом надвое)`
+  );
+  console.log(
+    `Строк таблиц без русского:   ${itog.tablicyBezRusskogo}` +
+      ` (сведения: целая английская фраза в таблице, где русского нет ни в одной ячейке)`
   );
 
   // Четвёртое число: уроки правил, начатые обобщением, а не сценой.
