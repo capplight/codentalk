@@ -144,7 +144,35 @@ export function lishnieSlova(stroki: string[], slova: string[], slovar: string[]
     // правилом проект дорожит с тех пор, как первая редакция другой проверки
     // дала 168 срабатываний почти сплошь на правильном.
     if (iskomye.has(bolshimi) || bolshimi.length < 3) continue;
-    if (mestaSlova(stroki, bolshimi).length > 0) lishnie.add(slovo);
+    const mesta = mestaSlova(stroki, bolshimi);
+    if (mesta.length === 0) continue;
+    // Слово, стоящее НАЧАЛОМ искомого, помехой не является — уточнено
+    // 8 сентября 2026, после того как проверка закричала на правильное.
+    //
+    // Модуль 14 завёл карточки `drive` и `sing`, и сетка модуля 6 сразу стала
+    // «двусмысленной»: `DRIVE` лежит внутри `DRIVER`, `SING` — внутри `SINGER`.
+    // А беды нет: список под полем говорит искать `driver`, ученик нажимает
+    // пятую букву, ничего не происходит — и нажимает шестую, потому что слово
+    // ещё не кончилось. Засчитывается оно на последней букве.
+    //
+    // Настоящая беда выглядит иначе, и она в этом же курсе есть: `DRESS` внутри
+    // `ADDRESS` и `HAIR` внутри `CHAIR` стоят ХВОСТОМ. Ученик доходит до конца
+    // слова, дальше идти некуда, и он остаётся ни с чем. Эти два остаются
+    // названными.
+    //
+    // Признак различает их точно: у начала общая с искомым первая ячейка и
+    // общее направление. Гасим только тогда, когда ВСЕ вхождения лишнего слова
+    // такие: то же слово может лежать в поле и вторым разом, сам по себе.
+    const nachaloIskomogo = (m: MestoSlova): boolean =>
+      [...iskomye].some(
+        (ish) =>
+          ish.length > bolshimi.length &&
+          mestaSlova(stroki, ish).some(
+            (mi) => mi.stroka === m.stroka && mi.stolbec === m.stolbec && mi.vniz === m.vniz
+          )
+      );
+    if (mesta.every(nachaloIskomogo)) continue;
+    lishnie.add(slovo);
   }
   return [...lishnie].sort();
 }

@@ -3,6 +3,7 @@ import assert from "node:assert/strict";
 import {
   bedySetki,
   bukvyYacheek,
+  lishnieSlova,
   mestaSlova,
   mozhnoDobavit,
   OBRAZEC_SETKI,
@@ -113,4 +114,42 @@ test("задание засчитывается, когда найдены вс�
   assert.equal(checkAnswer(task, [1, 0]), true, "порядок нахождения не важен");
   assert.equal(checkAnswer(task, [0]), false);
   assert.equal(checkAnswer(task, []), false);
+});
+
+
+/*
+ * НАЧАЛО ИСКОМОГО ПРОТИВ ХВОСТА — испытание уточнения от 8 сентября 2026.
+ *
+ * Оба поля ниже держат лишнее слово внутри искомого, и различие между ними
+ * решает, кричит проверка на правильное или называет настоящую беду.
+ */
+
+test("лишнее слово, стоящее началом искомого, не называется", () => {
+  const pole = ["DRIVER", "QWERTY", "ZXCVBN", "POIUYT", "LKJHGF", "MNBVCX"];
+  assert.deepEqual(mestaSlova(pole, "DRIVE"), [{ stroka: 0, stolbec: 0, vniz: false, dlina: 5 }]);
+  assert.deepEqual(
+    lishnieSlova(pole, ["driver"], ["drive"]),
+    [],
+    "ученик нажмёт пятую букву, ничего не случится, и нажмёт шестую"
+  );
+});
+
+test("лишнее слово, стоящее хвостом искомого, называется", () => {
+  const pole = ["ADDRESS", "QWERTYU", "ZXCVBNM", "POIUYTR", "LKJHGFD", "MNBVCXZ", "QAZWSXE"];
+  assert.deepEqual(
+    lishnieSlova(pole, ["address"], ["dress"]),
+    ["dress"],
+    "ученик дойдёт до конца слова, дальше идти некуда, и останется ни с чем"
+  );
+});
+
+test("то же слово вторым разом в поле проверку будит", () => {
+  // `DRIVE` стоит и началом `DRIVER`, и само по себе строкой ниже.
+  const pole = ["DRIVERZ", "QWERTYU", "DRIVEZX", "POIUYTR", "LKJHGFD", "MNBVCXZ", "QAZWSXE"];
+  assert.equal(mestaSlova(pole, "DRIVE").length, 2);
+  assert.deepEqual(
+    lishnieSlova(pole, ["driver"], ["drive"]),
+    ["drive"],
+    "гасить можно, только когда ВСЕ вхождения — начала искомого"
+  );
 });
