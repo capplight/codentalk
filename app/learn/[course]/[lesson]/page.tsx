@@ -4,6 +4,8 @@ import { auth } from "@/auth";
 import { prisma } from "@/lib/db";
 import { findLesson } from "@/courses";
 import { isTask } from "@/lib/content/types";
+import { moduliKursa } from "@/lib/content/dostup";
+import { urokOtkryt } from "@/lib/domain/dostup-moduley";
 import { razvernutVozvraty } from "@/lib/content/vozvrat";
 import Material from "@/components/lesson/Material";
 import TaskCard from "@/components/lesson/TaskCard";
@@ -53,6 +55,34 @@ export default async function LessonPage({ params }: Params) {
   const userId = session?.user?.id;
   if (!userId) {
     redirect(`/login?dalshe=${encodeURIComponent(`/learn/${courseSlug}/${lessonSlug}`)}`);
+  }
+
+  /*
+   * ЗАМОК НА МОДУЛИ — решение владельца от 10 сентября 2026. Урок закрытого
+   * модуля не открывается, сколько бы адрес ни набирали руками.
+   *
+   * Правило живёт в `lib/domain/dostup-moduley.ts` и покрыто испытаниями; сюда
+   * оно приходит вызовом, а не переписанным условием. Второе место проверки —
+   * метод интерфейса, который ставит отметку о прохождении: без него урок
+   * можно было бы засчитать, не открывая.
+   */
+  const [proydennyeRows, vBazeRows] = await Promise.all([
+    prisma.lessonProgress.findMany({
+      where: { userId, status: "completed", lesson: { course: { slug: courseSlug } } },
+      select: { lesson: { select: { slug: true } } },
+    }),
+    // Уроки, которые база вообще знает: до неё содержание доезжает отдельным
+    // переносом, а урок, которого там нет, пройти нельзя — отметке негде лечь.
+    // Без этого довода замок запер бы ступень на первом неперенесённом модуле.
+    prisma.lesson.findMany({
+      where: { course: { slug: courseSlug } },
+      select: { slug: true },
+    }),
+  ]);
+  const proydennye = new Set(proydennyeRows.map((row) => row.lesson.slug));
+  const znaetBaza = new Set(vBazeRows.map((row) => row.slug));
+  if (!urokOtkryt(moduliKursa(course), proydennye, lessonSlug, znaetBaza)) {
+    redirect(`/learn/${courseSlug}`);
   }
 
   // Уже поставленные пометки, чтобы кнопки открылись в нужном состоянии.

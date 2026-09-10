@@ -10,20 +10,32 @@ import { findNapravlenie } from "@/courses/napravleniya";
 import { plural } from "@/lib/plural";
 import s from "../learn.module.css";
 import { ZNACHKI_VIDA } from "@/lib/content/znaki";
-import { IMYA_VIDA, ZNAK_VIDA, vidUroka } from "@/lib/content/vid-uroka";
-import type { Lesson } from "@/lib/content/types";
+import { moduliKursa } from "@/lib/content/dostup";
+// Имя `modulSeychas` в этом файле уже занято переменной внутри разметки, и
+// тень над импортом читалась бы как ошибка. Зовём функцию по делу: она выбирает
+// модуль, который показать.
+import { modulSeychas as vybratModul, sostoyanieModuley } from "@/lib/domain/dostup-moduley";
+import EkranModulya from "@/components/learn/EkranModulya";
+import ShkalaUmeniy from "@/components/learn/ShkalaUmeniy";
+import TropaModulya from "@/components/learn/TropaModulya";
+import { SLOVA } from "@/components/learn/slova";
 import t from "../tropa.module.css";
 
-type Params = { params: Promise<{ course: string }> };
+type Params = {
+  params: Promise<{ course: string }>;
+  /**
+   * `vse=1` — показать карту всей ступени вместо экрана одного модуля.
+   * `modul=<слаг>` — показать именно этот модуль, если он открыт.
+   *
+   * Оба живут в адресе, а не в памяти браузера: ссылку на своё место можно
+   * послать себе же на телефон, и она откроет то же самое.
+   */
+  searchParams: Promise<{ vse?: string; modul?: string }>;
+};
 
 export async function generateMetadata({ params }: Params) {
   const { course } = await params;
   return { title: findCourse(course)?.title ?? "Курс" };
-}
-
-/** Значок вида урока — только у умений; у правил его нет нарочно. */
-function znakVida(lesson: Lesson): string | undefined {
-  return ZNAK_VIDA[vidUroka(lesson)];
 }
 
 /**
@@ -82,8 +94,9 @@ function Zamok() {
  * наказание, а бережливость: работа проверяет знания, а не догадливость, и
  * сдавать её, не прочитав уроков, значит зря потратить попытку.
  */
-export default async function CoursePage({ params }: Params) {
+export default async function CoursePage({ params, searchParams }: Params) {
   const { course: courseSlug } = await params;
+  const { vse, modul: modulIzAdresa } = await searchParams;
   const course = findCourse(courseSlug);
   if (!course) notFound();
 
@@ -202,6 +215,82 @@ export default async function CoursePage({ params }: Params) {
   const totalMinutes = all.reduce((sum, entry) => sum + entry.lesson.estimatedMinutes, 0);
   const napravlenie = findNapravlenie(course.track);
 
+  /*
+   * ЗАМОК НА МОДУЛИ — решение владельца от 10 сентября 2026.
+   *
+   * Правило живёт в `lib/domain/dostup-moduley.ts` и покрыто испытаниями. Здесь
+   * оно только СПРАШИВАЕТСЯ: страница показывает то, что правило разрешило, а
+   * запрещает по-настоящему сервер — страница урока и метод интерфейса.
+   * Скрытая в разметке ссылка замком не является.
+   */
+  /*
+   * Какие уроки база вообще знает. Содержание живёт в файлах, а отметки о
+   * прохождении — в базе, и попадает туда содержание отдельным переносом. Урок,
+   * до базы не доехавший, пройти нельзя, и без этого довода замок запер бы
+   * ступень на первом же неперенесённом модуле — молча, при чистых отчётах.
+   */
+  const znaetBaza = userId
+    ? new Set(
+        (
+          await prisma.lesson.findMany({
+            where: { course: { slug: courseSlug } },
+            select: { slug: true },
+          })
+        ).map((row) => row.slug)
+      )
+    : undefined;
+
+  const dostup = new Map(
+    sostoyanieModuley(moduliKursa(course), done, znaetBaza).map((m) => [m.slug, m])
+  );
+
+  /*
+   * ЧТО ПОКАЗАТЬ: экран одного модуля или карту всей ступени.
+   *
+   * Гость всегда видит карту целиком — это витрина, по ней человек решает, идти
+   * ли учиться, и по ней же приходят из поиска. Ученику по умолчанию
+   * показывается его модуль, а карта — по кнопке.
+   */
+  const naEkraneModul = (() => {
+    if (!userId || vse === "1") return null;
+    const prosyat = modulIzAdresa
+      ? course.modules.find((m) => m.slug === modulIzAdresa)
+      : undefined;
+    // Модуль из адреса берётся, только если он открыт: иначе замок обходился бы
+    // правкой строки адреса, а человек попадал бы туда, где ему рано.
+    if (prosyat && dostup.get(prosyat.slug)?.otkryt) return prosyat;
+    const slug = vybratModul(moduliKursa(course), done, znaetBaza);
+    return course.modules.find((m) => m.slug === slug) ?? null;
+  })();
+
+  /*
+   * Работа части — только если показанный модуль в своей части ПОСЛЕДНИЙ.
+   *
+   * Без этого работа части стала бы недостижимой в ежедневной работе: она
+   * стоит в конце части из шести модулей, а экран показывает один модуль. Это
+   * ровно та порода, о которой проект знает по работам частей Elementary:
+   * содержание, до которого нет дороги, выглядит в отчётах работающим.
+   */
+  const rabotaChasti = (() => {
+    if (!naEkraneModul) return undefined;
+    const chast = course.parts?.find((part) => part.modules.includes(naEkraneModul.slug));
+    if (!chast?.quiz) return undefined;
+    if (chast.modules[chast.modules.length - 1] !== naEkraneModul.slug) return undefined;
+
+    const urokiChasti = chast.modules
+      .map((name) => byName.get(name))
+      .filter((m): m is NonNullable<typeof m> => m !== undefined)
+      .flatMap((m) => m.lessons);
+    const sdelano = urokiChasti.filter((lesson) => done.has(lesson.slug)).length;
+
+    return {
+      href: `/learn/${course.slug}/rabota-chasti/${chast.slug}`,
+      title: `Работа части: ${chast.title}`,
+      otkryta: urokiChasti.length > 0 && sdelano === urokiChasti.length,
+      sdana: quizScoreByPart.get(chast.slug) !== undefined,
+    };
+  })();
+
   return (
     <main className="wrap-wide" style={{ paddingBottom: 56 }}>
       <div className={t.shapka}>
@@ -279,9 +368,43 @@ export default async function CoursePage({ params }: Params) {
         Duolingo — «листать вечность, чтобы вернуться к теме»: у нас заголовки
         модулей стоят рядом, и до любого два нажатия.
 
-        Замков на уроках нет: узел впереди — обычная ссылка. Закрыты только
-        проверочные работы, и это старое правило, а не свойство тропы.
+        С 10 сентября 2026 эта карта — ВТОРОЙ экран, а не первый: ученику
+        сперва показывается его модуль, а карта открывается по кнопке. Здесь же
+        стоят замки на модулях, заведённые тем же решением; прежняя запись
+        говорила «замков на уроках нет», и она отменена. Внутри открытого
+        модуля порядка по-прежнему нет.
       */}
+      {naEkraneModul && (
+        <EkranModulya
+          course={course}
+          module={naEkraneModul}
+          nomer={course.modules.indexOf(naEkraneModul) + 1}
+          done={done}
+          current={current}
+          quizScore={quizScoreByModule.get(naEkraneModul.slug)}
+          sleduyushchiy={course.modules[course.modules.indexOf(naEkraneModul) + 1]}
+          sleduyushchiyOtkryt={
+            dostup.get(course.modules[course.modules.indexOf(naEkraneModul) + 1]?.slug ?? "")
+              ?.otkryt ?? false
+          }
+          chast={
+            course.parts?.find((part) => part.modules.includes(naEkraneModul.slug))?.title
+          }
+          rabotaChasti={rabotaChasti}
+        />
+      )}
+
+      {/* Строка обратно к своему модулю: с карты возвращаются чаще, чем уходят
+          на неё, и искать своё место глазами по тридцати строкам не надо. */}
+      {!naEkraneModul && userId && (
+        <p className={s.resume} style={{ marginTop: 4 }}>
+          <Link className={s.resumeWhere} href={`/learn/${course.slug}`}>
+            ← {SLOVA.kSvoyemuModulyu}
+          </Link>
+        </p>
+      )}
+
+      {!naEkraneModul && (
       <div className={t.karta}>
         {groups.map((group) => {
           const openGroup =
@@ -299,12 +422,21 @@ export default async function CoursePage({ params }: Params) {
             const asked = module.quiz.ask ?? module.quiz.questions.length;
             const quizScore = quizScoreByModule.get(module.slug);
             const modulSeychas = module.slug === currentModule;
+            /*
+             * Закрытый модуль на карте не раскрывается вовсе: показывать уроки,
+             * в которые нельзя войти, значит дразнить. Гость при этом видит
+             * карту без замков — у него нет прогресса, и первый модуль ему
+             * открыт, а дальше он и так не пойдёт, пока не войдёт.
+             */
+            const zakryt = userId !== undefined && dostup.get(module.slug)?.otkryt === false;
 
             return (
               <details
-                className={`${t.modul} ${modulSeychas ? t.modulSeychas : ""}`}
+                className={`${t.modul} ${modulSeychas ? t.modulSeychas : ""} ${
+                  zakryt ? t.modulZakryt : ""
+                }`}
                 key={module.slug}
-                open={modulSeychas}
+                open={modulSeychas && !zakryt}
               >
                 <summary className={t.modulShapka}>
                   {/* Значок вместо номера: свёрнутые модули стоят строками, и
@@ -315,7 +447,9 @@ export default async function CoursePage({ params }: Params) {
                       moduleReady ? t.nomerGotov : modulSeychas ? t.nomerSeychas : ""
                     }`}
                   >
-                    {module.znak ? (
+                    {zakryt ? (
+                      <Zamok />
+                    ) : module.znak ? (
                       // eslint-disable-next-line @next/next/no-img-element
                       <img src={adresZnachka(module.znak)} alt="" width={22} height={22} />
                     ) : (
@@ -325,8 +459,14 @@ export default async function CoursePage({ params }: Params) {
                   <span className={t.modulImyaStolb}>
                     <h2 className={t.modulImya}>{module.title}</h2>
                     <span className={t.modulNomer}>
-                      Модуль {index + 1} · {module.lessons.length}{" "}
-                      {plural(module.lessons.length, "урок", "урока", "уроков")}
+                      {zakryt ? (
+                        SLOVA.modulZakryt
+                      ) : (
+                        <>
+                          Модуль {index + 1} · {module.lessons.length}{" "}
+                          {plural(module.lessons.length, "урок", "урока", "уроков")}
+                        </>
+                      )}
                     </span>
                   </span>
                   <span className={t.polosa} aria-hidden>
@@ -338,108 +478,23 @@ export default async function CoursePage({ params }: Params) {
                 </summary>
 
                 <div className={t.modulTelo}>
-                  {/* Без заголовка список читался непонятно: владелец прошёл
-                      модуль и спросил, что это за строки над уроками. */}
-                  <div className={t.vyvody}>
-                    <span className={t.vyvodyImya}>Чему научишься в модуле</span>
-                    <ul>
-                      {module.outcomes.map((outcome, i) => (
-                        <li key={i}>{outcome}</li>
-                      ))}
-                    </ul>
-                  </div>
+                  {/* Та же шкала умений, что на экране модуля, а не второй
+                      такой же список. Строка «Чему научишься» жила бы иначе в
+                      двух местах разом и разошлась бы при первой правке — на
+                      этом проект уже обжигался. */}
+                  <ShkalaUmeniy module={module} done={done} />
 
-                  <ol className={t.tropa}>
-                    {module.lessons.map((lesson, i) => {
-                      const isDone = done.has(lesson.slug);
-                      const isNow = lesson.slug === current;
-                      return (
-                        <li
-                          className={`${t.uzel} ${i % 2 === 0 ? t.sleva : t.sprava}`}
-                          key={lesson.slug}
-                        >
-                          {/* Нажимается ВЕСЬ узел — и кружок, и подпись.
-                              Раньше ссылкой было только название: владелец
-                              ткнул в кружок и не попал никуда. Кружок с
-                              номером выглядит кнопкой, значит должен ею быть. */}
-                          <Link
-                            className={t.uzelSsylka}
-                            href={`/learn/${course.slug}/${lesson.slug}`}
-                          >
-                            <span
-                              className={`${t.krug} ${isDone ? t.krugGotov : ""} ${
-                                isNow ? t.krugSeychas : ""
-                              }`}
-                              aria-hidden
-                            >
-                              {isDone ? "✓" : i + 1}
-                            </span>
-                            <span className={t.podpis}>
-                              {isNow && <span className={t.tuty}>ты здесь</span>}
-                              <span className={t.imyaUroka}>{lesson.title}</span>
-                              <span className={t.melko}>
-                              {/* Значок стоит только у уроков умений: их среди
-                                  правил и надо различать. У правил значка нет
-                                  нарочно — иначе он у каждого второго узла и
-                                  превращается в шум. */}
-                                {znakVida(lesson) && (
-                                  <>
-                                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                                    <img
-                                      className={t.znachokVida}
-                                      src={adresZnachka(znakVida(lesson)!)}
-                                      alt=""
-                                      width={14}
-                                      height={14}
-                                    />
-                                    {IMYA_VIDA[vidUroka(lesson)]}
-                                    {" · "}
-                                  </>
-                                )}
-                                {isDone ? "пройден" : `${lesson.estimatedMinutes} мин`}
-                              </span>
-                            </span>
-                          </Link>
-                        </li>
-                      );
-                    })}
-
-                    {/* Работа модуля — такой же узел тропы, только другой формы:
-                        она стоит в конце пути и открывается, когда уроки
-                        пройдены. Отдельной рамкой она выглядела концом
-                        страницы, а не следующим шагом. */}
-                    <li
-                      className={`${t.uzel} ${
-                        module.lessons.length % 2 === 0 ? t.sleva : t.sprava
-                      } ${t.rabota} ${quizScore !== undefined ? t.rabotaSdana : ""} ${
-                        moduleReady ? "" : t.rabotaZakryta
-                      }`}
-                    >
-                      {/* Закрытая работа — не ссылка, а тот же узел без неё:
-                          обёртка одна и та же, значит и стоит она одинаково. */}
-                      <Uzel
-                        href={
-                          moduleReady || quizScore !== undefined
-                            ? `/learn/${course.slug}/proverochnaya/${module.slug}`
-                            : undefined
-                        }
-                      >
-                        <span className={t.krug} aria-hidden>
-                          {quizScore !== undefined ? "✓" : moduleReady ? "?" : <Zamok />}
-                        </span>
-                        <span className={t.podpis}>
-                          <span className={t.imyaUroka}>Проверочная работа</span>
-                          <span className={t.melko}>
-                            {quizScore !== undefined
-                              ? `сдана, ${quizScore} из 100`
-                              : moduleReady
-                                ? `${asked} ${plural(asked, "вопрос", "вопроса", "вопросов")} · можно сдавать`
-                                : "откроется, когда пройдены все уроки модуля"}
-                          </span>
-                        </span>
-                      </Uzel>
-                    </li>
-                  </ol>
+                  {/* Та же тропа, что на экране модуля. До 10 сентября 2026
+                      здесь стоял второй такой же кусок разметки на девяносто
+                      строк, и разошёлся бы он с первым при первой же правке. */}
+                  <TropaModulya
+                    courseSlug={course.slug}
+                    module={module}
+                    done={done}
+                    current={current}
+                    quizScore={quizScore}
+                    gost={!userId}
+                  />
                 </div>
               </details>
             );
@@ -500,7 +555,7 @@ export default async function CoursePage({ params }: Params) {
                               ? `сдана, ${partScore} из 100`
                               : partReady
                                 ? `${partAsked} ${plural(partAsked, "вопрос", "вопроса", "вопросов")} · можно сдавать`
-                                : "откроется, когда пройдены все уроки части"}
+                                : SLOVA.rabotaChastiZakrytaKratko}
                           </span>
                         </span>
                       </Uzel>
@@ -512,8 +567,9 @@ export default async function CoursePage({ params }: Params) {
           );
         })}
       </div>
+      )}
 
-      {course.exam && (
+      {!naEkraneModul && course.exam && (
         <section className={t.ekzamen}>
           <span
             className={`${t.krug} ${examPassed ? t.krugGotov : ""}`}

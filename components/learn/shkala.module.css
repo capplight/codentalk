@@ -1,0 +1,77 @@
+/*
+ * Шкала умений: итоги модуля с галочками.
+ *
+ * Цвета все до одного из `app/globals.css` — своего набора здесь нет и быть не
+ * должно, иначе тёмный лист поедет.
+ */
+
+.shkala {
+  /* Блок стоит рядом с картой, а не стеной над ней: на широком экране это
+     столбец справа, на телефоне — обычный блок сверху. Раскладку задаёт
+     родитель, здесь только внутренность. */
+  margin-bottom: 0;
+}
+
+.shapka {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+/* Счёт умений: не полоса, а число. Полоса уже стоит у модуля, и вторая рядом
+   мерила бы то же самое дважды. */
+.schyot {
+  font-size: 12px;
+  color: var(--ink-soft);
+  white-space: nowrap;
+}
+
+.spisok {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.spisok li {
+  display: grid;
+  grid-template-columns: 18px 1fr;
+  gap: 8px;
+  align-items: start;
+  line-height: 1.35;
+}
+
+/* Плитка под галочку стоит всегда, даже пустая: без неё строки прыгали бы
+   влево-вправо по мере прохождения уроков. */
+.znak {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  font-size: 11px;
+  line-height: 1;
+  border: 1.5px solid var(--line);
+  color: var(--paper);
+  background: transparent;
+}
+
+.gotovo .znak {
+  border-color: var(--good);
+  background: var(--good);
+  color: var(--paper);
+}
+
+/* Умение, которое уже есть, читается обычным цветом; то, что впереди, — тише.
+   Наоборот было бы наказанием: человек читал бы бледным то, что сделал. */
+.gotovo {
+  color: var(--ink);
+}
+
+.zhdyot {
+  color: var(--ink-soft);
+}

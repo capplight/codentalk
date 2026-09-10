@@ -5,6 +5,7 @@ import { prisma } from "@/lib/db";
 import { findCourse } from "@/courses";
 import QuizRunner from "@/components/lesson/QuizRunner";
 import { plural } from "@/lib/plural";
+import { SLOVA } from "@/components/learn/slova";
 import { nuzhnoVerno } from "@/lib/domain/porog";
 import s from "@/components/lesson/lesson.module.css";
 
@@ -103,8 +104,12 @@ export default async function PartQuizPage({ params }: Params) {
       ) : (
         <div className={s.body}>
           <div className={`${s.feedback} ${s.neutral}`}>
-            Работа откроется, когда пройдены все уроки части: пройдено {done} из{" "}
-            {lessons.length} {plural(lessons.length, "урока", "уроков", "уроков")}.
+            {SLOVA.rabotaChastiZakrytaSoSchyotom(
+              done,
+              lessons.length,
+              plural(lessons.length, "урока", "уроков", "уроков")
+            )}
+            .
             Она спрашивает не о правиле, а о случае целиком, и сдавать её, не пройдя модулей,
             значит зря потратить время.
           </div>

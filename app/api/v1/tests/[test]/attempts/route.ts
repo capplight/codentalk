@@ -8,6 +8,7 @@ import { forBrowser, poolFrom } from "@/lib/content/quiz";
 import { checkCourseAccess } from "@/lib/api/access";
 import { findCourse } from "@/courses";
 import { plural } from "@/lib/plural";
+import { SLOVA } from "@/components/learn/slova";
 
 type Params = { params: Promise<{ test: string }> };
 
@@ -107,7 +108,7 @@ export const POST = handler(async (_request: Request, { params }: Params) => {
     if (lessons.length > 0 && done < lessons.length) {
       throw new ApiError(
         "forbidden",
-        `Работа откроется, когда пройдены все уроки части: пройдено ${done} из ${lessons.length} ${plural(lessons.length, "урока", "уроков", "уроков")}`
+        SLOVA.rabotaChastiZakrytaSoSchyotom(done, lessons.length, plural(lessons.length, "урока", "уроков", "уроков"))
       );
     }
   }
@@ -130,7 +131,7 @@ export const POST = handler(async (_request: Request, { params }: Params) => {
     if (lessons.length > 0 && done < lessons.length) {
       throw new ApiError(
         "forbidden",
-        `Работа откроется, когда пройдены все уроки модуля: пройдено ${done} из ${lessons.length} ${plural(lessons.length, "урока", "уроков", "уроков")}`
+        SLOVA.rabotaModulyaZakrytaSoSchyotom(done, lessons.length, plural(lessons.length, "урока", "уроков", "уроков"))
       );
     }
   }

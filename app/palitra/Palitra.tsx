@@ -10,6 +10,7 @@
  */
 
 import { useState } from "react";
+import { SLOVA } from "@/components/learn/slova";
 import { adresZnachka } from "@/lib/content/znaki";
 import t from "../learn/tropa.module.css";
 
@@ -264,7 +265,7 @@ export default function Palitra() {
 
                 <div className={t.modulTelo}>
                   <div className={t.vyvody}>
-                    <span className={t.vyvodyImya}>Чему научишься в модуле</span>
+                    <span className={t.vyvodyImya}>{SLOVA.umeniyaNeNachat}</span>
                     <ul>
                       <li>здороваться, выбирая приветствие по времени дня, и прощаться</li>
                       <li>называть своё имя и понимать, когда имя спрашивают</li>
@@ -318,7 +319,7 @@ export default function Palitra() {
                         <span className={t.podpis}>
                           <span className={t.imyaUroka}>Проверочная работа</span>
                           <span className={t.melko}>
-                            откроется, когда пройдены все уроки модуля
+                            {SLOVA.rabotaModulyaZakryta}
                           </span>
                         </span>
                       </span>

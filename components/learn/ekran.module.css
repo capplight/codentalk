@@ -1,0 +1,168 @@
+/*
+ * Экран одного модуля.
+ *
+ * Цвета все до одного из `app/globals.css`. Своего набора здесь нет: иначе
+ * тёмный лист поедет ровно на этом экране, а он теперь главный.
+ */
+
+.ekran {
+  margin-top: 18px;
+}
+
+/* ---- Где я: часть, номер модуля и выход на карту ---- */
+
+.gde {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+}
+
+.gdeStroka {
+  color: var(--ink-soft);
+  font-size: 13px;
+}
+
+.gdeStroka b {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.vseModuli {
+  color: var(--ink-soft);
+  font-size: 13px;
+  text-decoration: none;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 5px 12px;
+}
+
+.vseModuli:hover {
+  color: var(--ink);
+  border-color: var(--ink-soft);
+}
+
+/* ---- Шапка модуля ---- */
+
+.shapka {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  border: 1px solid var(--line);
+  border-radius: 16px 16px 0 0;
+  border-bottom: none;
+  background: var(--paper-alt);
+}
+
+.znak {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.znak img {
+  display: block;
+}
+
+.imya {
+  margin: 0;
+  font-size: 20px;
+  line-height: 1.2;
+}
+
+.schyot {
+  color: var(--ink-soft);
+  font-size: 13px;
+  white-space: nowrap;
+}
+
+/* Полоса успеха занимает всю ширину под шапкой: она о модуле целиком, а не о
+   его названии. */
+.shapka > span:last-child {
+  grid-column: 1 / -1;
+}
+
+/* ---- Тело: карта и шкала умений ---- */
+
+.telo {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+  border: 1px solid var(--line);
+  border-radius: 0 0 16px 16px;
+  padding: 14px 16px 18px;
+}
+
+/*
+ * На широком экране шкала умений уезжает вбок от карты.
+ *
+ * Порядок в разметке при этом остаётся прежним — сперва карта, потом шкала, —
+ * и на телефоне человек видит сперва то, ради чего пришёл: уроки.
+ */
+@media (min-width: 860px) {
+  .telo {
+    grid-template-columns: 1fr 300px;
+    gap: 24px;
+    align-items: start;
+  }
+
+  .sboku {
+    position: sticky;
+    top: 16px;
+  }
+}
+
+.karta {
+  min-width: 0;
+}
+
+.sboku {
+  min-width: 0;
+}
+
+/* ---- Что дальше ---- */
+
+.dalshe {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-top: 14px;
+  padding: 12px 16px;
+  border: 1px dashed var(--line);
+  border-radius: 14px;
+}
+
+.dalsheImya {
+  font-weight: 600;
+}
+
+.dalsheImya a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.dalsheImya a:hover {
+  text-decoration: underline;
+}
+
+/* Закрытый следующий модуль тише открытого, но не перечёркнут: он не наказание,
+   а то, что будет дальше. */
+.dalsheZakryt .dalsheImya {
+  color: var(--ink-soft);
+  font-weight: 500;
+}
+
+.dalsheChto {
+  color: var(--ink-soft);
+  font-size: 13px;
+}

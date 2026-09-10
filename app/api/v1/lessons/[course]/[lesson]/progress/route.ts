@@ -4,6 +4,9 @@ import { ApiError, handler, ok, readJson } from "@/lib/api/respond";
 import { requireUser } from "@/lib/api/session";
 import { checkCourseAccess } from "@/lib/api/access";
 import { startOfMonth } from "@/lib/domain/enrollment";
+import { findCourse } from "@/courses";
+import { moduliKursa } from "@/lib/content/dostup";
+import { urokOtkryt } from "@/lib/domain/dostup-moduley";
 
 const bodySchema = z.object({
   status: z.enum(["in_progress", "completed"]).default("in_progress"),
@@ -74,6 +77,39 @@ export const PUT = handler(async (request: Request, { params }: Params) => {
     where: { userId_lessonId: { userId: user.id, lessonId: lesson.id } },
     select: { status: true, completedAt: true },
   });
+
+  /*
+   * ЗАМОК НА МОДУЛИ — второе место проверки, и без него первое ничего не
+   * стоит: страницу можно не открывать вовсе, а отметку послать запросом.
+   * Правило одно на всех — `lib/domain/dostup-moduley.ts`.
+   *
+   * Спрашиваем ТОЛЬКО при первой записи по этому уроку. Метод зовётся часто,
+   * по ответу на каждое задание, и лишний запрос к базе на каждом нажатии
+   * платить незачем: если первая запись отбита, строки не появится вовсе, а
+   * значит и обойти проверку через неё нельзя.
+   */
+  if (before === null) {
+    const soderzhanie = findCourse(courseSlug);
+    if (soderzhanie) {
+      const [proydennyeRows, vBazeRows] = await Promise.all([
+        prisma.lessonProgress.findMany({
+          where: { userId: user.id, status: "completed", lesson: { course: { slug: courseSlug } } },
+          select: { lesson: { select: { slug: true } } },
+        }),
+        // Урок, до базы не доехавший, пройти нельзя, и модуль из таких уроков
+        // вперёд не держит — иначе замок запер бы ступень молча.
+        prisma.lesson.findMany({
+          where: { course: { slug: courseSlug } },
+          select: { slug: true },
+        }),
+      ]);
+      const proydennye = new Set(proydennyeRows.map((row) => row.lesson.slug));
+      const znaetBaza = new Set(vBazeRows.map((row) => row.slug));
+      if (!urokOtkryt(moduliKursa(soderzhanie), proydennye, lessonSlug, znaetBaza)) {
+        throw new ApiError("forbidden", "Этот модуль ещё не открыт");
+      }
+    }
+  }
 
   const wasCompleted = before?.status === "completed";
   const status = wasCompleted ? "completed" : body.status;

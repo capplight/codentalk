@@ -6,6 +6,7 @@ import { prisma } from "@/lib/db";
 import { findCourse } from "@/courses";
 import QuizRunner from "@/components/lesson/QuizRunner";
 import { plural } from "@/lib/plural";
+import { SLOVA } from "@/components/learn/slova";
 import { nuzhnoVerno } from "@/lib/domain/porog";
 import s from "@/components/lesson/lesson.module.css";
 
@@ -114,8 +115,12 @@ export default async function QuizPage({ params }: Params) {
       ) : (
         <div className={s.body}>
           <div className={`${s.feedback} ${s.neutral}`}>
-            Работа откроется, когда пройдены все уроки модуля: пройдено {done} из{" "}
-            {lessons.length} {plural(lessons.length, "урока", "уроков", "уроков")}.
+            {SLOVA.rabotaModulyaZakrytaSoSchyotom(
+              done,
+              lessons.length,
+              plural(lessons.length, "урока", "уроков", "уроков")
+            )}
+            .
             Это не наказание — она проверяет знания, а не догадливость, и сдавать её, не прочитав
             уроков, значит зря потратить время.
           </div>
