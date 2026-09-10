@@ -30,7 +30,7 @@ type Params = {
    * Оба живут в адресе, а не в памяти браузера: ссылку на своё место можно
    * послать себе же на телефон, и она откроет то же самое.
    */
-  searchParams: Promise<{ vse?: string; modul?: string }>;
+  searchParams: Promise<{ vse?: string; modul?: string; umeniya?: string }>;
 };
 
 export async function generateMetadata({ params }: Params) {
@@ -96,7 +96,7 @@ function Zamok() {
  */
 export default async function CoursePage({ params, searchParams }: Params) {
   const { course: courseSlug } = await params;
-  const { vse, modul: modulIzAdresa } = await searchParams;
+  const { vse, modul: modulIzAdresa, umeniya } = await searchParams;
   const course = findCourse(courseSlug);
   if (!course) notFound();
 
@@ -293,6 +293,20 @@ export default async function CoursePage({ params, searchParams }: Params) {
 
   return (
     <main className="wrap-wide" style={{ paddingBottom: 56 }}>
+      {/*
+        ЭТИ ТРИ СЛОЯ ВИДИТ ТОЛЬКО ГОСТЬ — обложка ступени, кнопка «Продолжить» и
+        свод по всему курсу.
+
+        Ученику они не показываются с 10 сентября 2026. Владелец: «я хотел чтобы
+        ученик видел только один модуль, чтобы это выглядело единственным его
+        миром… сейчас слоеное тесто получается». Слоёв над картой уроков стояло
+        четыре, и модуль начинался ниже сгиба экрана.
+
+        Гостю они нужны и остаются: это витрина, по ней человек решает, идти ли
+        учиться, и по ней же приходят из поиска.
+      */}
+      {!naEkraneModul && (
+        <>
       <div className={t.shapka}>
         {/* Рисунок направления — тот же, что на карточке в каталоге. Человек
             узнаёт курс раньше, чем прочитал заголовок. */}
@@ -357,6 +371,8 @@ export default async function CoursePage({ params, searchParams }: Params) {
           </span>
         </div>
       )}
+        </>
+      )}
 
       {/*
         ТРОПА ВМЕСТО СПИСКА. Владелец 3 сентября 2026: «мне не нравится
@@ -391,6 +407,7 @@ export default async function CoursePage({ params, searchParams }: Params) {
             course.parts?.find((part) => part.modules.includes(naEkraneModul.slug))?.title
           }
           rabotaChasti={rabotaChasti}
+          umeniya={umeniya === "1"}
         />
       )}
 

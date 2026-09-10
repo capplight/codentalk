@@ -1,59 +1,27 @@
 /*
- * Экран одного модуля.
+ * Экран одного модуля — весь мир ученика.
+ *
+ * Вторая редакция, 10 сентября 2026: слоёв над картой уроков было четыре, и
+ * владелец назвал это слоёным тестом. Осталось два — шапка модуля и карта.
  *
  * Цвета все до одного из `app/globals.css`. Своего набора здесь нет: иначе
  * тёмный лист поедет ровно на этом экране, а он теперь главный.
  */
 
 .ekran {
-  margin-top: 18px;
+  margin-top: 8px;
 }
 
-/* ---- Где я: часть, номер модуля и выход на карту ---- */
-
-.gde {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  margin-bottom: 10px;
-  flex-wrap: wrap;
-}
-
-.gdeStroka {
-  color: var(--ink-soft);
-  font-size: 13px;
-}
-
-.gdeStroka b {
-  color: var(--ink);
-  font-weight: 600;
-}
-
-.vseModuli {
-  color: var(--ink-soft);
-  font-size: 13px;
-  text-decoration: none;
-  border: 1px solid var(--line);
-  border-radius: 999px;
-  padding: 5px 12px;
-}
-
-.vseModuli:hover {
-  color: var(--ink);
-  border-color: var(--ink-soft);
-}
-
-/* ---- Шапка модуля ---- */
+/* ---- Шапка модуля: единственный заголовок на экране ---- */
 
 .shapka {
   display: grid;
   grid-template-columns: auto 1fr auto;
   align-items: center;
-  gap: 12px;
-  padding: 14px 16px;
+  gap: 12px 14px;
+  padding: 16px 18px 14px;
   border: 1px solid var(--line);
-  border-radius: 16px 16px 0 0;
+  border-radius: 18px 18px 0 0;
   border-bottom: none;
   background: var(--paper-alt);
 }
@@ -62,28 +30,65 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 44px;
-  height: 44px;
-  border-radius: 14px;
+  width: 48px;
+  height: 48px;
+  border-radius: 15px;
   background: var(--accent-soft);
   color: var(--accent);
   font-weight: 600;
+  font-size: 18px;
 }
 
 .znak img {
   display: block;
 }
 
+.imyaStolb {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+/* Где человек находится: часть и номер модуля. Мелко и тихо — это подпись, а
+   не заголовок. Заголовок здесь один, и это название модуля. */
+.gdeStroka {
+  color: var(--ink-soft);
+  font-size: 12px;
+}
+
+.gdeStroka b {
+  color: var(--ink-soft);
+  font-weight: 600;
+}
+
 .imya {
   margin: 0;
-  font-size: 20px;
-  line-height: 1.2;
+  font-size: 22px;
+  line-height: 1.15;
+}
+
+/* Кнопка на экран умений. Обведена, а не залита: заливка спорила бы с узлами
+   тропы, а они здесь главные. */
+.knopkaUmeniy {
+  color: var(--ink-soft);
+  font-size: 13px;
+  text-decoration: none;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 6px 13px;
+  white-space: nowrap;
+}
+
+.knopkaUmeniy:hover {
+  color: var(--ink);
+  border-color: var(--ink-soft);
 }
 
 .schyot {
+  grid-column: 2 / -1;
   color: var(--ink-soft);
   font-size: 13px;
-  white-space: nowrap;
 }
 
 /* Полоса успеха занимает всю ширину под шапкой: она о модуле целиком, а не о
@@ -92,42 +97,12 @@
   grid-column: 1 / -1;
 }
 
-/* ---- Тело: карта и шкала умений ---- */
+/* ---- Тело: только карта уроков либо только умения ---- */
 
 .telo {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 0;
   border: 1px solid var(--line);
-  border-radius: 0 0 16px 16px;
-  padding: 14px 16px 18px;
-}
-
-/*
- * На широком экране шкала умений уезжает вбок от карты.
- *
- * Порядок в разметке при этом остаётся прежним — сперва карта, потом шкала, —
- * и на телефоне человек видит сперва то, ради чего пришёл: уроки.
- */
-@media (min-width: 860px) {
-  .telo {
-    grid-template-columns: 1fr 300px;
-    gap: 24px;
-    align-items: start;
-  }
-
-  .sboku {
-    position: sticky;
-    top: 16px;
-  }
-}
-
-.karta {
-  min-width: 0;
-}
-
-.sboku {
-  min-width: 0;
+  border-radius: 0 0 18px 18px;
+  padding: 14px 18px 18px;
 }
 
 /* ---- Что дальше ---- */
@@ -155,8 +130,8 @@
   text-decoration: underline;
 }
 
-/* Закрытый следующий модуль тише открытого, но не перечёркнут: он не наказание,
-   а то, что будет дальше. */
+/* Закрытое тише открытого, но не перечёркнуто: это не наказание, а то, что
+   будет дальше. */
 .dalsheZakryt .dalsheImya {
   color: var(--ink-soft);
   font-weight: 500;
@@ -165,4 +140,22 @@
 .dalsheChto {
   color: var(--ink-soft);
   font-size: 13px;
+}
+
+/* ---- Выход на карту ступени: тише всего, и в самом низу ---- */
+
+.vseModuli {
+  margin: 18px 0 0;
+  text-align: center;
+}
+
+.vseModuli a {
+  color: var(--ink-soft);
+  font-size: 13px;
+  text-decoration: none;
+  border-bottom: 1px dashed var(--line);
+}
+
+.vseModuli a:hover {
+  color: var(--ink);
 }

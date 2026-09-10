@@ -1,28 +1,31 @@
 import Link from "next/link";
-import { adresZnachka } from "@/lib/content/znaki";
 import type { Course, Module } from "@/lib/content/types";
-import { plural } from "@/lib/plural";
+import ShapkaModulya from "./ShapkaModulya";
 import ShkalaUmeniy from "./ShkalaUmeniy";
 import TropaModulya from "./TropaModulya";
 import { SLOVA } from "./slova";
-import t from "@/app/learn/tropa.module.css";
 import e from "./ekran.module.css";
 
 /**
- * ЭКРАН ОДНОГО МОДУЛЯ — то, что ученик видит, открыв ступень.
+ * ЭКРАН ОДНОГО МОДУЛЯ — весь мир ученика, открывшего ступень.
  *
- * Просьба владельца от 10 сентября 2026: «ученик открывает beginner и видит
- * одну модуль на экране с картой уроков, чтобы его не грузить». До этого дня
- * страница показывала все пять частей и все тридцать модулей разом, и текущий
- * модуль тонул между тридцатью чужими строками.
+ * ВТОРАЯ РЕДАКЦИЯ, 10 сентября 2026. Первая показывала модуль, но под четырьмя
+ * чужими слоями — обложкой ступени, счётом часов, кнопкой «Продолжить» и сводом
+ * по всему курсу, — да ещё держала умения колонкой сбоку от карты. Владелец:
+ * «я хотел чтобы ученик видел только один модуль… чтобы это выглядело
+ * единственным его миром… сейчас слоеное тесто получается. в дуолинго ученик
+ * видит только одну карту уроков за раз, ему не показывают полную ступень».
  *
- * ЧТО ЗДЕСЬ ЕСТЬ И ЧЕГО НЕТ. Есть один модуль: где человек находится, чему
- * учится, карта уроков, работа в конце и одна строка о том, что дальше. Нет
- * ничего о других модулях — они за кнопкой «Все модули», и это нарочно: карта
- * всего пути нужна редко, а мешает каждый день.
+ * ЧТО ЗДЕСЬ ОСТАЛОСЬ: шапка модуля и карта его уроков. Всё.
  *
- * Гостю этот экран не показывается: у него нет прогресса, и ему нужна витрина
- * со всем составом ступени, по которой он решает, идти ли учиться.
+ * ЧТО УЕХАЛО И КУДА:
+ *
+ * - умения — на свой экран, по кнопке в шапке (`?umeniya=1`);
+ * - карта всей ступени — за ссылку в самом низу, под концом пути (`?vse=1`);
+ * - обложка, свод и счёт часов — остались только гостю, на витрине.
+ *
+ * Гостю этот экран не показывается вовсе: у него нет прогресса, и ему нужна
+ * витрина со всем составом, по которой он решает, идти ли учиться.
  */
 export default function EkranModulya({
   course,
@@ -35,6 +38,8 @@ export default function EkranModulya({
   sleduyushchiyOtkryt,
   chast,
   rabotaChasti,
+  /** Показать экран умений вместо карты уроков */
+  umeniya = false,
 }: {
   course: Course;
   module: Module;
@@ -57,48 +62,31 @@ export default function EkranModulya({
    * отчётах работающим.
    */
   rabotaChasti?: { href: string; title: string; otkryta: boolean; sdana: boolean };
+  umeniya?: boolean;
 }) {
-  const lessonsDone = module.lessons.filter((lesson) => done.has(lesson.slug)).length;
+  const urokovProydeno = module.lessons.filter((lesson) => done.has(lesson.slug)).length;
 
   return (
     <section className={e.ekran}>
-      <div className={e.gde}>
-        <span className={e.gdeStroka}>
-          {chast && <b>{chast}</b>}
-          {chast && " · "}
-          {SLOVA.gdeYa(nomer, course.modules.length)}
-        </span>
-        <Link className={e.vseModuli} href={`/learn/${course.slug}?vse=1`}>
-          {SLOVA.vseModuli}
-        </Link>
-      </div>
-
-      <div className={e.shapka}>
-        <span className={e.znak}>
-          {module.znak ? (
-            // eslint-disable-next-line @next/next/no-img-element
-            <img src={adresZnachka(module.znak)} alt="" width={30} height={30} />
-          ) : (
-            nomer
-          )}
-        </span>
-        <h2 className={e.imya}>{module.title}</h2>
-        <span className={e.schyot}>
-          {lessonsDone} из {module.lessons.length}{" "}
-          {plural(module.lessons.length, "урока", "уроков", "уроков")}
-        </span>
-        <span className={t.polosa} aria-hidden>
-          <i style={{ width: `${(lessonsDone / module.lessons.length) * 100}%` }} />
-        </span>
-      </div>
+      <ShapkaModulya
+        course={course}
+        module={module}
+        nomer={nomer}
+        urokovProydeno={urokovProydeno}
+        chast={chast}
+        naEkraneUmeniy={umeniya}
+      />
 
       {/*
-        Две колонки на широком экране и одна на телефоне. Шкала умений стоит
-        СБОКУ, а не над картой: над картой она отжимала первый урок за нижний
-        край экрана — это и было главной жалобой владельца на снимке.
+        Экран умений и карта уроков — два разных дела, и стоят они порознь.
+        Вместе они и были тем слоёным тестом, на которое владелец жаловался.
       */}
-      <div className={e.telo}>
-        <div className={e.karta}>
+      {umeniya ? (
+        <div className={e.telo}>
+          <ShkalaUmeniy module={module} done={done} />
+        </div>
+      ) : (
+        <div className={e.telo}>
           <TropaModulya
             courseSlug={course.slug}
             module={module}
@@ -106,52 +94,56 @@ export default function EkranModulya({
             current={current}
             quizScore={quizScore}
           />
-        </div>
-        <aside className={e.sboku}>
-          <ShkalaUmeniy module={module} done={done} />
-        </aside>
-      </div>
 
-      {/*
-        Что дальше — одной строкой вместо двадцати семи свёрнутых модулей.
+          {/*
+            Что дальше — тихой строкой в конце пути, а не отдельным слоем.
 
-        Закрытый следующий модуль говорит, ЧТО его открывает, а не что он
-        закрыт: подсказка — это дорога, а не стена. Ссылки у него нет, и это
-        честно: нажимать не на что, пока уроки не пройдены.
-      */}
-      {/* Работа части стоит ПЕРЕД строкой о следующем модуле: по порядку она
-          и идёт раньше — часть кончилась, а новая ещё не началась. */}
-      {rabotaChasti && (
-        <div className={`${e.dalshe} ${rabotaChasti.otkryta ? "" : e.dalsheZakryt}`}>
-          <span className={e.dalsheImya}>
-            {rabotaChasti.otkryta || rabotaChasti.sdana ? (
-              <Link href={rabotaChasti.href}>{rabotaChasti.title}</Link>
-            ) : (
-              rabotaChasti.title
-            )}
-          </span>
-          {!rabotaChasti.otkryta && !rabotaChasti.sdana && (
-            <span className={e.dalsheChto}>{SLOVA.rabotaChastiZakryta}</span>
+            Закрытое говорит, ЧТО его открывает, а не что оно закрыто:
+            подсказка — это дорога, а не стена. Ссылки у закрытого нет, и это
+            честно: нажимать не на что, пока уроки не пройдены.
+          */}
+          {rabotaChasti && (
+            <div className={`${e.dalshe} ${rabotaChasti.otkryta ? "" : e.dalsheZakryt}`}>
+              <span className={e.dalsheImya}>
+                {rabotaChasti.otkryta || rabotaChasti.sdana ? (
+                  <Link href={rabotaChasti.href}>{rabotaChasti.title}</Link>
+                ) : (
+                  rabotaChasti.title
+                )}
+              </span>
+              {!rabotaChasti.otkryta && !rabotaChasti.sdana && (
+                <span className={e.dalsheChto}>{SLOVA.rabotaChastiZakryta}</span>
+              )}
+            </div>
           )}
-        </div>
-      )}
 
-      {sleduyushchiy && (
-        <div className={`${e.dalshe} ${sleduyushchiyOtkryt ? "" : e.dalsheZakryt}`}>
-          <span className={e.dalsheImya}>
-            {sleduyushchiyOtkryt ? (
-              <Link href={`/learn/${course.slug}?modul=${sleduyushchiy.slug}`}>
-                {SLOVA.dalshe}: {sleduyushchiy.title}
-              </Link>
-            ) : (
-              <>
-                {SLOVA.dalshe}: {sleduyushchiy.title}
-              </>
-            )}
-          </span>
-          {!sleduyushchiyOtkryt && (
-            <span className={e.dalsheChto}>{SLOVA.sleduyushchiyZakryt}</span>
+          {sleduyushchiy && (
+            <div className={`${e.dalshe} ${sleduyushchiyOtkryt ? "" : e.dalsheZakryt}`}>
+              <span className={e.dalsheImya}>
+                {sleduyushchiyOtkryt ? (
+                  <Link href={`/learn/${course.slug}?modul=${sleduyushchiy.slug}`}>
+                    {SLOVA.dalshe}: {sleduyushchiy.title}
+                  </Link>
+                ) : (
+                  <>
+                    {SLOVA.dalshe}: {sleduyushchiy.title}
+                  </>
+                )}
+              </span>
+              {!sleduyushchiyOtkryt && (
+                <span className={e.dalsheChto}>{SLOVA.sleduyushchiyZakryt}</span>
+              )}
+            </div>
           )}
+
+          {/*
+            Выход на карту всей ступени стоит В САМОМ НИЗУ и выглядит тише
+            всего остального. Он нужен редко — раз в модуль, чтобы посмотреть,
+            где ты вообще, — а мешал бы каждый день, стоя наверху.
+          */}
+          <p className={e.vseModuli}>
+            <Link href={`/learn/${course.slug}?vse=1`}>{SLOVA.vseModuli}</Link>
+          </p>
         </div>
       )}
     </section>
