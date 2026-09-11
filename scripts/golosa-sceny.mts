@@ -101,5 +101,51 @@ for (const mod of kurs.modules) {
       }
     }
   }
+  pokazatBank(`${mod.slug} → работа модуля`, (mod as unknown as SoBankom).quiz?.questions);
 }
+
+for (const chast of (kurs as unknown as { parts?: ({ slug: string } & SoBankom)[] }).parts ?? []) {
+  pokazatBank(`работа части ${chast.slug}`, chast.quiz?.questions);
+}
+pokazatBank("экзамен ступени", (kurs as unknown as SoBankom).exam?.questions);
+
+/*
+ * БАНК ВОПРОСОВ — ТОЖЕ РАЗГОВОРЫ, и до 12 сентября 2026 скрипт их не видел
+ * вовсе: он обходил только `mod.lessons[].blocks`.
+ *
+ * Нашёл методист, сверяя голос записи вопроса 10 модуля 15. Условие говорит
+ * «Ким спрашивает Дану», за Кимом в курсе закреплён мужской голос, — а первую
+ * реплику читал женский, и ученик услышал бы мужчину, отвечающего о своём
+ * брате. В шапке того же вопроса стояло ручательство «проверяется прогоном
+ * `npm run golosa`»: проверка была слепа ровно к тому месту, на которое
+ * ссылались.
+ *
+ * Порода известная и записана в CLAUDE.md: у проверки есть СПИСОК того, что она
+ * берёт, и спрашивать у него надо не «видит ли он новое», а «перечислено ли
+ * здесь всё, что слышит ученик». Работы модулей, работы частей и экзамен в этом
+ * списке не стояли.
+ */
+type Vopros = {
+  id: string;
+  zvuk?: string;
+  golosa?: ("zhenskiy" | "muzhskoy")[];
+  pervyyGolos?: "zhenskiy" | "muzhskoy";
+};
+type SoBankom = { quiz?: { questions?: Vopros[] }; exam?: { questions?: Vopros[] } };
+
+function pokazatBank(gde: string, voprosy?: Vopros[]): void {
+  for (const vopros of voprosy ?? []) {
+    if (!vopros.zvuk) continue;
+    const chasti = repliki(vopros.zvuk, razgovorLi(vopros.zvuk), raskladkaGolosov(vopros));
+    if (chasti.length < 2) continue;
+    vsego += 1;
+    const raskladka = raskladkaGolosov(vopros) || "(по очереди, первый женский)";
+    console.log(`\n${gde} → ${vopros.id}  [${raskladka}] запись вопроса`);
+    for (const ch of chasti) {
+      const kto = ch.golos === "muzhskoy" ? "муж." : "жен.";
+      console.log(`  ${kto}  ${ch.text.replace(/\s+/g, " ").trim()}`);
+    }
+  }
+}
+
 console.log(`\nРазговоров разобрано: ${vsego}. Сверь подписи и имена с голосами глазами: машина знает, КТО читает, но не знает, кто должен.`);
