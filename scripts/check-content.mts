@@ -36,6 +36,7 @@ import {
   repliki,
   zvuchashchee,
 } from "../lib/content/zvuk.ts";
+import { razobrat } from "../lib/content/razbor-stroki.ts";
 import { nayti } from "../lib/content/vozvrat.ts";
 import { bedySetki, lishnieSlova, mestaSlova } from "../lib/content/setka.ts";
 import { POL_IMEN, ktoGovorit } from "../lib/content/imena.ts";
@@ -989,6 +990,41 @@ function checkMaterial(block: Block, where: string): void {
       for (const klyuch of Object.keys(block.zvuk ?? {})) {
         if (!block.text.some((abzac) => abzac.includes(klyuch))) {
           fail(where, `звучит «${klyuch}», но такого куска в объяснении нет`);
+        }
+      }
+      /*
+       * КУСОК В СТРОКЕ ЕСТЬ, А КНОПКИ НЕТ. Проверка выше спрашивает только,
+       * есть ли звучащий кусок в тексте. Страница ставит кнопку по-разному
+       * (`components/lesson/Ekran.tsx`): в имени случая и в строке правила —
+       * если кусок входит в строку, а у примера с переводом — только если ключ
+       * целиком совпал с английским столбцом.
+       *
+       * Нашлось 11 сентября 2026, и нашёл редактор модуля 15, а не отчёт.
+       * Строка `Do you work? — Yes, I do. — Ты работаешь? — Да.` звучала ключом
+       * `Do you work? — Yes, I do.`, а разбор строки отдавал английскому
+       * столбцу один вопрос. Кусок в тексте был, проверка молчала, кнопки не
+       * было у 26 строк. Разбор строки починен (`lib/content/razbor-stroki.ts`),
+       * а эта проверка стоит, чтобы немая кнопка больше не пряталась за
+       * чистым отчётом при любой следующей правке разбора или текста.
+       */
+      {
+        const [imya = "", ...ostalnoe] = block.text;
+        for (const klyuch of Object.keys(zvuchashchee(block))) {
+          if (!block.text.some((abzac) => abzac.includes(klyuch))) continue;
+          const vidno =
+            imya.includes(klyuch) ||
+            ostalnoe.some((stroka) => {
+              const para = razobrat(stroka);
+              return para ? para.en === klyuch : stroka.includes(klyuch);
+            });
+          if (!vidno) {
+            fail(
+              where,
+              `звучит «${klyuch}», но кнопки на экране не будет: строка с этим куском ` +
+                `показана парой «английское — перевод», а кнопка у пары встаёт только ` +
+                `при полном совпадении с английским столбцом`
+            );
+          }
         }
       }
       block.text.forEach((paragraph, i) => {

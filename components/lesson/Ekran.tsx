@@ -15,6 +15,7 @@
  * блоки показываются прежним `Material`: это честнее пустого экрана.
  */
 import type { MaterialBlock } from "@/lib/content/types";
+import { razobrat } from "@/lib/content/razbor-stroki";
 import { adresZnachka } from "@/lib/content/znaki";
 import { adresRazgovora, adresSlova, adresYacheyki, raskladkaGolosov, zvuchashchee } from "@/lib/content/zvuk";
 import {
@@ -64,22 +65,12 @@ function Shapka({
   );
 }
 
-/**
- * Строка объяснения — это пример, если в ней есть и английское, и русское, и
- * они разделены тире.
- *
- * На этом держится правило «у случая два примера с переводом»: автор пишет
- * `I am Alim. — Я Алим.`, а показывается это карточкой, где английское сверху
- * и крупно, а перевод под ним и тише. Разбирать строку разметкой автору не
- * приходится.
+/*
+ * Разбор строки объяснения на английское и перевод (`razobrat`) переехал в
+ * `lib/content/razbor-stroki.ts` 11 сентября 2026: там его можно испытать, а
+ * отсюда нельзя — компонент тянет React и стили. Там же записано, почему тире,
+ * за которым сразу идёт латинская буква, перевод больше не начинает.
  */
-export function razobrat(stroka: string): { en: string; ru: string } | null {
-  const m = stroka.match(/^(.+?)\s+—\s+(.+)$/);
-  if (!m) return null;
-  if (!/[A-Za-z]{2,}/.test(m[1])) return null;
-  if (!/[А-Яа-яЁё]{2,}/.test(m[2])) return null;
-  return { en: m[1].trim(), ru: m[2].trim() };
-}
 
 /**
  * Строка объяснения, в которой у названных кусков стоит кнопка «послушать».
