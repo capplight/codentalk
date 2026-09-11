@@ -2773,9 +2773,9 @@ const modul: Module = {
             "Айгуль плавает, но не поёт и не танцует. Отметь, на сколько вопросов объявления " +
             "она ответит «да».",
           options: [
+            { text: "ни на один" },
             { text: "на один", correct: true },
             { text: "на два" },
-            { text: "ни на один" },
           ],
           hint: "Вопросов в объявлении три, и ответ на каждый свой.",
           why:
@@ -2875,9 +2875,9 @@ const modul: Module = {
           kind: "choice",
           prompt: "Отметь ответ, который прозвучал.",
           options: [
-            { text: "No, I don't.", correct: true },
-            { text: "No, I am not." },
             { text: "Yes, I do." },
+            { text: "No, I am not." },
+            { text: "No, I don't.", correct: true },
           ],
           hint: "Ким отвечал на вопрос с do, и слово ответа приходит из вопроса.",
           why:
@@ -2928,8 +2928,8 @@ const modul: Module = {
           kind: "choice",
           prompt: "Отметь, что ответила Айгерим.",
           options: [
-            { text: "No, she doesn't.", correct: true },
             { text: "No, she isn't." },
+            { text: "No, she doesn't.", correct: true },
             { text: "Yes, she does." },
           ],
           hint: "Речь о маме, то есть об одном человеке.",
@@ -2998,14 +2998,14 @@ const modul: Module = {
           razgovor: true,
           caption: "Дана и Нурлан спрашивают друг друга о делах. Первой говорит Дана.",
           text:
-            "Do you live here?\n" +
+            "Do you go to the club?\n" +
             "Yes, I do.\n" +
             "Do you study English?\n" +
             "No, I don't. I study history.\n" +
             "Does your brother work?\n" +
             "Yes, he does.",
           perevod: {
-            "Do you live here?": "Ты живёшь здесь?",
+            "Do you go to the club?": "Ты ходишь в клуб?",
             "Yes, I do.": "Да.",
             "Do you study English?": "Ты учишь английский?",
             "No, I don't. I study history.": "Нет. Я учу историю.",
@@ -3026,7 +3026,9 @@ const modul: Module = {
            */
           id: "z1-otmetit-korotkie-otvety",
           kind: "hottext",
-          prompt: "Отметь в разговоре все короткие ответы.",
+          prompt:
+            "ПИШЕТ РЕДАКТОР: условие просит отметить короткие ответы и НЕ говорит «в " +
+            "разговоре»: на экране стоят одни ответы, а образец остался позади.",
           parts: [
             { text: "Yes, I do.\n", selectable: true, correct: true },
             { text: "No, I don't. ", selectable: true, correct: true },
@@ -3051,13 +3053,17 @@ const modul: Module = {
           id: "z2-zapisat-paru-vopros-i-otvet",
           kind: "short",
           prompt:
-            "Спроси Дану, учит ли она историю, и запиши её ответ. Дана отвечает «да».",
-          answer: "Do you study history? Yes, I do.",
-          accept: ["Do you study history? — Yes, I do."],
+            "ПИШЕТ РЕДАКТОР: условие просит спросить Дану, завтракает ли она, и записать её " +
+            "ответ. Слово «да» стоит в условии прямо.",
+          answer: "Do you eat breakfast? Yes, I do.",
+          /*
+           * `accept` ПЕРЕЧИТАН ВМЕСТЕ С `answer` И УСЛОВИЕМ: поле не видит ни
+           * один скрипт. Пара, записанная через тире, — та же пара.
+           */
+          accept: ["Do you eat breakfast? — Yes, I do."],
           hint: "Слово ответа приходит из начала вопроса.",
           why:
-            "Do you study history? Yes, I do. Пара записана двумя строками подряд, и между ними " +
-            "можно поставить тире: Do you study history? — Yes, I do.",
+            "ПИШЕТ РЕДАКТОР: разбор называет новую пару и говорит, откуда взято слово ответа.",
         },
         {
           /*
@@ -3073,13 +3079,18 @@ const modul: Module = {
           prompt:
             "Задай вслух человеку рядом три вопроса о его делах. На его вопросы отвечай " +
             "коротко.",
-          phrase: "Do you live here? — Yes, I do.",
-          translation: "Ты живёшь здесь? — Да.",
+          /*
+           * ОБРАЗЕЦ СМЕНЁН 12 сентября 2026: прежний повторял реплики 1 и 2
+           * образцового разговора этого же урока, а та же пара стоит строкой
+           * таблицы урока 2 и названа в условии З5 урока 2. Тире значит два
+           * голоса, значит нужна переозвучка.
+           */
+          phrase: "Do you study in the classroom? — Yes, I do.",
+          translation: "Ты занимаешься в классе? — Да.",
           hint: "Ответ повторяет начало вопроса.",
           why:
-            "Do you live here? — Yes, I do. Вопрос начинается словом do, и ответ берёт это же " +
-            "слово. Ответ на это задание не проверяется, поэтому сверься с образцом. Послушай " +
-            "его и повтори строку следом за ним.",
+            "ПИШЕТ РЕДАКТОР: разбор цитирует образец дословно, поэтому пишется заново под новую " +
+            "строку. Формула самопроверки берётся из docs/beginner-2/stil-obyasneniy.md.",
         },
       ],
     },
