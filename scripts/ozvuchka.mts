@@ -214,13 +214,20 @@ function sobratOpis(): Zapis[] {
           }
 
           if (isTask(block) && block.kind === "speak") {
+            /*
+             * ОБРАЗЕЦ БЫВАЕТ РАЗГОВОРОМ. Здесь стояло `dvaGolosa: false` и ключ
+             * без признака — значит `Does Aigerim dance? — Yes, she does.` читал
+             * один голос, сам себе отвечая. Найдено 12 сентября 2026; разбор и
+             * цена правки — `lib/content/zvuk.ts`, `adresObrazca`.
+             */
+            const dvaGolosa = razgovorLi(block.phrase);
             dobavit({
               rod: "obrazec",
-              klyuch: klyuchZvuka(block.phrase, "slow"),
+              klyuch: klyuchZvuka(block.phrase, "slow", dvaGolosa, raskladkaGolosov(block)),
               text: block.phrase,
               temp: "slow",
-              dvaGolosa: false,
-              raskladka: "",
+              dvaGolosa,
+              raskladka: raskladkaGolosov(block),
               otkuda: `${gde} · ${block.id}`,
             });
           }

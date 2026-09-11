@@ -1,6 +1,7 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import {
+  adresObrazca,
   klyuchZvuka,
   raskladkaGolosov,
   razgovorLi,
@@ -122,6 +123,24 @@ test("тире в строке объяснения чаще значит пар
   assert.equal(razgovorVStroke("How many apples are there? — Three."), true);
   assert.equal(razgovorVStroke("What is this? — Milk."), true);
   assert.equal(razgovorVStroke("Seven, seven? — Yes."), true);
+});
+
+test("образец устного задания звучит разговором, если реплики разделены тире", () => {
+  /*
+   * Нашлось 12 сентября 2026. Ключ образца считался без признака разговора, и
+   * `Does Aigerim dance? — Yes, she does.` читал один голос, сам себе отвечая.
+   * Испытание держит связь имени файла с числом голосов: разойдутся — ученик
+   * получит тишину, потому что страница и озвучка считают адрес порознь.
+   */
+  const razgovor = "Does Aigerim dance? — Yes, she does.";
+  const odin = "Good morning.";
+
+  assert.equal(adresObrazca(razgovor), `/zvuk/obrazec/${klyuchZvuka(razgovor, "slow", true)}.mp3`);
+  assert.equal(adresObrazca(odin), `/zvuk/obrazec/${klyuchZvuka(odin, "slow", false)}.mp3`);
+  assert.notEqual(adresObrazca(razgovor), `/zvuk/obrazec/${klyuchZvuka(razgovor, "slow")}.mp3`);
+
+  // Раскладка голосов входит в имя так же, как у записи вопроса.
+  assert.notEqual(adresObrazca(razgovor), adresObrazca(razgovor, "m"));
 });
 
 test("у записей признак разговора остался прежним и мягче", () => {

@@ -3262,7 +3262,7 @@ function checkZvuk(course: Course): void {
         }
 
         if (isTask(block) && block.kind === "speak") {
-          if (!est(adresObrazca(block.phrase))) {
+          if (!est(adresObrazca(block.phrase, raskladkaGolosov(block)))) {
             netu.push(`${lesson.slug} · ${block.id}: образец «${block.phrase.slice(0, 60)}»`);
           }
         }

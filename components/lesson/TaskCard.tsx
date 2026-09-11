@@ -632,7 +632,11 @@ export default function TaskCard({
           {/* Образец обязателен: без него ученику предлагают произнести то,
               чего он ни разу не слышал, и он произносит по написанию. */}
           <div className={s.obrazec}>
-            <Zvuk src={adresObrazca(task.phrase)} chto={task.phrase} vid="stroka" />
+            <Zvuk
+              src={adresObrazca(task.phrase, raskladkaGolosov(task))}
+              chto={task.phrase}
+              vid="stroka"
+            />
           </div>
         </div>
       )}

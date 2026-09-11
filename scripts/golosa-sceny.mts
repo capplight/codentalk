@@ -38,7 +38,35 @@ for (const mod of kurs.modules) {
   if (imyaModulya && mod.slug !== imyaModulya) continue;
   for (const les of mod.lessons) {
     for (const b of les.blocks) {
-      if (isTask(b)) continue;
+      if (isTask(b)) {
+        /*
+         * ОБРАЗЕЦ УСТНОГО ЗАДАНИЯ ТОЖЕ БЫВАЕТ РАЗГОВОРОМ, а прежняя редакция
+         * этого скрипта отбрасывала все задания разом. Методист просил сверить
+         * голоса образца урока 5 модуля 15 — и получил бы пустой вывод, то есть
+         * согласие там, где проверки нет вовсе. Ровно эта ловушка описана в
+         * шапке про `transcript`: пустая выборка и чистый отчёт выглядят
+         * одинаково.
+         */
+        const zadanie = b as unknown as {
+          id: string;
+          kind: string;
+          phrase?: string;
+          golosa?: ("zhenskiy" | "muzhskoy")[];
+          pervyyGolos?: "zhenskiy" | "muzhskoy";
+        };
+        if (zadanie.kind !== "speak" || !zadanie.phrase) continue;
+        const dvaGolosa = razgovorLi(zadanie.phrase);
+        const chasti = repliki(zadanie.phrase, dvaGolosa, raskladkaGolosov(zadanie));
+        if (chasti.length < 2) continue;
+        vsego += 1;
+        const raskladka = raskladkaGolosov(zadanie) || "(по очереди, первый женский)";
+        console.log(`\n${mod.slug} → ${les.slug} → ${zadanie.id}  [${raskladka}] образец`);
+        for (const ch of chasti) {
+          const kto = ch.golos === "muzhskoy" ? "муж." : "жен.";
+          console.log(`  ${kto}  ${ch.text.replace(/\s+/g, " ").trim()}`);
+        }
+        continue;
+      }
       const blok = b as unknown as {
         id: string;
         kind: string;
