@@ -593,14 +593,19 @@ const modul: Module = {
           znak: "1f4c3",
           naTomZheEkrane: true,
           caption: "ПИШЕТ РЕДАКТОР: подпись говорит, что у каждого слова свой перевод.",
-          head: ["Слово", "Перевод", "Строка"],
+          head: ["Слово", "Перевод", "Строка", "Перевод строки"],
           rows: [
-            ["always", "всегда", "ПИШЕТ РЕДАКТОР: строку называет методист (замысел 9.2, случай 6)."],
-            ["sometimes", "иногда", "ПИШЕТ РЕДАКТОР: строку называет методист (замысел 9.2, случай 6)."],
-            ["usually", "обычно", "ПИШЕТ РЕДАКТОР: строку называет методист (замысел 9.2, случай 6)."],
-            ["often", "часто", "ПИШЕТ РЕДАКТОР: строку называет методист (замысел 9.2, случай 6)."],
+            ["always", "всегда", "I always drink water.", "Я всегда пью воду."],
+            ["sometimes", "иногда", "I sometimes drink coffee.", "Я иногда пью кофе."],
+            ["usually", "обычно", "I usually drink milk.", "Я обычно пью молоко."],
+            ["often", "часто", "I often drink juice.", "Я часто пью сок."],
           ],
-          zvuchat: ["always", "sometimes", "usually", "often"],
+          zvuchat: [
+            "I always drink water.",
+            "I sometimes drink coffee.",
+            "I usually drink milk.",
+            "I often drink juice.",
+          ],
         },
         {
           id: "sluchay-homework",
@@ -910,24 +915,19 @@ const modul: Module = {
         },
         {
           /*
-           * СЛУЧАЙ 8. Свод. ОСТОРОЖНО, МЕТОДИСТ: замысел даёт своду тот же
-           * состав, что таблице случая 5 («пять наречий с переводами»). Две
-           * одинаковые таблицы в одном уроке ученик прочтёт как возврат назад.
-           * Собрано по замыслу, решает методист.
+           * СЛУЧАЙ 8. Свод «не и никогда» — замысел 18.12. Прежний состав
+           * повторял таблицу случая 5, и урок показал бы один экран дважды.
            */
           id: "tablica-svod-uroka-3",
           kind: "table",
           znak: "1f4c3",
-          caption: "ПИШЕТ РЕДАКТОР: подпись свода урока.",
-          head: ["Слово", "Перевод"],
+          caption: "ПИШЕТ РЕДАКТОР: подпись свода говорит о разнице между «не» и «никогда».",
+          head: ["Строка", "Перевод"],
           rows: [
-            ["always", "всегда"],
-            ["sometimes", "иногда"],
-            ["usually", "обычно"],
-            ["often", "часто"],
-            ["never", "никогда"],
+            ["I don't sing at school.", "Я не пою в школе."],
+            ["I never sing at school.", "Я никогда не пою в школе."],
           ],
-          zvuchat: ["always", "sometimes", "usually", "often", "never"],
+          zvuchat: ["I don't sing at school.", "I never sing at school."],
         },
         {
           id: "slova-uroka-3",
@@ -938,12 +938,24 @@ const modul: Module = {
           ],
         },
         {
+          id: "z1-vybrat-nikogda-vecherom",
+          kind: "choice",
+          prompt: "ПИШЕТ РЕДАКТОР: условие говорит, что Дана НИКОГДА не пьёт молоко ВЕЧЕРОМ, и просит выбрать строку.",
+          options: [
+            { text: "Dana always drinks milk in the evening." },
+            { text: "Dana never drinks milk in the evening.", correct: true },
+            { text: "Dana never drinks milk in the morning." },
+          ],
+          hint: "ПИШЕТ РЕДАКТОР: подсказка к выбору о молоке — дорога, а не ответ.",
+          why: "ПИШЕТ РЕДАКТОР: разбор называет верную строку о молоке и чем не подходят две другие.",
+        },
+        {
           /*
            * Сопоставление из правки 16.8 — строки и смыслы дословно. usually и
            * often в пары нарочно не взяты: развести их можно только по шкале, а
            * шкала снята (16.7). Место в наборе — второе задание урока.
            */
-          id: "z-soedinit-stroku-so-smyslom",
+          id: "z2-soedinit-stroku-so-smyslom",
           kind: "match",
           prompt: "ПИШЕТ РЕДАКТОР: условие просит соединить строку с тем, как часто так бывает.",
           left: ["I always cook at home.", "I sometimes cook at home.", "I never cook at home."],
@@ -952,7 +964,49 @@ const modul: Module = {
           hint: "ПИШЕТ РЕДАКТОР: подсказка говорит, на какое слово смотреть.",
           why: "ПИШЕТ РЕДАКТОР: разбор называет три пары.",
         },
-        // @@ЗАДАНИЯ-УРОК-3@@ — строки остальных заданий называет методист (замысел, раздел 18)
+        /*
+         * Остальные задания урока 3 — замысел, раздел 18.3.
+         */
+        {
+          id: "z3-vpisat-never",
+          kind: "gap",
+          prompt: "ПИШЕТ РЕДАКТОР: условие говорит, что дедушка НИКОГДА не смотрит телевизор.",
+          before: "My grandfather ",
+          after: " watches television.",
+          answer: "never",
+          hint: "ПИШЕТ РЕДАКТОР: подсказка к вставке о дедушке — дорога, а не ответ.",
+          why: "ПИШЕТ РЕДАКТОР: разбор называет строку о дедушке целиком.",
+        },
+        {
+          /*
+           * `Dana doesn't cook in the morning.` не принимается нарочно (18.3):
+           * строка верна, но в ней нет «никогда», названного условием.
+           */
+          id: "z4-zapisat-dana-nikogda-ne-gotovit",
+          kind: "short",
+          prompt: "ПИШЕТ РЕДАКТОР: условие просит написать по-английски «Дана никогда не готовит утром».",
+          answer: "Dana never cooks in the morning.",
+          hint: "ПИШЕТ РЕДАКТОР: подсказка к записи о Дане — дорога, а не ответ.",
+          why: "ПИШЕТ РЕДАКТОР: разбор называет верный ответ о Дане.",
+        },
+        {
+          id: "z5-sobrat-my-nikogda-ne-smotrim",
+          kind: "order",
+          prompt: "ПИШЕТ РЕДАКТОР: условие просит собрать строку из кусков.",
+          items: ["television", "We", "in the morning.", "watch", "never"],
+          answer: [1, 4, 3, 0, 2],
+          hint: "ПИШЕТ РЕДАКТОР: подсказка к сборке о телевизоре.",
+          why: "ПИШЕТ РЕДАКТОР: разбор называет собранную строку о телевизоре.",
+        },
+        {
+          id: "z6-skazat-nikogda-i-vsegda",
+          kind: "speak",
+          prompt: "ПИШЕТ РЕДАКТОР: условие просит сказать о себе, чего не бывает никогда и что бывает всегда.",
+          phrase: "I never sleep in the afternoon. I always drink juice in the morning.",
+          translation: "ПИШЕТ РЕДАКТОР: перевод образца о никогда и всегда.",
+          hint: "ПИШЕТ РЕДАКТОР: подсказка к устному заданию о никогда и всегда.",
+          why: "ПИШЕТ РЕДАКТОР: разбор под образец о никогда и всегда с формулой самопроверки курса.",
+        },
       ],
     },
 
@@ -1104,7 +1158,98 @@ const modul: Module = {
             },
           ],
         },
-        // @@ЗАДАНИЯ-УРОК-4@@ — строки заданий называет методист (замысел, раздел 18)
+        /*
+         * ЗАДАНИЯ УРОКА 4 — замысел, раздел 18.4.
+         *
+         * ВЫБОР ПРОВЕРЯЕТ СМЫСЛ, А НЕ МЕСТО НАРЕЧИЯ: у строки `I always am busy`
+         * есть законное выделительное чтение, неверного варианта по месту нет.
+         * По той же причине в сборке `am often` — один кусок.
+         */
+        {
+          id: "z1-vybrat-chasto-opazdyvaet",
+          kind: "choice",
+          prompt: "ПИШЕТ РЕДАКТОР: условие говорит, что Ким ЧАСТО ОПАЗДЫВАЕТ, и просит выбрать строку.",
+          options: [
+            { text: "Kim is never late." },
+            { text: "Kim is often busy." },
+            { text: "Kim is often late.", correct: true },
+          ],
+          hint: "ПИШЕТ РЕДАКТОР: подсказка к выбору о Киме — дорога, а не ответ.",
+          why: "ПИШЕТ РЕДАКТОР: разбор называет верную строку о Киме и чем не подходят две другие.",
+        },
+        {
+          id: "z2-otmetit-formu-be",
+          kind: "hottext",
+          prompt: "ПИШЕТ РЕДАКТОР: условие просит отметить форму be там, где она есть.",
+          parts: [
+            { text: "My ", selectable: true },
+            { text: "sister ", selectable: true },
+            { text: "is ", selectable: true, correct: true },
+            { text: "always ", selectable: true },
+            { text: "busy ", selectable: true },
+            { text: "in the " },
+            { text: "evening", selectable: true },
+            { text: ".\n" },
+            { text: "They ", selectable: true },
+            { text: "often ", selectable: true },
+            { text: "play ", selectable: true },
+            { text: "football ", selectable: true },
+            { text: "at " },
+            { text: "school", selectable: true },
+            { text: ".\n" },
+            { text: "I ", selectable: true },
+            { text: "am ", selectable: true, correct: true },
+            { text: "never ", selectable: true },
+            { text: "hungry ", selectable: true },
+            { text: "in the " },
+            { text: "afternoon", selectable: true },
+            { text: ".\n" },
+            { text: "Dana ", selectable: true },
+            { text: "is ", selectable: true, correct: true },
+            { text: "sometimes ", selectable: true },
+            { text: "late", selectable: true },
+            { text: "." },
+          ],
+          hint: "ПИШЕТ РЕДАКТОР: подсказка к отметке формы be.",
+          why: "ПИШЕТ РЕДАКТОР: разбор называет отмеченные слова формы be и строку, где отмечать нечего.",
+        },
+        {
+          id: "z3-vpisat-is",
+          kind: "gap",
+          prompt: "ПИШЕТ РЕДАКТОР: условие говорит, что брат всегда занят утром, и просит вписать слово.",
+          before: "My brother ",
+          after: " always busy in the morning.",
+          answer: "is",
+          hint: "ПИШЕТ РЕДАКТОР: подсказка к вставке о брате — дорога, а не ответ.",
+          why: "ПИШЕТ РЕДАКТОР: разбор называет строку о брате целиком.",
+        },
+        {
+          id: "z4-zapisat-oni-inogda-zanyaty",
+          kind: "short",
+          prompt: "ПИШЕТ РЕДАКТОР: условие просит написать по-английски «Они иногда заняты в школе».",
+          answer: "They are sometimes busy at school.",
+          accept: ["Sometimes they are busy at school."],
+          hint: "ПИШЕТ РЕДАКТОР: подсказка к записи о занятости в школе — дорога, а не ответ.",
+          why: "ПИШЕТ РЕДАКТОР: разбор называет верный ответ о занятости в школе.",
+        },
+        {
+          id: "z5-sobrat-ya-chasto-zanyat",
+          kind: "order",
+          prompt: "ПИШЕТ РЕДАКТОР: условие просит собрать строку из кусков.",
+          items: ["busy", "I", "in the evening.", "am often"],
+          answer: [1, 3, 0, 2],
+          hint: "ПИШЕТ РЕДАКТОР: подсказка к сборке о вечере.",
+          why: "ПИШЕТ РЕДАКТОР: разбор называет собранную строку о вечере.",
+        },
+        {
+          id: "z6-skazat-kakim-byvaesh",
+          kind: "speak",
+          prompt: "ПИШЕТ РЕДАКТОР: условие просит сказать о себе, каким бываешь часто, и о ком-то, кто никогда не опаздывает.",
+          phrase: "I am often hungry in the afternoon. My sister is never late.",
+          translation: "ПИШЕТ РЕДАКТОР: перевод образца о себе и сестре.",
+          hint: "ПИШЕТ РЕДАКТОР: подсказка к устному заданию о себе и сестре.",
+          why: "ПИШЕТ РЕДАКТОР: разбор под образец о себе и сестре с формулой самопроверки курса.",
+        },
       ],
     },
 
@@ -1212,8 +1357,8 @@ const modul: Module = {
         },
         {
           /*
-           * СЛУЧАЙ 7. Замысел: «шесть строк со словом usually» — сами строки не
-           * названы. Ячейки ждут методиста.
+           * СЛУЧАЙ 7. Семь строк со словом usually — замысел 18.12: подлежащих
+           * семь, а не шесть, как стояло в 9.5.
            */
           id: "tablica-usually-u-vseh",
           kind: "table",
@@ -1221,36 +1366,119 @@ const modul: Module = {
           caption:
             "ПИШЕТ РЕДАКТОР: подпись говорит, что у I, you, we, they глагол без изменений, а у he, " +
             "she и имени — с окончанием.",
-          head: ["Строка", "Перевод"],
+          head: ["Без окончания", "Перевод", "С окончанием", "Перевод"],
           rows: [
-            ["ПИШЕТ РЕДАКТОР: строку называет методист (замысел 9.5, случай 7).", "ПИШЕТ РЕДАКТОР: перевод."],
-            ["ПИШЕТ РЕДАКТОР: строку называет методист (замысел 9.5, случай 7).", "ПИШЕТ РЕДАКТОР: перевод."],
-            ["ПИШЕТ РЕДАКТОР: строку называет методист (замысел 9.5, случай 7).", "ПИШЕТ РЕДАКТОР: перевод."],
-            ["ПИШЕТ РЕДАКТОР: строку называет методист (замысел 9.5, случай 7).", "ПИШЕТ РЕДАКТОР: перевод."],
-            ["ПИШЕТ РЕДАКТОР: строку называет методист (замысел 9.5, случай 7).", "ПИШЕТ РЕДАКТОР: перевод."],
-            ["ПИШЕТ РЕДАКТОР: строку называет методист (замысел 9.5, случай 7).", "ПИШЕТ РЕДАКТОР: перевод."],
+            ["I usually cook fish.", "Я обычно готовлю рыбу.", "He usually cooks fish.", "Он обычно готовит рыбу."],
+            ["You usually cook fish.", "Ты обычно готовишь рыбу.", "She usually cooks fish.", "Она обычно готовит рыбу."],
+            ["We usually cook fish.", "Мы обычно готовим рыбу.", "Dana usually cooks fish.", "Дана обычно готовит рыбу."],
+            ["They usually cook fish.", "Они обычно готовят рыбу.", "—", "—"],
+          ],
+          zvuchat: [
+            "I usually cook fish.",
+            "You usually cook fish.",
+            "We usually cook fish.",
+            "They usually cook fish.",
+            "He usually cooks fish.",
+            "She usually cooks fish.",
+            "Dana usually cooks fish.",
           ],
         },
         {
           /*
-           * СЛУЧАЙ 8. Свод «два столбца: без окончания и с окончанием» — строки
-           * не названы.
+           * СЛУЧАЙ 8. Свод «два столбца» — замысел 18.12, три строки в столбце.
            */
           id: "tablica-svod-uroka-5",
           kind: "table",
           znak: "1f4c3",
           caption: "ПИШЕТ РЕДАКТОР: подпись свода называет два столбца.",
-          head: ["Без окончания", "С окончанием"],
+          head: ["Без окончания", "С окончанием", "Перевод пары"],
           rows: [
-            ["ПИШЕТ РЕДАКТОР: строку называет методист (замысел 9.5, случай 8).", "ПИШЕТ РЕДАКТОР: строку называет методист (замысел 9.5, случай 8)."],
+            ["I always work.", "He always works.", "Я всегда работаю. — Он всегда работает."],
+            ["We often read.", "She often reads.", "Мы часто читаем. — Она часто читает."],
+            ["They never cook.", "Dana never cooks.", "Они никогда не готовят. — Дана никогда не готовит."],
           ],
+          zvuchat: [
+            "I always work.",
+            "He always works.",
+            "We often read.",
+            "She often reads.",
+            "They never cook.",
+            "Dana never cooks.",
+          ],
+        },
+        /*
+         * ЗАДАНИЯ УРОКА 5 — замысел, раздел 18.5.
+         */
+        {
+          id: "z1-vybrat-brat-obychno-utrom",
+          kind: "choice",
+          prompt: "ПИШЕТ РЕДАКТОР: условие говорит, что её брат ОБЫЧНО пьёт чай УТРОМ, и просит выбрать строку.",
+          options: [
+            { text: "Her brother usually drink tea in the morning." },
+            { text: "Her brother usually drinks tea in the morning.", correct: true },
+            { text: "Her brother usually drinks tea in the evening." },
+          ],
+          hint: "ПИШЕТ РЕДАКТОР: подсказка к выбору о чае — дорога, а не ответ.",
+          why: "ПИШЕТ РЕДАКТОР: разбор называет верную строку о чае и чем не подходят две другие.",
+        },
+        {
+          id: "z2-otmetit-glagol-s-okonchaniem",
+          kind: "hottext",
+          prompt: "ПИШЕТ РЕДАКТОР: условие просит отметить глагол с окончанием.",
+          parts: [
+            { text: "My ", selectable: true },
+            { text: "uncle ", selectable: true },
+            { text: "often ", selectable: true },
+            { text: "plays ", selectable: true, correct: true },
+            { text: "football ", selectable: true },
+            { text: "at the " },
+            { text: "weekend", selectable: true },
+            { text: ".\n" },
+            { text: "We ", selectable: true },
+            { text: "usually ", selectable: true },
+            { text: "read ", selectable: true },
+            { text: "in the " },
+            { text: "evening", selectable: true },
+            { text: ".\n" },
+            { text: "Aigerim ", selectable: true },
+            { text: "never ", selectable: true },
+            { text: "drinks ", selectable: true, correct: true },
+            { text: "juice", selectable: true },
+            { text: ".\n" },
+            { text: "She ", selectable: true },
+            { text: "sometimes ", selectable: true },
+            { text: "sleeps ", selectable: true, correct: true },
+            { text: "in the " },
+            { text: "afternoon", selectable: true },
+            { text: "." },
+          ],
+          hint: "ПИШЕТ РЕДАКТОР: подсказка к отметке глагола с окончанием.",
+          why: "ПИШЕТ РЕДАКТОР: разбор называет отмеченные слова глагола с окончанием и строку, где отмечать нечего.",
+        },
+        {
+          id: "z3-vpisat-walks",
+          kind: "gap",
+          prompt: "ПИШЕТ РЕДАКТОР: условие говорит, что Нурлан часто гуляет в парке, и называет глагол walk.",
+          before: "Nurlan often ",
+          after: " in the park.",
+          answer: "walks",
+          hint: "ПИШЕТ РЕДАКТОР: подсказка к вставке о Нурлане — дорога, а не ответ.",
+          why: "ПИШЕТ РЕДАКТОР: разбор называет строку о Нурлане целиком.",
+        },
+        {
+          id: "z4-zapisat-dana-vsegda-gotovit",
+          kind: "short",
+          prompt: "ПИШЕТ РЕДАКТОР: условие просит написать по-английски «Дана всегда готовит вечером».",
+          answer: "Dana always cooks in the evening.",
+          hint: "ПИШЕТ РЕДАКТОР: подсказка к записи о Дане вечером — дорога, а не ответ.",
+          why: "ПИШЕТ РЕДАКТОР: разбор называет верный ответ о Дане вечером.",
         },
         {
           /*
            * Сопоставление из правки 16.8 — английские строки дословно. Ступенька
            * «узнать»: окончание -s ученик видит, а не ставит.
            */
-          id: "z-soedinit-o-sebe-i-o-drugom",
+          id: "z5-soedinit-o-sebe-i-o-drugom",
           kind: "match",
           prompt: "ПИШЕТ РЕДАКТОР: условие просит соединить строку о себе со строкой о другом человеке.",
           left: ["I always read in the evening.", "I often walk in the park.", "I never drink coffee."],
@@ -1259,7 +1487,15 @@ const modul: Module = {
           hint: "ПИШЕТ РЕДАКТОР: подсказка говорит, по какому слову искать пару.",
           why: "ПИШЕТ РЕДАКТОР: разбор называет три пары.",
         },
-        // @@ЗАДАНИЯ-УРОК-5@@ — строки остальных заданий называет методист (замысел, раздел 18)
+        {
+          id: "z6-skazat-o-dvuh-rodnyh",
+          kind: "speak",
+          prompt: "ПИШЕТ РЕДАКТОР: условие просит сказать о двух родных, что они делают часто и чего не делают никогда.",
+          phrase: "My mother often cooks at home. My brother never sleeps in the afternoon.",
+          translation: "ПИШЕТ РЕДАКТОР: перевод образца о двух родных.",
+          hint: "ПИШЕТ РЕДАКТОР: подсказка к устному заданию о двух родных.",
+          why: "ПИШЕТ РЕДАКТОР: разбор под образец о двух родных с формулой самопроверки курса.",
+        },
       ],
     },
 
@@ -1350,8 +1586,7 @@ const modul: Module = {
         },
         {
           /*
-           * СЛУЧАЙ 6. Замысел: «две строки подряд с переводами» — строки не
-           * названы.
+           * СЛУЧАЙ 6. Строки — замысел 18.12.
            */
           id: "sluchay-zachem-nachinat-s-nego",
           kind: "explain",
@@ -1359,9 +1594,10 @@ const modul: Module = {
           text: [
             "ПИШЕТ РЕДАКТОР: имя случая говорит, зачем начинать со слова sometimes.",
             "ПИШЕТ РЕДАКТОР: правило одной строкой. Так сразу слышно, что бывает не всегда.",
-            "ПИШЕТ РЕДАКТОР: строку и перевод называет методист (замысел 9.6, случай 6).",
-            "ПИШЕТ РЕДАКТОР: строку и перевод называет методист (замысел 9.6, случай 6).",
+            "Sometimes my sister sings at home. — Иногда сестра поёт дома.",
+            "Sometimes my brother dances at school. — Иногда брат танцует в школе.",
           ],
+          zvuchat: ["Sometimes my sister sings at home.", "Sometimes my brother dances at school."],
         },
         {
           id: "sluchay-dve-stroki-always-i-sometimes",
@@ -1377,16 +1613,39 @@ const modul: Module = {
         },
         {
           /*
-           * СЛУЧАЙ 8. Свод «таблица двух мест» — строки не названы.
+           * СЛУЧАЙ 8. Свод «таблица двух мест» — замысел 18.12.
            */
           id: "tablica-svod-uroka-6",
           kind: "table",
           znak: "1f4c3",
           caption: "ПИШЕТ РЕДАКТОР: подпись свода называет два места sometimes.",
-          head: ["Перед глаголом", "В начале"],
+          head: ["Слово перед глаголом", "Слово в начале", "Перевод"],
           rows: [
-            ["ПИШЕТ РЕДАКТОР: строку называет методист (замысел 9.6, случай 8).", "ПИШЕТ РЕДАКТОР: строку называет методист (замысел 9.6, случай 8)."],
+            ["I sometimes cook at home.", "Sometimes I cook at home.", "Иногда я готовлю дома."],
+            ["She sometimes reads a magazine.", "Sometimes she reads a magazine.", "Иногда она читает журнал."],
           ],
+          zvuchat: [
+            "I sometimes cook at home.",
+            "Sometimes I cook at home.",
+            "She sometimes reads a magazine.",
+            "Sometimes she reads a magazine.",
+          ],
+        },
+        /*
+         * ЗАДАНИЯ УРОКА 6 — замысел, раздел 18.6. Оборот `walk to school` урок
+         * обходит: так звучит вопрос 6 работы.
+         */
+        {
+          id: "z1-vybrat-dyadya-inogda-vecherom",
+          kind: "choice",
+          prompt: "ПИШЕТ РЕДАКТОР: условие говорит, что дядя ИНОГДА работает ВЕЧЕРОМ, и просит выбрать строку.",
+          options: [
+            { text: "Sometimes my uncle works in the evening.", correct: true },
+            { text: "Sometimes my uncle works in the morning." },
+            { text: "My uncle always works in the evening." },
+          ],
+          hint: "ПИШЕТ РЕДАКТОР: подсказка к выбору о дяде — дорога, а не ответ.",
+          why: "ПИШЕТ РЕДАКТОР: разбор называет верную строку о дяде и чем не подходят две другие.",
         },
         {
           /*
@@ -1395,7 +1654,7 @@ const modul: Module = {
            * СБОРЩИКУ (16.8): ни одна из шести строк не должна стоять ответом
            * задания этого же урока — сверить, когда методист назовёт задания.
            */
-          id: "z-soedinit-dva-mesta-sometimes",
+          id: "z2-soedinit-dva-mesta-sometimes",
           kind: "match",
           prompt: "ПИШЕТ РЕДАКТОР: условие просит соединить строку со строкой того же смысла.",
           left: ["I sometimes read a magazine.", "We sometimes walk in the park.", "They sometimes eat at school."],
@@ -1404,7 +1663,46 @@ const modul: Module = {
           hint: "ПИШЕТ РЕДАКТОР: подсказка говорит, какие слова должны совпасть.",
           why: "ПИШЕТ РЕДАКТОР: разбор называет три пары и говорит, что обе строки пары верны.",
         },
-        // @@ЗАДАНИЯ-УРОК-6@@ — строки остальных заданий называет методист (замысел, раздел 18)
+        {
+          id: "z3-vpisat-sometimes",
+          kind: "gap",
+          prompt: "ПИШЕТ РЕДАКТОР: условие говорит, что Нурлан иногда играет в футбол в школе и строка начинается со слова о частоте.",
+          before: "",
+          after: " Nurlan plays football at school.",
+          answer: "Sometimes",
+          hint: "ПИШЕТ РЕДАКТОР: подсказка к вставке о футболе — дорога, а не ответ.",
+          why: "ПИШЕТ РЕДАКТОР: разбор называет строку о футболе целиком.",
+        },
+        {
+          /*
+           * `We sometimes watch television.` не принимается нарочно (18.6): условие
+           * прямо называет начало строки.
+           */
+          id: "z4-zapisat-inogda-smotrim",
+          kind: "short",
+          prompt: "ПИШЕТ РЕДАКТОР: условие просит написать по-английски «Иногда мы смотрим телевизор», начав со слова о частоте.",
+          answer: "Sometimes we watch television.",
+          hint: "ПИШЕТ РЕДАКТОР: подсказка к записи о телевизоре — дорога, а не ответ.",
+          why: "ПИШЕТ РЕДАКТОР: разбор называет верный ответ о телевизоре.",
+        },
+        {
+          id: "z5-sobrat-inogda-ya-plavayu",
+          kind: "order",
+          prompt: "ПИШЕТ РЕДАКТОР: условие просит собрать строку, начав со слова о частоте.",
+          items: ["swim", "Sometimes", "at the weekend.", "I"],
+          answer: [1, 3, 0, 2],
+          hint: "ПИШЕТ РЕДАКТОР: подсказка к сборке о плавании.",
+          why: "ПИШЕТ РЕДАКТОР: разбор называет собранную строку о плавании.",
+        },
+        {
+          id: "z6-skazat-chto-byvaet-inogda",
+          kind: "speak",
+          prompt: "ПИШЕТ РЕДАКТОР: условие просит сказать о себе и о ком-то из родных, что бывает иногда, начав со слова о частоте.",
+          phrase: "Sometimes I drink juice in the evening. Sometimes my grandmother cooks at home.",
+          translation: "ПИШЕТ РЕДАКТОР: перевод образца о том, что бывает иногда.",
+          hint: "ПИШЕТ РЕДАКТОР: подсказка к устному заданию о том, что бывает иногда.",
+          why: "ПИШЕТ РЕДАКТОР: разбор под образец о том, что бывает иногда с формулой самопроверки курса.",
+        },
       ],
     },
 
@@ -1554,6 +1852,22 @@ const modul: Module = {
             },
           ],
         },
+        /*
+         * ЗАДАНИЯ УРОКА 7 — замысел, раздел 18.7. Обороты `write to … every month`
+         * и `see my uncle every month` урок обходит: так звучат вопросы 7 и 10 работы.
+         */
+        {
+          id: "z1-vybrat-kazhduyu-nedelyu",
+          kind: "choice",
+          prompt: "ПИШЕТ РЕДАКТОР: условие говорит, что Дана ходит в библиотеку КАЖДУЮ НЕДЕЛЮ, и просит выбрать строку.",
+          options: [
+            { text: "Dana goes to the library every month." },
+            { text: "Dana goes to the library every weeks." },
+            { text: "Dana goes to the library every week.", correct: true },
+          ],
+          hint: "ПИШЕТ РЕДАКТОР: подсказка к выбору о библиотеке — дорога, а не ответ.",
+          why: "ПИШЕТ РЕДАКТОР: разбор называет верную строку о библиотеке и чем не подходят две другие.",
+        },
         {
           /*
            * СЕТКА (правка 16.8). Слова выбраны методистом, поле построено машиной
@@ -1563,7 +1877,7 @@ const modul: Module = {
            *
            * ALWAYS и NEVER — по столбцу; USUALLY, MONTH, MAGAZINE — по строке.
            */
-          id: "z-najti-slova-v-setke",
+          id: "z2-najti-slova-v-setke",
           kind: "setka",
           prompt: "ПИШЕТ РЕДАКТОР: условие говорит, сколько слов спрятано, и просит нажать их буквы по порядку.",
           stroki: [
@@ -1587,7 +1901,47 @@ const modul: Module = {
           hint: "ПИШЕТ РЕДАКТОР: подсказка — дорога, а не ответ.",
           why: "ПИШЕТ РЕДАКТОР: разбор называет пять слов.",
         },
-        // @@ЗАДАНИЯ-УРОК-7@@ — строки остальных заданий называет методист (замысел, раздел 18)
+        {
+          id: "z3-vpisat-month",
+          kind: "gap",
+          prompt: "ПИШЕТ РЕДАКТОР: условие говорит, что двоюродный брат играет в футбол КАЖДЫЙ МЕСЯЦ.",
+          before: "My cousin plays football every ",
+          after: ".",
+          answer: "month",
+          hint: "ПИШЕТ РЕДАКТОР: подсказка к вставке о двоюродном брате — дорога, а не ответ.",
+          why: "ПИШЕТ РЕДАКТОР: разбор называет строку о двоюродном брате целиком.",
+        },
+        {
+          /*
+           * Оборот времени в начале строки урок не учит, а accept принимает:
+           * строка верна, и наказывать за неё нельзя (18.7).
+           */
+          id: "z4-zapisat-vizhus-s-druzyami",
+          kind: "short",
+          prompt: "ПИШЕТ РЕДАКТОР: условие просит написать по-английски «Я вижусь с друзьями каждую неделю».",
+          answer: "I see my friends every week.",
+          accept: ["Every week I see my friends."],
+          hint: "ПИШЕТ РЕДАКТОР: подсказка к записи о друзьях — дорога, а не ответ.",
+          why: "ПИШЕТ РЕДАКТОР: разбор называет верный ответ о друзьях.",
+        },
+        {
+          id: "z5-sobrat-dana-chitaet-zhurnal",
+          kind: "order",
+          prompt: "ПИШЕТ РЕДАКТОР: условие просит собрать строку из кусков.",
+          items: ["every month.", "Dana", "a magazine", "reads"],
+          answer: [1, 3, 2, 0],
+          hint: "ПИШЕТ РЕДАКТОР: подсказка к сборке о журнале.",
+          why: "ПИШЕТ РЕДАКТОР: разбор называет собранную строку о журнале.",
+        },
+        {
+          id: "z6-skazat-kazhduyu-nedelyu",
+          kind: "speak",
+          prompt: "ПИШЕТ РЕДАКТОР: условие просит сказать о себе, что делаешь каждую неделю, и о ком-то из родных, что он делает каждый день.",
+          phrase: "I play football every week. My brother drinks juice every day.",
+          translation: "ПИШЕТ РЕДАКТОР: перевод образца о каждой неделе.",
+          hint: "ПИШЕТ РЕДАКТОР: подсказка к устному заданию о каждой неделе.",
+          why: "ПИШЕТ РЕДАКТОР: разбор под образец о каждой неделе с формулой самопроверки курса.",
+        },
       ],
     },
 
@@ -1681,16 +2035,27 @@ const modul: Module = {
         },
         {
           /*
-           * СЛУЧАЙ 6. «Сцена из трёх реплик: Ким и Дана» — реплики не названы.
-           * Когда методист их назовёт: у Кима мужской голос, и если первым
-           * говорит он, нужен `pervyyGolos: "muzhskoy"`.
+           * СЛУЧАЙ 6. Сцена — замысел 18.8: реплик четыре, а не три, как стояло в
+           * 9.8 (без уточняющего вопроса в сцене нет слова о частоте). Первым
+           * говорит Ким, за ним в курсе закреплён мужской голос.
            */
           id: "razgovor-kim-i-dana",
           kind: "example",
           znak: "1f4ac",
           razgovor: true,
-          caption: "ПИШЕТ РЕДАКТОР: подпись говорит, кто с кем говорит и кто первым.",
-          text: "ПИШЕТ РЕДАКТОР: три реплики называет методист (замысел 9.8, случай 6).",
+          pervyyGolos: "muzhskoy",
+          caption: "ПИШЕТ РЕДАКТОР: подпись говорит, кто с кем говорит и что первым говорит Ким.",
+          text:
+            "Do you work in the morning?\n" +
+            "Yes, I do.\n" +
+            "Do you always work in the morning?\n" +
+            "No, I don't. I sometimes work in the evening.",
+          perevod: {
+            "Do you work in the morning?": "ПИШЕТ РЕДАКТОР: перевод первой реплики.",
+            "Yes, I do.": "ПИШЕТ РЕДАКТОР: перевод второй реплики.",
+            "Do you always work in the morning?": "ПИШЕТ РЕДАКТОР: перевод третьей реплики.",
+            "No, I don't. I sometimes work in the evening.": "ПИШЕТ РЕДАКТОР: перевод четвёртой реплики.",
+          },
           explain: "ПИШЕТ РЕДАКТОР: разбор разговора.",
         },
         {
@@ -1700,9 +2065,14 @@ const modul: Module = {
           caption: "ПИШЕТ РЕДАКТОР: подпись говорит о порядке: do, кто, слово о частоте, глагол.",
           head: ["Строка", "Перевод"],
           rows: [
-            ["ПИШЕТ РЕДАКТОР: строку называет методист (замысел 9.8, случай 7).", "ПИШЕТ РЕДАКТОР: перевод."],
-            ["ПИШЕТ РЕДАКТОР: строку называет методист (замысел 9.8, случай 7).", "ПИШЕТ РЕДАКТОР: перевод."],
-            ["ПИШЕТ РЕДАКТОР: строку называет методист (замысел 9.8, случай 7).", "ПИШЕТ РЕДАКТОР: перевод."],
+            ["Do you usually sing at home?", "Ты обычно поёшь дома?"],
+            ["Do they often read in the evening?", "Они часто читают вечером?"],
+            ["Do we always eat at home?", "Мы всегда едим дома?"],
+          ],
+          zvuchat: [
+            "Do you usually sing at home?",
+            "Do they often read in the evening?",
+            "Do we always eat at home?",
           ],
         },
         {
@@ -1712,12 +2082,109 @@ const modul: Module = {
           caption: "ПИШЕТ РЕДАКТОР: подпись свода называет вопрос и два коротких ответа.",
           head: ["Строка", "Перевод"],
           rows: [
-            ["ПИШЕТ РЕДАКТОР: строку называет методист (замысел 9.8, случай 8).", "ПИШЕТ РЕДАКТОР: перевод."],
-            ["ПИШЕТ РЕДАКТОР: строку называет методист (замысел 9.8, случай 8).", "ПИШЕТ РЕДАКТОР: перевод."],
-            ["ПИШЕТ РЕДАКТОР: строку называет методист (замысел 9.8, случай 8).", "ПИШЕТ РЕДАКТОР: перевод."],
+            ["Do you often play football?", "Ты часто играешь в футбол?"],
+            ["Yes, I do.", "Да."],
+            ["No, I don't.", "Нет."],
           ],
+          zvuchat: ["Do you often play football?", "Yes, I do.", "No, I don't."],
         },
-        // @@ЗАДАНИЯ-УРОК-8@@ — строки заданий называет методист (замысел, раздел 18)
+        /*
+         * ЗАДАНИЯ УРОКА 8 — замысел, раздел 18.8.
+         */
+        {
+          id: "z1-vybrat-chasto-li-kofe",
+          kind: "choice",
+          prompt: "ПИШЕТ РЕДАКТОР: условие говорит, что Ким хочет узнать, ЧАСТО ли Дана пьёт кофе, и просит выбрать вопрос.",
+          options: [
+            { text: "Do you always drink coffee?" },
+            { text: "Do you often drink coffee?", correct: true },
+            { text: "Do you often drinks coffee?" },
+          ],
+          hint: "ПИШЕТ РЕДАКТОР: подсказка к выбору о кофе — дорога, а не ответ.",
+          why: "ПИШЕТ РЕДАКТОР: разбор называет верную строку о кофе и чем не подходят две другие.",
+        },
+        {
+          id: "z2-otmetit-slovo-v-voprose",
+          kind: "hottext",
+          prompt: "ПИШЕТ РЕДАКТОР: условие просит отметить слово о частоте в вопросах.",
+          parts: [
+            { text: "Do ", selectable: true },
+            { text: "you ", selectable: true },
+            { text: "usually ", selectable: true, correct: true },
+            { text: "sleep ", selectable: true },
+            { text: "in the " },
+            { text: "afternoon", selectable: true },
+            { text: "?\n" },
+            { text: "Do ", selectable: true },
+            { text: "they ", selectable: true },
+            { text: "play ", selectable: true },
+            { text: "football ", selectable: true },
+            { text: "at " },
+            { text: "school", selectable: true },
+            { text: "?\n" },
+            { text: "Do ", selectable: true },
+            { text: "you ", selectable: true },
+            { text: "sometimes ", selectable: true, correct: true },
+            { text: "dance ", selectable: true },
+            { text: "at " },
+            { text: "home", selectable: true },
+            { text: "?\n" },
+            { text: "Do ", selectable: true },
+            { text: "your ", selectable: true },
+            { text: "parents ", selectable: true },
+            { text: "always ", selectable: true, correct: true },
+            { text: "eat ", selectable: true },
+            { text: "at " },
+            { text: "home", selectable: true },
+            { text: "?" },
+          ],
+          hint: "ПИШЕТ РЕДАКТОР: подсказка к отметке слова в вопросах.",
+          why: "ПИШЕТ РЕДАКТОР: разбор называет отмеченные слова слова в вопросах и строку, где отмечать нечего.",
+        },
+        {
+          id: "z3-vpisat-always-v-vopros",
+          kind: "gap",
+          prompt: "ПИШЕТ РЕДАКТОР: условие просит спросить, ВСЕГДА ли они занимаются в школе.",
+          before: "Do they ",
+          after: " study at school?",
+          answer: "always",
+          hint: "ПИШЕТ РЕДАКТОР: подсказка к вставке о занятиях в школе — дорога, а не ответ.",
+          why: "ПИШЕТ РЕДАКТОР: разбор называет строку о занятиях в школе целиком.",
+        },
+        {
+          id: "z4-sprosit-obychno-li-rano",
+          kind: "short",
+          prompt: "ПИШЕТ РЕДАКТОР: условие просит спросить Дану, ОБЫЧНО ли она встаёт рано.",
+          answer: "Do you usually get up early?",
+          hint: "ПИШЕТ РЕДАКТОР: подсказка к записи о раннем подъёме — дорога, а не ответ.",
+          why: "ПИШЕТ РЕДАКТОР: разбор называет верный ответ о раннем подъёме.",
+        },
+        {
+          /*
+           * ОДИН ПОРЯДОК ДЕРЖИТ ТОЛЬКО УСЛОВИЕ (18.8): `Do you swim often at the
+           * weekend?` тоже верный английский. Условие обязано назвать место слова
+           * о частоте — перед глаголом.
+           */
+          id: "z5-sobrat-vopros-s-often",
+          kind: "order",
+          prompt: "ПИШЕТ РЕДАКТОР: условие просит собрать вопрос и прямо говорит: слово о частоте стоит перед глаголом.",
+          items: ["swim", "Do", "at the weekend?", "often", "you"],
+          answer: [1, 4, 3, 0, 2],
+          hint: "ПИШЕТ РЕДАКТОР: подсказка к сборке о плавании.",
+          why: "ПИШЕТ РЕДАКТОР: разбор называет собранную строку о плавании.",
+        },
+        {
+          /*
+           * Образец — разговор на два голоса.
+           */
+          id: "z6-sprosit-i-otvetit",
+          kind: "speak",
+          prompt: "ПИШЕТ РЕДАКТОР: условие просит спросить друга, обычно ли он пьёт молоко вечером, и ответить за него.",
+          phrase: "Do you usually drink milk in the evening? — Yes, I do.",
+          translation: "ПИШЕТ РЕДАКТОР: перевод образца о молоке вечером.",
+          hint: "ПИШЕТ РЕДАКТОР: подсказка к устному заданию о молоке вечером.",
+          why: "ПИШЕТ РЕДАКТОР: разбор под образец о молоке вечером с формулой самопроверки курса.",
+        },
       ],
     },
 
@@ -1759,7 +2226,128 @@ const modul: Module = {
             "Do you get up early?",
           ],
         },
-        // @@ЗАДАНИЯ-УРОК-9@@ — строки заданий называет методист (замысел, раздел 18)
+        /*
+         * ЗАДАНИЯ УРОКА 9 — замысел, раздел 18.9. Строку `Sometimes I swim at the
+         * weekend.` задания обходят: на ней стоит вопрос 9 работы.
+         */
+        {
+          id: "z1-otmetit-narechiya-v-zapiske",
+          kind: "hottext",
+          prompt: "ПИШЕТ РЕДАКТОР: условие просит отметить в записке все наречия частоты. every month не отмечается.",
+          parts: [
+            { text: "Hello", selectable: true },
+            { text: "! " },
+            { text: "My ", selectable: true },
+            { text: "name ", selectable: true },
+            { text: "is ", selectable: true },
+            { text: "Aigerim", selectable: true },
+            { text: ". " },
+            { text: "I ", selectable: true },
+            { text: "am ", selectable: true },
+            { text: "a " },
+            { text: "student", selectable: true },
+            { text: ".\n" },
+            { text: "I ", selectable: true },
+            { text: "always ", selectable: true, correct: true },
+            { text: "get ", selectable: true },
+            { text: "up ", selectable: true },
+            { text: "early", selectable: true },
+            { text: ".\n" },
+            { text: "I ", selectable: true },
+            { text: "usually ", selectable: true, correct: true },
+            { text: "study ", selectable: true },
+            { text: "at " },
+            { text: "home ", selectable: true },
+            { text: "in the " },
+            { text: "evening", selectable: true },
+            { text: ".\n" },
+            { text: "Sometimes ", selectable: true, correct: true },
+            { text: "I ", selectable: true },
+            { text: "swim ", selectable: true },
+            { text: "at the " },
+            { text: "weekend", selectable: true },
+            { text: ".\n" },
+            { text: "I ", selectable: true },
+            { text: "never ", selectable: true, correct: true },
+            { text: "drink ", selectable: true },
+            { text: "coffee", selectable: true },
+            { text: ".\n" },
+            { text: "I ", selectable: true },
+            { text: "often ", selectable: true, correct: true },
+            { text: "drink ", selectable: true },
+            { text: "tea ", selectable: true },
+            { text: "in the " },
+            { text: "morning", selectable: true },
+            { text: ".\n" },
+            { text: "I ", selectable: true },
+            { text: "am ", selectable: true },
+            { text: "always ", selectable: true, correct: true },
+            { text: "busy", selectable: true },
+            { text: ".\n" },
+            { text: "I ", selectable: true },
+            { text: "see ", selectable: true },
+            { text: "my ", selectable: true },
+            { text: "grandmother ", selectable: true },
+            { text: "every ", selectable: true },
+            { text: "month", selectable: true },
+            { text: ".\n" },
+            { text: "Do ", selectable: true },
+            { text: "you ", selectable: true },
+            { text: "get ", selectable: true },
+            { text: "up ", selectable: true },
+            { text: "early", selectable: true },
+            { text: "?" },
+          ],
+          hint: "ПИШЕТ РЕДАКТОР: подсказка к отметке в записке.",
+          why: "ПИШЕТ РЕДАКТОР: разбор называет отмеченные слова в записке и строку, где отмечать нечего.",
+        },
+        {
+          id: "z2-vybrat-chto-kazhdyy-mesyac",
+          kind: "choice",
+          prompt: "ПИШЕТ РЕДАКТОР: условие спрашивает, что Айгерим делает КАЖДЫЙ МЕСЯЦ.",
+          options: [
+            { text: "She sees her grandmother.", correct: true },
+            { text: "She swims." },
+            { text: "She drinks tea." },
+          ],
+          hint: "ПИШЕТ РЕДАКТОР: подсказка к выбору о записке — дорога, а не ответ.",
+          why: "ПИШЕТ РЕДАКТОР: разбор называет верную строку о записке и чем не подходят две другие.",
+        },
+        {
+          /*
+           * В уроке чтения ответ законно берётся из текста (18.9): это и есть
+           * умение урока, а не утечка.
+           */
+          id: "z3-zapisat-chto-ne-pyot",
+          kind: "short",
+          prompt: "ПИШЕТ РЕДАКТОР: условие спрашивает, что Айгерим никогда не пьёт, и просит ответить одним словом.",
+          answer: "coffee",
+          hint: "ПИШЕТ РЕДАКТОР: подсказка к записи о напитке — дорога, а не ответ.",
+          why: "ПИШЕТ РЕДАКТОР: разбор называет верный ответ о напитке.",
+        },
+        {
+          id: "z4-vpisat-usually-o-ney",
+          kind: "gap",
+          prompt: "ПИШЕТ РЕДАКТОР: условие просит пересказать о ней строку записки, где она занимается дома вечером.",
+          before: "Aigerim ",
+          after: " studies at home in the evening.",
+          answer: "usually",
+          hint: "ПИШЕТ РЕДАКТОР: подсказка к вставке о занятиях дома — дорога, а не ответ.",
+          why: "ПИШЕТ РЕДАКТОР: разбор называет строку о занятиях дома целиком.",
+        },
+        {
+          /*
+           * Один голос, мужской: говорит Ким (18.9).
+           */
+          id: "z5-rasskazat-o-sebe-kak-aygerim",
+          kind: "speak",
+          prompt: "ПИШЕТ РЕДАКТОР: условие просит рассказать о себе так же, как Айгерим.",
+          phrase: "Hello! My name is Kim. I usually get up late. I never drink milk in the evening.",
+          pervyyGolos: "muzhskoy",
+          translation: "ПИШЕТ РЕДАКТОР: перевод образца рассказа о себе.",
+          hint: "ПИШЕТ РЕДАКТОР: подсказка к устному заданию рассказа о себе.",
+          why: "ПИШЕТ РЕДАКТОР: разбор под образец рассказа о себе с формулой самопроверки курса.",
+        },
       ],
     },
 
@@ -1798,7 +2386,26 @@ const modul: Module = {
           caption: "ПИШЕТ РЕДАКТОР: подпись говорит, кто спрашивает и кто говорит первым.",
           transcript: "Do you often read a newspaper? — No, I never read newspapers. I sometimes read a magazine.",
         },
-        // @@ЗАДАНИЯ-ЗАПИСЬ-1@@ — два short по записи 1 (замысел, раздел 18)
+        /*
+         * ЗАДАНИЯ ПО ЗАПИСИ 1 — замысел, раздел 18.10. Ответ одним словом.
+         */
+        {
+          id: "z1-zapisat-kak-chasto-gazety",
+          kind: "short",
+          prompt: "ПИШЕТ РЕДАКТОР: условие спрашивает, как часто второй говорящий читает газеты; ответ одним словом.",
+          answer: "never",
+          hint: "ПИШЕТ РЕДАКТОР: подсказка к записи по записи 1 — дорога, а не ответ.",
+          why: "ПИШЕТ РЕДАКТОР: разбор называет верный ответ по записи 1.",
+        },
+        {
+          id: "z2-zapisat-chto-chitaet-inogda",
+          kind: "short",
+          prompt: "ПИШЕТ РЕДАКТОР: условие спрашивает, что он читает иногда; ответ одним словом.",
+          answer: "magazine",
+          accept: ["a magazine"],
+          hint: "ПИШЕТ РЕДАКТОР: подсказка к записи о чтении — дорога, а не ответ.",
+          why: "ПИШЕТ РЕДАКТОР: разбор называет верный ответ о чтении.",
+        },
         {
           /*
            * ЗАПИСЬ 2. Рассказ Нурлана, один голос: поля `voice` нет нарочно —
@@ -1816,7 +2423,34 @@ const modul: Module = {
             "I always get up early. I usually work in the morning. Sometimes I work in the evening. " +
             "I never work at the weekend.",
         },
-        // @@ЗАДАНИЯ-ЗАПИСЬ-2@@ — два short по записи 2 и choice (замысел, раздел 18)
+        /*
+         * ЗАДАНИЯ ПО ЗАПИСИ 2 — замысел, раздел 18.10.
+         */
+        {
+          id: "z3-zapisat-kogda-vstayot",
+          kind: "short",
+          prompt: "ПИШЕТ РЕДАКТОР: условие спрашивает, когда Нурлан встаёт; одно английское слово о времени. «Рано» и «поздно» не называются.",
+          answer: "early",
+          hint: "ПИШЕТ РЕДАКТОР: подсказка к записи по записи 2 — дорога, а не ответ.",
+          why: "ПИШЕТ РЕДАКТОР: разбор называет верный ответ по записи 2.",
+        },
+        {
+          id: "z4-zapisat-kogda-ne-rabotaet",
+          kind: "short",
+          prompt: "ПИШЕТ РЕДАКТОР: условие спрашивает, когда Нурлан никогда не работает; ответ одним словом.",
+          answer: "weekend",
+          accept: ["the weekend", "at the weekend"],
+          hint: "ПИШЕТ РЕДАКТОР: подсказка к записи о выходных — дорога, а не ответ.",
+          why: "ПИШЕТ РЕДАКТОР: разбор называет верный ответ о выходных.",
+        },
+        {
+          id: "z5-vybrat-kak-chasto-utrom",
+          kind: "choice",
+          prompt: "ПИШЕТ РЕДАКТОР: условие спрашивает, как часто Нурлан работает УТРОМ.",
+          options: [{ text: "always" }, { text: "usually", correct: true }, { text: "never" }],
+          hint: "ПИШЕТ РЕДАКТОР: подсказка к выбору по записи 2 — дорога, а не ответ.",
+          why: "ПИШЕТ РЕДАКТОР: разбор называет верную строку по записи 2 и чем не подходят две другие.",
+        },
       ],
     },
 
@@ -1838,7 +2472,54 @@ const modul: Module = {
         "что делаешь часто и что никогда.",
 
       blocks: [
-        // @@ЗАДАНИЯ-УРОК-11@@ — четыре speak и order (замысел, раздел 18.11)
+        /*
+         * ЗАДАНИЯ УРОКА 11 — замысел, раздел 18.11. Все образцы одним голосом.
+         */
+        {
+          id: "z1-skazat-chto-vsegda",
+          kind: "speak",
+          prompt: "ПИШЕТ РЕДАКТОР: условие просит сказать о себе, что делаешь ВСЕГДА.",
+          phrase: "I always read in the afternoon.",
+          translation: "ПИШЕТ РЕДАКТОР: перевод образца о всегда.",
+          hint: "ПИШЕТ РЕДАКТОР: подсказка к устному заданию о всегда.",
+          why: "ПИШЕТ РЕДАКТОР: разбор под образец о всегда с формулой самопроверки курса.",
+        },
+        {
+          id: "z2-skazat-chto-inogda-s-nachala",
+          kind: "speak",
+          prompt: "ПИШЕТ РЕДАКТОР: условие просит сказать о себе, что делаешь ИНОГДА, начав со слова о частоте.",
+          phrase: "Sometimes I cook in the evening.",
+          translation: "ПИШЕТ РЕДАКТОР: перевод образца об иногда.",
+          hint: "ПИШЕТ РЕДАКТОР: подсказка к устному заданию об иногда.",
+          why: "ПИШЕТ РЕДАКТОР: разбор под образец об иногда с формулой самопроверки курса.",
+        },
+        {
+          id: "z3-skazat-chego-nikogda",
+          kind: "speak",
+          prompt: "ПИШЕТ РЕДАКТОР: условие просит сказать о себе, чего НИКОГДА не делаешь.",
+          phrase: "I never play football at school.",
+          translation: "ПИШЕТ РЕДАКТОР: перевод образца о никогда.",
+          hint: "ПИШЕТ РЕДАКТОР: подсказка к устному заданию о никогда.",
+          why: "ПИШЕТ РЕДАКТОР: разбор под образец о никогда с формулой самопроверки курса.",
+        },
+        {
+          id: "z4-skazat-chto-kazhduyu-nedelyu",
+          kind: "speak",
+          prompt: "ПИШЕТ РЕДАКТОР: условие просит сказать о себе, что делаешь КАЖДУЮ НЕДЕЛЮ.",
+          phrase: "I eat fish every week.",
+          translation: "ПИШЕТ РЕДАКТОР: перевод образца о каждой неделе.",
+          hint: "ПИШЕТ РЕДАКТОР: подсказка к устному заданию о каждой неделе.",
+          why: "ПИШЕТ РЕДАКТОР: разбор под образец о каждой неделе с формулой самопроверки курса.",
+        },
+        {
+          id: "z5-sobrat-stroku-o-sebe",
+          kind: "order",
+          prompt: "ПИШЕТ РЕДАКТОР: условие просит собрать строку о себе.",
+          items: ["watch", "I", "television in the evening.", "never"],
+          answer: [1, 3, 0, 2],
+          hint: "ПИШЕТ РЕДАКТОР: подсказка к сборке о себе.",
+          why: "ПИШЕТ РЕДАКТОР: разбор называет собранную строку о себе.",
+        },
       ],
     },
   ],
