@@ -14,6 +14,7 @@ import moyDom from "./moy-dom";
 import kazhdyyDen from "./kazhdyy-den";
 import yaNeDelayu from "./ya-ne-delayu";
 import sprositODelah from "./sprosit-o-delah";
+import kakChasto from "./kak-chasto";
 import { rabotaYaIMoiLyudi } from "./raboty-chastey";
 
 /**
@@ -160,6 +161,7 @@ const course: Course = {
     kazhdyyDen,
     yaNeDelayu,
     sprositODelah,
+    kakChasto,
   ],
   /*
    * ЧАСТИ СТУПЕНИ — 6 сентября 2026. Программа объявляет пять частей
@@ -216,7 +218,7 @@ const course: Course = {
        */
       slug: "moy-den",
       title: "Мой день",
-      modules: ["kazhdyy-den", "ya-ne-delayu", "sprosit-o-delah"],
+      modules: ["kazhdyy-den", "ya-ne-delayu", "sprosit-o-delah", "kak-chasto"],
     },
   ],
 };
