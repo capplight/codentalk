@@ -319,23 +319,9 @@ const modul: Module = {
         },
         {
           /*
-           * СЛУЧАЙ 7. Две строки рядом.
-           */
-          id: "sluchay-dve-stroki-ryadom",
-          kind: "explain",
-          znak: "1f375",
-          text: [
-            "Чай всегда, молоко иногда",
-            "Наречие частоты говорит о деле из своей строки. Поэтому в двух соседних строках " +
-              "чай пьют каждый раз, а молоко не каждый раз.",
-            "I always drink tea. — Я всегда пью чай.",
-            "I sometimes drink milk. — Я иногда пью молоко.",
-          ],
-          zvuchat: ["I always drink tea.", "I sometimes drink milk."],
-        },
-        {
-          /*
-           * СЛУЧАЙ 8. Таблица-свод.
+           * СЛУЧАЙ 7. Таблица-свод. Прежний случай 7 «Две строки рядом» снят
+           * решением методиста от 13 сентября 2026: годной пары строк для него нет,
+           * а всё, что он показывал, уже есть в случаях 4 и 6 и в своде.
            */
           id: "tablica-svod-uroka-1",
           kind: "table",
@@ -385,7 +371,7 @@ const modul: Module = {
           options: [
             { text: "Dana always cooks at home in the morning.", correct: true },
             { text: "Dana sometimes cooks at home in the morning." },
-            { text: "Dana always cooks at home in the evening." },
+            { text: "Dana sometimes cooks at home in the evening." },
           ],
           hint: "Сверь с условием два места в каждой строке: наречие частоты и часть суток.",
           why:
@@ -710,10 +696,10 @@ const modul: Module = {
           kind: "choice",
           prompt:
             "ПИШЕТ РЕДАКТОР: условие говорит, что Айгерим ОБЫЧНО готовит ДОМА, и просит выбрать " +
-            "строку. Отвлекающие (замысел 18.2): первый — often, второй — в школе.",
+            "строку. Отвлекающие (замысел 18.2 и решение методиста от 13 сентября): первый — often, второй — often и в школе.",
           options: [
             { text: "Aigerim often cooks at home." },
-            { text: "Aigerim usually cooks at school." },
+            { text: "Aigerim often cooks at school." },
             { text: "Aigerim usually cooks at home.", correct: true },
           ],
           hint: "ПИШЕТ РЕДАКТОР: подсказка — дорога, а не ответ.",
@@ -964,7 +950,7 @@ const modul: Module = {
           options: [
             { text: "Dana always drinks milk in the evening." },
             { text: "Dana never drinks milk in the evening.", correct: true },
-            { text: "Dana never drinks milk in the morning." },
+            { text: "Dana always drinks milk in the morning." },
           ],
           hint: "ПИШЕТ РЕДАКТОР: подсказка к выбору о молоке — дорога, а не ответ.",
           why: "ПИШЕТ РЕДАКТОР: разбор называет верную строку о молоке и чем не подходят две другие.",
@@ -1191,7 +1177,7 @@ const modul: Module = {
           prompt: "ПИШЕТ РЕДАКТОР: условие говорит, что Ким ЧАСТО ОПАЗДЫВАЕТ, и просит выбрать строку.",
           options: [
             { text: "Kim is never late." },
-            { text: "Kim is often busy." },
+            { text: "Kim is never busy." },
             { text: "Kim is often late.", correct: true },
           ],
           hint: "ПИШЕТ РЕДАКТОР: подсказка к выбору о Киме — дорога, а не ответ.",
@@ -1436,7 +1422,7 @@ const modul: Module = {
           options: [
             { text: "Her brother usually drink tea in the morning." },
             { text: "Her brother usually drinks tea in the morning.", correct: true },
-            { text: "Her brother usually drinks tea in the evening." },
+            { text: "Her brother usually drink tea in the evening." },
           ],
           hint: "ПИШЕТ РЕДАКТОР: подсказка к выбору о чае — дорога, а не ответ.",
           why: "ПИШЕТ РЕДАКТОР: разбор называет верную строку о чае и чем не подходят две другие.",
@@ -1662,7 +1648,7 @@ const modul: Module = {
           options: [
             { text: "Sometimes my uncle works in the evening.", correct: true },
             { text: "Sometimes my uncle works in the morning." },
-            { text: "My uncle always works in the evening." },
+            { text: "My uncle always works in the morning." },
           ],
           hint: "ПИШЕТ РЕДАКТОР: подсказка к выбору о дяде — дорога, а не ответ.",
           why: "ПИШЕТ РЕДАКТОР: разбор называет верную строку о дяде и чем не подходят две другие.",
@@ -1881,7 +1867,7 @@ const modul: Module = {
           kind: "choice",
           prompt: "ПИШЕТ РЕДАКТОР: условие говорит, что Дана ходит в библиотеку КАЖДУЮ НЕДЕЛЮ, и просит выбрать строку.",
           options: [
-            { text: "Dana goes to the library every month." },
+            { text: "Dana goes to the library every days." },
             { text: "Dana goes to the library every weeks." },
             { text: "Dana goes to the library every week.", correct: true },
           ],
@@ -2116,7 +2102,7 @@ const modul: Module = {
           kind: "choice",
           prompt: "ПИШЕТ РЕДАКТОР: условие говорит, что Ким хочет узнать, ЧАСТО ли Дана пьёт кофе, и просит выбрать вопрос.",
           options: [
-            { text: "Do you always drink coffee?" },
+            { text: "Do you always drinks coffee?" },
             { text: "Do you often drink coffee?", correct: true },
             { text: "Do you often drinks coffee?" },
           ],
@@ -2737,18 +2723,18 @@ const modul: Module = {
         /*
          * ВОПРОС 12. Итог урока 1 второй раз. Назвать смысл, варианты по-русски.
          */
-        id: "q12-chto-znachit-never",
+        id: "q12-chto-znachit-sometimes",
         kind: "choice",
         outcome: "говорить, что бывает всегда и что иногда: I always work",
         prompt:
-          "ПИШЕТ РЕДАКТОР: условие говорит, что Ким написал We never eat at school., и " +
+          "ПИШЕТ РЕДАКТОР: условие говорит, что Ким написал We sometimes study at home., и " +
           "спрашивает, что это значит.",
         options: [
-          { text: "они едят в школе не каждый день" },
-          { text: "они всегда едят в школе" },
-          { text: "они не едят в школе совсем", correct: true },
+          { text: "они всегда занимаются дома" },
+          { text: "они не занимаются дома совсем" },
+          { text: "они занимаются дома не каждый день", correct: true },
         ],
-        why: "ПИШЕТ РЕДАКТОР: разбор говорит, что значит never.",
+        why: "ПИШЕТ РЕДАКТОР: разбор говорит, что значит sometimes.",
       },
     ],
   },

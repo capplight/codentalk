@@ -757,7 +757,7 @@ POSITION` разрешает начало, и обе стоят на нашей 
 | 4 | Глагол не меняется | от нового слова глагол остаётся прежним | I work. → I always work. · We eat. → We sometimes eat. **(ПРАВКА 16.6)** |
 | 5 | Термин на месте | слова, которые отвечают «как часто», зовут наречиями частоты | always — всегда · sometimes — иногда |
 | 6 | Наречие и оборот времени в одной строке | наречие стоит перед глаголом, оборот времени — в конце | They sometimes swim at the weekend. — Они иногда плавают в выходные. · We always study in the evening. — Мы всегда занимаемся вечером. |
-| 7 | Две строки рядом | одним словом меняется весь смысл | I always drink tea. — Я всегда пью чай. · I sometimes drink milk. — Я иногда пью молоко. |
+| 7 | ~~Две строки рядом~~ **СНЯТ (решение методиста от 13 сентября 2026, `reshenie-metodista-urok-1-modul-16.md`, пункт 1)** | годной пары строк нет: при смене наречия выходит свод, при смене другого слова частота не меняется | — |
 | 8 | Таблица (свод) | — | I always work. / Я всегда работаю. · I sometimes work. / Я иногда работаю. |
 
 **Задания (шесть, лестницей):** — **исправлены в 16.6**, строка задания 4
@@ -1514,7 +1514,7 @@ SuperCategory + SubCategory + Guideword + Can-do**, и эта запись в в
 | 9 | 9 | choice | по записке Айгерим: «Почему по записке видно, что плавает она не каждую неделю?» варианты по-русски: «в строке о плавании стоит every week» · «в строке о плавании стоит sometimes» · «в строке о плавании стоит always» **(ПРАВКА 16.11)** | 2-й |
 | 10 | 10 | short со звуком | НОВАЯ запись: `Do you often see your uncle? — I see my uncle every month.` (**не** `I see him`: слова `him` в курсе нет ни карточкой, ни в видимом тексте — проверено `grep`, 13 сентября) Вопрос: «Как часто он видится с дядей? Ответь одним словом.» | `month` |
 | 11 | 11 | short | «В записи о себе стоит строка `I eat at home.` Перепиши её так, чтобы в ней было „обычно".» **(ПРАВКА 13 сентября)** | `I usually eat at home.` |
-| 12 | 1 | choice | «Ким написал `We never eat at school.` Что это значит?» варианты по-русски: «они едят в школе не каждый день» · «они всегда едят в школе» · «они не едят в школе совсем» | 3-й |
+| 12 | 1 | choice | «Ким написал `We sometimes study at home.` Что это значит?» варианты по-русски: «они всегда занимаются дома» · «они не занимаются дома совсем» · «они занимаются дома не каждый день» **(правка: прежняя строка с `never` спрашивала итог урока 3; решение методиста от 13 сентября 2026, `reshenie-metodista-urok-1-modul-16.md`, находка Б)** | 3-й |
 
 **Счёт сверен с самой таблицей, а не написан на глаз:** вопросов выбора три
 (2, 9, 12), верный стоит на местах **1, 2, 3** — по разу каждое. Вопросов,
@@ -1639,8 +1639,8 @@ home.` стояла разом в трёх местах — вторым при�
 | задание 5, `order` | собрать `They always walk in the park.` | **собрать `We always cook in the evening.`** — прежняя строка отличалась бы от нового ответа задания 4 одним словом |
 | резерв урока 1 | три строки | **`They sometimes walk in the park.`**, **`We always cook in the evening.`** — ровно те, что берут задания 4 и 5 |
 
-Строка `Dana always cooks at home.` из резерва ушла: ни одно задание урока 1 её
-не брало, а третье лицо — предмет урока 5.
+Строка `Dana always cooks at home.` из резерва ушла: её целиком спрашивает
+задание 3 (вставка). **Причина поправлена: решение методиста от 13 сентября 2026, `reshenie-metodista-urok-1-modul-16.md`, находка А.**
 
 ## 16.7. ШКАЛА ЧАСТОТЫ — УТВЕРЖДЕНИЕ О ЯЗЫКЕ БЕЗ ОПОРЫ (находка 7)
 
@@ -1920,6 +1920,13 @@ verbs and be»), а на A1 даёт только место перед глаг
 - `match` — пары левое ↔ правое, на экране правый столбец перемешан.
 - `speak` — образец, который звучит после ответа ученика.
 
+**Два правила, дописанные по решению методиста от 13 сентября 2026** (`reshenie-metodista-urok-1-modul-16.md`):
+- у `choice` из трёх строк верная строка не должна быть единственной, близкой к обеим
+  другим: один неверный вариант отличается от верного двумя признаками (пункт 2);
+- второй верный порядок, который принимает `accept` у `short`, разбор называет одной
+  фразой с адресом урока, только если курс этот порядок разбирает; порядок, которого
+  курс не разбирает нигде, `accept` принимает молча (пункт 3).
+
 **Проверка каждого урока — прогоном**, а не глазами (скрипт в рабочей папке
 методиста, итог прогона записан под таблицей урока):
 - все слова каждой строки имеют карточку в модулях 1–16, дней недели нет;
@@ -1933,7 +1940,7 @@ verbs and be»), а на A1 даёт только место перед глаг
 
 | № | kind | Строки задания | Верно | Accept | Условие обязано назвать · почему отвлекающие неверны |
 |---|---|---|---|---|---|
-| 1 | choice | `Dana always cooks at home in the morning.` · `Dana sometimes cooks at home in the morning.` · `Dana always cooks at home in the evening.` | 1 | — | условие: Дана готовит дома КАЖДОЕ УТРО, без исключений. 2 — `sometimes`, «не каждый раз»; 3 — «вечером», а не утром. Каждый отвлекающий отличается от верного одним признаком, поэтому ни один не угадывается как «лишний» |
+| 1 | choice | `Dana always cooks at home in the morning.` · `Dana sometimes cooks at home in the morning.` · `Dana sometimes cooks at home in the evening.` | 1 | — | условие: Дана готовит дома КАЖДОЕ УТРО, без исключений. 2 — `sometimes`, «не каждый раз»; 3 — и `sometimes`, и вечер; верный вариант не стоит серединой между двумя неверными (**правка: решение методиста от 13 сентября 2026, `reshenie-metodista-urok-1-modul-16.md`, пункт 2**) |
 | 2 | hottext | `I sometimes sleep in the afternoon.` · `They always play football at school.` · `We read in the evening.` · `My sister always drinks water in the morning.` | отмечаются `sometimes` (строка 1), `always` (строка 2), `always` (строка 4); в строке 3 отмечать нечего | — | условие: отметить ВСЕ слова о частоте. Строка 3 без такого слова нарочно: задание не проходится отметкой второго слова каждой строки |
 | 3 | gap | `Dana` ▢ `cooks at home.` | `always` | — | условие: Дана готовит дома каждый раз, без исключений |
 | 4 | short | — | `They sometimes walk in the park.` | `Sometimes they walk in the park.` | условие: перевести «Они иногда гуляют в парке». Оба места `sometimes` законны (16.3, графы MID и FRONT POSITION) |
@@ -1950,7 +1957,7 @@ verbs and be»), а на A1 даёт только место перед глаг
 
 | № | kind | Строки задания | Верно | Accept | Условие обязано назвать · почему отвлекающие неверны |
 |---|---|---|---|---|---|
-| 1 | choice | `Aigerim often cooks at home.` · `Aigerim usually cooks at school.` · `Aigerim usually cooks at home.` | 3 | — | условие: Айгерим ОБЫЧНО готовит ДОМА. 1 — `often` значит «часто», а в условии «обычно»; 2 — «в школе», а не дома. Различие по переводу слова, а не по шкале частоты: шкала снята решением владельца (16.7) |
+| 1 | choice | `Aigerim often cooks at home.` · `Aigerim often cooks at school.` · `Aigerim usually cooks at home.` | 3 | — | условие: Айгерим ОБЫЧНО готовит ДОМА. 1 — `often` значит «часто», а в условии «обычно»; 2 — «в школе», а не дома. Различие по переводу слова, а не по шкале частоты: шкала снята решением владельца (16.7) **Правка (решение методиста от 13 сентября 2026, `reshenie-metodista-urok-1-modul-16.md`, пункт 2): вариант 2 теперь `often` и «в школе» — два отличия от верного.** |
 | 2 | hottext | `We usually play football at school.` · `My brother often reads a magazine in the evening.` · `I get up early.` · `They often drink juice in the morning.` | отмечаются `usually` (строка 1), `often` (строка 2), `often` (строка 4); в строке 3 отмечать нечего | — | условие: отметить ВСЕ слова о частоте. Строка 3 держит `early` нарочно: это слово о времени, а не о частоте |
 | 3 | gap | `My mother` ▢ `gets up early.` | `usually` | — | условие: мама ОБЫЧНО встаёт рано |
 | 4 | gap | `We` ▢ `play football in the park.` | `often` | — | условие: мы ЧАСТО играем в футбол в парке |
@@ -1968,7 +1975,7 @@ verbs and be»), а на A1 даёт только место перед глаг
 
 | № | kind | Строки задания | Верно | Accept | Условие обязано назвать · почему отвлекающие неверны |
 |---|---|---|---|---|---|
-| 1 | choice | `Dana always drinks milk in the evening.` · `Dana never drinks milk in the evening.` · `Dana never drinks milk in the morning.` | 2 | — | условие: Дана НИКОГДА не пьёт молоко ВЕЧЕРОМ. 1 — `always`, «всегда»; 3 — «утром», а не вечером |
+| 1 | choice | `Dana always drinks milk in the evening.` · `Dana never drinks milk in the evening.` · `Dana always drinks milk in the morning.` | 2 | — | условие: Дана НИКОГДА не пьёт молоко ВЕЧЕРОМ. 1 — `always`, «всегда»; 3 — «утром», а не вечером **Правка (решение методиста от 13 сентября 2026, `reshenie-metodista-urok-1-modul-16.md`, пункт 2): вариант 3 теперь `always` и «утром» — два отличия от верного.** |
 | 2 | match | `I always cook at home.` ↔ каждый раз, без исключений · `I sometimes cook at home.` ↔ не каждый раз · `I never cook at home.` ↔ ни разу | пары как записаны | — | пары из 16.8; русский столбец пишет редактор, смысл каждой пары назван здесь. `usually` и `often` в пары не взяты: развести их можно только шкалой, а шкала снята |
 | 3 | gap | `My grandfather` ▢ `watches television.` | `never` | — | условие: дедушка НИКОГДА не смотрит телевизор |
 | 4 | short | — | `Dana never cooks in the morning.` | — | условие: перевести «Дана никогда не готовит утром». `Dana doesn't cook in the morning.` не принимается: строка верна, но в ней нет «никогда», которое названо в условии |
@@ -1997,7 +2004,7 @@ verbs and be»), а на A1 даёт только место перед глаг
 
 | № | kind | Строки задания | Верно | Accept | Условие обязано назвать · почему отвлекающие неверны |
 |---|---|---|---|---|---|
-| 1 | choice | `Kim is never late.` · `Kim is often busy.` · `Kim is often late.` | 3 | — | условие: Ким ЧАСТО ОПАЗДЫВАЕТ. 1 — `never`, «никогда»; 2 — `busy`, «занят», а не «опаздывает» |
+| 1 | choice | `Kim is never late.` · `Kim is never busy.` · `Kim is often late.` | 3 | — | условие: Ким ЧАСТО ОПАЗДЫВАЕТ. 1 — `never`, «никогда»; 2 — `busy`, «занят», а не «опаздывает» **Правка (решение методиста от 13 сентября 2026, `reshenie-metodista-urok-1-modul-16.md`, пункт 2): вариант 2 теперь `never` и `busy` — два отличия от верного.** |
 | 2 | hottext | `My sister is always busy in the evening.` · `They often play football at school.` · `I am never hungry in the afternoon.` · `Dana is sometimes late.` | отмечаются `is` (строка 1), `am` (строка 3), `is` (строка 4); в строке 2 отмечать нечего | — | условие: отметить форму be там, где она есть. Строка 2 держит глагол `play` нарочно: в ней наречие стоит перед глаголом, и формы be нет |
 | 3 | gap | `My brother` ▢ `always busy in the morning.` | `is` | — | условие: брат всегда занят утром. Ответ — форма be перед наречием |
 | 4 | short | — | `They are sometimes busy at school.` | `Sometimes they are busy at school.` | условие: перевести «Они иногда заняты в школе». Начало со `sometimes` законно (графа A1 FRONT POSITION) |
@@ -2018,7 +2025,7 @@ verbs and be»), а на A1 даёт только место перед глаг
 
 | № | kind | Строки задания | Верно | Accept | Условие обязано назвать · почему отвлекающие неверны |
 |---|---|---|---|---|---|
-| 1 | choice | `Her brother usually drink tea in the morning.` · `Her brother usually drinks tea in the morning.` · `Her brother usually drinks tea in the evening.` | 2 | — | условие: её брат ОБЫЧНО пьёт чай УТРОМ. 1 — у глагола нет окончания при одном человеке, это та ошибка, которой урок учит избегать; законного чтения у строки нет. 3 — «вечером», а не утром |
+| 1 | choice | `Her brother usually drink tea in the morning.` · `Her brother usually drinks tea in the morning.` · `Her brother usually drink tea in the evening.` | 2 | — | условие: её брат ОБЫЧНО пьёт чай УТРОМ. 1 — у глагола нет окончания при одном человеке, это та ошибка, которой урок учит избегать; законного чтения у строки нет. 3 — «вечером», а не утром **Правка (решение методиста от 13 сентября 2026, `reshenie-metodista-urok-1-modul-16.md`, пункт 2): вариант 3 теперь без окончания и «вечером» — два отличия от верного.** |
 | 2 | hottext | `My uncle often plays football at the weekend.` · `We usually read in the evening.` · `Aigerim never drinks juice.` · `She sometimes sleeps in the afternoon.` | отмечаются `plays` (строка 1), `drinks` (строка 3), `sleeps` (строка 4); в строке 2 отмечать нечего | — | условие: отметить глагол с окончанием. Строка 2 — о нескольких людях, глагол без окончания |
 | 3 | gap | `Nurlan often` ▢ `in the park.` | `walks` | — | условие: Нурлан часто гуляет в парке; назвать глагол `walk`. Ответ — форма с окончанием |
 | 4 | short | — | `Dana always cooks in the evening.` | — | условие: перевести «Дана всегда готовит вечером» |
@@ -2040,7 +2047,7 @@ verbs and be»), а на A1 даёт только место перед глаг
 
 | № | kind | Строки задания | Верно | Accept | Условие обязано назвать · почему отвлекающие неверны |
 |---|---|---|---|---|---|
-| 1 | choice | `Sometimes my uncle works in the evening.` · `Sometimes my uncle works in the morning.` · `My uncle always works in the evening.` | 1 | — | условие: дядя ИНОГДА работает ВЕЧЕРОМ. 2 — «утром», а не вечером; 3 — `always`, «всегда». Обе строки со `sometimes` различаются только временем суток, поэтому по форме строки ответ не угадывается |
+| 1 | choice | `Sometimes my uncle works in the evening.` · `Sometimes my uncle works in the morning.` · `My uncle always works in the morning.` | 1 | — | условие: дядя ИНОГДА работает ВЕЧЕРОМ. 2 — «утром», а не вечером; 3 — `always`, «всегда». Обе строки со `sometimes` различаются только временем суток, поэтому по форме строки ответ не угадывается **Правка (решение методиста от 13 сентября 2026, `reshenie-metodista-urok-1-modul-16.md`, пункт 2): вариант 3 теперь `always` и «утром» — два отличия от верного.** |
 | 2 | match | `I sometimes read a magazine.` ↔ `Sometimes I read a magazine.` · `We sometimes walk in the park.` ↔ `Sometimes we walk in the park.` · `They sometimes eat at school.` ↔ `Sometimes they eat at school.` | пары как записаны | — | пары из 16.8: обе строки пары верны и значат одно. Партнёр один — по совпадению остальных слов |
 | 3 | gap | ▢ `Nurlan plays football at school.` | `Sometimes` | — | условие: Нурлан иногда играет в футбол в школе, и строка начинается со слова о частоте |
 | 4 | short | — | `Sometimes we watch television.` | — | условие: перевести «Иногда мы смотрим телевизор», НАЧАВ со слова о частоте. `We sometimes watch television.` условию не отвечает: условие прямо называет начало строки |
@@ -2062,7 +2069,7 @@ every month` — запись вопроса 10.
 
 | № | kind | Строки задания | Верно | Accept | Условие обязано назвать · почему отвлекающие неверны |
 |---|---|---|---|---|---|
-| 1 | choice | `Dana goes to the library every month.` · `Dana goes to the library every weeks.` · `Dana goes to the library every week.` | 3 | — | условие: Дана ходит в библиотеку КАЖДУЮ НЕДЕЛЮ. 1 — «каждый месяц»; 2 — после `every` слово стоит без окончания, это ошибка, о которой говорит случай 5 урока; законного чтения у строки нет |
+| 1 | choice | `Dana goes to the library every days.` · `Dana goes to the library every weeks.` · `Dana goes to the library every week.` | 3 | — | условие: Дана ходит в библиотеку КАЖДУЮ НЕДЕЛЮ. 1 — «каждый месяц»; 2 — после `every` слово стоит без окончания, это ошибка, о которой говорит случай 5 урока; законного чтения у строки нет **Правка (решение методиста от 13 сентября 2026, `reshenie-metodista-urok-1-modul-16.md`, пункт 2): вариант 1 теперь `days` с окончанием — два отличия от верного; `every months` не взято, его исправляет вопрос 7 работы.** |
 | 2 | setka | `ALWAYS` · `NEVER` · `USUALLY` · `MONTH` · `MAGAZINE` | все пять | — | слова из 16.8. `HOMEWORK` и `NEWSPAPER` в поле не ставятся: хвостом в них лежат карточки `WORK` и `PAPER`. Лишние слова, сложившиеся из случайных букв поля, проверяет сборщик прогоном `lishnieSlova` |
 | 3 | gap | `My cousin plays football every` ▢ `.` | `month` | — | условие: двоюродный брат играет в футбол КАЖДЫЙ МЕСЯЦ |
 | 4 | short | — | `I see my friends every week.` | `Every week I see my friends.` | условие: перевести «Я вижусь с друзьями каждую неделю». **Оборот времени в начале строки урок не учит, а `accept` принимает:** строка верна, и наказывать за неё нельзя |
@@ -2096,7 +2103,7 @@ every month` — запись вопроса 10.
 
 | № | kind | Строки задания | Верно | Accept | Условие обязано назвать · почему отвлекающие неверны |
 |---|---|---|---|---|---|
-| 1 | choice | `Do you always drink coffee?` · `Do you often drink coffee?` · `Do you often drinks coffee?` | 2 | — | условие: Ким хочет узнать, ЧАСТО ли Дана пьёт кофе. 1 — `always`, «всегда»; 3 — окончание у глагола после `do`, настоящая ошибка без законного чтения |
+| 1 | choice | `Do you always drinks coffee?` · `Do you often drink coffee?` · `Do you often drinks coffee?` | 2 | — | условие: Ким хочет узнать, ЧАСТО ли Дана пьёт кофе. 1 — `always`, «всегда»; 3 — окончание у глагола после `do`, настоящая ошибка без законного чтения **Правка (решение методиста от 13 сентября 2026, `reshenie-metodista-urok-1-modul-16.md`, пункт 2): вариант 1 теперь `always` и окончание после `do` — два отличия от верного.** |
 | 2 | hottext | `Do you usually sleep in the afternoon?` · `Do they play football at school?` · `Do you sometimes dance at home?` · `Do your parents always eat at home?` | отмечаются `usually` (строка 1), `sometimes` (строка 3), `always` (строка 4); в строке 2 отмечать нечего | — | условие: отметить слово о частоте в вопросах. Строка 2 — вопрос без такого слова |
 | 3 | gap | `Do they` ▢ `study at school?` | `always` | — | условие: спросить, ВСЕГДА ли они занимаются в школе |
 | 4 | short | — | `Do you usually get up early?` | — | условие: спросить Дану, ОБЫЧНО ли она встаёт рано |
