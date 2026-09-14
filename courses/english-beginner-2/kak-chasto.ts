@@ -628,9 +628,9 @@ const modul: Module = {
             "Слова do homework значат «делать домашнюю работу», и do здесь значит «делать». " +
               "Наречие частоты стоит перед do, потому что do в этой строке глагол.",
             "I usually do my homework in the evening. — Я обычно делаю домашнюю работу вечером.",
-            "We often do homework at school. — Мы часто делаем домашнюю работу в школе.",
+            "We often do our homework at school. — Мы часто делаем домашнюю работу в школе.",
           ],
-          zvuchat: ["I usually do my homework in the evening.", "We often do homework at school."],
+          zvuchat: ["I usually do my homework in the evening.", "We often do our homework at school."],
         },
         {
           /*
@@ -782,18 +782,18 @@ const modul: Module = {
             "частоты стоит перед глаголом и значит «часто».",
         },
         {
-          id: "z5-zapisat-nurlan-obychno-gulyaet",
+          /*
+           * Строка сменена решением методиста В2: прежняя (о Нурлане) была близнецом
+           * задания 4 урока 5. Окончание при одном человеке — предмет урока 5, здесь
+           * его не производят. `Usually` в начале accept принимает, разбор молчит.
+           */
+          id: "z5-zapisat-oni-obychno-chitayut",
           kind: "short",
-          prompt: "Запиши по-английски «Нурлан обычно гуляет в парке».",
-          answer: "Nurlan usually walks in the park.",
-          accept: ["Usually Nurlan walks in the park."],
-          hint:
-            "Начни с имени и поставь наречие частоты перед глаголом. Нурлан один, поэтому у глагола " +
-            "будет окончание.",
-          why:
-            "Nurlan usually walks in the park. Наречие usually стоит перед глаголом walks, так же как " +
-            "в русской строке «обычно» стоит перед словом «гуляет». У глагола есть окончание, потому " +
-            "что Нурлан один.",
+          prompt: "ПИШЕТ РЕДАКТОР: условие просит написать по-английски «Они обычно читают газеты».",
+          answer: "They usually read newspapers.",
+          accept: ["Usually they read newspapers."],
+          hint: "ПИШЕТ РЕДАКТОР: подсказка к записи о газетах — дорога, а не ответ.",
+          why: "ПИШЕТ РЕДАКТОР: разбор называет строку о газетах; место usually в начале не называет.",
         },
         {
           id: "z6-skazat-o-sebe-usually-often",
@@ -866,17 +866,20 @@ const modul: Module = {
           zvuchat: ["They never eat fish.", "I never read newspapers."],
         },
         {
+          /*
+           * Решение методиста В6.1: расхождение «два русских слова — одно английское»
+           * говорит этот случай, рядом со своими строками; вступление его не повторяет.
+           */
           id: "sluchay-vtorogo-ne-ne-nuzhno",
           kind: "explain",
           znak: "1f4a1",
           text: [
             "Одно слово вместо «никогда не»",
-            "В русской строке рядом стоят два слова, «никогда» и «не». В английских строках ниже их " +
-              "смысл передаёт одно слово never.",
-            "I never drink coffee. — Я никогда не пью кофе.",
-            "We never cook at home. — Мы никогда не готовим дома.",
+            "ПИШЕТ РЕДАКТОР: правило: в русской строке два слова, «никогда» и «не», в английской их передаёт одно never.",
+            "I never swim. — Я никогда не плаваю.",
+            "They never dance. — Они никогда не танцуют.",
           ],
-          zvuchat: ["I never drink coffee.", "We never cook at home."],
+          zvuchat: ["I never swim.", "They never dance."],
         },
         {
           id: "sluchay-never-i-dont",
@@ -909,22 +912,6 @@ const modul: Module = {
             ["never", "никогда"],
           ],
           zvuchat: ["always", "sometimes", "usually", "often", "never"],
-        },
-        {
-          /*
-           * СЛУЧАЙ 6. Переводов замысел не дал — они стоят заглушками.
-           */
-          id: "sluchay-never-s-oborotom",
-          kind: "explain",
-          znak: "1f305",
-          text: [
-            "Слово never рядом с оборотом о времени",
-            "Слово never стоит перед глаголом, а оборот о времени стоит в конце строки, как и с " +
-              "другими наречиями частоты.",
-            "I never work in the morning. — Я никогда не работаю утром.",
-            "We never swim at the weekend. — Мы никогда не плаваем в выходные.",
-          ],
-          zvuchat: ["I never work in the morning.", "We never swim at the weekend."],
         },
         {
           /*
@@ -963,7 +950,7 @@ const modul: Module = {
           kind: "vocab",
           caption: "Слова урока",
           items: [
-            { term: "never", translation: "никогда", example: "I never drink coffee.", hint: "/ˈnevə/" },
+            { term: "never", translation: "никогда", example: "They never dance.", hint: "/ˈnevə/" },
           ],
         },
         {
@@ -1016,19 +1003,16 @@ const modul: Module = {
         },
         {
           /*
-           * `Dana doesn't cook in the morning.` не принимается нарочно (18.3):
-           * строка верна, но в ней нет «никогда», названного условием.
+           * Строка сменена решением методиста В2: прежняя (о Дане) отличалась от ответа
+           * задания 4 урока 5 двумя словами, а окончание — предмет урока 5.
+           * `They don't study in the afternoon.` не принимается: в ней нет «никогда».
            */
-          id: "z4-zapisat-dana-nikogda-ne-gotovit",
+          id: "z4-zapisat-oni-nikogda-ne-zanimayutsya",
           kind: "short",
-          prompt: "Запиши по-английски «Дана никогда не готовит утром».",
-          answer: "Dana never cooks in the morning.",
-          hint:
-            "Для «никогда не» хватит одного наречия частоты. Поставь его перед глаголом, а оборот о " +
-            "времени в конец строки.",
-          why:
-            "Dana never cooks in the morning. Слово never передаёт «никогда не» и стоит перед глаголом " +
-            "cooks. У глагола есть окончание, потому что Дана одна, а оборот in the morning стоит в конце.",
+          prompt: "ПИШЕТ РЕДАКТОР: условие просит написать по-английски «Они никогда не занимаются днём».",
+          answer: "They never study in the afternoon.",
+          hint: "ПИШЕТ РЕДАКТОР: подсказка к записи о занятиях днём — дорога, а не ответ.",
+          why: "ПИШЕТ РЕДАКТОР: разбор называет строку о занятиях днём.",
         },
         {
           id: "z5-sobrat-my-nikogda-ne-smotrim",
@@ -1155,19 +1139,6 @@ const modul: Module = {
             "They are never late. — Они никогда не опаздывают.",
           ],
           zvuchat: ["We are sometimes late.", "They are never late."],
-        },
-        {
-          id: "sluchay-never-s-formoy-be",
-          kind: "explain",
-          znak: "1f6ab",
-          text: [
-            "Слово never после формы be",
-            "Слово never тоже стоит после формы be. По-русски здесь снова два слова, «никогда» и " +
-              "«не», а в английской строке их смысл передаёт одно слово never.",
-            "She is never busy in the evening. — Она никогда не занята вечером.",
-            "We are never hungry in the morning. — Мы никогда не голодны утром.",
-          ],
-          zvuchat: ["She is never busy in the evening.", "We are never hungry in the morning."],
         },
         {
           /*
@@ -1368,32 +1339,6 @@ const modul: Module = {
           zvuchat: ["He always works in the morning.", "She usually gets up early."],
         },
         {
-          id: "sluchay-mesto-narechiya-u-odnogo",
-          kind: "explain",
-          znak: "1f4cd",
-          text: [
-            "Место наречия частоты в строке об одном человеке",
-            "Наречие частоты стоит между словом о том, кто делает, и глаголом. Окончание у глагола " +
-              "этого места не меняет.",
-            "Dana often reads a magazine. — Дана часто читает журнал.",
-            "My father never drinks coffee. — Мой папа никогда не пьёт кофе.",
-          ],
-          zvuchat: ["Dana often reads a magazine.", "My father never drinks coffee."],
-        },
-        {
-          id: "sluchay-narechie-ne-menyaetsya",
-          kind: "explain",
-          znak: "1f4a1",
-          text: [
-            "Наречие частоты окончания не получает",
-            "Окончание -s прибавляется к глаголу. Наречие частоты от этого не меняется, и в строке о " +
-              "нём оно такое же, как в строке о ней.",
-            "He often eats at school. — Он часто ест в школе.",
-            "She often eats at school. — Она часто ест в школе.",
-          ],
-          zvuchat: ["He often eats at school.", "She often eats at school."],
-        },
-        {
           /*
            * `watch` ГЛАГОЛОМ. Модуль 13 печатает `He watches television.` в
            * видимом тексте, значит это не заимствование вперёд (замысел 14.2).
@@ -1426,17 +1371,20 @@ const modul: Module = {
           zvuchat: ["Aigerim sometimes cooks at home.", "My brother always swims at the weekend."],
         },
         {
+          /*
+           * Решение методиста В7.3: новые строки и новое правило — буква s на конце
+           * always принадлежит самому слову и окончанием не является.
+           */
           id: "sluchay-ya-i-on-ryadom",
           kind: "explain",
           znak: "2696",
           text: [
-            "Строка о себе и строка о нём",
-            "В строке о себе глагол стоит без окончания, а в строке о нём с окончанием. Наречие always " +
-              "в обеих строках одно и то же и стоит на том же месте.",
-            "I always work in the morning. — Я всегда работаю утром.",
-            "He always works in the morning. — Он всегда работает утром.",
+            "ПИШЕТ РЕДАКТОР: имя случая о строке о себе и строке о нём.",
+            "ПИШЕТ РЕДАКТОР: правило: окончание получает глагол; буква s на конце always — буква самого слова, а не окончание.",
+            "I always eat fish. — Я всегда ем рыбу.",
+            "He always eats fish. — Он всегда ест рыбу.",
           ],
-          zvuchat: ["I always work in the morning.", "He always works in the morning."],
+          zvuchat: ["I always eat fish.", "He always eats fish."],
         },
         {
           /*
@@ -1570,21 +1518,17 @@ const modul: Module = {
         },
         {
           /*
-           * Сопоставление из правки 16.8 — английские строки дословно. Ступенька
-           * «узнать»: окончание -s ученик видит, а не ставит.
+           * Пары сменены решением методиста В3: в прежних пары находились по наречию
+           * и хвосту строки. Теперь наречие одно, слева везде I — пару находит глагол.
            */
           id: "z5-soedinit-o-sebe-i-o-drugom",
           kind: "match",
-          prompt:
-            "Соедини каждую строку о себе со строкой о другом человеке, где то же дело и то же " +
-            "наречие частоты.",
-          left: ["I always read in the evening.", "I often walk in the park.", "I never drink coffee."],
-          right: ["He often walks in the park.", "My father never drinks coffee.", "She always reads in the evening."],
+          prompt: "ПИШЕТ РЕДАКТОР: условие просит соединить строку о себе со строкой о другом человеке.",
+          left: ["I usually study.", "I usually swim.", "I usually walk."],
+          right: ["He usually swims.", "My brother usually walks.", "My sister usually studies."],
           answer: [2, 0, 1],
-          hint: "Ищи пару по глаголу. В строке о другом человеке у него появится окончание.",
-          why:
-            "Пары находятся по глаголу, который в обеих строках один и тот же. В строках о себе стоят " +
-            "read, walk и drink, а в строках о другом человеке reads, walks и drinks.",
+          hint: "ПИШЕТ РЕДАКТОР: подсказка: пару ищут по глаголу.",
+          why: "ПИШЕТ РЕДАКТОР: разбор называет три пары и окончания глаголов.",
         },
         {
           id: "z6-skazat-o-dvuh-rodnyh",
@@ -1649,9 +1593,8 @@ const modul: Module = {
           znak: "2705",
           text: [
             "Оба места верны",
-            "Строка со словом sometimes перед глаголом и строка с ним в начале значат одно и то же. " +
-              "Поэтому перевод у них тоже один.",
-            "I sometimes cook at home. — Иногда я готовлю дома.",
+            "ПИШЕТ РЕДАКТОР: правило: обе строки верны, слова одни, место sometimes разное, и в переводе «иногда» стоит там же. Без «значат одно и то же» и «поэтому перевод один» (решение методиста В1).",
+            "I sometimes cook at home. — Я иногда готовлю дома.",
             "Sometimes I cook at home. — Иногда я готовлю дома.",
           ],
           zvuchat: ["I sometimes cook at home.", "Sometimes I cook at home."],
@@ -1696,22 +1639,6 @@ const modul: Module = {
           zvuchat: ["Sometimes I work at the weekend.", "Sometimes we study in the evening."],
         },
         {
-          /*
-           * СЛУЧАЙ 6. Строки — замысел 18.12.
-           */
-          id: "sluchay-zachem-nachinat-s-nego",
-          kind: "explain",
-          znak: "1f442",
-          text: [
-            "Первым сказано, как часто",
-            "Когда строка начинается словом sometimes, первым сказано, что так бывает не каждый раз, " +
-              "а уже потом кто и что делает.",
-            "Sometimes my sister sings at home. — Иногда моя сестра поёт дома.",
-            "Sometimes my brother dances at school. — Иногда мой брат танцует в школе.",
-          ],
-          zvuchat: ["Sometimes my sister sings at home.", "Sometimes my brother dances at school."],
-        },
-        {
           id: "sluchay-dve-stroki-always-i-sometimes",
           kind: "explain",
           znak: "1f4dd",
@@ -1726,20 +1653,21 @@ const modul: Module = {
         },
         {
           /*
-           * СЛУЧАЙ 8. Свод «таблица двух мест» — замысел 18.12.
+           * СВОД. Строение «перевод пары», как у сводов уроков 4 и 5 (решение
+           * методиста В1): у двух мест sometimes переводы разные, по порядку слов.
            */
           id: "tablica-svod-uroka-6",
           kind: "table",
           znak: "1f4c3",
-          caption: "Два места слова sometimes и один перевод на обе строки",
-          head: ["Слово перед глаголом", "Слово в начале", "Перевод"],
+          caption: "ПИШЕТ РЕДАКТОР: подпись свода — два места sometimes, у каждой строки свой перевод.",
+          head: ["ПИШЕТ РЕДАКТОР: заголовок: sometimes перед глаголом.", "ПИШЕТ РЕДАКТОР: заголовок: sometimes в начале.", "ПИШЕТ РЕДАКТОР: заголовок: перевод пары."],
           rows: [
-            ["I sometimes cook at home.", "Sometimes I cook at home.", "Иногда я готовлю дома."],
-            ["She sometimes reads a magazine.", "Sometimes she reads a magazine.", "Иногда она читает журнал."],
+            ["We sometimes eat fish.", "Sometimes we eat fish.", "Мы иногда едим рыбу. — Иногда мы едим рыбу."],
+            ["She sometimes reads a magazine.", "Sometimes she reads a magazine.", "Она иногда читает журнал. — Иногда она читает журнал."],
           ],
           zvuchat: [
-            "I sometimes cook at home.",
-            "Sometimes I cook at home.",
+            "We sometimes eat fish.",
+            "Sometimes we eat fish.",
             "She sometimes reads a magazine.",
             "Sometimes she reads a magazine.",
           ],
@@ -1765,21 +1693,17 @@ const modul: Module = {
         },
         {
           /*
-           * Сопоставление из правки 16.8 — английские строки дословно. Партнёр
-           * у каждой строки один: слова совпадают, отличается место sometimes.
-           * СБОРЩИКУ (16.8): ни одна из шести строк не должна стоять ответом
-           * задания этого же урока — сверить, когда методист назовёт задания.
+           * Решение методиста В4: прежние пары находились глазом по совпадающим словам.
+           * Справа теперь русский перевод, общих букв у пары нет.
            */
-          id: "z2-soedinit-dva-mesta-sometimes",
+          id: "z2-soedinit-stroku-s-perevodom",
           kind: "match",
-          prompt: "Соедини каждую строку со строкой, которая значит то же самое.",
-          left: ["I sometimes read a magazine.", "We sometimes walk in the park.", "They sometimes eat at school."],
-          right: ["Sometimes they eat at school.", "Sometimes I read a magazine.", "Sometimes we walk in the park."],
+          prompt: "ПИШЕТ РЕДАКТОР: условие просит соединить английскую строку с её переводом.",
+          left: ["Sometimes I drink milk.", "Sometimes I sing.", "Sometimes I dance."],
+          right: ["Иногда я танцую.", "Иногда я пью молоко.", "Иногда я пою."],
           answer: [1, 2, 0],
-          hint: "Сравни в строках все слова, кроме sometimes. У строк одной пары они совпадают.",
-          why:
-            "Пара находится по словам, которые совпадают, и у каждой строки она одна. Обе строки пары " +
-            "верны и значат одно и то же, а различаются они местом слова sometimes.",
+          hint: "ПИШЕТ РЕДАКТОР: подсказка к сопоставлению с переводом.",
+          why: "ПИШЕТ РЕДАКТОР: разбор называет три пары.",
         },
         {
           id: "z3-vpisat-sometimes",
