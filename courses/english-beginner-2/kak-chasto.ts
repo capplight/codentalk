@@ -575,6 +575,34 @@ const modul: Module = {
         },
         {
           /*
+           * СЛУЧАЙ 4. Четыре слова и четыре перевода (16.7). Стоит отдельным
+           * экраном сразу после often: так решил методист 14 сентября 2026 (reshenie-metodista-uroki-2-6-modul-16.md,
+           * пункт 2.2) — на экране early и late таблица была бы второй мыслью.
+           *
+           * ПОРЯДОК СТРОК — ПОРЯДОК УРОКОВ, А НЕ ЧАСТОТЫ: always и sometimes из
+           * урока 1, usually и often из этого урока. Выстроить их «от всегда к
+           * иногда» значило бы вернуть снятую шкалу молча.
+           */
+          id: "tablica-chetyre-slova",
+          kind: "table",
+          znak: "1f4c3",
+          caption: "Четыре наречия частоты и перевод каждого из них",
+          head: ["Слово", "Перевод", "Строка", "Перевод строки"],
+          rows: [
+            ["always", "всегда", "I always drink water.", "Я всегда пью воду."],
+            ["sometimes", "иногда", "I sometimes drink coffee.", "Я иногда пью кофе."],
+            ["usually", "обычно", "I usually drink milk.", "Я обычно пью молоко."],
+            ["often", "часто", "I often drink juice.", "Я часто пью сок."],
+          ],
+          zvuchat: [
+            "I always drink water.",
+            "I sometimes drink coffee.",
+            "I usually drink milk.",
+            "I often drink juice.",
+          ],
+        },
+        {
+          /*
            * СЛУЧАЙ 5. Первая строка совпадает с примером случая 1 — так в
            * замысле: случай вводит слова early и late, и строка с early у урока
            * одна.
@@ -590,33 +618,6 @@ const modul: Module = {
             "I sometimes get up late. — Я иногда встаю поздно.",
           ],
           zvuchat: ["I usually get up early.", "I sometimes get up late."],
-        },
-        {
-          /*
-           * СЛУЧАЙ 6. Четыре слова и четыре перевода (16.7).
-           *
-           * ПОРЯДОК СТРОК — ПОРЯДОК УРОКОВ, А НЕ ЧАСТОТЫ: always и sometimes из
-           * урока 1, usually и often из этого урока. Выстроить их «от всегда к
-           * иногда» значило бы вернуть снятую шкалу молча.
-           */
-          id: "tablica-chetyre-slova",
-          kind: "table",
-          znak: "1f4c3",
-          naTomZheEkrane: true,
-          caption: "Четыре наречия частоты и перевод каждого из них",
-          head: ["Слово", "Перевод", "Строка", "Перевод строки"],
-          rows: [
-            ["always", "всегда", "I always drink water.", "Я всегда пью воду."],
-            ["sometimes", "иногда", "I sometimes drink coffee.", "Я иногда пью кофе."],
-            ["usually", "обычно", "I usually drink milk.", "Я обычно пью молоко."],
-            ["often", "часто", "I often drink juice.", "Я часто пью сок."],
-          ],
-          zvuchat: [
-            "I always drink water.",
-            "I sometimes drink coffee.",
-            "I usually drink milk.",
-            "I often drink juice.",
-          ],
         },
         {
           id: "sluchay-homework",
@@ -684,7 +685,7 @@ const modul: Module = {
             {
               term: "magazine",
               translation: "журнал",
-              example: "I sometimes read a magazine.",
+              example: "I often read a magazine.",
               hint: "/ˌmægəˈziːn/",
               znak: "1f4d6",
             },
@@ -859,10 +860,10 @@ const modul: Module = {
             "Слово never стоит перед глаголом",
             "У слова never то же место, что у других наречий частоты. Оно стоит после слова о том, " +
               "кто делает, и перед глаголом.",
-            "They never eat meat. — Они никогда не едят мясо.",
+            "They never eat fish. — Они никогда не едят рыбу.",
             "I never read newspapers. — Я никогда не читаю газет.",
           ],
-          zvuchat: ["They never eat meat.", "I never read newspapers."],
+          zvuchat: ["They never eat fish.", "I never read newspapers."],
         },
         {
           id: "sluchay-vtorogo-ne-ne-nuzhno",
@@ -1131,18 +1132,6 @@ const modul: Module = {
           zvuchat: ["I always work.", "I am always busy."],
         },
         {
-          id: "sluchay-are",
-          kind: "explain",
-          znak: "1f465",
-          text: [
-            "Форма are при we и they",
-            "При we и they стоит форма are. Наречие частоты стоит после неё так же, как после am и is.",
-            "We are sometimes late. — Мы иногда опаздываем.",
-            "They are never late. — Они никогда не опаздывают.",
-          ],
-          zvuchat: ["We are sometimes late.", "They are never late."],
-        },
-        {
           id: "sluchay-late-o-cheloveke",
           kind: "explain",
           znak: "23f0",
@@ -1154,6 +1143,18 @@ const modul: Module = {
             "I am never late. — Я никогда не опаздываю.",
           ],
           zvuchat: ["He is often late.", "I am never late."],
+        },
+        {
+          id: "sluchay-are",
+          kind: "explain",
+          znak: "1f465",
+          text: [
+            "Форма are при we и they",
+            "При we и they стоит форма are. Наречие частоты стоит после неё так же, как после am и is.",
+            "We are sometimes late. — Мы иногда опаздываем.",
+            "They are never late. — Они никогда не опаздывают.",
+          ],
+          zvuchat: ["We are sometimes late.", "They are never late."],
         },
         {
           id: "sluchay-never-s-formoy-be",
@@ -1185,16 +1186,21 @@ const modul: Module = {
           zvuchat: ["I am always busy.", "He is always busy.", "We are always busy."],
         },
         {
+          /*
+           * СВОД — состав методиста от 14 сентября 2026 (пункт 4.3): прежний свод
+           * повторял случай 3 побуквенно. Строение как у свода урока 5. usually в
+           * уроке 4 не стоит нигде, поэтому строки не совпадают ни с одним ответом.
+           */
           id: "tablica-svod-uroka-4",
           kind: "table",
           znak: "1f4c3",
-          caption: "Наречие always перед глаголом и после формы be",
-          head: ["Строка", "Перевод"],
+          caption: "ПИШЕТ РЕДАКТОР: подпись свода — строка с глаголом и строка с формой be, наречие usually.",
+          head: ["ПИШЕТ РЕДАКТОР: заголовок столбца с глаголом.", "ПИШЕТ РЕДАКТОР: заголовок столбца с формой be.", "ПИШЕТ РЕДАКТОР: заголовок столбца перевода."],
           rows: [
-            ["I always work.", "Я всегда работаю."],
-            ["I am always busy.", "Я всегда занят."],
+            ["We usually work.", "We are usually busy.", "Мы обычно работаем. — Мы обычно заняты."],
+            ["He usually gets up late.", "He is usually late.", "Он обычно встаёт поздно. — Он обычно опаздывает."],
           ],
-          zvuchat: ["I always work.", "I am always busy."],
+          zvuchat: ["We usually work.", "We are usually busy.", "He usually gets up late.", "He is usually late."],
         },
         {
           id: "slova-uroka-4",
@@ -1382,10 +1388,10 @@ const modul: Module = {
             "Наречие частоты окончания не получает",
             "Окончание -s прибавляется к глаголу. Наречие частоты от этого не меняется, и в строке о " +
               "нём оно такое же, как в строке о ней.",
-            "He often walks in the park. — Он часто гуляет в парке.",
-            "She often walks in the park. — Она часто гуляет в парке.",
+            "He often eats at school. — Он часто ест в школе.",
+            "She often eats at school. — Она часто ест в школе.",
           ],
-          zvuchat: ["He often walks in the park.", "She often walks in the park."],
+          zvuchat: ["He often eats at school.", "She often eats at school."],
         },
         {
           /*
@@ -1415,10 +1421,9 @@ const modul: Module = {
             "Когда вместо he или she стоит имя или слова my brother, глагол тоже идёт с окончанием. " +
               "Наречие частоты стоит перед ним на прежнем месте.",
             "Aigerim sometimes cooks at home. — Айгерим иногда готовит дома.",
-            "My brother always does his homework in the evening. — Мой брат всегда делает " +
-              "домашнюю работу вечером.",
+            "My brother always swims at the weekend. — Мой брат всегда плавает в выходные.",
           ],
-          zvuchat: ["Aigerim sometimes cooks at home.", "My brother always does his homework in the evening."],
+          zvuchat: ["Aigerim sometimes cooks at home.", "My brother always swims at the weekend."],
         },
         {
           id: "sluchay-ya-i-on-ryadom",
@@ -1701,8 +1706,8 @@ const modul: Module = {
             "Первым сказано, как часто",
             "Когда строка начинается словом sometimes, первым сказано, что так бывает не каждый раз, " +
               "а уже потом кто и что делает.",
-            "Sometimes my sister sings at home. — Иногда сестра поёт дома.",
-            "Sometimes my brother dances at school. — Иногда брат танцует в школе.",
+            "Sometimes my sister sings at home. — Иногда моя сестра поёт дома.",
+            "Sometimes my brother dances at school. — Иногда мой брат танцует в школе.",
           ],
           zvuchat: ["Sometimes my sister sings at home.", "Sometimes my brother dances at school."],
         },
@@ -2835,9 +2840,9 @@ const modul: Module = {
         kind: "short",
         outcome: "строить о себе строку с наречием частоты",
         prompt:
-          "ПИШЕТ РЕДАКТОР: условие говорит, что в записи о себе стоит строка I eat at home., и " +
+          "ПИШЕТ РЕДАКТОР: условие говорит, что в записи о себе стоит строка I read at home., и " +
           "просит переписать её так, чтобы в ней было «обычно».",
-        answer: "I usually eat at home.",
+        answer: "I usually read at home.",
         why: "ПИШЕТ РЕДАКТОР: разбор называет строку и говорит, где встаёт наречие.",
       },
       {

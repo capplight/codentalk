@@ -410,7 +410,7 @@ Elementary («урок начинался с определения нашего
 | 9 | `homework` | домашняя работа | `I always do my homework in the evening.` | `/ˈhəʊmwɜːk/` | Oxford A1; **YL A1 Movers, с. 52: «He must do his homework.»** |
 | 10 | `month` | месяц | `I see my grandmother every month.` | `/mʌnθ/` | Oxford A1; тема `Time` |
 | 11 | `newspaper` | газета | `My father often reads a newspaper.` | `/ˈnjuːzpeɪpə/` | Oxford A1; словник A2 Key да |
-| 12 | `magazine` | журнал | `I sometimes read a magazine.` | `/ˌmægəˈziːn/` | Oxford A1; словник A2 Key да |
+| 12 | `magazine` | журнал | `I often read a magazine.` | `/ˌmægəˈziːn/` | Oxford A1; словник A2 Key да |
 
 **Чтения, разошедшиеся с `ipa-en-uk.txt`, названы поимённо** (правило владельца
 от 11 сентября — словарная норма главнее, но расхождение объявляется):
@@ -801,8 +801,8 @@ park., We always cook in the evening.
 | 2 | Место то же | usually встаёт перед глаголом | They usually eat at home. — Они обычно едят дома. · I usually walk in the park. — Я обычно гуляю в парке. |
 | 3 | often — часто | often значит «часто, много раз» | We often walk in the park. — Мы часто гуляем в парке. · I often read a magazine. — Я часто читаю журнал. |
 | 4 | ~~Чем often отличается от usually~~ **СНЯТ (16.7)** | сравнение usually и often по частоте опоры не имеет | — |
+| 6 | Четыре слова и четыре перевода | always — всегда, usually — обычно, often — часто, sometimes — иногда; **порядка по частоте таблица не утверждает (16.7)** | таблица слово — перевод — одна строка **(правка: решение методиста от 14 сентября 2026, `reshenie-metodista-uroki-2-6-modul-16.md`)** стоит отдельным экраном сразу после often |
 | 5 | Новые слова early и late | early — рано, late — поздно, и оба стоят в конце строки | I usually get up early. · I sometimes get up late. **(ПРАВКА 14.3, внесена на месте 13 сентября)** |
-| 6 | Четыре слова и четыре перевода | always — всегда, usually — обычно, often — часто, sometimes — иногда; **порядка по частоте таблица не утверждает (16.7)** | таблица слово — перевод — одна строка |
 | 7 | homework в строке о частоте | do homework — делать домашнюю работу | I usually do my homework in the evening. — Я обычно делаю домашнюю работу вечером. · We often do homework at school. — Мы часто делаем домашнюю работу в школе. |
 | 8 | Таблица (свод) | — | четыре строки вида I … work in the morning. с четырьмя наречиями |
 
@@ -825,7 +825,7 @@ park., We often cook at home.
 | № | Случай | Правило | Примеры |
 |---|---|---|---|
 | 1 | never — никогда | never значит «никогда» | I never drink coffee. — Я никогда не пью кофе. · We never work at the weekend. — Мы никогда не работаем в выходные. |
-| 2 | Место то же | never встаёт перед глаголом, как и другие наречия частоты | They never eat meat. — Они никогда не едят мясо. · I never read newspapers. — Я никогда не читаю газет. |
+| 2 | Место то же | never встаёт перед глаголом, как и другие наречия частоты | They never eat fish. — Они никогда не едят рыбу. · I never read newspapers. — Я никогда не читаю газет. |
 | 3 | Второго «не» не нужно | в русской строке два слова, в английской одно: never уже говорит «не» | I never drink coffee. — Я никогда не пью кофе. · We never cook at home. — Мы никогда не готовим дома. |
 | 4 | never и don't — про одно по-разному | I don't drink coffee — не пью; I never drink coffee — не пью никогда | обе строки с переводами |
 | 5 | Пять слов и пять переводов | always, usually, often, sometimes, never — каждое со своим русским словом; **без порядка по частоте (16.7)** | таблица пяти строк |
@@ -873,11 +873,11 @@ FREQUENCY` («they are always very friendly») ступени этого мес�
 | 1 | busy — занят | busy говорит, какой человек, и стоит после формы be | I am busy. — Я занят. · My mother is busy. — Моя мама занята. |
 | 2 | Наречие после формы be | с формой be наречие частоты встаёт после неё | I am always busy in the morning. — Я всегда занят утром. · Dana is often busy at the weekend. — Дана часто занята в выходные. |
 | 3 | Две строки рядом | с глаголом наречие перед ним, с формой be — после неё | I always work. — Я всегда работаю. · I am always busy. — Я всегда занят. |
+| 5 | late о человеке | в строке о человеке late после формы be переводят глаголом «опаздывать» **(правка: решение методиста от 14 сентября 2026, `reshenie-metodista-uroki-2-6-modul-16.md`)**, стоит перед случаем are | He is often late. — Он часто опаздывает. · I am never late. — Я никогда не опаздываю. |
 | 4 | are | у we и they форма are, место наречия то же | We are sometimes late. — Мы иногда опаздываем. · They are never late. — Они никогда не опаздывают. |
-| 5 | late о человеке | late здесь значит «опоздал» | He is often late. — Он часто опаздывает. · I am never late. — Я никогда не опаздываю. |
 | 6 | never с формой be | never стоит после формы be, и «не» к нему не нужно | She is never busy in the evening. — Она никогда не занята вечером. · We are never hungry in the morning. — Мы никогда не голодны утром. |
 | 7 | Таблица трёх лиц | I am · he is · we are — и наречие после каждой формы | три строки со словом always |
-| 8 | Свод | — | I always work. / I am always busy. с переводами |
+| 8 | Свод | — | We usually work. / We are usually busy. · He usually gets up late. / He is usually late. — с переводами пар **(правка: решение методиста от 14 сентября 2026, `reshenie-metodista-uroki-2-6-modul-16.md`)** |
 
 **Задания:** choice (в какой строке форма be), hottext (отметить форму be и
 наречие), gap (am / is), short (из резерва), order, speak.
@@ -898,9 +898,9 @@ the evening., Nurlan is never late.
 |---|---|---|---|
 | 1 | he и she | у одного человека к глаголу прибавляется -s, и новое слово этого не меняет | He always works in the morning. — Он всегда работает утром. · She usually gets up early. — Она обычно встаёт рано. |
 | 2 | Место наречия | наречие стоит между словом о том, кто делает, и глаголом | Dana often reads a magazine. — Дана часто читает журнал. · My father never drinks coffee. — Мой папа никогда не пьёт кофе. |
-| 3 | Наречие само не меняется | окончание прибавляется к глаголу, а не к наречию | He often walks in the park. · She often walks in the park. |
+| 3 | Наречие само не меняется | окончание прибавляется к глаголу, а не к наречию | He often eats at school. — Он часто ест в школе. · She often eats at school. — Она часто ест в школе. **(правка: решение методиста от 14 сентября 2026, `reshenie-metodista-uroki-2-6-modul-16.md`)** |
 | 4 | Написание -es и -ies | правила написания из модуля 13 работают и здесь | He never watches television in the morning. — Он никогда не смотрит телевизор утром. · She always studies in the evening. — Она всегда занимается вечером. |
-| 5 | Имя вместо he и she | с именем то же самое | Aigerim sometimes cooks at home. — Айгерим иногда готовит дома. · My brother always does his homework in the evening. — Мой брат всегда делает домашнюю работу вечером. |
+| 5 | Имя вместо he и she | с именем то же самое | Aigerim sometimes cooks at home. — Айгерим иногда готовит дома. · My brother always swims at the weekend. — Мой брат всегда плавает в выходные. **(правка: решение методиста от 14 сентября 2026, `reshenie-metodista-uroki-2-6-modul-16.md`)** |
 | 6 | Я и он рядом | — | I always work in the morning. · He always works in the morning. |
 | 7 | Таблица | I / you / we / they — глагол без изменений; he / she / имя — с окончанием | **семь** строк со словом usually — 18.12, урок 5 (прежде стояло «шесть» при семи подлежащих) |
 | 8 | Свод | — | два столбца: без окончания и с окончанием |
@@ -1513,7 +1513,7 @@ SuperCategory + SubCategory + Guideword + Can-do**, и эта запись в в
 | 8 | 8 | short | «Ким спросил Дану `Do you cook at home?`, а хотел узнать, часто ли она готовит. Перепиши вопрос так, чтобы в нём было „часто".» **(ПРАВКА 13 сентября)** | `Do you often cook at home?` |
 | 9 | 9 | choice | по записке Айгерим: «Почему по записке видно, что плавает она не каждую неделю?» варианты по-русски: «в строке о плавании стоит every week» · «в строке о плавании стоит sometimes» · «в строке о плавании стоит always» **(ПРАВКА 16.11)** | 2-й |
 | 10 | 10 | short со звуком | НОВАЯ запись: `Do you often see your uncle? — I see my uncle every month.` (**не** `I see him`: слова `him` в курсе нет ни карточкой, ни в видимом тексте — проверено `grep`, 13 сентября) Вопрос: «Как часто он видится с дядей? Ответь одним словом.» | `month` |
-| 11 | 11 | short | «В записи о себе стоит строка `I eat at home.` Перепиши её так, чтобы в ней было „обычно".» **(ПРАВКА 13 сентября)** | `I usually eat at home.` |
+| 11 | 11 | short | «В записи о себе стоит строка `I read at home.` Перепиши её так, чтобы в ней было „обычно".» **(правка: решение методиста от 14 сентября 2026, `reshenie-metodista-uroki-2-6-modul-16.md`)** | `I usually read at home.` |
 | 12 | 1 | choice | «Ким написал `We sometimes study at home.` Что это значит?» варианты по-русски: «они всегда занимаются дома» · «они не занимаются дома совсем» · «они занимаются дома не каждый день» **(правка: прежняя строка с `never` спрашивала итог урока 3; решение методиста от 13 сентября 2026, `reshenie-metodista-urok-1-modul-16.md`, находка Б)** | 3-й |
 
 **Счёт сверен с самой таблицей, а не написан на глаз:** вопросов выбора три
@@ -2219,6 +2219,15 @@ every month` — запись вопроса 10.
 | `I don't sing at school.` | Я не пою в школе. |
 | `I never sing at school.` | Я никогда не пою в школе. |
 
+#### Урок 4 (случай 8 — свод: строка с глаголом и строка с формой be)
+
+Добавлено по решению методиста от 14 сентября 2026 (`reshenie-metodista-uroki-2-6-modul-16.md`, пункт 4.3): прежний свод повторял случай 3.
+
+| С глаголом | С формой be | Перевод пары |
+|---|---|---|
+| `We usually work.` | `We are usually busy.` | Мы обычно работаем. — Мы обычно заняты. |
+| `He usually gets up late.` | `He is usually late.` | Он обычно встаёт поздно. — Он обычно опаздывает. |
+
 #### Урок 5 (случай 7 — семь строк со словом usually)
 
 | Без окончания | Перевод | С окончанием | Перевод |
@@ -2242,8 +2251,8 @@ every month` — запись вопроса 10.
 
 | Строка | Перевод |
 |---|---|
-| `Sometimes my sister sings at home.` | Иногда сестра поёт дома. |
-| `Sometimes my brother dances at school.` | Иногда брат танцует в школе. |
+| `Sometimes my sister sings at home.` | Иногда моя сестра поёт дома. |
+| `Sometimes my brother dances at school.` | Иногда мой брат танцует в школе. |
 
 #### Урок 6 (случай 8 — свод, таблица двух мест)
 
