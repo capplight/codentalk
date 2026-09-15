@@ -152,7 +152,7 @@ const modul: Module = {
         "разобранному тексту, оба слова стоят только в связной прозе советов.",
     },
     {
-      ref: "Cambridge, Young Learners, с. 52, строка Must for obligation — опора слова homework",
+      ref: "Cambridge English, руководство для младших ступеней (Young Learners), с. 52, список A1 Movers, строка Must for obligation — опора слова homework",
       section:
         "«He must do his homework.» Оборот `do homework` напечатан источником на ступени; " +
         "модальный глагол оттуда модуль не берёт. Живая строка модуля — `I always do my " +
@@ -166,7 +166,7 @@ const modul: Module = {
         "здесь он повторяется: `every week`, `every month`.",
     },
     {
-      ref: "Cambridge, A2 Key Handbook, с. 52, раздел Interrogatives — почему How often не берётся",
+      ref: "Cambridge English, руководство A2 Key, с. 52, раздел Interrogatives — почему How often не берётся",
       section:
         "«How; How much; How many; How often; How long; etc.» — оборот стоит на A2. В " +
         "English Grammar Profile строки `how often` нет во всём файле (перебор всех восьми " +
@@ -177,12 +177,12 @@ const modul: Module = {
 
   outcomes: [
     "говорить, что бывает всегда и что иногда: I always work",
-    "называть среднюю частоту словами usually и often",
+    "говорить, что бывает обычно и что часто: I usually get up early",
     "говорить одним словом never, что чего-то не бывает никогда",
     "ставить наречие частоты после формы be",
     "оставлять -s у глагола, когда о частоте говорят про одного человека",
     "начинать строку словом sometimes",
-    "называть точную частоту оборотом every и словом времени",
+    "называть оборотом every и словом времени, как часто повторяется дело",
     "спрашивать о частоте вопросом с do",
     "находить в записи, что человек делает всегда, а что иногда",
     "понимать на слух, как часто человек что-то делает",
@@ -527,7 +527,7 @@ const modul: Module = {
       slug: "obychno-i-chasto",
       title: "Обычно и часто: I usually get up early",
       estimatedMinutes: 12,
-      outcome: "называть среднюю частоту словами usually и often",
+      outcome: "говорить, что бывает обычно и что часто: I usually get up early",
 
       vstuplenie:
         "Дана встаёт в семь утра почти каждый день, а в выходные спит дольше. Слово «всегда» о её " +
@@ -1275,7 +1275,7 @@ const modul: Module = {
           kind: "short",
           prompt: "Запиши по-английски «Они иногда заняты в школе».",
           answer: "They are sometimes busy at school.",
-          accept: ["Sometimes they are busy at school."],
+          accept: ["Sometimes they are busy at school.", "They're sometimes busy at school."],
           hint:
             "Сначала выбери форму be для слова «они». Наречие частоты поставь после неё, а оборот о " +
             "школе в конец строки.",
@@ -1794,7 +1794,7 @@ const modul: Module = {
       slug: "kazhduyu-nedelyu",
       title: "Каждую неделю: every week, every month",
       estimatedMinutes: 12,
-      outcome: "называть точную частоту оборотом every и словом времени",
+      outcome: "называть оборотом every и словом времени, как часто повторяется дело",
 
       vstuplenie:
         "Айгерим видится с бабушкой каждый месяц. Слова «часто» и «иногда» не говорят, сколько времени " +
@@ -1873,10 +1873,10 @@ const modul: Module = {
             "Чем every week отличается от always",
             "Слово always не говорит, сколько времени проходит между двумя разами. Оборот every week " +
               "говорит, что между ними проходит неделя.",
-            "I always work in the morning. — Я всегда работаю утром.",
+            "I always work at home. — Я всегда работаю дома.",
             "I work every week. — Я работаю каждую неделю.",
           ],
-          zvuchat: ["I always work in the morning.", "I work every week."],
+          zvuchat: ["I always work at home.", "I work every week."],
         },
         {
           id: "sluchay-often-i-every-month",
@@ -2657,6 +2657,7 @@ const modul: Module = {
             "Знакомая спрашивает тебя: Do you often watch television? Ответь коротко, а потом скажи о себе строку с " +
             "наречием частоты.",
           phrase: "Do you often watch television? — No, I don't. I sometimes watch television in the evening.",
+          pervyyGolos: "muzhskoy",
           translation: "Ты часто смотришь телевизор? — Нет. Я иногда смотрю телевизор вечером.",
           hint: "Сначала скажи Yes, I do или No, I don't. Потом добавь строку, где наречие частоты стоит перед watch.",
           why:
@@ -2719,25 +2720,19 @@ const modul: Module = {
       },
       {
         /*
-         * ВОПРОС 2. Итог урока 2. Ответить на вопрос строкой о себе — решение
-         * методиста, пункт 2: прежний выбор пересказывал вступление урока 2 и не
-         * требовал назвать usually или often. `Usually I…` accept принимает молча.
+         * ВОПРОС 2. Итог урока 2. Переписать данную строку по условию. Стоял одиннадцатым
+         * и переставлен решением методиста от 15 сентября 2026 (Р12): вопрос ставит данное
+         * usually в данную строку — это дело урока 2, а не урока 11. Итог урока 2 переписан
+         * (Р11.2): «средняя частота» была снятой шкалой.
          */
-        id: "q2-otvetit-so-slovom-usually",
+        id: "q2-perepisat-s-usually",
         kind: "short",
-        outcome: "называть среднюю частоту словами usually и often",
+        outcome: "говорить, что бывает обычно и что часто: I usually get up early",
         prompt:
-          "Друг спрашивает тебя: Do you often swim in the evening? Вечером ты обычно плаваешь. Ответь ему " +
-          "по-английски так, чтобы в ответе было слово «обычно».",
-        answer: "I usually swim in the evening.",
-        accept: [
-          "Yes, I usually swim in the evening.",
-          "Yes, I do. I usually swim in the evening.",
-          "Usually I swim in the evening.",
-        ],
-        why:
-          "I usually swim in the evening. Слово usually стоит после I и перед глаголом swim, а оборот in the " +
-          "evening стоит в конце строки.",
+          "В записи о себе стоит строка: I read at home. Добавь в строку слово «обычно» и запиши её целиком.",
+        answer: "I usually read at home.",
+        accept: ["Usually I read at home."],
+        why: "I usually read at home. Наречие usually встаёт между I и глаголом read, а at home остаётся в конце.",
       },
       {
         /*
@@ -2769,6 +2764,7 @@ const modul: Module = {
         prompt:
           "Ученик написал: I always busy at the weekend. Запиши строку без ошибки.",
         answer: "I am always busy at the weekend.",
+        accept: ["I'm always busy at the weekend."],
         why:
           "I am always busy at the weekend. В строке не хватало формы am. Наречие always стоит после неё, а слово " +
           "busy идёт следом.",
@@ -2781,8 +2777,8 @@ const modul: Module = {
         kind: "short",
         outcome: "оставлять -s у глагола, когда о частоте говорят про одного человека",
         prompt:
-          "Ученик написал об Алиме: He often work at the weekend. Запиши строку без ошибки.",
-        answer: "He often works at the weekend.",
+          "Ученик написал об Алиме: He often work at home. Запиши строку без ошибки.",
+        answer: "He often works at home.",
         why:
           "He often works at the weekend. Алим один, поэтому у глагола work есть окончание -s. В строке с " +
           "наречием often оно тоже есть.",
@@ -2807,7 +2803,7 @@ const modul: Module = {
          */
         id: "q7-ispravit-every-months",
         kind: "short",
-        outcome: "называть точную частоту оборотом every и словом времени",
+        outcome: "называть оборотом every и словом времени, как часто повторяется дело",
         prompt:
           "Ученик написал: I write to my uncle every months. Запиши строку без ошибки.",
         answer: "I write to my uncle every month.",
@@ -2871,16 +2867,32 @@ const modul: Module = {
       },
       {
         /*
-         * ВОПРОС 11. Итог урока 11. Переписать данную строку по условию, ПРАВКА
-         * 13 сентября.
+         * ВОПРОС 11. Итог урока 11. Ответить на вопрос строкой о себе. Стоял вторым и
+         * переставлен решением методиста от 15 сентября 2026 (Р12): отвечать другу строкой о
+         * себе — дело уроков 8 и 11. Другие порядки, в том числе оборот времени в начале,
+         * accept принимает молча — English Grammar Profile, FOCUS, A2 (Р4).
          */
-        id: "q11-perepisat-s-usually",
+        id: "q11-otvetit-drugu-so-slovom-usually",
         kind: "short",
         outcome: "строить о себе строку с наречием частоты",
         prompt:
-          "В записи о себе стоит строка: I read at home. Добавь в строку слово «обычно» и запиши её целиком.",
-        answer: "I usually read at home.",
-        why: "I usually read at home. Наречие usually встаёт между I и глаголом read, а at home остаётся в конце.",
+          "Друг спрашивает тебя: Do you often swim in the evening? Вечером ты обычно плаваешь. Ответь ему " +
+          "по-английски так, чтобы в ответе было слово «обычно».",
+        answer: "I usually swim in the evening.",
+        accept: [
+          "Yes, I usually swim in the evening.",
+          "Yes, I do. I usually swim in the evening.",
+          "Usually I swim in the evening.",
+          "Yes, usually I swim in the evening.",
+          "Yes, I do. Usually I swim in the evening.",
+          "In the evening I usually swim.",
+          "In the evening, I usually swim.",
+          "Yes, in the evening I usually swim.",
+          "Yes, I do. In the evening I usually swim.",
+        ],
+        why:
+          "I usually swim in the evening. Слово usually стоит после I и перед глаголом swim, а оборот in the " +
+          "evening стоит в конце строки.",
       },
       {
         /*
