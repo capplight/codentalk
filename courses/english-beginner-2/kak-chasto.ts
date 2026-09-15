@@ -460,7 +460,11 @@ const modul: Module = {
           prompt:
             "Запиши по-английски «Они иногда гуляют в парке».",
           answer: "They sometimes walk in the park.",
-          accept: ["Sometimes they walk in the park."],
+          accept: [
+            "Sometimes they walk in the park.",
+            "They walk in the park sometimes.",
+            "Sometimes, they walk in the park.",
+          ],
           hint:
             "Начни со слова о том, кто гуляет. Наречие частоты поставь перед глаголом, а оборот о " +
             "парке в конец строки.",
@@ -792,7 +796,7 @@ const modul: Module = {
           kind: "short",
           prompt: "Запиши по-английски «Они обычно читают газеты».",
           answer: "They usually read newspapers.",
-          accept: ["Usually they read newspapers."],
+          accept: ["Usually they read newspapers.", "Usually, they read newspapers."],
           hint:
             "Слова в английской строке идут в том же порядке, что в русской фразе. Газет несколько, " +
             "поэтому слово «газета» нужно во множественном числе.",
@@ -1275,7 +1279,13 @@ const modul: Module = {
           kind: "short",
           prompt: "Запиши по-английски «Они иногда заняты в школе».",
           answer: "They are sometimes busy at school.",
-          accept: ["Sometimes they are busy at school.", "They're sometimes busy at school."],
+          accept: [
+            "Sometimes they are busy at school.",
+            "They're sometimes busy at school.",
+            "They are busy at school sometimes.",
+            "Sometimes, they are busy at school.",
+            "They're busy at school sometimes.",
+          ],
           hint:
             "Сначала выбери форму be для слова «они». Наречие частоты поставь после неё, а оборот о " +
             "школе в конец строки.",
@@ -1744,6 +1754,7 @@ const modul: Module = {
           kind: "short",
           prompt: "Запиши по-английски «Иногда мы смотрим телевизор». Начни строку наречием частоты.",
           answer: "Sometimes we watch television.",
+          accept: ["Sometimes, we watch television."],
           hint: "Начни со слова, которое значит «иногда». За ним идут слово о том, кто смотрит, и глагол.",
           why:
             "Sometimes we watch television. Строка начинается наречием sometimes, как русская фраза " +
@@ -2010,7 +2021,11 @@ const modul: Module = {
           kind: "short",
           prompt: "Запиши по-английски «Я вижусь с друзьями каждую неделю».",
           answer: "I see my friends every week.",
-          accept: ["Every week I see my friends.", "I see friends every week."],
+          accept: [
+            "Every week I see my friends.",
+            "I see friends every week.",
+            "Every week, I see my friends.",
+          ],
           hint: "Глагол для «вижусь» есть в словах этого урока. Оборот с every поставь в конец строки.",
           why:
             "I see my friends every week. Глагол see значит «видеть, видеться», а оборот every week " +
@@ -2716,7 +2731,11 @@ const modul: Module = {
           "Нурлан хотел написать «Я иногда читаю газету», а написал: I always read a newspaper. Запиши строку " +
           "без ошибки.",
         answer: "I sometimes read a newspaper.",
-        accept: ["Sometimes I read a newspaper."],
+        accept: [
+          "Sometimes I read a newspaper.",
+          "I read a newspaper sometimes.",
+          "Sometimes, I read a newspaper.",
+        ],
         why:
           "I sometimes read a newspaper. Слово always значит «всегда», а Нурлан хотел написать «иногда», поэтому в " +
           "строке нужно sometimes.",
@@ -2734,7 +2753,7 @@ const modul: Module = {
         prompt:
           "В записи о себе стоит строка: I read at home. Добавь в неё «обычно» по-английски и запиши строку целиком.",
         answer: "I usually read at home.",
-        accept: ["Usually I read at home."],
+        accept: ["Usually I read at home.", "Usually, I read at home."],
         why: "I usually read at home. Наречие usually встаёт между I и глаголом read, а at home остаётся в конце.",
       },
       {
@@ -2782,6 +2801,7 @@ const modul: Module = {
         prompt:
           "Ученик написал об Алиме: He often work at home. Запиши строку без ошибки.",
         answer: "He often works at home.",
+        accept: ["He works at home often."],
         why:
           "He often works at home. Алим один, поэтому глагол work пишется с окончанием -s, и наречие often " +
           "перед ним этого не меняет.",
@@ -2796,6 +2816,7 @@ const modul: Module = {
         prompt:
           "Ким написал: I sometimes walk to school. Перепиши строку так, чтобы наречие частоты стояло в начале.",
         answer: "Sometimes I walk to school.",
+        accept: ["Sometimes, I walk to school."],
         why:
           "Sometimes I walk to school. Слово sometimes перешло в начало строки и пишется с заглавной буквы. " +
           "Остальные слова идут в прежнем порядке.",
@@ -2826,6 +2847,7 @@ const modul: Module = {
           "Ким спросил Дану: Do your parents cook fish? Он хотел узнать, часто ли её родители готовят рыбу. " +
           "Вставь в вопрос «часто» по-английски и запиши вопрос целиком.",
         answer: "Do your parents often cook fish?",
+        accept: ["Do your parents cook fish often?"],
         why: "Do your parents often cook fish? Наречие often встаёт после your parents и перед глаголом cook.",
       },
       {
@@ -2892,6 +2914,9 @@ const modul: Module = {
           "In the evening, I usually swim.",
           "Yes, in the evening I usually swim.",
           "Yes, I do. In the evening I usually swim.",
+          "Usually, I swim in the evening.",
+          "Yes, I do. Usually, I swim in the evening.",
+          "Yes, I do. In the evening, I usually swim.",
         ],
         why:
           "I usually swim in the evening. Слово usually стоит после I и перед глаголом swim, а оборот in the " +
