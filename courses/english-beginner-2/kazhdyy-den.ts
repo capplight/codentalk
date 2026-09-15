@@ -485,7 +485,8 @@ const modul: Module = {
         "третьим лицом, лежит на Pre A1 Starters. А ЧТО ТАМ ЕСТЬ — это границы модуля, и все " +
         "три названы источником: Adverbs «She never eats meat.» (модуль 16), Prepositions of " +
         "time «He plays badminton on Saturdays.» и «She plays with her friends after school.» " +
-        "(модуль 18), Question words «When does school start?» (модуль 15).",
+        "(модуль 18), Question words «When does school start?» (модуль 18 по разбору " +
+        "`razbor-do-does-raspredelenie.md`, раздел 2.1).",
     },
     {
       ref: "Cambridge, A2 Key Handbook, с. 52, перечень Tenses — откуда взято имя времени",
