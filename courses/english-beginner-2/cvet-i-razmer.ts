@@ -3866,14 +3866,13 @@ const modul: Module = {
         kind: "short",
         outcome: "находить в записке, какая вещь и чья",
         prompt:
-          "ПИШЕТ РЕДАКТОР: условие — Дане оставили две записки. Первая: Hello, Dana! My book is " +
-            "big. It is red. The small book is not my book. Ben. Вторая: Hello, Dana! My book is " +
-            "small. It is blue. The big book is not my book. Nurlan. Ответить одним словом, какого " +
-            "цвета книга Нурлана.",
+          "Дане оставили две записки. Первая: Hello, Dana! My book is big. It is red. The small " +
+            "book is not my book. Ben. Вторая: Hello, Dana! My book is small. It is blue. The big " +
+            "book is not my book. Nurlan. Ответь одним словом, какого цвета книга Нурлана.",
         answer: "blue",
         why:
-          "ПИШЕТ РЕДАКТОР: разбор — записка Нурлана вторая, о цвете он пишет сразу за словами о " +
-            "размере; красная книга у Бена.",
+          "blue. Нурлан подписал вторую записку. В ней он пишет, что его книга маленькая, и " +
+            "следом называет её цвет. Красная книга у Бена.",
       },
       {
         /*
