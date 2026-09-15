@@ -2195,8 +2195,11 @@ function checkSirotyKursa(course: Course): void {
     if (!file.endsWith(".ts") || file === "index.ts") continue;
     const imya = file.slice(0, -3);
     if (index.includes(`"./${imya}"`)) continue;
-    warnings.push(
-      `${course.slug}: файл ${file} лежит в каталоге курса, но index.ts его не ` +
+    // Через warn(), а не warnings.push: иначе запись в resheno.ts сведение не
+    // гасит, и склад вроде kto-eto.ts повторяется в каждом отчёте.
+    warn(
+      course.slug,
+      `файл ${file} лежит в каталоге курса, но index.ts его не ` +
         `импортирует — его не видит НИ ОДНА проверка и не видит ученик`
     );
   }

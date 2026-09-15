@@ -1270,6 +1270,8 @@ a time for their answer.» Ответы заданий: `never`, `magazine`, `ea
 
 ### 14.2. Карточка `watch` в курсе значит «часы», а курс употребляет `watch` глаголом
 
+**РЕШЕНО МЕТОДИСТОМ 15 сентября 2026:** карточку не расширять и новой не заводить, см. `reshenie-metodista-dolgi-15-sentyabrya.md`, пункт 3.
+
 `courses/english-beginner-2/odezhda.ts`, строка 1799: `term: "watch"`,
 `translation: "часы"`, `example: "her new watch"`, `znak: "231a"` (наручные
 часы). **А модуль 13 печатает ученику `I watch television.` и `He watches
