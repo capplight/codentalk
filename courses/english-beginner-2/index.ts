@@ -99,6 +99,10 @@ import { rabotaYaIMoiLyudi } from "./raboty-chastey";
  *      q-vmesto-imeni-she` против `kakoy-chelovek · q1-vpisat-mestoimenie`
  *      (совпало дословно `she`) и `odezhda · q2-posle-kakogo-slova` против
  *      `kazhdyy-den · q3-kto-mog-stoyat-pered-formoy` (совпало `my parents`).
+ *      РАЗОБРАНЫ МЕТОДИСТОМ 15 сентября 2026
+ *      (`docs/beginner-2/reshenie-metodista-bliznetsy-15-sentyabrya.md`): пять
+ *      законны и записаны в `courses/resheno.ts`, семь переписаны, и прежние
+ *      имена вопросов в этом перечне частью уже не существуют.
  *   3. ШЕСТНАДЦАТЬ МОДУЛЕЙ ИЗ ТРИДЦАТИ НЕ НАПИСАНЫ. Порядок и состав —
  *      `docs/beginner-2/programma-stupeni.md`, раздел с росписью модулей.
  *   4. ДВЕ СЕТКИ БУКВ ДЕРЖАТ В ПОЛЕ ЛИШНЕЕ СЛОВО КУРСА: `blank →
