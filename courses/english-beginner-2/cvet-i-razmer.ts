@@ -88,7 +88,7 @@ import type { Module } from "@/lib/content/types";
  * широкого значения.
  *
  * ---------------------------------------------------------------------------
- * ЧЕТЫРЕ СТРОКИ, БЕЗ КОТОРЫХ СЛЕДУЮЩИЙ ПРОВЕРЯЮЩИЙ СНИМЕТ ВЕРНОЕ
+ * ПЯТЬ СТРОК, БЕЗ КОТОРЫХ СЛЕДУЮЩИЙ ПРОВЕРЯЮЩИЙ СНИМЕТ ВЕРНОЕ
  * ---------------------------------------------------------------------------
  *
  * 1. РАСХОЖДЕНИЕ ИСТОЧНИКОВ ПО ВОПРОСУ `What colour is it?`
@@ -139,6 +139,18 @@ import type { Module } from "@/lib/content/types";
  *    Все девять карточек цвета вводит модуль 9, и повторно их не заводит никто:
  *    модули 10 (глаза, волосы), 11 (одежда) и 12 (комната) цвета употребляют, а
  *    своих карточек не заводят.
+ *
+ * 5. РАСХОЖДЕНИЕ ИСТОЧНИКОВ ПО `the` + ПРИЛАГАТЕЛЬНОЕ (`The red car is new.`,
+ *    урок 4 и дальше). English Grammar Profile кладёт графу, названную по `the`,
+ *    на A2 (`1741163708793x555362877047412000`, DETERMINERS / articles, FORM/USE:
+ *    'THE' + ADJECTIVES, SPECIFYING), а Cambridge печатает оборот в образце
+ *    Pre A1 Starters: Young Learners, с. 21, Reading and Writing Part 2 — «The big
+ *    window is open.» Берём: по правилу владельца от 10 сентября 2026 решает
+ *    источник, у которого оборот на ступени. Оговорка: English Grammar Profile
+ *    расходится и сам с собой — графа A1 `1741163711539x336320676887564860`
+ *    (DETERMINER + ADJECTIVE + NOUN, она в `egp` модуля) описанием покрывает и
+ *    `the`, но примеров с `the` не даёт. Пункт A2 в `egp` НЕ СТОИТ. Записано
+ *    17 сентября 2026 (`reshenie-metodista-melochi-17-sentyabrya.md`, пункт 2).
  *
  * ---------------------------------------------------------------------------
  * ЧЕГО В МОДУЛЕ НЕТ И ПОЧЕМУ — все долги с адресами
@@ -375,6 +387,22 @@ const modul: Module = {
         "Cambridge — решение владельца от 6 сентября 2026. Оговорка: тот же источник " +
         "расходится сам с собой, `How are you?` стоит примером и у графы A1 " +
         "(CLAUSES / interrogatives), значит спорно ровно `wh-`-слово перед `be`.",
+    },
+    {
+      ref:
+        "Расхождение источников по the + прилагательное — Young Learners, с. 21, " +
+        "Pre A1 Starters Reading and Writing Part 2; English Grammar Profile, DETERMINERS / articles",
+      section:
+        "Young Learners, с. 21 (печатный номер 18), строка образца задания Part 2: «The big " +
+        "window is open.» — оборот на Pre A1 Starters. English Grammar Profile, " +
+        "1741163708793x555362877047412000, A2, FORM/USE: 'THE' + ADJECTIVES, SPECIFYING: " +
+        "«Can use 'the' + adjectives in a noun phrase, to specify.» Берём по правилу владельца " +
+        "от 10 сентября 2026: решает источник, у которого оборот на ступени. Оговорка: графа " +
+        "A1 1741163711539x336320676887564860 (NOUNS / noun phrases, DETERMINER + ADJECTIVE + " +
+        "NOUN) — «Can form simple noun phrases by pre-modifying singular and plural nouns " +
+        "with an adjective after a determiner» — описанием покрывает и the, но её примеры " +
+        "the не содержат. Урок 4, случай sluchay-the-tozhe-ostayotsya, первым в курсе даёт " +
+        "The red car is new.",
     },
     {
       ref: "Строй модуля — Young Learners, с. 29, Grammar and Structures List, Pre A1 Starters",
