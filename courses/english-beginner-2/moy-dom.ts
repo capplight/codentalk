@@ -4957,6 +4957,9 @@ const modul: Module = {
           "Ким спрашивает, где стул. Стул стоит перед дверью. Ответь Киму строкой, которая " +
             "начинается словами The chair.",
         answer: "The chair is in front of the door.",
+        // Стяжение принимает решение методиста от 16 сентября 2026: курс
+        // засчитывает `Dana's from Astana.` и `There's a book.` в этой же работе.
+        accept: ["The chair's in front of the door."],
         why:
           "The chair is in front of the door. Ким спрашивает о самом стуле, поэтому строка " +
             "начинается с его названия. За названием идёт is, а место названо в конце строки.",

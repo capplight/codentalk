@@ -3640,6 +3640,13 @@ const modul: Module = {
           "Ты спрашиваешь Дану о цвете её брюк, и она отвечает: They are blue. Запиши свой " +
             "вопрос и назови в нём брюки.",
         answer: "What colour are your trousers?",
+        // Обращение к Дане верно, и курс сам его печатает (`Dana, my key is not
+        // here.`). Запятую внутри строки сверка не снимает, поэтому обе записи
+        // стоят явно — решение методиста от 16 сентября 2026.
+        accept: [
+          "What colour are your trousers, Dana?",
+          "Dana, what colour are your trousers?",
+        ],
         why:
           "What colour are your trousers? Слово trousers стоит во множественном числе, поэтому Дана " +
             "отвечает строкой с are, и в вопросе стоит та же форма. Перед названием стоит your, " +
