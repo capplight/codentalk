@@ -327,15 +327,19 @@ const modul: Module = {
       // Решение методиста от 17 сентября 2026
       // (`reshenie-metodista-melochi-17-sentyabrya.md`, 3.2): дескриптора дела у
       // модуля не было ни в программе, ни здесь.
-      ref: "Дескриптор дела — CEFR Companion Volume 2020, с. 63 и с. 67, графы A1; Young Learners, с. 9, A1 Movers",
+      ref: "Дескриптор дела — CEFR Companion Volume 2020, с. 63 и с. 67, графы A1",
       section:
         "CEFR, с. 63, Sustained monologue: describing experience, A1: «Can describe themselves, " +
         "what they do and where they live.» Половину «what they do» модуль 13 берёт утвердительной " +
         "стороной, модуль 14 — отрицательной. CEFR, с. 67, Creative writing, A1: «Can produce simple " +
         "phrases and sentences about themselves and imaginary people, where they live and what they " +
-        "do.» Уроки 5 и 6 — Young Learners, с. 9, A1 Movers, Listening and Speaking: «CAN express " +
-        "agreement or disagreement with someone using short, simple phrases.» Ступени по CEFR " +
-        "прочитаны по координатам ячеек страницы: разборы текста метки сдвигают.",
+        "do.» Ступени прочитаны по координатам ячеек страницы: разборы текста метки сдвигают.",
+    },
+    {
+      ref: "Дескриптор уроков 5 и 6 — Young Learners, с. 9, A1 Movers, Listening and Speaking",
+      section:
+        "«CAN express agreement or disagreement with someone using short, simple phrases.» " +
+        "Уроки 5 и 6 поправляют собеседника.",
     },
     {
       ref: "English Grammar Profile, NEGATION/negation, FORM: AUXILIARY VERB 'DO', PRESENT, A1, id=1741163716067x101148462288360720",
