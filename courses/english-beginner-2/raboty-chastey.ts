@@ -613,20 +613,44 @@ export const rabotaVeshchiIMesto: Quiz = {
         "Люси ошиблась. Поправь её двумя строками. В первой скажи, чем эта вещь не " +
         "является, и назови неверное слово. Во второй назови вещь верно.",
       answer: "It isn't a door. It's a radio.",
+      /*
+       * РЯД ЗАКРЫТ ЦЕЛИКОМ — решение методиста 13.1 от 16 сентября 2026:
+       * пять записей первой строки на две записи второй и три приставки, всего
+       * тридцать; одна стоит ответом. Стяжение `It's not` эта же работа
+       * засчитывает в `ch2-klyuch-ne-tot`, и отвергать его здесь значило бы
+       * наказывать за верный ответ. Разбор остаётся на `isn't`: `accept` вправе
+       * принимать неразобранное, разбор — нет.
+       */
       accept: [
-        "It is not a door. It is a radio.",
         "It isn't a door. It is a radio.",
         "It is not a door. It's a radio.",
+        "It is not a door. It is a radio.",
+        "It's not a door. It's a radio.",
+        "It's not a door. It is a radio.",
         "This isn't a door. It's a radio.",
         "This isn't a door. It is a radio.",
         "This is not a door. It's a radio.",
         "This is not a door. It is a radio.",
         "No. It isn't a door. It's a radio.",
-        "No, it isn't a door. It's a radio.",
+        "No. It isn't a door. It is a radio.",
+        "No. It is not a door. It's a radio.",
         "No. It is not a door. It is a radio.",
-        "No, it is not a door. It is a radio.",
+        "No. It's not a door. It's a radio.",
+        "No. It's not a door. It is a radio.",
         "No. This isn't a door. It's a radio.",
+        "No. This isn't a door. It is a radio.",
+        "No. This is not a door. It's a radio.",
+        "No. This is not a door. It is a radio.",
+        "No, it isn't a door. It's a radio.",
+        "No, it isn't a door. It is a radio.",
+        "No, it is not a door. It's a radio.",
+        "No, it is not a door. It is a radio.",
+        "No, it's not a door. It's a radio.",
+        "No, it's not a door. It is a radio.",
         "No, this isn't a door. It's a radio.",
+        "No, this isn't a door. It is a radio.",
+        "No, this is not a door. It's a radio.",
+        "No, this is not a door. It is a radio.",
       ],
       why:
         "It isn't a door. It's a radio. Жёлтая вещь в записке Мэтта — это radio, а door " +
@@ -771,7 +795,21 @@ export const rabotaVeshchiIMesto: Quiz = {
         "Одного из этих трёх сведений в сообщении нет. Запиши вопрос, которым Грейс о нём " +
         "спросит.",
       answer: "What is her name?",
-      accept: ["What's her name?", "What is her name", "What's her name"],
+      /*
+       * ЗАПИСИ О СЕСТРЕ — решение методиста 13.2: `What is your sister's name?`
+       * отвечает условию, а вести условием к слову `her` нельзя — это назвало бы
+       * недостающее сведение. Записи без апострофа стоят потому, что сверка его не
+       * снимает, а этому знаку курс не учил.
+       */
+      accept: [
+        "What's her name?",
+        "What is her name",
+        "What's her name",
+        "What is your sister's name?",
+        "What's your sister's name?",
+        "What is your sisters name?",
+        "What's your sisters name?",
+      ],
       why:
         "What is her name? Сколько сестре лет, сказано строкой She is nine. Какая она, " +
         "сказано строкой She is kind and strong. А имени сестры в сообщении нет, и о нём " +
@@ -886,6 +924,9 @@ export const rabotaVeshchiIMesto: Quiz = {
         "Мэтт смотрит на ту же комнату с того же места и говорит о том же расположении. " +
         "Но свою строку он начинает словами The radio. Запиши эту строку.",
       answer: "The radio is behind the clock.",
+      // Стяжение принято решением методиста 13.3: в работе модуля 12 та же форма
+      // засчитывается, и расходиться этим двум местам нельзя.
+      accept: ["The radio's behind the clock."],
       why:
         "The radio is behind the clock. Если часы стоят перед радио, то радио стоит за " +
         "часами. Вещи не двигались, и место у них одно. Просто Грейс назвала его словами in " +
