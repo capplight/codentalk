@@ -391,18 +391,23 @@ const modul: Module = {
     {
       ref:
         "Расхождение источников по the + прилагательное — Young Learners, с. 21, " +
-        "Pre A1 Starters Reading and Writing Part 2; English Grammar Profile, DETERMINERS / articles",
+        "Pre A1 Starters Reading and Writing Part 2",
       section:
-        "Young Learners, с. 21 (печатный номер 18), строка образца задания Part 2: «The big " +
-        "window is open.» — оборот на Pre A1 Starters. English Grammar Profile, " +
-        "1741163708793x555362877047412000, A2, FORM/USE: 'THE' + ADJECTIVES, SPECIFYING: " +
-        "«Can use 'the' + adjectives in a noun phrase, to specify.» Берём по правилу владельца " +
-        "от 10 сентября 2026: решает источник, у которого оборот на ступени. Оговорка: графа " +
-        "A1 1741163711539x336320676887564860 (NOUNS / noun phrases, DETERMINER + ADJECTIVE + " +
-        "NOUN) — «Can form simple noun phrases by pre-modifying singular and plural nouns " +
-        "with an adjective after a determiner» — описанием покрывает и the, но её примеры " +
-        "the не содержат. Урок 4, случай sluchay-the-tozhe-ostayotsya, первым в курсе даёт " +
-        "The red car is new.",
+        "Строка образца задания Part 2 (с. 21, печатный номер 18): «The big window is open.» — " +
+        "оборот на Pre A1 Starters. Берём по правилу владельца от 10 сентября 2026: решает " +
+        "источник, у которого оборот на ступени. Урок 4, случай sluchay-the-tozhe-ostayotsya, " +
+        "первым в курсе даёт The red car is new.",
+    },
+    {
+      ref:
+        "Расхождение источников по the + прилагательное — English Grammar Profile, " +
+        "DETERMINERS / articles, A2, id=1741163708793x555362877047412000",
+      section:
+        "FORM/USE: 'THE' + ADJECTIVES, SPECIFYING: «Can use 'the' + adjectives in a noun phrase, " +
+        "to specify.» — у этого источника оборот на A2. Оговорка: графа A1 " +
+        "1741163711539x336320676887564860 (NOUNS / noun phrases, DETERMINER + ADJECTIVE + NOUN) " +
+        "— «Can form simple noun phrases by pre-modifying singular and plural nouns with an " +
+        "adjective after a determiner» — описанием покрывает и the, но её примеры the не содержат.",
     },
     {
       ref: "Строй модуля — Young Learners, с. 29, Grammar and Structures List, Pre A1 Starters",
