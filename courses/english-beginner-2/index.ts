@@ -15,7 +15,7 @@ import kazhdyyDen from "./kazhdyy-den";
 import yaNeDelayu from "./ya-ne-delayu";
 import sprositODelah from "./sprosit-o-delah";
 import kakChasto from "./kak-chasto";
-import { rabotaYaIMoiLyudi } from "./raboty-chastey";
+import { rabotaYaIMoiLyudi, rabotaVeshchiIMesto } from "./raboty-chastey";
 
 /**
  * НОВЫЙ BEGINNER — замысел в `docs/beginner-2/zamysel.md`.
@@ -182,9 +182,12 @@ const course: Course = {
    * пока стоит заглушками «ПИШЕТ РЕДАКТОР»: их закроет редактор следующим
    * кругом, и до тех пор `check:content` называет каждую ошибкой.
    *
-   * РАБОТЫ ЧАСТИ 2 НЕТ, и это долг, а не устройство: из шести её модулей
-   * написаны четыре — «Что это такое», «Один и много», «Цвет и размер» и «Какой
-   * человек». Прежняя запись говорила «написаны два» и устарела.
+   * РАБОТА ЧАСТИ 2 ВНЕСЕНА 16 сентября 2026 — двенадцать вопросов, показывается
+   * десять, порог 0,8. Замысел — `docs/beginner-2/plan-rabota-chasti-2.md`
+   * (раздел 11.3 главнее раздела 3), разбор второго методиста —
+   * `razbor-zamysla-rabota-chasti-2.md`. Русский текст стоит заглушками «ПИШЕТ
+   * РЕДАКТОР», и до их заполнения `check:content` называет каждую ошибкой.
+   * Записи двух вопросов на слух ждут `npm run ozvuchka`.
    *
    * Объявлены обе рано и нарочно — по правилу, нажитому на экзамене Elementary:
    * пока часть не объявлена, ни одна проверка о ней не спрашивает, и её
@@ -201,6 +204,7 @@ const course: Course = {
       slug: "veshchi-i-mesto",
       title: "Вещи и место",
       modules: ["chto-eto-takoe", "odin-i-mnogo", "cvet-i-razmer", "kakoy-chelovek", "odezhda", "moy-dom"],
+      quiz: rabotaVeshchiIMesto,
     },
     {
       /*
