@@ -578,7 +578,7 @@ Friends` и `Work and Jobs`), модуль 19 — на `Sport` и `Hobbies and L
 | № | Модуль | Итог | Грамматика | Тема | Опора |
 |---|---|---|---|---|---|
 | 7 | Что это такое | назвать предмет и спросить, что это | `this`; артикль `a` — повтор модуля 3 | House and Home | CEFR с. 79, Pre-A1 |
-| 8 | Один и много | различать один предмет и несколько | множественное число | Food and Drink | EGP A1 |
+| 8 | Один и много | различать один предмет и несколько | множественное число | Food and Drink | CEFR с. 79, A1; Starters с. 9 |
 | 9 | Цвет и размер | назвать цвет и размер и спросить о цвете | прилагательное, `very` | Colours | CEFR с. 79, 67 |
 | 10 | Какой человек | описывать человека: возраст, внешность, настроение | прилагательные после be | Personal Feelings, Opinions and Experiences (adjectives) + Health, Medicine and Exercise | Starters с. 9 |
 | 11 | Одежда | назвать свою одежду и её цвет и спросить о цвете нескольких вещей | `have got`, прилагательное | Clothes and Accessories | CEFR с. 79 |
@@ -591,10 +591,10 @@ Friends` и `Work and Jobs`), модуль 19 — на `Sport` и `Hobbies and L
 | № | Модуль | Итог | Грамматика | Тема | Опора |
 |---|---|---|---|---|---|
 | 13 | Что я делаю каждый день | рассказывать, что делаешь каждый день | Present Simple | Education + Time | CEFR с. 63, A1 |
-| 14 | Я не делаю | сказать, чего он не делает | отрицание с `do` | Time | EGP A1 |
+| 14 | Я не делаю | сказать, чего он не делает | отрицание с `do` | Time | CEFR с. 63, A1; с. 67, A1; Movers с. 9 |
 | 15 | Спросить о делах | задавать вопрос да-нет о делах человека и коротко отвечать | вопрос с `do` и `does`, короткий ответ | Education | CEFR с. 79, A1 |
 | 16 | Как часто | говорить, насколько часто что-то бывает | наречия частоты | Time | CEFR с. 72, Pre-A1; с. 63, A1 |
-| 17 | Прямо сейчас | сказать, что происходит в эту минуту | Present Continuous | Hobbies and Leisure | EGP A1, Starters с. 29; дескриптор говорения не найден — см. поправку к строкам 15–17 |
+| 17 | Прямо сейчас | говорить, что человек делает сейчас, и понимать, что делают люди на картинке | Present Continuous | Hobbies and Leisure | Young Learners с. 9 (Pre A1 Starters, A1 Movers); CEFR с. 59, A1 — см. `plan-modul-17.md`, раздел 0 |
 | 18 | Дни, время, дата, встреча | назвать день и время и договориться о встрече | предлоги времени | Time | CEFR с. 79, 55 |
 
 **Работа части 3:** ответить на сообщение о встрече и рассказать свой день.
@@ -803,3 +803,27 @@ simple aspects of their everyday life…»), делится с модулями 
 - **Модуль 18 «Дни, время, дата, встреча»:** вопрос со словом вопроса и `do` — `When does school start?` (Young Learners, с. 52, список A1 Movers, строка Question words); передача по `razbor-do-does-raspredelenie.md`, раздел 2.1. Там же — урок письма с вопросами к собеседнику (`plan-modul-15.md`, 4.2).
 - **Модуль 27 «В сети: запись о себе и отклик»:** урок письма с вопросами к собеседнику — передача модуля 15 (`plan-modul-15.md`, 4.2).
 - **Модуль 28 «Открытка и сообщение»:** карточка `message` — передача модуля 15 (`plan-modul-15.md`, 8.2 и 8.4).
+
+## Поправка к строкам модулей 8 и 14 — 17 сентября 2026
+
+Опорой обеих строк стояло «EGP A1» — грамматический список, а не описание умения.
+Решение методиста — `reshenie-metodista-melochi-17-sentyabrya.md`, раздел 3.
+
+**Модуль 8.** Дескриптор модуль нашёл сам и записал в `sources`; программа от
+него отстала. CEFR, с. 79, Information exchange, графа A1: «Can express numbers,
+quantities and cost in a limited way» (quantities — модуль 8; numbers — модуль 4,
+cost — модуль 21). Young Learners, с. 9, Pre A1 Starters: «CAN understand some
+very simple spoken descriptions of everyday objects – such as how many, colour,
+size or location».
+
+**Модуль 14.** Дескриптора дела не было ни в программе, ни в модуле. CEFR, с. 63,
+Sustained monologue: describing experience, графа A1: «Can describe themselves,
+what they do and where they live» — половину «what they do» модуль 13 берёт
+утвердительной стороной, модуль 14 отрицательной. CEFR, с. 67, Creative writing,
+графа A1: «Can produce simple phrases and sentences about themselves and imaginary
+people, where they live and what they do». Уроки 5 и 6 (поправить собеседника):
+Young Learners, с. 9, A1 Movers: «CAN express agreement or disagreement with
+someone using short, simple phrases». Запись внесена и в `sources` модуля 14.
+
+Страницы CEFR с. 63, 67 и 79 прочитаны по координатам ячеек, а не разбором
+текста: оба разбора ставят метки ступеней не на свои строки.
