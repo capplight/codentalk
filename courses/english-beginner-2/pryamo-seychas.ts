@@ -338,7 +338,9 @@ const modul: Module = {
             "Где человек сейчас, мы говорили в модуле «Откуда ты и где живёшь». Как назвать " +
               "его занятие, мы разбирали в модуле «Моя семья и знакомые».",
             "I am in the kitchen. I am cooking. — Я на кухне. Я готовлю.",
-            "I am a student. I am studying. — Я студент. Я учусь.",
+            "I am a student. I am studying. — ПИШЕТ РЕДАКТОР: перевод дословно по 19.4 — " +
+              "«Я ученик. Я учусь.» Два соседних модуля уже говорят «ученик», выравнивается " +
+              "выбившийся модуль 17.",
           ],
           zvuchat: ["I am in the kitchen. I am cooking.", "I am a student. I am studying."],
         },
@@ -573,31 +575,28 @@ const modul: Module = {
           ],
         },
         {
-          /* СЛУЧАЙ 1. Он: he is. `He is talking.` — образец Movers, с. 50. */
-          id: "sluchay-on-he-is",
+          /*
+           * СЛУЧАЙ 1. ДВА ПРЕЖНИХ СЛУЧАЯ — «Он: he is» и «Она: she is» — СЛИТЫ В
+           * ОДИН (решение 20.2, находка 2.7): таблица выше уже показала обе формы,
+           * he и she ученик знает с модуля «Здравствуйте, меня зовут», а образец
+           * владельца сам соединяет их («После he и she ставим is»).
+           *
+           * Примеры названы методистом: `He is talking.` (образец Movers, с. 50) и
+           * `She is cooking.`; строки `He is sleeping.` и `She is drinking coffee.`
+           * ушли вместе со слиянием.
+           */
+          id: "sluchay-on-i-ona-is",
           kind: "explain",
           znak: "1f468",
           text: [
-            "Он: he is",
-            "О нём говорим словом he. После него стоит форма is, а глагол остаётся с " +
-              "окончанием -ing.",
-            "He is sleeping. — Он спит.",
+            "ПИШЕТ РЕДАКТОР: имя случая — «Он и она: is» (20.2).",
+            "ПИШЕТ РЕДАКТОР: правило одной строкой по образцу владельца: после he и после she " +
+              "ставим is, а глагол остаётся с окончанием -ing. Разряда («о мужчине», «о " +
+              "женщине») правило не называет: he и she ученик знает.",
             "He is talking. — Он разговаривает.",
-          ],
-          zvuchat: ["He is sleeping.", "He is talking."],
-        },
-        {
-          /* СЛУЧАЙ 2. Она: she is. */
-          id: "sluchay-ona-she-is",
-          kind: "explain",
-          znak: "1f469",
-          text: [
-            "Она: she is",
-            "О ней говорим словом she. После него стоит та же форма is, что и после he.",
             "She is cooking. — Она готовит.",
-            "She is drinking coffee. — Она пьёт кофе.",
           ],
-          zvuchat: ["She is cooking.", "She is drinking coffee."],
+          zvuchat: ["He is talking.", "She is cooking."],
         },
         {
           /*
@@ -626,8 +625,9 @@ const modul: Module = {
           znak: "1f46a",
           text: [
             "Мы и они: are",
-            "Когда людей несколько, ставим форму are. Слово we говорит о себе вместе с кем-то, " +
-              "а слово they говорит о других.",
+            "ПИШЕТ РЕДАКТОР: правило говорит о СЛОВАХ, а не о числе людей (20.2, находка 2.4): " +
+              "после we и после they ставим are. Строка «когда людей несколько» отменяется " +
+              "случаем «Ты» через два экрана — собеседник один, а форма всё равно are.",
             "We are cleaning the kitchen. — Мы убираем кухню.",
             "They are drinking tea. — Они пьют чай.",
           ],
@@ -639,9 +639,10 @@ const modul: Module = {
           kind: "explain",
           znak: "1f46b",
           text: [
-            "Два имени: are",
-            "Если людей двое и они названы через and, ставим форму are. Два имени вместе значат " +
-              "то же, что they.",
+            "ПИШЕТ РЕДАКТОР: имя случая — «Имена и родные: are» (20.2, находка 2.5): второй " +
+              "пример без имён и без and, а имя случая обещало имена.",
+            "ПИШЕТ РЕДАКТОР: правило под ОБА примера, образцом урока 6: имена через and или " +
+              "слово о нескольких родных, например my parents, — ставим are.",
             "Dana and Kim are eating. — Дана и Ким едят.",
             "My parents are working. — Мои родители работают.",
           ],
@@ -658,9 +659,10 @@ const modul: Module = {
           znak: "1f415",
           text: [
             "Собака и кошка: it is",
-            "О собаке или кошке в этих строках говорим словом it. По-русски мы зовём их «она» и " +
-              "«он», а по-английски здесь стоит одно слово it. В модуле «Что это такое» это же " +
-              "слово стояло о вещи.",
+            "ПИШЕТ РЕДАКТОР: правило по 20.6 (находка 2.6) с мостом к таблице. О собаке или " +
+              "кошке в этих строках говорим словом it. В таблице выше оно переведено «оно», а " +
+              "по-русски о собаке и о кошке мы скажем «она». Слова «он» в правиле нет. В " +
+              "переводах случая его нет ни разу. Мост к модулю «Что это такое» остаётся.",
             "The dog is in the garden. It is playing. — Собака в саду. Она играет.",
             "The cat is in the kitchen. It is eating. — Кошка на кухне. Она ест.",
           ],
@@ -676,8 +678,9 @@ const modul: Module = {
           znak: "1f449",
           text: [
             "Ты: you are",
-            "О собеседнике говорим словом you. После него стоит форма are, как и в модуле " +
-              "«Какой человек».",
+            "ПИШЕТ РЕДАКТОР: правило по 20.2 (находка 2.4) называет НОВОЕ этого " +
+              "случая. Собеседник один, а форма всё равно are — как и в модуле «Какой " +
+              "человек».",
             "You are reading my book! — Ты читаешь мою книгу!",
             "You are eating my lunch! — Ты ешь мой обед!",
           ],
@@ -885,8 +888,10 @@ const modul: Module = {
           znak: "270c",
           text: [
             "Последняя буква дважды",
-            "У глагола swim последнюю букву перед окончанием пишем два раза. Так же пишем sit " +
-              "и run.",
+            "ПИШЕТ РЕДАКТОР: правило о СВОИХ словах с РАСШИРЕННЫМ ПЕРЕЧНЕМ (20.1, " +
+              "находка 3.1). У глагола swim последнюю букву перед окончанием пишем два раза; " +
+              "так же пишем sit, run и get. Без get перечень опровергался случаем «get up» " +
+              "этого же урока.",
             "swim — swimming",
             "We are swimming. — Мы плаваем.",
           ],
@@ -913,7 +918,9 @@ const modul: Module = {
           znak: "23f0",
           text: [
             "Вставать: get up",
-            "У get up окончание получает первое слово, а второе слово остаётся прежним.",
+            "ПИШЕТ РЕДАКТОР: правило по 20.1. Окончание получает первое слово. Букву t в нём " +
+              "пишем два раза, как у get из перечня случая «Последняя буква дважды»; " +
+              "второе слово остаётся прежним.",
             "get up — getting up",
             "I am getting up. — Я встаю.",
           ],
@@ -1055,9 +1062,10 @@ const modul: Module = {
         "различать строку о том, что бывает каждый день, и строку о том, что идёт сейчас",
 
       vstuplenie:
-        "По-русски «я работаю в школе» и «не звони, я работаю» сказаны одним словом «работаю». " +
-        "По-английски это две разные строки. Одна говорит о работе вообще, а другая говорит об " +
-        "этой минуте. Здесь мы разберём, чем они различаются.",
+        "ПИШЕТ РЕДАКТОР: вступление зовёт вещь ЕДИНСТВЕННЫМ именем модуля (4.5) — " +
+        "«то, что человек делает обычно», без «работы вообще». Мысль прежняя: по-русски " +
+        "«я работаю в школе» и «не звони, я работаю» сказаны одним словом, а по-английски это " +
+        "две разные строки.",
 
       blocks: [
         {
@@ -1090,9 +1098,12 @@ const modul: Module = {
           kind: "explain",
           znak: "2696",
           text: [
-            "Одно «работаю», а строки две",
-            "Первая строка говорит о работе вообще, а вторая строка говорит об этой самой " +
-              "минуте.",
+            "ПИШЕТ РЕДАКТОР: имя случая — «I work и I am working» (20.2, находка 4.3).",
+            "ПИШЕТ РЕДАКТОР: правило даёт то, чего не было ни во вступлении, ни в подписи " +
+              "таблицы. Чем строки различаются НА ВИД. В строке о том, что делаем обычно, " +
+              "один глагол, а в строке об этой минуте стоят am и глагол с окончанием -ing. " +
+              "Имя вещи одно на весь модуль (4.5): «то, что делаем обычно» — без «работы " +
+              "вообще» и «привычного дела».",
             "I work at a school. — Я работаю в школе.",
             "I am working now. — Я сейчас работаю.",
           ],
@@ -1105,8 +1116,9 @@ const modul: Module = {
           znak: "1f5d3",
           text: [
             "Каждый день и now",
-            "Оборот every day стоит в строке о привычном деле, а слово now стоит в строке о " +
-              "том, что идёт сейчас.",
+            "ПИШЕТ РЕДАКТОР: то же правило с ИМЕНЕМ ВЕЩИ ПО 4.5. Оборот every day стоит в " +
+              "строке о том, что делаем обычно, а слово now — в строке о том, что идёт " +
+              "сейчас. «Привычное дело» из урока уходит.",
             "I drink tea every day. — Я пью чай каждый день.",
             "I am drinking tea now. — Я сейчас пью чай.",
           ],
@@ -1118,9 +1130,11 @@ const modul: Module = {
           kind: "explain",
           znak: "1f4d0",
           text: [
-            "Об одном человеке: -s и is",
-            "О привычном деле одного человека у глагола стоит окончание -s. О том, что он " +
-              "делает сейчас, говорим формой is и глаголом с окончанием -ing.",
+            "ПИШЕТ РЕДАКТОР: имя случая — «Он и она: -s и is» (20.6, находка 4.4). Правило " +
+              "говорит о he и she, а не «об одном человеке»: I work в таблице — тоже один человек.",
+            "ПИШЕТ РЕДАКТОР: правило. Когда говорим о нём или о ней, у глагола стоит " +
+              "окончание -s. О том, что он делает сейчас, говорим формой is и глаголом с " +
+              "окончанием -ing.",
             "Dana reads every evening. — Дана читает каждый вечер.",
             "Dana is reading now. — Дана сейчас читает.",
           ],
@@ -1147,8 +1161,9 @@ const modul: Module = {
           znak: "1f68c",
           text: [
             "Кто человек и что он делает сейчас",
-            "Строка о работе вообще и строка об этой минуте стоят рядом. Первая говорит, кем " +
-              "человек работает, а вторая говорит, что он делает прямо сейчас.",
+            "ПИШЕТ РЕДАКТОР: правило с именем вещи по 4.5. Строка о том, что человек делает " +
+              "обычно, и строка об этой минуте стоят рядом. Первая говорит, кем человек " +
+              "работает, а вторая — что он делает прямо сейчас. «Работа вообще» уходит.",
             "My father drives a bus. — Мой отец водит автобус.",
             "He is eating now. — Он сейчас ест.",
           ],
@@ -1174,20 +1189,6 @@ const modul: Module = {
           zvuchat: ["Now I am driving.", "Now we are eating."],
         },
         {
-          /* СЛУЧАЙ 7. Где сейчас и что делает — мост к модулю 3. */
-          id: "sluchay-gde-seychas-i-chto-delaet",
-          kind: "explain",
-          znak: "1f4cd",
-          text: [
-            "Где сейчас и что делает",
-            "В модуле «Откуда ты и где живёшь» о месте говорили формой be без глагола. Строка с " +
-              "окончанием -ing добавляет к месту и само действие.",
-            "I am at work. — Я на работе.",
-            "I am working. — Я работаю.",
-          ],
-          zvuchat: ["I am at work.", "I am working."],
-        },
-        {
           /*
            * СЛУЧАЙ 8. ВРЕЗКА: I am work every day. Настоящая ошибка — строка о
            * привычном деле со словом am.
@@ -1197,9 +1198,11 @@ const modul: Module = {
           tone: "mistake",
           znak: "26a0",
           text:
-            "Строка о привычном деле\n\nО привычном деле говорим одним глаголом.\n\nВ записи " +
-            "I am work every day. рядом стоят am и глагол без окончания, и так по-английски не " +
-            "говорят. Верной будет строка I work every day.",
+            "ПИШЕТ РЕДАКТОР: врезка по 4.5 и 18.4. Заголовок и правило зовут вещь единственным " +
+            "именем модуля — «то, что делаем обычно», без «привычного дела» и «работы " +
+            "вообще». Первое предложение — о СВОЁМ случае: о том, что делаем обычно, " +
+            "говорим одним глаголом. Второе судит НАПЕЧАТАННУЮ запись I am work every day. " +
+            "и называет верную строку I work every day.",
           zvuchat: ["I work every day."],
         },
         {
@@ -1248,25 +1251,108 @@ const modul: Module = {
             "строки: первую о каждом вечере, вторую о том, что идёт сейчас.",
           answer: "Aigerim swims every evening. Now she is swimming.",
           accept: [
-            "She swims every evening. She is swimming now.",
+            "Aigerim swims every evening. She is swimming.",
             "Aigerim swims every evening. She is swimming now.",
-            "She swims every evening. Now she is swimming.",
-            "Every evening Aigerim swims. Now she is swimming.",
-            "Aigerim swims every evening. Aigerim is swimming now.",
             "Aigerim swims every evening. Now, she is swimming.",
-            "Aigerim swims every evening. Now she's swimming.",
-            "She swims every evening. She's swimming now.",
+            "Aigerim swims every evening. She's swimming.",
             "Aigerim swims every evening. She's swimming now.",
-            "She swims every evening. Now she's swimming.",
-            "Every evening Aigerim swims. Now she's swimming.",
-            "Aigerim swims every evening. Aigerim's swimming now.",
+            "Aigerim swims every evening. Now she's swimming.",
             "Aigerim swims every evening. Now, she's swimming.",
+            "Aigerim swims every evening. Aigerim is swimming.",
+            "Aigerim swims every evening. Aigerim is swimming now.",
+            "Aigerim swims every evening. Now Aigerim is swimming.",
+            "Aigerim swims every evening. Now, Aigerim is swimming.",
+            "Aigerim swims every evening. Aigerim's swimming.",
+            "Aigerim swims every evening. Aigerim's swimming now.",
+            "Aigerim swims every evening. Now Aigerim's swimming.",
+            "Aigerim swims every evening. Now, Aigerim's swimming.",
+            "She swims every evening. She is swimming.",
+            "She swims every evening. She is swimming now.",
+            "She swims every evening. Now she is swimming.",
+            "She swims every evening. Now, she is swimming.",
+            "She swims every evening. She's swimming.",
+            "She swims every evening. She's swimming now.",
+            "She swims every evening. Now she's swimming.",
+            "She swims every evening. Now, she's swimming.",
+            "She swims every evening. Aigerim is swimming.",
+            "She swims every evening. Aigerim is swimming now.",
+            "She swims every evening. Now Aigerim is swimming.",
+            "She swims every evening. Now, Aigerim is swimming.",
+            "She swims every evening. Aigerim's swimming.",
+            "She swims every evening. Aigerim's swimming now.",
+            "She swims every evening. Now Aigerim's swimming.",
+            "She swims every evening. Now, Aigerim's swimming.",
+            "Every evening Aigerim swims. She is swimming.",
+            "Every evening Aigerim swims. She is swimming now.",
+            "Every evening Aigerim swims. Now she is swimming.",
+            "Every evening Aigerim swims. Now, she is swimming.",
+            "Every evening Aigerim swims. She's swimming.",
+            "Every evening Aigerim swims. She's swimming now.",
+            "Every evening Aigerim swims. Now she's swimming.",
+            "Every evening Aigerim swims. Now, she's swimming.",
+            "Every evening Aigerim swims. Aigerim is swimming.",
+            "Every evening Aigerim swims. Aigerim is swimming now.",
+            "Every evening Aigerim swims. Now Aigerim is swimming.",
+            "Every evening Aigerim swims. Now, Aigerim is swimming.",
+            "Every evening Aigerim swims. Aigerim's swimming.",
+            "Every evening Aigerim swims. Aigerim's swimming now.",
+            "Every evening Aigerim swims. Now Aigerim's swimming.",
+            "Every evening Aigerim swims. Now, Aigerim's swimming.",
+            "Every evening, Aigerim swims. She is swimming.",
+            "Every evening, Aigerim swims. She is swimming now.",
+            "Every evening, Aigerim swims. Now she is swimming.",
+            "Every evening, Aigerim swims. Now, she is swimming.",
+            "Every evening, Aigerim swims. She's swimming.",
+            "Every evening, Aigerim swims. She's swimming now.",
+            "Every evening, Aigerim swims. Now she's swimming.",
+            "Every evening, Aigerim swims. Now, she's swimming.",
+            "Every evening, Aigerim swims. Aigerim is swimming.",
+            "Every evening, Aigerim swims. Aigerim is swimming now.",
+            "Every evening, Aigerim swims. Now Aigerim is swimming.",
+            "Every evening, Aigerim swims. Now, Aigerim is swimming.",
+            "Every evening, Aigerim swims. Aigerim's swimming.",
+            "Every evening, Aigerim swims. Aigerim's swimming now.",
+            "Every evening, Aigerim swims. Now Aigerim's swimming.",
+            "Every evening, Aigerim swims. Now, Aigerim's swimming.",
+            "Every evening she swims. She is swimming.",
+            "Every evening she swims. She is swimming now.",
+            "Every evening she swims. Now she is swimming.",
+            "Every evening she swims. Now, she is swimming.",
+            "Every evening she swims. She's swimming.",
+            "Every evening she swims. She's swimming now.",
+            "Every evening she swims. Now she's swimming.",
+            "Every evening she swims. Now, she's swimming.",
+            "Every evening she swims. Aigerim is swimming.",
+            "Every evening she swims. Aigerim is swimming now.",
+            "Every evening she swims. Now Aigerim is swimming.",
+            "Every evening she swims. Now, Aigerim is swimming.",
+            "Every evening she swims. Aigerim's swimming.",
+            "Every evening she swims. Aigerim's swimming now.",
+            "Every evening she swims. Now Aigerim's swimming.",
+            "Every evening she swims. Now, Aigerim's swimming.",
+            "Every evening, she swims. She is swimming.",
+            "Every evening, she swims. She is swimming now.",
+            "Every evening, she swims. Now she is swimming.",
+            "Every evening, she swims. Now, she is swimming.",
+            "Every evening, she swims. She's swimming.",
+            "Every evening, she swims. She's swimming now.",
+            "Every evening, she swims. Now she's swimming.",
+            "Every evening, she swims. Now, she's swimming.",
+            "Every evening, she swims. Aigerim is swimming.",
+            "Every evening, she swims. Aigerim is swimming now.",
+            "Every evening, she swims. Now Aigerim is swimming.",
+            "Every evening, she swims. Now, Aigerim is swimming.",
+            "Every evening, she swims. Aigerim's swimming.",
+            "Every evening, she swims. Aigerim's swimming now.",
+            "Every evening, she swims. Now Aigerim's swimming.",
+            "Every evening, she swims. Now, Aigerim's swimming.",
           ],
           hint: "В первой строке у глагола своё окончание, а во второй нужна форма be.",
           why:
-            "Aigerim swims every evening. Now she is swimming. В первой строке глагол стоит с " +
-            "окончанием -s, потому что она говорит о каждом вечере. Во второй строке стоят is и " +
-            "глагол с окончанием -ing, потому что речь об этой минуте.",
+            "ПИШЕТ РЕДАКТОР: разбор по 20.6 (находка 4.1) называет ВЕРНЫЕ причины. " +
+            "Окончание -s стоит оттого, что речь о ней. Один глагол без формы be стоит оттого, " +
+            "что речь о каждом вечере. Разбор называет обе строки ответа целиком. Здесь же сказано, " +
+            "что вторая строка без now тоже верна.",
         },
         {
           /* З4. О СЕБЕ. Один голос: не разговор. */
@@ -1307,9 +1393,10 @@ const modul: Module = {
       outcome: "говорить, что надето на человеке: is wearing и название одежды",
 
       vstuplenie:
-        "По-русски мы говорим «на ней красное платье», и глагола в этой фразе нет. По-английски " +
-        "в такой строке глагол нужен, и это wear с окончанием -ing. Здесь мы разберём, как " +
-        "сказать, что на человеке надето.",
+        "ПИШЕТ РЕДАКТОР: вступление по 20.1 (находка 5.2) говорит о СВОЁМ случае и " +
+        "НЕ говорит «глагол нужен»: этот же урок принимает We are in black jackets. без " +
+        "глагола. Мысль: по-русски мы говорим «на ней красное платье», а по-английски " +
+        "говорим She is wearing a red dress.",
 
       blocks: [
         {
@@ -1319,8 +1406,10 @@ const modul: Module = {
           znak: "1f457",
           text: [
             "На ней платье",
-            "По-русски мы говорим «на ней», а по-английски в такой строке стоят is и глагол " +
-              "wear с окончанием -ing.",
+            "ПИШЕТ РЕДАКТОР: правило по 20.1. Говорит о СВОЁМ случае и не повторяет " +
+              "вступление (находка 5.5). Когда говорим, что на человеке надето, ставим " +
+              "форму be и wearing, а за ними название одежды. Слов «глагол нужен» и «без " +
+              "глагола нельзя» в уроке нет.",
             "She is wearing a dress. — На ней платье.",
             "He is wearing a hat. — На нём шляпа.",
           ],
@@ -1333,8 +1422,9 @@ const modul: Module = {
           znak: "1f308",
           text: [
             "Цвет перед названием одежды",
-            "Цвет из модуля «Цвет и размер» встаёт перед названием одежды, как и в русской " +
-              "фразе «синяя рубашка».",
+            "ПИШЕТ РЕДАКТОР: правило по 20.6 (находка 5.8). Слово о цвете встаёт перед " +
+              "названием одежды, как в модуле «Цвет и размер» и в русской фразе «синяя " +
+              "рубашка». Новое здесь — сочетание слова о цвете с wearing в одной строке.",
             "Kim is wearing a blue shirt. — На Киме синяя рубашка.",
             "Dana is wearing a green skirt. — На Дане зелёная юбка.",
           ],
@@ -1402,9 +1492,11 @@ const modul: Module = {
           kind: "explain",
           znak: "1f9e5",
           text: [
-            "have got и is wearing",
-            "В модуле «Одежда» оборот have got говорил, что вещь у человека есть. Строка с is " +
-              "wearing говорит, что вещь на нём прямо сейчас.",
+            "ПИШЕТ РЕДАКТОР: имя случая — «have got и wearing» (20.6, находка 5.4). В строках " +
+              "урока стоит и am, и are, а имя случая обещало только is.",
+            "ПИШЕТ РЕДАКТОР: правило теми же словами. В модуле «Одежда» оборот have got " +
+              "говорил, что вещь у человека есть. Строка с формой be и wearing говорит, что " +
+              "вещь на нём прямо сейчас.",
             "I have got a red jacket. — У меня есть красная куртка.",
             "I am wearing a red jacket. — На мне красная куртка.",
           ],
@@ -1421,10 +1513,11 @@ const modul: Module = {
           tone: "mistake",
           znak: "26a0",
           text:
-            "Глагол в строке об одежде\n\nКогда говорим, что на человеке надето, ставим is " +
-            "wearing и название одежды.\n\nПо-русски мы говорим «на Нурлане синяя рубашка», и " +
-            "глагола здесь нет. В записи Nurlan is a blue shirt. глагола тоже нет, и так " +
-            "по-английски не говорят. Верной будет строка Nurlan is wearing a blue shirt.",
+            "ПИШЕТ РЕДАКТОР: врезка по 20.1 (находки 5.1 и 5.2) судит СМЫСЛ ЗАПИСИ, а не " +
+            "отсутствие глагола. В записи Nurlan is a blue shirt. сказано, что Нурлан — это " +
+            "синяя рубашка. Так по-английски не говорят, а верной будет строка Nurlan is " +
+            "wearing a blue shirt. Слов «глагола нет» во врезке не будет: урок сам принимает " +
+            "оборот с in без глагола.",
           zvuchat: ["Nurlan is wearing a blue shirt."],
         },
         {
@@ -1448,14 +1541,15 @@ const modul: Module = {
           prompt:
             "На Айгерим белая футболка. Отметь строку без ошибки.",
           options: [
-            { text: "Aigerim is a white T-shirt." },
-            { text: "Aigerim is wearing a white T-shirt.", correct: true },
             { text: "Aigerim wearing a white T-shirt." },
+            { text: "Aigerim is wearing a white T-shirt.", correct: true },
+            { text: "Aigerim is wear a white T-shirt." },
           ],
-          hint: "Проверь в каждой строке, стоит ли в ней форма be.",
+          hint: "ПИШЕТ РЕДАКТОР: подсказка к З1 урока 5 — дорога, а не ответ.",
           why:
-            "Верна строка Aigerim is wearing a white T-shirt. В записи Aigerim is a white " +
-            "T-shirt. нет глагола, а в записи Aigerim wearing a white T-shirt. нет формы be.",
+            "ПИШЕТ РЕДАКТОР: разбор по 20.3: верна строка Aigerim is wearing a white T-shirt. В " +
+            "записи Aigerim wearing a white T-shirt. нет формы be. В записи Aigerim is wear a " +
+            "white T-shirt. у глагола нет окончания -ing. Ошибки из врезки среди строк нет.",
         },
         {
           /* З2. ПРОИЗВЕСТИ. */
@@ -1498,9 +1592,21 @@ const modul: Module = {
           prompt: "Запиши по-английски «на нас чёрные куртки».",
           answer: "We are wearing black jackets.",
           accept: [
-            "We're wearing black jackets.",
+            "We are wearing black jackets now.",
+            "Now we are wearing black jackets.",
+            "Now, we are wearing black jackets.",
             "We are in black jackets.",
+            "We are in black jackets now.",
+            "Now we are in black jackets.",
+            "Now, we are in black jackets.",
+            "We're wearing black jackets.",
+            "We're wearing black jackets now.",
+            "Now we're wearing black jackets.",
+            "Now, we're wearing black jackets.",
             "We're in black jackets.",
+            "We're in black jackets now.",
+            "Now we're in black jackets.",
+            "Now, we're in black jackets.",
           ],
           hint: "Людей несколько, и форма be это показывает.",
           why:
@@ -1637,11 +1743,13 @@ const modul: Module = {
           znak: "2702",
           text: [
             "Полная и короткая запись",
-            "Полная запись is not и короткая isn't значат одно и то же, и верны обе.",
-            "He is not driving. — Он не ведёт машину.",
-            "He isn't driving. — Он не ведёт машину.",
+            "ПИШЕТ РЕДАКТОР: правило по 20.2 (находка 6.2) — о are not и aren't, а не о " +
+              "is not и isn't. Те свёл случай «Он и она: isn't». Полная запись и короткая " +
+              "значат одно и то же, и верны обе.",
+            "We are not eating. — ПИШЕТ РЕДАКТОР: перевод строки.",
+            "We aren't eating. — ПИШЕТ РЕДАКТОР: перевод строки.",
           ],
-          zvuchat: ["He is not driving.", "He isn't driving."],
+          zvuchat: ["We are not eating.", "We aren't eating."],
         },
         {
           /* СЛУЧАЙ 5. Не это, а другое. */
@@ -1681,9 +1789,10 @@ const modul: Module = {
           kind: "explain",
           znak: "1f464",
           text: [
-            "Имя и not",
-            "Два имени через and или слова my parents говорят о нескольких людях. Поэтому при " +
-              "них стоит aren't.",
+            "ПИШЕТ РЕДАКТОР: имя случая по находке 6.3 и образцу урока 2 (20.2). Случай об " +
+              "именах через and И о слове о родных, а не об одном имени.",
+            "ПИШЕТ РЕДАКТОР: правило под оба примера: имена через and или слово о " +
+              "нескольких родных, например my parents, — ставим aren't.",
             "My parents aren't working. — Мои родители не работают.",
             "Dana and Kim aren't sleeping. — Дана и Ким не спят.",
           ],
@@ -1723,26 +1832,28 @@ const modul: Module = {
             {
               term: "are not",
               translation: "не",
-              example: "They are not sleeping.",
+              // 20.2: прежний пример `They are not sleeping.` совпал бы с верным вариантом З1.
+              example: "We are not reading.",
               hint: "/ɑː nɒt/",
             },
           ],
         },
         {
           /* З1. УЗНАТЬ. Неверные: перенос модуля 14 и форма об одном. */
-          id: "z1-vybrat-oni-ne-igrayut",
+          id: "z1-vybrat-oni-seychas-ne-spyat",
           kind: "choice",
-          prompt: "Отметь строку «они сейчас не играют».",
+          prompt:
+            "ПИШЕТ РЕДАКТОР: условие по 20.3 — они сейчас не спят; отметь строку без ошибки.",
           options: [
-            { text: "They aren't playing now.", correct: true },
-            { text: "They don't playing now." },
-            { text: "They isn't playing now." },
+            { text: "They isn't sleeping now." },
+            { text: "They aren't sleeping now.", correct: true },
+            { text: "They aren't sleep now." },
           ],
-          hint: "Людей несколько, и форма be при них своя.",
+          hint: "ПИШЕТ РЕДАКТОР: подсказка к З1 урока 6 — дорога, а не ответ.",
           why:
-            "Верна строка They aren't playing now. В записи They don't playing now. слово don't " +
-            "взято из строки о привычном деле. В записи They isn't playing now. форма is говорит " +
-            "об одном человеке.",
+            "ПИШЕТ РЕДАКТОР: разбор по 20.3: верна строка They aren't sleeping now. В записи " +
+            "They isn't sleeping now. форма is говорит об одном. В записи They aren't sleep " +
+            "now. у глагола нет окончания -ing. Ошибки из врезки среди строк нет.",
         },
         {
           /* З2. ПРОИЗВЕСТИ. Полная запись принимается наравне. */
@@ -1773,18 +1884,22 @@ const modul: Module = {
         },
         {
           /* З4. УЗНАТЬ. `cook` здесь и глагол, и карточка модуля 6 «повар». */
-          id: "z4-soedinit-tri-stroki-so-slovom-ne",
-          kind: "match",
-          prompt: "Соедини каждую строку с её русским смыслом.",
-          left: ["I don't cook.", "I am not cooking.", "I am not a cook."],
-          right: ["я не повар", "я не готовлю (вообще)", "я сейчас не готовлю"],
-          answer: [1, 2, 0],
-          hint: "Смотри, что стоит после not и после don't.",
+          id: "z4-vybrat-chego-alim-ne-delaet-seychas",
+          kind: "choice",
+          prompt:
+            "ПИШЕТ РЕДАКТОР: условие по 20.4. Алим — повар, но сейчас он в отпуске и не " +
+            "готовит; отметь строку о том, чего он сейчас не делает. Слова holiday в строках " +
+            "нет: «в отпуске» стоит только в русском условии.",
+          options: [
+            { text: "He isn't a cook." },
+            { text: "He doesn't cook." },
+            { text: "He isn't cooking now.", correct: true },
+          ],
+          hint: "ПИШЕТ РЕДАКТОР: подсказка к З4 урока 6 — дорога, а не ответ.",
           why:
-            "I don't cook. — я не готовлю (вообще). I am not cooking. — я сейчас не готовлю. " +
-            "I am not a cook. — я не повар. Строка с don't говорит о привычном деле. Строка с am " +
-            "not и глаголом на -ing говорит про эту минуту. А строка с am not и названием " +
-            "говорит, что человек не повар.",
+            "ПИШЕТ РЕДАКТОР: разбор по 20.4: верна строка He isn't cooking now. Две другие " +
+            "написаны без ошибки, но ложны по условию: Алим повар и обычно готовит. Разбор " +
+            "разводит три отрицания по смыслу.",
         },
         {
           /*
@@ -1837,6 +1952,24 @@ const modul: Module = {
 
       blocks: [
         {
+          /*
+           * СЛУЧАЙ 1. ПЕРЕСТАВЛЕН ВПЕРЁД ПО 20.2 (находка 7.2): как строится
+           * вопрос, урок говорил трижды, а сам механизм — последним. Теперь пара
+           * `You are reading.` и `Are you reading?` стоит первой, а в случаях о you,
+           * he и she, they остаётся только новое каждого — какая форма впереди.
+           */
+          id: "sluchay-iz-stroki-vopros",
+          kind: "explain",
+          znak: "1f504",
+          text: [
+            "Из строки получается вопрос",
+            "В строке форма be стоит после местоимения, а в вопросе она встаёт перед ним.",
+            "You are reading. — Ты читаешь.",
+            "Are you reading? — Ты читаешь?",
+          ],
+          zvuchat: ["You are reading.", "Are you reading?"],
+        },
+        {
           /* СЛУЧАЙ 1. Are you…? */
           id: "sluchay-are-you",
           kind: "explain",
@@ -1856,7 +1989,9 @@ const modul: Module = {
           znak: "1f464",
           text: [
             "Вопрос о нём и о ней",
-            "Форма is встаёт перед he, she или перед именем человека.",
+            "ПИШЕТ РЕДАКТОР: правило формулой урока 6 (20.2, находка 7.3), чтобы оно " +
+              "покрывало оба примера. Форма is встаёт перед he, she, именем или словом о " +
+              "родном, например your brother.",
             "Is Dana cooking? — Дана готовит?",
             "Is your brother playing? — Твой брат играет?",
           ],
@@ -1903,19 +2038,7 @@ const modul: Module = {
           ],
           zvuchat: ["No, I'm not.", "No, he isn't."],
         },
-        {
-          /* СЛУЧАЙ 6. Из строки — вопрос. */
-          id: "sluchay-iz-stroki-vopros",
-          kind: "explain",
-          znak: "1f504",
-          text: [
-            "Из строки получается вопрос",
-            "В строке форма be стоит после местоимения, а в вопросе она встаёт перед ним.",
-            "You are reading. — Ты читаешь.",
-            "Are you reading? — Ты читаешь?",
-          ],
-          zvuchat: ["You are reading.", "Are you reading?"],
-        },
+
         {
           /*
            * СЛУЧАЙ 7. МОСТ К МОДУЛЮ 15 — его словами после правки редактора
@@ -1928,9 +2051,11 @@ const modul: Module = {
           znak: "1f500",
           text: [
             "Do you и Are you",
-            "В модуле «Спросить о делах» вопрос о том, что человек делает вообще, начинали " +
-              "словом do. Вопрос о том, что он делает сейчас, начинаем формой be. Ответ " +
-              "повторяет то, с чего начат вопрос.",
+            "ПИШЕТ РЕДАКТОР: правило по 20.6 (находка 7.1). Строка «ответ повторяет то, " +
+              "с чего начат вопрос» НЕВЕРНА для Are you…? — Yes, I am. Верно так. В " +
+              "модуле «Спросить о делах» вопрос о том, что человек делает вообще, начинали " +
+              "словом do. Вопрос о том, что он делает сейчас, начинаем формой be. В ответе " +
+              "снова стоит do или форма be, только уже о себе. То же касается разбора З5.",
             "Do you swim? — Yes, I do. — Ты плаваешь? — Да.",
             "Are you swimming? — Yes, I am. — Ты плаваешь? — Да.",
           ],
@@ -2018,17 +2143,19 @@ const modul: Module = {
           id: "z5-sprosit-i-otvetit-za-sobesednika",
           kind: "speak",
           prompt:
-            "Скажи вслух разговор из двух реплик. Спроси собеседника, читает ли он, а потом " +
-            "ответь вместо собеседника: «нет, я пишу».",
+            "ПИШЕТ РЕДАКТОР: условие по 20.6 (находка 7.4) говорит о СОБЕСЕДНИЦЕ: " +
+            "образец отвечает женский голос. Формула методиста — «Спроси собеседницу, " +
+            "читает ли она сейчас», а потом ответь вместо неё: «нет, я пишу». Голоса не " +
+            "меняются.",
           phrase: "Are you reading? — No, I'm not. I'm writing.",
           pervyyGolos: "muzhskoy",
           translation: "Ты читаешь? — Нет. Я пишу.",
           hint: "Во второй реплике сначала ответь «нет», а потом скажи, что делаешь.",
           why:
-            "Are you reading? — No, I'm not. I'm writing. Вопрос начат словом are, и ответ " +
-            "No, I'm not. повторяет форму be. Потом собеседник говорит, что делает вместо " +
-            "чтения. Ответ на это задание не проверяется, поэтому сверься с образцом. Послушай " +
-            "его и повтори следом за ним.",
+            "ПИШЕТ РЕДАКТОР: разбор по 20.6 (находки 7.1 и 7.4). Вопрос начат формой " +
+            "be. В ответе снова стоит форма be, только уже о себе. Строка «повторяет то, с чего " +
+            "начат вопрос» здесь неверно. Дальше собеседница говорит, что делает вместо " +
+            "чтения. Формула самопроверки — уговор 8.1.",
         },
       ],
     },
@@ -2119,7 +2246,9 @@ const modul: Module = {
           znak: "1f464",
           text: [
             "Что делает он или она",
-            "Когда спрашиваем о нём или о ней, после What стоит is, а за ним he, she или имя.",
+            "ПИШЕТ РЕДАКТОР: правило формулой урока 6 (20.2, находка 8.4), чтобы оно " +
+              "покрывало оба примера. После What стоит is, а за ним he, she, имя или слово о " +
+              "родном, например your father.",
             "What is Dana doing? — She is writing. — Что делает Дана? — Она пишет.",
             "What is your father doing? — He is driving. — Что делает твой отец? — Он ведёт машину.",
           ],
@@ -2201,8 +2330,10 @@ const modul: Module = {
           znak: "27a1",
           text: [
             "Ответ о действии",
-            "На вопрос с What отвечаем строкой о том, что человек делает. Такой вопрос ждёт в " +
-              "ответ само действие.",
+            "ПИШЕТ РЕДАКТОР: правило по 20.2 (находка 8.2) говорит то, что до сих пор " +
+              "жило только в разборе З1. На вопрос с What отвечаем действием — одним словом " +
+              "или строкой, а не словами yes или no. Это утверждение о СВОЁМ случае, без " +
+              "слов «не отвечают».",
             "What are you doing? — I am dancing. — Что ты делаешь? — Я танцую.",
             "What is Kim doing? — He is sleeping. — Что делает Ким? — Он спит.",
           ],
@@ -2235,7 +2366,7 @@ const modul: Module = {
           ],
           hint: "Вопрос с What ждёт в ответ само действие.",
           why:
-            "Верен ответ He is drinking coffee. Ответ Yes, he is. годится для вопроса да-нет, а не " +
+            "ПИШЕТ РЕДАКТОР: разбор по 20.6 (находка 8.3) зовёт вопрос именем курса — вопрос «да или нет» (так его зовут модули 7 и 9), а не «да-нет». Верен ответ He is drinking coffee.; ответ Yes, he is. годится для другого вопроса, а не " +
             "для вопроса с What. В записи He drinking coffee. нет формы be.",
         },
         {
@@ -2469,7 +2600,9 @@ const modul: Module = {
           id: "z2-zapisat-kogo-risuet-dana",
           kind: "short",
           about: "zapis-aygerim-zvonit-kimu",
-          prompt: "Кого рисует Дана? Запиши одним английским словом.",
+          prompt:
+            "ПИШЕТ РЕДАКТОР: условие дословно по 20.6 (находка 10.1) — «Что рисует Дана? " +
+            "Запиши одним английским словом.»: одушевлённое «кого» подсказывает ответ.",
           answer: "bird",
           accept: ["a bird"],
           hint: "Слушай ту часть разговора, где Ким говорит о Дане.",
@@ -2529,9 +2662,9 @@ const modul: Module = {
       outcome: "строить строки о том, кто что делает на картинке",
 
       vstuplenie:
-        "На картинке мужчина, женщина, дети и кошка, и каждый из них чем-то занят. По-русски мы " +
-        "описали бы её строками вроде «мужчина читает газету». Здесь мы разберём, как сказать о " +
-        "картинке по-английски.",
+        "ПИШЕТ РЕДАКТОР: вступление по 20.6 (находки 11.1 и Р.6) НЕ ОБЕЩАЕТ картинки на " +
+        "экране: формула методиста — «Представь картинку…». Порядок тот же, что у " +
+        "подписей и заданий: мужчина, женщина, кошка, дети.",
 
       blocks: [
         {
@@ -2540,7 +2673,9 @@ const modul: Module = {
           znak: "1f5bc",
           text: [
             "Что на картинке",
-            "У каждой части картинки стоит русская подпись. То же самое мы скажем по-английски.",
+            "ПИШЕТ РЕДАКТОР: строка по 20.6 (11.1): «На картинке четыре части…» — текст " +
+              "не обещает картинки, которой на экране нет. Дальше — четыре русские подписи, " +
+              "и то же самое ученик скажет по-английски.",
             "Мужчина читает газету.",
             "Женщина готовит.",
             "Кошка спит под столом.",
@@ -2577,21 +2712,24 @@ const modul: Module = {
         },
         {
           /* З3. УЗНАТЬ. Неверные: форма об одном и строка без формы be. */
-          id: "z3-vybrat-stroku-o-detyah",
-          kind: "choice",
+          id: "z3-zapisat-stroku-o-detyah",
+          kind: "short",
           znak: "1f9d2",
           znakov: 2,
-          prompt: "Четвёртая подпись: «дети играют». Отметь строку без ошибки.",
-          options: [
-            { text: "The children are playing.", correct: true },
-            { text: "The children is playing." },
-            { text: "The children playing." },
+          prompt:
+            "ПИШЕТ РЕДАКТОР: условие по 20.5 (находка 11.2): четвёртая подпись — «Дети " +
+            "играют»; ученик пишет о ней строку по-английски. Выбор снят: З3 урока 2 — тоже " +
+            "выбор строки о нескольких людях с теми же двумя ошибками.",
+          answer: "The children are playing.",
+          accept: [
+            "The children are playing now.",
+            "Now the children are playing.",
+            "Now, the children are playing.",
           ],
-          hint: "Детей несколько.",
+          hint: "ПИШЕТ РЕДАКТОР: подсказка к З3 урока 11 — дорога, а не ответ.",
           why:
-            "Верна строка The children are playing. Детей несколько, поэтому стоит are. В записи " +
-            "The children is playing. форма is говорит об одном, а в записи The children playing. " +
-            "формы be нет вовсе.",
+            "ПИШЕТ РЕДАКТОР: разбор называет строку The children are playing. и говорит, почему " +
+            "при детях стоит are, а глагол идёт с окончанием -ing.",
         },
         {
           /* З4. ОПИСАТЬ ВСЮ КАРТИНКУ. Один голос: это не разговор. */
@@ -2644,17 +2782,43 @@ const modul: Module = {
         kind: "short",
         outcome: "говорить, что надето на человеке: is wearing и название одежды",
         prompt:
-          "Дана пишет Алиму из магазина: I am wearing a new dress. Вечером Алим рассказывает брату, " +
-          "что надето на Дане. Как он это скажет? Запиши его строку по-английски.",
+          "ПИШЕТ РЕДАКТОР: условие по Р.4: слово «Вечером» СНЯТО (оно спорило с " +
+          "формой о этой минуте). Формула методиста: Дана пишет Алиму из магазина: " +
+          "I am wearing a new dress. Алим тут же пересказывает брату, что надето на Дане; " +
+          "ученик записывает его строку по-английски.",
         answer: "Dana is wearing a new dress.",
         accept: [
-          "She is wearing a new dress.",
+          "Dana is wearing a new dress now.",
+          "Now Dana is wearing a new dress.",
+          "Now, Dana is wearing a new dress.",
           "Dana is in a new dress.",
-          "She is in a new dress.",
+          "Dana is in a new dress now.",
+          "Now Dana is in a new dress.",
+          "Now, Dana is in a new dress.",
           "Dana's wearing a new dress.",
-          "She's wearing a new dress.",
+          "Dana's wearing a new dress now.",
+          "Now Dana's wearing a new dress.",
+          "Now, Dana's wearing a new dress.",
           "Dana's in a new dress.",
+          "Dana's in a new dress now.",
+          "Now Dana's in a new dress.",
+          "Now, Dana's in a new dress.",
+          "She is wearing a new dress.",
+          "She is wearing a new dress now.",
+          "Now she is wearing a new dress.",
+          "Now, she is wearing a new dress.",
+          "She is in a new dress.",
+          "She is in a new dress now.",
+          "Now she is in a new dress.",
+          "Now, she is in a new dress.",
+          "She's wearing a new dress.",
+          "She's wearing a new dress now.",
+          "Now she's wearing a new dress.",
+          "Now, she's wearing a new dress.",
           "She's in a new dress.",
+          "She's in a new dress now.",
+          "Now she's in a new dress.",
+          "Now, she's in a new dress.",
         ],
         why:
           "Верна строка Dana is wearing a new dress. Дана говорила о себе и ставила am. Алим " +
@@ -2704,7 +2868,10 @@ const modul: Module = {
         id: "q4-vpisat-running",
         kind: "gap",
         outcome: "писать форму на -ing у глаголов, где написание меняется",
-        prompt: "Братья сейчас бегают в парке. Какая форма глагола run встанет в пропуск?",
+        prompt:
+          "ПИШЕТ РЕДАКТОР: условие дословно по Р.5 — «Твои братья сейчас бегают в парке»: " +
+          "лицо условия совпадает со строкой My brothers. Дальше — какая форма глагола run " +
+          "встанет в пропуск.",
         before: "My brothers are ",
         after: " in the park.",
         answer: "running",
@@ -2721,16 +2888,19 @@ const modul: Module = {
         kind: "choice",
         outcome: "писать форму на -ing у глаголов, где написание меняется",
         prompt:
-          "В сообщении Даны стоит: Dana is rideing a bike. Что в этой записи не так?",
+          "ПИШЕТ РЕДАКТОР: условие дословно по Р.2. Начало — «В сообщении Кима " +
+          "стоит: Dana is rideing a bike.» О себе Дана написала бы I am riding. Дальше — " +
+          "что в этой записи не так.",
         options: [
           { text: "-ing здесь лишнее, надо Dana is ride a bike" },
           { text: "у ride перед -ing пропадает e", correct: true },
           { text: "перед -ing надо удвоить d: ridding" },
         ],
         why:
-          "Причина в том, что у ride на конце стоит e, а перед окончанием -ing её не пишем. Само " +
-          "окончание здесь нужно, потому что строка говорит о том, что идёт сейчас. Удваивать d " +
-          "тоже не нужно, потому что две одинаковые буквы получают swim, sit и run.",
+          "ПИШЕТ РЕДАКТОР: разбор по Р.2 и 20.1. У ride на конце стоит e, а перед " +
+          "окончанием -ing её не пишем. Само окончание нужно, потому что строка говорит " +
+          "о том, что идёт сейчас. Перечень удвоения — тот же, что в уроке 3. Он звучит так: " +
+          "«последнюю букву пишем дважды у swim, sit, run и get». Слово ride в этот ряд не входит.",
       },
       {
         /*
@@ -2786,31 +2956,199 @@ const modul: Module = {
           "двумя строками: сначала о том, чего Айгерим не делает, потом о том, что она делает.",
         answer: "She isn't cooking. She is dancing.",
         accept: [
-          "She is not cooking. She is dancing.",
-          "She's not cooking. She's dancing.",
+          "She isn't cooking. She is dancing now.",
+          "She isn't cooking. Now she is dancing.",
+          "She isn't cooking. Now, she is dancing.",
           "She isn't cooking. She's dancing.",
+          "She isn't cooking. She's dancing now.",
+          "She isn't cooking. Now she's dancing.",
+          "She isn't cooking. Now, she's dancing.",
+          "She isn't cooking. Aigerim is dancing.",
+          "She isn't cooking. Aigerim is dancing now.",
+          "She isn't cooking. Now Aigerim is dancing.",
+          "She isn't cooking. Now, Aigerim is dancing.",
+          "She isn't cooking. Aigerim's dancing.",
+          "She isn't cooking. Aigerim's dancing now.",
+          "She isn't cooking. Now Aigerim's dancing.",
+          "She isn't cooking. Now, Aigerim's dancing.",
+          "She is not cooking. She is dancing.",
+          "She is not cooking. She is dancing now.",
+          "She is not cooking. Now she is dancing.",
+          "She is not cooking. Now, she is dancing.",
+          "She is not cooking. She's dancing.",
+          "She is not cooking. She's dancing now.",
+          "She is not cooking. Now she's dancing.",
+          "She is not cooking. Now, she's dancing.",
+          "She is not cooking. Aigerim is dancing.",
+          "She is not cooking. Aigerim is dancing now.",
+          "She is not cooking. Now Aigerim is dancing.",
+          "She is not cooking. Now, Aigerim is dancing.",
+          "She is not cooking. Aigerim's dancing.",
+          "She is not cooking. Aigerim's dancing now.",
+          "She is not cooking. Now Aigerim's dancing.",
+          "She is not cooking. Now, Aigerim's dancing.",
+          "She's not cooking. She is dancing.",
+          "She's not cooking. She is dancing now.",
+          "She's not cooking. Now she is dancing.",
+          "She's not cooking. Now, she is dancing.",
+          "She's not cooking. She's dancing.",
+          "She's not cooking. She's dancing now.",
+          "She's not cooking. Now she's dancing.",
+          "She's not cooking. Now, she's dancing.",
+          "She's not cooking. Aigerim is dancing.",
+          "She's not cooking. Aigerim is dancing now.",
+          "She's not cooking. Now Aigerim is dancing.",
+          "She's not cooking. Now, Aigerim is dancing.",
+          "She's not cooking. Aigerim's dancing.",
+          "She's not cooking. Aigerim's dancing now.",
+          "She's not cooking. Now Aigerim's dancing.",
+          "She's not cooking. Now, Aigerim's dancing.",
           "Aigerim isn't cooking. She is dancing.",
+          "Aigerim isn't cooking. She is dancing now.",
+          "Aigerim isn't cooking. Now she is dancing.",
+          "Aigerim isn't cooking. Now, she is dancing.",
+          "Aigerim isn't cooking. She's dancing.",
+          "Aigerim isn't cooking. She's dancing now.",
+          "Aigerim isn't cooking. Now she's dancing.",
+          "Aigerim isn't cooking. Now, she's dancing.",
+          "Aigerim isn't cooking. Aigerim is dancing.",
+          "Aigerim isn't cooking. Aigerim is dancing now.",
+          "Aigerim isn't cooking. Now Aigerim is dancing.",
+          "Aigerim isn't cooking. Now, Aigerim is dancing.",
+          "Aigerim isn't cooking. Aigerim's dancing.",
+          "Aigerim isn't cooking. Aigerim's dancing now.",
+          "Aigerim isn't cooking. Now Aigerim's dancing.",
+          "Aigerim isn't cooking. Now, Aigerim's dancing.",
+          "Aigerim is not cooking. She is dancing.",
+          "Aigerim is not cooking. She is dancing now.",
+          "Aigerim is not cooking. Now she is dancing.",
+          "Aigerim is not cooking. Now, she is dancing.",
+          "Aigerim is not cooking. She's dancing.",
+          "Aigerim is not cooking. She's dancing now.",
+          "Aigerim is not cooking. Now she's dancing.",
+          "Aigerim is not cooking. Now, she's dancing.",
+          "Aigerim is not cooking. Aigerim is dancing.",
+          "Aigerim is not cooking. Aigerim is dancing now.",
+          "Aigerim is not cooking. Now Aigerim is dancing.",
+          "Aigerim is not cooking. Now, Aigerim is dancing.",
+          "Aigerim is not cooking. Aigerim's dancing.",
+          "Aigerim is not cooking. Aigerim's dancing now.",
+          "Aigerim is not cooking. Now Aigerim's dancing.",
+          "Aigerim is not cooking. Now, Aigerim's dancing.",
+          "Aigerim's not cooking. She is dancing.",
+          "Aigerim's not cooking. She is dancing now.",
+          "Aigerim's not cooking. Now she is dancing.",
+          "Aigerim's not cooking. Now, she is dancing.",
+          "Aigerim's not cooking. She's dancing.",
+          "Aigerim's not cooking. She's dancing now.",
+          "Aigerim's not cooking. Now she's dancing.",
+          "Aigerim's not cooking. Now, she's dancing.",
+          "Aigerim's not cooking. Aigerim is dancing.",
+          "Aigerim's not cooking. Aigerim is dancing now.",
+          "Aigerim's not cooking. Now Aigerim is dancing.",
+          "Aigerim's not cooking. Now, Aigerim is dancing.",
+          "Aigerim's not cooking. Aigerim's dancing.",
+          "Aigerim's not cooking. Aigerim's dancing now.",
+          "Aigerim's not cooking. Now Aigerim's dancing.",
+          "Aigerim's not cooking. Now, Aigerim's dancing.",
           "No, she isn't. She is dancing.",
+          "No, she isn't. She is dancing now.",
+          "No, she isn't. Now she is dancing.",
+          "No, she isn't. Now, she is dancing.",
           "No, she isn't. She's dancing.",
+          "No, she isn't. She's dancing now.",
+          "No, she isn't. Now she's dancing.",
+          "No, she isn't. Now, she's dancing.",
+          "No, she isn't. Aigerim is dancing.",
+          "No, she isn't. Aigerim is dancing now.",
+          "No, she isn't. Now Aigerim is dancing.",
+          "No, she isn't. Now, Aigerim is dancing.",
+          "No, she isn't. Aigerim's dancing.",
+          "No, she isn't. Aigerim's dancing now.",
+          "No, she isn't. Now Aigerim's dancing.",
+          "No, she isn't. Now, Aigerim's dancing.",
+          "No, she is not. She is dancing.",
+          "No, she is not. She is dancing now.",
+          "No, she is not. Now she is dancing.",
+          "No, she is not. Now, she is dancing.",
+          "No, she is not. She's dancing.",
+          "No, she is not. She's dancing now.",
+          "No, she is not. Now she's dancing.",
+          "No, she is not. Now, she's dancing.",
+          "No, she is not. Aigerim is dancing.",
+          "No, she is not. Aigerim is dancing now.",
+          "No, she is not. Now Aigerim is dancing.",
+          "No, she is not. Now, Aigerim is dancing.",
+          "No, she is not. Aigerim's dancing.",
+          "No, she is not. Aigerim's dancing now.",
+          "No, she is not. Now Aigerim's dancing.",
+          "No, she is not. Now, Aigerim's dancing.",
+          "No, she's not. She is dancing.",
+          "No, she's not. She is dancing now.",
+          "No, she's not. Now she is dancing.",
+          "No, she's not. Now, she is dancing.",
           "No, she's not. She's dancing.",
+          "No, she's not. She's dancing now.",
+          "No, she's not. Now she's dancing.",
+          "No, she's not. Now, she's dancing.",
+          "No, she's not. Aigerim is dancing.",
+          "No, she's not. Aigerim is dancing now.",
+          "No, she's not. Now Aigerim is dancing.",
+          "No, she's not. Now, Aigerim is dancing.",
+          "No, she's not. Aigerim's dancing.",
+          "No, she's not. Aigerim's dancing now.",
+          "No, she's not. Now Aigerim's dancing.",
+          "No, she's not. Now, Aigerim's dancing.",
         ],
         why:
           "Верны строки She isn't cooking. She is dancing. В первой после is стоит not, во второй " +
           "not нет. Вместо первой строки годится и короткий ответ No, she isn't.",
       },
       {
-        /* ВОПРОС 8. Итог урока 2. Форма be при двух именах. */
-        id: "q8-vpisat-are-pri-dvuh-imenah",
-        kind: "gap",
+        /*
+         * ВОПРОС 8. Итог урока 2. ЗАМЕНЁН ЦЕЛИКОМ ПО РЕШЕНИЮ 19.1.
+         *
+         * Прежний вопрос был `gap` «впиши форму be» — близнец вопроса 7 работы
+         * модуля «Одежда» (`q7-vpisat-formu-be`, `My clothes ___ new.`, ответ тот
+         * же `are`): ученик в обоих делает одно и то же. И довод сильнее близнеца:
+         * `are` при двух именах через `and` ученик получил модулем «Моя семья и
+         * знакомые», а новое в модуле 17 — глагол с -ing после is и are.
+         *
+         * Теперь действие другое: свести две строки о себе в одну о двоих. Ученик
+         * сам переводит `I am` в форму о двоих и держит окончание -ing, то есть
+         * производит обе части итога. Доля «произвести» в работе прежняя, 7 из 12.
+         *
+         * `accept` собран перебором по 20.1 (частей четыре, `now` в четырёх видах).
+         */
+        id: "q8-svesti-dve-stroki-v-odnu",
+        kind: "short",
         outcome:
           "говорить, что сейчас делает другой человек или несколько людей: is и are с глаголом на -ing",
-        prompt: "Дана и Айгерим сейчас плавают. Какая форма be нужна в этой строке?",
-        before: "Dana and Aigerim ",
-        after: " swimming now.",
-        answer: "are",
+        prompt:
+          "ПИШЕТ РЕДАКТОР: условие по 19.1 — Дана пишет: I am swimming. Айгерим пишет то же " +
+          "самое: I am swimming. Ученик записывает одной строкой о них обеих.",
+        answer: "Dana and Aigerim are swimming.",
+        accept: [
+          "Dana and Aigerim are swimming now.",
+          "Now Dana and Aigerim are swimming.",
+          "Now, Dana and Aigerim are swimming.",
+          "Aigerim and Dana are swimming.",
+          "Aigerim and Dana are swimming now.",
+          "Now Aigerim and Dana are swimming.",
+          "Now, Aigerim and Dana are swimming.",
+          "They are swimming.",
+          "They are swimming now.",
+          "Now they are swimming.",
+          "Now, they are swimming.",
+          "They're swimming.",
+          "They're swimming now.",
+          "Now they're swimming.",
+          "Now, they're swimming.",
+        ],
         why:
-          "Получается строка Dana and Aigerim are swimming now. Два имени через and говорят о двух " +
-          "людях, поэтому стоит are.",
+          "ПИШЕТ РЕДАКТОР: разбор называет строку Dana and Aigerim are swimming. и говорит, " +
+          "почему при двоих стоит are, а окончание -ing остаётся. Строка They are swimming. " +
+          "тоже верна.",
       },
       {
         /*
@@ -2846,7 +3184,10 @@ const modul: Module = {
         id: "q10-otmetit-stroku-o-zhene",
         kind: "hottext",
         outcome: "находить в сообщении, кто что делает сейчас",
-        prompt: "Это сообщение от мужа. Отметь строку о том, что его жена делает прямо сейчас.",
+        prompt:
+          "ПИШЕТ РЕДАКТОР: условие дословно по Р.3 — «Это сообщение Алима. Отметь строку о " +
+          "том, что его жена делает прямо сейчас.»: «сообщение от мужа» приписывало ученику " +
+          "пол.",
         parts: [
           { text: "I work in an office.\n", selectable: true },
           { text: "It is the weekend.\n", selectable: true },
@@ -2855,8 +3196,9 @@ const modul: Module = {
           { text: "Now she is reading.", selectable: true, correct: true },
         ],
         why:
-          "Верна строка Now she is reading. Строка My wife teaches at a school. говорит о её работе " +
-          "вообще, а не об этой минуте. Остальные строки говорят о самом муже или о дне.",
+          "ПИШЕТ РЕДАКТОР: разбор по Р.3 и 4.5. Верна строка Now she is reading. Строка " +
+          "My wife teaches at a school. говорит о том, что жена делает обычно, а не об этой " +
+          "минуте. Остальные строки — о самом Алиме или о дне.",
       },
       {
         /*
@@ -2889,8 +3231,9 @@ const modul: Module = {
         kind: "short",
         outcome: "строить строки о том, кто что делает на картинке",
         prompt:
-          "На картинке Айгерим и Нурлан прямо сейчас играют в саду. Составь о картинке строку из " +
-          "слов: Aigerim and Nurlan, play, in the garden.",
+          "ПИШЕТ РЕДАКТОР: условие дословно по Р.6 — «Айгерим и Нурлан прямо сейчас " +
+          "играют в саду. Составь об этом строку из слов: Aigerim and Nurlan, play, in the " +
+          "garden.» — без слов «на картинке»: картинки на экране нет.",
         answer: "Aigerim and Nurlan are playing in the garden.",
         accept: [
           "Aigerim and Nurlan are playing in the garden now.",
